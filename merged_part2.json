@@ -1,17 +1,16 @@
 [
   {
-    "topic": "Describe a person who likes to look after the natural world",
+    "topic": "a person who likes to look after the natural world",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
-      "prompt": "Describe a person who likes to look after the natural world​",
+      "prompt": "Describe a person who likes to look after the natural world",
       "you_should_say": [
-        "You should say:​",
-        "Who this person is​",
-        "What he or she does​",
-        "How he or she does it​",
-        "How often he or she does it​",
-        "And explain how you feel about this person​"
+        "Who this person is",
+        "What he or she does",
+        "How he or she does it",
+        "How often he or she does it",
+        "And explain how you feel about this person"
       ]
     },
     "part3": [
@@ -43,13 +42,12 @@
     "tags": []
   },
   {
-    "topic": "Describe a short-term job you want to have in a foreign country",
+    "topic": "a short-term job you want to have in a foreign country",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
       "prompt": "Describe a short-term job you want to have in a foreign country",
       "you_should_say": [
-        "You should say:",
         "Where it is",
         "How you know of it",
         "What the job is",
@@ -85,13 +83,12 @@
     "tags": []
   },
   {
-    "topic": "Describe a time when you encouraged someone to do something that he/she didn't want to do",
+    "topic": "a time when you encouraged someone to do something that he/she didn't want to do",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
       "prompt": "Describe a time when you encouraged someone to do something that he/she didn't want to do",
       "you_should_say": [
-        "You should say:",
         "Who he or she is",
         "What you encouraged him/her to do",
         "How he/she reacted",
@@ -143,13 +140,12 @@
     "tags": []
   },
   {
-    "topic": "Describe a person who often helps others",
+    "topic": "a person who often helps others",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
       "prompt": "Describe a person who often helps others",
       "you_should_say": [
-        "You should say:",
         "Who this person is",
         "How often he/she helps others",
         "How/why he/she helps others",
@@ -184,28 +180,12 @@
       {
         "text": "Why are some people willing to help others?",
         "source": "laokaoya"
-      },
-      {
-        "text": "Do you think children are born smart or they learn to be smart?",
-        "source": "laokaoya"
-      },
-      {
-        "text": "How do children become smart at school?",
-        "source": "laokaoya"
-      },
-      {
-        "text": "Why are some people well-rounded and others only good at one thing?",
-        "source": "laokaoya"
-      },
-      {
-        "text": "Why does modern society need talents of all kinds?",
-        "source": "laokaoya"
       }
     ],
     "tags": []
   },
   {
-    "topic": "Describe an item on which you spent more than expected",
+    "topic": "an item on which you spent more than expected",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
@@ -262,16 +242,13 @@
     "tags": []
   },
   {
-    "topic": "Describe a time you needed to use your imagination",
+    "topic": "a time you needed to use your imagination",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
       "prompt": "Describe a time you needed to use your imagination",
       "you_should_say": [
-        "When it was",
-        "Why you needed to use imagination",
-        "How difficult or easy it was",
-        "And explain how you felt about it"
+        "When it was Why you needed to use imagination How difficult or easy it was And explain how you felt about it"
       ]
     },
     "part3": [
@@ -298,18 +275,33 @@
       {
         "text": "6. How important is imagination to children?",
         "source": "tongzhuo"
+      },
+      {
+        "text": "Do you think adults can have lots of imagination?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Do you think imagination is essential for scientists?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "What kinds of jobs need imagination?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "What subjects are helpful for children’s imagination?",
+        "source": "laokaoya"
       }
     ],
     "tags": []
   },
   {
-    "topic": "Describe an interesting building",
+    "topic": "an interesting building",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
       "prompt": "Describe an interesting building",
       "you_should_say": [
-        "You should say:",
         "Where it is",
         "What it looks like",
         "What function it has",
@@ -361,13 +353,12 @@
     "tags": []
   },
   {
-    "topic": "Describe one of your friends who learned something without a teacher",
+    "topic": "one of your friends who learned something without a teacher",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
       "prompt": "Describe one of your friends who learned something without a teacher",
       "you_should_say": [
-        "You should say:",
         "Who he/she is",
         "What he/she learned",
         "Why he/she learned this",
@@ -403,13 +394,12 @@
     "tags": []
   },
   {
-    "topic": "Describe a movie you watched and enjoyed recently",
+    "topic": "a movie you watched and enjoyed recently",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
       "prompt": "Describe a movie you watched and enjoyed recently",
       "you_should_say": [
-        "You should say:",
         "When and where you watched it",
         "Who you watched it with",
         "What it was about",
@@ -445,13 +435,12 @@
     "tags": []
   },
   {
-    "topic": "Describe an event you attended in which you didn't enjoy the music played",
+    "topic": "an event you attended in which you didn't enjoy the music played",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
       "prompt": "Describe an event you attended in which you didn't enjoy the music played",
       "you_should_say": [
-        "You should say:",
         "What it was",
         "Who you went with",
         "Why you decided to go there",
@@ -487,7 +476,7 @@
     "tags": []
   },
   {
-    "topic": "Describe a person who solved a problem in a smart way",
+    "topic": "a person who solved a problem in a smart way",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
@@ -523,21 +512,34 @@
       {
         "text": "6. Is it important for schools to identify and develop each student's talents?",
         "source": "tongzhuo"
+      },
+      {
+        "text": "Do you think children are born smart or they learn to be smart?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "How do children become smart at school?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Why are some people well-rounded and others only good at one thing?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Why does modern society need talents of all kinds?",
+        "source": "laokaoya"
       }
     ],
     "tags": []
   },
   {
-    "topic": "Describe something important that has been kept in your family for a long time",
+    "topic": "something important that has been kept in your family for a long time",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
       "prompt": "Describe something important that has been kept in your family for a long time",
       "you_should_say": [
-        "What it is",
-        "When your family had it",
-        "How your family got it",
-        "And explain why it is important for your family"
+        "What it is When your family had it How your family got it And explain why it is important f or your family"
       ]
     },
     "part3": [
@@ -566,30 +568,6 @@
         "source": "tongzhuo"
       },
       {
-        "text": "1. What kind of old things do people like to keep?",
-        "source": "tongzhuo"
-      },
-      {
-        "text": "2. Why do people keep old things?",
-        "source": "tongzhuo"
-      },
-      {
-        "text": "3. What are the differences between the things old people keep and those young people keep?",
-        "source": "tongzhuo"
-      },
-      {
-        "text": "4. What are the differences between the things that people keep today and the things that people kept in the past?",
-        "source": "tongzhuo"
-      },
-      {
-        "text": "5. What can we see in a museum?",
-        "source": "tongzhuo"
-      },
-      {
-        "text": "6. What can we learn from a museum?",
-        "source": "tongzhuo"
-      },
-      {
         "text": "What kind of old things do people like to keep?",
         "source": "laokaoya"
       },
@@ -609,15 +587,14 @@
     "tags": []
   },
   {
-    "topic": "Describe a bicycle/motorcycle/car trip you would like to take",
+    "topic": "a bicycle/motorcycle/car trip you would like to take",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
       "prompt": "Describe a bicycle/motorcycle/car trip you would like to take",
       "you_should_say": [
         "Who you would like to go with",
-        "Where you would like to go",
-        "When you would like to go",
+        "Where you would like to go When you would like to go",
         "And explain why you would like to go by bicycle/motorcycle/car"
       ]
     },
@@ -645,18 +622,33 @@
       {
         "text": "6.What do you think of the future of electric cars?",
         "source": "tongzhuo"
+      },
+      {
+        "text": "Which form of vehicle is more popular in your country, bikes, cars or motorcycles?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Do you think air pollution comes mostly from mobile vehicles?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Do you think people need to change the way of transportation drastically to protect the environment?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "How are the transportation systems in urban areas and rural areas different?",
+        "source": "laokaoya"
       }
     ],
     "tags": []
   },
   {
-    "topic": "Describe a piece of technology (not a phone) that you would like to own",
+    "topic": "a piece of technology (not a phone) that you would like to own",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
       "prompt": "Describe a piece of technology (not a phone) that you would like to own",
       "you_should_say": [
-        "You should say:",
         "What it is",
         "How much it costs",
         "How you knew it",
@@ -692,13 +684,12 @@
     "tags": []
   },
   {
-    "topic": "Describe a program or app on your computer or phone",
+    "topic": "a program or app on your computer or phone",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
       "prompt": "Describe a program or app on your computer or phone",
       "you_should_say": [
-        "You should say:",
         "What it is",
         "When/how you use it",
         "Where you found it",
@@ -734,13 +725,12 @@
     "tags": []
   },
   {
-    "topic": "Describe a person who makes plans a lot and is good at planning",
+    "topic": "a person who makes plans a lot and is good at planning",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
       "prompt": "Describe a person who makes plans a lot and is good at planning",
       "you_should_say": [
-        "You should say:",
         "Who he/she is",
         "How you knew him/her",
         "What plans he/she makes",
@@ -776,13 +766,12 @@
     "tags": []
   },
   {
-    "topic": "Describe a child who loves drawing/painting",
+    "topic": "a child who loves drawing/painting",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
       "prompt": "Describe a child who loves drawing/painting",
       "you_should_say": [
-        "You should say:",
         "Who he/she is",
         "How/when you knew him/her",
         "How often he/she draws/paints",
@@ -818,16 +807,13 @@
     "tags": []
   },
   {
-    "topic": "Describe a time when you gave advice to others",
+    "topic": "a time when you gave advice to others",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
       "prompt": "Describe a time when you gave advice to others",
       "you_should_say": [
-        "When it was",
-        "To whom you gave the advice",
-        "What the advice was",
-        "And explain why you gave the advice"
+        "When it was To whom you gave the advice What the advice was And explain why you gave the advice"
       ]
     },
     "part3": [
@@ -854,12 +840,28 @@
       {
         "text": "6. When would old people ask young people for advice?",
         "source": "tongzhuo"
+      },
+      {
+        "text": "Should people prepare before giving advice?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Is it good to ask advice from strangers online?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "What are the personalities of people whose job is to give advice to others?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "What are the problems if you ask too many people for advice?",
+        "source": "laokaoya"
       }
     ],
     "tags": []
   },
   {
-    "topic": "Describe a time when you felt proud of a family member",
+    "topic": "a time when you felt proud of a family member",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
@@ -895,18 +897,33 @@
       {
         "text": "6. What do you think about children working hard just for grades?",
         "source": "tongzhuo"
+      },
+      {
+        "text": "When would parents feel proud of their children?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Should parents reward children? Why and how?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Is it good to reward children too often? Why?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "On what occasions would adults be proud of themselves?",
+        "source": "laokaoya"
       }
     ],
     "tags": []
   },
   {
-    "topic": "Describe an occasion when many people were smiling",
+    "topic": "an occasion when many people were smiling",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
       "prompt": "Describe an occasion when many people were smiling",
       "you_should_say": [
-        "You should say:",
         "When it happened",
         "Who you were with",
         "What happened",
@@ -958,13 +975,12 @@
     "tags": []
   },
   {
-    "topic": "Describe an occasion when you were not allowed to use your mobile phone",
+    "topic": "an occasion when you were not allowed to use your mobile phone",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
       "prompt": "Describe an occasion when you were not allowed to use your mobile phone",
       "you_should_say": [
-        "You should say:",
         "When it was",
         "Where it was",
         "Why you were not allowed to use your mobile phone",
@@ -1016,13 +1032,12 @@
     "tags": []
   },
   {
-    "topic": "Describe a famous person you would like to meet",
+    "topic": "a famous person you would like to meet",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
       "prompt": "Describe a famous person you would like to meet",
       "you_should_say": [
-        "You should say:",
         "Who he/she is",
         "How you knew him/her",
         "How/where you would like to meet him/her",
@@ -1039,7 +1054,7 @@
         "source": "tongzhuo"
       },
       {
-        "text": "3.  What can children do with their fame?",
+        "text": "3. What can children do with their fame?",
         "source": "tongzhuo"
       },
       {
@@ -1053,34 +1068,17 @@
       {
         "text": "6. Do you want to be a famous person?",
         "source": "tongzhuo"
-      },
-      {
-        "text": "Which form of vehicle is more popular in your country, bikes, cars or motorcycles?",
-        "source": "laokaoya"
-      },
-      {
-        "text": "Do you think air pollution comes mostly from mobile vehicles?",
-        "source": "laokaoya"
-      },
-      {
-        "text": "Do you think people need to change the way of transportation drastically to protect the environment?",
-        "source": "laokaoya"
-      },
-      {
-        "text": "How are the transportation systems in urban areas and rural areas different?",
-        "source": "laokaoya"
       }
     ],
     "tags": []
   },
   {
-    "topic": "Describe a perfect job you would like to have in the future",
+    "topic": "a perfect job you would like to have in the future",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
       "prompt": "Describe a perfect job you would like to have in the future",
       "you_should_say": [
-        "You should say:",
         "What it is",
         "How you knew it",
         "What you need to learn to get this job",
@@ -1132,13 +1130,12 @@
     "tags": []
   },
   {
-    "topic": "Describe a TV/online program you enjoy watching",
+    "topic": "a TV/online program you enjoy watching",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
       "prompt": "Describe a TV/online program you enjoy watching",
       "you_should_say": [
-        "You should say:",
         "What it is",
         "What it is about",
         "Which country it is from",
@@ -1175,13 +1172,12 @@
     "tags": []
   },
   {
-    "topic": "Describe a natural place (e.g. park, mountain)",
+    "topic": "a natural place (e.g. park, mountain)",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
       "prompt": "Describe a natural place (e.g. park, mountain)",
       "you_should_say": [
-        "You should say:",
         "Where this place is",
         "How you knew this place",
         "What it is like",
@@ -1217,13 +1213,12 @@
     "tags": []
   },
   {
-    "topic": "Describe a time when you waited for something special that would happen",
+    "topic": "a time when you waited for something special that would happen",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
       "prompt": "Describe a time when you waited for something special that would happen",
       "you_should_say": [
-        "You should say:",
         "What you waited for",
         "Where you waited",
         "Why it was special",
@@ -1259,13 +1254,12 @@
     "tags": []
   },
   {
-    "topic": "Describe an important decision made with the help of other people",
+    "topic": "an important decision made with the help of other people",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
       "prompt": "Describe an important decision made with the help of other people",
       "you_should_say": [
-        "You should say:",
         "What the decision was",
         "Why you made the decision",
         "Who helped you make the decision",
@@ -1297,7 +1291,7 @@
     "tags": []
   },
   {
-    "topic": "Describe a book you read that you found useful",
+    "topic": "a book you read that you found useful",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
@@ -1338,13 +1332,12 @@
     "tags": []
   },
   {
-    "topic": "Describe a sportsperson you admire",
+    "topic": "a sportsperson you admire",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
       "prompt": "Describe a sportsperson you admire",
       "you_should_say": [
-        "You should say:",
         "Who he/she is",
         "What you know about him/her",
         "What he/she is like in real life",
@@ -1381,13 +1374,12 @@
     "tags": []
   },
   {
-    "topic": "Describe a time when you broke something",
+    "topic": "a time when you broke something",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
       "prompt": "Describe a time when you broke something",
       "you_should_say": [
-        "You should say:",
         "What it was",
         "When/where that happened",
         "How you broke it",
@@ -1418,60 +1410,12 @@
       {
         "text": "6. Do you think elderly people should teach young people how to fix things？",
         "source": "tongzhuo"
-      },
-      {
-        "text": "When would parents feel proud of their children?",
-        "source": "laokaoya"
-      },
-      {
-        "text": "Should parents reward children? Why and how?",
-        "source": "laokaoya"
-      },
-      {
-        "text": "Is it good to reward children too often? Why?",
-        "source": "laokaoya"
-      },
-      {
-        "text": "On what occasions would adults be proud of themselves?",
-        "source": "laokaoya"
-      },
-      {
-        "text": "Do you think adults can have lots of imagination?",
-        "source": "laokaoya"
-      },
-      {
-        "text": "Do you think imagination is essential for scientists?",
-        "source": "laokaoya"
-      },
-      {
-        "text": "What kinds of jobs need imagination?",
-        "source": "laokaoya"
-      },
-      {
-        "text": "What subjects are helpful for children’s imagination?",
-        "source": "laokaoya"
-      },
-      {
-        "text": "Should people prepare before giving advice?",
-        "source": "laokaoya"
-      },
-      {
-        "text": "Is it good to ask advice from strangers online?",
-        "source": "laokaoya"
-      },
-      {
-        "text": "What are the personalities of people whose job is to give advice to others?",
-        "source": "laokaoya"
-      },
-      {
-        "text": "What are the problems if you ask too many people for advice?",
-        "source": "laokaoya"
       }
     ],
     "tags": []
   },
   {
-    "topic": "Describe a time you saw something interesting on social media",
+    "topic": "a time you saw something interesting on social media",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
@@ -1479,8 +1423,7 @@
       "you_should_say": [
         "When it was",
         "Where you saw it",
-        "What you saw",
-        "And explain why you think it was interesting"
+        "What you saw And explain why you think it was interesting"
       ]
     },
     "part3": [
@@ -1512,13 +1455,12 @@
     "tags": []
   },
   {
-    "topic": "Describe a creative person (e.g. an artist, a musician, etc.) you admire",
+    "topic": "a creative person (e.g. an artist, a musician, etc.) you admire",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
       "prompt": "Describe a creative person (e.g. an artist, a musician, etc.) you admire",
       "you_should_say": [
-        "You should say",
         "Who he/she is",
         "How you knew him/her",
         "What his/her greatest achievement is",
@@ -1554,13 +1496,53 @@
     "tags": []
   },
   {
-    "topic": "Describe the time when you first talked with others in a foreign language",
+    "topic": "an important old thing that your family has kept for a long time",
+    "part": 2,
+    "season": "2026-Jan-Apr",
+    "cue_card": {
+      "prompt": "Describe an important old thing that your family has kept for a long time",
+      "you_should_say": [
+        "What it is",
+        "How/when your family first got this thing",
+        "How long your family has kept it",
+        "And explain why this thing is important to your family"
+      ]
+    },
+    "part3": [
+      {
+        "text": "1. What kind of old things do people like to keep?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "2. Why do people keep old things?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "3. What are the differences between the things old people keep and those young people keep?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "4. What are the differences between the things that people keep today and the things that people kept in the past?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "5. What can we see in a museum?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "6. What can we learn from a museum?",
+        "source": "tongzhuo"
+      }
+    ],
+    "tags": []
+  },
+  {
+    "topic": "the time when you first talked with others in a foreign language",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
       "prompt": "Describe the time when you first talked with others in a foreign language",
       "you_should_say": [
-        "You should say:",
         "Where you were",
         "Who you were with",
         "What you talked about",
@@ -1596,13 +1578,12 @@
     "tags": []
   },
   {
-    "topic": "Describe an exciting activity you have tried for the first time",
+    "topic": "an exciting activity you have tried for the first time",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
       "prompt": "Describe an exciting activity you have tried for the first time",
       "you_should_say": [
-        "You should say",
         "What it is",
         "When/where you did it",
         "Why you thought it was exciting",
@@ -1638,16 +1619,13 @@
     "tags": []
   },
   {
-    "topic": "Describe a time when someone apologized to you",
+    "topic": "a time when someone apologized to you",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
       "prompt": "Describe a time when someone apologized to you",
       "you_should_say": [
-        "When it was",
-        "Who this person was",
-        "Why they apologized to you",
-        "And how you felt about it"
+        "When it was Who this person was Why they apologized to you And how you felt about it"
       ]
     },
     "part3": [
@@ -1656,7 +1634,7 @@
         "source": "tongzhuo"
       },
       {
-        "text": "2. Do people in your country like to say  \"sorry\"?",
+        "text": "2. Do people in your country like to say \"sorry\"?",
         "source": "tongzhuo"
       },
       {
@@ -1664,7 +1642,7 @@
         "source": "tongzhuo"
       },
       {
-        "text": "4. Why do some people refuse to say  \"sorry\" to others?",
+        "text": "4. Why do some people refuse to say \"sorry\" to others?",
         "source": "tongzhuo"
       },
       {
@@ -1679,13 +1657,12 @@
     "tags": []
   },
   {
-    "topic": "Describe a long journey you had and would like to take again",
+    "topic": "a long journey you had and would like to take again",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
       "prompt": "Describe a long journey you had and would like to take again",
       "you_should_say": [
-        "You should say:",
         "Where you went",
         "Who you had the journey with",
         "Why you had the journey",
@@ -1721,13 +1698,12 @@
     "tags": []
   },
   {
-    "topic": "Describe a great dinner you and your friend or family members enjoyed",
+    "topic": "a great dinner you and your friend or family members enjoyed",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
       "prompt": "Describe a great dinner you and your friend or family members enjoyed",
       "you_should_say": [
-        "You should say:",
         "What you had",
         "Who you had the dinner with",
         "What you talked about during the dinner",
@@ -1763,13 +1739,12 @@
     "tags": []
   },
   {
-    "topic": "Describe a time when the electricity suddenly went off at where you live",
+    "topic": "a time when the electricity suddenly went off at where you live",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
       "prompt": "Describe a time when the electricity suddenly went off at where you live",
       "you_should_say": [
-        "You should say:",
         "When it happened",
         "How long it lasted",
         "What you did during that time",
@@ -1805,13 +1780,12 @@
     "tags": []
   },
   {
-    "topic": "Describe a time when you received good service from a staff member in a shop",
+    "topic": "a time when you received good service from a staff member in a shop",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
       "prompt": "Describe a time when you received good service from a staff member in a shop",
       "you_should_say": [
-        "You should say:",
         "Where the shop is",
         "When you went to the shop",
         "What service you received from the staff",
@@ -1851,13 +1825,12 @@
     "tags": []
   },
   {
-    "topic": "Describe a person you know who enjoys working for a family business (e.g. a shop,etc)",
+    "topic": "a person you know who enjoys working for a family business (e.g. a shop,etc)",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
       "prompt": "Describe a person you know who enjoys working for a family business (e.g. a shop,etc)",
       "you_should_say": [
-        "You should say:",
         "Who he/she is",
         "What the business is",
         "What his/her job is",
@@ -1894,16 +1867,13 @@
     "tags": []
   },
   {
-    "topic": "Describe a toy you liked in your childhood",
+    "topic": "a toy you liked in your childhood",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
       "prompt": "Describe a toy you liked in your childhood",
       "you_should_say": [
-        "What kind of toy it is",
-        "When you received it",
-        "How you played it",
-        "And how you felt about it"
+        "What kind of toy it is When you received it How you played it And how you felt about it"
       ]
     },
     "part3": [
@@ -1935,13 +1905,12 @@
     "tags": []
   },
   {
-    "topic": "Describe a natural talent (sports, music, etc.) you would like to improve",
+    "topic": "a natural talent (sports, music, etc.) you would like to improve",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
       "prompt": "Describe a natural talent (sports, music, etc.) you would like to improve",
       "you_should_say": [
-        "You should say:",
         "What it is",
         "When you discovered it",
         "How you want to improve it",
@@ -1977,7 +1946,7 @@
     "tags": []
   },
   {
-    "topic": "Describe a time when you lost your way",
+    "topic": "a time when you lost your way",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
@@ -2018,13 +1987,12 @@
     "tags": []
   },
   {
-    "topic": "Describe a good friend who is important to you",
+    "topic": "a good friend who is important to you",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
       "prompt": "Describe a good friend who is important to you",
       "you_should_say": [
-        "You should say:",
         "Who he/she is",
         "How/where you got to know him/her",
         "How long you have known each other",
@@ -2060,13 +2028,12 @@
     "tags": []
   },
   {
-    "topic": "Describe an interesting traditional story",
+    "topic": "an interesting traditional story",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
       "prompt": "Describe an interesting traditional story",
       "you_should_say": [
-        "You should say",
         "What the story is about",
         "When/how you knew it",
         "Who told you the story",
@@ -2102,13 +2069,12 @@
     "tags": []
   },
   {
-    "topic": "Describe a habit your friend has and you want to develop",
+    "topic": "a habit your friend has and you want to develop",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
       "prompt": "Describe a habit your friend has and you want to develop",
       "you_should_say": [
-        "You should say:",
         "Who your friend is",
         "What habit he/she has",
         "When you noticed this habit",
@@ -2148,13 +2114,12 @@
     "tags": []
   },
   {
-    "topic": "Describe a wild animal that you want to know more about",
+    "topic": "a wild animal that you want to know more about",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
       "prompt": "Describe a wild animal that you want to know more about",
       "you_should_say": [
-        "You should say:",
         "What it is",
         "When you saw it",
         "Why you want to know more about it",
@@ -2190,13 +2155,12 @@
     "tags": []
   },
   {
-    "topic": "Describe a friend of yours who is good at music/singing",
+    "topic": "a friend of yours who is good at music/singing",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
       "prompt": "Describe a friend of yours who is good at music/singing",
       "you_should_say": [
-        "You should say:",
         "Who he/she is",
         "When/where you listen to his/her music/singing",
         "What kind of music/songs he/she is good at",
@@ -2232,13 +2196,12 @@
     "tags": []
   },
   {
-    "topic": "Describe an area/subject of science (biology,robotics, etc.) that you are interested in and would like to learn more about",
+    "topic": "an area/subject of science (biology,robotics, etc.) that you are interested in and would like to learn more about",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
       "prompt": "Describe an area/subject of science (biology,robotics, etc.) that you are interested in and would like to learn more about",
       "you_should_say": [
-        "You should say:",
         "Which area/subject it is",
         "When and where you came to know this area/subject",
         "How you get information about this area/subject",
@@ -2274,7 +2237,7 @@
     "tags": []
   },
   {
-    "topic": "Describe a quiet place you like to go",
+    "topic": "a quiet place you like to go",
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
@@ -2320,7 +2283,7 @@
     "tags": []
   },
   {
-    "topic": "Describe something that you can’t live without (not a computer/phone)",
+    "topic": "something that you can’t live without (not a computer/phone)",
     "part": 2,
     "source": "laokaoya_unmatched",
     "cue_card": {
