@@ -297,13 +297,22 @@ function openModal(tab, idx) {
     const tzQs = p3.filter(q => q.source === 'tongzhuo');
     const lkQs = p3.filter(q => q.source === 'laokaoya');
 
+    const ccPrompt = (cc.prompt || '')
+      .replace(/[\u200b\u200c\u200d\ufeff]/g, '')
+      .replace(/\s*You should say.*/is, '')
+      .trim();
+    const ccBullets = (cc.you_should_say || [])
+      .map(s => s.replace(/[\u200b\u200c\u200d\ufeff]/g, '').trim())
+      .filter(s => s && !/^you should say/i.test(s));
+
     content.innerHTML = `
       <h2>${item.topic || item.topic_en || ''}</h2>
       <div class="season">${item.season} · Part 2 + 3</div>
       <div class="section-label">Cue Card</div>
       <div class="cue-card">
-        <div class="prompt">${cc.prompt || ''}</div>
-        <ul>${(cc.you_should_say || []).map(s => `<li>${s}</li>`).join('')}</ul>
+        <div class="prompt">${ccPrompt}</div>
+        <div class="section-label" style="margin-top:10px">You should say:</div>
+        <ul>${ccBullets.map(s => `<li>${s}</li>`).join('')}</ul>
       </div>
       ${tzQs.length ? `
         <div class="section-label">Part 3 — 同桌英语</div>
