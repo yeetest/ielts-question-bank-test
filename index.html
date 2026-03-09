@@ -173,6 +173,23 @@
   .cue-card .prompt { font-weight: bold; margin-bottom: 8px; }
   .cue-card ul { padding-left: 16px; }
   .cue-card li { margin-bottom: 2px; }
+
+  /* type_tags badges */
+  .type-tags { display: inline-flex; gap: 4px; flex-wrap: wrap; margin-left: 6px; vertical-align: middle; }
+  .ttag {
+    font-size: 0.65rem;
+    padding: 1px 6px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+  }
+  .ttag-describe  { background: #dbeafe; color: #1e40af; }
+  .ttag-analyze   { background: #d1fae5; color: #065f46; }
+  .ttag-evaluate  { background: #fef3c7; color: #92400e; }
+  .ttag-predict   { background: #ede9fe; color: #5b21b6; }
+  .ttag-unclear   { background: #f3f4f6; color: #6b7280; }
 </style>
 </head>
 <body>
@@ -208,6 +225,12 @@ let part1Data = [], part2Data = [];
 let currentTab = 'part1';
 
 // ── HELPERS ───────────────────────────────────────────────────────────────────
+function renderTypeTags(tags) {
+  if (!tags || !tags.length) return '';
+  const badges = tags.map(t => `<span class="ttag ttag-${t}">${t}</span>`).join('');
+  return `<span class="type-tags">${badges}</span>`;
+}
+
 function getSources(questions) {
   const hasTZ = questions.some(q => q.source === 'tongzhuo');
   const hasLK = questions.some(q => q.source === 'laokaoya');
@@ -301,11 +324,9 @@ function openModal(tab, idx) {
       .replace(/[\u200b\u200c\u200d\ufeff]/g, '')
       .replace(/\s*You should say.*/is, '')
       .trim();
-    console.log('you_should_say raw:', cc.you_should_say);
     const ccBullets = (cc.you_should_say || [])
       .map(s => s.replace(/[\u200b\u200c\u200d\ufeff]/g, '').trim())
       .filter(s => s && !/^you should say/i.test(s));
-    console.log('ccBullets after filter:', ccBullets);
 
     content.innerHTML = `
       <h2>${item.topic || item.topic_en || ''}</h2>
@@ -321,14 +342,14 @@ function openModal(tab, idx) {
         ${tzQs.map(q => `
           <div class="q-row">
             <span class="q-dot tz"></span>
-            <span>${q.text}</span>
+            <span>${q.text}${renderTypeTags(q.type_tags)}</span>
           </div>`).join('')}` : ''}
       ${lkQs.length ? `
         <div class="section-label">Part 3 — 老烤鸭</div>
         ${lkQs.map(q => `
           <div class="q-row">
             <span class="q-dot lk"></span>
-            <span>${q.text}</span>
+            <span>${q.text}${renderTypeTags(q.type_tags)}</span>
           </div>`).join('')}` : ''}
     `;
   }
