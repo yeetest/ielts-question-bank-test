@@ -1,0 +1,44 @@
+{
+  "category": [
+    "people",
+    "place",
+    "object",
+    "experience"
+  ],
+  "substance": [
+    "activity",
+    "animal",
+    "book",
+    "building",
+    "child",
+    "decision",
+    "friend",
+    "item",
+    "job",
+    "journey",
+    "movie",
+    "occasion",
+    "person",
+    "piece",
+    "place",
+    "program",
+    "story",
+    "subject",
+    "talent",
+    "time",
+    "toy",
+    "trip",
+    "you"
+  ],
+  "frame_key": [
+    "admire",
+    "aspiration",
+    "challenge",
+    "enjoyment",
+    "first_time",
+    "null",
+    "past_experience",
+    "trait",
+    "valued"
+  ]
+}
