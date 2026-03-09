@@ -238,7 +238,17 @@ function renderGrid(tab) {
     card.className = 'card';
     card.onclick = () => openModal(tab, idx);
 
-    const title = tab === 'part1' ? item.topic_en : item.cue_card?.prompt || item.topic;
+    let title;
+    if (tab === 'part1') {
+      title = item.topic_en;
+    } else {
+      const raw = (item.cue_card?.prompt || item.topic || '')
+        .replace(/[\u200b\u200c\u200d\ufeff]/g, '')  // strip zero-width chars
+        .replace(/\s*You should say.*/is, '')         // cut at "You should say"
+        .replace(/^\s*Describe\s+/i, '')              // remove leading "Describe"
+        .trim();
+      title = raw.length > 80 ? raw.slice(0, 79) + '…' : raw;
+    }
     const qCount = questions.length;
 
     card.innerHTML = `
