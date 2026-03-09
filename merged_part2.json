@@ -209,8 +209,13 @@
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
-      "prompt": "Describe an item on which you spent more than expectedYou should say:What it isHow much you spent on itWhy you bought itAnd explain why you think you spent more than expected",
-      "you_should_say": []
+      "prompt": "Describe an item on which you spent more than expected",
+      "you_should_say": [
+        "What it is",
+        "How much you spent on it",
+        "Why you bought it",
+        "And explain why you think you spent more than expected"
+      ]
     },
     "part3": [
       {
@@ -261,8 +266,13 @@
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
-      "prompt": "Describe a time you needed to use your imagination  You should say:  When it was   Why you needed to use imagination  How difficult  or easy it was   And explain how you felt about it",
-      "you_should_say": []
+      "prompt": "Describe a time you needed to use your imagination",
+      "you_should_say": [
+        "When it was",
+        "Why you needed to use imagination",
+        "How difficult or easy it was",
+        "And explain how you felt about it"
+      ]
     },
     "part3": [
       {
@@ -481,8 +491,13 @@
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
-      "prompt": "Describe a person who solved a problem in a smart wayYou should say:Who this person isWhat the problem wasHow he/she solved itAnd explain why you think he/she did it in a smart way",
-      "you_should_say": []
+      "prompt": "Describe a person who solved a problem in a smart way",
+      "you_should_say": [
+        "Who this person is",
+        "What the problem was",
+        "How he/she solved it",
+        "And explain why you think he/she did it in a smart way"
+      ]
     },
     "part3": [
       {
@@ -517,8 +532,13 @@
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
-      "prompt": "Describe something important that has been kept in your family for a long time  You should say: What it is  When your family had it How your family got it And explain why it is important f   or your family",
-      "you_should_say": []
+      "prompt": "Describe something important that has been kept in your family for a long time",
+      "you_should_say": [
+        "What it is",
+        "When your family had it",
+        "How your family got it",
+        "And explain why it is important for your family"
+      ]
     },
     "part3": [
       {
@@ -593,8 +613,13 @@
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
-      "prompt": "Describe a bicycle/motorcycle/car trip you would like to takeYou should say:Who you would like to go withWhere you would like to go When you would like to goAnd explain why you would like to go by bicycle/motorcycle/car",
-      "you_should_say": []
+      "prompt": "Describe a bicycle/motorcycle/car trip you would like to take",
+      "you_should_say": [
+        "Who you would like to go with",
+        "Where you would like to go",
+        "When you would like to go",
+        "And explain why you would like to go by bicycle/motorcycle/car"
+      ]
     },
     "part3": [
       {
@@ -797,8 +822,13 @@
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
-      "prompt": "Describe a time when you gave advice to others You should say: When it was  To whom you gave the advice What the advice was And explain why you gave the advice",
-      "you_should_say": []
+      "prompt": "Describe a time when you gave advice to others",
+      "you_should_say": [
+        "When it was",
+        "To whom you gave the advice",
+        "What the advice was",
+        "And explain why you gave the advice"
+      ]
     },
     "part3": [
       {
@@ -833,8 +863,13 @@
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
-      "prompt": "Describe a time when you felt proud of a family memberYou should say:When it happenedWho the person isWhat the person didAnd explain why you felt proud of him/her",
-      "you_should_say": []
+      "prompt": "Describe a time when you felt proud of a family member",
+      "you_should_say": [
+        "When it happened",
+        "Who the person is",
+        "What the person did",
+        "And explain why you felt proud of him/her"
+      ]
     },
     "part3": [
       {
@@ -1266,8 +1301,13 @@
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
-      "prompt": "Describe a book you read that you found usefulYou should saywhat it iswhen you read itwhy you think it is usefulAnd explain how you felt about it",
-      "you_should_say": []
+      "prompt": "Describe a book you read that you found useful",
+      "you_should_say": [
+        "What it is",
+        "When you read it",
+        "Why you think it is useful",
+        "And explain how you felt about it"
+      ]
     },
     "part3": [
       {
@@ -1435,8 +1475,13 @@
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
-      "prompt": "Describe a time you saw something interesting on social media You should say: When it wasWhere you saw itWhat you saw And explain why you think it was interesting",
-      "you_should_say": []
+      "prompt": "Describe a time you saw something interesting on social media",
+      "you_should_say": [
+        "When it was",
+        "Where you saw it",
+        "What you saw",
+        "And explain why you think it was interesting"
+      ]
     },
     "part3": [
       {
@@ -1597,8 +1642,13 @@
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
-      "prompt": "Describe a time when someone apologized to you You should say:  When it was Who this person was Why they apologized to you And how you felt about it",
-      "you_should_say": []
+      "prompt": "Describe a time when someone apologized to you",
+      "you_should_say": [
+        "When it was",
+        "Who this person was",
+        "Why they apologized to you",
+        "And how you felt about it"
+      ]
     },
     "part3": [
       {
@@ -1848,8 +1898,13 @@
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
-      "prompt": "Describe a toy you liked in your childhood You should say: What kind of toy it is When you received it How you played it And how you felt about it",
-      "you_should_say": []
+      "prompt": "Describe a toy you liked in your childhood",
+      "you_should_say": [
+        "What kind of toy it is",
+        "When you received it",
+        "How you played it",
+        "And how you felt about it"
+      ]
     },
     "part3": [
       {
@@ -1926,8 +1981,13 @@
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
-      "prompt": "Describe a time when you lost your wayYou should say:When it wasWhere you wentHow you got lostAnd explain what happened after you lost your way",
-      "you_should_say": []
+      "prompt": "Describe a time when you lost your way",
+      "you_should_say": [
+        "When it was",
+        "Where you went",
+        "How you got lost",
+        "And explain what happened after you lost your way"
+      ]
     },
     "part3": [
       {
@@ -2218,8 +2278,14 @@
     "part": 2,
     "season": "2026-Jan-Apr",
     "cue_card": {
-      "prompt": "Describe a quiet place you like to goYou should say:Where it isHow you knew itHow often you go thereWhat you do thereAnd explain how you feel about the place",
-      "you_should_say": []
+      "prompt": "Describe a quiet place you like to go",
+      "you_should_say": [
+        "Where it is",
+        "How you knew it",
+        "How often you go there",
+        "What you do there",
+        "And explain how you feel about the place"
+      ]
     },
     "part3": [
       {
