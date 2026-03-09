@@ -60,15 +60,24 @@
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 14px;
   }
+
+  /* UPDATED CARD LAYOUT: Increased padding and hover transitions */
   .card {
     background: #fff;
     border: 1px solid #ddd;
-    border-radius: 6px;
-    padding: 14px;
+    border-radius: 8px;
+    padding: 24px; /* Increased padding from 14px to 24px */
     cursor: pointer;
-    transition: box-shadow 0.15s;
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth lift transition */
   }
-  .card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+
+  /* HOVER EFFECT: Lift and shadow */
+  .card:hover { 
+    transform: translateY(-6px); /* Lifts the card up */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12); /* Adds a deep shadow */
+    border-color: #bbb;
+  }
+
   .card-title {
     font-size: 0.95rem;
     font-weight: bold;
@@ -174,7 +183,7 @@
   .cue-card ul { padding-left: 16px; }
   .cue-card li { margin-bottom: 2px; }
 
-  /* content_tags badges (card) — flat array, first tag is category */
+  /* content_tags badges (card) */
   .ctag {
     font-size: 0.68rem;
     padding: 2px 7px;
@@ -224,7 +233,6 @@
 
 <div class="grid" id="grid"></div>
 
-<!-- Modal -->
 <div class="overlay" id="overlay" onclick="closeModal(event)">
   <div class="modal" id="modal">
     <button class="close-btn" onclick="closeOverlay()">✕</button>
@@ -233,12 +241,9 @@
 </div>
 
 <script>
-// ── DATA ──────────────────────────────────────────────────────────────────────
-
 let part1Data = [], part2Data = [];
 let currentTab = 'part1';
 
-// ── HELPERS ───────────────────────────────────────────────────────────────────
 function renderTypeTags(tags) {
   if (!tags || !tags.length) return '';
   const badges = tags.map(t => `<span class="ttag ttag-${t}">${t}</span>`).join('');
@@ -257,7 +262,6 @@ function sourceColor(hasTZ, hasLK) {
   return '#f59e0b';
 }
 
-// ── RENDER GRID ───────────────────────────────────────────────────────────────
 function renderGrid(tab) {
   const grid = document.getElementById('grid');
   grid.innerHTML = '';
@@ -280,9 +284,9 @@ function renderGrid(tab) {
       title = item.topic_en;
     } else {
       const raw = (item.cue_card?.prompt || item.topic || '')
-        .replace(/[\u200b\u200c\u200d\ufeff]/g, '')  // strip zero-width chars
-        .replace(/\s*You should say.*/is, '')         // cut at "You should say"
-        .replace(/^\s*Describe\s+/i, '')              // remove leading "Describe"
+        .replace(/[\u200b\u200c\u200d\ufeff]/g, '')
+        .replace(/\s*You should say.*/is, '')
+        .replace(/^\s*Describe\s+/i, '')
         .trim();
       title = raw.length > 80 ? raw.slice(0, 79) + '…' : raw;
     }
@@ -313,7 +317,6 @@ function renderGrid(tab) {
   });
 }
 
-// ── MODAL ─────────────────────────────────────────────────────────────────────
 function openModal(tab, idx) {
   const item = tab === 'part1' ? part1Data[idx] : part2Data[idx];
   const content = document.getElementById('modal-content');
@@ -390,7 +393,6 @@ function closeModal(e) {
   if (e.target === document.getElementById('overlay')) closeOverlay();
 }
 
-// ── TABS ──────────────────────────────────────────────────────────────────────
 function switchTab(tab) {
   currentTab = tab;
   document.querySelectorAll('.tab').forEach((t, i) => {
@@ -399,7 +401,6 @@ function switchTab(tab) {
   renderGrid(tab);
 }
 
-// ── INIT ──────────────────────────────────────────────────────────────────────
 (async () => {
   [part1Data, part2Data] = await Promise.all([
     fetch('merged_part1.json').then(r => r.json()),
