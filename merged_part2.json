@@ -60,11 +60,11 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "people",
-      "substance": "person",
-      "frame_key": "trait"
-    }
+    "content_tags": [
+      "people",
+      "nature",
+      "conservation"
+    ]
   },
   {
     "topic": "a short-term job you want to have in a foreign country",
@@ -127,11 +127,12 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "object",
-      "substance": "job",
-      "frame_key": "aspiration"
-    }
+    "content_tags": [
+      "experience/activity",
+      "work",
+      "international",
+      "aspiration"
+    ]
   },
   {
     "topic": "a time when you encouraged someone to do something that he/she didn't want to do",
@@ -219,11 +220,10 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "people",
-      "substance": "time",
-      "frame_key": "aspiration"
-    }
+    "content_tags": [
+      "experience/activity",
+      "influence"
+    ]
   },
   {
     "topic": "a person who often helps others",
@@ -290,11 +290,10 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "people",
-      "substance": "person",
-      "frame_key": "null"
-    }
+    "content_tags": [
+      "people",
+      "helping_others"
+    ]
   },
   {
     "topic": "an item on which you spent more than expected",
@@ -385,11 +384,11 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "object",
-      "substance": "item",
-      "frame_key": "null"
-    }
+    "content_tags": [
+      "object",
+      "shopping",
+      "money"
+    ]
   },
   {
     "topic": "a time you needed to use your imagination",
@@ -487,11 +486,10 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "experience",
-      "substance": "time",
-      "frame_key": "past_experience"
-    }
+    "content_tags": [
+      "experience/activity",
+      "creativity"
+    ]
   },
   {
     "topic": "an interesting building",
@@ -580,11 +578,11 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "place",
-      "substance": "building",
-      "frame_key": "enjoyment"
-    }
+    "content_tags": [
+      "place",
+      "architecture",
+      "interesting"
+    ]
   },
   {
     "topic": "one of your friends who learned something without a teacher",
@@ -644,11 +642,11 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "people",
-      "substance": "friend",
-      "frame_key": "challenge"
-    }
+    "content_tags": [
+      "people",
+      "friendship",
+      "self-learning"
+    ]
   },
   {
     "topic": "a movie you watched and enjoyed recently",
@@ -711,11 +709,11 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "object",
-      "substance": "movie",
-      "frame_key": "null"
-    }
+    "content_tags": [
+      "object",
+      "movies",
+      "likes_dislikes"
+    ]
   },
   {
     "topic": "an event you attended in which you didn't enjoy the music played",
@@ -780,11 +778,12 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "experience",
-      "substance": "place",
-      "frame_key": "enjoyment"
-    }
+    "content_tags": [
+      "experience/activity",
+      "music",
+      "social_event",
+      "likes_dislikes"
+    ]
   },
   {
     "topic": "a person who solved a problem in a smart way",
@@ -872,11 +871,11 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "people",
-      "substance": "person",
-      "frame_key": "null"
-    }
+    "content_tags": [
+      "people",
+      "problem-solving",
+      "intelligence"
+    ]
   },
   {
     "topic": "something important that has been kept in your family for a long time",
@@ -971,11 +970,12 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "experience",
-      "substance": "time",
-      "frame_key": "trait"
-    }
+    "content_tags": [
+      "object",
+      "heirloom",
+      "sentimental",
+      "culture"
+    ]
   },
   {
     "topic": "a bicycle/motorcycle/car trip you would like to take",
@@ -1064,11 +1064,11 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "experience",
-      "substance": "trip",
-      "frame_key": "aspiration"
-    }
+    "content_tags": [
+      "experience/activity",
+      "travel",
+      "aspiration"
+    ]
   },
   {
     "topic": "a piece of technology (not a phone) that you would like to own",
@@ -1134,11 +1134,11 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "object",
-      "substance": "piece",
-      "frame_key": "aspiration"
-    }
+    "content_tags": [
+      "object",
+      "technology",
+      "aspiration"
+    ]
   },
   {
     "topic": "a program or app on your computer or phone",
@@ -1200,11 +1200,11 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "object",
-      "substance": "program",
-      "frame_key": "null"
-    }
+    "content_tags": [
+      "object",
+      "app",
+      "technology"
+    ]
   },
   {
     "topic": "a person who makes plans a lot and is good at planning",
@@ -1267,11 +1267,10 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "people",
-      "substance": "person",
-      "frame_key": "trait"
-    }
+    "content_tags": [
+      "people",
+      "planning"
+    ]
   },
   {
     "topic": "a child who loves drawing/painting",
@@ -1334,11 +1333,12 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "people",
-      "substance": "child",
-      "frame_key": "trait"
-    }
+    "content_tags": [
+      "people",
+      "child",
+      "art",
+      "passion"
+    ]
   },
   {
     "topic": "a time when you gave advice to others",
@@ -1430,11 +1430,11 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "experience",
-      "substance": "time",
-      "frame_key": "past_experience"
-    }
+    "content_tags": [
+      "experience/activity",
+      "advice",
+      "helping_others"
+    ]
   },
   {
     "topic": "a time when you felt proud of a family member",
@@ -1529,11 +1529,11 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "experience",
-      "substance": "time",
-      "frame_key": "past_experience"
-    }
+    "content_tags": [
+      "experience/activity",
+      "family",
+      "achievement"
+    ]
   },
   {
     "topic": "an occasion when many people were smiling",
@@ -1632,11 +1632,11 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "people",
-      "substance": "occasion",
-      "frame_key": "null"
-    }
+    "content_tags": [
+      "experience/activity",
+      "happiness",
+      "celebration"
+    ]
   },
   {
     "topic": "an occasion when you were not allowed to use your mobile phone",
@@ -1734,11 +1734,11 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "experience",
-      "substance": "occasion",
-      "frame_key": "past_experience"
-    }
+    "content_tags": [
+      "experience/activity",
+      "phone",
+      "restriction"
+    ]
   },
   {
     "topic": "a famous person you would like to meet",
@@ -1807,11 +1807,12 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "people",
-      "substance": "person",
-      "frame_key": "aspiration"
-    }
+    "content_tags": [
+      "people",
+      "celebrity",
+      "aspiration",
+      "admiration"
+    ]
   },
   {
     "topic": "a perfect job you would like to have in the future",
@@ -1902,11 +1903,11 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "object",
-      "substance": "job",
-      "frame_key": "aspiration"
-    }
+    "content_tags": [
+      "experience/activity",
+      "work",
+      "aspiration"
+    ]
   },
   {
     "topic": "a TV/online program you enjoy watching",
@@ -1970,11 +1971,11 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "object",
-      "substance": "program",
-      "frame_key": "enjoyment"
-    }
+    "content_tags": [
+      "object",
+      "media",
+      "likes_dislikes"
+    ]
   },
   {
     "topic": "a natural place (e.g. park, mountain)",
@@ -2043,11 +2044,10 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "place",
-      "substance": "place",
-      "frame_key": "null"
-    }
+    "content_tags": [
+      "place",
+      "nature"
+    ]
   },
   {
     "topic": "a time when you waited for something special that would happen",
@@ -2116,11 +2116,11 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "experience",
-      "substance": "time",
-      "frame_key": "past_experience"
-    }
+    "content_tags": [
+      "experience/activity",
+      "anticipation",
+      "memorable"
+    ]
   },
   {
     "topic": "an important decision made with the help of other people",
@@ -2174,11 +2174,11 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "people",
-      "substance": "decision",
-      "frame_key": "valued"
-    }
+    "content_tags": [
+      "experience/activity",
+      "decision",
+      "collaboration"
+    ]
   },
   {
     "topic": "a book you read that you found useful",
@@ -2241,11 +2241,12 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "object",
-      "substance": "book",
-      "frame_key": "null"
-    }
+    "content_tags": [
+      "object",
+      "books",
+      "reading",
+      "useful"
+    ]
   },
   {
     "topic": "a sportsperson you admire",
@@ -2310,11 +2311,11 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "people",
-      "substance": "you",
-      "frame_key": "admire"
-    }
+    "content_tags": [
+      "people",
+      "sports",
+      "admiration"
+    ]
   },
   {
     "topic": "a time when you broke something",
@@ -2376,11 +2377,10 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "experience",
-      "substance": "time",
-      "frame_key": "past_experience"
-    }
+    "content_tags": [
+      "experience/activity",
+      "mistake"
+    ]
   },
   {
     "topic": "a time you saw something interesting on social media",
@@ -2440,11 +2440,11 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "experience",
-      "substance": "you",
-      "frame_key": "past_experience"
-    }
+    "content_tags": [
+      "experience/activity",
+      "social_media",
+      "interesting"
+    ]
   },
   {
     "topic": "a creative person (e.g. an artist, a musician, etc.) you admire",
@@ -2509,11 +2509,12 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "people",
-      "substance": "person",
-      "frame_key": "admire"
-    }
+    "content_tags": [
+      "people",
+      "creativity",
+      "admiration",
+      "art"
+    ]
   },
   {
     "topic": "an important old thing that your family has kept for a long time",
@@ -2582,11 +2583,12 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "experience",
-      "substance": "time",
-      "frame_key": "valued"
-    }
+    "content_tags": [
+      "object",
+      "heirloom",
+      "sentimental",
+      "culture"
+    ]
   },
   {
     "topic": "the time when you first talked with others in a foreign language",
@@ -2648,11 +2650,12 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "experience",
-      "substance": "time",
-      "frame_key": "past_experience"
-    }
+    "content_tags": [
+      "experience/activity",
+      "language",
+      "first_time",
+      "communication"
+    ]
   },
   {
     "topic": "an exciting activity you have tried for the first time",
@@ -2714,11 +2717,11 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "experience",
-      "substance": "activity",
-      "frame_key": "first_time"
-    }
+    "content_tags": [
+      "experience/activity",
+      "first_time",
+      "adventure"
+    ]
   },
   {
     "topic": "a time when someone apologized to you",
@@ -2780,11 +2783,10 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "people",
-      "substance": "time",
-      "frame_key": "past_experience"
-    }
+    "content_tags": [
+      "experience/activity",
+      "conflict_resolution"
+    ]
   },
   {
     "topic": "a long journey you had and would like to take again",
@@ -2846,11 +2848,11 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "experience",
-      "substance": "journey",
-      "frame_key": "aspiration"
-    }
+    "content_tags": [
+      "experience/activity",
+      "travel",
+      "aspiration"
+    ]
   },
   {
     "topic": "a great dinner you and your friend or family members enjoyed",
@@ -2918,11 +2920,12 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "experience",
-      "substance": "you",
-      "frame_key": "null"
-    }
+    "content_tags": [
+      "experience/activity",
+      "food",
+      "family",
+      "likes_dislikes"
+    ]
   },
   {
     "topic": "a time when the electricity suddenly went off at where you live",
@@ -2985,11 +2988,11 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "experience",
-      "substance": "time",
-      "frame_key": "past_experience"
-    }
+    "content_tags": [
+      "experience/activity",
+      "disruption",
+      "home"
+    ]
   },
   {
     "topic": "a time when you received good service from a staff member in a shop",
@@ -3056,11 +3059,12 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "experience",
-      "substance": "time",
-      "frame_key": "past_experience"
-    }
+    "content_tags": [
+      "experience/activity",
+      "shopping",
+      "service",
+      "likes_dislikes"
+    ]
   },
   {
     "topic": "a person you know who enjoys working for a family business (e.g. a shop,etc)",
@@ -3125,11 +3129,12 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "people",
-      "substance": "person",
-      "frame_key": "trait"
-    }
+    "content_tags": [
+      "people",
+      "work",
+      "family",
+      "likes_dislikes"
+    ]
   },
   {
     "topic": "a toy you liked in your childhood",
@@ -3193,11 +3198,12 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "people",
-      "substance": "toy",
-      "frame_key": "null"
-    }
+    "content_tags": [
+      "object",
+      "toy",
+      "childhood",
+      "likes_dislikes"
+    ]
   },
   {
     "topic": "a natural talent (sports, music, etc.) you would like to improve",
@@ -3257,11 +3263,12 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "object",
-      "substance": "talent",
-      "frame_key": "aspiration"
-    }
+    "content_tags": [
+      "object",
+      "talent",
+      "self-improvement",
+      "aspiration"
+    ]
   },
   {
     "topic": "a time when you lost your way",
@@ -3321,11 +3328,11 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "experience",
-      "substance": "time",
-      "frame_key": "past_experience"
-    }
+    "content_tags": [
+      "experience/activity",
+      "navigation",
+      "travel"
+    ]
   },
   {
     "topic": "a good friend who is important to you",
@@ -3388,11 +3395,10 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "people",
-      "substance": "friend",
-      "frame_key": "trait"
-    }
+    "content_tags": [
+      "people",
+      "friendship"
+    ]
   },
   {
     "topic": "an interesting traditional story",
@@ -3458,11 +3464,12 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "object",
-      "substance": "story",
-      "frame_key": "enjoyment"
-    }
+    "content_tags": [
+      "object",
+      "stories",
+      "culture",
+      "interesting"
+    ]
   },
   {
     "topic": "a habit your friend has and you want to develop",
@@ -3532,11 +3539,12 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "people",
-      "substance": "friend",
-      "frame_key": "aspiration"
-    }
+    "content_tags": [
+      "experience/activity",
+      "habit",
+      "self-improvement",
+      "aspiration"
+    ]
   },
   {
     "topic": "a wild animal that you want to know more about",
@@ -3596,11 +3604,12 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "object",
-      "substance": "animal",
-      "frame_key": "aspiration"
-    }
+    "content_tags": [
+      "object",
+      "animals",
+      "nature",
+      "curiosity"
+    ]
   },
   {
     "topic": "a friend of yours who is good at music/singing",
@@ -3664,11 +3673,12 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "people",
-      "substance": "friend",
-      "frame_key": "trait"
-    }
+    "content_tags": [
+      "people",
+      "friendship",
+      "music",
+      "talent"
+    ]
   },
   {
     "topic": "an area/subject of science (biology,robotics, etc.) that you are interested in and would like to learn more about",
@@ -3728,11 +3738,12 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "object",
-      "substance": "subject",
-      "frame_key": "aspiration"
-    }
+    "content_tags": [
+      "object",
+      "science",
+      "learning",
+      "aspiration"
+    ]
   },
   {
     "topic": "a quiet place you like to go",
@@ -3801,11 +3812,11 @@
       }
     ],
     "tags": [],
-    "content_tags": {
-      "category": "place",
-      "substance": "place",
-      "frame_key": "null"
-    }
+    "content_tags": [
+      "place",
+      "peaceful",
+      "likes_dislikes"
+    ]
   },
   {
     "topic": "something that you can’t live without (not a computer/phone)",
@@ -3854,10 +3865,9 @@
     "tags": [
       "事物类"
     ],
-    "content_tags": {
-      "category": "object",
-      "substance": "time",
-      "frame_key": "challenge"
-    }
+    "content_tags": [
+      "object",
+      "everyday_life"
+    ]
   }
 ]

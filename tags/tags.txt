@@ -1,0 +1,103 @@
+# IELTS Part 2 Topic Tags
+# One tag per line. First tag on every topic line is always the fixed category.
+# Normalisation notes follow each group.
+
+## Fixed category tags (always first on every topic line)
+people
+place
+object
+experience/activity
+
+## Thematic tags
+# --- nature & environment ---
+nature              # outdoor, natural settings, wildlife habitats, scenic views, parks, mountains
+conservation        # caring for/protecting the environment or animals; eco-minded behaviour
+
+# --- people & social ---
+helping_others      # kindness, generosity, volunteering, being helpful to people
+influence           # persuasion, encouragement, motivated someone to change behaviour
+conflict_resolution # apology, saying sorry, making up after a conflict, forgiveness
+advice              # giving or receiving guidance, counselling, recommendations
+friendship          # friend, close companion, trust, personal bond
+celebrity           # famous person, public figure, well-known personality
+admiration          # admire, look up to, inspirational, in awe of someone
+family              # family member, relatives, family gathering, family business context
+
+# --- work & career ---
+work                # job, career, occupation, part-time work, family business, employment
+
+# --- travel & places ---
+travel              # journey, trip, vacation, visiting places, going somewhere, vehicle used for travel
+international       # foreign country, abroad, overseas, working/living in another country
+navigation          # lost, finding your way, directions, orienteering, getting around
+home                # home life, at home, domestic situation, where you live
+
+# --- money & shopping ---
+money               # spending, overspending, financial decisions, saving, cost
+shopping            # buying items, retail, purchase, customer experience in a shop
+service             # good/bad service, hospitality, customer care
+
+# --- learning & intellect ---
+self-learning       # self-taught, learned without a teacher, independent study, autodidact
+learning            # studying, gaining knowledge, education, acquiring a skill
+science             # scientific subject, field of science, biology, robotics, research
+reading             # act of reading, books as activity
+books               # book as object, written publication
+intelligence        # smart, clever, sharp mind, shrewd thinking
+problem-solving     # solved a problem, found a solution, clever way out of a difficulty
+creativity          # imagination, creative thinking, innovative ideas, inventive approach
+planning            # making plans, goal-setting, organised, forward-thinking
+
+# --- technology & media ---
+technology          # tech device, gadget, electronic equipment, digital tool (not phone)
+app                 # program, software application, digital app, computer/phone program
+phone               # mobile phone, smartphone; often in context of rules or dependency
+social_media        # social media platforms, internet posts, online content
+media               # TV, online programs, streaming, entertainment content
+
+# --- arts & culture ---
+art                 # drawing, painting, visual arts, artistic creation, gallery
+music               # music, singing, concerts, songs, instruments
+movies              # film, movie, cinema, a film you watched
+stories             # traditional story, tale, narrative, folklore
+culture             # tradition, cultural heritage, customs, folklore background
+
+# --- personal qualities & emotions ---
+passion             # loves doing something, deeply interested in, devoted to
+talent              # natural gift, innate skill, born ability
+self-improvement    # want to improve, develop a skill, get better at something
+aspiration          # want to, would like to, dream of, hope to do/have/be something
+achievement         # proud of, accomplishment, success, milestone reached
+likes_dislikes      # enjoyed, liked, loved, disliked, didn't enjoy — attitude qualifier
+happiness           # smiling, joyful, cheerful, positive emotional state
+anticipation        # waiting, looking forward to, expecting something special
+memorable           # special, noteworthy, stands out in memory, significant moment
+sentimental         # emotionally attached, personally meaningful, nostalgic feeling
+nostalgia           # childhood memory, fond memory of the past (use with childhood or heirloom)
+
+# --- objects & possessions ---
+heirloom            # important old thing kept in family, treasured possession, keepsake
+toy                 # toy as physical object; childhood plaything
+childhood           # anything specifically framed in the context of being a child/young
+everyday_life       # essential, can't live without, daily necessity, dependency
+useful              # helpful, practical, beneficial — quality of an object or experience
+
+# --- events & social situations ---
+social_event        # event, occasion, gathering, party, group situation
+celebration         # joyful gathering, festival, occasion with many smiling people
+restriction         # not allowed, banned, prohibited, rules imposed on behaviour
+mistake             # accident, error, broke something, careless action, regret
+disruption          # unexpected interruption, power cut, inconvenience, things going wrong
+first_time          # for the first time, debut, new experience, never done before
+adventure           # exciting, thrilling, bold activity, daring new experience
+
+# --- food & body ---
+food                # dinner, meal, eating, cuisine, restaurant
+
+# --- other ---
+child               # a child or children as the subject (age-specific)
+animals             # wild animal, creature, wildlife, fauna
+curiosity           # want to know more, eager to learn about, interested in exploring
+communication       # language use, talking, expressing oneself, interaction
+language            # foreign language, learning/speaking another language
+peaceful            # quiet, calm, tranquil — quality of a place or moment

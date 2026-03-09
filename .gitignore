@@ -1,0 +1,4 @@
+/pipeline/
+/ideation/
+*.txt
+!tags/tags.txt

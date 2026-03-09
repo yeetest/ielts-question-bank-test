@@ -174,7 +174,7 @@
   .cue-card ul { padding-left: 16px; }
   .cue-card li { margin-bottom: 2px; }
 
-  /* content_tags badges (card) */
+  /* content_tags badges (card) — flat array, first tag is category */
   .ctag {
     font-size: 0.68rem;
     padding: 2px 7px;
@@ -182,12 +182,11 @@
     font-weight: 600;
     white-space: nowrap;
   }
-  .ctag-category-people     { background: #fce7f3; color: #9d174d; }
-  .ctag-category-experience { background: #d1fae5; color: #065f46; }
-  .ctag-category-place      { background: #e0f2fe; color: #075985; }
-  .ctag-category-object     { background: #f3f4f6; color: #374151; }
-  .ctag-substance           { background: #ede9fe; color: #5b21b6; }
-  .ctag-frame               { background: #fef9c3; color: #713f12; }
+  .ctag-people             { background: #fce7f3; color: #9d174d; }
+  .ctag-experience-activity { background: #d1fae5; color: #065f46; }
+  .ctag-place              { background: #e0f2fe; color: #075985; }
+  .ctag-object             { background: #f3f4f6; color: #374151; }
+  .ctag-tag                { background: #ede9fe; color: #5b21b6; }
 
   /* type_tags badges */
   .type-tags { display: inline-flex; gap: 4px; flex-wrap: wrap; margin-left: 6px; vertical-align: middle; }
@@ -289,12 +288,15 @@ function renderGrid(tab) {
     }
     const qCount = questions.length;
 
-    const ct = item.content_tags || {};
-    const ctBadges = tab === 'part2' ? `
+    const ct = item.content_tags || [];
+    const ctBadges = tab === 'part2' && ct.length ? `
       <div class="source-bar" style="margin-top:6px;flex-wrap:wrap;gap:4px;">
-        ${ct.category  ? `<span class="ctag ctag-category-${ct.category}">${ct.category}</span>` : ''}
-        ${ct.substance ? `<span class="ctag ctag-substance">${ct.substance}</span>` : ''}
-        ${ct.frame_key && ct.frame_key !== 'null' ? `<span class="ctag ctag-frame">${ct.frame_key}</span>` : ''}
+        ${ct.map((tag, i) => {
+          const cls = i === 0
+            ? `ctag-${tag.replace('/', '-')}`
+            : 'ctag-tag';
+          return `<span class="ctag ${cls}">${tag}</span>`;
+        }).join('')}
       </div>` : '';
 
     card.innerHTML = `

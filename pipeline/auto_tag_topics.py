@@ -107,9 +107,9 @@ for item in data:
     frame_key = assign_frame_key(prompt)
 
     item["content_tags"] = {
-        "category":  category,
-        "substance": substance,
-        "frame_key": frame_key,
+        "category":    category,
+        "substance":   substance,
+        "frame_angle": frame_key,
     }
 
     print(f"[{category:10s} | {substance:10s} | {frame_key:16s}]  {prompt[:55]}")
