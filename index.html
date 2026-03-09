@@ -50,7 +50,6 @@
   .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 4px; }
   .dot-tz { background: #3b82f6; }
   .dot-lk { background: #f59e0b; }
-  .dot-both { background: #10b981; }
 
   .grid {
     display: grid;
@@ -58,6 +57,7 @@
     gap: 14px;
   }
 
+  /* 1st: Updated Card Layout & Hover Effect */
   .card {
     background: #fff;
     border: 1px solid #ddd;
@@ -95,7 +95,6 @@
   }
   .badge-tz { background: #dbeafe; color: #1d4ed8; }
   .badge-lk { background: #fef3c7; color: #b45309; }
-  .badge-unmatched { background: #f3f4f6; color: #6b7280; }
 
   .overlay {
     display: none;
@@ -122,11 +121,6 @@
     font-size: 1.2rem;
     margin-bottom: 4px;
   }
-  .modal .season {
-    font-size: 0.78rem;
-    color: #999;
-    margin-bottom: 16px;
-  }
   .close-btn {
     position: absolute;
     top: 14px; right: 16px;
@@ -136,8 +130,8 @@
     border: none;
     color: #555;
   }
-  
-  /* BACK BUTTON STYLE */
+
+  /* Back Button for navigation */
   .back-btn {
     display: inline-flex;
     align-items: center;
@@ -191,10 +185,8 @@
     margin-bottom: 6px;
   }
   .cue-card .prompt { font-weight: bold; margin-bottom: 8px; }
-  .cue-card ul { padding-left: 16px; }
-  .cue-card li { margin-bottom: 2px; }
 
-  /* UPDATED CTAG WITH SCALE EFFECT */
+  /* Content Tags with hover scale */
   .ctag {
     font-size: 0.68rem;
     padding: 2px 7px;
@@ -206,9 +198,8 @@
     display: inline-block;
   }
   .ctag:hover { 
-    transform: scale(1.1); /* Gets slightly bigger */
+    transform: scale(1.1);
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    filter: brightness(0.95);
   }
 
   .ctag-people             { background: #fce7f3; color: #9d174d; }
@@ -217,16 +208,7 @@
   .ctag-object             { background: #f3f4f6; color: #374151; }
   .ctag-tag                { background: #ede9fe; color: #5b21b6; }
 
-  .summary-item {
-    cursor: pointer;
-    padding: 8px 0;
-    border-bottom: 1px solid #eee;
-    color: #444;
-    transition: padding-left 0.2s;
-  }
-  .summary-item:hover { color: #6366f1; padding-left: 5px; }
-  .summary-item:last-child { border-bottom: none; }
-
+  /* Question Type Tags with hover scale */
   .type-tags { display: inline-flex; gap: 4px; flex-wrap: wrap; margin-left: 6px; vertical-align: middle; }
   .ttag {
     font-size: 0.65rem;
@@ -236,12 +218,28 @@
     text-transform: uppercase;
     letter-spacing: 0.03em;
     white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: inline-block;
+  }
+  .ttag:hover {
+    transform: scale(1.1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    filter: brightness(0.95);
   }
   .ttag-describe  { background: #dbeafe; color: #1e40af; }
   .ttag-analyze   { background: #d1fae5; color: #065f46; }
   .ttag-evaluate  { background: #fef3c7; color: #92400e; }
   .ttag-predict   { background: #ede9fe; color: #5b21b6; }
   .ttag-unclear   { background: #f3f4f6; color: #6b7280; }
+
+  .summary-item {
+    cursor: pointer;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    color: #444;
+  }
+  .summary-item:hover { color: #6366f1; text-decoration: underline; }
 </style>
 </head>
 <body>
@@ -257,7 +255,6 @@
 <div class="legend">
   <span><span class="dot dot-tz"></span>同桌英语</span>
   <span><span class="dot dot-lk"></span>老烤鸭</span>
-  <span><span class="dot dot-both"></span>Both sources</span>
 </div>
 
 <div class="grid" id="grid"></div>
@@ -272,11 +269,11 @@
 <script>
 let part1Data = [], part2Data = [];
 let currentTab = 'part1';
-let lastActiveTag = null; // Tracks navigation history
+let lastActiveTag = null; 
 
 function renderTypeTags(tags) {
   if (!tags || !tags.length) return '';
-  return `<span class="type-tags">${tags.map(t => `<span class="ttag ttag-${t}">${t}</span>`).join('')}</span>`;
+  return `<span class="type-tags">${tags.map(t => `<span class="ttag ttag-${t}" onclick="event.stopPropagation(); openTypeSummary('${t}')">${t}</span>`).join('')}</span>`;
 }
 
 function getSources(questions) {
@@ -310,7 +307,7 @@ function renderGrid(tab) {
 
     card.innerHTML = `
       <div class="card-title">${title}</div>
-      <div class="card-meta">${questions.length} question${questions.length !== 1 ? 's' : ''}</div>
+      <div class="card-meta">${questions.length} questions</div>
       <div class="source-bar">
         ${hasTZ ? '<span class="badge badge-tz">同桌</span>' : ''}
         ${hasLK ? '<span class="badge badge-lk">老烤鸭</span>' : ''}
@@ -339,37 +336,50 @@ function openTagSummary(tagName) {
   document.getElementById('overlay').classList.add('open');
 }
 
+function openTypeSummary(typeName) {
+  const content = document.getElementById('modal-content');
+  const results = [];
+  part2Data.forEach(topic => {
+    const matches = (topic.part3 || []).filter(q => q.type_tags && q.type_tags.includes(typeName));
+    matches.forEach(q => results.push({ topicTitle: topic.topic || topic.topic_en, text: q.text }));
+  });
+
+  content.innerHTML = `
+    <h2>Question Type: ${typeName}</h2>
+    <div class="season">${results.length} questions found</div>
+    <div class="cue-card">
+      <div class="prompt">Questions categorized as ${typeName}:</div>
+      <div style="margin-top:10px; font-size: 0.85rem;">
+        ${results.map(res => `<div style="margin-bottom: 12px; border-bottom: 1px solid #eee; padding-bottom: 8px;"><div style="font-weight: bold; color: #6366f1; font-size: 0.75rem;">${res.topicTitle}</div><div>${res.text}</div></div>`).join('')}
+      </div>
+    </div>
+  `;
+  document.getElementById('overlay').classList.add('open');
+}
+
 function openModal(tab, idx) {
   const item = tab === 'part1' ? part1Data[idx] : part2Data[idx];
   const content = document.getElementById('modal-content');
-  
-  // Add Back Button if we came from a tag summary
   const backBtn = lastActiveTag ? `<div class="back-btn" onclick="openTagSummary('${lastActiveTag}')">← Back to ${lastActiveTag}</div>` : '';
 
   if (tab === 'part1') {
-    const tzQs = item.questions.filter(q => q.source === 'tongzhuo');
-    const lkQs = item.questions.filter(q => q.source === 'laokaoya');
     content.innerHTML = `
       ${backBtn}
       <h2>${item.topic_en}</h2>
       <div class="season">${item.season} · Part 1</div>
-      ${tzQs.map(q => `<div class="q-row"><span class="q-dot tz"></span><span>${q.text}</span></div>`).join('')}
-      ${lkQs.map(q => `<div class="q-row"><span class="q-dot lk"></span><span>${q.text}</span></div>`).join('')}
+      ${item.questions.map(q => `<div class="q-row"><span class="q-dot ${q.source === 'tongzhuo' ? 'tz' : 'lk'}"></span><span>${q.text}</span></div>`).join('')}
     `;
   } else {
     const cc = item.cue_card || {};
     const p3 = item.part3 || [];
-    const ccPrompt = (cc.prompt || '').replace(/\s*You should say.*/is, '').trim();
-    const ccBullets = (cc.you_should_say || []).filter(s => s && !/^you should say/i.test(s));
-
     content.innerHTML = `
       ${backBtn}
       <h2>${item.topic || item.topic_en || ''}</h2>
       <div class="season">${item.season} · Part 2 + 3</div>
       <div class="section-label">Cue Card</div>
       <div class="cue-card">
-        <div class="prompt">${ccPrompt}</div>
-        <ul>${ccBullets.map(s => `<li>${s}</li>`).join('')}</ul>
+        <div class="prompt">${(cc.prompt || '').replace(/\s*You should say.*/is, '').trim()}</div>
+        <ul>${(cc.you_should_say || []).filter(s => s && !/^you should say/i.test(s)).map(s => `<li>${s}</li>`).join('')}</ul>
       </div>
       <div class="section-label">Part 3 Questions</div>
       ${p3.map(q => `<div class="q-row"><span class="q-dot ${q.source === 'tongzhuo' ? 'tz' : 'lk'}"></span><span>${q.text}${renderTypeTags(q.type_tags)}</span></div>`).join('')}
