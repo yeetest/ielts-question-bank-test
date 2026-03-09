@@ -21,7 +21,6 @@
     font-size: 0.85rem;
     margin-bottom: 20px;
   }
-  /* Tab buttons */
   .tabs {
     display: flex;
     gap: 8px;
@@ -41,7 +40,6 @@
     border-color: #222;
   }
 
-  /* Legend */
   .legend {
     display: flex;
     gap: 16px;
@@ -54,7 +52,6 @@
   .dot-lk { background: #f59e0b; }
   .dot-both { background: #10b981; }
 
-  /* Topic grid */
   .grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -100,7 +97,6 @@
   .badge-lk { background: #fef3c7; color: #b45309; }
   .badge-unmatched { background: #f3f4f6; color: #6b7280; }
 
-  /* Modal overlay */
   .overlay {
     display: none;
     position: fixed;
@@ -140,6 +136,24 @@
     border: none;
     color: #555;
   }
+  
+  /* BACK BUTTON STYLE */
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.8rem;
+    color: #6366f1;
+    cursor: pointer;
+    margin-bottom: 12px;
+    font-weight: bold;
+    background: #f0f7ff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid #d0e7ff;
+  }
+  .back-btn:hover { background: #e0f0ff; }
+
   .section-label {
     font-size: 0.78rem;
     font-weight: bold;
@@ -167,7 +181,6 @@
   .q-dot.tz { background: #3b82f6; }
   .q-dot.lk { background: #f59e0b; }
 
-  /* Part 2 cue card */
   .cue-card {
     background: #f9fafb;
     border-left: 3px solid #6366f1;
@@ -181,17 +194,22 @@
   .cue-card ul { padding-left: 16px; }
   .cue-card li { margin-bottom: 2px; }
 
-  /* content_tags badges (card) */
+  /* UPDATED CTAG WITH SCALE EFFECT */
   .ctag {
     font-size: 0.68rem;
     padding: 2px 7px;
     border-radius: 10px;
     font-weight: 600;
     white-space: nowrap;
-    cursor: pointer; /* Makes tags look clickable */
-    transition: opacity 0.2s;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: inline-block;
   }
-  .ctag:hover { opacity: 0.8; } /* Visual feedback */
+  .ctag:hover { 
+    transform: scale(1.1); /* Gets slightly bigger */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    filter: brightness(0.95);
+  }
 
   .ctag-people             { background: #fce7f3; color: #9d174d; }
   .ctag-experience-activity { background: #d1fae5; color: #065f46; }
@@ -199,17 +217,16 @@
   .ctag-object             { background: #f3f4f6; color: #374151; }
   .ctag-tag                { background: #ede9fe; color: #5b21b6; }
 
-  /* Summary List Styling */
   .summary-item {
     cursor: pointer;
     padding: 8px 0;
     border-bottom: 1px solid #eee;
     color: #444;
+    transition: padding-left 0.2s;
   }
-  .summary-item:hover { color: #6366f1; text-decoration: underline; }
+  .summary-item:hover { color: #6366f1; padding-left: 5px; }
   .summary-item:last-child { border-bottom: none; }
 
-  /* type_tags badges */
   .type-tags { display: inline-flex; gap: 4px; flex-wrap: wrap; margin-left: 6px; vertical-align: middle; }
   .ttag {
     font-size: 0.65rem;
@@ -255,73 +272,48 @@
 <script>
 let part1Data = [], part2Data = [];
 let currentTab = 'part1';
+let lastActiveTag = null; // Tracks navigation history
 
 function renderTypeTags(tags) {
   if (!tags || !tags.length) return '';
-  const badges = tags.map(t => `<span class="ttag ttag-${t}">${t}</span>`).join('');
-  return `<span class="type-tags">${badges}</span>`;
+  return `<span class="type-tags">${tags.map(t => `<span class="ttag ttag-${t}">${t}</span>`).join('')}</span>`;
 }
 
 function getSources(questions) {
-  const hasTZ = questions.some(q => q.source === 'tongzhuo');
-  const hasLK = questions.some(q => q.source === 'laokaoya');
-  return { hasTZ, hasLK };
-}
-
-function sourceColor(hasTZ, hasLK) {
-  if (hasTZ && hasLK) return '#10b981';
-  if (hasTZ) return '#3b82f6';
-  return '#f59e0b';
+  return {
+    hasTZ: questions.some(q => q.source === 'tongzhuo'),
+    hasLK: questions.some(q => q.source === 'laokaoya')
+  };
 }
 
 function renderGrid(tab) {
   const grid = document.getElementById('grid');
   grid.innerHTML = '';
   const data = tab === 'part1' ? part1Data : part2Data;
-
-  document.getElementById('total-count').textContent =
-    `${data.length} topics · Part ${tab === 'part1' ? '1' : '2'}`;
+  document.getElementById('total-count').textContent = `${data.length} topics · Part ${tab === 'part1' ? '1' : '2'}`;
 
   data.forEach((item, idx) => {
     const questions = item.questions || item.part3 || [];
     const { hasTZ, hasLK } = getSources(questions);
-
     const card = document.createElement('div');
     card.className = 'card';
-    card.onclick = () => openModal(tab, idx);
+    card.onclick = () => { lastActiveTag = null; openModal(tab, idx); };
 
-    let title;
-    if (tab === 'part1') {
-      title = item.topic_en;
-    } else {
-      const raw = (item.cue_card?.prompt || item.topic || '')
-        .replace(/[\u200b\u200c\u200d\ufeff]/g, '')
-        .replace(/\s*You should say.*/is, '')
-        .replace(/^\s*Describe\s+/i, '')
-        .trim();
-      title = raw.length > 80 ? raw.slice(0, 79) + '…' : raw;
-    }
-    const qCount = questions.length;
+    let title = tab === 'part1' ? item.topic_en : (item.cue_card?.prompt || item.topic || '').replace(/[\u200b\u200c\u200d\ufeff]/g, '').replace(/\s*You should say.*/is, '').replace(/^\s*Describe\s+/i, '').trim();
+    if (title.length > 80) title = title.slice(0, 79) + '…';
 
     const ct = item.content_tags || [];
     const ctBadges = tab === 'part2' && ct.length ? `
       <div class="source-bar" style="margin-top:6px;flex-wrap:wrap;gap:4px;">
-        ${ct.map((tag, i) => {
-          const cls = i === 0
-            ? `ctag-${tag.replace('/', '-')}`
-            : 'ctag-tag';
-          // Use stopPropagation to prevent clicking the tag from opening the card itself
-          return `<span class="ctag ${cls}" onclick="event.stopPropagation(); openTagSummary('${tag}')">${tag}</span>`;
-        }).join('')}
+        ${ct.map((tag, i) => `<span class="ctag ${i === 0 ? `ctag-${tag.replace('/', '-')}` : 'ctag-tag'}" onclick="event.stopPropagation(); openTagSummary('${tag}')">${tag}</span>`).join('')}
       </div>` : '';
 
     card.innerHTML = `
       <div class="card-title">${title}</div>
-      <div class="card-meta">${qCount} question${qCount !== 1 ? 's' : ''}</div>
+      <div class="card-meta">${questions.length} question${questions.length !== 1 ? 's' : ''}</div>
       <div class="source-bar">
         ${hasTZ ? '<span class="badge badge-tz">同桌</span>' : ''}
         ${hasLK ? '<span class="badge badge-lk">老烤鸭</span>' : ''}
-        ${item.source === 'laokaoya_unmatched' ? '<span class="badge badge-unmatched">老烤鸭 only</span>' : ''}
       </div>
       ${ctBadges}
     `;
@@ -329,23 +321,18 @@ function renderGrid(tab) {
   });
 }
 
-// New Function: Shows a list of all topics sharing a specific tag
 function openTagSummary(tagName) {
+  lastActiveTag = tagName;
   const content = document.getElementById('modal-content');
   const filtered = part2Data.filter(item => item.content_tags && item.content_tags.includes(tagName));
 
   content.innerHTML = `
     <h2>Topics tagged: ${tagName}</h2>
-    <div class="season">${filtered.length} matches found in Part 2</div>
-    <div class="section-label">Select a topic to view details</div>
+    <div class="season">${filtered.length} matches found</div>
     <div class="cue-card">
       <div class="prompt">Questions in this category:</div>
       <div style="margin-top:10px">
-        ${filtered.map(item => {
-          const originalIdx = part2Data.indexOf(item);
-          const title = (item.topic || item.topic_en || 'View Topic');
-          return `<div class="summary-item" onclick="openModal('part2', ${originalIdx})">${title}</div>`;
-        }).join('')}
+        ${filtered.map(item => `<div class="summary-item" onclick="openModal('part2', ${part2Data.indexOf(item)})">${item.topic || item.topic_en || 'View Topic'}</div>`).join('')}
       </div>
     </div>
   `;
@@ -355,84 +342,47 @@ function openTagSummary(tagName) {
 function openModal(tab, idx) {
   const item = tab === 'part1' ? part1Data[idx] : part2Data[idx];
   const content = document.getElementById('modal-content');
+  
+  // Add Back Button if we came from a tag summary
+  const backBtn = lastActiveTag ? `<div class="back-btn" onclick="openTagSummary('${lastActiveTag}')">← Back to ${lastActiveTag}</div>` : '';
 
   if (tab === 'part1') {
     const tzQs = item.questions.filter(q => q.source === 'tongzhuo');
     const lkQs = item.questions.filter(q => q.source === 'laokaoya');
-
     content.innerHTML = `
+      ${backBtn}
       <h2>${item.topic_en}</h2>
       <div class="season">${item.season} · Part 1</div>
-      ${tzQs.length ? `
-        <div class="section-label">同桌英语</div>
-        ${tzQs.map(q => `
-          <div class="q-row">
-            <span class="q-dot tz"></span>
-            <span>${q.text}</span>
-          </div>`).join('')}` : ''}
-      ${lkQs.length ? `
-        <div class="section-label">老烤鸭</div>
-        ${lkQs.map(q => `
-          <div class="q-row">
-            <span class="q-dot lk"></span>
-            <span>${q.text}</span>
-          </div>`).join('')}` : ''}
+      ${tzQs.map(q => `<div class="q-row"><span class="q-dot tz"></span><span>${q.text}</span></div>`).join('')}
+      ${lkQs.map(q => `<div class="q-row"><span class="q-dot lk"></span><span>${q.text}</span></div>`).join('')}
     `;
   } else {
     const cc = item.cue_card || {};
     const p3 = item.part3 || [];
-    const tzQs = p3.filter(q => q.source === 'tongzhuo');
-    const lkQs = p3.filter(q => q.source === 'laokaoya');
-
-    const ccPrompt = (cc.prompt || '')
-      .replace(/[\u200b\u200c\u200d\ufeff]/g, '')
-      .replace(/\s*You should say.*/is, '')
-      .trim();
-    const ccBullets = (cc.you_should_say || [])
-      .map(s => s.replace(/[\u200b\u200c\u200d\ufeff]/g, '').trim())
-      .filter(s => s && !/^you should say/i.test(s));
+    const ccPrompt = (cc.prompt || '').replace(/\s*You should say.*/is, '').trim();
+    const ccBullets = (cc.you_should_say || []).filter(s => s && !/^you should say/i.test(s));
 
     content.innerHTML = `
+      ${backBtn}
       <h2>${item.topic || item.topic_en || ''}</h2>
       <div class="season">${item.season} · Part 2 + 3</div>
       <div class="section-label">Cue Card</div>
       <div class="cue-card">
         <div class="prompt">${ccPrompt}</div>
-        <div class="section-label" style="margin-top:10px">You should say:</div>
         <ul>${ccBullets.map(s => `<li>${s}</li>`).join('')}</ul>
       </div>
-      ${tzQs.length ? `
-        <div class="section-label">Part 3 — 同桌英语</div>
-        ${tzQs.map(q => `
-          <div class="q-row">
-            <span class="q-dot tz"></span>
-            <span>${q.text}${renderTypeTags(q.type_tags)}</span>
-          </div>`).join('')}` : ''}
-      ${lkQs.length ? `
-        <div class="section-label">Part 3 — 老烤鸭</div>
-        ${lkQs.map(q => `
-          <div class="q-row">
-            <span class="q-dot lk"></span>
-            <span>${q.text}${renderTypeTags(q.type_tags)}</span>
-          </div>`).join('')}` : ''}
+      <div class="section-label">Part 3 Questions</div>
+      ${p3.map(q => `<div class="q-row"><span class="q-dot ${q.source === 'tongzhuo' ? 'tz' : 'lk'}"></span><span>${q.text}${renderTypeTags(q.type_tags)}</span></div>`).join('')}
     `;
   }
-
   document.getElementById('overlay').classList.add('open');
 }
 
-function closeOverlay() {
-  document.getElementById('overlay').classList.remove('open');
-}
-function closeModal(e) {
-  if (e.target === document.getElementById('overlay')) closeOverlay();
-}
-
+function closeOverlay() { document.getElementById('overlay').classList.remove('open'); }
+function closeModal(e) { if (e.target === document.getElementById('overlay')) closeOverlay(); }
 function switchTab(tab) {
   currentTab = tab;
-  document.querySelectorAll('.tab').forEach((t, i) => {
-    t.classList.toggle('active', (i === 0 && tab === 'part1') || (i === 1 && tab === 'part2'));
-  });
+  document.querySelectorAll('.tab').forEach((t, i) => t.classList.toggle('active', (i === 0 && tab === 'part1') || (i === 1 && tab === 'part2')));
   renderGrid(tab);
 }
 
