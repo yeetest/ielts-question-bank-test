@@ -4,206 +4,123 @@
 <meta charset="UTF-8">
 <title>IELTS Speaking Question Bank — 2026 Jan–Apr</title>
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: 'Georgia', serif;
-    background: #f7f5f0;
-    color: #222;
-    padding: 24px;
-  }
-  h1 {
-    font-size: 1.4rem;
-    font-weight: bold;
-    margin-bottom: 6px;
-  }
-  .subtitle {
-    color: #888;
-    font-size: 0.85rem;
-    margin-bottom: 20px;
-  }
-  /* Tab buttons */
-  .tabs {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 20px;
-  }
-  .tab {
-    padding: 8px 20px;
-    border: 1.5px solid #ccc;
-    border-radius: 4px;
-    cursor: pointer;
-    background: #fff;
-    font-size: 0.9rem;
-  }
-  .tab.active {
-    background: #222;
-    color: #fff;
-    border-color: #222;
-  }
+  :root {
+  /* System Colors */
+  --bg-primary: #f8fafc;
+  --bg-card: #ffffff;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --accent: #6366f1; /* Indigo */
+  
+  /* Source Specific (Matching your data logic) */
+  --color-tz: #3b82f6;   /* 同桌 Blue */
+  --color-lk: #f59e0b;   /* 老烤鸭 Orange */
+  --color-both: #10b981; /* Success Green */
+  
+  /* Layout */
+  --radius: 12px;
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
 
-  /* Legend */
-  .legend {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 16px;
-    font-size: 0.8rem;
-    align-items: center;
-  }
-  .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 4px; }
-  .dot-tz { background: #3b82f6; }
-  .dot-lk { background: #f59e0b; }
-  .dot-both { background: #10b981; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-  /* Topic grid */
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 14px;
-  }
-  .card {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    padding: 14px;
-    cursor: pointer;
-    transition: box-shadow 0.15s;
-  }
-  .card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-  .card-title {
-    font-size: 0.95rem;
-    font-weight: bold;
-    margin-bottom: 6px;
-  }
-  .card-meta {
-    font-size: 0.75rem;
-    color: #888;
-  }
-  .source-bar {
-    display: flex;
-    gap: 4px;
-    margin-top: 8px;
-  }
-  .badge {
-    font-size: 0.7rem;
-    padding: 2px 7px;
-    border-radius: 10px;
-    font-weight: bold;
-  }
-  .badge-tz { background: #dbeafe; color: #1d4ed8; }
-  .badge-lk { background: #fef3c7; color: #b45309; }
-  .badge-unmatched { background: #f3f4f6; color: #6b7280; }
+body {
+  font-family: 'Inter', -apple-system, sans-serif; /* Clean sans-serif */
+  background: var(--bg-primary);
+  color: var(--text-main);
+  padding: 40px 24px;
+  line-height: 1.5;
+}
 
-  /* Modal overlay */
-  .overlay {
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.4);
-    z-index: 100;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 40px 16px;
-    overflow-y: auto;
-  }
-  .overlay.open { display: flex; }
-  .modal {
-    background: #fff;
-    border-radius: 8px;
-    padding: 28px;
-    max-width: 620px;
-    width: 100%;
-    position: relative;
-  }
-  .modal h2 {
-    font-size: 1.2rem;
-    margin-bottom: 4px;
-  }
-  .modal .season {
-    font-size: 0.78rem;
-    color: #999;
-    margin-bottom: 16px;
-  }
-  .close-btn {
-    position: absolute;
-    top: 14px; right: 16px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    background: none;
-    border: none;
-    color: #555;
-  }
-  .section-label {
-    font-size: 0.78rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #999;
-    margin: 14px 0 6px;
-  }
-  .q-row {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    padding: 5px 0;
-    border-bottom: 1px solid #f0f0f0;
-    font-size: 0.88rem;
-    line-height: 1.5;
-  }
-  .q-row:last-child { border-bottom: none; }
-  .q-dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    flex-shrink: 0;
-    margin-top: 6px;
-  }
-  .q-dot.tz { background: #3b82f6; }
-  .q-dot.lk { background: #f59e0b; }
+/* Header & Tabs */
+h1 { font-size: 1.8rem; letter-spacing: -0.025em; margin-bottom: 4px; }
+.subtitle { color: var(--text-muted); margin-bottom: 32px; font-weight: 500; }
 
-  /* Part 2 cue card */
-  .cue-card {
-    background: #f9fafb;
-    border-left: 3px solid #6366f1;
-    padding: 12px 14px;
-    border-radius: 4px;
-    font-size: 0.88rem;
-    line-height: 1.6;
-    margin-bottom: 6px;
-  }
-  .cue-card .prompt { font-weight: bold; margin-bottom: 8px; }
-  .cue-card ul { padding-left: 16px; }
-  .cue-card li { margin-bottom: 2px; }
+.tabs { display: flex; gap: 12px; margin-bottom: 32px; }
+.tab {
+  padding: 10px 24px;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  background: #e2e8f0;
+  color: var(--text-muted);
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+.tab.active { background: var(--accent); color: white; box-shadow: var(--shadow); }
 
-  /* content_tags badges (card) — flat array, first tag is category */
-  .ctag {
-    font-size: 0.68rem;
-    padding: 2px 7px;
-    border-radius: 10px;
-    font-weight: 600;
-    white-space: nowrap;
-  }
-  .ctag-people             { background: #fce7f3; color: #9d174d; }
-  .ctag-experience-activity { background: #d1fae5; color: #065f46; }
-  .ctag-place              { background: #e0f2fe; color: #075985; }
-  .ctag-object             { background: #f3f4f6; color: #374151; }
-  .ctag-tag                { background: #ede9fe; color: #5b21b6; }
+/* Legend */
+.legend { 
+  background: white; 
+  padding: 12px 20px; 
+  border-radius: var(--radius);
+  display: inline-flex; 
+  gap: 20px; 
+  margin-bottom: 24px; 
+  font-size: 0.85rem;
+  border: 1px solid #e2e8f0;
+}
+.dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 6px; }
+.dot-tz { background: var(--color-tz); }
+.dot-lk { background: var(--color-lk); }
+.dot-both { background: var(--color-both); }
 
-  /* type_tags badges */
-  .type-tags { display: inline-flex; gap: 4px; flex-wrap: wrap; margin-left: 6px; vertical-align: middle; }
-  .ttag {
-    font-size: 0.65rem;
-    padding: 1px 6px;
-    border-radius: 8px;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-    white-space: nowrap;
-  }
-  .ttag-describe  { background: #dbeafe; color: #1e40af; }
-  .ttag-analyze   { background: #d1fae5; color: #065f46; }
-  .ttag-evaluate  { background: #fef3c7; color: #92400e; }
-  .ttag-predict   { background: #ede9fe; color: #5b21b6; }
-  .ttag-unclear   { background: #f3f4f6; color: #6b7280; }
+/* Topic Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius);
+  padding: 20px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover { 
+  transform: translateY(-4px); 
+  box-shadow: var(--shadow);
+  border-color: var(--accent);
+}
+
+.card-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; color: var(--text-main); }
+.card-meta { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 12px; }
+
+/* Badges */
+.badge {
+  font-size: 0.7rem;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.badge-tz { background: #eff6ff; color: var(--color-tz); }
+.badge-lk { background: #fffbeb; color: var(--color-lk); }
+
+/* Modal / Overlay */
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.6); /* Darker backdrop */
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  justify-content: center;
+  padding: 60px 20px;
+}
+.overlay.open { display: flex; }
+
+.modal {
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  max-width: 680px;
+  width: 100%;
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+}
 </style>
 </head>
 <body>
