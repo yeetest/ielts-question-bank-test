@@ -248,7 +248,10 @@
     "cue_card": {
       "prompt": "Describe a time you needed to use your imagination",
       "you_should_say": [
-        "When it was Why you needed to use imagination How difficult or easy it was And explain how you felt about it"
+        "When it was",
+        "Why you needed to use imagination",
+        "How difficult or easy it was",
+        "And explain how you felt about it"
       ]
     },
     "part3": [
@@ -539,7 +542,10 @@
     "cue_card": {
       "prompt": "Describe something important that has been kept in your family for a long time",
       "you_should_say": [
-        "What it is When your family had it How your family got it And explain why it is important f or your family"
+        "What it is",
+        "When your family had it",
+        "How your family got it",
+        "And explain why it is important for your family"
       ]
     },
     "part3": [
@@ -813,7 +819,10 @@
     "cue_card": {
       "prompt": "Describe a time when you gave advice to others",
       "you_should_say": [
-        "When it was To whom you gave the advice What the advice was And explain why you gave the advice"
+        "When it was",
+        "To whom you gave the advice",
+        "What the advice was",
+        "And explain why you gave the advice"
       ]
     },
     "part3": [
@@ -1423,7 +1432,8 @@
       "you_should_say": [
         "When it was",
         "Where you saw it",
-        "What you saw And explain why you think it was interesting"
+        "What you saw",
+        "And explain why you think it was interesting"
       ]
     },
     "part3": [
@@ -1625,7 +1635,10 @@
     "cue_card": {
       "prompt": "Describe a time when someone apologized to you",
       "you_should_say": [
-        "When it was Who this person was Why they apologized to you And how you felt about it"
+        "When it was",
+        "Who this person was",
+        "Why they apologized to you",
+        "And how you felt about it"
       ]
     },
     "part3": [
@@ -1873,7 +1886,10 @@
     "cue_card": {
       "prompt": "Describe a toy you liked in your childhood",
       "you_should_say": [
-        "What kind of toy it is When you received it How you played it And how you felt about it"
+        "What kind of toy it is",
+        "When you received it",
+        "How you played it",
+        "And how you felt about it"
       ]
     },
     "part3": [
