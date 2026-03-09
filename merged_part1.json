@@ -1,0 +1,1558 @@
+[
+  {
+    "topic_en": "Daily routine",
+    "part": 1,
+    "season": "2026-Jan-Apr",
+    "questions": [
+      {
+        "text": "1. What is your daily study routine?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "2. Have you ever changed your routine?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "3. Do you think it is important to have a daily routine for your study?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "4. What part of your day do you like best?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "5. Do you often go to bed late or early?",
+        "source": "tongzhuo"
+      }
+    ],
+    "tags": []
+  },
+  {
+    "topic_en": "Life stages",
+    "part": 1,
+    "season": "2026-Jan-Apr",
+    "questions": [
+      {
+        "text": "1. What did you often do with your friends in your childhood?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "2.  What do you think is the most important at the moment?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "3. Do you have any plans for the next five years? /What's your plan for your next stage of life?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "4. How do people remember each stage of their lives?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "5. Do you enjoy being the age you are now?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "6. At what age do you think people are the happiest?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "What did you often do with your friends in your childhood?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "What do you think is the most important at the moment?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Do you have any plans for the next five years?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "How do people remember each stage of their lives?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Do you enjoy being the age you are now?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "At what age do you think people are the happiest?",
+        "source": "laokaoya"
+      }
+    ],
+    "tags": []
+  },
+  {
+    "topic_en": "View",
+    "part": 1,
+    "season": "2026-Jan-Apr",
+    "questions": [
+      {
+        "text": "1. Do you like taking pictures of different views?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "2. Do you prefer views in urban areas or rural areas?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "3. Do you prefer views in your own country or in other countries?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "4. Have you ever seen an unforgettable and beautiful view or scenery?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "Do you like taking pictures of different views?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Do you prefer views in urban areas or rural areas?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Do you prefer views in our own country or in other countries?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Have you seen an unforgettable and beautiful view or scenery?",
+        "source": "laokaoya"
+      }
+    ],
+    "tags": []
+  },
+  {
+    "topic_en": "Scenery",
+    "part": 1,
+    "season": "2026-Jan-Apr",
+    "questions": [
+      {
+        "text": "1. Do you look out the window at the scenery when travelling by bus or car?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "2. Do you prefer the mountains or the sea?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "3. Do you like to take pictures of the scenery?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "4. What are the most beautiful sights you have seen while traveling?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "Do you look out the window at the scenery when travelling by bus or car?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Do you prefer the mountains or the sea?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Do you like to take scenery pictures?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "What are the most beautiful sights you have seen while traveling?",
+        "source": "laokaoya"
+      }
+    ],
+    "tags": []
+  },
+  {
+    "topic_en": "Childhood activities",
+    "part": 1,
+    "season": "2026-Jan-Apr",
+    "questions": [
+      {
+        "text": "1. What are your favourite activities?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "2. What were your favourite activities when you were a child?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "3. Did you prefer to do activities alone or with a group of people when you were a child?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "4. Are there any differences between the activities you liked when you were a child and those you like now?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "What were your favourite activities when you were a child?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Did you prefer to do activities alone or with a group of people when you were a child?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Is there a building that you would like to visit?",
+        "source": "laokaoya"
+      }
+    ],
+    "tags": []
+  },
+  {
+    "topic_en": "Building",
+    "part": 1,
+    "season": "2026-Jan-Apr",
+    "questions": [
+      {
+        "text": "1. Are there tall buildings near your home?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "2. Do you take photos of buildings?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "3. Is there a building that you would like to visit?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "4. Do you want to live in a tall building?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "Are there tall buildings near your home?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Do you take photos of buildings?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Is there a building that you would like to visit?",
+        "source": "laokaoya"
+      }
+    ],
+    "tags": []
+  },
+  {
+    "topic_en": "Typing",
+    "part": 1,
+    "season": "2026-Jan-Apr",
+    "questions": [
+      {
+        "text": "1. Do you prefer typing or handwriting?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "2. Do you type on a desktop or laptop keyboard every day?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "3. When did you learn how to type on a keyboard?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "4. How do you improve your typing?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "Do you prefer typing or handwriting?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Do you type on the desktop or laptop keyboard every day?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "When did you learn how to type on a keyboard?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "How do you improve your typing?",
+        "source": "laokaoya"
+      }
+    ],
+    "tags": []
+  },
+  {
+    "topic_en": "Hobby",
+    "part": 1,
+    "season": "2026-Jan-Apr",
+    "questions": [
+      {
+        "text": "1.Do you have any hobbies?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "2.Did you have any hobbies when you were a child?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "3.Do you have a hobby that you've had since childhood?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "4.Do you have the same hobbies as your family members?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "Do you have any hobbies?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Did you have any hobbies when you were a child?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Do you have a hobby that you've had since childhood?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Do you have the same hobbies as your family members?",
+        "source": "laokaoya"
+      }
+    ],
+    "tags": []
+  },
+  {
+    "topic_en": "Sports team",
+    "part": 1,
+    "season": "2026-Jan-Apr",
+    "questions": [
+      {
+        "text": "1. Have you ever been part of a sports team?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "2. Are team sports popular in your culture?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "3. Do you like to watch team games? Why?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "4. What are the differences between team sports and individual sports?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "Have you ever been part of a sports team?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Are team sports popular in your culture?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Do you like watching team games? Why?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "What are the differences between team sports and individual sports?",
+        "source": "laokaoya"
+      }
+    ],
+    "tags": []
+  },
+  {
+    "topic_en": "Reading",
+    "part": 1,
+    "season": "2026-Jan-Apr",
+    "questions": [
+      {
+        "text": "1. Do you like reading?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "2. Do you prefer to read on paper or on a screen?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "3. When do you need to read carefully, and when not?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "4. Do you prefer scanning or detailed reading?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "Do you like reading?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Do you prefer to read on paper or on a screen?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "When do you need to read carefully and when not?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Do you prefer scanning or detailed reading?",
+        "source": "laokaoya"
+      }
+    ],
+    "tags": []
+  },
+  {
+    "topic_en": "Gifts",
+    "part": 1,
+    "season": "2026-Jan-Apr",
+    "questions": [
+      {
+        "text": "1. Have you ever sent handmade gifts to others?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "2.Have you ever received a great gift?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "3.What do you consider when choosing a gift?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "4.Do you think you are good at choosing gifts?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "5. What gift have you received recently?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "Have you ever sent handmade gifts to others?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Have you ever received a great gift?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "What do you consider when choosing a gift?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Do you think you're good at choosing gifts?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "What gifts have you received recently?",
+        "source": "laokaoya"
+      }
+    ],
+    "tags": []
+  },
+  {
+    "topic_en": "Morning time",
+    "part": 1,
+    "season": "2026-Jan-Apr",
+    "questions": [
+      {
+        "text": "1. Do you like getting up early in the morning?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "2. What do you usually do in the morning?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "3. What did you do in the morning when you were little? why?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "4. Are there any differences between what you do in the morning now and what you did in the past?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "5. Do you spend your mornings doing the same things on both weekends and weekdays? Why?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "Do you like getting up early in the morning?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "What do you usually do in the morning?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "What did you do in the morning when you were little? Why?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Are there any differences between what you do in the morning now and what you did in the past?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Do you spend your mornings doing the same things on both the weekends and weekdays? Why?",
+        "source": "laokaoya"
+      }
+    ],
+    "tags": []
+  },
+  {
+    "topic_en": "Walking",
+    "part": 1,
+    "season": "2026-Jan-Apr",
+    "questions": [
+      {
+        "text": "1. Do you walk a lot?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "2. Did you often go outside to have a walk when you were a child?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "3. Why do people like to walk in parks?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "4. Where would you like to take a long walk if you had the chance?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "5. Where did you go for a walk lately?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "Do you walk a lot?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Did you often go outside to have a walk when you were a child?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Why do people like to walk in parks?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Where would you like to take a long walk if you had the chance?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Where did you go for a walk lately?",
+        "source": "laokaoya"
+      }
+    ],
+    "tags": []
+  },
+  {
+    "topic_en": "Food",
+    "part": 1,
+    "season": "2026-Jan-Apr",
+    "questions": [
+      {
+        "text": "1. What is your favourite food?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "2. What kind of food did you like when you were young?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "3. Do you eat different foods at different times of the year?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "4. Has your favourite food changed since you were a child?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "What is your favourite food?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "What kind of food did you like when you were young?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Do you eat different foods at different times of the year?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Has your favourite food changed since you were a child?",
+        "source": "laokaoya"
+      }
+    ],
+    "tags": []
+  },
+  {
+    "topic_en": "Pets and Animals",
+    "part": 1,
+    "season": "2026-Jan-Apr",
+    "questions": [
+      {
+        "text": "1. What's your favorite animal? Why?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "2. Have you ever had a pet before?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "3. Where do you prefer to keep your pet, indoors or outdoors?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "4. What is the most popular animal in China?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "What's your favourite animal? Why?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Where do you prefer to keep your pet, indoors or outdoors?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Have you ever had a pet before?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "What is the most popular animal in China?",
+        "source": "laokaoya"
+      }
+    ],
+    "tags": []
+  },
+  {
+    "topic_en": "Sharing",
+    "part": 1,
+    "season": "2026-Jan-Apr",
+    "questions": [
+      {
+        "text": "1. Did your parents teach you to share when you were a child?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "2. What kinds of things do you like to share with others?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "3. What kinds of things are not suitable for sharing?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "4. Do you have anything to share with others recently?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "5. Who is the first person you would like to share good news with?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "6. What kind of news do you share with your friends?",
+        "source": "tongzhuo"
+      }
+    ],
+    "tags": []
+  },
+  {
+    "topic_en": "Having a break",
+    "part": 1,
+    "season": "2026-Jan-Apr",
+    "questions": [
+      {
+        "text": "1. How often do you take a rest for a break?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "2. What do you usually do when you are resting?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "3. Do you take a nap when you are taking your rest?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "4. How do you feel after taking a nap?",
+        "source": "tongzhuo"
+      }
+    ],
+    "tags": []
+  },
+  {
+    "topic_en": "Borrowing/ Lending",
+    "part": 1,
+    "season": "2026-Jan-Apr",
+    "questions": [
+      {
+        "text": "1. Have you ever borrowed books from others?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "2. Have you ever borrowed money from others?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "3. Do you like to lend things to others?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "4. How do you feel when people don't return things they borrowed from you?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "5. Do you mind if others borrow money from you?",
+        "source": "tongzhuo"
+      }
+    ],
+    "tags": []
+  },
+  {
+    "topic_en": "Advertisement",
+    "part": 1,
+    "season": "2026-Jan-Apr",
+    "questions": [
+      {
+        "text": "1.ls there an advertisement that made an impression on you when you were a child?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "2.Do you see a lot of advertising on trains or other transport?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "3.Do you like advertisements?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "4.What kind of advertising do you like?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "5. Do you often see advertisements when you are on your phone or computer?",
+        "source": "tongzhuo"
+      }
+    ],
+    "tags": []
+  },
+  {
+    "topic_en": "Chatting",
+    "part": 1,
+    "season": "2026-Jan-Apr",
+    "questions": [
+      {
+        "text": "1. Do you like chatting with friends?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "2. What do you usually chat about with friends?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "3. Do you prefer to chat with a group of people or with only one friend?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "4. Do you prefer to communicate face-to-face or via social media?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "5. Do you argue with friends?",
+        "source": "tongzhuo"
+      }
+    ],
+    "tags": []
+  },
+  {
+    "topic_en": "Growing vegetables/ fruits",
+    "part": 1,
+    "season": "2026-Jan-Apr",
+    "questions": [
+      {
+        "text": "1.Are you interested in growing vegetables and fruits?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "2. Is growing vegetables popular in your country？",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "3. Do many people grow vegetables in your city?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "4. Do you think it's easy to grow vegetables?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "5. Should schools teach students how to grow vegetables?",
+        "source": "tongzhuo"
+      }
+    ],
+    "tags": []
+  },
+  {
+    "topic_en": "Museum",
+    "part": 1,
+    "season": "2026-Jan-Apr",
+    "questions": [
+      {
+        "text": "1. Do you think museums are important?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "2. Are there many museums in your hometown?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "3. Do you often visit a museum?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "4. When was the last time you visited a museum?",
+        "source": "tongzhuo"
+      }
+    ],
+    "tags": []
+  },
+  {
+    "topic_en": "Crowded place",
+    "part": 1,
+    "season": "2026-Jan-Apr",
+    "questions": [
+      {
+        "text": "1. Is the city where you live crowded?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "2. Is there a crowded place near where you live?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "3. Do you like crowded places?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "4. Do most people like crowded places?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "5. When was the last time you were in a crowded place?",
+        "source": "tongzhuo"
+      }
+    ],
+    "tags": []
+  },
+  {
+    "topic_en": "Going out",
+    "part": 1,
+    "season": "2026-Jan-Apr",
+    "questions": [
+      {
+        "text": "1. Do you bring food or snacks with you when going out?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "2. Do you always take your mobile phone with you when going out?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "3. Do you often bring cash with you?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "4. How often do you use cash?",
+        "source": "tongzhuo"
+      }
+    ],
+    "tags": []
+  },
+  {
+    "topic_en": "Staying with old people",
+    "part": 1,
+    "season": "2026-Jan-Apr",
+    "questions": [
+      {
+        "text": "1. Have you ever worked with old people?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "2. Are you happy to work with people who are older than you?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "3. What are the benefits of being friends or working with old people?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "4. Do you enjoy spending time with old people?",
+        "source": "tongzhuo"
+      }
+    ],
+    "tags": []
+  },
+  {
+    "topic_en": "Doing something well",
+    "part": 1,
+    "season": "2026-Jan-Apr",
+    "questions": [
+      {
+        "text": "1. Do you have an experience that you did something well?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "2. Do you have an experience that your teacher thought you did a good job?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "3. Do you often tell your friends when they do something well?",
+        "source": "tongzhuo"
+      }
+    ],
+    "tags": []
+  },
+  {
+    "topic_en": "Shoes",
+    "part": 1,
+    "season": "2026-Jan-Apr",
+    "questions": [
+      {
+        "text": "1. Do you like buying shoes? How often?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "2. Have you ever bought shoes online?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "3. How much money do you usually spend on shoes?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "4. Which do you prefer, fashionable shoes or comfortable shoes?",
+        "source": "tongzhuo"
+      }
+    ],
+    "tags": []
+  },
+  {
+    "topic_en": "Rules",
+    "part": 1,
+    "season": "2026-Jan-Apr",
+    "questions": [
+      {
+        "text": "1. Are there any rules for students at your school?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "2. Do you think students would benefit more from more rules?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "3. Do you remember a teacher who does his or her job very well?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "4. Do you prefer to have more or fewer rules at school?",
+        "source": "tongzhuo"
+      }
+    ],
+    "tags": []
+  },
+  {
+    "topic_en": "Public places",
+    "part": 1,
+    "season": "2026-Jan-Apr",
+    "questions": [
+      {
+        "text": "1. Have you ever talked with someone you don't know in public places?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "2. Do you wear headphones in public places?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "3. Would you like to see more public places near where you live?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "4. Do you often go to public places with your friends?",
+        "source": "tongzhuo"
+      }
+    ],
+    "tags": []
+  },
+  {
+    "topic_en": "Plants",
+    "part": 1,
+    "season": "2026-Jan-Apr",
+    "questions": [
+      {
+        "text": "1. Do you keep plants at home?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "2. What plant did you grow when you were young?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "3. Do you know anything about growing a plant?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "4. Do Chinese people send plants as gifts?",
+        "source": "tongzhuo"
+      }
+    ],
+    "tags": []
+  },
+  {
+    "topic_en": "Spare time",
+    "part": 1,
+    "season": "2026-Jan-Apr",
+    "questions": [
+      {
+        "text": "1. Do you often have free time?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "2. What do you usually do in your spare time?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "3.Which day do you have more free time on, Saturday or Sunday?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "4.Would you like to have more free time in the future?",
+        "source": "tongzhuo"
+      }
+    ],
+    "tags": []
+  },
+  {
+    "topic_en": "Taking photos",
+    "part": 1,
+    "season": "2026-Jan-Apr",
+    "questions": [
+      {
+        "text": "1. Do you like taking photos?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "2. Do you like taking selfies?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "3. What's your favourite family photo?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "4. Do you want to improve your photography skills?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "5. Where do you like to go to take photos?",
+        "source": "tongzhuo"
+      }
+    ],
+    "tags": []
+  },
+  {
+    "topic_en": "The city you live in",
+    "part": 1,
+    "season": "2026-Jan-Apr",
+    "questions": [
+      {
+        "text": "1.What city do you live in?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "2.Do you like this city? Why?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "3.How long have you lived in this city?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "4.Are there big changes in this city?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "5.ls this city your permanent residence?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "6.Are there people of different ages living in this city?",
+        "source": "tongzhuo"
+      }
+    ],
+    "tags": []
+  },
+  {
+    "topic_en": "Home/Accommodation",
+    "part": 1,
+    "season": "2026-Jan-Apr",
+    "questions": [
+      {
+        "text": "1. Do you live in a house or an apartment?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "2. Do you prefer living in a house or an apartment?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "3. Do you live with anyone else? Why/Why not?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "4. Do you like the place you currently live in? Why/Why not?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "5. What is your favourite room in your house/apartment?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "6. Would you like to change anything in your house/apartment?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "7. Would you like to move to a different house/apartment in the future?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "8. What do you think makes a place comfortable to live in?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "9. Can you describe the place where you live?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "10. How long have you lived there?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "11. Who do you live with?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "12. Do you plan to live there for a long time?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "13. What is the difference between where you are living now and where you have lived in the past?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "14. What do you usually do in your flat?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "15. Which room does your family spend most of the time in?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "16. Are there transport facilities to your home that are very good?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "17. What kinds of accommodation do you live in?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "18. Please describe the room you live in?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "19. What room does your family spend most of the time in?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "What kind of housing/accommodation do you live in?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Do you live in a house or a flat?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "What's the difference between where you are living now and where you have lived in the past?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Can you describe the place where you live?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Which room does your family spend most of the time in?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "How long have you lived there?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "What do you usually do in your house/flat/room?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Do you plan to live there for a long time?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Are the transport facilities to your home very good?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Please describe the room you live in?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Do you prefer living in a house or a flat?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "What part of your home do you like the most?",
+        "source": "laokaoya"
+      }
+    ],
+    "tags": []
+  },
+  {
+    "topic_en": "Hometown",
+    "part": 1,
+    "season": "2026-Jan-Apr",
+    "questions": [
+      {
+        "text": "1. Where is your hometown?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "2. What kind of place is it?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "3. How long have you lived there?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "4. What is one of the best things about living there?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "5. Is there anything you dislike about it?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "6. Do you know many people who live nearby?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "7. Do you have any relatives who still live in your hometown? Why/Why not?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "8. Do you often go back to visit your hometown? Why/Why not?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "9. Can you describe your hometown a little bit?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "10. Do you like it?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "11. Did you like living there?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "12. Do you think you'll continue living there for a long time?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "What's the name of your hometown (again)?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Is that a big city or a small place?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "How long have you been living there?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Do you like your hometown?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Is there anything you dislike about it?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "What do you like (most) about your hometown?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Do you like living there?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Please describe your hometown a little.",
+        "source": "laokaoya"
+      }
+    ],
+    "tags": []
+  },
+  {
+    "topic_en": "The area you live in",
+    "part": 1,
+    "season": "2026-Jan-Apr",
+    "questions": [
+      {
+        "text": "1. Where are you living at the moment?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "2. What kind of area is it?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "3. How long have you lived there?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "4. Do you know any of your neighbours?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "5. What do you like about living there?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "6. What changes have taken place in the area recently?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "7. Would you like to change anything about your area? Why/Why not?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "8. Would you like to continue living there in the future? Why/Why not?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "Do you like the area that you live in?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "What are some changes in the area recently?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Do you know any famous people in your area?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Where do you like to go to that area?",
+        "source": "laokaoya"
+      }
+    ],
+    "tags": []
+  },
+  {
+    "topic_en": "Work/studies",
+    "part": 1,
+    "season": "2026-Jan-Apr",
+    "questions": [
+      {
+        "text": "1. Do you work or are you a student?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "2. What do you do?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "3. Why did you choose to do this type of work?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "4. Do you like your job? Why/Why not?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "5.  What do you find the most interesting about the work you do? Why?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "6. Will you need to do any more study for your job?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "7. Where do you work?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "8. Is it a good place to work?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "9.  Would you like the place where you work to make any changes?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "10.  What technology do you use at work?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "11. What subjects are you studying?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "12. Why did you choose to study this subject?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "13. What do you like about your course?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "14.  What would you like to do after you finish your course?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "15. Do you prefer to study in the mornings or in the afternoons?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "16. Do you think you will miss being a student once you finish your studies? Why/why not?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "17. What technology do you use when you study?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "18. Are you enjoying your studies at the moment? Why/why not?",
+        "source": "tongzhuo"
+      },
+      {
+        "text": "Why did you choose to do that type of work (or, that job)?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Do you miss being a student?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Is it very interesting?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Do you like your job?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Why did you choose to study that subject? / Why did you choose to study those subjects?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Is it very interesting?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "What subject(s) are you studying?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Do you prefer to study in the mornings or the afternoons?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Are you looking forward to working?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Do you like your subject? (why/why not?)",
+        "source": "laokaoya"
+      }
+    ],
+    "tags": []
+  },
+  {
+    "topic_en": "Dreams",
+    "part": 1,
+    "source": "laokaoya_unmatched",
+    "questions": [
+      {
+        "text": "Can you remember the dreams you had?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Do you share your dreams with others?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Do you think dreams have special meanings?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Do you want to make your dreams come true?",
+        "source": "laokaoya"
+      }
+    ],
+    "tags": []
+  },
+  {
+    "topic_en": "Keys",
+    "part": 1,
+    "source": "laokaoya_unmatched",
+    "questions": [
+      {
+        "text": "Do you always bring a lot of keys with you?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Have you ever lost your keys?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Do you often forget the keys and lock yourself out?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Do you think it's a good idea to leave your keys with a neighbor?",
+        "source": "laokaoya"
+      }
+    ],
+    "tags": []
+  },
+  {
+    "topic_en": "Day off",
+    "part": 1,
+    "source": "laokaoya_unmatched",
+    "questions": [
+      {
+        "text": "When was the last time you had a few days off?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "What do you usually do when you have days off?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "Do you usually spend your days off with your parents or with your friends?",
+        "source": "laokaoya"
+      },
+      {
+        "text": "What would you like to do if you have a day off tomorrow?",
+        "source": "laokaoya"
+      }
+    ],
+    "tags": []
+  }
+]
