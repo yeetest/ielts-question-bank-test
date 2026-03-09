@@ -301,9 +301,11 @@ function openModal(tab, idx) {
       .replace(/[\u200b\u200c\u200d\ufeff]/g, '')
       .replace(/\s*You should say.*/is, '')
       .trim();
+    console.log('you_should_say raw:', cc.you_should_say);
     const ccBullets = (cc.you_should_say || [])
       .map(s => s.replace(/[\u200b\u200c\u200d\ufeff]/g, '').trim())
       .filter(s => s && !/^you should say/i.test(s));
+    console.log('ccBullets after filter:', ccBullets);
 
     content.innerHTML = `
       <h2>${item.topic || item.topic_en || ''}</h2>
