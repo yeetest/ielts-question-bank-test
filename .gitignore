@@ -1,4 +1,20 @@
-/pipeline/
+# Intermediate pipeline files
+pipeline/normalized_tags_for_merged_part2.txt
+pipeline/initial_extraction_for_*.txt
+
+# Human-editable txt files (regenerate with json_to_txt.py)
+merged_part1.txt
+merged_part2.txt
+
+# Old tag files
+tags/content_tags.json
+tags/question_type_tags.json
+
+# Mac system files
+.DS_Store
+
+# Ideation folder
+ideation//pipeline/
 /ideation/
 *.txt
 !tags/tags.txt
