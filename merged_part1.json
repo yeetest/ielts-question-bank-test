@@ -423,6 +423,10 @@
       {
         "text": "6. What kind of news do you share with your friends?",
         "source": "tongzhuo"
+      },
+      {
+        "text": "7. Do you prefer to share news with your friends or your parents?",
+        "source": "yasige"
       }
     ],
     "tags": []
@@ -723,6 +727,14 @@
       {
         "text": "4. Do you prefer to have more or fewer rules at school?",
         "source": "tongzhuo"
+      },
+      {
+        "text": "5. Have you ever had a really dedicated teacher?",
+        "source": "yasige"
+      },
+      {
+        "text": "6. Would you like to work as a teacher in a rule-free school?",
+        "source": "yasige"
       }
     ],
     "tags": []
@@ -823,6 +835,10 @@
       {
         "text": "5. Where do you like to go to take photos?",
         "source": "tongzhuo"
+      },
+      {
+        "text": "6. Do you like to print out your photos or just keep them on your phone or camera?",
+        "source": "yasige"
       }
     ],
     "tags": []
@@ -855,6 +871,26 @@
       {
         "text": "6. Are there people of different ages living in this city?",
         "source": "tongzhuo"
+      },
+      {
+        "text": "7. Are the people friendly in the city?",
+        "source": "yasige"
+      },
+      {
+        "text": "8. Is the city friendly to children and old people?",
+        "source": "yasige"
+      },
+      {
+        "text": "9. Do you often see your neighbors?",
+        "source": "yasige"
+      },
+      {
+        "text": "10. What's the weather like where you live?",
+        "source": "yasige"
+      },
+      {
+        "text": "11. Would you recommend your city to others?",
+        "source": "yasige"
       }
     ],
     "tags": []
@@ -939,6 +975,34 @@
       {
         "text": "19. What part of your home do you like the most?",
         "source": "laokaoya"
+      },
+      {
+        "text": "20. What kind of house or apartment do you want to live in in the future?",
+        "source": "yasige"
+      },
+      {
+        "text": "21. Please describe the room you live in. What part of your home do you like the most?",
+        "source": "yasige"
+      },
+      {
+        "text": "22. What's your favorite room in your apartment or house?",
+        "source": "yasige"
+      },
+      {
+        "text": "23. What makes you feel pleasant in your home?",
+        "source": "yasige"
+      },
+      {
+        "text": "24. Do you think it is important to live in a comfortable environment?",
+        "source": "yasige"
+      },
+      {
+        "text": "25. Do you live in an apartment or a house?",
+        "source": "yasige"
+      },
+      {
+        "text": "26. What do you usually do in your apartment?",
+        "source": "yasige"
       }
     ],
     "tags": []
@@ -1015,6 +1079,34 @@
       {
         "text": "17. Please describe your hometown a little.",
         "source": "laokaoya"
+      },
+      {
+        "text": "18. Please describe your hometown a little. How long have you been living there?",
+        "source": "yasige"
+      },
+      {
+        "text": "19. What's your hometown famous for?",
+        "source": "yasige"
+      },
+      {
+        "text": "20. Did you learn about the history of your hometown at school?",
+        "source": "yasige"
+      },
+      {
+        "text": "21. Are there many young people in your hometown?",
+        "source": "yasige"
+      },
+      {
+        "text": "22. Is your hometown a good place for young people to pursue their careers?",
+        "source": "yasige"
+      },
+      {
+        "text": "23. Have you learned anything about the history of your hometown?",
+        "source": "yasige"
+      },
+      {
+        "text": "24. Did you learn about the culture of your hometown in your childhood?",
+        "source": "yasige"
       }
     ],
     "tags": []
@@ -1071,6 +1163,14 @@
       {
         "text": "12. Where do you like to go to that area?",
         "source": "laokaoya"
+      },
+      {
+        "text": "13. Are the people in your neighborhood nice and friendly?",
+        "source": "yasige"
+      },
+      {
+        "text": "14. Do you live in a noisy or a quiet area?",
+        "source": "yasige"
       }
     ],
     "tags": []
@@ -1250,5 +1350,185 @@
       }
     ],
     "tags": []
+  },
+  {
+    "topic_en": "Chatting/Conversation",
+    "part": 1,
+    "season": "",
+    "questions": [
+      {
+        "text": "1. Do you like chatting with friends?",
+        "source": "yasige"
+      },
+      {
+        "text": "2. What do you usually chat about with friends?",
+        "source": "yasige"
+      },
+      {
+        "text": "3. Do you prefer to chat with a group of people or with only one friend?",
+        "source": "yasige"
+      },
+      {
+        "text": "4. Do you prefer to communicate face-to-face or via social media?",
+        "source": "yasige"
+      },
+      {
+        "text": "5. Do you argue with friends?",
+        "source": "yasige"
+      }
+    ],
+    "content_tags": []
+  },
+  {
+    "topic_en": "Memory",
+    "part": 1,
+    "season": "",
+    "questions": [
+      {
+        "text": "1. Are you good at memorising things?",
+        "source": "yasige"
+      },
+      {
+        "text": "2. Have you ever forgotten something important?",
+        "source": "yasige"
+      },
+      {
+        "text": "3. What do you need to remember in your daily life?",
+        "source": "yasige"
+      },
+      {
+        "text": "4. How do you remember important things?",
+        "source": "yasige"
+      }
+    ],
+    "content_tags": []
+  },
+  {
+    "topic_en": "Happy things",
+    "part": 1,
+    "season": "",
+    "questions": [
+      {
+        "text": "1. Is there anything that has made you feel happy lately?",
+        "source": "yasige"
+      },
+      {
+        "text": "2. What made you happy when you were little?",
+        "source": "yasige"
+      },
+      {
+        "text": "3. What do you think will make you feel happy in the future?",
+        "source": "yasige"
+      },
+      {
+        "text": "4. When do you feel happy at work? Why?",
+        "source": "yasige"
+      },
+      {
+        "text": "5. Do you feel happy when buying new things?",
+        "source": "yasige"
+      },
+      {
+        "text": "6. Do you think people are happy when buying new things?",
+        "source": "yasige"
+      }
+    ],
+    "content_tags": []
+  },
+  {
+    "topic_en": "Work or studies",
+    "part": 1,
+    "season": "",
+    "questions": [
+      {
+        "text": "1. What subjects are you studying?",
+        "source": "yasige"
+      },
+      {
+        "text": "2. Do you like your subject?",
+        "source": "yasige"
+      },
+      {
+        "text": "3. Why did you choose to study that subject?",
+        "source": "yasige"
+      },
+      {
+        "text": "4. Do you think that your subject is popular in your country?",
+        "source": "yasige"
+      },
+      {
+        "text": "5. Do you have any plans for your studies in the next five years?",
+        "source": "yasige"
+      },
+      {
+        "text": "6. What are the benefits of being your age?",
+        "source": "yasige"
+      },
+      {
+        "text": "7. Do you want to change your major?",
+        "source": "yasige"
+      },
+      {
+        "text": "8. Do you prefer to study in the mornings or in the afternoons?",
+        "source": "yasige"
+      },
+      {
+        "text": "9. How much time do you spend on your studies each week?",
+        "source": "yasige"
+      },
+      {
+        "text": "10. Are you looking forward to working?",
+        "source": "yasige"
+      },
+      {
+        "text": "11. What technology do you use when you study?",
+        "source": "yasige"
+      },
+      {
+        "text": "12. What changes would you like to see in your school?",
+        "source": "yasige"
+      },
+      {
+        "text": "13. What work do you do?",
+        "source": "yasige"
+      },
+      {
+        "text": "14. Why did you choose to do that type of work (or that job)?",
+        "source": "yasige"
+      },
+      {
+        "text": "15. Do you like your job?",
+        "source": "yasige"
+      },
+      {
+        "text": "16. What requirements did you need to meet to get your current job?",
+        "source": "yasige"
+      },
+      {
+        "text": "17. Do you have any plans for your work in the next five years?",
+        "source": "yasige"
+      },
+      {
+        "text": "18. What do you think is the most important at the moment?",
+        "source": "yasige"
+      },
+      {
+        "text": "19. Do you want to change to another job?",
+        "source": "yasige"
+      },
+      {
+        "text": "20. Do you miss being a student?",
+        "source": "yasige"
+      },
+      {
+        "text": "21. What technology do you use at work?",
+        "source": "yasige"
+      },
+      {
+        "text": "22. Who helps you the most? And how?",
+        "source": "yasige"
+      }
+    ],
+    "content_tags": []
   }
 ]

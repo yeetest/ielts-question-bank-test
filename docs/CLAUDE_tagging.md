@@ -235,3 +235,72 @@ an area/subject of science you are interested in           → object | science 
 a quiet place you like to go                               → place | peaceful | likes_dislikes
 something that you can't live without                      → object | everyday_life
 ```
+
+
+
+
+## Question Type Tags (`type_tags`) — Part 3 only
+
+Each Part 3 question gets a `type_tags` array with one or more values. Assign all that apply; if genuinely ambiguous, use `unclear`.
+
+**Tag order convention:** `describe` → `analyze` → `evaluate` → `predict`
+
+**Script:** `pipeline/tag_question_types.py` — auto-tags Part 3 questions using keyword matching.
+
+---
+
+### describe
+Factual recall, listing, reporting what exists or what people do.
+
+Keywords: `what is/are`, `which`, `how many/much/often/long`, `tell me about`, `do you`, `have you`, `did you`, `is/are there`, `what do people`, `what activities/things/jobs`
+
+**Example:** *What kinds of shops are popular in your city?*
+
+---
+
+### analyze
+Causal or relational reasoning — explaining how or why things work, what changed, what the effects are.
+
+Keywords: `why`, `how does/do/did`, `what causes/reasons/factors`, `what impact/effect/influence`, `differences/similarities between`, `how does X affect Y`, `what has changed`, `what are the benefits/advantages/disadvantages/challenges/consequences/effects`
+
+**Example:** *Why do some people prefer shopping online?*
+
+---
+
+### evaluate
+Judgment, opinion, or recommendation — assessing good/bad, agreeing/disagreeing, weighing options.
+
+Keywords: `do you think`, `what do you think`, `should/shouldn't`, `is it important/necessary/good/bad/better/worse/right/wrong/fair`, `do you agree/believe/prefer`, `whether or not`, `advantages or disadvantages`, `positive and negative`, `waste of time`, `worth`, `better than`
+
+**Example:** *Do you think it's important for people to support local shops?*
+
+---
+
+### predict
+Future-oriented reasoning — what will happen, what might change.
+
+Keywords: `will`, `in the future`, `what changes will`, `what do you think will happen`, `what would happen`, `likely/probably/going to`
+
+**Example:** *Do you think more people will shop online in the future?*
+
+---
+
+### unclear
+Use when the question genuinely does not fit any of the above, or is too vague to classify confidently.
+
+---
+
+## Tagging with `tag_question_types.py`
+
+`pipeline/tag_question_types.py` auto-tags Part 3 questions by keyword matching against the rules above.
+
+```bash
+python3 pipeline/tag_question_types.py merged_part2.json
+```
+
+- Writes `type_tags` directly into each `part3` question in the JSON.
+- After running, always regenerate the `.txt` mirror:
+```bash
+python3 pipeline/json_to_txt.py merged_part2.json
+```
+- Review output in `merged_part2.txt` and correct any misclassifications manually, then sync back with `txt_to_json.py`.

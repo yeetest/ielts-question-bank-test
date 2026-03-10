@@ -18,3 +18,4 @@ ideation//pipeline/
 /ideation/
 *.txt
 !tags/tags.txt
+claude_tag_response.json

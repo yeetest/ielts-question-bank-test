@@ -4,73 +4,73 @@
 Personal IELTS Speaking question bank tool for Kathy (IELTS teacher).
 - JSON = source of truth. `index.html` fetches data at runtime via `fetch()`.
 - Deployed: GitHub main branch → Vercel auto-deploy.
-- **No Claude API calls.** Use Claude Code intelligence + lightweight local tools only.
+- **No Claude API calls.** Use Claude Code intelligence only.
 - Git push uses proxy: `http://127.0.0.1:7897`
 
 ## Folder Structure
 ```
-/
-├── CLAUDE.md               This file
-├── .gitignore              Excludes /pipeline/, *.txt (except tags/tags.txt)
-├── index.html              Internal viewer (fetches JSON at runtime)
-├── merged_part1.json       Part 1 question bank
-├── merged_part2.json       Part 2+3 question bank (with content_tags)
-├── docs/
-│   └── CLAUDE_tagging.md  Full tagging rules and pipeline documentation
+ielts-question-bank-test/
+├── CLAUDE.md
+├── .gitignore
+├── index.html
+├── merged_part1.json
+├── merged_part2.json
+├── merged_part1.txt         (gitignored — regenerate with json_to_txt.py)
+├── merged_part2.txt         (gitignored — regenerate with json_to_txt.py)
 ├── tags/
-│   └── tags.txt            Master tag vocabulary (tracked by git)
-└── pipeline/               Local-only dev tools — gitignored
-    ├── json_to_txt.py      JSON → human-editable .txt mirror
-    ├── txt_to_json.py      Edited .txt → back to JSON
-    ├── auto_tag_questions.py  Tags Part 3 questions (type_tags) via spaCy+keywords
-    ├── auto_tag_topics.py  Tags Part 2 topics (content_tags) via spaCy
-    ├── ingest_pipeline.py  Full ingest pipeline for new question banks
-    ├── merged_part1.txt    Human-editable mirror of merged_part1.json
-    ├── merged_part2.txt    Human-editable mirror of merged_part2.json
-    ├── initial_extraction_for_merged_part2.txt  Step 1 raw tag extractions
-    └── normalized_tags_for_merged_part2.txt     Step 3 normalised tags
+│   └── tags.txt             (ground truth tag vocabulary, tracked by git)
+├── docs/
+│   └── CLAUDE_tagging.md    (full tagging rules)
+└── pipeline/                (local dev only — gitignored)
+    ├── dedup_questions.py       (one-time dedup for existing JSONs only)
+    ├── renumber_questions.py    (renumbers questions sequentially within each topic)
+    ├── json_to_txt.py           (JSON → human-editable .txt)
+    ├── txt_to_json.py           (.txt → JSON sync)
+    ├── tag_question_types.py    (auto-tags Part 3 questions with type_tags via keyword matching)
+    ├── tag_content_topics.py    (auto-tags Part 2 topics with content_tags via fuzzy lookup + Claude batch)
+    └── ingest_pipeline.py       (future: ingest new source files)
 ```
 
-**Note:** `pipeline/` and all `.txt` files are gitignored (local dev only). Only JSON, HTML, `tags/tags.txt`, `docs/`, and `CLAUDE.md` are committed to GitHub.
+**Note:** `pipeline/` and all `.txt` files (except `tags/tags.txt`) are gitignored. Only JSON, HTML, `tags/tags.txt`, `docs/`, and `CLAUDE.md` are committed to GitHub.
 
 ## Human-in-the-Loop Edit Pattern
 
 The `.txt` files are human-editable mirrors of the JSON files. Kathy edits `.txt`; scripts sync to/from JSON.
 
-**Rule for Claude Code:**
-- Whenever you create or modify `merged_part1.json` or `merged_part2.json`, immediately run `json_to_txt.py` to regenerate the matching `.txt`.
-- When Kathy says she has edited a `.txt` file, run `txt_to_json.py` to sync changes back to JSON before doing anything else.
-
-**Scripts** (both live in `pipeline/`):
+**Rules for Claude Code:**
+- After any edit to `merged_part1.json` or `merged_part2.json`, immediately regenerate the matching `.txt`:
 ```bash
-# JSON → TXT (run after any JSON change)
-python3 pipeline/json_to_txt.py --part 1   # regenerates merged_part1.txt
-python3 pipeline/json_to_txt.py --part 2   # regenerates merged_part2.txt
-
-# TXT → JSON (run when Kathy edits a .txt)
-python3 pipeline/txt_to_json.py --part 1   # syncs merged_part1.txt → merged_part1.json
-python3 pipeline/txt_to_json.py --part 2   # syncs merged_part2.txt → merged_part2.json
+python3 pipeline/json_to_txt.py merged_part1.json
+python3 pipeline/json_to_txt.py merged_part2.json
+```
+- When Kathy says she has edited a `.txt` file, run `txt_to_json.py` to sync back to JSON before doing anything else:
+```bash
+python3 pipeline/txt_to_json.py merged_part1.txt
+python3 pipeline/txt_to_json.py merged_part2.txt
 ```
 
 **TXT format for Part 1:**
 ```
 == Daily routine ==
+SEASON: 2026-Jan-Apr
 [tongzhuo] 1. What is your daily study routine?
 [tongzhuo] 2. Have you ever changed your routine?
 
 == Life stages ==
+SEASON: 2026-Jan-Apr
 [tongzhuo] 1. What did you often do with your friends in your childhood?
 ```
 
 **TXT format for Part 2:**
 ```
 == Describe a person who likes to look after the natural world ==
-TAGS: people | environment | conservation
+SEASON: 2026-Jan-Apr
+TAGS: people | nature | conservation
 - Who this person is
 - What he or she does
 PART3:
 [tongzhuo][evaluate] 1. Do you think parents should teach their children how to protect the environment?
-[laokaoya][analyze] Why are some people more willing to protect wild animals than others?
+[laokaoya][analyze] 2. Why are some people more willing to protect wild animals than others?
 ```
 
 ## JSON Schemas
@@ -106,44 +106,56 @@ PART3:
 }
 ```
 
-## Tagging Taxonomy
+## Tagging
+
+Full tagging rules are in `docs/CLAUDE_tagging.md`. Summary:
 
 ### Topic-level (`content_tags`) — Part 2 only
-Flat array. Position 0 is always the **category**; positions 1–3 are **thematic tags**.
+Flat array. Position 0 is the **category**; positions 1–3 are **thematic tags** from `tags/tags.txt`.
 
-**category** (position 0): `people` | `place` | `object` | `experience/activity`
-- `people` — topic is about a person or group of people
-- `place` — topic is about a location (building, park, mountain, room, etc.)
-- `object` — tangible or intangible thing (book, film, technology, heirloom, animal, etc.)
-- `experience/activity` — something that happened, a plan, habit, event, travel, routine, etc.
+**Categories:** `people` | `place` | `object` | `experience/activity`
 
-**thematic tags** (positions 1–3): most semantically meaningful words from the topic.
-- Always check `tags/tags.txt` before creating a new tag.
-- Normalise synonyms: film/movie → `movies`; job/career/occupation → `work`; journey/trip/vacation → `travel`.
-- Key recurring tags: `aspiration`, `admiration`, `likes_dislikes`, `first_time`, `helping_others`, `interesting`, `sentimental`, `travel`, `work`, `nature`.
+**Thematic tags:** check `tags/tags.txt` before creating a new tag. Normalise synonyms (film/movie → `movies`, job/career → `work`, journey/trip → `travel`). Append new tags to `tags/tags.txt` with a description.
 
-**Example:** `"content_tags": ["people", "nature", "conservation"]`
+**Example:** `"content_tags": ["experience/activity", "music", "likes_dislikes"]`
 
 ### Question-level (`type_tags`) — Part 3 only
-- List from: `describe`, `analyze`, `evaluate`, `predict`, `unclear`
+Per-question array. Values: `describe` | `analyze` | `evaluate` | `predict` | `unclear`
 
 ## Data Sources
 - **同桌英语** → `source: "tongzhuo"`
 - **老烤鸭** → `source: "laokaoya"`
 
-## Ingest Pipeline (for new question banks)
-Correct order — run `pipeline/ingest_pipeline.py`:
-1. Parse raw file (JSON or TXT)
-2. Clean (strip Chinese chars, fix spacing, strip numbering)
-3. Format to exact schema above
-4. Tag topics (`content_tags`) — Part 2 only
-5. Tag questions (`type_tags`) — Part 3 only
-6. Write `temp_review.txt` for human inspection
-7. On approval → `--merge` flag, then commit & push
+## Pipeline Scripts
 
+### dedup_questions.py
+Removes near-duplicate questions within each topic using fuzzy matching. **For existing JSONs only** — future ingest dedup is a separate script not yet built.
 ```bash
-python3 pipeline/ingest_pipeline.py <input_file> --part 2 --source tongzhuo [--season "2026-Jan-Apr"] [--merge]
+python3 dedup_questions.py merged_part1.json
+python3 dedup_questions.py merged_part2.json
 ```
+
+### renumber_questions.py
+Renumbers questions sequentially within each topic after edits or dedup.
+```bash
+python3 pipeline/renumber_questions.py merged_part1.json
+python3 pipeline/renumber_questions.py merged_part2.json
+```
+
+### tag_question_types.py
+Auto-tags Part 3 questions with `type_tags` using keyword matching (describe / analyze / evaluate / predict / unclear). Full rules in `docs/CLAUDE_tagging.md`.
+```bash
+python3 pipeline/tag_question_types.py merged_part2.json
+```
+
+### tag_content_topics.py
+Auto-tags Part 2 topics with `content_tags` using fuzzy lookup against `tags/tags.txt` + Claude batch prompting.
+```bash
+python3 pipeline/tag_content_topics.py merged_part2.json
+```
+
+### ingest_pipeline.py
+For ingesting new source files into the question bank (future use).
 
 ## Git / Push
 Proxy must be set for push:
@@ -151,15 +163,10 @@ Proxy must be set for push:
 export https_proxy=http://127.0.0.1:7897
 git push
 ```
-Or set in git config:
-```bash
-git config http.proxy http://127.0.0.1:7897
-```
 
 ## Conventions
+- Never embed data in `index.html` — always `fetch()` from JSON files
 - Always preserve `season` field as-is (e.g. `"2026-Jan-Apr"`)
 - Strip all Chinese characters and zero-width chars from English fields
-- Never embed data in `index.html` — always `fetch()` from JSON files
-- When adding new thematic tags, append them to `tags/tags.txt` with a description
-- `content_tags` is a flat array — NOT a `{category, substance, frame_angle}` object (that was the old format)
-- After any JSON edit, always regenerate the matching `.txt` mirror (see Human-in-the-Loop section above)
+- `content_tags` is a flat array — NOT an object (old `{category, substance, frame_angle}` format is obsolete)
+- After any JSON edit, always regenerate the matching `.txt` mirror

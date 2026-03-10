@@ -259,6 +259,28 @@
         "type_tags": [
           "analyze"
         ]
+      },
+      {
+        "text": "8. What can children do to help their parents?",
+        "source": "yasige",
+        "type_tags": [
+          "describe"
+        ]
+      },
+      {
+        "text": "9. Do you think schools should teach children to do household chores?",
+        "source": "yasige",
+        "type_tags": [
+          "describe",
+          "evaluate"
+        ]
+      },
+      {
+        "text": "10. Why are employees reluctant to ask their managers for help?",
+        "source": "yasige",
+        "type_tags": [
+          "analyze"
+        ]
       }
     ],
     "tags": [],
@@ -1964,6 +1986,28 @@
         "type_tags": [
           "evaluate"
         ]
+      },
+      {
+        "text": "7. What should the government do to make libraries better?",
+        "source": "yasige",
+        "type_tags": [
+          "evaluate"
+        ]
+      },
+      {
+        "text": "8. Do you think old people spend more time reading than young people?",
+        "source": "yasige",
+        "type_tags": [
+          "describe",
+          "evaluate"
+        ]
+      },
+      {
+        "text": "9. Which one is better, paper books or e-books?",
+        "source": "yasige",
+        "type_tags": [
+          "describe"
+        ]
       }
     ],
     "tags": [],
@@ -2231,6 +2275,13 @@
         "source": "tongzhuo",
         "type_tags": [
           "describe"
+        ]
+      },
+      {
+        "text": "7. How does drawing help to enhance children’s creativity?",
+        "source": "yasige",
+        "type_tags": [
+          "analyze"
         ]
       }
     ],
@@ -3571,6 +3622,21 @@
         "type_tags": [
           "evaluate"
         ]
+      },
+      {
+        "text": "5. Why do all children like toys?",
+        "source": "yasige",
+        "type_tags": [
+          "analyze"
+        ]
+      },
+      {
+        "text": "6. Do you think it is good for a child to always take his or her favourite toy with",
+        "source": "yasige",
+        "type_tags": [
+          "describe",
+          "evaluate"
+        ]
       }
     ],
     "tags": [
@@ -3579,6 +3645,462 @@
     "content_tags": [
       "object",
       "everyday_life"
+    ]
+  },
+  {
+    "topic": "an occasion when you lost your way",
+    "part": 2,
+    "season": "",
+    "cue_card": {
+      "prompt": "Describe an occasion when you lost your way",
+      "you_should_say": [
+        "Where you were",
+        "What happened",
+        "How you felt",
+        "And explain how you found your way"
+      ]
+    },
+    "part3": [
+      {
+        "text": "1. Why do some people get lost more easily than others?",
+        "source": "yasige",
+        "type_tags": [
+          "analyze"
+        ]
+      },
+      {
+        "text": "2. Do you think it is important to be able to read a map?",
+        "source": "yasige",
+        "type_tags": [
+          "describe",
+          "evaluate"
+        ]
+      },
+      {
+        "text": "3. Do you think it is important to do some preparation before you travel to new places?",
+        "source": "yasige",
+        "type_tags": [
+          "describe",
+          "evaluate"
+        ]
+      },
+      {
+        "text": "4. How can people find their way when they are lost?",
+        "source": "yasige",
+        "type_tags": [
+          "describe"
+        ]
+      },
+      {
+        "text": "5. Is a paper map still necessary?",
+        "source": "yasige",
+        "type_tags": [
+          "describe"
+        ]
+      },
+      {
+        "text": "6. How do people react when they get lost?",
+        "source": "yasige",
+        "type_tags": [
+          "analyze"
+        ]
+      }
+    ],
+    "content_tags": [
+      "experience/activity",
+      "navigation",
+      "memorable"
+    ]
+  },
+  {
+    "topic": "a time when the electricity suddenly went off",
+    "part": 2,
+    "season": "",
+    "cue_card": {
+      "prompt": "Describe a time when the electricity suddenly went off",
+      "you_should_say": [
+        "When/where it happened",
+        "How long it lasted",
+        "What you did during that time",
+        "And explain how you felt about it"
+      ]
+    },
+    "part3": [
+      {
+        "text": "1. Which is better, electric bicycles or ordinary bicycles?",
+        "source": "yasige",
+        "type_tags": [
+          "describe"
+        ]
+      },
+      {
+        "text": "2. Do you think electric bicycles will replace ordinary bicycles in the future?",
+        "source": "yasige",
+        "type_tags": [
+          "describe",
+          "evaluate",
+          "predict"
+        ]
+      },
+      {
+        "text": "3. Which is better, electric cars or petrol cars?",
+        "source": "yasige",
+        "type_tags": [
+          "describe"
+        ]
+      },
+      {
+        "text": "4. How did people manage to live without electricity in the ancient world?",
+        "source": "yasige",
+        "type_tags": [
+          "analyze"
+        ]
+      },
+      {
+        "text": "5. Is it difficult for the government to replace all the petrol cars with electric cars?",
+        "source": "yasige",
+        "type_tags": [
+          "describe"
+        ]
+      },
+      {
+        "text": "6. Do people use more electricity now than before?",
+        "source": "yasige",
+        "type_tags": [
+          "describe"
+        ]
+      }
+    ],
+    "content_tags": [
+      "experience/activity",
+      "disruption"
+    ]
+  },
+  {
+    "topic": "a successful sportsperson you admire",
+    "part": 2,
+    "season": "",
+    "cue_card": {
+      "prompt": "Describe a successful sportsperson you admire",
+      "you_should_say": [
+        "Who he/she is",
+        "What you know about him/her",
+        "What he/she is like in real life",
+        "What achievement he/she has made",
+        "And explain why you admire him/her"
+      ]
+    },
+    "part3": [
+      {
+        "text": "1. Should students have physical education and do sports at school?",
+        "source": "yasige",
+        "type_tags": [
+          "evaluate"
+        ]
+      },
+      {
+        "text": "2. What qualities should an athlete have?",
+        "source": "yasige",
+        "type_tags": [
+          "evaluate"
+        ]
+      },
+      {
+        "text": "3. Is talent important in sports?",
+        "source": "yasige",
+        "type_tags": [
+          "describe"
+        ]
+      },
+      {
+        "text": "4. Is it easy to identify children’s talents?",
+        "source": "yasige",
+        "type_tags": [
+          "describe"
+        ]
+      },
+      {
+        "text": "5. What is the most popular sport in your country?",
+        "source": "yasige",
+        "type_tags": [
+          "describe"
+        ]
+      },
+      {
+        "text": "6. Why are there so few top athletes?",
+        "source": "yasige",
+        "type_tags": [
+          "analyze"
+        ]
+      }
+    ],
+    "content_tags": [
+      "people",
+      "admiration",
+      "achievement"
+    ]
+  },
+  {
+    "topic": "a time when you received good service in a shop/store",
+    "part": 2,
+    "season": "",
+    "cue_card": {
+      "prompt": "Describe a time when you received good service in a shop/store",
+      "you_should_say": [
+        "Where the shop is",
+        "When you went to the shop",
+        "What service you received from the staff",
+        "And explain how you felt about the service"
+      ]
+    },
+    "part3": [
+      {
+        "text": "1. Why are shopping malls so popular in China?",
+        "source": "yasige",
+        "type_tags": [
+          "analyze"
+        ]
+      },
+      {
+        "text": "2. What are the advantages and disadvantages of shopping in small shops?",
+        "source": "yasige",
+        "type_tags": [
+          "describe",
+          "analyze"
+        ]
+      },
+      {
+        "text": "3. Why do some people not like shopping in small shops?",
+        "source": "yasige",
+        "type_tags": [
+          "analyze"
+        ]
+      },
+      {
+        "text": "4. What are the differences between online shopping and in-store shopping?",
+        "source": "yasige",
+        "type_tags": [
+          "describe",
+          "analyze"
+        ]
+      },
+      {
+        "text": "5. What are the advantages and disadvantages of shopping online?",
+        "source": "yasige",
+        "type_tags": [
+          "describe",
+          "analyze"
+        ]
+      },
+      {
+        "text": "6. Can consumption drive economic growth?",
+        "source": "yasige",
+        "type_tags": [
+          "describe"
+        ]
+      }
+    ],
+    "content_tags": [
+      "experience/activity",
+      "service",
+      "shopping"
+    ]
+  },
+  {
+    "topic": "a city that you have been to and would like to visit again",
+    "part": 2,
+    "season": "",
+    "cue_card": {
+      "prompt": "Describe a city that you have been to and would like to visit again",
+      "you_should_say": [
+        "When you visited it",
+        "What you did there",
+        "What it was like",
+        "And explain why you would like to visit it again"
+      ]
+    },
+    "part3": [
+      {
+        "text": "1. What's the difference between the city and the countryside?",
+        "source": "yasige",
+        "type_tags": [
+          "analyze"
+        ]
+      },
+      {
+        "text": "2. Some people say large cities are suitable for old people. What do you think?",
+        "source": "yasige",
+        "type_tags": [
+          "evaluate"
+        ]
+      },
+      {
+        "text": "3. Do you think it is possible that all of the population move to cities?",
+        "source": "yasige",
+        "type_tags": [
+          "describe",
+          "evaluate"
+        ]
+      },
+      {
+        "text": "4. Do you think people in the countryside are friendlier than people in the city?",
+        "source": "yasige",
+        "type_tags": [
+          "describe",
+          "evaluate"
+        ]
+      },
+      {
+        "text": "5. Are there any changes in your city?",
+        "source": "yasige",
+        "type_tags": [
+          "describe"
+        ]
+      },
+      {
+        "text": "6. What should the government do to improve citizens’ safety?",
+        "source": "yasige",
+        "type_tags": [
+          "evaluate"
+        ]
+      }
+    ],
+    "content_tags": [
+      "place",
+      "travel",
+      "likes_dislikes"
+    ]
+  },
+  {
+    "topic": "a shop/store you enjoy visiting",
+    "part": 2,
+    "season": "",
+    "cue_card": {
+      "prompt": "Describe a shop/store you enjoy visiting",
+      "you_should_say": [
+        "What the shop’s name is",
+        "Where it is",
+        "How often you visit it",
+        "And explain why you like to visit it"
+      ]
+    },
+    "part3": [
+      {
+        "text": "1. Do people in your country go to the shopping mall frequently?",
+        "source": "yasige",
+        "type_tags": [
+          "describe"
+        ]
+      },
+      {
+        "text": "2. How have people’s shopping habits changed in recent decades?",
+        "source": "yasige",
+        "type_tags": [
+          "analyze"
+        ]
+      },
+      {
+        "text": "3. Do you think shops and shopping malls will disappear in the future?",
+        "source": "yasige",
+        "type_tags": [
+          "describe",
+          "evaluate",
+          "predict"
+        ]
+      },
+      {
+        "text": "4. What are the differences between shopping in street markets and big shopping malls?",
+        "source": "yasige",
+        "type_tags": [
+          "describe",
+          "analyze"
+        ]
+      },
+      {
+        "text": "5. What are the differences in the shopping habits of different age groups?",
+        "source": "yasige",
+        "type_tags": [
+          "describe"
+        ]
+      },
+      {
+        "text": "6. What are the differences between shopping online and in-store?",
+        "source": "yasige",
+        "type_tags": [
+          "describe",
+          "analyze"
+        ]
+      }
+    ],
+    "content_tags": [
+      "place",
+      "shopping",
+      "likes_dislikes"
+    ]
+  },
+  {
+    "topic": "a TV or online program you like to watch",
+    "part": 2,
+    "season": "",
+    "cue_card": {
+      "prompt": "Describe a TV or online program you like to watch",
+      "you_should_say": [
+        "What it is",
+        "What it is about",
+        "Who you watch it with",
+        "And explain why you like to watch it"
+      ]
+    },
+    "part3": [
+      {
+        "text": "1. What programs do people like to watch in your country?",
+        "source": "yasige",
+        "type_tags": [
+          "describe"
+        ]
+      },
+      {
+        "text": "2. Do people in your country like to watch foreign TV programs?",
+        "source": "yasige",
+        "type_tags": [
+          "describe"
+        ]
+      },
+      {
+        "text": "3. What's the benefit of letting kids watch animal videos than visiting zoos?",
+        "source": "yasige",
+        "type_tags": [
+          "describe"
+        ]
+      },
+      {
+        "text": "4. Do teachers play videos in class in your country?",
+        "source": "yasige",
+        "type_tags": [
+          "describe"
+        ]
+      },
+      {
+        "text": "5. Do you think watching talk shows is a waste of time?",
+        "source": "yasige",
+        "type_tags": [
+          "describe",
+          "evaluate"
+        ]
+      },
+      {
+        "text": "6. Do you think we can acquire knowledge from watching TV programs?",
+        "source": "yasige",
+        "type_tags": [
+          "describe",
+          "evaluate"
+        ]
+      }
+    ],
+    "content_tags": [
+      "object",
+      "media",
+      "likes_dislikes"
     ]
   }
 ]
