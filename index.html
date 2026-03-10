@@ -113,6 +113,11 @@
     border: none;
     color: #555;
   }
+  #modal-back {
+    position: absolute;
+    top: 12px;
+    right: 52px;
+  }
   .back-btn {
     display: inline-flex;
     align-items: center;
@@ -120,14 +125,18 @@
     font-size: 0.8rem;
     color: #6366f1;
     cursor: pointer;
-    margin-bottom: 12px;
     font-weight: bold;
     background: #f0f7ff;
-    padding: 4px 8px;
-    border-radius: 4px;
+    padding: 5px 12px;
+    border-radius: 6px;
     border: 1px solid #d0e7ff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.06);
+    transition: box-shadow 0.15s, background 0.15s;
   }
-  .back-btn:hover { background: #e0f0ff; }
+  .back-btn:hover {
+    background: #e0f0ff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.16);
+  }
 
   /* ---------- Modal Content ---------- */
   .section-label {
@@ -272,6 +281,7 @@
 <div class="overlay" id="overlay">
   <div class="modal" id="modal">
     <button class="close-btn" id="close-btn">✕</button>
+    <div id="modal-back"></div>
     <div id="modal-content"></div>
   </div>
 </div>
@@ -295,10 +305,11 @@
    Central state object — single source of truth for the app.
    ---------------------------------------------------------- */
 const state = {
-  part1Data: [],      // array of Part 1 topic objects from merged_part1.json
-  part2Data: [],      // array of Part 2+3 topic objects from merged_part2.json
+  part1Data: [],        // array of Part 1 topic objects from merged_part1.json
+  part2Data: [],        // array of Part 2+3 topic objects from merged_part2.json
   currentTab: 'part1',
-  lastActiveTag: null // remembers which tag was open so Back button works
+  lastActiveTag: null,  // content tag name — back returns to tag summary
+  lastTypeSummary: null // type tag name — back returns to type summary
 };
 
 
@@ -406,15 +417,17 @@ function renderGrid(tab) {
    ---------------------------------------------------------- */
 function openModal(tab, idx) {
   const item = tab === 'part1' ? state.part1Data[idx] : state.part2Data[idx];
-  const backBtn = state.lastActiveTag
-    ? `<div class="back-btn" id="back-btn">← Back to ${state.lastActiveTag}</div>`
+
+  // Render back button into its own absolute-positioned div (top-right of modal)
+  const hasBack = state.lastActiveTag || state.lastTypeSummary;
+  document.getElementById('modal-back').innerHTML = hasBack
+    ? `<button class="back-btn" id="back-btn">← back</button>`
     : '';
 
   let html = '';
 
   if (tab === 'part1') {
     html = `
-      ${backBtn}
       <h2>${item.topic_en}</h2>
       <div class="section-label">${item.season} · Part 1</div>
       ${renderContentTags(item.content_tags)}
@@ -427,7 +440,6 @@ function openModal(tab, idx) {
     const cc = item.cue_card || {};
     const p3 = item.part3 || [];
     html = `
-      ${backBtn}
       <h2>${item.topic || item.topic_en || ''}</h2>
       <div class="section-label">${item.season} · Part 2 + 3</div>
       <div class="section-label">Cue Card</div>
@@ -452,9 +464,14 @@ function openModal(tab, idx) {
   document.getElementById('modal-content').innerHTML = html;
   openOverlay();
 
-  // Wire up back button if present
+  // Wire up back button — returns to whichever summary was last open
   const back = document.getElementById('back-btn');
-  if (back) back.addEventListener('click', () => openTagSummary(state.lastActiveTag));
+  if (back) {
+    back.addEventListener('click', () => {
+      if (state.lastActiveTag) openTagSummary(state.lastActiveTag);
+      else if (state.lastTypeSummary) openTypeSummary(state.lastTypeSummary);
+    });
+  }
 }
 
 
@@ -465,6 +482,8 @@ function openModal(tab, idx) {
    ---------------------------------------------------------- */
 function openTagSummary(tagName) {
   state.lastActiveTag = tagName;
+  state.lastTypeSummary = null;
+  document.getElementById('modal-back').innerHTML = '';
 
   const matches = [];
   state.part1Data.forEach((item, idx) => {
@@ -500,24 +519,42 @@ function openTagSummary(tagName) {
    Shows all Part 3 questions across all topics with that type.
    ---------------------------------------------------------- */
 function openTypeSummary(typeName) {
+  state.lastTypeSummary = typeName;
+  state.lastActiveTag = null;
+  document.getElementById('modal-back').innerHTML = '';
+
   const results = [];
   state.part1Data.forEach(topic => {
     (topic.questions || [])
       .filter(q => q.type_tags && q.type_tags.includes(typeName))
-      .forEach(q => results.push({ topicTitle: topic.topic_en, text: q.text, part: 1 }));
+      .forEach(q => results.push({ topicTitle: topic.topic_en, text: q.text, part: 1, idx: null }));
   });
-  state.part2Data.forEach(topic => {
+  state.part2Data.forEach((topic, idx) => {
     (topic.part3 || [])
       .filter(q => q.type_tags && q.type_tags.includes(typeName))
-      .forEach(q => results.push({ topicTitle: topic.topic || topic.topic_en, text: q.text, part: 2 }));
+      .forEach(q => results.push({ topicTitle: topic.topic || topic.topic_en, text: q.text, part: 2, idx }));
   });
 
-  const rows = results.map(res => `
-    <div style="margin-bottom:12px; border-bottom:1px solid #eee; padding-bottom:8px;">
-      <div style="font-weight:bold; color:#6366f1; font-size:0.75rem;">Part ${res.part} · ${res.topicTitle}</div>
-      <div>${res.text}</div>
-    </div>
-  `).join('');
+  const rows = results.map(res => {
+    if (res.part === 2) {
+      // Part 2/3 questions are clickable — clicking opens the topic card
+      return `
+        <div class="summary-item" data-modal-idx="${res.idx}" data-modal-tab="part2"
+             style="margin-bottom:12px; border-bottom:1px solid #eee; padding-bottom:8px;">
+          <div style="font-weight:bold; color:#6366f1; font-size:0.75rem;">Part 2 · ${res.topicTitle}</div>
+          <div>${res.text}</div>
+        </div>
+      `;
+    } else {
+      // Part 1 questions remain as plain text
+      return `
+        <div style="margin-bottom:12px; border-bottom:1px solid #eee; padding-bottom:8px;">
+          <div style="font-weight:bold; color:#6366f1; font-size:0.75rem;">Part 1 · ${res.topicTitle}</div>
+          <div>${res.text}</div>
+        </div>
+      `;
+    }
+  }).join('');
 
   document.getElementById('modal-content').innerHTML = `
     <h2>Question Type: ${typeName}</h2>
@@ -560,10 +597,11 @@ document.addEventListener('DOMContentLoaded', () => {
       openTagSummary(ctag.dataset.contentTag);
       return;
     }
-    // Card click — open topic detail modal
+    // Card click — open topic detail modal (no back button)
     const card = e.target.closest('.card');
     if (card) {
       state.lastActiveTag = null;
+      state.lastTypeSummary = null;
       openModal(card.dataset.tab, parseInt(card.dataset.idx));
     }
   });
