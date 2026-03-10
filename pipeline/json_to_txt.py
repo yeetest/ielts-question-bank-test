@@ -12,8 +12,9 @@ Output: same directory as input, with .txt extension.
 Part 1 format:
   == Daily routine ==
   SEASON: 2026-Jan-Apr
-  [tongzhuo] 1. What is your daily study routine?
-  [laokaoya] Do you prefer morning or evening routines?
+  TAGS: experience/activity, everyday_life
+  [tongzhuo] 1. What is your daily study routine? [description]
+  [laokaoya] 2. Do you often go to bed late or early? [frequency]
   (blank line between topics)
 
 Part 2 format:
@@ -38,9 +39,14 @@ def topic_to_txt_part1(item):
     lines.append(f"== {item['topic_en']} ==")
     if item.get("season"):
         lines.append(f"SEASON: {item['season']}")
+    ct = item.get("content_tags", [])
+    if ct:
+        lines.append("TAGS: " + ", ".join(ct))
     for q in item.get("questions", []):
         src = q.get("source", "unknown")
-        lines.append(f"[{src}] {q['text']}")
+        type_tags = q.get("type_tags", [])
+        tag_str = " [" + ", ".join(type_tags) + "]" if type_tags else ""
+        lines.append(f"[{src}] {q['text']}{tag_str}")
     return "\n".join(lines)
 
 

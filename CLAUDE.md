@@ -110,17 +110,26 @@ PART3:
 
 Full tagging rules are in `docs/CLAUDE_tagging.md`. Summary:
 
-### Topic-level (`content_tags`) — Part 2 only
-Flat array. Position 0 is the **category**; positions 1–3 are **thematic tags** from `tags/tags.txt`.
+### Topic-level (`content_tags`) — Part 1 and Part 2
+Flat array. Position 0 is the **category**; remaining positions are **thematic tags** from `tags/tags.txt`.
+
+- Part 1: 2–3 tags total (topics are abstract nouns, fewer tags needed)
+- Part 2: 2–4 tags total
 
 **Categories:** `people` | `place` | `object` | `experience/activity`
 
 **Thematic tags:** check `tags/tags.txt` before creating a new tag. Normalise synonyms (film/movie → `movies`, job/career → `work`, journey/trip → `travel`). Append new tags to `tags/tags.txt` with a description.
 
-**Example:** `"content_tags": ["experience/activity", "music", "likes_dislikes"]`
+**Part 1 field:** `content_tags` added alongside existing `tags: []` (do not replace it)
+**Part 2 field:** `content_tags`
 
-### Question-level (`type_tags`) — Part 3 only
+**Example Part 1:** `"content_tags": ["experience/activity", "reading", "likes_dislikes"]`
+**Example Part 2:** `"content_tags": ["experience/activity", "music", "likes_dislikes"]`
+
+### Question-level (`type_tags`) — Part 1 questions and Part 3 questions
 Per-question array. Values: `describe` | `analyze` | `evaluate` | `predict` | `unclear`
+
+Part 1 questions lean heavily toward `describe` and `evaluate`. Full rules in `docs/CLAUDE_tagging.md`.
 
 ## Data Sources
 - **同桌英语** → `source: "tongzhuo"`
@@ -143,14 +152,16 @@ python3 pipeline/renumber_questions.py merged_part2.json
 ```
 
 ### tag_question_types.py
-Auto-tags Part 3 questions with `type_tags` using keyword matching (describe / analyze / evaluate / predict / unclear). Full rules in `docs/CLAUDE_tagging.md`.
+Auto-tags questions with `type_tags` using keyword matching (describe / analyze / evaluate / predict / unclear). Supports both Part 1 (`questions` array) and Part 2 (`part3` array). Full rules in `docs/CLAUDE_tagging.md`.
 ```bash
+python3 pipeline/tag_question_types.py merged_part1.json
 python3 pipeline/tag_question_types.py merged_part2.json
 ```
 
 ### tag_content_topics.py
-Auto-tags Part 2 topics with `content_tags` using fuzzy lookup against `tags/tags.txt` + Claude batch prompting.
+Auto-tags topics with `content_tags` using fuzzy lookup against `tags/tags.txt` + Claude batch prompting. Supports both Part 1 (`topic_en` field) and Part 2 (`topic` field). Full rules in `docs/CLAUDE_tagging.md`.
 ```bash
+python3 pipeline/tag_content_topics.py merged_part1.json
 python3 pipeline/tag_content_topics.py merged_part2.json
 ```
 

@@ -6,26 +6,47 @@
     "questions": [
       {
         "text": "1. What is your daily study routine?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "2. Have you ever changed your routine?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "experience",
+          "comparison"
+        ]
       },
       {
         "text": "3. Do you think it is important to have a daily routine for your study?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "evaluation"
+        ]
       },
       {
         "text": "4. What part of your day do you like best?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description",
+          "preference"
+        ]
       },
       {
         "text": "5. Do you often go to bed late or early?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "frequency"
+        ]
       }
     ],
-    "tags": []
+    "tags": [],
+    "content_tags": [
+      "experience/activity",
+      "everyday_life"
+    ]
   },
   {
     "topic_en": "Life stages",
@@ -34,34 +55,62 @@
     "questions": [
       {
         "text": "1. What did you often do with your friends in your childhood?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "experience"
+        ]
       },
       {
         "text": "2. What do you think is the most important at the moment?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "evaluation"
+        ]
       },
       {
         "text": "3. Do you have any plans for the next five years? /What's your plan for your next stage of life?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description",
+          "hypothetical"
+        ]
       },
       {
         "text": "4. How do people remember each stage of their lives?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "5. Do you enjoy being the age you are now?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "preference"
+        ]
       },
       {
         "text": "6. At what age do you think people are the happiest?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "evaluation"
+        ]
       },
       {
         "text": "7. Do you have any plans for the next five years?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "description",
+          "hypothetical"
+        ]
       }
     ],
-    "tags": []
+    "tags": [],
+    "content_tags": [
+      "experience/activity",
+      "nostalgia",
+      "aspiration"
+    ]
   },
   {
     "topic_en": "View",
@@ -70,22 +119,38 @@
     "questions": [
       {
         "text": "1. Do you like taking pictures of different views?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "preference"
+        ]
       },
       {
         "text": "2. Do you prefer views in urban areas or rural areas?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "preference"
+        ]
       },
       {
         "text": "3. Do you prefer views in our own country or in other countries?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "preference"
+        ]
       },
       {
         "text": "4. Have you seen an unforgettable and beautiful view or scenery?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "experience"
+        ]
       }
     ],
-    "tags": []
+    "tags": [],
+    "content_tags": [
+      "place",
+      "nature"
+    ]
   },
   {
     "topic_en": "Scenery",
@@ -94,26 +159,46 @@
     "questions": [
       {
         "text": "1. Do you look out the window at the scenery when travelling by bus or car?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "frequency"
+        ]
       },
       {
         "text": "2. Do you prefer the mountains or the sea?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "preference"
+        ]
       },
       {
         "text": "3. Do you like to take pictures of the scenery?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "preference"
+        ]
       },
       {
         "text": "4. What are the most beautiful sights you have seen while traveling?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "5. Do you like to take scenery pictures?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "preference"
+        ]
       }
     ],
-    "tags": []
+    "tags": [],
+    "content_tags": [
+      "place",
+      "nature",
+      "travel"
+    ]
   },
   {
     "topic_en": "Childhood activities",
@@ -122,26 +207,48 @@
     "questions": [
       {
         "text": "1. What are your favourite activities?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "2. What were your favourite activities when you were a child?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "description",
+          "preference"
+        ]
       },
       {
         "text": "3. Did you prefer to do activities alone or with a group of people when you were a child?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "experience"
+        ]
       },
       {
         "text": "4. Are there any differences between the activities you liked when you were a child and those you like now?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description",
+          "comparison"
+        ]
       },
       {
         "text": "5. Is there a building that you would like to visit?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "description"
+        ]
       }
     ],
-    "tags": []
+    "tags": [],
+    "content_tags": [
+      "experience/activity",
+      "childhood",
+      "likes_dislikes"
+    ]
   },
   {
     "topic_en": "Building",
@@ -150,22 +257,38 @@
     "questions": [
       {
         "text": "1. Are there tall buildings near your home?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "2. Do you take photos of buildings?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "preference"
+        ]
       },
       {
         "text": "3. Is there a building that you would like to visit?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "4. Do you want to live in a tall building?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "hypothetical"
+        ]
       }
     ],
-    "tags": []
+    "tags": [],
+    "content_tags": [
+      "place",
+      "architecture"
+    ]
   },
   {
     "topic_en": "Typing",
@@ -174,22 +297,39 @@
     "questions": [
       {
         "text": "1. Do you prefer typing or handwriting?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "preference"
+        ]
       },
       {
         "text": "2. Do you type on the desktop or laptop keyboard every day?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "frequency"
+        ]
       },
       {
         "text": "3. When did you learn how to type on a keyboard?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "experience"
+        ]
       },
       {
         "text": "4. How do you improve your typing?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "description"
+        ]
       }
     ],
-    "tags": []
+    "tags": [],
+    "content_tags": [
+      "experience/activity",
+      "technology",
+      "learning"
+    ]
   },
   {
     "topic_en": "Hobby",
@@ -198,22 +338,38 @@
     "questions": [
       {
         "text": "1. Do you have any hobbies?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "2. Did you have any hobbies when you were a child?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "experience"
+        ]
       },
       {
         "text": "3. Do you have a hobby that you've had since childhood?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "4. Do you have the same hobbies as your family members?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "description"
+        ]
       }
     ],
-    "tags": []
+    "tags": [],
+    "content_tags": [
+      "experience/activity",
+      "likes_dislikes"
+    ]
   },
   {
     "topic_en": "Sports team",
@@ -222,22 +378,40 @@
     "questions": [
       {
         "text": "1. Have you ever been part of a sports team?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "experience"
+        ]
       },
       {
         "text": "2. Are team sports popular in your culture?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "3. Do you like watching team games? Why?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "preference",
+          "evaluation"
+        ]
       },
       {
         "text": "4. What are the differences between team sports and individual sports?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "description",
+          "comparison"
+        ]
       }
     ],
-    "tags": []
+    "tags": [],
+    "content_tags": [
+      "experience/activity",
+      "social_event"
+    ]
   },
   {
     "topic_en": "Reading",
@@ -246,22 +420,39 @@
     "questions": [
       {
         "text": "1. Do you like reading?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "preference"
+        ]
       },
       {
         "text": "2. Do you prefer to read on paper or on a screen?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "preference"
+        ]
       },
       {
         "text": "3. When do you need to read carefully and when not?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "4. Do you prefer scanning or detailed reading?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "preference"
+        ]
       }
     ],
-    "tags": []
+    "tags": [],
+    "content_tags": [
+      "experience/activity",
+      "reading",
+      "likes_dislikes"
+    ]
   },
   {
     "topic_en": "Gifts",
@@ -270,26 +461,46 @@
     "questions": [
       {
         "text": "1. Have you ever sent handmade gifts to others?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "experience"
+        ]
       },
       {
         "text": "2. Have you ever received a great gift?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "experience"
+        ]
       },
       {
         "text": "3. What do you consider when choosing a gift?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "evaluation"
+        ]
       },
       {
         "text": "4. Do you think you're good at choosing gifts?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "evaluation"
+        ]
       },
       {
         "text": "5. What gifts have you received recently?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "experience"
+        ]
       }
     ],
-    "tags": []
+    "tags": [],
+    "content_tags": [
+      "object",
+      "shopping",
+      "sentimental"
+    ]
   },
   {
     "topic_en": "Morning time",
@@ -298,26 +509,48 @@
     "questions": [
       {
         "text": "1. Do you like getting up early in the morning?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "preference"
+        ]
       },
       {
         "text": "2. What do you usually do in the morning?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "frequency"
+        ]
       },
       {
         "text": "3. What did you do in the morning when you were little? Why?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "experience",
+          "evaluation"
+        ]
       },
       {
         "text": "4. Are there any differences between what you do in the morning now and what you did in the past?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "description",
+          "comparison"
+        ]
       },
       {
         "text": "5. Do you spend your mornings doing the same things on both the weekends and weekdays? Why?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "frequency",
+          "evaluation"
+        ]
       }
     ],
-    "tags": []
+    "tags": [],
+    "content_tags": [
+      "experience/activity",
+      "everyday_life"
+    ]
   },
   {
     "topic_en": "Walking",
@@ -326,26 +559,46 @@
     "questions": [
       {
         "text": "1. Do you walk a lot?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "frequency"
+        ]
       },
       {
         "text": "2. Did you often go outside to have a walk when you were a child?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "experience"
+        ]
       },
       {
         "text": "3. Why do people like to walk in parks?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "evaluation"
+        ]
       },
       {
         "text": "4. Where would you like to take a long walk if you had the chance?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "hypothetical"
+        ]
       },
       {
         "text": "5. Where did you go for a walk lately?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "description"
+        ]
       }
     ],
-    "tags": []
+    "tags": [],
+    "content_tags": [
+      "experience/activity",
+      "everyday_life",
+      "nature"
+    ]
   },
   {
     "topic_en": "Food",
@@ -354,22 +607,40 @@
     "questions": [
       {
         "text": "1. What is your favourite food?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "description",
+          "preference"
+        ]
       },
       {
         "text": "2. What kind of food did you like when you were young?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "3. Do you eat different foods at different times of the year?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "frequency"
+        ]
       },
       {
         "text": "4. Has your favourite food changed since you were a child?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "comparison"
+        ]
       }
     ],
-    "tags": []
+    "tags": [],
+    "content_tags": [
+      "object",
+      "food",
+      "likes_dislikes"
+    ]
   },
   {
     "topic_en": "Pets and Animals",
@@ -378,22 +649,40 @@
     "questions": [
       {
         "text": "1. What's your favourite animal? Why?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "evaluation"
+        ]
       },
       {
         "text": "2. Have you ever had a pet before?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "experience"
+        ]
       },
       {
         "text": "3. Where do you prefer to keep your pet, indoors or outdoors?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "description",
+          "preference"
+        ]
       },
       {
         "text": "4. What is the most popular animal in China?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "description"
+        ]
       }
     ],
-    "tags": []
+    "tags": [],
+    "content_tags": [
+      "object",
+      "animals",
+      "likes_dislikes"
+    ]
   },
   {
     "topic_en": "Sharing",
@@ -402,34 +691,60 @@
     "questions": [
       {
         "text": "1. Did your parents teach you to share when you were a child?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "experience"
+        ]
       },
       {
         "text": "2. What kinds of things do you like to share with others?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "preference"
+        ]
       },
       {
         "text": "3. What kinds of things are not suitable for sharing?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "4. Do you have anything to share with others recently?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "5. Who is the first person you would like to share good news with?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "6. What kind of news do you share with your friends?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "7. Do you prefer to share news with your friends or your parents?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "preference"
+        ]
       }
     ],
-    "tags": []
+    "tags": [],
+    "content_tags": [
+      "experience/activity",
+      "helping_others",
+      "friendship"
+    ]
   },
   {
     "topic_en": "Having a break",
@@ -438,22 +753,39 @@
     "questions": [
       {
         "text": "1. How often do you take a rest for a break?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "frequency",
+          "preference"
+        ]
       },
       {
         "text": "2. What do you usually do when you are resting?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "frequency"
+        ]
       },
       {
         "text": "3. Do you take a nap when you are taking your rest?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "preference"
+        ]
       },
       {
         "text": "4. How do you feel after taking a nap?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description"
+        ]
       }
     ],
-    "tags": []
+    "tags": [],
+    "content_tags": [
+      "experience/activity",
+      "everyday_life"
+    ]
   },
   {
     "topic_en": "Borrowing/ Lending",
@@ -462,22 +794,39 @@
     "questions": [
       {
         "text": "1. Have you ever borrowed books from others?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "experience"
+        ]
       },
       {
         "text": "2. Do you like to lend things to others?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "preference"
+        ]
       },
       {
         "text": "3. How do you feel when people don't return things they borrowed from you?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "4. Do you mind if others borrow money from you?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "preference"
+        ]
       }
     ],
-    "tags": []
+    "tags": [],
+    "content_tags": [
+      "experience/activity",
+      "money",
+      "friendship"
+    ]
   },
   {
     "topic_en": "Advertisement",
@@ -486,26 +835,47 @@
     "questions": [
       {
         "text": "1. ls there an advertisement that made an impression on you when you were a child?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "experience"
+        ]
       },
       {
         "text": "2. Do you see a lot of advertising on trains or other transport?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "frequency"
+        ]
       },
       {
         "text": "3. Do you like advertisements?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "preference"
+        ]
       },
       {
         "text": "4. What kind of advertising do you like?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description",
+          "preference"
+        ]
       },
       {
         "text": "5. Do you often see advertisements when you are on your phone or computer?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "frequency"
+        ]
       }
     ],
-    "tags": []
+    "tags": [],
+    "content_tags": [
+      "object",
+      "media",
+      "technology"
+    ]
   },
   {
     "topic_en": "Chatting",
@@ -514,26 +884,46 @@
     "questions": [
       {
         "text": "1. Do you like chatting with friends?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "preference"
+        ]
       },
       {
         "text": "2. What do you usually chat about with friends?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "frequency"
+        ]
       },
       {
         "text": "3. Do you prefer to chat with a group of people or with only one friend?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "preference"
+        ]
       },
       {
         "text": "4. Do you prefer to communicate face-to-face or via social media?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "preference"
+        ]
       },
       {
         "text": "5. Do you argue with friends?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description"
+        ]
       }
     ],
-    "tags": []
+    "tags": [],
+    "content_tags": [
+      "experience/activity",
+      "communication",
+      "friendship"
+    ]
   },
   {
     "topic_en": "Growing vegetables/ fruits",
@@ -542,26 +932,46 @@
     "questions": [
       {
         "text": "1. Are you interested in growing vegetables and fruits?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "preference"
+        ]
       },
       {
         "text": "2. Is growing vegetables popular in your country？",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "3. Do many people grow vegetables in your city?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "4. Do you think it's easy to grow vegetables?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "evaluation"
+        ]
       },
       {
         "text": "5. Should schools teach students how to grow vegetables?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "evaluation"
+        ]
       }
     ],
-    "tags": []
+    "tags": [],
+    "content_tags": [
+      "experience/activity",
+      "nature",
+      "food"
+    ]
   },
   {
     "topic_en": "Museum",
@@ -570,22 +980,39 @@
     "questions": [
       {
         "text": "1. Do you think museums are important?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "evaluation"
+        ]
       },
       {
         "text": "2. Are there many museums in your hometown?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "3. Do you often visit a museum?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "frequency"
+        ]
       },
       {
         "text": "4. When was the last time you visited a museum?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "experience"
+        ]
       }
     ],
-    "tags": []
+    "tags": [],
+    "content_tags": [
+      "place",
+      "culture",
+      "learning"
+    ]
   },
   {
     "topic_en": "Crowded place",
@@ -594,26 +1021,45 @@
     "questions": [
       {
         "text": "1. Is the city where you live crowded?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "2. Is there a crowded place near where you live?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "3. Do you like crowded places?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "preference"
+        ]
       },
       {
         "text": "4. Do most people like crowded places?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "5. When was the last time you were in a crowded place?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "experience"
+        ]
       }
     ],
-    "tags": []
+    "tags": [],
+    "content_tags": [
+      "place",
+      "social_event"
+    ]
   },
   {
     "topic_en": "Going out",
@@ -622,22 +1068,38 @@
     "questions": [
       {
         "text": "1. Do you bring food or snacks with you when going out?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "frequency"
+        ]
       },
       {
         "text": "2. Do you always take your mobile phone with you when going out?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "frequency"
+        ]
       },
       {
         "text": "3. Do you often bring cash with you?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "frequency"
+        ]
       },
       {
         "text": "4. How often do you use cash?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "frequency"
+        ]
       }
     ],
-    "tags": []
+    "tags": [],
+    "content_tags": [
+      "experience/activity",
+      "everyday_life"
+    ]
   },
   {
     "topic_en": "Staying with old people",
@@ -646,22 +1108,39 @@
     "questions": [
       {
         "text": "1. Have you ever worked with old people?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "experience"
+        ]
       },
       {
         "text": "2. Are you happy to work with people who are older than you?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "preference"
+        ]
       },
       {
         "text": "3. What are the benefits of being friends or working with old people?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "4. Do you enjoy spending time with old people?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "preference"
+        ]
       }
     ],
-    "tags": []
+    "tags": [],
+    "content_tags": [
+      "experience/activity",
+      "family",
+      "helping_others"
+    ]
   },
   {
     "topic_en": "Doing something well",
@@ -670,18 +1149,31 @@
     "questions": [
       {
         "text": "1. Do you have an experience that you did something well?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "2. Do you have an experience that your teacher thought you did a good job?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "3. Do you often tell your friends when they do something well?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "frequency"
+        ]
       }
     ],
-    "tags": []
+    "tags": [],
+    "content_tags": [
+      "experience/activity",
+      "achievement"
+    ]
   },
   {
     "topic_en": "Shoes",
@@ -690,22 +1182,39 @@
     "questions": [
       {
         "text": "1. Do you like buying shoes? How often?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "preference"
+        ]
       },
       {
         "text": "2. Have you ever bought shoes online?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "experience"
+        ]
       },
       {
         "text": "3. How much money do you usually spend on shoes?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "frequency"
+        ]
       },
       {
         "text": "4. Which do you prefer, fashionable shoes or comfortable shoes?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "preference"
+        ]
       }
     ],
-    "tags": []
+    "tags": [],
+    "content_tags": [
+      "object",
+      "shopping",
+      "likes_dislikes"
+    ]
   },
   {
     "topic_en": "Rules",
@@ -714,30 +1223,53 @@
     "questions": [
       {
         "text": "1. Are there any rules for students at your school?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "2. Do you think students would benefit more from more rules?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "evaluation"
+        ]
       },
       {
         "text": "3. Do you remember a teacher who does his or her job very well?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "experience"
+        ]
       },
       {
         "text": "4. Do you prefer to have more or fewer rules at school?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "preference"
+        ]
       },
       {
         "text": "5. Have you ever had a really dedicated teacher?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "experience"
+        ]
       },
       {
         "text": "6. Would you like to work as a teacher in a rule-free school?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "hypothetical"
+        ]
       }
     ],
-    "tags": []
+    "tags": [],
+    "content_tags": [
+      "object",
+      "restriction",
+      "learning"
+    ]
   },
   {
     "topic_en": "Public places",
@@ -746,22 +1278,38 @@
     "questions": [
       {
         "text": "1. Have you ever talked with someone you don't know in public places?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "experience"
+        ]
       },
       {
         "text": "2. Do you wear headphones in public places?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "frequency"
+        ]
       },
       {
         "text": "3. Would you like to see more public places near where you live?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "hypothetical"
+        ]
       },
       {
         "text": "4. Do you often go to public places with your friends?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "frequency"
+        ]
       }
     ],
-    "tags": []
+    "tags": [],
+    "content_tags": [
+      "place",
+      "social_event"
+    ]
   },
   {
     "topic_en": "Plants",
@@ -770,22 +1318,39 @@
     "questions": [
       {
         "text": "1. Do you keep plants at home?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "2. What plant did you grow when you were young?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "experience"
+        ]
       },
       {
         "text": "3. Do you know anything about growing a plant?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "4. Do Chinese people send plants as gifts?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description"
+        ]
       }
     ],
-    "tags": []
+    "tags": [],
+    "content_tags": [
+      "object",
+      "nature",
+      "home"
+    ]
   },
   {
     "topic_en": "Spare time",
@@ -794,22 +1359,39 @@
     "questions": [
       {
         "text": "1. Do you often have free time?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "frequency"
+        ]
       },
       {
         "text": "2. What do you usually do in your spare time?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "frequency"
+        ]
       },
       {
         "text": "3. Which day do you have more free time on, Saturday or Sunday?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "4. Would you like to have more free time in the future?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "hypothetical"
+        ]
       }
     ],
-    "tags": []
+    "tags": [],
+    "content_tags": [
+      "experience/activity",
+      "everyday_life",
+      "likes_dislikes"
+    ]
   },
   {
     "topic_en": "Taking photos",
@@ -818,30 +1400,54 @@
     "questions": [
       {
         "text": "1. Do you like taking photos?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "preference"
+        ]
       },
       {
         "text": "2. Do you like taking selfies?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "preference"
+        ]
       },
       {
         "text": "3. What's your favourite family photo?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "preference"
+        ]
       },
       {
         "text": "4. Do you want to improve your photography skills?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "hypothetical"
+        ]
       },
       {
         "text": "5. Where do you like to go to take photos?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description",
+          "preference"
+        ]
       },
       {
         "text": "6. Do you like to print out your photos or just keep them on your phone or camera?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "preference"
+        ]
       }
     ],
-    "tags": []
+    "tags": [],
+    "content_tags": [
+      "experience/activity",
+      "art",
+      "likes_dislikes"
+    ]
   },
   {
     "topic_en": "The city you live in",
@@ -850,50 +1456,89 @@
     "questions": [
       {
         "text": "1. What city do you live in?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "2. Do you like this city? Why?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "preference",
+          "evaluation"
+        ]
       },
       {
         "text": "3. How long have you lived in this city?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "4. Are there big changes in this city?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description",
+          "comparison"
+        ]
       },
       {
         "text": "5. ls this city your permanent residence?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "6. Are there people of different ages living in this city?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "7. Are the people friendly in the city?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "8. Is the city friendly to children and old people?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "9. Do you often see your neighbors?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "frequency"
+        ]
       },
       {
         "text": "10. What's the weather like where you live?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "11. Would you recommend your city to others?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "evaluation"
+        ]
       }
     ],
-    "tags": []
+    "tags": [],
+    "content_tags": [
+      "place",
+      "home"
+    ]
   },
   {
     "topic_en": "Home/Accommodation",
@@ -902,110 +1547,200 @@
     "questions": [
       {
         "text": "1. Do you prefer living in a house or an apartment?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "preference"
+        ]
       },
       {
         "text": "2. Do you live with anyone else? Why/Why not?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description",
+          "evaluation"
+        ]
       },
       {
         "text": "3. Do you like the place you currently live in? Why/Why not?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "preference",
+          "evaluation"
+        ]
       },
       {
         "text": "4. What is your favourite room in your house/apartment?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description",
+          "preference"
+        ]
       },
       {
         "text": "5. Would you like to change anything in your house/apartment?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "comparison",
+          "hypothetical"
+        ]
       },
       {
         "text": "6. Would you like to move to a different house/apartment in the future?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "hypothetical"
+        ]
       },
       {
         "text": "7. What do you think makes a place comfortable to live in?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "evaluation"
+        ]
       },
       {
         "text": "8. Can you describe the place where you live?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "9. How long have you lived there?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "10. Who do you live with?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "11. Do you plan to live there for a long time?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "hypothetical"
+        ]
       },
       {
         "text": "12. What's the difference between where you are living now and where you have lived in the past?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "comparison"
+        ]
       },
       {
         "text": "13. What do you usually do in your house/flat/room?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "frequency"
+        ]
       },
       {
         "text": "14. Which room does your family spend most of the time in?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "15. Are there transport facilities to your home that are very good?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description",
+          "evaluation"
+        ]
       },
       {
         "text": "16. What kind of housing/accommodation do you live in?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "17. Please describe the room you live in?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "18. Do you prefer living in a house or a flat?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "preference"
+        ]
       },
       {
         "text": "19. What part of your home do you like the most?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "description",
+          "preference"
+        ]
       },
       {
         "text": "20. What kind of house or apartment do you want to live in in the future?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "description",
+          "hypothetical"
+        ]
       },
       {
         "text": "21. Please describe the room you live in. What part of your home do you like the most?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "description",
+          "preference"
+        ]
       },
       {
         "text": "22. What's your favorite room in your apartment or house?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "preference"
+        ]
       },
       {
         "text": "23. What makes you feel pleasant in your home?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "evaluation"
+        ]
       },
       {
         "text": "24. Do you think it is important to live in a comfortable environment?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "evaluation"
+        ]
       },
       {
         "text": "25. Do you live in an apartment or a house?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "26. What do you usually do in your apartment?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "frequency"
+        ]
       }
     ],
-    "tags": []
+    "tags": [],
+    "content_tags": [
+      "place",
+      "home"
+    ]
   },
   {
     "topic_en": "Hometown",
@@ -1014,102 +1749,181 @@
     "questions": [
       {
         "text": "1. Where is your hometown?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "2. What kind of place is it?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "3. How long have you been living there?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "4. What is one of the best things about living there?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "5. Is there anything you dislike about it?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "6. Do you know many people who live nearby?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "7. Do you have any relatives who still live in your hometown? Why/Why not?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description",
+          "evaluation"
+        ]
       },
       {
         "text": "8. Do you often go back to visit your hometown? Why/Why not?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "frequency",
+          "evaluation"
+        ]
       },
       {
         "text": "9. Can you describe your hometown a little bit?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "10. Do you like it?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "preference"
+        ]
       },
       {
         "text": "11. Do you like living there?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "preference"
+        ]
       },
       {
         "text": "12. Do you think you'll continue living there for a long time?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "evaluation"
+        ]
       },
       {
         "text": "13. What's the name of your hometown (again)?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "14. Is that a big city or a small place?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "15. Do you like your hometown?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "preference"
+        ]
       },
       {
         "text": "16. What do you like (most) about your hometown?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "preference"
+        ]
       },
       {
         "text": "17. Please describe your hometown a little.",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "18. Please describe your hometown a little. How long have you been living there?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "19. What's your hometown famous for?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "20. Did you learn about the history of your hometown at school?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "experience"
+        ]
       },
       {
         "text": "21. Are there many young people in your hometown?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "22. Is your hometown a good place for young people to pursue their careers?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "evaluation"
+        ]
       },
       {
         "text": "23. Have you learned anything about the history of your hometown?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "experience"
+        ]
       },
       {
         "text": "24. Did you learn about the culture of your hometown in your childhood?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "experience"
+        ]
       }
     ],
-    "tags": []
+    "tags": [],
+    "content_tags": [
+      "place",
+      "home",
+      "nostalgia"
+    ]
   },
   {
     "topic_en": "The area you live in",
@@ -1118,62 +1932,112 @@
     "questions": [
       {
         "text": "1. Where are you living at the moment?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "2. What kind of area is it?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "3. How long have you lived there?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "4. Do you know any of your neighbours?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "5. What do you like about living there?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "preference"
+        ]
       },
       {
         "text": "6. What changes have taken place in the area recently?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "comparison"
+        ]
       },
       {
         "text": "7. Would you like to change anything about your area? Why/Why not?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "evaluation",
+          "hypothetical"
+        ]
       },
       {
         "text": "8. Would you like to continue living there in the future? Why/Why not?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "evaluation",
+          "hypothetical"
+        ]
       },
       {
         "text": "9. Do you like the area that you live in?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "preference"
+        ]
       },
       {
         "text": "10. What are some changes in the area recently?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "description",
+          "comparison"
+        ]
       },
       {
         "text": "11. Do you know any famous people in your area?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "12. Where do you like to go to that area?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "description",
+          "preference"
+        ]
       },
       {
         "text": "13. Are the people in your neighborhood nice and friendly?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "14. Do you live in a noisy or a quiet area?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "description"
+        ]
       }
     ],
-    "tags": []
+    "tags": [],
+    "content_tags": [
+      "place",
+      "home"
+    ]
   },
   {
     "topic_en": "Work/studies",
@@ -1182,102 +2046,181 @@
     "questions": [
       {
         "text": "1. Do you work or are you a student?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "2. What do you do?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "3. Why did you choose to do this type of work?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "evaluation"
+        ]
       },
       {
         "text": "4. Do you like your job? Why/Why not?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "preference",
+          "evaluation"
+        ]
       },
       {
         "text": "5. What do you find the most interesting about the work you do? Why?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "evaluation"
+        ]
       },
       {
         "text": "6. Will you need to do any more study for your job?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "hypothetical"
+        ]
       },
       {
         "text": "7. Where do you work?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "8. Is it a good place to work?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "evaluation"
+        ]
       },
       {
         "text": "9. Would you like the place where you work to make any changes?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "hypothetical"
+        ]
       },
       {
         "text": "10. What technology do you use at work?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "11. What subject(s) are you studying?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "12. Why did you choose to study this subject?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "evaluation"
+        ]
       },
       {
         "text": "13. What do you like about your course?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "preference"
+        ]
       },
       {
         "text": "14. What would you like to do after you finish your course?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "hypothetical"
+        ]
       },
       {
         "text": "15. Do you prefer to study in the mornings or the afternoons?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "preference"
+        ]
       },
       {
         "text": "16. Do you think you will miss being a student once you finish your studies? Why/why not?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "evaluation",
+          "hypothetical"
+        ]
       },
       {
         "text": "17. What technology do you use when you study?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "18. Are you enjoying your studies at the moment? Why/why not?",
-        "source": "tongzhuo"
+        "source": "tongzhuo",
+        "type_tags": [
+          "evaluation"
+        ]
       },
       {
         "text": "19. Why did you choose to do that type of work (or, that job)?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "evaluation"
+        ]
       },
       {
         "text": "20. Do you miss being a student?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "evaluation"
+        ]
       },
       {
         "text": "21. Is it very interesting?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "evaluation"
+        ]
       },
       {
         "text": "22. Do you like your job?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "preference"
+        ]
       },
       {
         "text": "23. Why did you choose to study that subject? / Why did you choose to study those subjects?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "evaluation"
+        ]
       },
       {
         "text": "24. Are you looking forward to working?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "hypothetical"
+        ]
       }
     ],
-    "tags": []
+    "tags": [],
+    "content_tags": [
+      "experience/activity",
+      "work",
+      "learning"
+    ]
   },
   {
     "topic_en": "Dreams",
@@ -1286,22 +2229,38 @@
     "questions": [
       {
         "text": "1. Can you remember the dreams you had?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "experience"
+        ]
       },
       {
         "text": "2. Do you share your dreams with others?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "3. Do you think dreams have special meanings?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "evaluation"
+        ]
       },
       {
         "text": "4. Do you want to make your dreams come true?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "hypothetical"
+        ]
       }
     ],
-    "tags": []
+    "tags": [],
+    "content_tags": [
+      "experience/activity",
+      "aspiration"
+    ]
   },
   {
     "topic_en": "Keys",
@@ -1310,22 +2269,38 @@
     "questions": [
       {
         "text": "1. Do you always bring a lot of keys with you?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "frequency"
+        ]
       },
       {
         "text": "2. Have you ever lost your keys?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "experience"
+        ]
       },
       {
         "text": "3. Do you often forget the keys and lock yourself out?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "frequency"
+        ]
       },
       {
         "text": "4. Do you think it's a good idea to leave your keys with a neighbor?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "evaluation"
+        ]
       }
     ],
-    "tags": []
+    "tags": [],
+    "content_tags": [
+      "object",
+      "everyday_life"
+    ]
   },
   {
     "topic_en": "Day off",
@@ -1334,22 +2309,39 @@
     "questions": [
       {
         "text": "1. When was the last time you had a few days off?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "experience"
+        ]
       },
       {
         "text": "2. What do you usually do when you have days off?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "frequency"
+        ]
       },
       {
         "text": "3. Do you usually spend your days off with your parents or with your friends?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "frequency"
+        ]
       },
       {
         "text": "4. What would you like to do if you have a day off tomorrow?",
-        "source": "laokaoya"
+        "source": "laokaoya",
+        "type_tags": [
+          "hypothetical"
+        ]
       }
     ],
-    "tags": []
+    "tags": [],
+    "content_tags": [
+      "experience/activity",
+      "everyday_life",
+      "likes_dislikes"
+    ]
   },
   {
     "topic_en": "Chatting/Conversation",
@@ -1358,26 +2350,45 @@
     "questions": [
       {
         "text": "1. Do you like chatting with friends?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "preference"
+        ]
       },
       {
         "text": "2. What do you usually chat about with friends?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "frequency"
+        ]
       },
       {
         "text": "3. Do you prefer to chat with a group of people or with only one friend?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "preference"
+        ]
       },
       {
         "text": "4. Do you prefer to communicate face-to-face or via social media?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "preference"
+        ]
       },
       {
         "text": "5. Do you argue with friends?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "description"
+        ]
       }
     ],
-    "content_tags": []
+    "content_tags": [
+      "experience/activity",
+      "communication",
+      "friendship"
+    ]
   },
   {
     "topic_en": "Memory",
@@ -1386,22 +2397,38 @@
     "questions": [
       {
         "text": "1. Are you good at memorising things?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "evaluation"
+        ]
       },
       {
         "text": "2. Have you ever forgotten something important?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "experience"
+        ]
       },
       {
         "text": "3. What do you need to remember in your daily life?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "4. How do you remember important things?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "description"
+        ]
       }
     ],
-    "content_tags": []
+    "content_tags": [
+      "experience/activity",
+      "nostalgia",
+      "memorable"
+    ]
   },
   {
     "topic_en": "Happy things",
@@ -1410,30 +2437,54 @@
     "questions": [
       {
         "text": "1. Is there anything that has made you feel happy lately?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "2. What made you happy when you were little?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "experience"
+        ]
       },
       {
         "text": "3. What do you think will make you feel happy in the future?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "evaluation",
+          "hypothetical"
+        ]
       },
       {
         "text": "4. When do you feel happy at work? Why?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "description",
+          "evaluation"
+        ]
       },
       {
         "text": "5. Do you feel happy when buying new things?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "preference"
+        ]
       },
       {
         "text": "6. Do you think people are happy when buying new things?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "evaluation"
+        ]
       }
     ],
-    "content_tags": []
+    "content_tags": [
+      "experience/activity",
+      "happiness",
+      "likes_dislikes"
+    ]
   },
   {
     "topic_en": "Work or studies",
@@ -1442,93 +2493,166 @@
     "questions": [
       {
         "text": "1. What subjects are you studying?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "2. Do you like your subject?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "preference"
+        ]
       },
       {
         "text": "3. Why did you choose to study that subject?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "evaluation"
+        ]
       },
       {
         "text": "4. Do you think that your subject is popular in your country?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "description",
+          "evaluation"
+        ]
       },
       {
         "text": "5. Do you have any plans for your studies in the next five years?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "description",
+          "hypothetical"
+        ]
       },
       {
         "text": "6. What are the benefits of being your age?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "7. Do you want to change your major?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "hypothetical"
+        ]
       },
       {
         "text": "8. Do you prefer to study in the mornings or in the afternoons?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "preference"
+        ]
       },
       {
         "text": "9. How much time do you spend on your studies each week?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "frequency"
+        ]
       },
       {
         "text": "10. Are you looking forward to working?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "hypothetical"
+        ]
       },
       {
         "text": "11. What technology do you use when you study?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "12. What changes would you like to see in your school?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "hypothetical"
+        ]
       },
       {
         "text": "13. What work do you do?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "14. Why did you choose to do that type of work (or that job)?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "evaluation"
+        ]
       },
       {
         "text": "15. Do you like your job?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "preference"
+        ]
       },
       {
         "text": "16. What requirements did you need to meet to get your current job?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "17. Do you have any plans for your work in the next five years?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "description",
+          "hypothetical"
+        ]
       },
       {
         "text": "18. What do you think is the most important at the moment?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "evaluation"
+        ]
       },
       {
         "text": "19. Do you want to change to another job?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "hypothetical"
+        ]
       },
       {
         "text": "20. Do you miss being a student?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "evaluation"
+        ]
       },
       {
         "text": "21. What technology do you use at work?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "description"
+        ]
       },
       {
         "text": "22. Who helps you the most? And how?",
-        "source": "yasige"
+        "source": "yasige",
+        "type_tags": [
+          "description"
+        ]
       }
     ],
-    "content_tags": []
+    "content_tags": [
+      "experience/activity",
+      "work",
+      "learning"
+    ]
   }
 ]

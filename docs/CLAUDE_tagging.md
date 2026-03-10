@@ -1,6 +1,6 @@
-# Tagging Rules — IELTS Part 2 Topics
+# Tagging Rules — IELTS Part 1 & Part 2
 
-This file is the permanent reference for how to tag topics in `merged_part2.json`.
+This file is the permanent reference for how to tag topics and questions in `merged_part1.json` and `merged_part2.json`.
 Follow it exactly for all current and future question banks.
 
 ---
@@ -292,15 +292,148 @@ Use when the question genuinely does not fit any of the above, or is too vague t
 
 ## Tagging with `tag_question_types.py`
 
-`pipeline/tag_question_types.py` auto-tags Part 3 questions by keyword matching against the rules above.
+`pipeline/tag_question_types.py` auto-tags questions by keyword matching against the rules above. Supports both Part 1 and Part 2.
 
 ```bash
-python3 pipeline/tag_question_types.py merged_part2.json
+python3 pipeline/tag_question_types.py merged_part1.json   # tags questions[] array
+python3 pipeline/tag_question_types.py merged_part2.json   # tags part3[] array
 ```
 
-- Writes `type_tags` directly into each `part3` question in the JSON.
+- For Part 1: writes `type_tags` into each item in the `questions` array.
+- For Part 2: writes `type_tags` into each item in the `part3` array.
 - After running, always regenerate the `.txt` mirror:
 ```bash
+python3 pipeline/json_to_txt.py merged_part1.json
 python3 pipeline/json_to_txt.py merged_part2.json
 ```
-- Review output in `merged_part2.txt` and correct any misclassifications manually, then sync back with `txt_to_json.py`.
+- Review output in the `.txt` file and correct any misclassifications manually, then sync back with `txt_to_json.py`.
+
+---
+
+---
+
+# Part 1 Tagging Rules
+
+Part 1 topics are short abstract noun phrases (e.g. "Food", "Reading", "Shoes") rather than full sentences. The same two-layer tagging system applies, with some adjustments.
+
+---
+
+## Part 1 JSON Schema (after tagging)
+
+```json
+{
+  "topic_en": "Reading",
+  "part": 1,
+  "season": "2026-Jan-Apr",
+  "content_tags": ["experience/activity", "reading", "likes_dislikes"],
+  "questions": [
+    { "text": "1. Do you like reading?", "source": "laokaoya", "type_tags": ["describe"] }
+  ],
+  "tags": []
+}
+```
+
+- `content_tags` is a new field — add it alongside the existing `tags: []` (do not replace `tags`).
+- `type_tags` is added to each question object in the `questions` array.
+
+---
+
+## Layer 1 — `content_tags` for Part 1
+
+Same flat array structure as Part 2: position 0 = category, positions 1–2 = thematic tags.
+
+**Array size:** 2–3 elements (categories are more abstract, so 1–2 thematic tags usually sufficient).
+
+### Category assignment for Part 1
+
+Part 1 topics are single nouns/phrases. Apply these rules:
+
+| Category | Example Part 1 topics |
+|---|---|
+| `experience/activity` | Daily routine, Reading, Walking, Chatting, Typing, Hobby, Having a break, Sharing, Going out, Spare time, Taking photos, Growing vegetables/fruits, Borrowing/Lending, Doing something well, Morning time, Sports team, Childhood activities |
+| `place` | Museum, Building, Crowded place, Public places, The city you live in, Home/Accommodation, View, Scenery |
+| `object` | Food, Shoes, Plants, Gifts, Advertisement, Pets and Animals |
+| `people` | Staying with old people |
+
+**Key rule:** if the topic is an *activity you do* or a *behaviour/habit*, use `experience/activity` even if the word sounds like a noun (e.g. "Reading" → `experience/activity`, not `object`).
+
+### Thematic tags for Part 1
+
+Same vocabulary as Part 2 (`tags/tags.txt`). Because Part 1 topics are abstract, pick the 1–2 tags that best capture what the topic is fundamentally about:
+
+| Topic | Suggested tags |
+|---|---|
+| Daily routine | `everyday_life` |
+| Life stages | `nostalgia`, `aspiration` |
+| View / Scenery | `nature`, `travel` |
+| Childhood activities | `childhood`, `likes_dislikes` |
+| Building | `architecture` |
+| Typing | `technology`, `learning` |
+| Hobby | `likes_dislikes`, `passion` |
+| Sports team | `social_event` |
+| Reading | `reading`, `likes_dislikes` |
+| Gifts | `shopping`, `sentimental` |
+| Morning time | `everyday_life` |
+| Walking | `nature`, `everyday_life` |
+| Food | `food`, `likes_dislikes` |
+| Pets and Animals | `animals`, `likes_dislikes` |
+| Sharing | `helping_others`, `friendship` |
+| Having a break | `everyday_life` |
+| Borrowing/Lending | `money`, `friendship` |
+| Advertisement | `media`, `technology` |
+| Chatting | `communication`, `friendship` |
+| Growing vegetables/fruits | `nature`, `food` |
+| Museum | `culture`, `learning` |
+| Crowded place | `social_event` |
+| Going out | `everyday_life` |
+| Staying with old people | `family`, `helping_others` |
+| Doing something well | `achievement` |
+| Shoes | `shopping`, `likes_dislikes` |
+| Rules | `restriction`, `learning` |
+| Public places | `social_event` |
+| Plants | `nature`, `home` |
+| Spare time | `likes_dislikes`, `everyday_life` |
+| Taking photos | `art`, `likes_dislikes` |
+| The city you live in | `home`, `travel` |
+| Home/Accommodation | `home` |
+
+These are suggestions — always check `tags/tags.txt` and use judgment. Do not over-tag; 1–2 thematic tags is usually enough.
+
+---
+
+## Layer 2 — `type_tags` for Part 1 Questions
+
+Same four types as Part 2. Part 1 questions lean heavily toward `describe` and `evaluate`, with occasional `analyze` and rare `predict`.
+
+### Characteristic patterns for Part 1:
+
+**describe** — most "Do you...?", "Have you...?", "What do/did you...?" questions
+→ *"Do you like reading?"* → `["describe"]`
+→ *"Have you ever had a pet?"* → `["describe"]`
+→ *"What do you usually do in the morning?"* → `["describe"]`
+
+**evaluate** — "Do you think...?", "Do you prefer...?", "Is it important...?"
+→ *"Do you think it's important to have a daily routine?"* → `["evaluate"]`
+→ *"Which do you prefer, fashionable shoes or comfortable shoes?"* → `["evaluate"]`
+
+**analyze** — "Why...?", "What are the differences...?", "How does...?"
+→ *"Why do people like to walk in parks?"* → `["analyze"]`
+→ *"What are the differences between team sports and individual sports?"* → `["analyze"]`
+
+**predict** — "Would you like to...?", "Do you plan to...?", "Will...?"
+→ *"Would you like to move to a different house in the future?"* → `["predict"]`
+→ *"Do you have any plans for the next five years?"* → `["predict"]`
+
+**Note on "Would you like to...?":** tag as `predict` when clearly future-oriented, `evaluate` when it's more about preference than timeline.
+
+---
+
+## Tagging with `tag_content_topics.py` (Part 1)
+
+```bash
+python3 pipeline/tag_content_topics.py merged_part1.json
+```
+
+- Uses fuzzy lookup against `tags/tags.txt` + Claude batch for category assignment.
+- Writes `content_tags` as a new field in each topic object.
+- After running, regenerate `.txt` mirror: `python3 pipeline/json_to_txt.py merged_part1.json`
