@@ -118,6 +118,9 @@
     top: 12px;
     right: 52px;
   }
+  #modal-content {
+    padding-top: 28px;
+  }
   .back-btn {
     display: inline-flex;
     align-items: center;
@@ -421,7 +424,7 @@ function openModal(tab, idx) {
   // Render back button into its own absolute-positioned div (top-right of modal)
   const hasBack = state.lastActiveTag || state.lastTypeSummary;
   document.getElementById('modal-back').innerHTML = hasBack
-    ? `<button class="back-btn" id="back-btn">← back</button>`
+    ? `<button class="back-btn" id="back-btn">←</button>`
     : '';
 
   let html = '';
