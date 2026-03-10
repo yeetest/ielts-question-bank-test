@@ -149,48 +149,6 @@
     },
     "part3": [
       {
-        "text": "1. How can leaders encourage their employees?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "analyze"
-        ]
-      },
-      {
-        "text": "2. When should parents encourage their children?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "evaluate"
-        ]
-      },
-      {
-        "text": "3. What kind of encouragement should parents give?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "evaluate"
-        ]
-      },
-      {
-        "text": "4. Do you think some people are better than others at persuading?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "evaluate"
-        ]
-      },
-      {
-        "text": "5. Should children do everything their parents ask them to do?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "evaluate"
-        ]
-      },
-      {
-        "text": "6. How can employers encourage their staff?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "analyze"
-        ]
-      },
-      {
         "text": "How can leaders encourage their employees?",
         "source": "laokaoya",
         "type_tags": [
@@ -216,6 +174,20 @@
         "source": "laokaoya",
         "type_tags": [
           "evaluate"
+        ]
+      },
+      {
+        "text": "5. Should children do everything their parents ask them to do?",
+        "source": "tongzhuo",
+        "type_tags": [
+          "evaluate"
+        ]
+      },
+      {
+        "text": "6. How can employers encourage their staff?",
+        "source": "tongzhuo",
+        "type_tags": [
+          "analyze"
         ]
       }
     ],
@@ -310,49 +282,6 @@
     },
     "part3": [
       {
-        "text": "1.Do you often buy more than you expected?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "predict"
-        ]
-      },
-      {
-        "text": "2.What do you think young people spend most of their money on?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "evaluate"
-        ]
-      },
-      {
-        "text": "3.Do you think it is important to save money? Why?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "evaluate"
-        ]
-      },
-      {
-        "text": "4.Do people buy things they don't need?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "describe",
-          "analyze"
-        ]
-      },
-      {
-        "text": "5. Do you think it is the rich people's responsibility to donate money to people in need?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "evaluate"
-        ]
-      },
-      {
-        "text": "6. What kind of things are people happy to pay a high price for?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "describe"
-        ]
-      },
-      {
         "text": "Do you often buy more than you expected?",
         "source": "laokaoya",
         "type_tags": [
@@ -381,6 +310,20 @@
           "analyze",
           "evaluate"
         ]
+      },
+      {
+        "text": "5. Do you think it is the rich people's responsibility to donate money to people in need?",
+        "source": "tongzhuo",
+        "type_tags": [
+          "evaluate"
+        ]
+      },
+      {
+        "text": "6. What kind of things are people happy to pay a high price for?",
+        "source": "tongzhuo",
+        "type_tags": [
+          "describe"
+        ]
       }
     ],
     "tags": [],
@@ -404,56 +347,6 @@
       ]
     },
     "part3": [
-      {
-        "text": "1. Do you think adults can have lots of imagination?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "evaluate"
-        ]
-      },
-      {
-        "text": "2. Do you think imagination is essential for scientists?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "evaluate"
-        ]
-      },
-      {
-        "text": "3. What kinds of jobs need imagination?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "describe"
-        ]
-      },
-      {
-        "text": "4. What subjects are helpful for children's imagination?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "describe",
-          "analyze",
-          "evaluate"
-        ]
-      },
-      {
-        "text": "5. What games help develop children's imagination?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "describe",
-          "analyze",
-          "evaluate",
-          "predict"
-        ]
-      },
-      {
-        "text": "6. How important is imagination to children?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "describe",
-          "analyze",
-          "evaluate",
-          "predict"
-        ]
-      },
       {
         "text": "Do you think adults can have lots of imagination?",
         "source": "laokaoya",
@@ -482,6 +375,26 @@
           "describe",
           "analyze",
           "evaluate"
+        ]
+      },
+      {
+        "text": "5. What games help develop children's imagination?",
+        "source": "tongzhuo",
+        "type_tags": [
+          "describe",
+          "analyze",
+          "evaluate",
+          "predict"
+        ]
+      },
+      {
+        "text": "6. How important is imagination to children?",
+        "source": "tongzhuo",
+        "type_tags": [
+          "describe",
+          "analyze",
+          "evaluate",
+          "predict"
         ]
       }
     ],
@@ -800,48 +713,6 @@
     },
     "part3": [
       {
-        "text": "1.Do you think children are born smart or they learn to become smart?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "evaluate"
-        ]
-      },
-      {
-        "text": "2.How do children become smart at school?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "analyze"
-        ]
-      },
-      {
-        "text": "3.Why are some people well-rounded and others only good at one thing?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "analyze"
-        ]
-      },
-      {
-        "text": "4.Why does modern society need talents of all kinds?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "analyze"
-        ]
-      },
-      {
-        "text": "5. Do you think smart children are happier than other children?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "evaluate"
-        ]
-      },
-      {
-        "text": "6. Is it important for schools to identify and develop each student's talents?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "evaluate"
-        ]
-      },
-      {
         "text": "Do you think children are born smart or they learn to be smart?",
         "source": "laokaoya",
         "type_tags": [
@@ -867,6 +738,20 @@
         "source": "laokaoya",
         "type_tags": [
           "analyze"
+        ]
+      },
+      {
+        "text": "5. Do you think smart children are happier than other children?",
+        "source": "tongzhuo",
+        "type_tags": [
+          "evaluate"
+        ]
+      },
+      {
+        "text": "6. Is it important for schools to identify and develop each student's talents?",
+        "source": "tongzhuo",
+        "type_tags": [
+          "evaluate"
         ]
       }
     ],
@@ -991,49 +876,6 @@
     },
     "part3": [
       {
-        "text": "1.Which form of vehicle is more popular in your country, bikes, cars or motorcycles?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "describe",
-          "evaluate"
-        ]
-      },
-      {
-        "text": "2.Do you think air pollution comes mostly from motor vehicles?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "evaluate"
-        ]
-      },
-      {
-        "text": "3.Do you think people need to change the way of transportation drastically to protect the environment?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "evaluate"
-        ]
-      },
-      {
-        "text": "4.How are the transportation systems in urban areas and rural areas different?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "predict"
-        ]
-      },
-      {
-        "text": "5.Why do more people own and drive private vehicles now?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "analyze"
-        ]
-      },
-      {
-        "text": "6.What do you think of the future of electric cars?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "evaluate"
-        ]
-      },
-      {
         "text": "Which form of vehicle is more popular in your country, bikes, cars or motorcycles?",
         "source": "laokaoya",
         "type_tags": [
@@ -1060,6 +902,20 @@
         "source": "laokaoya",
         "type_tags": [
           "predict"
+        ]
+      },
+      {
+        "text": "5.Why do more people own and drive private vehicles now?",
+        "source": "tongzhuo",
+        "type_tags": [
+          "analyze"
+        ]
+      },
+      {
+        "text": "6.What do you think of the future of electric cars?",
+        "source": "tongzhuo",
+        "type_tags": [
+          "evaluate"
         ]
       }
     ],
@@ -1355,50 +1211,6 @@
     },
     "part3": [
       {
-        "text": "1. Should people prepare before giving advice?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "evaluate"
-        ]
-      },
-      {
-        "text": "2. Is it good to ask advice from strangers online?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "evaluate"
-        ]
-      },
-      {
-        "text": "3. What are the personalities of people whose job is to give advice to others?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "describe",
-          "evaluate",
-          "predict"
-        ]
-      },
-      {
-        "text": "4. What are the problems if you ask too many people for advice?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "analyze"
-        ]
-      },
-      {
-        "text": "5. Why do some people think it is better to ask for advice from friends than from parents?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "analyze"
-        ]
-      },
-      {
-        "text": "6. When would old people ask young people for advice?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "describe"
-        ]
-      },
-      {
         "text": "Should people prepare before giving advice?",
         "source": "laokaoya",
         "type_tags": [
@@ -1427,6 +1239,20 @@
         "type_tags": [
           "analyze"
         ]
+      },
+      {
+        "text": "5. Why do some people think it is better to ask for advice from friends than from parents?",
+        "source": "tongzhuo",
+        "type_tags": [
+          "analyze"
+        ]
+      },
+      {
+        "text": "6. When would old people ask young people for advice?",
+        "source": "tongzhuo",
+        "type_tags": [
+          "describe"
+        ]
       }
     ],
     "tags": [],
@@ -1450,53 +1276,6 @@
       ]
     },
     "part3": [
-      {
-        "text": "1. When would parents feel proud of their children?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "describe",
-          "analyze",
-          "evaluate"
-        ]
-      },
-      {
-        "text": "2. Should parents reward children? Why and how?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "evaluate"
-        ]
-      },
-      {
-        "text": "3. Is it good to reward children too often? Why?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "evaluate"
-        ]
-      },
-      {
-        "text": "4. On what occasions would adults be proud of themselves?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "describe"
-        ]
-      },
-      {
-        "text": "5. Do rewards help a child become better?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "describe",
-          "analyze",
-          "evaluate",
-          "predict"
-        ]
-      },
-      {
-        "text": "6. What do you think about children working hard just for grades?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "evaluate"
-        ]
-      },
       {
         "text": "When would parents feel proud of their children?",
         "source": "laokaoya",
@@ -1526,6 +1305,23 @@
         "type_tags": [
           "describe"
         ]
+      },
+      {
+        "text": "5. Do rewards help a child become better?",
+        "source": "tongzhuo",
+        "type_tags": [
+          "describe",
+          "analyze",
+          "evaluate",
+          "predict"
+        ]
+      },
+      {
+        "text": "6. What do you think about children working hard just for grades?",
+        "source": "tongzhuo",
+        "type_tags": [
+          "evaluate"
+        ]
       }
     ],
     "tags": [],
@@ -1549,55 +1345,6 @@
       ]
     },
     "part3": [
-      {
-        "text": "1.Do you think people who like to smile are more friendly?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "evaluate"
-        ]
-      },
-      {
-        "text": "2.Why do most people smile in photographs?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "analyze"
-        ]
-      },
-      {
-        "text": "3.Do women smile more than men? Why?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "describe",
-          "analyze",
-          "evaluate"
-        ]
-      },
-      {
-        "text": "4.Do people smile more when they are younger or older ?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "analyze",
-          "evaluate"
-        ]
-      },
-      {
-        "text": "5. Is smiling important in your culture?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "describe",
-          "analyze",
-          "evaluate",
-          "predict"
-        ]
-      },
-      {
-        "text": "6. Are there any occasions when people need to pretend to smile?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "describe",
-          "evaluate"
-        ]
-      },
       {
         "text": "Do you think people who like to smile are more friendly?",
         "source": "laokaoya",
@@ -1629,6 +1376,24 @@
           "analyze",
           "evaluate"
         ]
+      },
+      {
+        "text": "5. Is smiling important in your culture?",
+        "source": "tongzhuo",
+        "type_tags": [
+          "describe",
+          "analyze",
+          "evaluate",
+          "predict"
+        ]
+      },
+      {
+        "text": "6. Are there any occasions when people need to pretend to smile?",
+        "source": "tongzhuo",
+        "type_tags": [
+          "describe",
+          "evaluate"
+        ]
       }
     ],
     "tags": [],
@@ -1652,54 +1417,6 @@
       ]
     },
     "part3": [
-      {
-        "text": "1. How do young and old people use mobile phones differently?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "analyze"
-        ]
-      },
-      {
-        "text": "2. What positive and negative impact do mobile phones have on friendship?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "describe",
-          "analyze",
-          "evaluate",
-          "predict"
-        ]
-      },
-      {
-        "text": "3. ls it a waste of time to take pictures with mobile phones?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "evaluate",
-          "predict"
-        ]
-      },
-      {
-        "text": "4. Do you think it is necessary to have laws on the use of mobile phones?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "evaluate"
-        ]
-      },
-      {
-        "text": "5. What are examples of good and poor phone manners?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "describe",
-          "analyze",
-          "evaluate"
-        ]
-      },
-      {
-        "text": "6. How does the internet benefit people?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "analyze"
-        ]
-      },
       {
         "text": "How do young and old people use mobile phones differently?",
         "source": "laokaoya",
@@ -1730,6 +1447,22 @@
         "source": "laokaoya",
         "type_tags": [
           "evaluate"
+        ]
+      },
+      {
+        "text": "5. What are examples of good and poor phone manners?",
+        "source": "tongzhuo",
+        "type_tags": [
+          "describe",
+          "analyze",
+          "evaluate"
+        ]
+      },
+      {
+        "text": "6. How does the internet benefit people?",
+        "source": "tongzhuo",
+        "type_tags": [
+          "analyze"
         ]
       }
     ],
@@ -1852,8 +1585,8 @@
         ]
       },
       {
-        "text": "4. What should people consider when choosing jobs?",
-        "source": "tongzhuo",
+        "text": "What should people consider when choosing jobs?",
+        "source": "laokaoya",
         "type_tags": [
           "evaluate"
         ]
@@ -1892,13 +1625,6 @@
         "source": "laokaoya",
         "type_tags": [
           "predict"
-        ]
-      },
-      {
-        "text": "What should people consider when choosing jobs?",
-        "source": "laokaoya",
-        "type_tags": [
-          "evaluate"
         ]
       }
     ],
@@ -3037,13 +2763,6 @@
         ]
       },
       {
-        "text": "5. What are the advantages and disadvantages of shopping online?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "evaluate"
-        ]
-      },
-      {
         "text": "6. Can consumption drive economic growth?",
         "source": "tongzhuo",
         "type_tags": [
@@ -3081,14 +2800,6 @@
       ]
     },
     "part3": [
-      {
-        "text": "1. Would you like to start a family business?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "describe",
-          "predict"
-        ]
-      },
       {
         "text": "2.Would you like to work in a family business?",
         "source": "tongzhuo",
