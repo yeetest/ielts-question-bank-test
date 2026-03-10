@@ -33,11 +33,11 @@
     "season": "2026-Jan-Apr",
     "questions": [
       {
-        "text": "What did you often do with your friends in your childhood?",
+        "text": "1. What did you often do with your friends in your childhood?",
         "source": "laokaoya"
       },
       {
-        "text": "What do you think is the most important at the moment?",
+        "text": "2. What do you think is the most important at the moment?",
         "source": "laokaoya"
       },
       {
@@ -45,19 +45,19 @@
         "source": "tongzhuo"
       },
       {
-        "text": "How do people remember each stage of their lives?",
+        "text": "4. How do people remember each stage of their lives?",
         "source": "laokaoya"
       },
       {
-        "text": "Do you enjoy being the age you are now?",
+        "text": "5. Do you enjoy being the age you are now?",
         "source": "laokaoya"
       },
       {
-        "text": "At what age do you think people are the happiest?",
+        "text": "6. At what age do you think people are the happiest?",
         "source": "laokaoya"
       },
       {
-        "text": "Do you have any plans for the next five years?",
+        "text": "7. Do you have any plans for the next five years?",
         "source": "laokaoya"
       }
     ],
@@ -69,19 +69,19 @@
     "season": "2026-Jan-Apr",
     "questions": [
       {
-        "text": "Do you like taking pictures of different views?",
+        "text": "1. Do you like taking pictures of different views?",
         "source": "laokaoya"
       },
       {
-        "text": "Do you prefer views in urban areas or rural areas?",
+        "text": "2. Do you prefer views in urban areas or rural areas?",
         "source": "laokaoya"
       },
       {
-        "text": "Do you prefer views in our own country or in other countries?",
+        "text": "3. Do you prefer views in our own country or in other countries?",
         "source": "laokaoya"
       },
       {
-        "text": "Have you seen an unforgettable and beautiful view or scenery?",
+        "text": "4. Have you seen an unforgettable and beautiful view or scenery?",
         "source": "laokaoya"
       }
     ],
@@ -93,11 +93,11 @@
     "season": "2026-Jan-Apr",
     "questions": [
       {
-        "text": "Do you look out the window at the scenery when travelling by bus or car?",
+        "text": "1. Do you look out the window at the scenery when travelling by bus or car?",
         "source": "laokaoya"
       },
       {
-        "text": "Do you prefer the mountains or the sea?",
+        "text": "2. Do you prefer the mountains or the sea?",
         "source": "laokaoya"
       },
       {
@@ -105,11 +105,11 @@
         "source": "tongzhuo"
       },
       {
-        "text": "What are the most beautiful sights you have seen while traveling?",
+        "text": "4. What are the most beautiful sights you have seen while traveling?",
         "source": "laokaoya"
       },
       {
-        "text": "Do you like to take scenery pictures?",
+        "text": "5. Do you like to take scenery pictures?",
         "source": "laokaoya"
       }
     ],
@@ -125,11 +125,11 @@
         "source": "tongzhuo"
       },
       {
-        "text": "What were your favourite activities when you were a child?",
+        "text": "2. What were your favourite activities when you were a child?",
         "source": "laokaoya"
       },
       {
-        "text": "Did you prefer to do activities alone or with a group of people when you were a child?",
+        "text": "3. Did you prefer to do activities alone or with a group of people when you were a child?",
         "source": "laokaoya"
       },
       {
@@ -137,7 +137,7 @@
         "source": "tongzhuo"
       },
       {
-        "text": "Is there a building that you would like to visit?",
+        "text": "5. Is there a building that you would like to visit?",
         "source": "laokaoya"
       }
     ],
@@ -149,15 +149,15 @@
     "season": "2026-Jan-Apr",
     "questions": [
       {
-        "text": "Are there tall buildings near your home?",
+        "text": "1. Are there tall buildings near your home?",
         "source": "laokaoya"
       },
       {
-        "text": "Do you take photos of buildings?",
+        "text": "2. Do you take photos of buildings?",
         "source": "laokaoya"
       },
       {
-        "text": "Is there a building that you would like to visit?",
+        "text": "3. Is there a building that you would like to visit?",
         "source": "laokaoya"
       },
       {
@@ -173,19 +173,19 @@
     "season": "2026-Jan-Apr",
     "questions": [
       {
-        "text": "Do you prefer typing or handwriting?",
+        "text": "1. Do you prefer typing or handwriting?",
         "source": "laokaoya"
       },
       {
-        "text": "Do you type on the desktop or laptop keyboard every day?",
+        "text": "2. Do you type on the desktop or laptop keyboard every day?",
         "source": "laokaoya"
       },
       {
-        "text": "When did you learn how to type on a keyboard?",
+        "text": "3. When did you learn how to type on a keyboard?",
         "source": "laokaoya"
       },
       {
-        "text": "How do you improve your typing?",
+        "text": "4. How do you improve your typing?",
         "source": "laokaoya"
       }
     ],
@@ -197,19 +197,19 @@
     "season": "2026-Jan-Apr",
     "questions": [
       {
-        "text": "Do you have any hobbies?",
+        "text": "1. Do you have any hobbies?",
         "source": "laokaoya"
       },
       {
-        "text": "Did you have any hobbies when you were a child?",
+        "text": "2. Did you have any hobbies when you were a child?",
         "source": "laokaoya"
       },
       {
-        "text": "Do you have a hobby that you've had since childhood?",
+        "text": "3. Do you have a hobby that you've had since childhood?",
         "source": "laokaoya"
       },
       {
-        "text": "Do you have the same hobbies as your family members?",
+        "text": "4. Do you have the same hobbies as your family members?",
         "source": "laokaoya"
       }
     ],
@@ -221,19 +221,19 @@
     "season": "2026-Jan-Apr",
     "questions": [
       {
-        "text": "Have you ever been part of a sports team?",
+        "text": "1. Have you ever been part of a sports team?",
         "source": "laokaoya"
       },
       {
-        "text": "Are team sports popular in your culture?",
+        "text": "2. Are team sports popular in your culture?",
         "source": "laokaoya"
       },
       {
-        "text": "Do you like watching team games? Why?",
+        "text": "3. Do you like watching team games? Why?",
         "source": "laokaoya"
       },
       {
-        "text": "What are the differences between team sports and individual sports?",
+        "text": "4. What are the differences between team sports and individual sports?",
         "source": "laokaoya"
       }
     ],
@@ -245,19 +245,19 @@
     "season": "2026-Jan-Apr",
     "questions": [
       {
-        "text": "Do you like reading?",
+        "text": "1. Do you like reading?",
         "source": "laokaoya"
       },
       {
-        "text": "Do you prefer to read on paper or on a screen?",
+        "text": "2. Do you prefer to read on paper or on a screen?",
         "source": "laokaoya"
       },
       {
-        "text": "When do you need to read carefully and when not?",
+        "text": "3. When do you need to read carefully and when not?",
         "source": "laokaoya"
       },
       {
-        "text": "Do you prefer scanning or detailed reading?",
+        "text": "4. Do you prefer scanning or detailed reading?",
         "source": "laokaoya"
       }
     ],
@@ -269,23 +269,23 @@
     "season": "2026-Jan-Apr",
     "questions": [
       {
-        "text": "Have you ever sent handmade gifts to others?",
+        "text": "1. Have you ever sent handmade gifts to others?",
         "source": "laokaoya"
       },
       {
-        "text": "Have you ever received a great gift?",
+        "text": "2. Have you ever received a great gift?",
         "source": "laokaoya"
       },
       {
-        "text": "What do you consider when choosing a gift?",
+        "text": "3. What do you consider when choosing a gift?",
         "source": "laokaoya"
       },
       {
-        "text": "Do you think you're good at choosing gifts?",
+        "text": "4. Do you think you're good at choosing gifts?",
         "source": "laokaoya"
       },
       {
-        "text": "What gifts have you received recently?",
+        "text": "5. What gifts have you received recently?",
         "source": "laokaoya"
       }
     ],
@@ -297,23 +297,23 @@
     "season": "2026-Jan-Apr",
     "questions": [
       {
-        "text": "Do you like getting up early in the morning?",
+        "text": "1. Do you like getting up early in the morning?",
         "source": "laokaoya"
       },
       {
-        "text": "What do you usually do in the morning?",
+        "text": "2. What do you usually do in the morning?",
         "source": "laokaoya"
       },
       {
-        "text": "What did you do in the morning when you were little? Why?",
+        "text": "3. What did you do in the morning when you were little? Why?",
         "source": "laokaoya"
       },
       {
-        "text": "Are there any differences between what you do in the morning now and what you did in the past?",
+        "text": "4. Are there any differences between what you do in the morning now and what you did in the past?",
         "source": "laokaoya"
       },
       {
-        "text": "Do you spend your mornings doing the same things on both the weekends and weekdays? Why?",
+        "text": "5. Do you spend your mornings doing the same things on both the weekends and weekdays? Why?",
         "source": "laokaoya"
       }
     ],
@@ -325,23 +325,23 @@
     "season": "2026-Jan-Apr",
     "questions": [
       {
-        "text": "Do you walk a lot?",
+        "text": "1. Do you walk a lot?",
         "source": "laokaoya"
       },
       {
-        "text": "Did you often go outside to have a walk when you were a child?",
+        "text": "2. Did you often go outside to have a walk when you were a child?",
         "source": "laokaoya"
       },
       {
-        "text": "Why do people like to walk in parks?",
+        "text": "3. Why do people like to walk in parks?",
         "source": "laokaoya"
       },
       {
-        "text": "Where would you like to take a long walk if you had the chance?",
+        "text": "4. Where would you like to take a long walk if you had the chance?",
         "source": "laokaoya"
       },
       {
-        "text": "Where did you go for a walk lately?",
+        "text": "5. Where did you go for a walk lately?",
         "source": "laokaoya"
       }
     ],
@@ -353,19 +353,19 @@
     "season": "2026-Jan-Apr",
     "questions": [
       {
-        "text": "What is your favourite food?",
+        "text": "1. What is your favourite food?",
         "source": "laokaoya"
       },
       {
-        "text": "What kind of food did you like when you were young?",
+        "text": "2. What kind of food did you like when you were young?",
         "source": "laokaoya"
       },
       {
-        "text": "Do you eat different foods at different times of the year?",
+        "text": "3. Do you eat different foods at different times of the year?",
         "source": "laokaoya"
       },
       {
-        "text": "Has your favourite food changed since you were a child?",
+        "text": "4. Has your favourite food changed since you were a child?",
         "source": "laokaoya"
       }
     ],
@@ -377,19 +377,19 @@
     "season": "2026-Jan-Apr",
     "questions": [
       {
-        "text": "What's your favourite animal? Why?",
+        "text": "1. What's your favourite animal? Why?",
         "source": "laokaoya"
       },
       {
-        "text": "Have you ever had a pet before?",
+        "text": "2. Have you ever had a pet before?",
         "source": "laokaoya"
       },
       {
-        "text": "Where do you prefer to keep your pet, indoors or outdoors?",
+        "text": "3. Where do you prefer to keep your pet, indoors or outdoors?",
         "source": "laokaoya"
       },
       {
-        "text": "What is the most popular animal in China?",
+        "text": "4. What is the most popular animal in China?",
         "source": "laokaoya"
       }
     ],
@@ -461,15 +461,15 @@
         "source": "tongzhuo"
       },
       {
-        "text": "3. Do you like to lend things to others?",
+        "text": "2. Do you like to lend things to others?",
         "source": "tongzhuo"
       },
       {
-        "text": "4. How do you feel when people don't return things they borrowed from you?",
+        "text": "3. How do you feel when people don't return things they borrowed from you?",
         "source": "tongzhuo"
       },
       {
-        "text": "5. Do you mind if others borrow money from you?",
+        "text": "4. Do you mind if others borrow money from you?",
         "source": "tongzhuo"
       }
     ],
@@ -481,19 +481,19 @@
     "season": "2026-Jan-Apr",
     "questions": [
       {
-        "text": "1.ls there an advertisement that made an impression on you when you were a child?",
+        "text": "1. ls there an advertisement that made an impression on you when you were a child?",
         "source": "tongzhuo"
       },
       {
-        "text": "2.Do you see a lot of advertising on trains or other transport?",
+        "text": "2. Do you see a lot of advertising on trains or other transport?",
         "source": "tongzhuo"
       },
       {
-        "text": "3.Do you like advertisements?",
+        "text": "3. Do you like advertisements?",
         "source": "tongzhuo"
       },
       {
-        "text": "4.What kind of advertising do you like?",
+        "text": "4. What kind of advertising do you like?",
         "source": "tongzhuo"
       },
       {
@@ -537,7 +537,7 @@
     "season": "2026-Jan-Apr",
     "questions": [
       {
-        "text": "1.Are you interested in growing vegetables and fruits?",
+        "text": "1. Are you interested in growing vegetables and fruits?",
         "source": "tongzhuo"
       },
       {
@@ -789,11 +789,11 @@
         "source": "tongzhuo"
       },
       {
-        "text": "3.Which day do you have more free time on, Saturday or Sunday?",
+        "text": "3. Which day do you have more free time on, Saturday or Sunday?",
         "source": "tongzhuo"
       },
       {
-        "text": "4.Would you like to have more free time in the future?",
+        "text": "4. Would you like to have more free time in the future?",
         "source": "tongzhuo"
       }
     ],
@@ -833,27 +833,27 @@
     "season": "2026-Jan-Apr",
     "questions": [
       {
-        "text": "1.What city do you live in?",
+        "text": "1. What city do you live in?",
         "source": "tongzhuo"
       },
       {
-        "text": "2.Do you like this city? Why?",
+        "text": "2. Do you like this city? Why?",
         "source": "tongzhuo"
       },
       {
-        "text": "3.How long have you lived in this city?",
+        "text": "3. How long have you lived in this city?",
         "source": "tongzhuo"
       },
       {
-        "text": "4.Are there big changes in this city?",
+        "text": "4. Are there big changes in this city?",
         "source": "tongzhuo"
       },
       {
-        "text": "5.ls this city your permanent residence?",
+        "text": "5. ls this city your permanent residence?",
         "source": "tongzhuo"
       },
       {
-        "text": "6.Are there people of different ages living in this city?",
+        "text": "6. Are there people of different ages living in this city?",
         "source": "tongzhuo"
       }
     ],
@@ -865,79 +865,79 @@
     "season": "2026-Jan-Apr",
     "questions": [
       {
-        "text": "2. Do you prefer living in a house or an apartment?",
+        "text": "1. Do you prefer living in a house or an apartment?",
         "source": "tongzhuo"
       },
       {
-        "text": "3. Do you live with anyone else? Why/Why not?",
+        "text": "2. Do you live with anyone else? Why/Why not?",
         "source": "tongzhuo"
       },
       {
-        "text": "4. Do you like the place you currently live in? Why/Why not?",
+        "text": "3. Do you like the place you currently live in? Why/Why not?",
         "source": "tongzhuo"
       },
       {
-        "text": "5. What is your favourite room in your house/apartment?",
+        "text": "4. What is your favourite room in your house/apartment?",
         "source": "tongzhuo"
       },
       {
-        "text": "6. Would you like to change anything in your house/apartment?",
+        "text": "5. Would you like to change anything in your house/apartment?",
         "source": "tongzhuo"
       },
       {
-        "text": "7. Would you like to move to a different house/apartment in the future?",
+        "text": "6. Would you like to move to a different house/apartment in the future?",
         "source": "tongzhuo"
       },
       {
-        "text": "8. What do you think makes a place comfortable to live in?",
+        "text": "7. What do you think makes a place comfortable to live in?",
         "source": "tongzhuo"
       },
       {
-        "text": "Can you describe the place where you live?",
+        "text": "8. Can you describe the place where you live?",
         "source": "laokaoya"
       },
       {
-        "text": "How long have you lived there?",
+        "text": "9. How long have you lived there?",
         "source": "laokaoya"
       },
       {
-        "text": "11. Who do you live with?",
+        "text": "10. Who do you live with?",
         "source": "tongzhuo"
       },
       {
-        "text": "Do you plan to live there for a long time?",
+        "text": "11. Do you plan to live there for a long time?",
         "source": "laokaoya"
       },
       {
-        "text": "What's the difference between where you are living now and where you have lived in the past?",
+        "text": "12. What's the difference between where you are living now and where you have lived in the past?",
         "source": "laokaoya"
       },
       {
-        "text": "What do you usually do in your house/flat/room?",
+        "text": "13. What do you usually do in your house/flat/room?",
         "source": "laokaoya"
       },
       {
-        "text": "Which room does your family spend most of the time in?",
+        "text": "14. Which room does your family spend most of the time in?",
         "source": "laokaoya"
       },
       {
-        "text": "16. Are there transport facilities to your home that are very good?",
+        "text": "15. Are there transport facilities to your home that are very good?",
         "source": "tongzhuo"
       },
       {
-        "text": "What kind of housing/accommodation do you live in?",
+        "text": "16. What kind of housing/accommodation do you live in?",
         "source": "laokaoya"
       },
       {
-        "text": "Please describe the room you live in?",
+        "text": "17. Please describe the room you live in?",
         "source": "laokaoya"
       },
       {
-        "text": "Do you prefer living in a house or a flat?",
+        "text": "18. Do you prefer living in a house or a flat?",
         "source": "laokaoya"
       },
       {
-        "text": "What part of your home do you like the most?",
+        "text": "19. What part of your home do you like the most?",
         "source": "laokaoya"
       }
     ],
@@ -957,7 +957,7 @@
         "source": "tongzhuo"
       },
       {
-        "text": "How long have you been living there?",
+        "text": "3. How long have you been living there?",
         "source": "laokaoya"
       },
       {
@@ -965,7 +965,7 @@
         "source": "tongzhuo"
       },
       {
-        "text": "Is there anything you dislike about it?",
+        "text": "5. Is there anything you dislike about it?",
         "source": "laokaoya"
       },
       {
@@ -989,7 +989,7 @@
         "source": "tongzhuo"
       },
       {
-        "text": "Do you like living there?",
+        "text": "11. Do you like living there?",
         "source": "laokaoya"
       },
       {
@@ -997,23 +997,23 @@
         "source": "tongzhuo"
       },
       {
-        "text": "What's the name of your hometown (again)?",
+        "text": "13. What's the name of your hometown (again)?",
         "source": "laokaoya"
       },
       {
-        "text": "Is that a big city or a small place?",
+        "text": "14. Is that a big city or a small place?",
         "source": "laokaoya"
       },
       {
-        "text": "Do you like your hometown?",
+        "text": "15. Do you like your hometown?",
         "source": "laokaoya"
       },
       {
-        "text": "What do you like (most) about your hometown?",
+        "text": "16. What do you like (most) about your hometown?",
         "source": "laokaoya"
       },
       {
-        "text": "Please describe your hometown a little.",
+        "text": "17. Please describe your hometown a little.",
         "source": "laokaoya"
       }
     ],
@@ -1057,19 +1057,19 @@
         "source": "tongzhuo"
       },
       {
-        "text": "Do you like the area that you live in?",
+        "text": "9. Do you like the area that you live in?",
         "source": "laokaoya"
       },
       {
-        "text": "What are some changes in the area recently?",
+        "text": "10. What are some changes in the area recently?",
         "source": "laokaoya"
       },
       {
-        "text": "Do you know any famous people in your area?",
+        "text": "11. Do you know any famous people in your area?",
         "source": "laokaoya"
       },
       {
-        "text": "Where do you like to go to that area?",
+        "text": "12. Where do you like to go to that area?",
         "source": "laokaoya"
       }
     ],
@@ -1121,7 +1121,7 @@
         "source": "tongzhuo"
       },
       {
-        "text": "What subject(s) are you studying?",
+        "text": "11. What subject(s) are you studying?",
         "source": "laokaoya"
       },
       {
@@ -1137,7 +1137,7 @@
         "source": "tongzhuo"
       },
       {
-        "text": "Do you prefer to study in the mornings or the afternoons?",
+        "text": "15. Do you prefer to study in the mornings or the afternoons?",
         "source": "laokaoya"
       },
       {
@@ -1153,27 +1153,27 @@
         "source": "tongzhuo"
       },
       {
-        "text": "Why did you choose to do that type of work (or, that job)?",
+        "text": "19. Why did you choose to do that type of work (or, that job)?",
         "source": "laokaoya"
       },
       {
-        "text": "Do you miss being a student?",
+        "text": "20. Do you miss being a student?",
         "source": "laokaoya"
       },
       {
-        "text": "Is it very interesting?",
+        "text": "21. Is it very interesting?",
         "source": "laokaoya"
       },
       {
-        "text": "Do you like your job?",
+        "text": "22. Do you like your job?",
         "source": "laokaoya"
       },
       {
-        "text": "Why did you choose to study that subject? / Why did you choose to study those subjects?",
+        "text": "23. Why did you choose to study that subject? / Why did you choose to study those subjects?",
         "source": "laokaoya"
       },
       {
-        "text": "Are you looking forward to working?",
+        "text": "24. Are you looking forward to working?",
         "source": "laokaoya"
       }
     ],
@@ -1185,19 +1185,19 @@
     "source": "laokaoya_unmatched",
     "questions": [
       {
-        "text": "Can you remember the dreams you had?",
+        "text": "1. Can you remember the dreams you had?",
         "source": "laokaoya"
       },
       {
-        "text": "Do you share your dreams with others?",
+        "text": "2. Do you share your dreams with others?",
         "source": "laokaoya"
       },
       {
-        "text": "Do you think dreams have special meanings?",
+        "text": "3. Do you think dreams have special meanings?",
         "source": "laokaoya"
       },
       {
-        "text": "Do you want to make your dreams come true?",
+        "text": "4. Do you want to make your dreams come true?",
         "source": "laokaoya"
       }
     ],
@@ -1209,19 +1209,19 @@
     "source": "laokaoya_unmatched",
     "questions": [
       {
-        "text": "Do you always bring a lot of keys with you?",
+        "text": "1. Do you always bring a lot of keys with you?",
         "source": "laokaoya"
       },
       {
-        "text": "Have you ever lost your keys?",
+        "text": "2. Have you ever lost your keys?",
         "source": "laokaoya"
       },
       {
-        "text": "Do you often forget the keys and lock yourself out?",
+        "text": "3. Do you often forget the keys and lock yourself out?",
         "source": "laokaoya"
       },
       {
-        "text": "Do you think it's a good idea to leave your keys with a neighbor?",
+        "text": "4. Do you think it's a good idea to leave your keys with a neighbor?",
         "source": "laokaoya"
       }
     ],
@@ -1233,19 +1233,19 @@
     "source": "laokaoya_unmatched",
     "questions": [
       {
-        "text": "When was the last time you had a few days off?",
+        "text": "1. When was the last time you had a few days off?",
         "source": "laokaoya"
       },
       {
-        "text": "What do you usually do when you have days off?",
+        "text": "2. What do you usually do when you have days off?",
         "source": "laokaoya"
       },
       {
-        "text": "Do you usually spend your days off with your parents or with your friends?",
+        "text": "3. Do you usually spend your days off with your parents or with your friends?",
         "source": "laokaoya"
       },
       {
-        "text": "What would you like to do if you have a day off tomorrow?",
+        "text": "4. What would you like to do if you have a day off tomorrow?",
         "source": "laokaoya"
       }
     ],

@@ -149,28 +149,28 @@
     },
     "part3": [
       {
-        "text": "How can leaders encourage their employees?",
+        "text": "1. How can leaders encourage their employees?",
         "source": "laokaoya",
         "type_tags": [
           "analyze"
         ]
       },
       {
-        "text": "When should parents encourage their children?",
+        "text": "2. When should parents encourage their children?",
         "source": "laokaoya",
         "type_tags": [
           "evaluate"
         ]
       },
       {
-        "text": "What kind of encouragement should parents give?",
+        "text": "3. What kind of encouragement should parents give?",
         "source": "laokaoya",
         "type_tags": [
           "evaluate"
         ]
       },
       {
-        "text": "Do you think some people are better than others at persuading?",
+        "text": "4. Do you think some people are better than others at persuading?",
         "source": "laokaoya",
         "type_tags": [
           "evaluate"
@@ -233,28 +233,28 @@
         ]
       },
       {
-        "text": "Do people nowadays help others more than in the past?",
+        "text": "4. Do people nowadays help others more than in the past?",
         "source": "laokaoya",
         "type_tags": [
           "evaluate"
         ]
       },
       {
-        "text": "Who should teach children to help others? Parents or teachers?",
+        "text": "5. Who should teach children to help others? Parents or teachers?",
         "source": "laokaoya",
         "type_tags": [
           "evaluate"
         ]
       },
       {
-        "text": "In what kinds of professions do people help others more?",
+        "text": "6. In what kinds of professions do people help others more?",
         "source": "laokaoya",
         "type_tags": [
           "describe"
         ]
       },
       {
-        "text": "Why are some people willing to help others?",
+        "text": "7. Why are some people willing to help others?",
         "source": "laokaoya",
         "type_tags": [
           "analyze"
@@ -282,28 +282,28 @@
     },
     "part3": [
       {
-        "text": "Do you often buy more than you expected?",
+        "text": "1. Do you often buy more than you expected?",
         "source": "laokaoya",
         "type_tags": [
           "predict"
         ]
       },
       {
-        "text": "What do you think young people spend most of their money on?",
+        "text": "2. What do you think young people spend most of their money on?",
         "source": "laokaoya",
         "type_tags": [
           "evaluate"
         ]
       },
       {
-        "text": "Do you think it is important to save money? Why?",
+        "text": "3. Do you think it is important to save money? Why?",
         "source": "laokaoya",
         "type_tags": [
           "evaluate"
         ]
       },
       {
-        "text": "Do people buy things they don’t need?",
+        "text": "4. Do people buy things they don’t need?",
         "source": "laokaoya",
         "type_tags": [
           "describe",
@@ -348,28 +348,28 @@
     },
     "part3": [
       {
-        "text": "Do you think adults can have lots of imagination?",
+        "text": "1. Do you think adults can have lots of imagination?",
         "source": "laokaoya",
         "type_tags": [
           "evaluate"
         ]
       },
       {
-        "text": "Do you think imagination is essential for scientists?",
+        "text": "2. Do you think imagination is essential for scientists?",
         "source": "laokaoya",
         "type_tags": [
           "evaluate"
         ]
       },
       {
-        "text": "What kinds of jobs need imagination?",
+        "text": "3. What kinds of jobs need imagination?",
         "source": "laokaoya",
         "type_tags": [
           "describe"
         ]
       },
       {
-        "text": "What subjects are helpful for children’s imagination?",
+        "text": "4. What subjects are helpful for children’s imagination?",
         "source": "laokaoya",
         "type_tags": [
           "describe",
@@ -462,28 +462,28 @@
         ]
       },
       {
-        "text": "Should all scenic spots charge an entry fee?",
+        "text": "7. Should all scenic spots charge an entry fee?",
         "source": "laokaoya",
         "type_tags": [
           "evaluate"
         ]
       },
       {
-        "text": "Is visiting scenic spots the best choice for us while travelling?",
+        "text": "8. Is visiting scenic spots the best choice for us while travelling?",
         "source": "laokaoya",
         "type_tags": [
           "predict"
         ]
       },
       {
-        "text": "Why do some people like to live in big cities?",
+        "text": "9. Why do some people like to live in big cities?",
         "source": "laokaoya",
         "type_tags": [
           "analyze"
         ]
       },
       {
-        "text": "Is it necessary for tourists to go to visit landmarks when travelling in a place?",
+        "text": "10. Is it necessary for tourists to go to visit landmarks when travelling in a place?",
         "source": "laokaoya",
         "type_tags": [
           "evaluate"
@@ -650,14 +650,14 @@
         ]
       },
       {
-        "text": "2.Do you think children should receive some musical education?",
+        "text": "2. Do you think children should receive some musical education?",
         "source": "tongzhuo",
         "type_tags": [
           "evaluate"
         ]
       },
       {
-        "text": "3.What are the differences between old and young people's music preferences?",
+        "text": "3. What are the differences between old and young people's music preferences?",
         "source": "tongzhuo",
         "type_tags": [
           "describe",
@@ -666,7 +666,7 @@
         ]
       },
       {
-        "text": "4.What kind of music events are there in your country?",
+        "text": "4. What kind of music events are there in your country?",
         "source": "tongzhuo",
         "type_tags": [
           "describe"
@@ -713,28 +713,28 @@
     },
     "part3": [
       {
-        "text": "Do you think children are born smart or they learn to be smart?",
+        "text": "1. Do you think children are born smart or they learn to be smart?",
         "source": "laokaoya",
         "type_tags": [
           "evaluate"
         ]
       },
       {
-        "text": "How do children become smart at school?",
+        "text": "2. How do children become smart at school?",
         "source": "laokaoya",
         "type_tags": [
           "analyze"
         ]
       },
       {
-        "text": "Why are some people well-rounded and others only good at one thing?",
+        "text": "3. Why are some people well-rounded and others only good at one thing?",
         "source": "laokaoya",
         "type_tags": [
           "analyze"
         ]
       },
       {
-        "text": "Why does modern society need talents of all kinds?",
+        "text": "4. Why does modern society need talents of all kinds?",
         "source": "laokaoya",
         "type_tags": [
           "analyze"
@@ -821,21 +821,21 @@
         ]
       },
       {
-        "text": "What kind of old things do people like to keep?",
+        "text": "7. What kind of old things do people like to keep?",
         "source": "laokaoya",
         "type_tags": [
           "describe"
         ]
       },
       {
-        "text": "Why do people keep old things?",
+        "text": "8. Why do people keep old things?",
         "source": "laokaoya",
         "type_tags": [
           "analyze"
         ]
       },
       {
-        "text": "What are the differences between the things old people keep and those young people keep?",
+        "text": "9. What are the differences between the things old people keep and those young people keep?",
         "source": "laokaoya",
         "type_tags": [
           "describe",
@@ -844,7 +844,7 @@
         ]
       },
       {
-        "text": "What are the differences between the things that people keep today and the things that people kept in the past?",
+        "text": "10. What are the differences between the things that people keep today and the things that people kept in the past?",
         "source": "laokaoya",
         "type_tags": [
           "describe",
@@ -876,7 +876,7 @@
     },
     "part3": [
       {
-        "text": "Which form of vehicle is more popular in your country, bikes, cars or motorcycles?",
+        "text": "1. Which form of vehicle is more popular in your country, bikes, cars or motorcycles?",
         "source": "laokaoya",
         "type_tags": [
           "describe",
@@ -884,35 +884,35 @@
         ]
       },
       {
-        "text": "Do you think air pollution comes mostly from mobile vehicles?",
+        "text": "2. Do you think air pollution comes mostly from mobile vehicles?",
         "source": "laokaoya",
         "type_tags": [
           "evaluate"
         ]
       },
       {
-        "text": "Do you think people need to change the way of transportation drastically to protect the environment?",
+        "text": "3. Do you think people need to change the way of transportation drastically to protect the environment?",
         "source": "laokaoya",
         "type_tags": [
           "evaluate"
         ]
       },
       {
-        "text": "How are the transportation systems in urban areas and rural areas different?",
+        "text": "4. How are the transportation systems in urban areas and rural areas different?",
         "source": "laokaoya",
         "type_tags": [
           "predict"
         ]
       },
       {
-        "text": "5.Why do more people own and drive private vehicles now?",
+        "text": "5. Why do more people own and drive private vehicles now?",
         "source": "tongzhuo",
         "type_tags": [
           "analyze"
         ]
       },
       {
-        "text": "6.What do you think of the future of electric cars?",
+        "text": "6. What do you think of the future of electric cars?",
         "source": "tongzhuo",
         "type_tags": [
           "evaluate"
@@ -1211,21 +1211,21 @@
     },
     "part3": [
       {
-        "text": "Should people prepare before giving advice?",
+        "text": "1. Should people prepare before giving advice?",
         "source": "laokaoya",
         "type_tags": [
           "evaluate"
         ]
       },
       {
-        "text": "Is it good to ask advice from strangers online?",
+        "text": "2. Is it good to ask advice from strangers online?",
         "source": "laokaoya",
         "type_tags": [
           "evaluate"
         ]
       },
       {
-        "text": "What are the personalities of people whose job is to give advice to others?",
+        "text": "3. What are the personalities of people whose job is to give advice to others?",
         "source": "laokaoya",
         "type_tags": [
           "describe",
@@ -1234,7 +1234,7 @@
         ]
       },
       {
-        "text": "What are the problems if you ask too many people for advice?",
+        "text": "4. What are the problems if you ask too many people for advice?",
         "source": "laokaoya",
         "type_tags": [
           "analyze"
@@ -1277,7 +1277,7 @@
     },
     "part3": [
       {
-        "text": "When would parents feel proud of their children?",
+        "text": "1. When would parents feel proud of their children?",
         "source": "laokaoya",
         "type_tags": [
           "describe",
@@ -1286,21 +1286,21 @@
         ]
       },
       {
-        "text": "Should parents reward children? Why and how?",
+        "text": "2. Should parents reward children? Why and how?",
         "source": "laokaoya",
         "type_tags": [
           "evaluate"
         ]
       },
       {
-        "text": "Is it good to reward children too often? Why?",
+        "text": "3. Is it good to reward children too often? Why?",
         "source": "laokaoya",
         "type_tags": [
           "evaluate"
         ]
       },
       {
-        "text": "On what occasions would adults be proud of themselves?",
+        "text": "4. On what occasions would adults be proud of themselves?",
         "source": "laokaoya",
         "type_tags": [
           "describe"
@@ -1346,21 +1346,21 @@
     },
     "part3": [
       {
-        "text": "Do you think people who like to smile are more friendly?",
+        "text": "1. Do you think people who like to smile are more friendly?",
         "source": "laokaoya",
         "type_tags": [
           "evaluate"
         ]
       },
       {
-        "text": "Why do most people smile in photographs?",
+        "text": "2. Why do most people smile in photographs?",
         "source": "laokaoya",
         "type_tags": [
           "analyze"
         ]
       },
       {
-        "text": "Do women smile more than men? Why?",
+        "text": "3. Do women smile more than men? Why?",
         "source": "laokaoya",
         "type_tags": [
           "describe",
@@ -1369,7 +1369,7 @@
         ]
       },
       {
-        "text": "Do people smile more when they are younger or older?",
+        "text": "4. Do people smile more when they are younger or older?",
         "source": "laokaoya",
         "type_tags": [
           "describe",
@@ -1418,14 +1418,14 @@
     },
     "part3": [
       {
-        "text": "How do young and old people use mobile phones differently?",
+        "text": "1. How do young and old people use mobile phones differently?",
         "source": "laokaoya",
         "type_tags": [
           "analyze"
         ]
       },
       {
-        "text": "What positive and negative impact do mobile phones have on friendship?",
+        "text": "2. What positive and negative impact do mobile phones have on friendship?",
         "source": "laokaoya",
         "type_tags": [
           "describe",
@@ -1435,7 +1435,7 @@
         ]
       },
       {
-        "text": "Is it a waste of time to take pictures with mobile phones?",
+        "text": "3. Is it a waste of time to take pictures with mobile phones?",
         "source": "laokaoya",
         "type_tags": [
           "evaluate",
@@ -1443,7 +1443,7 @@
         ]
       },
       {
-        "text": "Do you think it is necessary to have laws on the use of mobile phones?",
+        "text": "4. Do you think it is necessary to have laws on the use of mobile phones?",
         "source": "laokaoya",
         "type_tags": [
           "evaluate"
@@ -1585,7 +1585,7 @@
         ]
       },
       {
-        "text": "What should people consider when choosing jobs?",
+        "text": "4. What should people consider when choosing jobs?",
         "source": "laokaoya",
         "type_tags": [
           "evaluate"
@@ -1606,14 +1606,14 @@
         ]
       },
       {
-        "text": "What kind of job do children like?",
+        "text": "7. What kind of job do children like?",
         "source": "laokaoya",
         "type_tags": [
           "describe"
         ]
       },
       {
-        "text": "Do children like to choose the same profession as their parents?",
+        "text": "8. Do children like to choose the same profession as their parents?",
         "source": "laokaoya",
         "type_tags": [
           "describe",
@@ -1621,7 +1621,7 @@
         ]
       },
       {
-        "text": "Will people regret about their career choices when they become older?",
+        "text": "9. Will people regret about their career choices when they become older?",
         "source": "laokaoya",
         "type_tags": [
           "predict"
@@ -1824,7 +1824,7 @@
         ]
       },
       {
-        "text": "5.Why are some people unwilling to wait?",
+        "text": "5. Why are some people unwilling to wait?",
         "source": "tongzhuo",
         "type_tags": [
           "analyze"
@@ -2029,7 +2029,7 @@
         ]
       },
       {
-        "text": "6.Why are there so few top athletes?",
+        "text": "6. Why are there so few top athletes?",
         "source": "tongzhuo",
         "type_tags": [
           "analyze"
@@ -2123,28 +2123,28 @@
     },
     "part3": [
       {
-        "text": "1.Why do people like to use social media?",
+        "text": "1. Why do people like to use social media?",
         "source": "tongzhuo",
         "type_tags": [
           "analyze"
         ]
       },
       {
-        "text": "2.What kinds of things are popular on social media?",
+        "text": "2. What kinds of things are popular on social media?",
         "source": "tongzhuo",
         "type_tags": [
           "describe"
         ]
       },
       {
-        "text": "3.What are the advantages and disadvantages of using social media?",
+        "text": "3. What are the advantages and disadvantages of using social media?",
         "source": "tongzhuo",
         "type_tags": [
           "evaluate"
         ]
       },
       {
-        "text": "4.What do you think of making friends on social network?",
+        "text": "4. What do you think of making friends on social network?",
         "source": "tongzhuo",
         "type_tags": [
           "evaluate"
@@ -2478,7 +2478,7 @@
         ]
       },
       {
-        "text": "3.On what occasion do people usually apologize to others?",
+        "text": "3. On what occasion do people usually apologize to others?",
         "source": "tongzhuo",
         "type_tags": [
           "describe"
@@ -2763,14 +2763,14 @@
         ]
       },
       {
-        "text": "6. Can consumption drive economic growth?",
+        "text": "5. Can consumption drive economic growth?",
         "source": "tongzhuo",
         "type_tags": [
           "predict"
         ]
       },
       {
-        "text": "7. Why are shopping malls so popular in China?",
+        "text": "6. Why are shopping malls so popular in China?",
         "source": "tongzhuo",
         "type_tags": [
           "analyze"
@@ -2801,35 +2801,35 @@
     },
     "part3": [
       {
-        "text": "2.Would you like to work in a family business?",
+        "text": "1. Would you like to work in a family business?",
         "source": "tongzhuo",
         "type_tags": [
           "predict"
         ]
       },
       {
-        "text": "3. What are the advantages and disadvantages of family business?",
+        "text": "2. What are the advantages and disadvantages of family business?",
         "source": "tongzhuo",
         "type_tags": [
           "evaluate"
         ]
       },
       {
-        "text": "4. Why do some people choose to start their own company?",
+        "text": "3. Why do some people choose to start their own company?",
         "source": "tongzhuo",
         "type_tags": [
           "analyze"
         ]
       },
       {
-        "text": "5. What family businesses do you know in your local area?",
+        "text": "4. What family businesses do you know in your local area?",
         "source": "tongzhuo",
         "type_tags": [
           "predict"
         ]
       },
       {
-        "text": "6. What makes a successful family business?",
+        "text": "5. What makes a successful family business?",
         "source": "tongzhuo",
         "type_tags": [
           "describe",
@@ -2996,7 +2996,7 @@
     },
     "part3": [
       {
-        "text": "1.Why are some people better at finding their way around a new place than others?",
+        "text": "1. Why are some people better at finding their way around a new place than others?",
         "source": "tongzhuo",
         "type_tags": [
           "analyze"
@@ -3031,7 +3031,7 @@
         ]
       },
       {
-        "text": "6.How do people react when they get lost?",
+        "text": "6. How do people react when they get lost?",
         "source": "tongzhuo",
         "type_tags": [
           "analyze"
@@ -3544,21 +3544,21 @@
     },
     "part3": [
       {
-        "text": "Why are children attracted to new things (such as electronics)?",
+        "text": "1. Why are children attracted to new things (such as electronics)?",
         "source": "laokaoya",
         "type_tags": [
           "analyze"
         ]
       },
       {
-        "text": "Why do some grown-ups hate to throw out old things (such as clothes)?",
+        "text": "2. Why do some grown-ups hate to throw out old things (such as clothes)?",
         "source": "laokaoya",
         "type_tags": [
           "analyze"
         ]
       },
       {
-        "text": "Is the way people buy things affected? How?",
+        "text": "3. Is the way people buy things affected? How?",
         "source": "laokaoya",
         "type_tags": [
           "describe",
@@ -3566,7 +3566,7 @@
         ]
       },
       {
-        "text": "What do you think influences people to buy new things?",
+        "text": "4. What do you think influences people to buy new things?",
         "source": "laokaoya",
         "type_tags": [
           "evaluate"
