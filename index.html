@@ -3,7 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <title>IELTS Speaking Question Bank — 2026 Jan–Apr</title>
+
+<!-- ============================================================
+     SECTION 1: STYLE — appearance only
+     Everything here is purely visual: colors, spacing, fonts,
+     hover effects, layout. No logic lives here.
+     ============================================================ -->
 <style>
+  /* ---------- Reset & Base ---------- */
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: 'Georgia', serif;
@@ -21,6 +28,8 @@
     font-size: 0.85rem;
     margin-bottom: 20px;
   }
+
+  /* ---------- Tabs ---------- */
   .tabs {
     display: flex;
     gap: 8px;
@@ -40,39 +49,25 @@
     border-color: #222;
   }
 
-  .legend {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 16px;
-    font-size: 0.8rem;
-    align-items: center;
-  }
-  .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 4px; }
-  .dot-tz { background: #3b82f6; }
-  .dot-lk { background: #f59e0b; }
-
+  /* ---------- Card Grid ---------- */
   .grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 14px;
   }
-
-  /* 1st: Updated Card Layout & Hover Effect */
   .card {
     background: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
-    padding: 24px; 
+    padding: 24px;
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
-
-  .card:hover { 
-    transform: translateY(-6px); 
-    box-shadow: 0 10px 20px rgba(0,0,0,0.12); 
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
     border-color: #bbb;
   }
-
   .card-title {
     font-size: 0.95rem;
     font-weight: bold;
@@ -82,20 +77,8 @@
     font-size: 0.75rem;
     color: #888;
   }
-  .source-bar {
-    display: flex;
-    gap: 4px;
-    margin-top: 8px;
-  }
-  .badge {
-    font-size: 0.7rem;
-    padding: 2px 7px;
-    border-radius: 10px;
-    font-weight: bold;
-  }
-  .badge-tz { background: #dbeafe; color: #1d4ed8; }
-  .badge-lk { background: #fef3c7; color: #b45309; }
 
+  /* ---------- Overlay & Modal ---------- */
   .overlay {
     display: none;
     position: fixed;
@@ -130,8 +113,6 @@
     border: none;
     color: #555;
   }
-
-  /* Back Button for navigation */
   .back-btn {
     display: inline-flex;
     align-items: center;
@@ -148,6 +129,7 @@
   }
   .back-btn:hover { background: #e0f0ff; }
 
+  /* ---------- Modal Content ---------- */
   .section-label {
     font-size: 0.78rem;
     font-weight: bold;
@@ -166,15 +148,6 @@
     line-height: 1.5;
   }
   .q-row:last-child { border-bottom: none; }
-  .q-dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    flex-shrink: 0;
-    margin-top: 6px;
-  }
-  .q-dot.tz { background: #3b82f6; }
-  .q-dot.lk { background: #f59e0b; }
-
   .cue-card {
     background: #f9fafb;
     border-left: 3px solid #6366f1;
@@ -185,8 +158,23 @@
     margin-bottom: 6px;
   }
   .cue-card .prompt { font-weight: bold; margin-bottom: 8px; }
+  .summary-item {
+    cursor: pointer;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    color: #444;
+  }
+  .summary-item:hover { color: #6366f1; text-decoration: underline; }
 
-  /* Content Tags with hover scale */
+  /* ---------- Content Tags (topic-level) ---------- */
+  /* First tag = category (people/place/object/experience/activity) */
+  /* Remaining tags = semantic tags */
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: 6px;
+  }
   .ctag {
     font-size: 0.68rem;
     padding: 2px 7px;
@@ -197,19 +185,26 @@
     transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: inline-block;
   }
-  .ctag:hover { 
+  .ctag:hover {
     transform: scale(1.1);
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   }
-
-  .ctag-people             { background: #fce7f3; color: #9d174d; }
+  /* Category tag colors — one per category type */
+  .ctag-people              { background: #fce7f3; color: #9d174d; }
   .ctag-experience-activity { background: #d1fae5; color: #065f46; }
-  .ctag-place              { background: #e0f2fe; color: #075985; }
-  .ctag-object             { background: #f3f4f6; color: #374151; }
-  .ctag-tag                { background: #ede9fe; color: #5b21b6; }
+  .ctag-place               { background: #e0f2fe; color: #075985; }
+  .ctag-object              { background: #f3f4f6; color: #374151; }
+  /* Semantic tags (index 1+) all share one neutral style */
+  .ctag-tag                 { background: #ede9fe; color: #5b21b6; }
 
-  /* Question Type Tags with hover scale */
-  .type-tags { display: inline-flex; gap: 4px; flex-wrap: wrap; margin-left: 6px; vertical-align: middle; }
+  /* ---------- Question Type Tags (per Part 3 question) ---------- */
+  .type-tags {
+    display: inline-flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
   .ttag {
     font-size: 0.65rem;
     padding: 1px 6px;
@@ -227,182 +222,344 @@
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     filter: brightness(0.95);
   }
-  .ttag-describe  { background: #dbeafe; color: #1e40af; }
-  .ttag-analyze   { background: #d1fae5; color: #065f46; }
-  .ttag-evaluate  { background: #fef3c7; color: #92400e; }
-  .ttag-predict   { background: #ede9fe; color: #5b21b6; }
-  .ttag-unclear   { background: #f3f4f6; color: #6b7280; }
-
-  .summary-item {
-    cursor: pointer;
-    padding: 8px 0;
-    border-bottom: 1px solid #eee;
-    color: #444;
-  }
-  .summary-item:hover { color: #6366f1; text-decoration: underline; }
+  .ttag-describe { background: #dbeafe; color: #1e40af; }
+  .ttag-analyze  { background: #d1fae5; color: #065f46; }
+  .ttag-evaluate { background: #fef3c7; color: #92400e; }
+  .ttag-predict  { background: #ede9fe; color: #5b21b6; }
+  .ttag-unclear  { background: #f3f4f6; color: #6b7280; }
 </style>
 </head>
+
+<!-- ============================================================
+     SECTION 2: BODY — skeleton only
+     Only structural containers live here. No onclick attributes,
+     no data, no logic. JS wires up all interactions after load.
+     ============================================================ -->
 <body>
 
 <h1>IELTS Speaking Question Bank</h1>
 <div class="subtitle">2026 Jan–Apr season · <span id="total-count"></span></div>
 
 <div class="tabs">
-  <button class="tab active" onclick="switchTab('part1')">Part 1</button>
-  <button class="tab" onclick="switchTab('part2')">Part 2 + Part 3</button>
+  <button class="tab" id="tab-part1">Part 1</button>
+  <button class="tab" id="tab-part2">Part 2 + Part 3</button>
 </div>
 
-<div class="legend">
-  <span><span class="dot dot-tz"></span>同桌英语</span>
-  <span><span class="dot dot-lk"></span>老烤鸭</span>
-</div>
-
+<!-- Card grid — JS renders cards into this container -->
 <div class="grid" id="grid"></div>
 
-<div class="overlay" id="overlay" onclick="closeModal(event)">
+<!-- Modal overlay — JS fills #modal-content when user clicks a card or tag -->
+<div class="overlay" id="overlay">
   <div class="modal" id="modal">
-    <button class="close-btn" onclick="closeOverlay()">✕</button>
+    <button class="close-btn" id="close-btn">✕</button>
     <div id="modal-content"></div>
   </div>
 </div>
 
+<!-- ============================================================
+     SECTION 3: SCRIPT — all logic
+     Organized into:
+       A. State
+       B. Data loading
+       C. Rendering helpers
+       D. Grid rendering
+       E. Modal: topic detail
+       F. Modal: tag summary
+       G. Modal: question type summary
+       H. Event wiring (runs on DOMContentLoaded)
+     ============================================================ -->
 <script>
-let part1Data = [], part2Data = [];
-let currentTab = 'part1';
-let lastActiveTag = null; 
 
-function renderTypeTags(tags) {
-  if (!tags || !tags.length) return '';
-  return `<span class="type-tags">${tags.map(t => `<span class="ttag ttag-${t}" onclick="event.stopPropagation(); openTypeSummary('${t}')">${t}</span>`).join('')}</span>`;
-}
+/* ----------------------------------------------------------
+   A. STATE
+   Central state object — single source of truth for the app.
+   ---------------------------------------------------------- */
+const state = {
+  part1Data: [],      // array of Part 1 topic objects from merged_part1.json
+  part2Data: [],      // array of Part 2+3 topic objects from merged_part2.json
+  currentTab: 'part1',
+  lastActiveTag: null // remembers which tag was open so Back button works
+};
 
-function getSources(questions) {
-  return {
-    hasTZ: questions.some(q => q.source === 'tongzhuo'),
-    hasLK: questions.some(q => q.source === 'laokaoya')
-  };
-}
 
-function renderGrid(tab) {
-  const grid = document.getElementById('grid');
-  grid.innerHTML = '';
-  const data = tab === 'part1' ? part1Data : part2Data;
-  document.getElementById('total-count').textContent = `${data.length} topics · Part ${tab === 'part1' ? '1' : '2'}`;
-
-  data.forEach((item, idx) => {
-    const questions = item.questions || item.part3 || [];
-    const { hasTZ, hasLK } = getSources(questions);
-    const card = document.createElement('div');
-    card.className = 'card';
-    card.onclick = () => { lastActiveTag = null; openModal(tab, idx); };
-
-    let title = tab === 'part1' ? item.topic_en : (item.cue_card?.prompt || item.topic || '').replace(/[\u200b\u200c\u200d\ufeff]/g, '').replace(/\s*You should say.*/is, '').replace(/^\s*Describe\s+/i, '').trim();
-    if (title.length > 80) title = title.slice(0, 79) + '…';
-
-    const ct = item.content_tags || [];
-    const ctBadges = tab === 'part2' && ct.length ? `
-      <div class="source-bar" style="margin-top:6px;flex-wrap:wrap;gap:4px;">
-        ${ct.map((tag, i) => `<span class="ctag ${i === 0 ? `ctag-${tag.replace('/', '-')}` : 'ctag-tag'}" onclick="event.stopPropagation(); openTagSummary('${tag}')">${tag}</span>`).join('')}
-      </div>` : '';
-
-    card.innerHTML = `
-      <div class="card-title">${title}</div>
-      <div class="card-meta">${questions.length} questions</div>
-      <div class="source-bar">
-        ${hasTZ ? '<span class="badge badge-tz">同桌</span>' : ''}
-        ${hasLK ? '<span class="badge badge-lk">老烤鸭</span>' : ''}
-      </div>
-      ${ctBadges}
-    `;
-    grid.appendChild(card);
-  });
-}
-
-function openTagSummary(tagName) {
-  lastActiveTag = tagName;
-  const content = document.getElementById('modal-content');
-  const filtered = part2Data.filter(item => item.content_tags && item.content_tags.includes(tagName));
-
-  content.innerHTML = `
-    <h2>Topics tagged: ${tagName}</h2>
-    <div class="season">${filtered.length} matches found</div>
-    <div class="cue-card">
-      <div class="prompt">Questions in this category:</div>
-      <div style="margin-top:10px">
-        ${filtered.map(item => `<div class="summary-item" onclick="openModal('part2', ${part2Data.indexOf(item)})">${item.topic || item.topic_en || 'View Topic'}</div>`).join('')}
-      </div>
-    </div>
-  `;
-  document.getElementById('overlay').classList.add('open');
-}
-
-function openTypeSummary(typeName) {
-  const content = document.getElementById('modal-content');
-  const results = [];
-  part2Data.forEach(topic => {
-    const matches = (topic.part3 || []).filter(q => q.type_tags && q.type_tags.includes(typeName));
-    matches.forEach(q => results.push({ topicTitle: topic.topic || topic.topic_en, text: q.text }));
-  });
-
-  content.innerHTML = `
-    <h2>Question Type: ${typeName}</h2>
-    <div class="season">${results.length} questions found</div>
-    <div class="cue-card">
-      <div class="prompt">Questions categorized as ${typeName}:</div>
-      <div style="margin-top:10px; font-size: 0.85rem;">
-        ${results.map(res => `<div style="margin-bottom: 12px; border-bottom: 1px solid #eee; padding-bottom: 8px;"><div style="font-weight: bold; color: #6366f1; font-size: 0.75rem;">${res.topicTitle}</div><div>${res.text}</div></div>`).join('')}
-      </div>
-    </div>
-  `;
-  document.getElementById('overlay').classList.add('open');
-}
-
-function openModal(tab, idx) {
-  const item = tab === 'part1' ? part1Data[idx] : part2Data[idx];
-  const content = document.getElementById('modal-content');
-  const backBtn = lastActiveTag ? `<div class="back-btn" onclick="openTagSummary('${lastActiveTag}')">← Back to ${lastActiveTag}</div>` : '';
-
-  if (tab === 'part1') {
-    content.innerHTML = `
-      ${backBtn}
-      <h2>${item.topic_en}</h2>
-      <div class="season">${item.season} · Part 1</div>
-      ${item.questions.map(q => `<div class="q-row"><span class="q-dot ${q.source === 'tongzhuo' ? 'tz' : 'lk'}"></span><span>${q.text}</span></div>`).join('')}
-    `;
-  } else {
-    const cc = item.cue_card || {};
-    const p3 = item.part3 || [];
-    content.innerHTML = `
-      ${backBtn}
-      <h2>${item.topic || item.topic_en || ''}</h2>
-      <div class="season">${item.season} · Part 2 + 3</div>
-      <div class="section-label">Cue Card</div>
-      <div class="cue-card">
-        <div class="prompt">${(cc.prompt || '').replace(/\s*You should say.*/is, '').trim()}</div>
-        <ul>${(cc.you_should_say || []).filter(s => s && !/^you should say/i.test(s)).map(s => `<li>${s}</li>`).join('')}</ul>
-      </div>
-      <div class="section-label">Part 3 Questions</div>
-      ${p3.map(q => `<div class="q-row"><span class="q-dot ${q.source === 'tongzhuo' ? 'tz' : 'lk'}"></span><span>${q.text}${renderTypeTags(q.type_tags)}</span></div>`).join('')}
-    `;
-  }
-  document.getElementById('overlay').classList.add('open');
-}
-
-function closeOverlay() { document.getElementById('overlay').classList.remove('open'); }
-function closeModal(e) { if (e.target === document.getElementById('overlay')) closeOverlay(); }
-function switchTab(tab) {
-  currentTab = tab;
-  document.querySelectorAll('.tab').forEach((t, i) => t.classList.toggle('active', (i === 0 && tab === 'part1') || (i === 1 && tab === 'part2')));
-  renderGrid(tab);
-}
-
-(async () => {
-  [part1Data, part2Data] = await Promise.all([
+/* ----------------------------------------------------------
+   B. DATA LOADING
+   Fetches both JSON files in parallel on page load.
+   ---------------------------------------------------------- */
+async function loadData() {
+  [state.part1Data, state.part2Data] = await Promise.all([
     fetch('merged_part1.json').then(r => r.json()),
     fetch('merged_part2.json').then(r => r.json()),
   ]);
   renderGrid('part1');
-})();
+}
+
+
+/* ----------------------------------------------------------
+   C. RENDERING HELPERS
+   Small pure functions that return HTML strings.
+   Each does one thing only.
+   ---------------------------------------------------------- */
+
+// Builds the colored question-type tag badges (describe / analyze / evaluate / predict)
+// shown next to each Part 3 question.
+function renderTypeTags(tags) {
+  if (!tags || !tags.length) return '';
+  return `<span class="type-tags">
+    ${tags.map(t =>
+      `<span class="ttag ttag-${t}" data-type-tag="${t}">${t}</span>`
+    ).join('')}
+  </span>`;
+}
+
+// Builds the content tag row shown on each Part 2 card.
+// First tag gets a category color class; the rest get the neutral .ctag-tag style.
+function renderContentTags(tags) {
+  if (!tags || !tags.length) return '';
+  const badges = tags.map((tag, i) => {
+    const colorClass = i === 0
+      ? `ctag-${tag.replace('/', '-')}`  // e.g. ctag-experience-activity
+      : 'ctag-tag';                       // all semantic tags use neutral purple
+    return `<span class="ctag ${colorClass}" data-content-tag="${tag}">${tag}</span>`;
+  }).join('');
+  return `<div class="tag-row">${badges}</div>`;
+}
+
+// Cleans up Part 2 cue card prompts: removes "Describe", "You should say...", zero-width chars.
+function cleanTitle(raw) {
+  return (raw || '')
+    .replace(/[\u200b\u200c\u200d\ufeff]/g, '')
+    .replace(/\s*You should say.*/is, '')
+    .replace(/^\s*Describe\s+/i, '')
+    .trim();
+}
+
+
+/* ----------------------------------------------------------
+   D. GRID RENDERING
+   Builds all topic cards and injects them into #grid.
+   Called when switching tabs.
+   ---------------------------------------------------------- */
+function renderGrid(tab) {
+  state.currentTab = tab;
+
+  // Update tab button active state
+  document.getElementById('tab-part1').classList.toggle('active', tab === 'part1');
+  document.getElementById('tab-part2').classList.toggle('active', tab === 'part2');
+
+  const grid = document.getElementById('grid');
+  grid.innerHTML = '';
+
+  const data = tab === 'part1' ? state.part1Data : state.part2Data;
+  document.getElementById('total-count').textContent =
+    `${data.length} topics · Part ${tab === 'part1' ? '1' : '2'}`;
+
+  data.forEach((item, idx) => {
+    const questions = item.questions || item.part3 || [];
+
+    // Truncate long titles to 80 chars
+    let title = tab === 'part1'
+      ? item.topic_en
+      : cleanTitle(item.cue_card?.prompt || item.topic || '');
+    if (title.length > 80) title = title.slice(0, 79) + '…';
+
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.dataset.idx = idx;   // store index so click handler knows which topic to open
+    card.dataset.tab = tab;
+
+    card.innerHTML = `
+      <div class="card-title">${title}</div>
+      <div class="card-meta">${questions.length} questions</div>
+      ${tab === 'part2' ? renderContentTags(item.content_tags) : ''}
+    `;
+
+    grid.appendChild(card);
+  });
+}
+
+
+/* ----------------------------------------------------------
+   E. MODAL: TOPIC DETAIL
+   Opens when a card is clicked. Shows cue card + Part 3
+   questions (Part 2), or question list (Part 1).
+   ---------------------------------------------------------- */
+function openModal(tab, idx) {
+  const item = tab === 'part1' ? state.part1Data[idx] : state.part2Data[idx];
+  const backBtn = state.lastActiveTag
+    ? `<div class="back-btn" id="back-btn">← Back to ${state.lastActiveTag}</div>`
+    : '';
+
+  let html = '';
+
+  if (tab === 'part1') {
+    html = `
+      ${backBtn}
+      <h2>${item.topic_en}</h2>
+      <div class="section-label">${item.season} · Part 1</div>
+      ${item.questions.map(q => `
+        <div class="q-row"><span>${q.text}</span></div>
+      `).join('')}
+    `;
+  } else {
+    const cc = item.cue_card || {};
+    const p3 = item.part3 || [];
+    html = `
+      ${backBtn}
+      <h2>${item.topic || item.topic_en || ''}</h2>
+      <div class="section-label">${item.season} · Part 2 + 3</div>
+      <div class="section-label">Cue Card</div>
+      <div class="cue-card">
+        <div class="prompt">${cleanTitle(cc.prompt || '')}</div>
+        <ul>
+          ${(cc.you_should_say || [])
+            .filter(s => s && !/^you should say/i.test(s))
+            .map(s => `<li>${s}</li>`)
+            .join('')}
+        </ul>
+      </div>
+      <div class="section-label">Part 3 Questions</div>
+      ${p3.map(q => `
+        <div class="q-row">
+          <span>${q.text}${renderTypeTags(q.type_tags)}</span>
+        </div>
+      `).join('')}
+    `;
+  }
+
+  document.getElementById('modal-content').innerHTML = html;
+  openOverlay();
+
+  // Wire up back button if present
+  const back = document.getElementById('back-btn');
+  if (back) back.addEventListener('click', () => openTagSummary(state.lastActiveTag));
+}
+
+
+/* ----------------------------------------------------------
+   F. MODAL: TAG SUMMARY
+   Opens when a content tag is clicked (e.g. "music").
+   Shows all Part 2 topics that share that tag.
+   ---------------------------------------------------------- */
+function openTagSummary(tagName) {
+  state.lastActiveTag = tagName;
+  const filtered = state.part2Data.filter(
+    item => item.content_tags && item.content_tags.includes(tagName)
+  );
+
+  const items = filtered.map(item => {
+    const idx = state.part2Data.indexOf(item);
+    return `<div class="summary-item" data-modal-idx="${idx}" data-modal-tab="part2">
+      ${item.topic || item.topic_en || 'View Topic'}
+    </div>`;
+  }).join('');
+
+  document.getElementById('modal-content').innerHTML = `
+    <h2>Topics tagged: ${tagName}</h2>
+    <div class="section-label">${filtered.length} matches</div>
+    <div class="cue-card">
+      <div class="prompt">Topics in this category:</div>
+      <div style="margin-top:10px">${items}</div>
+    </div>
+  `;
+  openOverlay();
+}
+
+
+/* ----------------------------------------------------------
+   G. MODAL: QUESTION TYPE SUMMARY
+   Opens when a type tag is clicked (describe / analyze / etc).
+   Shows all Part 3 questions across all topics with that type.
+   ---------------------------------------------------------- */
+function openTypeSummary(typeName) {
+  const results = [];
+  state.part2Data.forEach(topic => {
+    (topic.part3 || [])
+      .filter(q => q.type_tags && q.type_tags.includes(typeName))
+      .forEach(q => results.push({ topicTitle: topic.topic || topic.topic_en, text: q.text }));
+  });
+
+  const rows = results.map(res => `
+    <div style="margin-bottom:12px; border-bottom:1px solid #eee; padding-bottom:8px;">
+      <div style="font-weight:bold; color:#6366f1; font-size:0.75rem;">${res.topicTitle}</div>
+      <div>${res.text}</div>
+    </div>
+  `).join('');
+
+  document.getElementById('modal-content').innerHTML = `
+    <h2>Question Type: ${typeName}</h2>
+    <div class="section-label">${results.length} questions found</div>
+    <div class="cue-card">
+      <div class="prompt">Questions categorized as ${typeName}:</div>
+      <div style="margin-top:10px; font-size:0.85rem;">${rows}</div>
+    </div>
+  `;
+  openOverlay();
+}
+
+
+/* ----------------------------------------------------------
+   H. EVENT WIRING
+   All event listeners registered here, after DOM is ready.
+   Uses event delegation on #grid and #modal-content so we
+   don't attach hundreds of individual listeners to each card/tag.
+   ---------------------------------------------------------- */
+document.addEventListener('DOMContentLoaded', () => {
+
+  // Tab buttons
+  document.getElementById('tab-part1').addEventListener('click', () => renderGrid('part1'));
+  document.getElementById('tab-part2').addEventListener('click', () => renderGrid('part2'));
+
+  // Close button inside modal
+  document.getElementById('close-btn').addEventListener('click', closeOverlay);
+
+  // Click outside modal to close
+  document.getElementById('overlay').addEventListener('click', e => {
+    if (e.target === document.getElementById('overlay')) closeOverlay();
+  });
+
+  // Event delegation on grid: card clicks, content tag clicks
+  document.getElementById('grid').addEventListener('click', e => {
+    // Content tag click (ctag) — stop propagation so card doesn't also open
+    const ctag = e.target.closest('[data-content-tag]');
+    if (ctag) {
+      e.stopPropagation();
+      openTagSummary(ctag.dataset.contentTag);
+      return;
+    }
+    // Card click — open topic detail modal
+    const card = e.target.closest('.card');
+    if (card) {
+      state.lastActiveTag = null;
+      openModal(card.dataset.tab, parseInt(card.dataset.idx));
+    }
+  });
+
+  // Event delegation on modal: type tag clicks, summary item clicks
+  document.getElementById('modal-content').addEventListener('click', e => {
+    const ttag = e.target.closest('[data-type-tag]');
+    if (ttag) { openTypeSummary(ttag.dataset.typeTag); return; }
+
+    const summaryItem = e.target.closest('[data-modal-idx]');
+    if (summaryItem) {
+      openModal(summaryItem.dataset.modalTab, parseInt(summaryItem.dataset.modalIdx));
+    }
+  });
+
+  // Load data and render initial grid
+  loadData();
+});
+
+// Opens the overlay
+function openOverlay() {
+  document.getElementById('overlay').classList.add('open');
+}
+
+// Closes the overlay and clears modal content
+function closeOverlay() {
+  document.getElementById('overlay').classList.remove('open');
+}
+
 </script>
 </body>
 </html>
