@@ -53,12 +53,10 @@ python3 pipeline/txt_to_json.py merged_part2.txt
 ```
 == Daily routine ==
 SEASON: 2026-Jan-Apr
-[tongzhuo] 1. What is your daily study routine?
-[tongzhuo] 2. Have you ever changed your routine?
-
-== Life stages ==
-SEASON: 2026-Jan-Apr
-[tongzhuo] 1. What did you often do with your friends in your childhood?
+TAGS: experience/activity, everyday_life
+[tongzhuo] 1. What is your daily study routine? [description]
+[tongzhuo] 2. Have you ever changed your routine? [experience, comparison]
+[tongzhuo] 3. Do you think it is important to have a daily routine? [evaluation]
 ```
 
 **TXT format for Part 2:**
@@ -81,8 +79,9 @@ PART3:
   "topic_en": "Daily routine",
   "part": 1,
   "season": "2026-Jan-Apr",
+  "content_tags": ["experience/activity", "everyday_life"],
   "questions": [
-    { "text": "1. Question text", "source": "tongzhuo" }
+    { "text": "1. Question text", "source": "tongzhuo", "type_tags": ["description"] }
   ],
   "tags": []
 }
@@ -126,10 +125,17 @@ Flat array. Position 0 is the **category**; remaining positions are **thematic t
 **Example Part 1:** `"content_tags": ["experience/activity", "reading", "likes_dislikes"]`
 **Example Part 2:** `"content_tags": ["experience/activity", "music", "likes_dislikes"]`
 
-### Question-level (`type_tags`) — Part 1 questions and Part 3 questions
-Per-question array. Values: `describe` | `analyze` | `evaluate` | `predict` | `unclear`
+### Question-level (`type_tags`) — Part 1 questions
+Per-question array. 7-type taxonomy, 1–3 tags per question:
+`experience` | `frequency` | `description` | `preference` | `evaluation` | `comparison` | `hypothetical`
 
-Part 1 questions lean heavily toward `describe` and `evaluate`. Full rules in `docs/CLAUDE_tagging.md`.
+Priority order (for auto-tagging): experience → frequency → description → preference → evaluation → comparison → hypothetical
+
+### Question-level (`type_tags`) — Part 3 questions (Part 2 topics)
+Per-question array. 4-type taxonomy:
+`describe` | `analyze` | `evaluate` | `predict`
+
+Full rules and keyword lists in `docs/CLAUDE_tagging.md`.
 
 ## Data Sources
 - **同桌英语** → `source: "tongzhuo"`
@@ -152,17 +158,26 @@ python3 pipeline/renumber_questions.py merged_part2.json
 ```
 
 ### tag_question_types.py
-Auto-tags questions with `type_tags` using keyword matching (describe / analyze / evaluate / predict / unclear). Supports both Part 1 (`questions` array) and Part 2 (`part3` array). Full rules in `docs/CLAUDE_tagging.md`.
+Auto-tags questions with `type_tags` via keyword matching. Different taxonomy per part. Unmatched Part 1 questions → `type_tags: []`, saved to `claude_p1_type_response.json` for manual/Claude review. Auto-regenerates `.txt` mirror after running.
 ```bash
-python3 pipeline/tag_question_types.py merged_part1.json
-python3 pipeline/tag_question_types.py merged_part2.json
+python3 pipeline/tag_question_types.py merged_part1.json --part 1   # 7-type taxonomy
+python3 pipeline/tag_question_types.py merged_part2.json             # 4-type taxonomy
+```
+To re-run cleanly, first wipe existing tags:
+```bash
+python3 -c "import json; data=json.load(open('merged_part1.json')); [q.pop('type_tags',None) for t in data for q in t.get('questions',[])]; json.dump(data,open('merged_part1.json','w'),ensure_ascii=False,indent=2)"
 ```
 
 ### tag_content_topics.py
-Auto-tags topics with `content_tags` using fuzzy lookup against `tags/tags.txt` + Claude batch prompting. Supports both Part 1 (`topic_en` field) and Part 2 (`topic` field). Full rules in `docs/CLAUDE_tagging.md`.
+Auto-tags topics with `content_tags` via fuzzy name matching + Claude batch. Supports Part 1 (`topic_en`) and Part 2 (`topic`). After Claude batch, use `--apply` to write tags back.
 ```bash
-python3 pipeline/tag_content_topics.py merged_part1.json
+# Step 1 — run fuzzy match + generate Claude prompt:
+python3 pipeline/tag_content_topics.py merged_part1.json --part 1
 python3 pipeline/tag_content_topics.py merged_part2.json
+
+# Step 2 — after saving Claude's JSON response as claude_tag_response.json:
+python3 pipeline/tag_content_topics.py merged_part1.json --part 1 --apply claude_tag_response.json
+python3 pipeline/tag_content_topics.py merged_part2.json --apply claude_tag_response.json
 ```
 
 ### ingest_pipeline.py
