@@ -113,15 +113,8 @@
     border: none;
     color: #555;
   }
-  #modal-back {
-    position: absolute;
-    top: 12px;
-    right: 52px;
-  }
-  #modal-content {
-    padding-top: 28px;
-  }
   .back-btn {
+    margin-bottom: 12px;
     display: inline-flex;
     align-items: center;
     gap: 4px;
@@ -284,7 +277,6 @@
 <div class="overlay" id="overlay">
   <div class="modal" id="modal">
     <button class="close-btn" id="close-btn">✕</button>
-    <div id="modal-back"></div>
     <div id="modal-content"></div>
   </div>
 </div>
@@ -421,16 +413,14 @@ function renderGrid(tab) {
 function openModal(tab, idx) {
   const item = tab === 'part1' ? state.part1Data[idx] : state.part2Data[idx];
 
-  // Render back button into its own absolute-positioned div (top-right of modal)
   const hasBack = state.lastActiveTag || state.lastTypeSummary;
-  document.getElementById('modal-back').innerHTML = hasBack
-    ? `<button class="back-btn" id="back-btn">←</button>`
-    : '';
+  const backBtn = hasBack ? `<button class="back-btn" id="back-btn">←</button>` : '';
 
   let html = '';
 
   if (tab === 'part1') {
     html = `
+      ${backBtn}
       <h2>${item.topic_en}</h2>
       <div class="section-label">${item.season} · Part 1</div>
       ${renderContentTags(item.content_tags)}
@@ -443,6 +433,7 @@ function openModal(tab, idx) {
     const cc = item.cue_card || {};
     const p3 = item.part3 || [];
     html = `
+      ${backBtn}
       <h2>${item.topic || item.topic_en || ''}</h2>
       <div class="section-label">${item.season} · Part 2 + 3</div>
       <div class="section-label">Cue Card</div>
@@ -486,7 +477,6 @@ function openModal(tab, idx) {
 function openTagSummary(tagName) {
   state.lastActiveTag = tagName;
   state.lastTypeSummary = null;
-  document.getElementById('modal-back').innerHTML = '';
 
   const matches = [];
   state.part1Data.forEach((item, idx) => {
@@ -524,13 +514,12 @@ function openTagSummary(tagName) {
 function openTypeSummary(typeName) {
   state.lastTypeSummary = typeName;
   state.lastActiveTag = null;
-  document.getElementById('modal-back').innerHTML = '';
 
   const results = [];
-  state.part1Data.forEach(topic => {
+  state.part1Data.forEach((topic, idx) => {
     (topic.questions || [])
       .filter(q => q.type_tags && q.type_tags.includes(typeName))
-      .forEach(q => results.push({ topicTitle: topic.topic_en, text: q.text, part: 1, idx: null }));
+      .forEach(q => results.push({ topicTitle: topic.topic_en, text: q.text, part: 1, idx }));
   });
   state.part2Data.forEach((topic, idx) => {
     (topic.part3 || [])
@@ -539,24 +528,14 @@ function openTypeSummary(typeName) {
   });
 
   const rows = results.map(res => {
-    if (res.part === 2) {
-      // Part 2/3 questions are clickable — clicking opens the topic card
-      return `
-        <div class="summary-item" data-modal-idx="${res.idx}" data-modal-tab="part2"
-             style="margin-bottom:12px; border-bottom:1px solid #eee; padding-bottom:8px;">
-          <div style="font-weight:bold; color:#6366f1; font-size:0.75rem;">Part 2 · ${res.topicTitle}</div>
-          <div>${res.text}</div>
-        </div>
-      `;
-    } else {
-      // Part 1 questions remain as plain text
-      return `
-        <div style="margin-bottom:12px; border-bottom:1px solid #eee; padding-bottom:8px;">
-          <div style="font-weight:bold; color:#6366f1; font-size:0.75rem;">Part 1 · ${res.topicTitle}</div>
-          <div>${res.text}</div>
-        </div>
-      `;
-    }
+    const tab = res.part === 1 ? 'part1' : 'part2';
+    return `
+      <div class="summary-item" data-modal-idx="${res.idx}" data-modal-tab="${tab}"
+           style="margin-bottom:12px; border-bottom:1px solid #eee; padding-bottom:8px;">
+        <div style="font-weight:bold; color:#6366f1; font-size:0.75rem;">Part ${res.part} · ${res.topicTitle}</div>
+        <div>${res.text}</div>
+      </div>
+    `;
   }).join('');
 
   document.getElementById('modal-content').innerHTML = `
