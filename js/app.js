@@ -2,9 +2,13 @@ import { loadData } from './data.js';
 import { renderGrid } from './components/grid.js';
 import { openModal, openOverlay, closeOverlay } from './components/modal.js';
 import { openTagSummary, openTypeSummary } from './components/tagSummary.js';
+import { initSidebar } from './components/sidebar.js';
 import { state } from './state.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+
+  // Initialize sidebar
+  initSidebar();
 
   // Tab buttons
   document.getElementById('tab-part1').addEventListener('click', () => renderGrid('part1'));

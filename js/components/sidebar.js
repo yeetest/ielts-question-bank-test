@@ -3,6 +3,7 @@ import { renderGrid } from './grid.js';
 
 
 // Sidebar state lives in state.js (state.selectedSkillTags, state.selectedTopicTags)
+let sidebarCollapsed = false;
 
 // Extract tags from data
 function extractTags() {
@@ -140,11 +141,11 @@ window._sidebarClear = function() { clearAllFilters(); };
 
 // Toggle sidebar visibility
 function toggleSidebar() {
-  const sidebar = document.querySelector('.sidebar');
+  sidebarCollapsed = !sidebarCollapsed;
+  const sidebarRoot = document.getElementById('sidebar-root');
   const toggleBtn = document.getElementById('sidebar-toggle');
-  if (!sidebar) return;
-  const collapsed = sidebar.classList.toggle('collapsed');
-  if (toggleBtn) toggleBtn.textContent = collapsed ? '▶ Filters' : '◀ Filters';
+  if (sidebarRoot) sidebarRoot.style.width = sidebarCollapsed ? '0' : '360px';
+  if (toggleBtn) toggleBtn.textContent = sidebarCollapsed ? '▶ Filters' : '◀ Filters';
 }
 
 // Tab change handler - clear skill tags but keep topic tags

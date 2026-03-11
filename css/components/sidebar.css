@@ -11,31 +11,32 @@
   min-width: 0;
 }
 
+/* ---------- Sidebar Root (flex child — width controls collapse) ---------- */
+#sidebar-root {
+  width: 360px;
+  flex-shrink: 0;
+  overflow: hidden;
+  transition: width 0.3s ease;
+}
+
 /* ---------- Sidebar ---------- */
 .sidebar {
-  width: 260px;
-  flex-shrink: 0;
+  width: 360px;
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
-  transition: width 0.3s ease, opacity 0.3s ease;
   position: sticky;
   top: 24px;           /* stays visible when scrolling */
   max-height: calc(100vh - 48px);
 }
 
-.sidebar.collapsed {
-  width: 0;
-  border: none;
-  opacity: 0;
-}
-
 /* ---------- Sidebar Content ---------- */
 .sidebar-content {
-  width: 260px;        /* fixed width so collapse animation doesn't squish content */
+  width: 360px;        /* fixed width so collapse animation doesn't squish content */
   padding: 14px;
   overflow-y: auto;
+  overflow-x: hidden;
   max-height: calc(100vh - 48px);
 }
 

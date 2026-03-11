@@ -81,12 +81,8 @@ RULES_PART2 = [
     ]),
     ("predict", [
         r"\bwill\b",
-        r"in the future\b",
-        r"what changes? will\b",
-        r"what do you think will\b",
-        r"what would happen\b",
-        r"what.{0,20}(likely|probably|going to)\b",
-        r"do you think.{0,30}will\b",
+        r"\bin the future\b",
+        r"\breplace\b.{0,30}\bfuture\b",
     ]),
 ]
 
