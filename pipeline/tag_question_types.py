@@ -160,7 +160,7 @@ RULES_PART1 = [
         r"\bare.{0,30}(important|necessary|good|bad|right|wrong|fair|useful|beneficial)\b",
         r"\bworth\b",
         r"\bwhat (makes|would make)\b",
-        r"\bwhy\b",                               # "Why do people like to walk in parks?"
+        r"^why\b",                                # "Why do people like ...?" (not trailing "Why?/Why not?")
     ]),
     ("comparison", [
         r"\bwhat are the differences\b",

@@ -176,9 +176,7 @@
       {
         "text": "1. Do you look out the window at the scenery when travelling by bus or car?",
         "source": "laokaoya",
-        "type_tags": [
-          "frequency"
-        ]
+        "type_tags": []
       },
       {
         "text": "2. Do you prefer the mountains or the sea?",
@@ -434,8 +432,7 @@
         "text": "3. Do you like watching team games? Why?",
         "source": "laokaoya",
         "type_tags": [
-          "preference",
-          "evaluation"
+          "preference"
         ]
       },
       {
@@ -542,9 +539,7 @@
       {
         "text": "5. What gifts have you received recently?",
         "source": "laokaoya",
-        "type_tags": [
-          "experience"
-        ]
+        "type_tags": []
       }
     ],
     "tags": [],
@@ -582,8 +577,7 @@
         "text": "3. What did you do in the morning when you were little? Why?",
         "source": "laokaoya",
         "type_tags": [
-          "experience",
-          "evaluation"
+          "experience"
         ]
       },
       {
@@ -598,8 +592,7 @@
         "text": "5. Do you spend your mornings doing the same things on both the weekends and weekdays? Why?",
         "source": "laokaoya",
         "type_tags": [
-          "frequency",
-          "evaluation"
+          "frequency"
         ]
       }
     ],
@@ -692,9 +685,7 @@
       {
         "text": "3. Do you eat different foods at different times of the year?",
         "source": "laokaoya",
-        "type_tags": [
-          "frequency"
-        ]
+        "type_tags": []
       },
       {
         "text": "4. Has your favourite food changed since you were a child?",
@@ -725,9 +716,7 @@
       {
         "text": "1. What's your favourite animal? Why?",
         "source": "laokaoya",
-        "type_tags": [
-          "evaluation"
-        ]
+        "type_tags": []
       },
       {
         "text": "2. Have you ever had a pet before?",
@@ -774,9 +763,7 @@
       {
         "text": "1. Did your parents teach you to share when you were a child?",
         "source": "tongzhuo",
-        "type_tags": [
-          "experience"
-        ]
+        "type_tags": []
       },
       {
         "text": "2. What kinds of things do you like to share with others?",
@@ -788,9 +775,7 @@
       {
         "text": "3. What kinds of things are not suitable for sharing?",
         "source": "tongzhuo",
-        "type_tags": [
-          "description"
-        ]
+        "type_tags": []
       },
       {
         "text": "4. Do you have anything to share with others recently?",
@@ -933,9 +918,7 @@
       {
         "text": "1. ls there an advertisement that made an impression on you when you were a child?",
         "source": "tongzhuo",
-        "type_tags": [
-          "experience"
-        ]
+        "type_tags": []
       },
       {
         "text": "2. Do you see a lot of advertising on trains or other transport?",
@@ -1014,9 +997,7 @@
       {
         "text": "5. Do you argue with friends?",
         "source": "tongzhuo",
-        "type_tags": [
-          "description"
-        ]
+        "type_tags": []
       }
     ],
     "tags": [],
@@ -1038,9 +1019,7 @@
       {
         "text": "1. Are you interested in growing vegetables and fruits?",
         "source": "tongzhuo",
-        "type_tags": [
-          "preference"
-        ]
+        "type_tags": []
       },
       {
         "text": "2. Is growing vegetables popular in your country？",
@@ -1052,9 +1031,7 @@
       {
         "text": "3. Do many people grow vegetables in your city?",
         "source": "tongzhuo",
-        "type_tags": [
-          "description"
-        ]
+        "type_tags": []
       },
       {
         "text": "4. Do you think it's easy to grow vegetables?",
@@ -1156,9 +1133,7 @@
       {
         "text": "4. Do most people like crowded places?",
         "source": "tongzhuo",
-        "type_tags": [
-          "description"
-        ]
+        "type_tags": []
       },
       {
         "text": "5. When was the last time you were in a crowded place?",
@@ -1188,9 +1163,7 @@
       {
         "text": "1. Do you bring food or snacks with you when going out?",
         "source": "tongzhuo",
-        "type_tags": [
-          "frequency"
-        ]
+        "type_tags": []
       },
       {
         "text": "2. Do you always take your mobile phone with you when going out?",
@@ -1241,9 +1214,7 @@
       {
         "text": "2. Are you happy to work with people who are older than you?",
         "source": "tongzhuo",
-        "type_tags": [
-          "preference"
-        ]
+        "type_tags": []
       },
       {
         "text": "3. What are the benefits of being friends or working with old people?",
@@ -1379,9 +1350,7 @@
       {
         "text": "3. Do you remember a teacher who does his or her job very well?",
         "source": "tongzhuo",
-        "type_tags": [
-          "experience"
-        ]
+        "type_tags": []
       },
       {
         "text": "4. Do you prefer to have more or fewer rules at school?",
@@ -1433,9 +1402,7 @@
       {
         "text": "2. Do you wear headphones in public places?",
         "source": "tongzhuo",
-        "type_tags": [
-          "frequency"
-        ]
+        "type_tags": []
       },
       {
         "text": "3. Would you like to see more public places near where you live?",
@@ -1479,9 +1446,7 @@
       {
         "text": "2. What plant did you grow when you were young?",
         "source": "tongzhuo",
-        "type_tags": [
-          "experience"
-        ]
+        "type_tags": []
       },
       {
         "text": "3. Do you know anything about growing a plant?",
@@ -1493,9 +1458,7 @@
       {
         "text": "4. Do Chinese people send plants as gifts?",
         "source": "tongzhuo",
-        "type_tags": [
-          "description"
-        ]
+        "type_tags": []
       }
     ],
     "tags": [],
@@ -1531,9 +1494,7 @@
       {
         "text": "3. Which day do you have more free time on, Saturday or Sunday?",
         "source": "tongzhuo",
-        "type_tags": [
-          "description"
-        ]
+        "type_tags": []
       },
       {
         "text": "4. Would you like to have more free time in the future?",
@@ -1579,9 +1540,7 @@
       {
         "text": "3. What's your favourite family photo?",
         "source": "tongzhuo",
-        "type_tags": [
-          "preference"
-        ]
+        "type_tags": []
       },
       {
         "text": "4. Do you want to improve your photography skills?",
@@ -1635,8 +1594,7 @@
         "text": "2. Do you like this city? Why?",
         "source": "tongzhuo",
         "type_tags": [
-          "preference",
-          "evaluation"
+          "preference"
         ]
       },
       {
@@ -1657,9 +1615,7 @@
       {
         "text": "5. ls this city your permanent residence?",
         "source": "tongzhuo",
-        "type_tags": [
-          "description"
-        ]
+        "type_tags": []
       },
       {
         "text": "6. Are there people of different ages living in this city?",
@@ -1692,16 +1648,12 @@
       {
         "text": "10. What's the weather like where you live?",
         "source": "yasige",
-        "type_tags": [
-          "description"
-        ]
+        "type_tags": []
       },
       {
         "text": "11. Would you recommend your city to others?",
         "source": "yasige",
-        "type_tags": [
-          "evaluation"
-        ]
+        "type_tags": []
       }
     ],
     "tags": [],
@@ -1730,16 +1682,14 @@
         "text": "2. Do you live with anyone else? Why/Why not?",
         "source": "tongzhuo",
         "type_tags": [
-          "description",
-          "evaluation"
+          "description"
         ]
       },
       {
         "text": "3. Do you like the place you currently live in? Why/Why not?",
         "source": "tongzhuo",
         "type_tags": [
-          "preference",
-          "evaluation"
+          "preference"
         ]
       },
       {
@@ -1796,9 +1746,7 @@
       {
         "text": "11. Do you plan to live there for a long time?",
         "source": "laokaoya",
-        "type_tags": [
-          "hypothetical"
-        ]
+        "type_tags": []
       },
       {
         "text": "12. What's the difference between where you are living now and where you have lived in the past?",
@@ -1817,9 +1765,7 @@
       {
         "text": "14. Which room does your family spend most of the time in?",
         "source": "laokaoya",
-        "type_tags": [
-          "description"
-        ]
+        "type_tags": []
       },
       {
         "text": "15. Are there transport facilities to your home that are very good?",
@@ -1877,9 +1823,7 @@
       {
         "text": "22. What's your favorite room in your apartment or house?",
         "source": "yasige",
-        "type_tags": [
-          "preference"
-        ]
+        "type_tags": []
       },
       {
         "text": "23. What makes you feel pleasant in your home?",
@@ -1971,16 +1915,14 @@
         "text": "7. Do you have any relatives who still live in your hometown? Why/Why not?",
         "source": "tongzhuo",
         "type_tags": [
-          "description",
-          "evaluation"
+          "description"
         ]
       },
       {
         "text": "8. Do you often go back to visit your hometown? Why/Why not?",
         "source": "tongzhuo",
         "type_tags": [
-          "frequency",
-          "evaluation"
+          "frequency"
         ]
       },
       {
@@ -2014,9 +1956,7 @@
       {
         "text": "13. What's the name of your hometown (again)?",
         "source": "laokaoya",
-        "type_tags": [
-          "description"
-        ]
+        "type_tags": []
       },
       {
         "text": "14. Is that a big city or a small place?",
@@ -2056,9 +1996,7 @@
       {
         "text": "19. What's your hometown famous for?",
         "source": "yasige",
-        "type_tags": [
-          "description"
-        ]
+        "type_tags": []
       },
       {
         "text": "20. Did you learn about the history of your hometown at school?",
@@ -2160,7 +2098,6 @@
         "text": "7. Would you like to change anything about your area? Why/Why not?",
         "source": "tongzhuo",
         "type_tags": [
-          "evaluation",
           "hypothetical"
         ]
       },
@@ -2168,7 +2105,6 @@
         "text": "8. Would you like to continue living there in the future? Why/Why not?",
         "source": "tongzhuo",
         "type_tags": [
-          "evaluation",
           "hypothetical"
         ]
       },
@@ -2257,16 +2193,13 @@
         "text": "4. Do you like your job? Why/Why not?",
         "source": "tongzhuo",
         "type_tags": [
-          "preference",
-          "evaluation"
+          "preference"
         ]
       },
       {
         "text": "5. What do you find the most interesting about the work you do? Why?",
         "source": "tongzhuo",
-        "type_tags": [
-          "evaluation"
-        ]
+        "type_tags": []
       },
       {
         "text": "6. Will you need to do any more study for your job?",
@@ -2356,9 +2289,7 @@
       {
         "text": "18. Are you enjoying your studies at the moment? Why/why not?",
         "source": "tongzhuo",
-        "type_tags": [
-          "evaluation"
-        ]
+        "type_tags": []
       },
       {
         "text": "19. Why did you choose to do that type of work (or, that job)?",
@@ -2370,9 +2301,7 @@
       {
         "text": "20. Do you miss being a student?",
         "source": "laokaoya",
-        "type_tags": [
-          "evaluation"
-        ]
+        "type_tags": []
       },
       {
         "text": "21. Is it very interesting?",
@@ -2429,9 +2358,7 @@
       {
         "text": "2. Do you share your dreams with others?",
         "source": "laokaoya",
-        "type_tags": [
-          "description"
-        ]
+        "type_tags": []
       },
       {
         "text": "3. Do you think dreams have special meanings?",
@@ -2588,9 +2515,7 @@
       {
         "text": "5. Do you argue with friends?",
         "source": "yasige",
-        "type_tags": [
-          "description"
-        ]
+        "type_tags": []
       }
     ],
     "content_tags": {
@@ -2625,9 +2550,7 @@
       {
         "text": "3. What do you need to remember in your daily life?",
         "source": "yasige",
-        "type_tags": [
-          "description"
-        ]
+        "type_tags": []
       },
       {
         "text": "4. How do you remember important things?",
@@ -2681,16 +2604,13 @@
         "text": "4. When do you feel happy at work? Why?",
         "source": "yasige",
         "type_tags": [
-          "description",
-          "evaluation"
+          "description"
         ]
       },
       {
         "text": "5. Do you feel happy when buying new things?",
         "source": "yasige",
-        "type_tags": [
-          "preference"
-        ]
+        "type_tags": []
       },
       {
         "text": "6. Do you think people are happy when buying new things?",
@@ -2856,9 +2776,7 @@
       {
         "text": "20. Do you miss being a student?",
         "source": "yasige",
-        "type_tags": [
-          "evaluation"
-        ]
+        "type_tags": []
       },
       {
         "text": "21. What technology do you use at work?",
