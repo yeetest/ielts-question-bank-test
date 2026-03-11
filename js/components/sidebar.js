@@ -74,45 +74,68 @@ function getQuestions(topic) {
   return topic.questions || topic.part3 || [];
 }
 
-function matchingQuestionCount(topic, skillFilters) {
+function matchesTimeFrame(q, timeFrame) {
+  if (!timeFrame) return true;
+  return q.time_frame === timeFrame;
+}
+
+function matchingQuestionCount(topic, skillFilters, timeFrame) {
   const qs = getQuestions(topic);
-  if (skillFilters.length === 0) return qs.length;
   const focused = state.filterMode === 'focused';
   return qs.filter(q => {
+    if (!matchesTimeFrame(q, timeFrame)) return false;
+    if (skillFilters.length === 0) return true;
     if (!q.type_tags || q.type_tags.length === 0) return false;
     if (focused) {
-      // Every tag on the question must be in the selected set
       return q.type_tags.every(tag => skillFilters.includes(tag));
     }
-    // Blended: at least one tag matches
     return q.type_tags.some(tag => skillFilters.includes(tag));
   }).length;
 }
 
-function countByL1(topics, skillFilters) {
+function countByTimeFrame(topics, skillFilters) {
+  const counts = { past: 0, present: 0, future: 0 };
+  topics.forEach(t => {
+    const qs = getQuestions(t);
+    qs.forEach(q => {
+      if (skillFilters.length > 0) {
+        if (!q.type_tags || q.type_tags.length === 0) return;
+        const focused = state.filterMode === 'focused';
+        if (focused) {
+          if (!q.type_tags.every(tag => skillFilters.includes(tag))) return;
+        } else {
+          if (!q.type_tags.some(tag => skillFilters.includes(tag))) return;
+        }
+      }
+      const tf = q.time_frame;
+      if (tf && counts.hasOwnProperty(tf)) counts[tf]++;
+    });
+  });
+  return counts;
+}
+
+function countByL1(topics, skillFilters, timeFrame) {
   const counts = {};
   topics.forEach(t => {
     const l1 = getContentTags(t).l1;
     if (!l1) return;
-    const qc = matchingQuestionCount(t, skillFilters);
+    const qc = matchingQuestionCount(t, skillFilters, timeFrame);
     if (qc > 0) counts[l1] = (counts[l1] || 0) + qc;
   });
   return counts;
 }
 
-function countByL2(topics, l1Filter, skillFilters) {
+function countByL2(topics, l1Filter, skillFilters, timeFrame) {
   const counts = {};
   const focused = state.filterMode === 'focused';
   topics.forEach(t => {
     const ct = getContentTags(t);
     if (l1Filter && ct.l1 !== l1Filter) return;
-    const qc = matchingQuestionCount(t, skillFilters);
+    const qc = matchingQuestionCount(t, skillFilters, timeFrame);
     if (qc === 0) return;
     const l2 = ct.l2 || [];
     l2.forEach(tag => {
       if (focused) {
-        // Simulate selecting this tag: would the topic pass focused filter?
-        // In focused mode, ALL of the topic's L2 tags must be in selected + this tag
         const simSelected = new Set(state.selectedL2Tags);
         simSelected.add(tag);
         if (!l2.every(t2 => simSelected.has(t2))) return;
@@ -123,7 +146,7 @@ function countByL2(topics, l1Filter, skillFilters) {
   return counts;
 }
 
-function countByL3(topics, l1Filter, l2Filters, skillFilters) {
+function countByL3(topics, l1Filter, l2Filters, skillFilters, timeFrame) {
   const counts = {};
   const focused = state.filterMode === 'focused';
   topics.forEach(t => {
@@ -137,7 +160,7 @@ function countByL3(topics, l1Filter, l2Filters, skillFilters) {
         if (!l2.some(tag => l2Filters.includes(tag))) return;
       }
     }
-    const qc = matchingQuestionCount(t, skillFilters);
+    const qc = matchingQuestionCount(t, skillFilters, timeFrame);
     if (qc === 0) return;
     const l3 = ct.l3 || [];
     l3.forEach(tag => {
@@ -173,19 +196,22 @@ function applyFilters(data, tab) {
   let filtered = [...data];
   const focused = state.filterMode === 'focused';
 
-  if (state.selectedSkillTags.length > 0) {
+  if (state.selectedSkillTags.length > 0 || state.selectedTimeFrame) {
     filtered = filtered.filter(item => {
       const questions = tab === 'part1' ? (item.questions || []) : (item.part3 || []);
-      if (focused) {
-        // At least one question must have ONLY the selected tags
-        return questions.some(q =>
-          q.type_tags && q.type_tags.length > 0 &&
-          q.type_tags.every(tag => state.selectedSkillTags.includes(tag))
-        );
-      }
-      return questions.some(q =>
-        q.type_tags && q.type_tags.some(tag => state.selectedSkillTags.includes(tag))
-      );
+      return questions.some(q => {
+        // Time frame filter
+        if (state.selectedTimeFrame && q.time_frame !== state.selectedTimeFrame) return false;
+        // Skill filter
+        if (state.selectedSkillTags.length > 0) {
+          if (!q.type_tags || q.type_tags.length === 0) return false;
+          if (focused) {
+            return q.type_tags.every(tag => state.selectedSkillTags.includes(tag));
+          }
+          return q.type_tags.some(tag => state.selectedSkillTags.includes(tag));
+        }
+        return true;
+      });
     });
   }
 
@@ -248,6 +274,7 @@ function renderSidebar() {
   const skills = extractSkillTags();
   const currentSkills = state.currentTab === 'part1' ? skills.p1 : skills.p2;
   const hasFilters = state.selectedSkillTags.length > 0
+    || state.selectedTimeFrame
     || state.selectedL1Tag
     || state.selectedL2Tags.length > 0
     || state.selectedL3Tags.length > 0;
@@ -255,19 +282,24 @@ function renderSidebar() {
   // Skill tags
   const skillEntries = Object.entries(currentSkills).sort((a, b) => b[1] - a[1]);
 
-  // L1 counts (cascaded: skill filter applied)
+  // Time frame counts (cascaded: skill filter applied)
   const activeSkills = state.selectedSkillTags;
-  const l1Counts = countByL1(currentTopics, activeSkills);
+  const tfCounts = countByTimeFrame(currentTopics, activeSkills);
+  const tfOrder = ['past', 'present', 'future'];
+  const activeTF = state.selectedTimeFrame;
+
+  // L1 counts (cascaded: skill + time frame filters applied)
+  const l1Counts = countByL1(currentTopics, activeSkills, activeTF);
   const l1Order = ["people", "place", "object", "experience/activity"];
 
-  // L2 (cascaded: skill + L1 filters applied)
+  // L2 (cascaded: skill + time frame + L1 filters applied)
   const visibleL2 = getVisibleL2Tags();
-  const l2Counts = state.selectedL1Tag ? countByL2(currentTopics, state.selectedL1Tag, activeSkills) : {};
+  const l2Counts = state.selectedL1Tag ? countByL2(currentTopics, state.selectedL1Tag, activeSkills, activeTF) : {};
 
-  // L3 (cascaded: skill + L1 + L2 filters applied)
+  // L3 (cascaded: skill + time frame + L1 + L2 filters applied)
   const visibleL3 = getVisibleL3Tags();
   const l3Counts = (state.selectedL2Tags.length > 0)
-    ? countByL3(currentTopics, state.selectedL1Tag, state.selectedL2Tags, activeSkills)
+    ? countByL3(currentTopics, state.selectedL1Tag, state.selectedL2Tags, activeSkills, activeTF)
     : {};
 
   const html = `
@@ -292,6 +324,18 @@ function renderSidebar() {
               <span class="ttag ttag-${name}${state.selectedSkillTags.includes(name) ? ' sidebar-active' : ''}"
                     onclick="window._sidebarSkill('${name}')">
                 ${name} <span class="sidebar-count">${count}</span>
+              </span>
+            `).join('')}
+          </div>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="sidebar-section-label">Time Frame</div>
+          <div class="sidebar-tags">
+            ${tfOrder.map(name => `
+              <span class="tftag tftag-${name}${state.selectedTimeFrame === name ? ' sidebar-active' : ''}"
+                    onclick="window._sidebarTF('${name}')">
+                ${name} <span class="sidebar-count">${tfCounts[name] || 0}</span>
               </span>
             `).join('')}
           </div>
@@ -361,6 +405,12 @@ function toggleSkillTag(name) {
   applyFiltersAndRender();
 }
 
+function toggleTimeFrame(name) {
+  state.selectedTimeFrame = state.selectedTimeFrame === name ? null : name;
+  renderSidebar();
+  applyFiltersAndRender();
+}
+
 function toggleL1(name) {
   if (state.selectedL1Tag === name) {
     // Deselect L1 → clear L2/L3
@@ -400,6 +450,7 @@ function toggleL3(name) {
 
 function clearAllFilters() {
   state.selectedSkillTags = [];
+  state.selectedTimeFrame = null;
   state.selectedL1Tag = null;
   state.selectedL2Tags = [];
   state.selectedL3Tags = [];
@@ -416,6 +467,7 @@ function setFilterMode(mode) {
 // ── global handlers ──────────────────────────────────────────────
 window._sidebarMode = function(m) { setFilterMode(m); };
 window._sidebarSkill = function(n) { toggleSkillTag(n); };
+window._sidebarTF = function(n) { toggleTimeFrame(n); };
 window._sidebarL1 = function(n) { toggleL1(n); };
 window._sidebarL2 = function(n) { toggleL2(n); };
 window._sidebarL3 = function(n) { toggleL3(n); };
@@ -433,6 +485,7 @@ function toggleSidebar() {
 // ── tab change ───────────────────────────────────────────────────
 function onTabChange(newTab) {
   state.selectedSkillTags = [];
+  state.selectedTimeFrame = null;
   state.selectedL1Tag = null;
   state.selectedL2Tags = [];
   state.selectedL3Tags = [];

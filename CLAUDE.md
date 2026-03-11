@@ -32,6 +32,7 @@ ielts-question-bank-test/
     ├── analyze_tag_hierarchy.py (generates layered hierarchy report)
     ├── tag_question_types.py    (auto-tags questions with type_tags via keyword matching)
     ├── tag_content_topics.py    (auto-tags topics with content_tags via fuzzy lookup + Claude batch)
+    ├── tag_time_frames.py       (auto-tags questions with time_frame via keyword matching)
     └── ingest_pipeline.py       (future: ingest new source files)
 ```
 
@@ -58,9 +59,9 @@ python3 human-in-the-loop/txt_to_json.py human-in-the-loop/merged_part2.txt
 == Daily routine ==
 SEASON: 2026-Jan-Apr
 TAGS: experience/activity | home | everyday_life
-[tongzhuo] 1. What is your daily study routine? [description]
-[tongzhuo] 2. Have you ever changed your routine? [experience, comparison]
-[tongzhuo] 3. Do you think it is important to have a daily routine? [evaluation]
+[tongzhuo] 1. What is your daily study routine? [description] {present}
+[tongzhuo] 2. Have you ever changed your routine? [experience, comparison] {past}
+[tongzhuo] 3. Do you think it is important to have a daily routine? [evaluation] {present}
 ```
 
 **TXT format for Part 2:**
@@ -71,8 +72,8 @@ TAGS: people | nature | conservation
 - Who this person is
 - What he or she does
 PART3:
-[tongzhuo][evaluate] 1. Do you think parents should teach their children how to protect the environment?
-[laokaoya][analyze] 2. Why are some people more willing to protect wild animals than others?
+[tongzhuo][description,evaluation]{present} 1. Do you think parents should teach their children how to protect the environment?
+[laokaoya][analyze]{present} 2. Why are some people more willing to protect wild animals than others?
 ```
 
 ## JSON Schemas
@@ -90,7 +91,7 @@ PART3:
   },
   "qualifier_tags": [],
   "questions": [
-    { "text": "1. Question text", "source": "tongzhuo", "type_tags": ["description"] }
+    { "text": "1. Question text", "source": "tongzhuo", "type_tags": ["description"], "time_frame": "present" }
   ],
   "tags": []
 }
@@ -107,7 +108,7 @@ PART3:
     "you_should_say": ["Who this person is", "What he or she does"]
   },
   "part3": [
-    { "text": "1. Question text", "source": "tongzhuo", "type_tags": ["evaluation"] }
+    { "text": "1. Question text", "source": "tongzhuo", "type_tags": ["evaluation"], "time_frame": "present" }
   ],
   "tags": [],
   "content_tags": {
@@ -146,6 +147,12 @@ Per-question array. 1–3 tags per question:
 `experience` | `frequency` | `description` | `preference` | `evaluation` | `analyze` | `comparison` | `hypothetical`
 
 Priority order (for auto-tagging): experience → frequency → description → preference → evaluation → analyze → comparison → hypothetical
+
+### Question-level (`time_frame`) — 3-value system (Part 1 and Part 2+3)
+Per-question single value: `"past"` | `"present"` | `"future"`
+- **past:** past simple, present perfect experience ("have you ever"), past-referring phrases
+- **present:** current state/habit, preference, opinion, general analysis (default)
+- **future:** future tense, plans, hypothetical/subjunctive, desires
 
 Full rules and keyword lists in `docs/CLAUDE_tagging.md`.
 
@@ -204,6 +211,14 @@ python3 pipeline/tag_content_topics.py merged_part2.json
 # Step 2 — after saving Claude's JSON response as claude_tag_response.json:
 python3 pipeline/tag_content_topics.py merged_part1.json --part 1 --apply claude_tag_response.json
 python3 pipeline/tag_content_topics.py merged_part2.json --apply claude_tag_response.json
+```
+
+### tag_time_frames.py
+Auto-tags questions with `time_frame` (past/present/future) via keyword matching. Supports `--dry-run` and `--overwrite`.
+```bash
+python3 pipeline/tag_time_frames.py merged_part1.json --part 1
+python3 pipeline/tag_time_frames.py merged_part2.json
+python3 pipeline/tag_time_frames.py merged_part1.json --part 1 --overwrite  # re-tag all
 ```
 
 ### ingest_pipeline.py

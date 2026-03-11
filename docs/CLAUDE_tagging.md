@@ -326,6 +326,88 @@ Use when the question genuinely does not fit any of the above, or is too vague t
 
 ---
 
+## Time Frame Tags (`time_frame`) — 3-Value System
+
+Every question gets exactly **one** `time_frame` value: `"past"`, `"present"`, or `"future"`.
+
+**Script:** `pipeline/tag_time_frames.py` — auto-tags questions using keyword matching.
+
+---
+
+### past
+Questions about past experiences, memories, completed actions. Covers all past-referring tenses **except** subjunctive mood (which goes to `future`).
+
+**Signals:**
+- Past simple: `did`, `was`, `were`, `when you were`, `in your childhood`, `used to`, `grew up`
+- Present perfect (experience): `have you ever`, `have you been`, `have you tried`
+- Past-referring phrases: `the last time`, `when you were young/a child`, `as a child`, `in the past`, `before`, `recently` (past event)
+
+**Examples:**
+- *What did you often do with your friends in your childhood?* → `past`
+- *Have you ever been part of a sports team?* → `past`
+- *When did you learn how to type on a keyboard?* → `past`
+- *Did your parents teach you to share when you were a child?* → `past`
+
+---
+
+### present
+Questions about current states, habits, preferences, opinions, general truths. The default when no clear past or future signal is present.
+
+**Signals:**
+- Present simple state/habit: `do you`, `are you`, `what is/are`, `is there`
+- Preference: `do you like`, `do you prefer`, `favourite`
+- Opinion/evaluation: `do you think`, `is it important`, `should` (prescriptive, not future plan)
+- General/analytical: `why do`, `what can`, `how do`, `what kind of`
+- Frequency: `how often`, `do you usually`
+- Habitual conditional: `how do you feel when...`
+
+**Key rules:**
+- "Do you think..." / "Is it important..." → `present` (opinion held now, even if topic is abstract)
+- "What can/should people do..." → `present` (general analysis/recommendation)
+- "How do you feel when..." → `present` (habitual present reaction)
+- "Do you have a hobby since childhood?" → `present` (main verb is present tense)
+- Comparison across time ("What's the difference between past and today?") → `present` (asking for current analysis)
+- "Why do more people X now?" → `present` (anchored to present by "now" or general observation)
+
+**Examples:**
+- *What is your daily study routine?* → `present`
+- *Do you prefer typing or handwriting?* → `present`
+- *Do you think parents should teach their children how to protect the environment?* → `present`
+- *What can people do to protect the natural world?* → `present`
+
+---
+
+### future
+Questions about future plans, predictions, hypothetical/imagined scenarios, desires, and wishes. Includes subjunctive mood and all forward-looking constructions.
+
+**Signals:**
+- Future tense: `will`, `going to`, `in the future`
+- Plans: `plans for`, `plan to`, `next five years`
+- Hypothetical/subjunctive: `would you like`, `if you could`, `if you were`, `if you had`, `imagine`
+- Desire/aspiration: `want to`, `would like to`, `hope to`, `looking forward to`
+- Prediction: `do you think ... will`, `in the future`
+
+**Key rules:**
+- "Would you like to..." → `future` (forward-looking desire)
+- "If you could/were/had..." → `future` (subjunctive = hypothetical future)
+- "Do you want to change...?" → `future` (aspiration)
+- "Do you have any plans for the next...?" → `future` (explicit future plans)
+
+**Examples:**
+- *Do you have any plans for the next five years?* → `future`
+- *Would you like to move to a different house in the future?* → `future`
+- *Do you think more people will shop online in the future?* → `future`
+
+---
+
+### Priority & conflict resolution
+1. **Explicit past signal wins** over present frame: "Have you ever..." → `past` (even though present perfect tense)
+2. **Explicit future signal wins** over present frame: "Do you think X will...?" → `future` (despite "do you think" being present)
+3. **Default is `present`** when no past or future signal is detected
+4. **One tag only** — no multi-tagging. If a question mixes time frames, pick the one the question is primarily asking about.
+
+---
+
 ## Tagging with `tag_question_types.py`
 
 `pipeline/tag_question_types.py` auto-tags questions by keyword matching against the rules above. Uses the same 8-type taxonomy for both parts.

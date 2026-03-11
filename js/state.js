@@ -8,5 +8,6 @@ export const state = {
   selectedSkillTags: [], // sidebar skill filter
   selectedL1Tag: null,   // single L1 category or null
   selectedL2Tags: [],    // multiple L2 tags
-  selectedL3Tags: []     // multiple L3 tags
+  selectedL3Tags: [],    // multiple L3 tags
+  selectedTimeFrame: null // 'past' | 'present' | 'future' | null
 };
