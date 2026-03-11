@@ -4,6 +4,7 @@ export const state = {
   currentTab: 'part1',
   lastActiveTag: null,  // content tag name — back returns to tag summary
   lastTypeSummary: null, // type tag name — back returns to type summary
+  filterMode: 'blended', // 'focused' or 'blended'
   selectedSkillTags: [], // sidebar skill filter
   selectedL1Tag: null,   // single L1 category or null
   selectedL2Tags: [],    // multiple L2 tags

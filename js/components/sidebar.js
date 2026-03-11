@@ -77,9 +77,16 @@ function getQuestions(topic) {
 function matchingQuestionCount(topic, skillFilters) {
   const qs = getQuestions(topic);
   if (skillFilters.length === 0) return qs.length;
-  return qs.filter(q =>
-    q.type_tags && q.type_tags.some(tag => skillFilters.includes(tag))
-  ).length;
+  const focused = state.filterMode === 'focused';
+  return qs.filter(q => {
+    if (!q.type_tags || q.type_tags.length === 0) return false;
+    if (focused) {
+      // Every tag on the question must be in the selected set
+      return q.type_tags.every(tag => skillFilters.includes(tag));
+    }
+    // Blended: at least one tag matches
+    return q.type_tags.some(tag => skillFilters.includes(tag));
+  }).length;
 }
 
 function countByL1(topics, skillFilters) {
@@ -141,10 +148,18 @@ function extractSkillTags() {
 // ── filter logic ─────────────────────────────────────────────────
 function applyFilters(data, tab) {
   let filtered = [...data];
+  const focused = state.filterMode === 'focused';
 
   if (state.selectedSkillTags.length > 0) {
     filtered = filtered.filter(item => {
       const questions = tab === 'part1' ? (item.questions || []) : (item.part3 || []);
+      if (focused) {
+        // At least one question must have ONLY the selected tags
+        return questions.some(q =>
+          q.type_tags && q.type_tags.length > 0 &&
+          q.type_tags.every(tag => state.selectedSkillTags.includes(tag))
+        );
+      }
       return questions.some(q =>
         q.type_tags && q.type_tags.some(tag => state.selectedSkillTags.includes(tag))
       );
@@ -158,6 +173,10 @@ function applyFilters(data, tab) {
   if (state.selectedL2Tags.length > 0) {
     filtered = filtered.filter(item => {
       const l2 = getContentTags(item).l2 || [];
+      if (focused) {
+        // Topic's L2 tags must all be within the selected set
+        return l2.length > 0 && l2.every(tag => state.selectedL2Tags.includes(tag));
+      }
       return l2.some(tag => state.selectedL2Tags.includes(tag));
     });
   }
@@ -165,6 +184,9 @@ function applyFilters(data, tab) {
   if (state.selectedL3Tags.length > 0) {
     filtered = filtered.filter(item => {
       const l3 = getContentTags(item).l3 || [];
+      if (focused) {
+        return l3.length > 0 && l3.every(tag => state.selectedL3Tags.includes(tag));
+      }
       return l3.some(tag => state.selectedL3Tags.includes(tag));
     });
   }
@@ -229,6 +251,16 @@ function renderSidebar() {
     <div class="sidebar">
       <div class="sidebar-content">
         ${hasFilters ? `<button class="sidebar-clear-btn" onclick="window._sidebarClear()">✕ Clear filters</button>` : ''}
+
+        <div class="sidebar-section">
+          <div class="sidebar-section-label">Mode</div>
+          <div class="sidebar-tags">
+            <span class="sidebar-mode-btn${state.filterMode === 'focused' ? ' sidebar-mode-active' : ''}"
+                  onclick="window._sidebarMode('focused')">focused mode</span>
+            <span class="sidebar-mode-btn${state.filterMode === 'blended' ? ' sidebar-mode-active' : ''}"
+                  onclick="window._sidebarMode('blended')">blended mode</span>
+          </div>
+        </div>
 
         <div class="sidebar-section">
           <div class="sidebar-section-label">Skill</div>
@@ -352,7 +384,14 @@ function clearAllFilters() {
   renderGrid(state.currentTab);
 }
 
+function setFilterMode(mode) {
+  state.filterMode = mode;
+  renderSidebar();
+  applyFiltersAndRender();
+}
+
 // ── global handlers ──────────────────────────────────────────────
+window._sidebarMode = function(m) { setFilterMode(m); };
 window._sidebarSkill = function(n) { toggleSkillTag(n); };
 window._sidebarL1 = function(n) { toggleL1(n); };
 window._sidebarL2 = function(n) { toggleL2(n); };
