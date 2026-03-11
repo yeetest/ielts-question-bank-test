@@ -140,27 +140,38 @@ def _init_spacy():
 
 
 # ── STEP 5: TAG QUESTIONS ─────────────────────────────────────────────────────
-TAGS_ORDER = ["describe", "analyze", "evaluate", "predict"]
+TAGS_ORDER = ["experience", "frequency", "description", "preference", "evaluation", "analyze", "comparison", "hypothetical"]
 TAG_DESCRIPTIONS = {
-    "describe": "stating current facts, what exists now, what people do, listing things",
-    "analyze":  "explaining why something happens, how something works, cause and effect, meaning",
-    "evaluate": "forming judgments, pros and cons, better or worse, right or wrong, should or shouldn't, agreeing or disagreeing",
-    "predict":  "future state, what will happen, how things will change, hypothetical outcomes",
+    "experience":   "past personal actions or events — what you did, saw, tried, or remember",
+    "frequency":    "how often or how regularly something happens",
+    "description":  "stating current facts, what exists now, what people do, listing things",
+    "preference":   "personal likes, dislikes, favorites, enjoyment",
+    "evaluation":   "forming judgments, pros and cons, should or shouldn't, agreeing or disagreeing",
+    "analyze":      "explaining why something happens, how something works, cause and effect",
+    "comparison":   "differences, changes over time, contrasts between things",
+    "hypothetical": "future-oriented, imagined scenarios, plans, wishes, predictions",
 }
 KEYWORD_BOOSTS = {
-    "describe": ["what kind of", "what kind", "what are the types", "what types",
-                 "what examples", "what are some", "what do people",
-                 "in your country", "what is popular", "on what occasion"],
-    "analyze":  ["why do", "why are", "why is", "how do", "how does",
-                 "what influences", "what impact", "what effect",
-                 "what causes", "how can", "how did", "how has", "manage to",
-                 "what are the problems", "what problems"],
-    "evaluate": ["do you think", "what do you think", "do you agree",
-                 "is it good", "is it important", "is it better", "is it worth",
-                 "should", "advantages and disadvantages", "which is better",
-                 "which", "is it easy", "is it necessary", "most important",
-                 "right age", "necessary"],
-    "predict":  ["will replace", "will change", "will people", "in the future", "will"],
+    "experience":   ["have you", "did you", "when did you", "can you remember"],
+    "frequency":    ["how often", "do you usually", "do you often", "every day",
+                     "how frequently", "how regularly"],
+    "description":  ["what kind of", "what kind", "what are the types", "what types",
+                     "what examples", "what are some", "what do people",
+                     "in your country", "what is popular", "on what occasion"],
+    "preference":   ["do you like", "do you prefer", "favourite", "favorite",
+                     "do you enjoy", "which do you prefer"],
+    "evaluation":   ["do you think", "what do you think", "do you agree",
+                     "is it good", "is it important", "is it better", "is it worth",
+                     "should", "advantages and disadvantages", "which is better",
+                     "is it easy", "is it necessary", "most important", "necessary"],
+    "analyze":      ["why do", "why are", "why is", "how do", "how does",
+                     "what influences", "what impact", "what effect",
+                     "what causes", "how can", "how did", "how has",
+                     "what are the problems", "what problems"],
+    "comparison":   ["what are the differences", "difference between", "compared",
+                     "better than", "worse than", "has changed", "have changed"],
+    "hypothetical": ["would you like", "if you", "will replace", "will change",
+                     "will people", "in the future", "will", "imagine"],
 }
 BOOST  = 0.2
 MARGIN = 0.02

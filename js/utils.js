@@ -1,4 +1,4 @@
-// Builds the colored question-type tag badges (describe / analyze / evaluate / predict)
+// Builds the colored question-type tag badges (8-type unified taxonomy)
 // shown next to each Part 3 question.
 export function renderTypeTags(tags) {
   if (!tags || !tags.length) return '';

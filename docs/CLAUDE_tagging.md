@@ -239,47 +239,83 @@ something that you can't live without                      → object | everyday
 
 
 
-## Question Type Tags (`type_tags`) — Part 3 only
+## Question Type Tags (`type_tags`) — Unified 8-Type Taxonomy
 
-Each Part 3 question gets a `type_tags` array with one or more values. Assign all that apply; if genuinely ambiguous, use `unclear`.
+Both Part 1 questions and Part 3 questions use the same 8-type taxonomy. Each question gets a `type_tags` array with 1–3 values. Assign all that apply (up to 3, in priority order); if genuinely ambiguous, use `unclear`.
 
-**Tag order convention:** `describe` → `analyze` → `evaluate` → `predict`
+**Priority order:** `experience` → `frequency` → `description` → `preference` → `evaluation` → `analyze` → `comparison` → `hypothetical`
 
-**Script:** `pipeline/tag_question_types.py` — auto-tags Part 3 questions using keyword matching.
+**Script:** `pipeline/tag_question_types.py` — auto-tags questions using keyword matching.
 
 ---
 
-### describe
+### experience
+Past personal actions or events — what you did, saw, tried, or remember.
+
+Keywords: `have you`, `did you`, `what did you`, `when did you`, `when was`, `can you remember`
+
+**Example:** *Have you ever visited a museum?*
+
+---
+
+### frequency
+How often or how regularly something happens.
+
+Keywords: `how often`, `do you usually`, `do you often`, `every day`, `how frequently/regularly`
+
+**Example:** *How often do you go to the gym?*
+
+---
+
+### description
 Factual recall, listing, reporting what exists or what people do.
 
-Keywords: `what is/are`, `which`, `how many/much/often/long`, `tell me about`, `do you`, `have you`, `did you`, `is/are there`, `what do people`, `what activities/things/jobs`
+Keywords: `what is/are`, `which`, `how many/much/long`, `tell me`, `describe`, `do you have`, `is there`, `where`, `who`
 
 **Example:** *What kinds of shops are popular in your city?*
 
 ---
 
-### analyze
-Causal or relational reasoning — explaining how or why things work, what changed, what the effects are.
+### preference
+Personal likes, dislikes, favorites, enjoyment.
 
-Keywords: `why`, `how does/do/did`, `what causes/reasons/factors`, `what impact/effect/influence`, `differences/similarities between`, `how does X affect Y`, `what has changed`, `what are the benefits/advantages/disadvantages/challenges/consequences/effects`
+Keywords: `do you like`, `do you prefer`, `favourite`, `do you enjoy`, `which do you prefer`, `do you mind`
 
-**Example:** *Why do some people prefer shopping online?*
+**Example:** *Do you prefer shopping online or in stores?*
 
 ---
 
-### evaluate
+### evaluation
 Judgment, opinion, or recommendation — assessing good/bad, agreeing/disagreeing, weighing options.
 
-Keywords: `do you think`, `what do you think`, `should/shouldn't`, `is it important/necessary/good/bad/better/worse/right/wrong/fair`, `do you agree/believe/prefer`, `whether or not`, `advantages or disadvantages`, `positive and negative`, `waste of time`, `worth`, `better than`
+Keywords: `do you think`, `should/shouldn't`, `is it important/necessary/good/bad`, `do you agree/believe`, `worth`, `advantages or disadvantages`
 
 **Example:** *Do you think it's important for people to support local shops?*
 
 ---
 
-### predict
-Future-oriented reasoning — what will happen, what might change.
+### analyze
+Causal or relational reasoning — explaining how or why things work, what the effects are.
 
-Keywords: `will`, `in the future`, `what changes will`, `what do you think will happen`, `what would happen`, `likely/probably/going to`
+Keywords: `why` (sentence-initial), `how does/do/did`, `what causes/reasons/factors`, `what impact/effect/influence`, `what are the benefits/disadvantages/challenges`
+
+**Example:** *Why do some people prefer shopping online?*
+
+---
+
+### comparison
+Differences, changes over time, contrasts between things.
+
+Keywords: `what are the differences`, `are there differences`, `has/have changed`, `compared`, `better/worse than`, `difference between`, `similarities`
+
+**Example:** *What are the differences between team sports and individual sports?*
+
+---
+
+### hypothetical
+Future-oriented, imagined scenarios, plans, wishes, predictions.
+
+Keywords: `would you like`, `if you`, `would you want/prefer/rather`, `imagine`, `will`, `in the future`, `do you want to`, `plans for`
 
 **Example:** *Do you think more people will shop online in the future?*
 
@@ -292,20 +328,16 @@ Use when the question genuinely does not fit any of the above, or is too vague t
 
 ## Tagging with `tag_question_types.py`
 
-`pipeline/tag_question_types.py` auto-tags questions by keyword matching against the rules above. Supports both Part 1 and Part 2.
+`pipeline/tag_question_types.py` auto-tags questions by keyword matching against the rules above. Uses the same 8-type taxonomy for both parts.
 
 ```bash
-python3 pipeline/tag_question_types.py merged_part1.json   # tags questions[] array
-python3 pipeline/tag_question_types.py merged_part2.json   # tags part3[] array
+python3 pipeline/tag_question_types.py merged_part1.json --part 1   # tags questions[] array
+python3 pipeline/tag_question_types.py merged_part2.json             # tags part3[] array
 ```
 
 - For Part 1: writes `type_tags` into each item in the `questions` array.
 - For Part 2: writes `type_tags` into each item in the `part3` array.
-- After running, always regenerate the `.txt` mirror:
-```bash
-python3 pipeline/json_to_txt.py merged_part1.json
-python3 pipeline/json_to_txt.py merged_part2.json
-```
+- After running, always regenerate the `.txt` mirror.
 - Review output in the `.txt` file and correct any misclassifications manually, then sync back with `txt_to_json.py`.
 
 ---
@@ -327,7 +359,7 @@ Part 1 topics are short abstract noun phrases (e.g. "Food", "Reading", "Shoes") 
   "season": "2026-Jan-Apr",
   "content_tags": ["experience/activity", "reading", "likes_dislikes"],
   "questions": [
-    { "text": "1. Do you like reading?", "source": "laokaoya", "type_tags": ["describe"] }
+    { "text": "1. Do you like reading?", "source": "laokaoya", "type_tags": ["preference"] }
   ],
   "tags": []
 }
@@ -403,28 +435,30 @@ These are suggestions — always check `tags/tags.txt` and use judgment. Do not 
 
 ## Layer 2 — `type_tags` for Part 1 Questions
 
-Same four types as Part 2. Part 1 questions lean heavily toward `describe` and `evaluate`, with occasional `analyze` and rare `predict`.
+Uses the same unified 8-type taxonomy as Part 2+3. See the "Question Type Tags" section above for full definitions.
 
 ### Characteristic patterns for Part 1:
 
-**describe** — most "Do you...?", "Have you...?", "What do/did you...?" questions
-→ *"Do you like reading?"* → `["describe"]`
-→ *"Have you ever had a pet?"* → `["describe"]`
-→ *"What do you usually do in the morning?"* → `["describe"]`
+**experience** — "Have you...?", "Did you...?", "Can you remember...?"
+→ *"Have you ever had a pet?"* → `["experience"]`
 
-**evaluate** — "Do you think...?", "Do you prefer...?", "Is it important...?"
-→ *"Do you think it's important to have a daily routine?"* → `["evaluate"]`
-→ *"Which do you prefer, fashionable shoes or comfortable shoes?"* → `["evaluate"]`
+**description** — most "What is/are...?", "Do you have...?", "Where...?" questions
+→ *"What do you usually do in the morning?"* → `["description"]`
 
-**analyze** — "Why...?", "What are the differences...?", "How does...?"
+**preference** — "Do you like...?", "Do you prefer...?", "What is your favourite...?"
+→ *"Do you like reading?"* → `["preference"]`
+
+**evaluation** — "Do you think...?", "Is it important...?", "Should...?"
+→ *"Do you think it's important to have a daily routine?"* → `["evaluation"]`
+
+**analyze** — "Why...?" (sentence-initial), "How does...?"
 → *"Why do people like to walk in parks?"* → `["analyze"]`
-→ *"What are the differences between team sports and individual sports?"* → `["analyze"]`
 
-**predict** — "Would you like to...?", "Do you plan to...?", "Will...?"
-→ *"Would you like to move to a different house in the future?"* → `["predict"]`
-→ *"Do you have any plans for the next five years?"* → `["predict"]`
+**comparison** — "What are the differences...?", "Has X changed...?"
+→ *"What are the differences between team sports and individual sports?"* → `["comparison"]`
 
-**Note on "Would you like to...?":** tag as `predict` when clearly future-oriented, `evaluate` when it's more about preference than timeline.
+**hypothetical** — "Would you like to...?", "If you...?", "Will...?"
+→ *"Would you like to move to a different house in the future?"* → `["hypothetical"]`
 
 ---
 

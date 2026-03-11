@@ -2,9 +2,9 @@
 tag_question_types.py
 Tags questions with type_tags using keyword matching.
 
-Part 2 (default): targets topic.part3[] with 4-type taxonomy
-  (describe / analyze / evaluate / predict)
-  Fallback: ["describe"]
+Part 2 (default): targets topic.part3[] with 8-type taxonomy
+  (experience / frequency / description / preference / evaluation / analyze / comparison / hypothetical)
+  Same taxonomy as Part 1. Fallback: ["description"]
 
 Part 1 (--part 1): targets topic.questions[] with 8-type taxonomy
   (experience / frequency / description / preference / evaluation / analyze / comparison / hypothetical)
@@ -26,29 +26,70 @@ from pathlib import Path
 
 
 # ---------------------------------------------------------------------------
-# Part 2 — 4-type taxonomy (unchanged)
+# Part 2 — 8-type taxonomy (unified with Part 1)
 # ---------------------------------------------------------------------------
 
 RULES_PART2 = [
-    ("describe", [
+    ("experience", [
+        r"^have you\b",
+        r"^did you\b",
+        r"^what did you\b",
+        r"^when did you\b",
+        r"^when was\b",
+        r"^can you remember\b",
+    ]),
+    ("frequency", [
+        r"^how often\b",
+        r"\bdo you usually\b",
+        r"\bdo you often\b",
+        r"\bevery day\b",
+        r"\bhow (frequently|regularly)\b",
+    ]),
+    ("description", [
         r"^what (is|are|was|were|kind|type|do|did|can|other|examples|sorts)\b",
         r"^which\b",
-        r"^how (many|much|often|long|far|frequently)\b",
+        r"^how (many|much|long|far)\b",
         r"^tell me\b",
         r"^describe\b",
         r"^can you (describe|tell|explain)\b",
         r"^do (you|people|children|young|old|most)\b",
-        r"^have you\b",
-        r"^did you\b",
         r"^is there\b",
         r"^are there\b",
         r"^what (do|did) people\b",
         r"^what (activities|things|jobs|places|ways)\b",
         r"what.*in your country",
         r"what.*popular",
+        r"^who (is|are|do)\b",
+        r"^where (is|are|do|did)\b",
+    ]),
+    ("preference", [
+        r"\bdo you like\b",
+        r"\bdo you prefer\b",
+        r"\bwhat (is|was|were) your favou?rite\b",
+        r"\bdo you enjoy\b",
+        r"\bwhich do you prefer\b",
+        r"\bdo you mind\b",
+    ]),
+    ("evaluation", [
+        r"do you think\b",
+        r"what do you think\b",
+        r"should\b",
+        r"shouldn't\b",
+        r"is it (important|necessary|good|bad|better|worse|right|wrong|fair|useful|harmful|beneficial|effective|appropriate|reasonable)\b",
+        r"do you (agree|believe|support|prefer|consider)\b",
+        r"would you (say|recommend|consider)\b",
+        r"whether (or not|it is|people should)\b",
+        r"(advantages? or disadvantages?|pros? (and|or) cons?)\b",
+        r"good (or|and) bad\b",
+        r"positive (and|or) negative\b",
+        r"important (or|and)\b",
+        r"necessary (or|and)\b",
+        r"waste of time\b",
+        r"worth\b",
+        r"what (makes|would make).{0,20}(good|bad|better|ideal)\b",
     ]),
     ("analyze", [
-        r"\bwhy\b",
+        r"^why\b",
         r"\bhow (does|do|did|has|have)\b",
         r"what (causes?|reasons?|factors?)\b",
         r"what (impact|effect|influence|role)\b",
@@ -60,26 +101,24 @@ RULES_PART2 = [
         r"in what way",
         r"to what extent",
     ]),
-    ("evaluate", [
-        r"do you think\b",
-        r"what do you think\b",
-        r"should\b",
-        r"shouldn't\b",
-        r"is it (important|necessary|good|bad|better|worse|right|wrong|fair|useful|harmful|beneficial|effective|appropriate|reasonable)\b",
-        r"do you (agree|believe|support|prefer|consider)\b",
-        r"would you (say|recommend|consider|prefer)\b",
-        r"whether (or not|it is|people should)\b",
-        r"(better|worse) (than|for|to)\b",
-        r"(advantages? or disadvantages?|pros? (and|or) cons?)\b",
-        r"good (or|and) bad\b",
-        r"positive (and|or) negative\b",
-        r"important (or|and)\b",
-        r"necessary (or|and)\b",
-        r"waste of time\b",
-        r"worth\b",
-        r"what (makes|would make).{0,20}(good|bad|better|ideal)\b",
+    ("comparison", [
+        r"\bwhat are the differences\b",
+        r"\bare there (any )?differences\b",
+        r"\bhas.{0,30}changed\b",
+        r"\bhave.{0,30}changed\b",
+        r"\bchanges?.{0,20}(taken place|in this|in your|recently)\b",
+        r"\bcompared\b",
+        r"\b(better|worse) than\b",
+        r"\bdifference between\b",
+        r"\bsimilarities?\b",
     ]),
-    ("predict", [
+    ("hypothetical", [
+        r"\bwould you like\b",
+        r"\bif you\b",
+        r"\bwould you want\b",
+        r"\bwould you (prefer|rather|choose)\b",
+        r"\bimagine\b",
+        r"\bdo you want to\b",
         r"\bwill\b",
         r"\bin the future\b",
         r"\breplace\b.{0,30}\bfuture\b",
@@ -88,7 +127,7 @@ RULES_PART2 = [
 
 
 # ---------------------------------------------------------------------------
-# Part 1 — 7-type taxonomy, priority order
+# Part 1 — 8-type taxonomy, priority order (same as Part 2)
 # ---------------------------------------------------------------------------
 
 RULES_PART1 = [
@@ -218,7 +257,7 @@ def tag_p2(text):
                 if tag not in tags:
                     tags.append(tag)
                 break
-    return tags if tags else ["describe"]
+    return tags if tags else ["description"]
 
 
 def tag_p1(text):

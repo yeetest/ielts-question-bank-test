@@ -107,7 +107,7 @@ PART3:
     "you_should_say": ["Who this person is", "What he or she does"]
   },
   "part3": [
-    { "text": "1. Question text", "source": "tongzhuo", "type_tags": ["evaluate"] }
+    { "text": "1. Question text", "source": "tongzhuo", "type_tags": ["evaluation"] }
   ],
   "tags": [],
   "content_tags": {
@@ -141,15 +141,11 @@ When an L3 tag is added, its L2 parent is automatically inferred and included.
 
 **Thematic tags:** check `tags/tags.txt` before creating a new tag. Normalise synonyms (film/movie → `movies`, job/career → `work`, journey/trip → `travel`). Append new tags to `tags/tags.txt` with a description.
 
-### Question-level (`type_tags`) — Part 1 questions
-Per-question array. 7-type taxonomy, 1–3 tags per question:
-`experience` | `frequency` | `description` | `preference` | `evaluation` | `comparison` | `hypothetical`
+### Question-level (`type_tags`) — unified 8-type taxonomy (Part 1 and Part 2+3)
+Per-question array. 1–3 tags per question:
+`experience` | `frequency` | `description` | `preference` | `evaluation` | `analyze` | `comparison` | `hypothetical`
 
-Priority order (for auto-tagging): experience → frequency → description → preference → evaluation → comparison → hypothetical
-
-### Question-level (`type_tags`) — Part 3 questions (Part 2 topics)
-Per-question array. 4-type taxonomy:
-`describe` | `analyze` | `evaluate` | `predict`
+Priority order (for auto-tagging): experience → frequency → description → preference → evaluation → analyze → comparison → hypothetical
 
 Full rules and keyword lists in `docs/CLAUDE_tagging.md`.
 
