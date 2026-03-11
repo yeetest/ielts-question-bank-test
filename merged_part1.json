@@ -370,14 +370,9 @@
     "content_tags": {
       "l1": "experience/activity",
       "l2": [
-        "intangible",
-        "personal_growth",
         "study"
       ],
-      "l3": [
-        "self-improvement",
-        "technology"
-      ]
+      "l3": []
     },
     "qualifier_tags": []
   },
@@ -523,12 +518,10 @@
     "content_tags": {
       "l1": "experience/activity",
       "l2": [
-        "intangible",
         "leisure"
       ],
       "l3": [
-        "reading",
-        "technology"
+        "reading"
       ]
     },
     "qualifier_tags": []
@@ -583,14 +576,9 @@
     "content_tags": {
       "l1": "object",
       "l2": [
-        "leisure",
-        "personal_growth",
         "tangible"
       ],
-      "l3": [
-        "creative",
-        "decision"
-      ]
+      "l3": []
     },
     "qualifier_tags": [
       "sentimental"
@@ -755,13 +743,9 @@
     "content_tags": {
       "l1": "object",
       "l2": [
-        "leisure",
-        "tangible",
-        "time"
+        "tangible"
       ],
-      "l3": [
-        "cooking"
-      ]
+      "l3": []
     },
     "qualifier_tags": []
   },
@@ -808,8 +792,6 @@
     "content_tags": {
       "l1": "abstract_concepts",
       "l2": [
-        "indoor",
-        "outdoor",
         "values"
       ],
       "l3": [
@@ -884,7 +866,6 @@
     "content_tags": {
       "l1": "abstract_concepts",
       "l2": [
-        "close_bonds",
         "communication"
       ],
       "l3": []
@@ -1041,12 +1022,10 @@
     "content_tags": {
       "l1": "object",
       "l2": [
-        "intangible",
-        "leisure"
+        "intangible"
       ],
       "l3": [
-        "media",
-        "traveling"
+        "media"
       ]
     },
     "qualifier_tags": []
@@ -1101,12 +1080,9 @@
     "content_tags": {
       "l1": "abstract_concepts",
       "l2": [
-        "communication",
-        "intangible"
+        "communication"
       ],
-      "l3": [
-        "technology"
-      ]
+      "l3": []
     },
     "qualifier_tags": []
   },
@@ -1160,7 +1136,6 @@
     "content_tags": {
       "l1": "object",
       "l2": [
-        "study",
         "tangible"
       ],
       "l3": []
@@ -1305,13 +1280,9 @@
     "content_tags": {
       "l1": "experience/activity",
       "l2": [
-        "intangible",
         "routines"
       ],
-      "l3": [
-        "money",
-        "technology"
-      ]
+      "l3": []
     },
     "qualifier_tags": []
   },
@@ -1358,12 +1329,9 @@
     "content_tags": {
       "l1": "people",
       "l2": [
-        "general",
-        "intangible"
+        "general"
       ],
-      "l3": [
-        "money"
-      ]
+      "l3": []
     },
     "qualifier_tags": []
   },
@@ -1401,8 +1369,7 @@
     "content_tags": {
       "l1": "abstract_concepts",
       "l2": [
-        "personal_growth",
-        "professions"
+        "personal_growth"
       ],
       "l3": [
         "self-improvement"
@@ -1452,12 +1419,9 @@
     "content_tags": {
       "l1": "object",
       "l2": [
-        "leisure",
         "tangible"
       ],
-      "l3": [
-        "shopping"
-      ]
+      "l3": []
     },
     "qualifier_tags": []
   },
@@ -1519,8 +1483,6 @@
     "content_tags": {
       "l1": "abstract_concepts",
       "l2": [
-        "professions",
-        "study",
         "values"
       ],
       "l3": [
@@ -1619,8 +1581,7 @@
     "content_tags": {
       "l1": "object",
       "l2": [
-        "tangible",
-        "time"
+        "tangible"
       ],
       "l3": []
     },
@@ -1733,12 +1694,9 @@
     "content_tags": {
       "l1": "object",
       "l2": [
-        "personal_growth",
         "tangible"
       ],
-      "l3": [
-        "self-improvement"
-      ]
+      "l3": []
     },
     "qualifier_tags": []
   },
@@ -2064,14 +2022,9 @@
     "content_tags": {
       "l1": "place",
       "l2": [
-        "indoor",
-        "leisure",
-        "personal_growth"
+        "indoor"
       ],
-      "l3": [
-        "adaptation",
-        "traveling"
-      ]
+      "l3": []
     },
     "qualifier_tags": []
   },
@@ -2253,7 +2206,6 @@
     "content_tags": {
       "l1": "place",
       "l2": [
-        "close_bonds",
         "outdoor"
       ],
       "l3": []
@@ -2522,7 +2474,6 @@
     "content_tags": {
       "l1": "experience/activity",
       "l2": [
-        "close_bonds",
         "routines"
       ],
       "l3": []
@@ -2651,12 +2602,10 @@
     "content_tags": {
       "l1": "abstract_concepts",
       "l2": [
-        "emotion",
-        "leisure"
+        "emotion"
       ],
       "l3": [
-        "happiness",
-        "shopping"
+        "happiness"
       ]
     },
     "qualifier_tags": []
@@ -2668,13 +2617,10 @@
     "content_tags": {
       "l1": "experience/activity",
       "l2": [
-        "personal_growth",
         "study",
         "work"
       ],
-      "l3": [
-        "decision"
-      ]
+      "l3": []
     },
     "qualifier_tags": [],
     "questions": [
@@ -2818,14 +2764,9 @@
     "content_tags": {
       "l1": "experience/activity",
       "l2": [
-        "emotion",
-        "personal_growth",
         "study"
       ],
-      "l3": [
-        "decision",
-        "learning"
-      ]
+      "l3": []
     },
     "qualifier_tags": [],
     "questions": [
