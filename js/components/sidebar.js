@@ -70,11 +70,15 @@ function getContentTags(topic) {
   return ct;
 }
 
+function questionCount(topic) {
+  return (topic.questions || topic.part3 || []).length;
+}
+
 function countByL1(topics) {
   const counts = {};
   topics.forEach(t => {
     const l1 = getContentTags(t).l1;
-    if (l1) counts[l1] = (counts[l1] || 0) + 1;
+    if (l1) counts[l1] = (counts[l1] || 0) + questionCount(t);
   });
   return counts;
 }
@@ -84,8 +88,9 @@ function countByL2(topics, l1Filter) {
   topics.forEach(t => {
     const ct = getContentTags(t);
     if (l1Filter && ct.l1 !== l1Filter) return;
+    const qc = questionCount(t);
     (ct.l2 || []).forEach(tag => {
-      counts[tag] = (counts[tag] || 0) + 1;
+      counts[tag] = (counts[tag] || 0) + qc;
     });
   });
   return counts;
@@ -97,8 +102,9 @@ function countByL3(topics, l1Filter, l2Filters) {
     const ct = getContentTags(t);
     if (l1Filter && ct.l1 !== l1Filter) return;
     if (l2Filters.length > 0 && !(ct.l2 || []).some(tag => l2Filters.includes(tag))) return;
+    const qc = questionCount(t);
     (ct.l3 || []).forEach(tag => {
-      counts[tag] = (counts[tag] || 0) + 1;
+      counts[tag] = (counts[tag] || 0) + qc;
     });
   });
   return counts;
