@@ -2,11 +2,7 @@ import { state } from '../state.js';
 import { renderGrid } from './grid.js';
 
 
-// Sidebar state
-let selectedSkillTags = [];
-let selectedTopicTags = [];
-let isSkillsExpanded = true;
-let isTopicsExpanded = true;
+// Sidebar state lives in state.js (state.selectedSkillTags, state.selectedTopicTags)
 
 // Extract tags from data
 function extractTags() {
@@ -50,19 +46,19 @@ function applyFilters(data, tab) {
   let filteredData = [...data];
   
   // Apply skill tag filters (only within current part)
-  if (selectedSkillTags.length > 0) {
+  if (state.selectedSkillTags.length > 0) {
     filteredData = filteredData.filter(item => {
       const questions = tab === 'part1' ? (item.questions || []) : (item.part3 || []);
       return questions.some(q => 
-        q.type_tags && q.type_tags.some(tag => selectedSkillTags.includes(tag))
+        q.type_tags && q.type_tags.some(tag => state.selectedSkillTags.includes(tag))
       );
     });
   }
   
   // Apply topic tag filters
-  if (selectedTopicTags.length > 0) {
+  if (state.selectedTopicTags.length > 0) {
     filteredData = filteredData.filter(item => 
-      item.content_tags && item.content_tags.slice(1).some(tag => selectedTopicTags.includes(tag))
+      item.content_tags && item.content_tags.slice(1).some(tag => state.selectedTopicTags.includes(tag))
     );
   }
   
@@ -73,7 +69,7 @@ function applyFilters(data, tab) {
 function renderSidebar() {
   const tags = extractTags();
   const currentSkills = state.currentTab === 'part1' ? tags.part1Skills : tags.part2Skills;
-  const hasFilters = selectedSkillTags.length > 0 || selectedTopicTags.length > 0;
+  const hasFilters = state.selectedSkillTags.length > 0 || state.selectedTopicTags.length > 0;
 
   const sidebarHTML = `
     <div class="sidebar">
@@ -83,7 +79,7 @@ function renderSidebar() {
           <div class="sidebar-col">
             <div class="sidebar-col-label">Skill</div>
             ${currentSkills.map(tag => `
-              <span class="ttag ttag-${tag.name}${selectedSkillTags.includes(tag.name) ? ' sidebar-active' : ''}"
+              <span class="ttag ttag-${tag.name}${state.selectedSkillTags.includes(tag.name) ? ' sidebar-active' : ''}"
                     onclick="window._sidebarSkill('${tag.name}')">
                 ${tag.name} <span class="sidebar-count">${tag.count}</span>
               </span>
@@ -92,7 +88,7 @@ function renderSidebar() {
           <div class="sidebar-col">
             <div class="sidebar-col-label">Topic</div>
             ${tags.topicTags.map(tag => `
-              <span class="ctag ctag-tag${selectedTopicTags.includes(tag.name) ? ' sidebar-active' : ''}"
+              <span class="ctag ctag-tag${state.selectedTopicTags.includes(tag.name) ? ' sidebar-active' : ''}"
                     onclick="window._sidebarTopic('${tag.name}')">
                 ${tag.name} <span class="sidebar-count">${tag.count}</span>
               </span>
@@ -109,24 +105,24 @@ function renderSidebar() {
 
 // Toggle functions
 function toggleSkillTag(tagName) {
-  const index = selectedSkillTags.indexOf(tagName);
-  if (index > -1) selectedSkillTags.splice(index, 1);
-  else selectedSkillTags.push(tagName);
+  const index = state.selectedSkillTags.indexOf(tagName);
+  if (index > -1) state.selectedSkillTags.splice(index, 1);
+  else state.selectedSkillTags.push(tagName);
   renderSidebar();
   applyFiltersAndRender();
 }
 
 function toggleTopicTag(tagName) {
-  const index = selectedTopicTags.indexOf(tagName);
-  if (index > -1) selectedTopicTags.splice(index, 1);
-  else selectedTopicTags.push(tagName);
+  const index = state.selectedTopicTags.indexOf(tagName);
+  if (index > -1) state.selectedTopicTags.splice(index, 1);
+  else state.selectedTopicTags.push(tagName);
   renderSidebar();
   applyFiltersAndRender();
 }
 
 function clearAllFilters() {
-  selectedSkillTags = [];
-  selectedTopicTags = [];
+  state.selectedSkillTags = [];
+  state.selectedTopicTags = [];
   renderSidebar();
   renderGrid(state.currentTab);
 }
@@ -153,7 +149,7 @@ function toggleSidebar() {
 
 // Tab change handler - clear skill tags but keep topic tags
 function onTabChange(newTab) {
-  selectedSkillTags = []; // Clear skill tags when switching tabs
+  state.selectedSkillTags = []; // Clear skill tags when switching tabs
   renderSidebar(); // Re-render sidebar with new skill tags
 }
 

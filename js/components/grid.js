@@ -1,7 +1,7 @@
 import { state } from '../state.js';
 import { renderContentTags, cleanTitle } from '../utils.js';
 
-export function renderGrid(tab) {
+export function renderGrid(tab, filteredData = null) {
   state.currentTab = tab;
 
   // Update tab button active state
@@ -11,7 +11,7 @@ export function renderGrid(tab) {
   const grid = document.getElementById('grid');
   grid.innerHTML = '';
 
-  const data = tab === 'part1' ? state.part1Data : state.part2Data;
+  const data = filteredData !== null ? filteredData : (tab === 'part1' ? state.part1Data : state.part2Data);
   document.getElementById('total-count').textContent =
     `${data.length} topics · Part ${tab === 'part1' ? '1' : '2'}`;
 
@@ -26,7 +26,8 @@ export function renderGrid(tab) {
 
     const card = document.createElement('div');
     card.className = 'card';
-    card.dataset.idx = idx;   // store index so click handler knows which topic to open
+    const originalData = tab === 'part1' ? state.part1Data : state.part2Data;
+    card.dataset.idx = filteredData !== null ? originalData.indexOf(item) : idx;
     card.dataset.tab = tab;
 
     card.innerHTML = `

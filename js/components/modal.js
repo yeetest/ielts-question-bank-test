@@ -25,9 +25,11 @@ export function openModal(tab, idx) {
       <div class="section-label">${item.season} · Part 1</div>
       ${renderContentTags(item.content_tags)}
       <div class="section-label" style="margin-top:14px">Questions</div>
-      ${item.questions.map(q => `
-        <div class="q-row"><span>${q.text}${renderTypeTags(q.type_tags)}</span></div>
-      `).join('')}
+      ${item.questions.map(q => {
+        const match = state.selectedSkillTags.length > 0
+          && q.type_tags && q.type_tags.some(t => state.selectedSkillTags.includes(t));
+        return `<div class="q-row${match ? ' q-highlight' : ''}"><span>${q.text}${renderTypeTags(q.type_tags)}</span></div>`;
+      }).join('')}
     `;
   } else {
     const cc = item.cue_card || {};
@@ -47,11 +49,11 @@ export function openModal(tab, idx) {
         </ul>
       </div>
       <div class="section-label">Part 3 Questions</div>
-      ${p3.map(q => `
-        <div class="q-row">
-          <span>${q.text}${renderTypeTags(q.type_tags)}</span>
-        </div>
-      `).join('')}
+      ${p3.map(q => {
+        const match = state.selectedSkillTags.length > 0
+          && q.type_tags && q.type_tags.some(t => state.selectedSkillTags.includes(t));
+        return `<div class="q-row${match ? ' q-highlight' : ''}"><span>${q.text}${renderTypeTags(q.type_tags)}</span></div>`;
+      }).join('')}
     `;
   }
 

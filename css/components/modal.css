@@ -48,6 +48,12 @@
   line-height: 1.5;
 }
 .q-row:last-child { border-bottom: none; }
+.q-row.q-highlight {
+  background: #f0f7ff;
+  border-left: 3px solid #6366f1;
+  padding-left: 8px;
+  border-radius: 3px;
+}
 .cue-card {
   background: #f9fafb;
   border-left: 3px solid #6366f1;
