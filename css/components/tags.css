@@ -26,6 +26,7 @@
 .ctag-experience-activity { background: #d1fae5; color: #065f46; }
 .ctag-place               { background: #e0f2fe; color: #075985; }
 .ctag-object              { background: #f3f4f6; color: #374151; }
+.ctag-abstract_concepts   { background: #fef3c7; color: #92400e; }
 /* Semantic tags (index 1+) all share one neutral style */
 .ctag-tag                 { background: #ede9fe; color: #5b21b6; }
 

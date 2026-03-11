@@ -3,58 +3,35 @@ import { renderGrid } from './grid.js';
 
 let sidebarCollapsed = false;
 
-// ── L1 → L2 → L3 hierarchy (mirrors TAG_HIERARCHY from Python) ──
+// ── L1 → L2 → L3 hierarchy (v2 taxonomy) ──
 const TAG_TREE = {
   people: {
-    family: ["conflict_resolution"],
-    friendship: ["helping_others", "collaboration"],
-    celebrity: [],
-    influence: [],
-    admiration: [],
-    talent: [],
-    intelligence: ["problem-solving"],
-    happiness: [],
-    child: [],
+    professions: [],
+    close_bonds: [],
+    general: [],
   },
   place: {
-    home: ["everyday_life"],
-    travel: ["adventure", "international", "navigation"],
-    nature: ["animals", "conservation"],
-    architecture: [],
+    outdoor: [],
+    indoor: [],
   },
   object: {
-    books: [],
-    heirloom: [],
-    toy: [],
-    phone: [],
-    money: [],
-    technology: ["app", "social_media"],
+    tangible: [],
+    intangible: ["artwork", "technology", "money", "media"],
   },
   "experience/activity": {
-    art: [],
-    music: [],
-    reading: [],
-    movies: [],
-    food: [],
     work: [],
-    sports: [],
-    shopping: [],
-    service: [],
-    learning: ["self-learning", "curiosity"],
-    science: [],
-    creativity: [],
-    culture: ["stories", "language"],
-    communication: ["advice"],
-    media: [],
-    celebration: ["social_event", "first_time"],
-    disruption: ["restriction"],
-    mistake: [],
-    achievement: ["planning", "self-improvement", "decision"],
-    passion: ["likes_dislikes"],
-    aspiration: [],
-    anticipation: [],
-    childhood: ["nostalgia"],
-    habit: [],
+    study: [],
+    leisure: ["exercise", "shopping", "cooking", "traveling", "creative", "reading", "entertainment"],
+    routines: [],
+  },
+  abstract_concepts: {
+    communication: [],
+    emotion: ["pride", "happiness", "fear", "anger", "attachment", "regret", "patience"],
+    personal_traits: ["creativity", "problem-solving", "craftsmanship", "responsibility", "honesty"],
+    values: ["policy", "environment", "economics", "fairness"],
+    personal_growth: ["learning", "self-improvement", "adaptation", "goal-setting", "decision"],
+    influence: [],
+    time: [],
   },
 };
 
@@ -290,7 +267,7 @@ function renderSidebar() {
 
   // L1 counts (cascaded: skill + time frame filters applied)
   const l1Counts = countByL1(currentTopics, activeSkills, activeTF);
-  const l1Order = ["people", "place", "object", "experience/activity"];
+  const l1Order = ["people", "place", "object", "experience/activity", "abstract_concepts"];
 
   // L2 (cascaded: skill + time frame + L1 filters applied)
   const visibleL2 = getVisibleL2Tags();
