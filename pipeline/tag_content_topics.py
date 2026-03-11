@@ -174,7 +174,7 @@ def main():
         print(f"Updated {json_path}")
         # Regenerate .txt mirror
         import subprocess
-        txt_script = Path(__file__).parent / 'json_to_txt.py'
+        txt_script = Path(__file__).parent.parent / 'human-in-the-loop' / 'json_to_txt.py'
         subprocess.run([sys.executable, str(txt_script), str(json_path)], check=True)
         return
 

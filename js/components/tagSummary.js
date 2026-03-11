@@ -1,4 +1,5 @@
 import { state } from '../state.js';
+import { hasContentTag } from '../utils.js';
 import { openOverlay } from './modal.js';
 
 export function openTagSummary(tagName) {
@@ -7,11 +8,11 @@ export function openTagSummary(tagName) {
 
   const matches = [];
   state.part1Data.forEach((item, idx) => {
-    if (item.content_tags && item.content_tags.includes(tagName))
+    if (hasContentTag(item.content_tags, tagName))
       matches.push({ label: item.topic_en, idx, tab: 'part1' });
   });
   state.part2Data.forEach((item, idx) => {
-    if (item.content_tags && item.content_tags.includes(tagName))
+    if (hasContentTag(item.content_tags, tagName))
       matches.push({ label: item.topic || item.topic_en, idx, tab: 'part2' });
   });
 

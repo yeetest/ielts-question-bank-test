@@ -15,45 +15,49 @@ ielts-question-bank-test/
 ├── index.html
 ├── merged_part1.json
 ├── merged_part2.json
-├── merged_part1.txt         (gitignored — regenerate with json_to_txt.py)
-├── merged_part2.txt         (gitignored — regenerate with json_to_txt.py)
 ├── tags/
 │   └── tags.txt             (ground truth tag vocabulary, tracked by git)
 ├── docs/
 │   └── CLAUDE_tagging.md    (full tagging rules)
+├── human-in-the-loop/       (local only — gitignored)
+│   ├── json_to_txt.py       (JSON → human-editable .txt)
+│   ├── txt_to_json.py       (.txt → JSON sync)
+│   ├── merged_part1.txt     (generated mirror of part1 JSON)
+│   ├── merged_part2.txt     (generated mirror of part2 JSON)
+│   └── *.txt                (other generated txt reports)
 └── pipeline/                (local dev only — gitignored)
     ├── dedup_questions.py       (one-time dedup for existing JSONs only)
     ├── renumber_questions.py    (renumbers questions sequentially within each topic)
-    ├── json_to_txt.py           (JSON → human-editable .txt)
-    ├── txt_to_json.py           (.txt → JSON sync)
-    ├── tag_question_types.py    (auto-tags Part 3 questions with type_tags via keyword matching)
-    ├── tag_content_topics.py    (auto-tags Part 2 topics with content_tags via fuzzy lookup + Claude batch)
+    ├── rewrite_content_tags.py  (migrates content_tags to 3-layer format)
+    ├── analyze_tag_hierarchy.py (generates layered hierarchy report)
+    ├── tag_question_types.py    (auto-tags questions with type_tags via keyword matching)
+    ├── tag_content_topics.py    (auto-tags topics with content_tags via fuzzy lookup + Claude batch)
     └── ingest_pipeline.py       (future: ingest new source files)
 ```
 
-**Note:** `pipeline/` and all `.txt` files (except `tags/tags.txt`) are gitignored. Only JSON, HTML, `tags/tags.txt`, `docs/`, and `CLAUDE.md` are committed to GitHub.
+**Note:** `pipeline/`, `human-in-the-loop/`, and all `.txt` files (except `tags/tags.txt`) are gitignored. Only JSON, HTML, CSS, JS, `tags/tags.txt`, `docs/`, and `CLAUDE.md` are committed to GitHub.
 
 ## Human-in-the-Loop Edit Pattern
 
-The `.txt` files are human-editable mirrors of the JSON files. Kathy edits `.txt`; scripts sync to/from JSON.
+The `.txt` files in `human-in-the-loop/` are human-editable mirrors of the JSON files. Kathy edits `.txt`; scripts sync to/from JSON.
 
 **Rules for Claude Code:**
 - After any edit to `merged_part1.json` or `merged_part2.json`, immediately regenerate the matching `.txt`:
 ```bash
-python3 pipeline/json_to_txt.py merged_part1.json
-python3 pipeline/json_to_txt.py merged_part2.json
+python3 human-in-the-loop/json_to_txt.py merged_part1.json
+python3 human-in-the-loop/json_to_txt.py merged_part2.json
 ```
 - When Kathy says she has edited a `.txt` file, run `txt_to_json.py` to sync back to JSON before doing anything else:
 ```bash
-python3 pipeline/txt_to_json.py merged_part1.txt
-python3 pipeline/txt_to_json.py merged_part2.txt
+python3 human-in-the-loop/txt_to_json.py human-in-the-loop/merged_part1.txt
+python3 human-in-the-loop/txt_to_json.py human-in-the-loop/merged_part2.txt
 ```
 
 **TXT format for Part 1:**
 ```
 == Daily routine ==
 SEASON: 2026-Jan-Apr
-TAGS: experience/activity, everyday_life
+TAGS: experience/activity | home | everyday_life
 [tongzhuo] 1. What is your daily study routine? [description]
 [tongzhuo] 2. Have you ever changed your routine? [experience, comparison]
 [tongzhuo] 3. Do you think it is important to have a daily routine? [evaluation]
@@ -79,7 +83,12 @@ PART3:
   "topic_en": "Daily routine",
   "part": 1,
   "season": "2026-Jan-Apr",
-  "content_tags": ["experience/activity", "everyday_life"],
+  "content_tags": {
+    "l1": "experience/activity",
+    "l2": ["home"],
+    "l3": ["everyday_life"]
+  },
+  "qualifier_tags": [],
   "questions": [
     { "text": "1. Question text", "source": "tongzhuo", "type_tags": ["description"] }
   ],
@@ -101,7 +110,12 @@ PART3:
     { "text": "1. Question text", "source": "tongzhuo", "type_tags": ["evaluate"] }
   ],
   "tags": [],
-  "content_tags": ["people", "nature", "conservation"]
+  "content_tags": {
+    "l1": "people",
+    "l2": ["nature"],
+    "l3": ["conservation"]
+  },
+  "qualifier_tags": []
 }
 ```
 
@@ -109,21 +123,23 @@ PART3:
 
 Full tagging rules are in `docs/CLAUDE_tagging.md`. Summary:
 
-### Topic-level (`content_tags`) — Part 1 and Part 2
-Flat array. Position 0 is the **category**; remaining positions are **thematic tags** from `tags/tags.txt`.
+### Topic-level (`content_tags`) — 3-Layer System
 
-- Part 1: 2–3 tags total (topics are abstract nouns, fewer tags needed)
-- Part 2: 2–4 tags total
+Structured object with 3 layers. Full hierarchy in `tags/tags.txt`.
 
-**Categories:** `people` | `place` | `object` | `experience/activity`
+```json
+"content_tags": {"l1": "experience/activity", "l2": ["music", "passion"], "l3": ["likes_dislikes"]}
+"qualifier_tags": ["memorable"]
+```
+
+**Layer 1 (l1):** Single primary category — `people` | `place` | `object` | `experience/activity`
+**Layer 2 (l2):** Thematic clusters — e.g. `travel`, `music`, `friendship`, `technology`
+**Layer 3 (l3):** Specific/concrete tags — e.g. `adventure`, `nostalgia`, `social_media`
+**Qualifiers:** Stored separately in `qualifier_tags` — `memorable` | `peaceful` | `sentimental` | `useful` | `interesting`
+
+When an L3 tag is added, its L2 parent is automatically inferred and included.
 
 **Thematic tags:** check `tags/tags.txt` before creating a new tag. Normalise synonyms (film/movie → `movies`, job/career → `work`, journey/trip → `travel`). Append new tags to `tags/tags.txt` with a description.
-
-**Part 1 field:** `content_tags` added alongside existing `tags: []` (do not replace it)
-**Part 2 field:** `content_tags`
-
-**Example Part 1:** `"content_tags": ["experience/activity", "reading", "likes_dislikes"]`
-**Example Part 2:** `"content_tags": ["experience/activity", "music", "likes_dislikes"]`
 
 ### Question-level (`type_tags`) — Part 1 questions
 Per-question array. 7-type taxonomy, 1–3 tags per question:
@@ -142,6 +158,20 @@ Full rules and keyword lists in `docs/CLAUDE_tagging.md`.
 - **老烤鸭** → `source: "laokaoya"`
 
 ## Pipeline Scripts
+
+### rewrite_content_tags.py
+Migrates content_tags from flat array to 3-layer structured format. Re-runnable. Supports `--dry-run`.
+```bash
+python3 pipeline/rewrite_content_tags.py          # writes to JSON
+python3 pipeline/rewrite_content_tags.py --dry-run # preview only
+```
+
+### analyze_tag_hierarchy.py
+Generates the full nested hierarchy report from TAG_HIERARCHY definition.
+```bash
+python3 pipeline/analyze_tag_hierarchy.py
+# output → human-in-the-loop/layered_content_tags.txt
+```
 
 ### dedup_questions.py
 Removes near-duplicate questions within each topic using fuzzy matching. **For existing JSONs only** — future ingest dedup is a separate script not yet built.
@@ -194,5 +224,6 @@ git push
 - Never embed data in `index.html` — always `fetch()` from JSON files
 - Always preserve `season` field as-is (e.g. `"2026-Jan-Apr"`)
 - Strip all Chinese characters and zero-width chars from English fields
-- `content_tags` is a flat array — NOT an object (old `{category, substance, frame_angle}` format is obsolete)
+- `content_tags` is a 3-layer object `{"l1": str, "l2": [...], "l3": [...]}` — NOT a flat array
+- `qualifier_tags` is a separate flat array for tone/quality descriptors
 - After any JSON edit, always regenerate the matching `.txt` mirror

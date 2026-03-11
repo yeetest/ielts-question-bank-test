@@ -1,131 +1,157 @@
 import { state } from '../state.js';
 import { renderGrid } from './grid.js';
 
-
-// Sidebar state lives in state.js (state.selectedSkillTags, state.selectedTopicTags)
 let sidebarCollapsed = false;
 
-// Extract tags from data
-function extractTags() {
-  // Part 1 skill tags
-  const part1SkillCounts = {};
-  state.part1Data.forEach(topic => {
-    (topic.questions || []).forEach(q => {
-      (q.type_tags || []).forEach(tag => {
-        part1SkillCounts[tag] = (part1SkillCounts[tag] || 0) + 1;
-      });
-    });
-  });
+// ── L1 → L2 → L3 hierarchy (mirrors TAG_HIERARCHY from Python) ──
+const TAG_TREE = {
+  people: {
+    family: ["conflict_resolution"],
+    friendship: ["helping_others", "collaboration"],
+    celebrity: [],
+    influence: [],
+    admiration: [],
+    talent: [],
+    intelligence: ["problem-solving"],
+    happiness: [],
+    child: [],
+  },
+  place: {
+    home: ["everyday_life"],
+    travel: ["adventure", "international", "navigation"],
+    nature: ["animals", "conservation"],
+    architecture: [],
+  },
+  object: {
+    books: [],
+    heirloom: [],
+    toy: [],
+    phone: [],
+    money: [],
+    technology: ["app", "social_media"],
+  },
+  "experience/activity": {
+    art: [],
+    music: [],
+    reading: [],
+    movies: [],
+    food: [],
+    work: [],
+    sports: [],
+    shopping: [],
+    service: [],
+    learning: ["self-learning", "curiosity"],
+    science: [],
+    creativity: [],
+    culture: ["stories", "language"],
+    communication: ["advice"],
+    media: [],
+    celebration: ["social_event", "first_time"],
+    disruption: ["restriction"],
+    mistake: [],
+    achievement: ["planning", "self-improvement", "decision"],
+    passion: ["likes_dislikes"],
+    aspiration: [],
+    anticipation: [],
+    childhood: ["nostalgia"],
+    habit: [],
+  },
+};
 
-  // Part 2 skill tags
-  const part2SkillCounts = {};
-  state.part2Data.forEach(topic => {
-    (topic.part3 || []).forEach(q => {
-      (q.type_tags || []).forEach(tag => {
-        part2SkillCounts[tag] = (part2SkillCounts[tag] || 0) + 1;
-      });
-    });
-  });
-
-  // Topic tags (skip first category tag, use semantic tags)
-  const topicTagCounts = {};
-  [...state.part1Data, ...state.part2Data].forEach(topic => {
-    (topic.content_tags || []).slice(1).forEach(tag => {
-      topicTagCounts[tag] = (topicTagCounts[tag] || 0) + 1;
-    });
-  });
-
-  return {
-    part1Skills: Object.entries(part1SkillCounts).map(([name, count]) => ({ name, count })).sort((a, b) => b.count - a.count),
-    part2Skills: Object.entries(part2SkillCounts).map(([name, count]) => ({ name, count })).sort((a, b) => b.count - a.count),
-    topicTags: Object.entries(topicTagCounts).map(([name, count]) => ({ name, count })).sort((a, b) => b.count - a.count)
-  };
+// ── helpers ──────────────────────────────────────────────────────
+function getAllTopics() {
+  return [...state.part1Data, ...state.part2Data];
 }
 
-// Apply filters to data
+function getContentTags(topic) {
+  const ct = topic.content_tags;
+  if (!ct) return { l1: '', l2: [], l3: [] };
+  if (Array.isArray(ct)) return { l1: ct[0] || '', l2: ct.slice(1), l3: [] };
+  return ct;
+}
+
+function countByL1(topics) {
+  const counts = {};
+  topics.forEach(t => {
+    const l1 = getContentTags(t).l1;
+    if (l1) counts[l1] = (counts[l1] || 0) + 1;
+  });
+  return counts;
+}
+
+function countByL2(topics, l1Filter) {
+  const counts = {};
+  topics.forEach(t => {
+    const ct = getContentTags(t);
+    if (l1Filter && ct.l1 !== l1Filter) return;
+    (ct.l2 || []).forEach(tag => {
+      counts[tag] = (counts[tag] || 0) + 1;
+    });
+  });
+  return counts;
+}
+
+function countByL3(topics, l1Filter, l2Filters) {
+  const counts = {};
+  topics.forEach(t => {
+    const ct = getContentTags(t);
+    if (l1Filter && ct.l1 !== l1Filter) return;
+    if (l2Filters.length > 0 && !(ct.l2 || []).some(tag => l2Filters.includes(tag))) return;
+    (ct.l3 || []).forEach(tag => {
+      counts[tag] = (counts[tag] || 0) + 1;
+    });
+  });
+  return counts;
+}
+
+function extractSkillTags() {
+  const p1Counts = {};
+  state.part1Data.forEach(topic => {
+    (topic.questions || []).forEach(q => {
+      (q.type_tags || []).forEach(tag => { p1Counts[tag] = (p1Counts[tag] || 0) + 1; });
+    });
+  });
+  const p2Counts = {};
+  state.part2Data.forEach(topic => {
+    (topic.part3 || []).forEach(q => {
+      (q.type_tags || []).forEach(tag => { p2Counts[tag] = (p2Counts[tag] || 0) + 1; });
+    });
+  });
+  return { p1: p1Counts, p2: p2Counts };
+}
+
+// ── filter logic ─────────────────────────────────────────────────
 function applyFilters(data, tab) {
-  let filteredData = [...data];
-  
-  // Apply skill tag filters (only within current part)
+  let filtered = [...data];
+
   if (state.selectedSkillTags.length > 0) {
-    filteredData = filteredData.filter(item => {
+    filtered = filtered.filter(item => {
       const questions = tab === 'part1' ? (item.questions || []) : (item.part3 || []);
-      return questions.some(q => 
+      return questions.some(q =>
         q.type_tags && q.type_tags.some(tag => state.selectedSkillTags.includes(tag))
       );
     });
   }
-  
-  // Apply topic tag filters
-  if (state.selectedTopicTags.length > 0) {
-    filteredData = filteredData.filter(item => 
-      item.content_tags && item.content_tags.slice(1).some(tag => state.selectedTopicTags.includes(tag))
-    );
+
+  if (state.selectedL1Tag) {
+    filtered = filtered.filter(item => getContentTags(item).l1 === state.selectedL1Tag);
   }
-  
-  return filteredData;
-}
 
-// Render sidebar HTML
-function renderSidebar() {
-  const tags = extractTags();
-  const currentSkills = state.currentTab === 'part1' ? tags.part1Skills : tags.part2Skills;
-  const hasFilters = state.selectedSkillTags.length > 0 || state.selectedTopicTags.length > 0;
+  if (state.selectedL2Tags.length > 0) {
+    filtered = filtered.filter(item => {
+      const l2 = getContentTags(item).l2 || [];
+      return l2.some(tag => state.selectedL2Tags.includes(tag));
+    });
+  }
 
-  const sidebarHTML = `
-    <div class="sidebar">
-      <div class="sidebar-content">
-        ${hasFilters ? `<button class="sidebar-clear-btn" onclick="window._sidebarClear()">✕ Clear filters</button>` : ''}
-        <div class="sidebar-cols">
-          <div class="sidebar-col">
-            <div class="sidebar-col-label">Skill</div>
-            ${currentSkills.map(tag => `
-              <span class="ttag ttag-${tag.name}${state.selectedSkillTags.includes(tag.name) ? ' sidebar-active' : ''}"
-                    onclick="window._sidebarSkill('${tag.name}')">
-                ${tag.name} <span class="sidebar-count">${tag.count}</span>
-              </span>
-            `).join('')}
-          </div>
-          <div class="sidebar-col">
-            <div class="sidebar-col-label">Topic</div>
-            ${tags.topicTags.map(tag => `
-              <span class="ctag ctag-tag${state.selectedTopicTags.includes(tag.name) ? ' sidebar-active' : ''}"
-                    onclick="window._sidebarTopic('${tag.name}')">
-                ${tag.name} <span class="sidebar-count">${tag.count}</span>
-              </span>
-            `).join('')}
-          </div>
-        </div>
-      </div>
-    </div>
-  `;
+  if (state.selectedL3Tags.length > 0) {
+    filtered = filtered.filter(item => {
+      const l3 = getContentTags(item).l3 || [];
+      return l3.some(tag => state.selectedL3Tags.includes(tag));
+    });
+  }
 
-  const sidebarRoot = document.getElementById('sidebar-root');
-  if (sidebarRoot) sidebarRoot.innerHTML = sidebarHTML;
-}
-
-// Toggle functions
-function toggleSkillTag(tagName) {
-  const index = state.selectedSkillTags.indexOf(tagName);
-  if (index > -1) state.selectedSkillTags.splice(index, 1);
-  else state.selectedSkillTags.push(tagName);
-  renderSidebar();
-  applyFiltersAndRender();
-}
-
-function toggleTopicTag(tagName) {
-  const index = state.selectedTopicTags.indexOf(tagName);
-  if (index > -1) state.selectedTopicTags.splice(index, 1);
-  else state.selectedTopicTags.push(tagName);
-  renderSidebar();
-  applyFiltersAndRender();
-}
-
-function clearAllFilters() {
-  state.selectedSkillTags = [];
-  state.selectedTopicTags = [];
-  renderSidebar();
-  renderGrid(state.currentTab);
+  return filtered;
 }
 
 function applyFiltersAndRender() {
@@ -134,12 +160,187 @@ function applyFiltersAndRender() {
   renderGrid(state.currentTab, filteredData);
 }
 
-// Global handlers called by inline onclick — bypasses any event delegation issues
-window._sidebarSkill = function(tagName) { toggleSkillTag(tagName); };
-window._sidebarTopic = function(tagName) { toggleTopicTag(tagName); };
+// ── which L2/L3 tags to show based on hierarchy + selection ──────
+function getVisibleL2Tags() {
+  if (!state.selectedL1Tag) return [];
+  const subtree = TAG_TREE[state.selectedL1Tag];
+  return subtree ? Object.keys(subtree) : [];
+}
+
+function getVisibleL3Tags() {
+  if (!state.selectedL1Tag || state.selectedL2Tags.length === 0) return [];
+  const subtree = TAG_TREE[state.selectedL1Tag] || {};
+  const l3tags = [];
+  state.selectedL2Tags.forEach(l2 => {
+    (subtree[l2] || []).forEach(l3 => {
+      if (!l3tags.includes(l3)) l3tags.push(l3);
+    });
+  });
+  return l3tags;
+}
+
+// ── render ───────────────────────────────────────────────────────
+function renderSidebar() {
+  const allTopics = getAllTopics();
+  const skills = extractSkillTags();
+  const currentSkills = state.currentTab === 'part1' ? skills.p1 : skills.p2;
+  const hasFilters = state.selectedSkillTags.length > 0
+    || state.selectedL1Tag
+    || state.selectedL2Tags.length > 0
+    || state.selectedL3Tags.length > 0;
+
+  // Skill tags
+  const skillEntries = Object.entries(currentSkills).sort((a, b) => b[1] - a[1]);
+
+  // L1 counts
+  const l1Counts = countByL1(allTopics);
+  const l1Order = ["people", "place", "object", "experience/activity"];
+
+  // L2 (visible only when L1 selected)
+  const visibleL2 = getVisibleL2Tags();
+  const l2Counts = state.selectedL1Tag ? countByL2(allTopics, state.selectedL1Tag) : {};
+
+  // L3 (visible only when L2 selected)
+  const visibleL3 = getVisibleL3Tags();
+  const l3Counts = (state.selectedL2Tags.length > 0)
+    ? countByL3(allTopics, state.selectedL1Tag, state.selectedL2Tags)
+    : {};
+
+  const html = `
+    <div class="sidebar">
+      <div class="sidebar-content">
+        ${hasFilters ? `<button class="sidebar-clear-btn" onclick="window._sidebarClear()">✕ Clear filters</button>` : ''}
+
+        <div class="sidebar-section">
+          <div class="sidebar-section-label">Skill</div>
+          <div class="sidebar-tags">
+            ${skillEntries.map(([name, count]) => `
+              <span class="ttag ttag-${name}${state.selectedSkillTags.includes(name) ? ' sidebar-active' : ''}"
+                    onclick="window._sidebarSkill('${name}')">
+                ${name} <span class="sidebar-count">${count}</span>
+              </span>
+            `).join('')}
+          </div>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="sidebar-section-label">Category</div>
+          <div class="sidebar-tags">
+            ${l1Order.map(name => `
+              <span class="ctag ctag-${name.replace('/', '-')}${state.selectedL1Tag === name ? ' sidebar-active' : ''}"
+                    onclick="window._sidebarL1('${name}')">
+                ${name} <span class="sidebar-count">${l1Counts[name] || 0}</span>
+              </span>
+            `).join('')}
+          </div>
+        </div>
+
+        ${visibleL2.length > 0 ? `
+          <div class="sidebar-section">
+            <div class="sidebar-section-label">Theme</div>
+            <div class="sidebar-tags">
+              ${visibleL2.map(name => {
+                const c = l2Counts[name] || 0;
+                if (c === 0) return '';
+                return `
+                  <span class="ctag ctag-tag${state.selectedL2Tags.includes(name) ? ' sidebar-active' : ''}"
+                        onclick="window._sidebarL2('${name}')">
+                    ${name} <span class="sidebar-count">${c}</span>
+                  </span>
+                `;
+              }).join('')}
+            </div>
+          </div>
+        ` : ''}
+
+        ${visibleL3.length > 0 ? `
+          <div class="sidebar-section">
+            <div class="sidebar-section-label">Specific</div>
+            <div class="sidebar-tags">
+              ${visibleL3.map(name => {
+                const c = l3Counts[name] || 0;
+                if (c === 0) return '';
+                return `
+                  <span class="ctag ctag-tag${state.selectedL3Tags.includes(name) ? ' sidebar-active' : ''}"
+                        onclick="window._sidebarL3('${name}')">
+                    ${name} <span class="sidebar-count">${c}</span>
+                  </span>
+                `;
+              }).join('')}
+            </div>
+          </div>
+        ` : ''}
+      </div>
+    </div>
+  `;
+
+  const sidebarRoot = document.getElementById('sidebar-root');
+  if (sidebarRoot) sidebarRoot.innerHTML = html;
+}
+
+// ── toggle handlers ──────────────────────────────────────────────
+function toggleSkillTag(name) {
+  const i = state.selectedSkillTags.indexOf(name);
+  if (i > -1) state.selectedSkillTags.splice(i, 1);
+  else state.selectedSkillTags.push(name);
+  renderSidebar();
+  applyFiltersAndRender();
+}
+
+function toggleL1(name) {
+  if (state.selectedL1Tag === name) {
+    // Deselect L1 → clear L2/L3
+    state.selectedL1Tag = null;
+    state.selectedL2Tags = [];
+    state.selectedL3Tags = [];
+  } else {
+    state.selectedL1Tag = name;
+    state.selectedL2Tags = [];
+    state.selectedL3Tags = [];
+  }
+  renderSidebar();
+  applyFiltersAndRender();
+}
+
+function toggleL2(name) {
+  const i = state.selectedL2Tags.indexOf(name);
+  if (i > -1) {
+    state.selectedL2Tags.splice(i, 1);
+    // Remove L3 tags that no longer have a visible parent
+    const stillVisible = getVisibleL3Tags();
+    state.selectedL3Tags = state.selectedL3Tags.filter(t => stillVisible.includes(t));
+  } else {
+    state.selectedL2Tags.push(name);
+  }
+  renderSidebar();
+  applyFiltersAndRender();
+}
+
+function toggleL3(name) {
+  const i = state.selectedL3Tags.indexOf(name);
+  if (i > -1) state.selectedL3Tags.splice(i, 1);
+  else state.selectedL3Tags.push(name);
+  renderSidebar();
+  applyFiltersAndRender();
+}
+
+function clearAllFilters() {
+  state.selectedSkillTags = [];
+  state.selectedL1Tag = null;
+  state.selectedL2Tags = [];
+  state.selectedL3Tags = [];
+  renderSidebar();
+  renderGrid(state.currentTab);
+}
+
+// ── global handlers ──────────────────────────────────────────────
+window._sidebarSkill = function(n) { toggleSkillTag(n); };
+window._sidebarL1 = function(n) { toggleL1(n); };
+window._sidebarL2 = function(n) { toggleL2(n); };
+window._sidebarL3 = function(n) { toggleL3(n); };
 window._sidebarClear = function() { clearAllFilters(); };
 
-// Toggle sidebar visibility
+// ── sidebar collapse ─────────────────────────────────────────────
 function toggleSidebar() {
   sidebarCollapsed = !sidebarCollapsed;
   const sidebarRoot = document.getElementById('sidebar-root');
@@ -148,13 +349,13 @@ function toggleSidebar() {
   if (toggleBtn) toggleBtn.textContent = sidebarCollapsed ? '▶ Filters' : '◀ Filters';
 }
 
-// Tab change handler - clear skill tags but keep topic tags
+// ── tab change ───────────────────────────────────────────────────
 function onTabChange(newTab) {
-  state.selectedSkillTags = []; // Clear skill tags when switching tabs
-  renderSidebar(); // Re-render sidebar with new skill tags
+  state.selectedSkillTags = [];
+  renderSidebar();
 }
 
-// Export init function — wires static listeners once; renderSidebar() called after data loads
+// ── init ─────────────────────────────────────────────────────────
 export function initSidebar() {
   const toggleBtn = document.getElementById('sidebar-toggle');
   if (toggleBtn) toggleBtn.addEventListener('click', toggleSidebar);
@@ -165,5 +366,4 @@ export function initSidebar() {
   if (tab2Btn) tab2Btn.addEventListener('click', () => onTabChange('part2'));
 }
 
-// Called by data.js after JSON is loaded
 export { renderSidebar };

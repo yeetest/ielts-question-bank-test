@@ -43,10 +43,16 @@
       }
     ],
     "tags": [],
-    "content_tags": [
-      "experience/activity",
-      "everyday_life"
-    ]
+    "content_tags": {
+      "l1": "experience/activity",
+      "l2": [
+        "home"
+      ],
+      "l3": [
+        "everyday_life"
+      ]
+    },
+    "qualifier_tags": []
   },
   {
     "topic_en": "Life stages",
@@ -106,11 +112,17 @@
       }
     ],
     "tags": [],
-    "content_tags": [
-      "experience/activity",
-      "nostalgia",
-      "aspiration"
-    ]
+    "content_tags": {
+      "l1": "experience/activity",
+      "l2": [
+        "childhood",
+        "aspiration"
+      ],
+      "l3": [
+        "nostalgia"
+      ]
+    },
+    "qualifier_tags": []
   },
   {
     "topic_en": "View",
@@ -147,10 +159,14 @@
       }
     ],
     "tags": [],
-    "content_tags": [
-      "place",
-      "nature"
-    ]
+    "content_tags": {
+      "l1": "place",
+      "l2": [
+        "nature"
+      ],
+      "l3": []
+    },
+    "qualifier_tags": []
   },
   {
     "topic_en": "Scenery",
@@ -194,11 +210,15 @@
       }
     ],
     "tags": [],
-    "content_tags": [
-      "place",
-      "nature",
-      "travel"
-    ]
+    "content_tags": {
+      "l1": "place",
+      "l2": [
+        "nature",
+        "travel"
+      ],
+      "l3": []
+    },
+    "qualifier_tags": []
   },
   {
     "topic_en": "Childhood activities",
@@ -244,11 +264,17 @@
       }
     ],
     "tags": [],
-    "content_tags": [
-      "experience/activity",
-      "childhood",
-      "likes_dislikes"
-    ]
+    "content_tags": {
+      "l1": "experience/activity",
+      "l2": [
+        "childhood",
+        "passion"
+      ],
+      "l3": [
+        "likes_dislikes"
+      ]
+    },
+    "qualifier_tags": []
   },
   {
     "topic_en": "Building",
@@ -285,10 +311,14 @@
       }
     ],
     "tags": [],
-    "content_tags": [
-      "place",
-      "architecture"
-    ]
+    "content_tags": {
+      "l1": "place",
+      "l2": [
+        "architecture"
+      ],
+      "l3": []
+    },
+    "qualifier_tags": []
   },
   {
     "topic_en": "Typing",
@@ -325,11 +355,15 @@
       }
     ],
     "tags": [],
-    "content_tags": [
-      "experience/activity",
-      "technology",
-      "learning"
-    ]
+    "content_tags": {
+      "l1": "experience/activity",
+      "l2": [
+        "technology",
+        "learning"
+      ],
+      "l3": []
+    },
+    "qualifier_tags": []
   },
   {
     "topic_en": "Hobby",
@@ -366,10 +400,16 @@
       }
     ],
     "tags": [],
-    "content_tags": [
-      "experience/activity",
-      "likes_dislikes"
-    ]
+    "content_tags": {
+      "l1": "experience/activity",
+      "l2": [
+        "passion"
+      ],
+      "l3": [
+        "likes_dislikes"
+      ]
+    },
+    "qualifier_tags": []
   },
   {
     "topic_en": "Sports team",
@@ -408,10 +448,16 @@
       }
     ],
     "tags": [],
-    "content_tags": [
-      "experience/activity",
-      "social_event"
-    ]
+    "content_tags": {
+      "l1": "experience/activity",
+      "l2": [
+        "celebration"
+      ],
+      "l3": [
+        "social_event"
+      ]
+    },
+    "qualifier_tags": []
   },
   {
     "topic_en": "Reading",
@@ -448,11 +494,17 @@
       }
     ],
     "tags": [],
-    "content_tags": [
-      "experience/activity",
-      "reading",
-      "likes_dislikes"
-    ]
+    "content_tags": {
+      "l1": "experience/activity",
+      "l2": [
+        "reading",
+        "passion"
+      ],
+      "l3": [
+        "likes_dislikes"
+      ]
+    },
+    "qualifier_tags": []
   },
   {
     "topic_en": "Gifts",
@@ -496,9 +548,14 @@
       }
     ],
     "tags": [],
-    "content_tags": [
-      "object",
-      "shopping",
+    "content_tags": {
+      "l1": "object",
+      "l2": [
+        "shopping"
+      ],
+      "l3": []
+    },
+    "qualifier_tags": [
       "sentimental"
     ]
   },
@@ -547,10 +604,16 @@
       }
     ],
     "tags": [],
-    "content_tags": [
-      "experience/activity",
-      "everyday_life"
-    ]
+    "content_tags": {
+      "l1": "experience/activity",
+      "l2": [
+        "home"
+      ],
+      "l3": [
+        "everyday_life"
+      ]
+    },
+    "qualifier_tags": []
   },
   {
     "topic_en": "Walking",
@@ -594,11 +657,17 @@
       }
     ],
     "tags": [],
-    "content_tags": [
-      "experience/activity",
-      "everyday_life",
-      "nature"
-    ]
+    "content_tags": {
+      "l1": "experience/activity",
+      "l2": [
+        "home",
+        "nature"
+      ],
+      "l3": [
+        "everyday_life"
+      ]
+    },
+    "qualifier_tags": []
   },
   {
     "topic_en": "Food",
@@ -636,11 +705,17 @@
       }
     ],
     "tags": [],
-    "content_tags": [
-      "object",
-      "food",
-      "likes_dislikes"
-    ]
+    "content_tags": {
+      "l1": "object",
+      "l2": [
+        "food",
+        "passion"
+      ],
+      "l3": [
+        "likes_dislikes"
+      ]
+    },
+    "qualifier_tags": []
   },
   {
     "topic_en": "Pets and Animals",
@@ -678,11 +753,18 @@
       }
     ],
     "tags": [],
-    "content_tags": [
-      "object",
-      "animals",
-      "likes_dislikes"
-    ]
+    "content_tags": {
+      "l1": "object",
+      "l2": [
+        "nature",
+        "passion"
+      ],
+      "l3": [
+        "animals",
+        "likes_dislikes"
+      ]
+    },
+    "qualifier_tags": []
   },
   {
     "topic_en": "Sharing",
@@ -740,11 +822,16 @@
       }
     ],
     "tags": [],
-    "content_tags": [
-      "experience/activity",
-      "helping_others",
-      "friendship"
-    ]
+    "content_tags": {
+      "l1": "experience/activity",
+      "l2": [
+        "friendship"
+      ],
+      "l3": [
+        "helping_others"
+      ]
+    },
+    "qualifier_tags": []
   },
   {
     "topic_en": "Having a break",
@@ -782,10 +869,16 @@
       }
     ],
     "tags": [],
-    "content_tags": [
-      "experience/activity",
-      "everyday_life"
-    ]
+    "content_tags": {
+      "l1": "experience/activity",
+      "l2": [
+        "home"
+      ],
+      "l3": [
+        "everyday_life"
+      ]
+    },
+    "qualifier_tags": []
   },
   {
     "topic_en": "Borrowing/ Lending",
@@ -822,11 +915,15 @@
       }
     ],
     "tags": [],
-    "content_tags": [
-      "experience/activity",
-      "money",
-      "friendship"
-    ]
+    "content_tags": {
+      "l1": "experience/activity",
+      "l2": [
+        "money",
+        "friendship"
+      ],
+      "l3": []
+    },
+    "qualifier_tags": []
   },
   {
     "topic_en": "Advertisement",
@@ -871,11 +968,15 @@
       }
     ],
     "tags": [],
-    "content_tags": [
-      "object",
-      "media",
-      "technology"
-    ]
+    "content_tags": {
+      "l1": "object",
+      "l2": [
+        "media",
+        "technology"
+      ],
+      "l3": []
+    },
+    "qualifier_tags": []
   },
   {
     "topic_en": "Chatting",
@@ -919,11 +1020,15 @@
       }
     ],
     "tags": [],
-    "content_tags": [
-      "experience/activity",
-      "communication",
-      "friendship"
-    ]
+    "content_tags": {
+      "l1": "experience/activity",
+      "l2": [
+        "communication",
+        "friendship"
+      ],
+      "l3": []
+    },
+    "qualifier_tags": []
   },
   {
     "topic_en": "Growing vegetables/ fruits",
@@ -967,11 +1072,15 @@
       }
     ],
     "tags": [],
-    "content_tags": [
-      "experience/activity",
-      "nature",
-      "food"
-    ]
+    "content_tags": {
+      "l1": "experience/activity",
+      "l2": [
+        "nature",
+        "food"
+      ],
+      "l3": []
+    },
+    "qualifier_tags": []
   },
   {
     "topic_en": "Museum",
@@ -1008,11 +1117,15 @@
       }
     ],
     "tags": [],
-    "content_tags": [
-      "place",
-      "culture",
-      "learning"
-    ]
+    "content_tags": {
+      "l1": "place",
+      "l2": [
+        "culture",
+        "learning"
+      ],
+      "l3": []
+    },
+    "qualifier_tags": []
   },
   {
     "topic_en": "Crowded place",
@@ -1056,10 +1169,16 @@
       }
     ],
     "tags": [],
-    "content_tags": [
-      "place",
-      "social_event"
-    ]
+    "content_tags": {
+      "l1": "place",
+      "l2": [
+        "celebration"
+      ],
+      "l3": [
+        "social_event"
+      ]
+    },
+    "qualifier_tags": []
   },
   {
     "topic_en": "Going out",
@@ -1096,10 +1215,16 @@
       }
     ],
     "tags": [],
-    "content_tags": [
-      "experience/activity",
-      "everyday_life"
-    ]
+    "content_tags": {
+      "l1": "experience/activity",
+      "l2": [
+        "home"
+      ],
+      "l3": [
+        "everyday_life"
+      ]
+    },
+    "qualifier_tags": []
   },
   {
     "topic_en": "Staying with old people",
@@ -1136,11 +1261,17 @@
       }
     ],
     "tags": [],
-    "content_tags": [
-      "experience/activity",
-      "family",
-      "helping_others"
-    ]
+    "content_tags": {
+      "l1": "experience/activity",
+      "l2": [
+        "family",
+        "friendship"
+      ],
+      "l3": [
+        "helping_others"
+      ]
+    },
+    "qualifier_tags": []
   },
   {
     "topic_en": "Doing something well",
@@ -1170,10 +1301,14 @@
       }
     ],
     "tags": [],
-    "content_tags": [
-      "experience/activity",
-      "achievement"
-    ]
+    "content_tags": {
+      "l1": "experience/activity",
+      "l2": [
+        "achievement"
+      ],
+      "l3": []
+    },
+    "qualifier_tags": []
   },
   {
     "topic_en": "Shoes",
@@ -1210,11 +1345,17 @@
       }
     ],
     "tags": [],
-    "content_tags": [
-      "object",
-      "shopping",
-      "likes_dislikes"
-    ]
+    "content_tags": {
+      "l1": "object",
+      "l2": [
+        "shopping",
+        "passion"
+      ],
+      "l3": [
+        "likes_dislikes"
+      ]
+    },
+    "qualifier_tags": []
   },
   {
     "topic_en": "Rules",
@@ -1265,11 +1406,17 @@
       }
     ],
     "tags": [],
-    "content_tags": [
-      "object",
-      "restriction",
-      "learning"
-    ]
+    "content_tags": {
+      "l1": "object",
+      "l2": [
+        "disruption",
+        "learning"
+      ],
+      "l3": [
+        "restriction"
+      ]
+    },
+    "qualifier_tags": []
   },
   {
     "topic_en": "Public places",
@@ -1306,10 +1453,16 @@
       }
     ],
     "tags": [],
-    "content_tags": [
-      "place",
-      "social_event"
-    ]
+    "content_tags": {
+      "l1": "place",
+      "l2": [
+        "celebration"
+      ],
+      "l3": [
+        "social_event"
+      ]
+    },
+    "qualifier_tags": []
   },
   {
     "topic_en": "Plants",
@@ -1346,11 +1499,15 @@
       }
     ],
     "tags": [],
-    "content_tags": [
-      "object",
-      "nature",
-      "home"
-    ]
+    "content_tags": {
+      "l1": "object",
+      "l2": [
+        "nature",
+        "home"
+      ],
+      "l3": []
+    },
+    "qualifier_tags": []
   },
   {
     "topic_en": "Spare time",
@@ -1387,11 +1544,18 @@
       }
     ],
     "tags": [],
-    "content_tags": [
-      "experience/activity",
-      "everyday_life",
-      "likes_dislikes"
-    ]
+    "content_tags": {
+      "l1": "experience/activity",
+      "l2": [
+        "home",
+        "passion"
+      ],
+      "l3": [
+        "everyday_life",
+        "likes_dislikes"
+      ]
+    },
+    "qualifier_tags": []
   },
   {
     "topic_en": "Taking photos",
@@ -1443,11 +1607,17 @@
       }
     ],
     "tags": [],
-    "content_tags": [
-      "experience/activity",
-      "art",
-      "likes_dislikes"
-    ]
+    "content_tags": {
+      "l1": "experience/activity",
+      "l2": [
+        "art",
+        "passion"
+      ],
+      "l3": [
+        "likes_dislikes"
+      ]
+    },
+    "qualifier_tags": []
   },
   {
     "topic_en": "The city you live in",
@@ -1535,10 +1705,14 @@
       }
     ],
     "tags": [],
-    "content_tags": [
-      "place",
-      "home"
-    ]
+    "content_tags": {
+      "l1": "place",
+      "l2": [
+        "home"
+      ],
+      "l3": []
+    },
+    "qualifier_tags": []
   },
   {
     "topic_en": "Home/Accommodation",
@@ -1737,10 +1911,14 @@
       }
     ],
     "tags": [],
-    "content_tags": [
-      "place",
-      "home"
-    ]
+    "content_tags": {
+      "l1": "place",
+      "l2": [
+        "home"
+      ],
+      "l3": []
+    },
+    "qualifier_tags": []
   },
   {
     "topic_en": "Hometown",
@@ -1919,11 +2097,17 @@
       }
     ],
     "tags": [],
-    "content_tags": [
-      "place",
-      "home",
-      "nostalgia"
-    ]
+    "content_tags": {
+      "l1": "place",
+      "l2": [
+        "home",
+        "childhood"
+      ],
+      "l3": [
+        "nostalgia"
+      ]
+    },
+    "qualifier_tags": []
   },
   {
     "topic_en": "The area you live in",
@@ -2034,10 +2218,14 @@
       }
     ],
     "tags": [],
-    "content_tags": [
-      "place",
-      "home"
-    ]
+    "content_tags": {
+      "l1": "place",
+      "l2": [
+        "home"
+      ],
+      "l3": []
+    },
+    "qualifier_tags": []
   },
   {
     "topic_en": "Work/studies",
@@ -2216,11 +2404,15 @@
       }
     ],
     "tags": [],
-    "content_tags": [
-      "experience/activity",
-      "work",
-      "learning"
-    ]
+    "content_tags": {
+      "l1": "experience/activity",
+      "l2": [
+        "work",
+        "learning"
+      ],
+      "l3": []
+    },
+    "qualifier_tags": []
   },
   {
     "topic_en": "Dreams",
@@ -2257,10 +2449,14 @@
       }
     ],
     "tags": [],
-    "content_tags": [
-      "experience/activity",
-      "aspiration"
-    ]
+    "content_tags": {
+      "l1": "experience/activity",
+      "l2": [
+        "aspiration"
+      ],
+      "l3": []
+    },
+    "qualifier_tags": []
   },
   {
     "topic_en": "Keys",
@@ -2297,10 +2493,16 @@
       }
     ],
     "tags": [],
-    "content_tags": [
-      "object",
-      "everyday_life"
-    ]
+    "content_tags": {
+      "l1": "object",
+      "l2": [
+        "home"
+      ],
+      "l3": [
+        "everyday_life"
+      ]
+    },
+    "qualifier_tags": []
   },
   {
     "topic_en": "Day off",
@@ -2337,11 +2539,18 @@
       }
     ],
     "tags": [],
-    "content_tags": [
-      "experience/activity",
-      "everyday_life",
-      "likes_dislikes"
-    ]
+    "content_tags": {
+      "l1": "experience/activity",
+      "l2": [
+        "home",
+        "passion"
+      ],
+      "l3": [
+        "everyday_life",
+        "likes_dislikes"
+      ]
+    },
+    "qualifier_tags": []
   },
   {
     "topic_en": "Chatting/Conversation",
@@ -2384,11 +2593,15 @@
         ]
       }
     ],
-    "content_tags": [
-      "experience/activity",
-      "communication",
-      "friendship"
-    ]
+    "content_tags": {
+      "l1": "experience/activity",
+      "l2": [
+        "communication",
+        "friendship"
+      ],
+      "l3": []
+    },
+    "qualifier_tags": []
   },
   {
     "topic_en": "Memory",
@@ -2424,9 +2637,16 @@
         ]
       }
     ],
-    "content_tags": [
-      "experience/activity",
-      "nostalgia",
+    "content_tags": {
+      "l1": "experience/activity",
+      "l2": [
+        "childhood"
+      ],
+      "l3": [
+        "nostalgia"
+      ]
+    },
+    "qualifier_tags": [
       "memorable"
     ]
   },
@@ -2480,11 +2700,17 @@
         ]
       }
     ],
-    "content_tags": [
-      "experience/activity",
-      "happiness",
-      "likes_dislikes"
-    ]
+    "content_tags": {
+      "l1": "experience/activity",
+      "l2": [
+        "happiness",
+        "passion"
+      ],
+      "l3": [
+        "likes_dislikes"
+      ]
+    },
+    "qualifier_tags": []
   },
   {
     "topic_en": "Work or studies",
@@ -2649,10 +2875,14 @@
         ]
       }
     ],
-    "content_tags": [
-      "experience/activity",
-      "work",
-      "learning"
-    ]
+    "content_tags": {
+      "l1": "experience/activity",
+      "l2": [
+        "work",
+        "learning"
+      ],
+      "l3": []
+    },
+    "qualifier_tags": []
   }
 ]

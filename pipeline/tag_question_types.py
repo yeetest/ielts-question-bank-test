@@ -289,7 +289,7 @@ def process_part1(filepath):
         print("No unclear questions — all matched.")
 
     # Auto-regenerate .txt mirror
-    txt_script = Path(__file__).parent / 'json_to_txt.py'
+    txt_script = Path(__file__).parent.parent / 'human-in-the-loop' / 'json_to_txt.py'
     print(f"\nRegenerating .txt mirror...")
     subprocess.run([sys.executable, str(txt_script), str(filepath)], check=True)
 

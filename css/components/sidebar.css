@@ -40,8 +40,12 @@
   max-height: calc(100vh - 48px);
 }
 
-/* ---------- Column Labels (button-style) ---------- */
-.sidebar-col-label {
+/* ---------- Sections (vertical stack) ---------- */
+.sidebar-section {
+  margin-bottom: 14px;
+}
+
+.sidebar-section-label {
   font-size: 0.72rem;
   font-weight: bold;
   text-transform: uppercase;
@@ -54,16 +58,10 @@
   display: inline-block;
 }
 
-/* ---------- Two Column Layout ---------- */
-.sidebar-cols {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-}
-
-.sidebar-col {
+/* ---------- Tags (horizontal wrap) ---------- */
+.sidebar-tags {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 6px;
 }
 
