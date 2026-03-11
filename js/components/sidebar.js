@@ -181,7 +181,7 @@ function getVisibleL3Tags() {
 
 // ── render ───────────────────────────────────────────────────────
 function renderSidebar() {
-  const allTopics = getAllTopics();
+  const currentTopics = state.currentTab === 'part1' ? state.part1Data : state.part2Data;
   const skills = extractSkillTags();
   const currentSkills = state.currentTab === 'part1' ? skills.p1 : skills.p2;
   const hasFilters = state.selectedSkillTags.length > 0
@@ -192,18 +192,18 @@ function renderSidebar() {
   // Skill tags
   const skillEntries = Object.entries(currentSkills).sort((a, b) => b[1] - a[1]);
 
-  // L1 counts
-  const l1Counts = countByL1(allTopics);
+  // L1 counts (scoped to current tab)
+  const l1Counts = countByL1(currentTopics);
   const l1Order = ["people", "place", "object", "experience/activity"];
 
   // L2 (visible only when L1 selected)
   const visibleL2 = getVisibleL2Tags();
-  const l2Counts = state.selectedL1Tag ? countByL2(allTopics, state.selectedL1Tag) : {};
+  const l2Counts = state.selectedL1Tag ? countByL2(currentTopics, state.selectedL1Tag) : {};
 
   // L3 (visible only when L2 selected)
   const visibleL3 = getVisibleL3Tags();
   const l3Counts = (state.selectedL2Tags.length > 0)
-    ? countByL3(allTopics, state.selectedL1Tag, state.selectedL2Tags)
+    ? countByL3(currentTopics, state.selectedL1Tag, state.selectedL2Tags)
     : {};
 
   const html = `
@@ -352,6 +352,9 @@ function toggleSidebar() {
 // ── tab change ───────────────────────────────────────────────────
 function onTabChange(newTab) {
   state.selectedSkillTags = [];
+  state.selectedL1Tag = null;
+  state.selectedL2Tags = [];
+  state.selectedL3Tags = [];
   state.currentTab = newTab;
   renderSidebar();
   applyFiltersAndRender();
