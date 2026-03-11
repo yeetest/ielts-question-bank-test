@@ -67,14 +67,7 @@
         ]
       },
       {
-        "text": "2. What do you think is the most important at the moment?",
-        "source": "laokaoya",
-        "type_tags": [
-          "evaluation"
-        ]
-      },
-      {
-        "text": "3. Do you have any plans for the next five years? /What's your plan for your next stage of life?",
+        "text": "2. Do you have any plans for the next five years? /What's your plan for your next stage of life?",
         "source": "tongzhuo",
         "type_tags": [
           "description",
@@ -82,7 +75,7 @@
         ]
       },
       {
-        "text": "4. How do people remember each stage of their lives?",
+        "text": "3. How do people remember each stage of their lives?",
         "source": "laokaoya",
         "type_tags": [
           "description",
@@ -90,21 +83,21 @@
         ]
       },
       {
-        "text": "5. Do you enjoy being the age you are now?",
+        "text": "4. Do you enjoy being the age you are now?",
         "source": "laokaoya",
         "type_tags": [
           "preference"
         ]
       },
       {
-        "text": "6. At what age do you think people are the happiest?",
+        "text": "5. At what age do you think people are the happiest?",
         "source": "laokaoya",
         "type_tags": [
           "evaluation"
         ]
       },
       {
-        "text": "7. Do you have any plans for the next five years?",
+        "text": "6. Do you have any plans for the next five years?",
         "source": "laokaoya",
         "type_tags": [
           "description",
@@ -296,14 +289,7 @@
         ]
       },
       {
-        "text": "3. Is there a building that you would like to visit?",
-        "source": "laokaoya",
-        "type_tags": [
-          "description"
-        ]
-      },
-      {
-        "text": "4. Do you want to live in a tall building?",
+        "text": "3. Do you want to live in a tall building?",
         "source": "tongzhuo",
         "type_tags": [
           "hypothetical"
@@ -1138,12 +1124,7 @@
         ]
       },
       {
-        "text": "4. Do most people like crowded places?",
-        "source": "tongzhuo",
-        "type_tags": []
-      },
-      {
-        "text": "5. When was the last time you were in a crowded place?",
+        "text": "4. When was the last time you were in a crowded place?",
         "source": "tongzhuo",
         "type_tags": [
           "experience"
@@ -1745,19 +1726,12 @@
         ]
       },
       {
-        "text": "10. Who do you live with?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "description"
-        ]
-      },
-      {
-        "text": "11. Do you plan to live there for a long time?",
+        "text": "10. Do you plan to live there for a long time?",
         "source": "laokaoya",
         "type_tags": []
       },
       {
-        "text": "12. What's the difference between where you are living now and where you have lived in the past?",
+        "text": "11. What's the difference between where you are living now and where you have lived in the past?",
         "source": "laokaoya",
         "type_tags": [
           "analyze",
@@ -1765,19 +1739,19 @@
         ]
       },
       {
-        "text": "13. What do you usually do in your house/flat/room?",
+        "text": "12. What do you usually do in your house/flat/room?",
         "source": "laokaoya",
         "type_tags": [
           "frequency"
         ]
       },
       {
-        "text": "14. Which room does your family spend most of the time in?",
+        "text": "13. Which room does your family spend most of the time in?",
         "source": "laokaoya",
         "type_tags": []
       },
       {
-        "text": "15. Are there transport facilities to your home that are very good?",
+        "text": "14. Are there transport facilities to your home that are very good?",
         "source": "tongzhuo",
         "type_tags": [
           "description",
@@ -1785,28 +1759,28 @@
         ]
       },
       {
-        "text": "16. What kind of housing/accommodation do you live in?",
+        "text": "15. What kind of housing/accommodation do you live in?",
         "source": "laokaoya",
         "type_tags": [
           "description"
         ]
       },
       {
-        "text": "17. Please describe the room you live in?",
+        "text": "16. Please describe the room you live in?",
         "source": "laokaoya",
         "type_tags": [
           "description"
         ]
       },
       {
-        "text": "18. Do you prefer living in a house or a flat?",
+        "text": "17. Do you prefer living in a house or a flat?",
         "source": "laokaoya",
         "type_tags": [
           "preference"
         ]
       },
       {
-        "text": "19. What part of your home do you like the most?",
+        "text": "18. What part of your home do you like the most?",
         "source": "laokaoya",
         "type_tags": [
           "description",
@@ -1814,7 +1788,7 @@
         ]
       },
       {
-        "text": "20. What kind of house or apartment do you want to live in in the future?",
+        "text": "19. What kind of house or apartment do you want to live in in the future?",
         "source": "yasige",
         "type_tags": [
           "description",
@@ -1822,7 +1796,7 @@
         ]
       },
       {
-        "text": "21. Please describe the room you live in. What part of your home do you like the most?",
+        "text": "20. Please describe the room you live in. What part of your home do you like the most?",
         "source": "yasige",
         "type_tags": [
           "description",
@@ -1830,33 +1804,33 @@
         ]
       },
       {
-        "text": "22. What's your favorite room in your apartment or house?",
+        "text": "21. What's your favorite room in your apartment or house?",
         "source": "yasige",
         "type_tags": []
       },
       {
-        "text": "23. What makes you feel pleasant in your home?",
+        "text": "22. What makes you feel pleasant in your home?",
         "source": "yasige",
         "type_tags": [
           "evaluation"
         ]
       },
       {
-        "text": "24. Do you think it is important to live in a comfortable environment?",
+        "text": "23. Do you think it is important to live in a comfortable environment?",
         "source": "yasige",
         "type_tags": [
           "evaluation"
         ]
       },
       {
-        "text": "25. Do you live in an apartment or a house?",
+        "text": "24. Do you live in an apartment or a house?",
         "source": "yasige",
         "type_tags": [
           "description"
         ]
       },
       {
-        "text": "26. What do you usually do in your apartment?",
+        "text": "25. What do you usually do in your apartment?",
         "source": "yasige",
         "type_tags": [
           "frequency"
@@ -1879,164 +1853,143 @@
     "season": "2026-Jan-Apr",
     "questions": [
       {
-        "text": "1. Where is your hometown?",
+        "text": "1. What kind of place is it?",
         "source": "tongzhuo",
         "type_tags": [
           "description"
         ]
       },
       {
-        "text": "2. What kind of place is it?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "description"
-        ]
-      },
-      {
-        "text": "3. How long have you been living there?",
+        "text": "2. How long have you been living there?",
         "source": "laokaoya",
         "type_tags": [
           "description"
         ]
       },
       {
-        "text": "4. What is one of the best things about living there?",
+        "text": "3. What is one of the best things about living there?",
         "source": "tongzhuo",
         "type_tags": [
           "description"
         ]
       },
       {
-        "text": "5. Is there anything you dislike about it?",
+        "text": "4. Is there anything you dislike about it?",
         "source": "laokaoya",
         "type_tags": [
           "description"
         ]
       },
       {
-        "text": "6. Do you know many people who live nearby?",
+        "text": "5. Do you know many people who live nearby?",
         "source": "tongzhuo",
         "type_tags": [
           "description"
         ]
       },
       {
-        "text": "7. Do you have any relatives who still live in your hometown? Why/Why not?",
+        "text": "6. Do you have any relatives who still live in your hometown? Why/Why not?",
         "source": "tongzhuo",
         "type_tags": [
           "description"
         ]
       },
       {
-        "text": "8. Do you often go back to visit your hometown? Why/Why not?",
+        "text": "7. Do you often go back to visit your hometown? Why/Why not?",
         "source": "tongzhuo",
         "type_tags": [
           "frequency"
         ]
       },
       {
-        "text": "9. Can you describe your hometown a little bit?",
+        "text": "8. Can you describe your hometown a little bit?",
         "source": "tongzhuo",
         "type_tags": [
           "description"
         ]
       },
       {
-        "text": "10. Do you like it?",
+        "text": "9. Do you like it?",
         "source": "tongzhuo",
         "type_tags": [
           "preference"
         ]
       },
       {
-        "text": "11. Do you like living there?",
-        "source": "laokaoya",
-        "type_tags": [
-          "preference"
-        ]
-      },
-      {
-        "text": "12. Do you think you'll continue living there for a long time?",
+        "text": "10. Do you think you'll continue living there for a long time?",
         "source": "tongzhuo",
         "type_tags": [
           "evaluation"
         ]
       },
       {
-        "text": "13. What's the name of your hometown (again)?",
+        "text": "11. What's the name of your hometown (again)?",
         "source": "laokaoya",
         "type_tags": []
       },
       {
-        "text": "14. Is that a big city or a small place?",
+        "text": "12. Is that a big city or a small place?",
         "source": "laokaoya",
         "type_tags": [
           "description"
         ]
       },
       {
-        "text": "15. Do you like your hometown?",
+        "text": "13. What do you like (most) about your hometown?",
         "source": "laokaoya",
         "type_tags": [
           "preference"
         ]
       },
       {
-        "text": "16. What do you like (most) about your hometown?",
-        "source": "laokaoya",
-        "type_tags": [
-          "preference"
-        ]
-      },
-      {
-        "text": "17. Please describe your hometown a little.",
+        "text": "14. Please describe your hometown a little.",
         "source": "laokaoya",
         "type_tags": [
           "description"
         ]
       },
       {
-        "text": "18. Please describe your hometown a little. How long have you been living there?",
+        "text": "15. Please describe your hometown a little. How long have you been living there?",
         "source": "yasige",
         "type_tags": [
           "description"
         ]
       },
       {
-        "text": "19. What's your hometown famous for?",
+        "text": "16. What's your hometown famous for?",
         "source": "yasige",
         "type_tags": []
       },
       {
-        "text": "20. Did you learn about the history of your hometown at school?",
+        "text": "17. Did you learn about the history of your hometown at school?",
         "source": "yasige",
         "type_tags": [
           "experience"
         ]
       },
       {
-        "text": "21. Are there many young people in your hometown?",
+        "text": "18. Are there many young people in your hometown?",
         "source": "yasige",
         "type_tags": [
           "description"
         ]
       },
       {
-        "text": "22. Is your hometown a good place for young people to pursue their careers?",
+        "text": "19. Is your hometown a good place for young people to pursue their careers?",
         "source": "yasige",
         "type_tags": [
           "evaluation"
         ]
       },
       {
-        "text": "23. Have you learned anything about the history of your hometown?",
+        "text": "20. Have you learned anything about the history of your hometown?",
         "source": "yasige",
         "type_tags": [
           "experience"
         ]
       },
       {
-        "text": "24. Did you learn about the culture of your hometown in your childhood?",
+        "text": "21. Did you learn about the culture of your hometown in your childhood?",
         "source": "yasige",
         "type_tags": [
           "experience"
@@ -2076,56 +2029,49 @@
         ]
       },
       {
-        "text": "3. How long have you lived there?",
+        "text": "3. Do you know any of your neighbours?",
         "source": "tongzhuo",
         "type_tags": [
           "description"
         ]
       },
       {
-        "text": "4. Do you know any of your neighbours?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "description"
-        ]
-      },
-      {
-        "text": "5. What do you like about living there?",
+        "text": "4. What do you like about living there?",
         "source": "tongzhuo",
         "type_tags": [
           "preference"
         ]
       },
       {
-        "text": "6. What changes have taken place in the area recently?",
+        "text": "5. What changes have taken place in the area recently?",
         "source": "tongzhuo",
         "type_tags": [
           "comparison"
         ]
       },
       {
-        "text": "7. Would you like to change anything about your area? Why/Why not?",
+        "text": "6. Would you like to change anything about your area? Why/Why not?",
         "source": "tongzhuo",
         "type_tags": [
           "hypothetical"
         ]
       },
       {
-        "text": "8. Would you like to continue living there in the future? Why/Why not?",
+        "text": "7. Would you like to continue living there in the future? Why/Why not?",
         "source": "tongzhuo",
         "type_tags": [
           "hypothetical"
         ]
       },
       {
-        "text": "9. Do you like the area that you live in?",
+        "text": "8. Do you like the area that you live in?",
         "source": "laokaoya",
         "type_tags": [
           "preference"
         ]
       },
       {
-        "text": "10. What are some changes in the area recently?",
+        "text": "9. What are some changes in the area recently?",
         "source": "laokaoya",
         "type_tags": [
           "description",
@@ -2133,14 +2079,14 @@
         ]
       },
       {
-        "text": "11. Do you know any famous people in your area?",
+        "text": "10. Do you know any famous people in your area?",
         "source": "laokaoya",
         "type_tags": [
           "description"
         ]
       },
       {
-        "text": "12. Where do you like to go to that area?",
+        "text": "11. Where do you like to go to that area?",
         "source": "laokaoya",
         "type_tags": [
           "description",
@@ -2148,14 +2094,14 @@
         ]
       },
       {
-        "text": "13. Are the people in your neighborhood nice and friendly?",
+        "text": "12. Are the people in your neighborhood nice and friendly?",
         "source": "yasige",
         "type_tags": [
           "description"
         ]
       },
       {
-        "text": "14. Do you live in a noisy or a quiet area?",
+        "text": "13. Do you live in a noisy or a quiet area?",
         "source": "yasige",
         "type_tags": [
           "description"
@@ -2192,96 +2138,68 @@
         ]
       },
       {
-        "text": "3. Why did you choose to do this type of work?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "analyze"
-        ]
-      },
-      {
-        "text": "4. Do you like your job? Why/Why not?",
+        "text": "3. Do you like your job? Why/Why not?",
         "source": "tongzhuo",
         "type_tags": [
           "preference"
         ]
       },
       {
-        "text": "5. What do you find the most interesting about the work you do? Why?",
+        "text": "4. What do you find the most interesting about the work you do? Why?",
         "source": "tongzhuo",
         "type_tags": []
       },
       {
-        "text": "6. Will you need to do any more study for your job?",
+        "text": "5. Will you need to do any more study for your job?",
         "source": "tongzhuo",
         "type_tags": [
           "hypothetical"
         ]
       },
       {
-        "text": "7. Where do you work?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "description"
-        ]
-      },
-      {
-        "text": "8. Is it a good place to work?",
+        "text": "6. Is it a good place to work?",
         "source": "tongzhuo",
         "type_tags": [
           "evaluation"
         ]
       },
       {
-        "text": "9. Would you like the place where you work to make any changes?",
+        "text": "7. Would you like the place where you work to make any changes?",
         "source": "tongzhuo",
         "type_tags": [
           "hypothetical"
         ]
       },
       {
-        "text": "10. What technology do you use at work?",
+        "text": "8. What technology do you use at work?",
         "source": "tongzhuo",
         "type_tags": [
           "description"
         ]
       },
       {
-        "text": "11. What subject(s) are you studying?",
+        "text": "9. What subject(s) are you studying?",
         "source": "laokaoya",
         "type_tags": [
           "description"
         ]
       },
       {
-        "text": "12. Why did you choose to study this subject?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "analyze"
-        ]
-      },
-      {
-        "text": "13. What do you like about your course?",
+        "text": "10. What do you like about your course?",
         "source": "tongzhuo",
         "type_tags": [
           "preference"
         ]
       },
       {
-        "text": "14. What would you like to do after you finish your course?",
+        "text": "11. What would you like to do after you finish your course?",
         "source": "tongzhuo",
         "type_tags": [
           "hypothetical"
         ]
       },
       {
-        "text": "15. Do you prefer to study in the mornings or the afternoons?",
-        "source": "laokaoya",
-        "type_tags": [
-          "preference"
-        ]
-      },
-      {
-        "text": "16. Do you think you will miss being a student once you finish your studies? Why/why not?",
+        "text": "12. Do you think you will miss being a student once you finish your studies? Why/why not?",
         "source": "tongzhuo",
         "type_tags": [
           "evaluation",
@@ -2289,52 +2207,45 @@
         ]
       },
       {
-        "text": "17. What technology do you use when you study?",
+        "text": "13. What technology do you use when you study?",
         "source": "tongzhuo",
         "type_tags": [
           "description"
         ]
       },
       {
-        "text": "18. Are you enjoying your studies at the moment? Why/why not?",
+        "text": "14. Are you enjoying your studies at the moment? Why/why not?",
         "source": "tongzhuo",
         "type_tags": []
       },
       {
-        "text": "19. Why did you choose to do that type of work (or, that job)?",
+        "text": "15. Why did you choose to do that type of work (or, that job)?",
         "source": "laokaoya",
         "type_tags": [
           "analyze"
         ]
       },
       {
-        "text": "20. Do you miss being a student?",
+        "text": "16. Do you miss being a student?",
         "source": "laokaoya",
         "type_tags": []
       },
       {
-        "text": "21. Is it very interesting?",
+        "text": "17. Is it very interesting?",
         "source": "laokaoya",
         "type_tags": [
           "evaluation"
         ]
       },
       {
-        "text": "22. Do you like your job?",
-        "source": "laokaoya",
-        "type_tags": [
-          "preference"
-        ]
-      },
-      {
-        "text": "23. Why did you choose to study that subject? / Why did you choose to study those subjects?",
+        "text": "18. Why did you choose to study that subject? / Why did you choose to study those subjects?",
         "source": "laokaoya",
         "type_tags": [
           "analyze"
         ]
       },
       {
-        "text": "24. Are you looking forward to working?",
+        "text": "19. Are you looking forward to working?",
         "source": "laokaoya",
         "type_tags": [
           "hypothetical"
@@ -2492,41 +2403,7 @@
     "topic_en": "Chatting/Conversation",
     "part": 1,
     "season": "",
-    "questions": [
-      {
-        "text": "1. Do you like chatting with friends?",
-        "source": "yasige",
-        "type_tags": [
-          "preference"
-        ]
-      },
-      {
-        "text": "2. What do you usually chat about with friends?",
-        "source": "yasige",
-        "type_tags": [
-          "frequency"
-        ]
-      },
-      {
-        "text": "3. Do you prefer to chat with a group of people or with only one friend?",
-        "source": "yasige",
-        "type_tags": [
-          "preference"
-        ]
-      },
-      {
-        "text": "4. Do you prefer to communicate face-to-face or via social media?",
-        "source": "yasige",
-        "type_tags": [
-          "preference"
-        ]
-      },
-      {
-        "text": "5. Do you argue with friends?",
-        "source": "yasige",
-        "type_tags": []
-      }
-    ],
+    "questions": [],
     "content_tags": {
       "l1": "experience/activity",
       "l2": [
@@ -2662,14 +2539,7 @@
         ]
       },
       {
-        "text": "3. Why did you choose to study that subject?",
-        "source": "yasige",
-        "type_tags": [
-          "analyze"
-        ]
-      },
-      {
-        "text": "4. Do you think that your subject is popular in your country?",
+        "text": "3. Do you think that your subject is popular in your country?",
         "source": "yasige",
         "type_tags": [
           "description",
@@ -2677,7 +2547,7 @@
         ]
       },
       {
-        "text": "5. Do you have any plans for your studies in the next five years?",
+        "text": "4. Do you have any plans for your studies in the next five years?",
         "source": "yasige",
         "type_tags": [
           "description",
@@ -2685,7 +2555,7 @@
         ]
       },
       {
-        "text": "6. What are the benefits of being your age?",
+        "text": "5. What are the benefits of being your age?",
         "source": "yasige",
         "type_tags": [
           "description",
@@ -2693,77 +2563,49 @@
         ]
       },
       {
-        "text": "7. Do you want to change your major?",
+        "text": "6. Do you want to change your major?",
         "source": "yasige",
         "type_tags": [
           "hypothetical"
         ]
       },
       {
-        "text": "8. Do you prefer to study in the mornings or in the afternoons?",
+        "text": "7. Do you prefer to study in the mornings or in the afternoons?",
         "source": "yasige",
         "type_tags": [
           "preference"
         ]
       },
       {
-        "text": "9. How much time do you spend on your studies each week?",
+        "text": "8. How much time do you spend on your studies each week?",
         "source": "yasige",
         "type_tags": [
           "frequency"
         ]
       },
       {
-        "text": "10. Are you looking forward to working?",
+        "text": "9. What changes would you like to see in your school?",
         "source": "yasige",
         "type_tags": [
           "hypothetical"
         ]
       },
       {
-        "text": "11. What technology do you use when you study?",
+        "text": "10. What work do you do?",
         "source": "yasige",
         "type_tags": [
           "description"
         ]
       },
       {
-        "text": "12. What changes would you like to see in your school?",
-        "source": "yasige",
-        "type_tags": [
-          "hypothetical"
-        ]
-      },
-      {
-        "text": "13. What work do you do?",
+        "text": "11. What requirements did you need to meet to get your current job?",
         "source": "yasige",
         "type_tags": [
           "description"
         ]
       },
       {
-        "text": "14. Why did you choose to do that type of work (or that job)?",
-        "source": "yasige",
-        "type_tags": [
-          "analyze"
-        ]
-      },
-      {
-        "text": "15. Do you like your job?",
-        "source": "yasige",
-        "type_tags": [
-          "preference"
-        ]
-      },
-      {
-        "text": "16. What requirements did you need to meet to get your current job?",
-        "source": "yasige",
-        "type_tags": [
-          "description"
-        ]
-      },
-      {
-        "text": "17. Do you have any plans for your work in the next five years?",
+        "text": "12. Do you have any plans for your work in the next five years?",
         "source": "yasige",
         "type_tags": [
           "description",
@@ -2771,33 +2613,21 @@
         ]
       },
       {
-        "text": "18. What do you think is the most important at the moment?",
+        "text": "13. What do you think is the most important at the moment?",
         "source": "yasige",
         "type_tags": [
           "evaluation"
         ]
       },
       {
-        "text": "19. Do you want to change to another job?",
+        "text": "14. Do you want to change to another job?",
         "source": "yasige",
         "type_tags": [
           "hypothetical"
         ]
       },
       {
-        "text": "20. Do you miss being a student?",
-        "source": "yasige",
-        "type_tags": []
-      },
-      {
-        "text": "21. What technology do you use at work?",
-        "source": "yasige",
-        "type_tags": [
-          "description"
-        ]
-      },
-      {
-        "text": "22. Who helps you the most? And how?",
+        "text": "15. Who helps you the most? And how?",
         "source": "yasige",
         "type_tags": [
           "description"

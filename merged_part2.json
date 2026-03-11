@@ -2434,46 +2434,14 @@
     },
     "part3": [
       {
-        "text": "1. What kind of old things do people like to keep?",
+        "text": "1. What can we see in a museum?",
         "source": "tongzhuo",
         "type_tags": [
           "description"
         ]
       },
       {
-        "text": "2. Why do people keep old things?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "analyze"
-        ]
-      },
-      {
-        "text": "3. What are the differences between the things old people keep and those young people keep?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "description",
-          "analyze",
-          "comparison"
-        ]
-      },
-      {
-        "text": "4. What are the differences between the things that people keep today and the things that people kept in the past?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "description",
-          "analyze",
-          "comparison"
-        ]
-      },
-      {
-        "text": "5. What can we see in a museum?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "description"
-        ]
-      },
-      {
-        "text": "6. What can we learn from a museum?",
+        "text": "2. What can we learn from a museum?",
         "source": "tongzhuo",
         "type_tags": [
           "description"
@@ -3317,21 +3285,14 @@
         ]
       },
       {
-        "text": "3. How do children make friends at school?",
+        "text": "3. How do children make friends when they are not at school?",
         "source": "tongzhuo",
         "type_tags": [
           "analyze"
         ]
       },
       {
-        "text": "4. How do children make friends when they are not at school?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "analyze"
-        ]
-      },
-      {
-        "text": "5. What are the differences between friends made inside and outside the workplace?",
+        "text": "4. What are the differences between friends made inside and outside the workplace?",
         "source": "tongzhuo",
         "type_tags": [
           "description",
@@ -3340,7 +3301,7 @@
         ]
       },
       {
-        "text": "6. Do you think it's possible for bosses and their employees to become friends?",
+        "text": "5. Do you think it's possible for bosses and their employees to become friends?",
         "source": "tongzhuo",
         "type_tags": [
           "description",
@@ -3897,43 +3858,6 @@
         "type_tags": [
           "analyze"
         ]
-      },
-      {
-        "text": "2. Do you think it is important to be able to read a map?",
-        "source": "yasige",
-        "type_tags": [
-          "description",
-          "evaluation"
-        ]
-      },
-      {
-        "text": "3. Do you think it is important to do some preparation before you travel to new places?",
-        "source": "yasige",
-        "type_tags": [
-          "description",
-          "evaluation"
-        ]
-      },
-      {
-        "text": "4. How can people find their way when they are lost?",
-        "source": "yasige",
-        "type_tags": [
-          "description"
-        ]
-      },
-      {
-        "text": "5. Is a paper map still necessary?",
-        "source": "yasige",
-        "type_tags": [
-          "description"
-        ]
-      },
-      {
-        "text": "6. How do people react when they get lost?",
-        "source": "yasige",
-        "type_tags": [
-          "analyze"
-        ]
       }
     ],
     "content_tags": {
@@ -3962,52 +3886,7 @@
         "And explain how you felt about it"
       ]
     },
-    "part3": [
-      {
-        "text": "1. Which is better, electric bicycles or ordinary bicycles?",
-        "source": "yasige",
-        "type_tags": [
-          "description"
-        ]
-      },
-      {
-        "text": "2. Do you think electric bicycles will replace ordinary bicycles in the future?",
-        "source": "yasige",
-        "type_tags": [
-          "description",
-          "evaluation",
-          "hypothetical"
-        ]
-      },
-      {
-        "text": "3. Which is better, electric cars or petrol cars?",
-        "source": "yasige",
-        "type_tags": [
-          "description"
-        ]
-      },
-      {
-        "text": "4. How did people manage to live without electricity in the ancient world?",
-        "source": "yasige",
-        "type_tags": [
-          "analyze"
-        ]
-      },
-      {
-        "text": "5. Is it difficult for the government to replace all the petrol cars with electric cars?",
-        "source": "yasige",
-        "type_tags": [
-          "description"
-        ]
-      },
-      {
-        "text": "6. Do people use more electricity now than before?",
-        "source": "yasige",
-        "type_tags": [
-          "description"
-        ]
-      }
-    ],
+    "part3": [],
     "content_tags": {
       "l1": "experience/activity",
       "l2": [
@@ -4033,45 +3912,17 @@
     },
     "part3": [
       {
-        "text": "1. Should students have physical education and do sports at school?",
+        "text": "1. What qualities should an athlete have?",
         "source": "yasige",
         "type_tags": [
           "evaluation"
         ]
       },
       {
-        "text": "2. What qualities should an athlete have?",
-        "source": "yasige",
-        "type_tags": [
-          "evaluation"
-        ]
-      },
-      {
-        "text": "3. Is talent important in sports?",
+        "text": "2. Is talent important in sports?",
         "source": "yasige",
         "type_tags": [
           "description"
-        ]
-      },
-      {
-        "text": "4. Is it easy to identify children’s talents?",
-        "source": "yasige",
-        "type_tags": [
-          "description"
-        ]
-      },
-      {
-        "text": "5. What is the most popular sport in your country?",
-        "source": "yasige",
-        "type_tags": [
-          "description"
-        ]
-      },
-      {
-        "text": "6. Why are there so few top athletes?",
-        "source": "yasige",
-        "type_tags": [
-          "analyze"
         ]
       }
     ],
@@ -4100,49 +3951,18 @@
     },
     "part3": [
       {
-        "text": "1. Why are shopping malls so popular in China?",
+        "text": "1. Why do some people not like shopping in small shops?",
         "source": "yasige",
         "type_tags": [
           "analyze"
         ]
       },
       {
-        "text": "2. What are the advantages and disadvantages of shopping in small shops?",
+        "text": "2. What are the advantages and disadvantages of shopping online?",
         "source": "yasige",
         "type_tags": [
           "description",
           "analyze"
-        ]
-      },
-      {
-        "text": "3. Why do some people not like shopping in small shops?",
-        "source": "yasige",
-        "type_tags": [
-          "analyze"
-        ]
-      },
-      {
-        "text": "4. What are the differences between online shopping and in-store shopping?",
-        "source": "yasige",
-        "type_tags": [
-          "description",
-          "analyze",
-          "comparison"
-        ]
-      },
-      {
-        "text": "5. What are the advantages and disadvantages of shopping online?",
-        "source": "yasige",
-        "type_tags": [
-          "description",
-          "analyze"
-        ]
-      },
-      {
-        "text": "6. Can consumption drive economic growth?",
-        "source": "yasige",
-        "type_tags": [
-          "description"
         ]
       }
     ],
@@ -4321,47 +4141,10 @@
     },
     "part3": [
       {
-        "text": "1. What programs do people like to watch in your country?",
+        "text": "1. Do people in your country like to watch foreign TV programs?",
         "source": "yasige",
         "type_tags": [
           "description"
-        ]
-      },
-      {
-        "text": "2. Do people in your country like to watch foreign TV programs?",
-        "source": "yasige",
-        "type_tags": [
-          "description"
-        ]
-      },
-      {
-        "text": "3. What's the benefit of letting kids watch animal videos than visiting zoos?",
-        "source": "yasige",
-        "type_tags": [
-          "description"
-        ]
-      },
-      {
-        "text": "4. Do teachers play videos in class in your country?",
-        "source": "yasige",
-        "type_tags": [
-          "description"
-        ]
-      },
-      {
-        "text": "5. Do you think watching talk shows is a waste of time?",
-        "source": "yasige",
-        "type_tags": [
-          "description",
-          "evaluation"
-        ]
-      },
-      {
-        "text": "6. Do you think we can acquire knowledge from watching TV programs?",
-        "source": "yasige",
-        "type_tags": [
-          "description",
-          "evaluation"
         ]
       }
     ],
