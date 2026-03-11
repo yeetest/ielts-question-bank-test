@@ -70,25 +70,36 @@ function getContentTags(topic) {
   return ct;
 }
 
-function questionCount(topic) {
-  return (topic.questions || topic.part3 || []).length;
+function getQuestions(topic) {
+  return topic.questions || topic.part3 || [];
 }
 
-function countByL1(topics) {
+function matchingQuestionCount(topic, skillFilters) {
+  const qs = getQuestions(topic);
+  if (skillFilters.length === 0) return qs.length;
+  return qs.filter(q =>
+    q.type_tags && q.type_tags.some(tag => skillFilters.includes(tag))
+  ).length;
+}
+
+function countByL1(topics, skillFilters) {
   const counts = {};
   topics.forEach(t => {
     const l1 = getContentTags(t).l1;
-    if (l1) counts[l1] = (counts[l1] || 0) + questionCount(t);
+    if (!l1) return;
+    const qc = matchingQuestionCount(t, skillFilters);
+    if (qc > 0) counts[l1] = (counts[l1] || 0) + qc;
   });
   return counts;
 }
 
-function countByL2(topics, l1Filter) {
+function countByL2(topics, l1Filter, skillFilters) {
   const counts = {};
   topics.forEach(t => {
     const ct = getContentTags(t);
     if (l1Filter && ct.l1 !== l1Filter) return;
-    const qc = questionCount(t);
+    const qc = matchingQuestionCount(t, skillFilters);
+    if (qc === 0) return;
     (ct.l2 || []).forEach(tag => {
       counts[tag] = (counts[tag] || 0) + qc;
     });
@@ -96,13 +107,14 @@ function countByL2(topics, l1Filter) {
   return counts;
 }
 
-function countByL3(topics, l1Filter, l2Filters) {
+function countByL3(topics, l1Filter, l2Filters, skillFilters) {
   const counts = {};
   topics.forEach(t => {
     const ct = getContentTags(t);
     if (l1Filter && ct.l1 !== l1Filter) return;
     if (l2Filters.length > 0 && !(ct.l2 || []).some(tag => l2Filters.includes(tag))) return;
-    const qc = questionCount(t);
+    const qc = matchingQuestionCount(t, skillFilters);
+    if (qc === 0) return;
     (ct.l3 || []).forEach(tag => {
       counts[tag] = (counts[tag] || 0) + qc;
     });
@@ -198,18 +210,19 @@ function renderSidebar() {
   // Skill tags
   const skillEntries = Object.entries(currentSkills).sort((a, b) => b[1] - a[1]);
 
-  // L1 counts (scoped to current tab)
-  const l1Counts = countByL1(currentTopics);
+  // L1 counts (cascaded: skill filter applied)
+  const activeSkills = state.selectedSkillTags;
+  const l1Counts = countByL1(currentTopics, activeSkills);
   const l1Order = ["people", "place", "object", "experience/activity"];
 
-  // L2 (visible only when L1 selected)
+  // L2 (cascaded: skill + L1 filters applied)
   const visibleL2 = getVisibleL2Tags();
-  const l2Counts = state.selectedL1Tag ? countByL2(currentTopics, state.selectedL1Tag) : {};
+  const l2Counts = state.selectedL1Tag ? countByL2(currentTopics, state.selectedL1Tag, activeSkills) : {};
 
-  // L3 (visible only when L2 selected)
+  // L3 (cascaded: skill + L1 + L2 filters applied)
   const visibleL3 = getVisibleL3Tags();
   const l3Counts = (state.selectedL2Tags.length > 0)
-    ? countByL3(currentTopics, state.selectedL1Tag, state.selectedL2Tags)
+    ? countByL3(currentTopics, state.selectedL1Tag, state.selectedL2Tags, activeSkills)
     : {};
 
   const html = `
