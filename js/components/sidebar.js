@@ -102,12 +102,21 @@ function countByL1(topics, skillFilters) {
 
 function countByL2(topics, l1Filter, skillFilters) {
   const counts = {};
+  const focused = state.filterMode === 'focused';
   topics.forEach(t => {
     const ct = getContentTags(t);
     if (l1Filter && ct.l1 !== l1Filter) return;
     const qc = matchingQuestionCount(t, skillFilters);
     if (qc === 0) return;
-    (ct.l2 || []).forEach(tag => {
+    const l2 = ct.l2 || [];
+    l2.forEach(tag => {
+      if (focused) {
+        // Simulate selecting this tag: would the topic pass focused filter?
+        // In focused mode, ALL of the topic's L2 tags must be in selected + this tag
+        const simSelected = new Set(state.selectedL2Tags);
+        simSelected.add(tag);
+        if (!l2.every(t2 => simSelected.has(t2))) return;
+      }
       counts[tag] = (counts[tag] || 0) + qc;
     });
   });
@@ -116,13 +125,27 @@ function countByL2(topics, l1Filter, skillFilters) {
 
 function countByL3(topics, l1Filter, l2Filters, skillFilters) {
   const counts = {};
+  const focused = state.filterMode === 'focused';
   topics.forEach(t => {
     const ct = getContentTags(t);
     if (l1Filter && ct.l1 !== l1Filter) return;
-    if (l2Filters.length > 0 && !(ct.l2 || []).some(tag => l2Filters.includes(tag))) return;
+    if (l2Filters.length > 0) {
+      const l2 = ct.l2 || [];
+      if (focused) {
+        if (l2.length === 0 || !l2.every(tag => l2Filters.includes(tag))) return;
+      } else {
+        if (!l2.some(tag => l2Filters.includes(tag))) return;
+      }
+    }
     const qc = matchingQuestionCount(t, skillFilters);
     if (qc === 0) return;
-    (ct.l3 || []).forEach(tag => {
+    const l3 = ct.l3 || [];
+    l3.forEach(tag => {
+      if (focused) {
+        const simSelected = new Set(state.selectedL3Tags);
+        simSelected.add(tag);
+        if (!l3.every(t3 => simSelected.has(t3))) return;
+      }
       counts[tag] = (counts[tag] || 0) + qc;
     });
   });
