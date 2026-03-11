@@ -5,243 +5,137 @@ Follow it exactly for all current and future question banks.
 
 ---
 
-## What `content_tags` looks like
+## Content Tags (`content_tags`) — 3-Layer System
 
-A flat JSON array. Always 2–4 elements.
+A structured JSON object with 3 layers. Full hierarchy in `tags/tags.txt`.
 
 ```json
-"content_tags": ["people", "nature", "conservation"]
-"content_tags": ["experience/activity", "work", "international", "aspiration"]
-"content_tags": ["object", "heirloom", "sentimental", "culture"]
+"content_tags": {"l1": "experience/activity", "l2": ["leisure"], "l3": ["exercise"]}
+"content_tags": {"l1": "abstract_concepts", "l2": ["emotion", "personal_growth"], "l3": ["happiness", "learning"]}
+"content_tags": {"l1": "object", "l2": ["intangible"], "l3": ["technology"]}
 ```
 
-- **Position 0** — category (fixed, exactly one of four values)
-- **Positions 1–3** — thematic tags drawn from `tags/tags.txt`
+- **l1** — exactly one of 5 fixed categories
+- **l2** — 1–3 thematic clusters (must belong to the selected l1)
+- **l3** — 0–2 specific tags (must belong to one of the selected l2s)
+
+Qualifier tags (`qualifier_tags`) are stored separately: `memorable` | `peaceful` | `sentimental` | `useful` | `interesting`
 
 ---
 
-## Position 0 — Category
+## Layer 1 — Category (l1)
 
 Exactly one of:
 
 | Value | Use when the topic is about… |
 |---|---|
-| `people` | A person or group of people — friends, family, celebrities, strangers, a child, a colleague |
-| `place` | A location — indoor or outdoor, big or small: building, park, mountain, room, church, lake, natural environment |
-| `object` | A tangible or intangible *thing* — book, film, technology, app, heirloom, animal, food, music, story, toy, talent, science subject |
-| `experience/activity` | Something that happened, is happening, or will happen — event, travel, habit, routine, work experience, study, festival, celebration, a time you lost something, a plan |
+| `people` | A person or group — friends, family, celebrities, strangers, a child, a colleague |
+| `place` | A location — indoor or outdoor: building, park, mountain, room, church, lake |
+| `object` | A tangible or intangible *thing* — book, film, technology, app, food, toy, gift |
+| `experience/activity` | Something that happened or is done — event, travel, habit, routine, work, study |
+| `abstract_concepts` | Ideas, emotions, values, traits — communication, pride, fairness, influence, time |
 
-**When in doubt:** if the topic sentence's main noun is a thing → `object`. If it describes an event or "a time when" → `experience/activity`. If it centres on a person → `people`. If it centres on a location → `place`.
-
----
-
-## Positions 1–3 — Thematic Tags
-
-### Source of truth
-All valid tags live in **`tags/tags.txt`**. Always check that file before assigning a tag.
-If no existing tag is close enough, create a new one and **append it to `tags/tags.txt`** with a one-line description before using it.
-
-### How many tags
-- Minimum 1, maximum 3 thematic tags (so the full array is 2–4 elements).
-- Pick the most semantically meaningful words/phrases from the topic sentence — nouns, adjectives, key verbs, qualifiers.
-- Do not pad with generic words. Fewer sharp tags beat more vague ones.
-
-### Normalisation rules
-Synonyms and semantically overlapping words must collapse to a single tag:
-
-| Raw extractions | Normalised tag |
-|---|---|
-| film, movie, cinema | `movies` |
-| job, career, occupation, dream job, part-time work, family business | `work` |
-| journey, trip, vacation, vehicle used for travel | `travel` |
-| kindness, generosity, volunteering | `helping_others` |
-| apology, conflict, forgiveness, saying sorry | `conflict_resolution` |
-| enjoyed, liked, loved, disliked, didn't enjoy, positive/negative experience | `likes_dislikes` |
-| gadget, digital tool, electronic device | `technology` |
-| program, software, digital app | `app` |
-| outdoor, scenic, natural setting | `nature` |
-| organised, goal-setting | `planning` |
-| proud of, accomplishment, success | `achievement` |
-| waiting, looking forward to | `anticipation` |
-| self-taught, independent study, no teacher | `self-learning` |
-| exciting, thrilling, bold | `adventure` |
-| family member, relative, family gathering | `family` |
-| close companion, trust, personal bond | `friendship` |
+**When in doubt:** if the main noun is a thing → `object`. If it describes an event or "a time when" → `experience/activity`. If it centres on a person → `people`. If it centres on a location → `place`. If it's about ideas, feelings, traits, or values → `abstract_concepts`.
 
 ---
 
-## The Five-Step Pipeline
+## Layer 2 — Theme (l2)
 
-Run these steps whenever tagging a new question bank. Steps 1–3 are intermediate files for transparency and review; Step 4 writes to JSON; Step 5 generates the human-editable `.txt` mirror.
+Each l2 belongs to exactly one l1. Pick 1–3 l2 tags.
 
-### Step 1 — Initial extraction → `pipeline/initial_extraction_for_<file>.txt`
+### people
+- `professions` — doctors, actors, athletes, leaders, famous persons
+- `close_bonds` — family, friends, colleagues, neighbours
+- `general` — society, citizens, crowd, generation, strangers
 
-For each topic, extract raw tags using your own reading of the topic sentence.
-Format — one topic per line:
+### place
+- `outdoor` — nature, scenery, parks, mountains, cities, countries
+- `indoor` — houses, buildings, museums, libraries, shops, schools
 
-```
-topic sentence <category, extraction1, extraction2, …>
-```
+### object
+- `tangible` — food, clothes, shoes, gifts, toys, cameras, instruments, plants
+- `intangible` — non-physical objects (apps, books, music, money, media)
 
-- Assign the fixed category first (see rules above).
-- Then extract 1–3 of the most semantically meaningful words/phrases from the topic sentence.
-- Do not normalise yet — capture the raw language of the topic.
+### experience/activity
+- `work` — jobs, careers, business, companies, employment
+- `study` — courses, subjects, education, language learning, exams
+- `leisure` — free time activities (has L3 children)
+- `routines` — daily habits, chores, morning/bedtime, schedule
 
-**Example:**
-```
-a movie you watched and enjoyed recently <object, movie, likes_dislikes>
-a time when you lost your way <experience/activity, lost, navigation, travel>
-a wild animal that you want to know more about <object, animal, nature, curiosity>
-```
-
-### Step 2 — Normalise → `tags/tags.txt`
-
-Read the initial extraction file. Identify synonyms and semantically similar extractions across all topics. Collapse them to a single mid-grain tag.
-
-Rules:
-- The category (position 0) is always fixed — leave it unchanged.
-- Tags should be mid-grain: not so specific that each topic has a unique tag, not so broad they carry no meaning.
-- Goal: **more topics sharing a tag = more useful** (enables grouping and filtering).
-- Write all normalised tags into `tags/tags.txt` with a one-line description.
-- For future files: first look up existing tags for matches. Only create new tags for extractions with no close match. Append new tags to `tags/tags.txt`.
-
-### Step 3 — Apply normalisation → `pipeline/normalized_tags_for_<file>.txt`
-
-Re-read the initial extraction file. Replace each raw extraction with its closest match from `tags/tags.txt`. Same format as Step 1.
-
-**Example:**
-```
-a time when you lost your way <experience/activity, navigation, travel>
-a wild animal that you want to know more about <object, animals, nature, curiosity>
-```
-
-### Step 4 — Update JSON
-
-In the target JSON file, replace each topic's `content_tags` value with the flat array from Step 3.
-
-```json
-"content_tags": ["experience/activity", "navigation", "travel"]
-```
-
-Write a small Python script to do this in bulk (use topic string as key). Delete the script after running.
-
-### Step 5 — Generate `.txt` mirror
-
-Run `json_to_txt.py` to regenerate the human-editable mirror:
-
-```bash
-python3 pipeline/json_to_txt.py merged_part2.json
-```
-
-This produces `merged_part2.txt`. Always run this after any JSON edit.
+### abstract_concepts
+- `communication` — advice, arguing, chatting, speaking, apologizing
+- `emotion` — feelings and emotional states (has L3 children)
+- `personal_traits` — personal attributes, abilities, moral qualities (has L3 children)
+- `values` — social/cultural norms and systems (has L3 children)
+- `personal_growth` — development and self-improvement (has L3 children)
+- `influence` — persuasion, inspiration, encouragement, impact
+- `time` — life stages, generations, childhood, past vs present
 
 ---
 
-## Current tag vocabulary (summary)
+## Layer 3 — Specific (l3)
 
-Full definitions are in `tags/tags.txt`. Key tags by group:
+Each l3 belongs to exactly one l2. Pick 0–2 l3 tags.
 
-**People & social**
-`helping_others` · `influence` · `conflict_resolution` · `advice` · `friendship` · `celebrity` · `admiration` · `family`
+### Under `intangible` (object)
+- `artwork` — books, music, movies, paintings, photographs
+- `technology` — apps, computers, phones, internet, social media
+- `money` — cash, fees, salary, prices, spending
+- `media` — advertisements, news, TV programs, reports
 
-**Work & career**
-`work`
+### Under `leisure` (experience/activity)
+- `exercise` — sports, games, walking, cycling, team activities
+- `shopping` — buying, stores, malls, markets
+- `cooking` — food prep, meals, restaurants, eating out
+- `traveling` — journeys, trips, visits, tourism, transport
+- `creative` — drawing, painting, photography, crafting
+- `reading` — books, articles, e-books, libraries (leisure context)
+- `entertainment` — movies, music, concerts, shows, games (consuming)
 
-**Travel & places**
-`travel` · `international` · `navigation` · `home`
+### Under `emotion` (abstract_concepts)
+- `pride` — proud, accomplishment, achievement
+- `happiness` — joy, smiling, enjoyment, fun
+- `fear` — worry, anxiety, danger, reluctance
+- `anger` — arguing, frustration, conflict
+- `attachment` — missing, nostalgia, sentimental, keeping old things
+- `regret` — sorry, apologize, mistake
+- `patience` — waiting, tolerance, delayed gratification
 
-**Money & shopping**
-`money` · `shopping` · `service`
+### Under `personal_traits` (abstract_concepts)
+- `creativity` — artistic ability, innovation, imagination
+- `problem-solving` — finding solutions, fixing issues
+- `craftsmanship` — making by hand, quality of handmade work
+- `responsibility` — duty, accountability, ownership
+- `honesty` — truthfulness, sincerity, authenticity
 
-**Learning & intellect**
-`self-learning` · `learning` · `science` · `reading` · `books` · `intelligence` · `problem-solving` · `creativity` · `planning`
+### Under `values` (abstract_concepts)
+- `policy` — laws, government rules, regulations, bans
+- `environment` — conservation, pollution, green choices, wildlife
+- `economics` — spending, consumption, economic growth
+- `fairness` — equality, justice, access, equity
 
-**Technology & media**
-`technology` · `app` · `phone` · `social_media` · `media`
-
-**Arts & culture**
-`art` · `music` · `movies` · `stories` · `culture`
-
-**Personal qualities & emotions**
-`passion` · `talent` · `self-improvement` · `aspiration` · `achievement` · `likes_dislikes` · `happiness` · `anticipation` · `memorable` · `sentimental`
-
-**Objects & possessions**
-`heirloom` · `toy` · `childhood` · `everyday_life` · `useful`
-
-**Events & situations**
-`social_event` · `celebration` · `restriction` · `mistake` · `disruption` · `first_time` · `adventure`
-
-**Nature**
-`nature` · `conservation` · `animals`
-
-**Other**
-`child` · `curiosity` · `communication` · `language` · `peaceful` · `food` · `architecture` · `interesting`
+### Under `personal_growth` (abstract_concepts)
+- `learning` — education, acquiring knowledge
+- `self-improvement` — getting better at something, practice
+- `adaptation` — adjusting to change, coping
+- `goal-setting` — plans, ambitions, future aspirations
+- `decision` — choices, weighing options, judgement
 
 ---
 
-## All 52 current tags (reference)
+## Hierarchy Rules
 
-```
-a person who likes to look after the natural world         → people | nature | conservation
-a short-term job you want to have in a foreign country     → experience/activity | work | international | aspiration
-a time when you encouraged someone to do something         → experience/activity | influence
-a person who often helps others                            → people | helping_others
-an item on which you spent more than expected              → object | shopping | money
-a time you needed to use your imagination                  → experience/activity | creativity
-an interesting building                                    → place | architecture | interesting
-a friend who learned something without a teacher           → people | friendship | self-learning
-a movie you watched and enjoyed recently                   → object | movies | likes_dislikes
-an event you attended in which you didn't enjoy the music  → experience/activity | music | social_event | likes_dislikes
-a person who solved a problem in a smart way               → people | problem-solving | intelligence
-something important kept in your family for a long time    → object | heirloom | sentimental | culture
-a bicycle/motorcycle/car trip you would like to take       → experience/activity | travel | aspiration
-a piece of technology you would like to own                → object | technology | aspiration
-a program or app on your computer or phone                 → object | app | technology
-a person who makes plans and is good at planning           → people | planning
-a child who loves drawing/painting                         → people | child | art | passion
-a time when you gave advice to others                      → experience/activity | advice | helping_others
-a time when you felt proud of a family member              → experience/activity | family | achievement
-an occasion when many people were smiling                  → experience/activity | happiness | celebration
-an occasion when you were not allowed to use your phone    → experience/activity | phone | restriction
-a famous person you would like to meet                     → people | celebrity | aspiration | admiration
-a perfect job you would like to have in the future         → experience/activity | work | aspiration
-a TV/online program you enjoy watching                     → object | media | likes_dislikes
-a natural place (e.g. park, mountain)                      → place | nature
-a time when you waited for something special               → experience/activity | anticipation | memorable
-an important decision made with the help of other people   → experience/activity | decision | collaboration
-a book you read that you found useful                      → object | books | reading | useful
-a sportsperson you admire                                  → people | sports | admiration
-a time when you broke something                            → experience/activity | mistake
-a time you saw something interesting on social media       → experience/activity | social_media | interesting
-a creative person (artist, musician, etc.) you admire      → people | creativity | admiration | art
-an important old thing your family has kept for a long time→ object | heirloom | sentimental | culture
-the time you first talked with others in a foreign language→ experience/activity | language | first_time | communication
-an exciting activity you have tried for the first time     → experience/activity | first_time | adventure
-a time when someone apologized to you                      → experience/activity | conflict_resolution
-a long journey you had and would like to take again        → experience/activity | travel | aspiration
-a great dinner you and your friend or family enjoyed       → experience/activity | food | family | likes_dislikes
-a time when the electricity suddenly went off              → experience/activity | disruption | home
-a time when you received good service in a shop            → experience/activity | shopping | service | likes_dislikes
-a person who enjoys working for a family business          → people | work | family | likes_dislikes
-a toy you liked in your childhood                          → object | toy | childhood | likes_dislikes
-a natural talent you would like to improve                 → object | talent | self-improvement | aspiration
-a time when you lost your way                              → experience/activity | navigation | travel
-a good friend who is important to you                      → people | friendship
-an interesting traditional story                           → object | stories | culture | interesting
-a habit your friend has and you want to develop            → experience/activity | habit | self-improvement | aspiration
-a wild animal that you want to know more about             → object | animals | nature | curiosity
-a friend who is good at music/singing                      → people | friendship | music | talent
-an area/subject of science you are interested in           → object | science | learning | aspiration
-a quiet place you like to go                               → place | peaceful | likes_dislikes
-something that you can't live without                      → object | everyday_life
-```
+1. **L2 must belong to the selected L1.** e.g. `leisure` only under `experience/activity`, never under `object`.
+2. **L3 must belong to one of the selected L2s.** e.g. `exercise` only under `leisure`, never under `routines`.
+3. **Multi-tag is allowed** — a topic can have 2+ L2 tags if they all belong to the same L1.
+4. **Tag based on what the topic actually asks**, not just keywords.
+5. **Check `tags/tags.txt`** before creating a new tag. Normalise synonyms.
 
+---
 
+## Skill Tags (`skill_tags`) — Unified 8-Type Taxonomy
 
-
-## Question Type Tags (`type_tags`) — Unified 8-Type Taxonomy
-
-Both Part 1 questions and Part 3 questions use the same 8-type taxonomy. Each question gets a `type_tags` array with 1–3 values. Assign all that apply (up to 3, in priority order); if genuinely ambiguous, use `unclear`.
+Both Part 1 questions and Part 3 questions use the same 8-type taxonomy. Each question gets a `skill_tags` array with 1–3 values. Assign all that apply (up to 3, in priority order); if genuinely ambiguous, use `unclear`.
 
 **Priority order:** `experience` → `frequency` → `description` → `preference` → `evaluation` → `analyze` → `comparison` → `hypothetical`
 
@@ -345,8 +239,6 @@ Questions about past experiences, memories, completed actions. Covers all past-r
 **Examples:**
 - *What did you often do with your friends in your childhood?* → `past`
 - *Have you ever been part of a sports team?* → `past`
-- *When did you learn how to type on a keyboard?* → `past`
-- *Did your parents teach you to share when you were a child?* → `past`
 
 ---
 
@@ -356,200 +248,95 @@ Questions about current states, habits, preferences, opinions, general truths. T
 **Signals:**
 - Present simple state/habit: `do you`, `are you`, `what is/are`, `is there`
 - Preference: `do you like`, `do you prefer`, `favourite`
-- Opinion/evaluation: `do you think`, `is it important`, `should` (prescriptive, not future plan)
+- Opinion/evaluation: `do you think`, `is it important`, `should` (prescriptive)
 - General/analytical: `why do`, `what can`, `how do`, `what kind of`
 - Frequency: `how often`, `do you usually`
-- Habitual conditional: `how do you feel when...`
 
 **Key rules:**
-- "Do you think..." / "Is it important..." → `present` (opinion held now, even if topic is abstract)
-- "What can/should people do..." → `present` (general analysis/recommendation)
-- "How do you feel when..." → `present` (habitual present reaction)
-- "Do you have a hobby since childhood?" → `present` (main verb is present tense)
-- Comparison across time ("What's the difference between past and today?") → `present` (asking for current analysis)
-- "Why do more people X now?" → `present` (anchored to present by "now" or general observation)
-
-**Examples:**
-- *What is your daily study routine?* → `present`
-- *Do you prefer typing or handwriting?* → `present`
-- *Do you think parents should teach their children how to protect the environment?* → `present`
-- *What can people do to protect the natural world?* → `present`
+- "Do you think..." → `present` (opinion held now)
+- "What can/should people do..." → `present` (general analysis)
+- Comparison across time → `present` (asking for current analysis)
 
 ---
 
 ### future
-Questions about future plans, predictions, hypothetical/imagined scenarios, desires, and wishes. Includes subjunctive mood and all forward-looking constructions.
+Questions about future plans, predictions, hypothetical/imagined scenarios, desires, and wishes.
 
 **Signals:**
 - Future tense: `will`, `going to`, `in the future`
 - Plans: `plans for`, `plan to`, `next five years`
 - Hypothetical/subjunctive: `would you like`, `if you could`, `if you were`, `if you had`, `imagine`
-- Desire/aspiration: `want to`, `would like to`, `hope to`, `looking forward to`
-- Prediction: `do you think ... will`, `in the future`
-
-**Key rules:**
-- "Would you like to..." → `future` (forward-looking desire)
-- "If you could/were/had..." → `future` (subjunctive = hypothetical future)
-- "Do you want to change...?" → `future` (aspiration)
-- "Do you have any plans for the next...?" → `future` (explicit future plans)
-
-**Examples:**
-- *Do you have any plans for the next five years?* → `future`
-- *Would you like to move to a different house in the future?* → `future`
-- *Do you think more people will shop online in the future?* → `future`
+- Desire/aspiration: `want to`, `would like to`, `hope to`
 
 ---
 
 ### Priority & conflict resolution
-1. **Explicit past signal wins** over present frame: "Have you ever..." → `past` (even though present perfect tense)
-2. **Explicit future signal wins** over present frame: "Do you think X will...?" → `future` (despite "do you think" being present)
+1. **Explicit past signal wins** over present frame: "Have you ever..." → `past`
+2. **Explicit future signal wins** over present frame: "Do you think X will...?" → `future`
 3. **Default is `present`** when no past or future signal is detected
-4. **One tag only** — no multi-tagging. If a question mixes time frames, pick the one the question is primarily asking about.
+4. **One tag only** — no multi-tagging
 
 ---
 
-## Tagging with `tag_question_types.py`
+## JSON Schemas (after tagging)
 
-`pipeline/tag_question_types.py` auto-tags questions by keyword matching against the rules above. Uses the same 8-type taxonomy for both parts.
-
-```bash
-python3 pipeline/tag_question_types.py merged_part1.json --part 1   # tags questions[] array
-python3 pipeline/tag_question_types.py merged_part2.json             # tags part3[] array
-```
-
-- For Part 1: writes `type_tags` into each item in the `questions` array.
-- For Part 2: writes `type_tags` into each item in the `part3` array.
-- After running, always regenerate the `.txt` mirror.
-- Review output in the `.txt` file and correct any misclassifications manually, then sync back with `txt_to_json.py`.
-
----
-
----
-
-# Part 1 Tagging Rules
-
-Part 1 topics are short abstract noun phrases (e.g. "Food", "Reading", "Shoes") rather than full sentences. The same two-layer tagging system applies, with some adjustments.
-
----
-
-## Part 1 JSON Schema (after tagging)
+### Part 1
 
 ```json
 {
   "topic_en": "Reading",
   "part": 1,
   "season": "2026-Jan-Apr",
-  "content_tags": ["experience/activity", "reading", "likes_dislikes"],
+  "content_tags": {"l1": "experience/activity", "l2": ["leisure"], "l3": ["reading"]},
+  "qualifier_tags": [],
   "questions": [
-    { "text": "1. Do you like reading?", "source": "laokaoya", "type_tags": ["preference"] }
+    { "text": "1. Do you like reading?", "source": "laokaoya", "skill_tags": ["preference"], "time_frame": "present" }
   ],
   "tags": []
 }
 ```
 
-- `content_tags` is a new field — add it alongside the existing `tags: []` (do not replace `tags`).
-- `type_tags` is added to each question object in the `questions` array.
+### Part 2
 
----
-
-## Layer 1 — `content_tags` for Part 1
-
-Same flat array structure as Part 2: position 0 = category, positions 1–2 = thematic tags.
-
-**Array size:** 2–3 elements (categories are more abstract, so 1–2 thematic tags usually sufficient).
-
-### Category assignment for Part 1
-
-Part 1 topics are single nouns/phrases. Apply these rules:
-
-| Category | Example Part 1 topics |
-|---|---|
-| `experience/activity` | Daily routine, Reading, Walking, Chatting, Typing, Hobby, Having a break, Sharing, Going out, Spare time, Taking photos, Growing vegetables/fruits, Borrowing/Lending, Doing something well, Morning time, Sports team, Childhood activities |
-| `place` | Museum, Building, Crowded place, Public places, The city you live in, Home/Accommodation, View, Scenery |
-| `object` | Food, Shoes, Plants, Gifts, Advertisement, Pets and Animals |
-| `people` | Staying with old people |
-
-**Key rule:** if the topic is an *activity you do* or a *behaviour/habit*, use `experience/activity` even if the word sounds like a noun (e.g. "Reading" → `experience/activity`, not `object`).
-
-### Thematic tags for Part 1
-
-Same vocabulary as Part 2 (`tags/tags.txt`). Because Part 1 topics are abstract, pick the 1–2 tags that best capture what the topic is fundamentally about:
-
-| Topic | Suggested tags |
-|---|---|
-| Daily routine | `everyday_life` |
-| Life stages | `nostalgia`, `aspiration` |
-| View / Scenery | `nature`, `travel` |
-| Childhood activities | `childhood`, `likes_dislikes` |
-| Building | `architecture` |
-| Typing | `technology`, `learning` |
-| Hobby | `likes_dislikes`, `passion` |
-| Sports team | `social_event` |
-| Reading | `reading`, `likes_dislikes` |
-| Gifts | `shopping`, `sentimental` |
-| Morning time | `everyday_life` |
-| Walking | `nature`, `everyday_life` |
-| Food | `food`, `likes_dislikes` |
-| Pets and Animals | `animals`, `likes_dislikes` |
-| Sharing | `helping_others`, `friendship` |
-| Having a break | `everyday_life` |
-| Borrowing/Lending | `money`, `friendship` |
-| Advertisement | `media`, `technology` |
-| Chatting | `communication`, `friendship` |
-| Growing vegetables/fruits | `nature`, `food` |
-| Museum | `culture`, `learning` |
-| Crowded place | `social_event` |
-| Going out | `everyday_life` |
-| Staying with old people | `family`, `helping_others` |
-| Doing something well | `achievement` |
-| Shoes | `shopping`, `likes_dislikes` |
-| Rules | `restriction`, `learning` |
-| Public places | `social_event` |
-| Plants | `nature`, `home` |
-| Spare time | `likes_dislikes`, `everyday_life` |
-| Taking photos | `art`, `likes_dislikes` |
-| The city you live in | `home`, `travel` |
-| Home/Accommodation | `home` |
-
-These are suggestions — always check `tags/tags.txt` and use judgment. Do not over-tag; 1–2 thematic tags is usually enough.
-
----
-
-## Layer 2 — `type_tags` for Part 1 Questions
-
-Uses the same unified 8-type taxonomy as Part 2+3. See the "Question Type Tags" section above for full definitions.
-
-### Characteristic patterns for Part 1:
-
-**experience** — "Have you...?", "Did you...?", "Can you remember...?"
-→ *"Have you ever had a pet?"* → `["experience"]`
-
-**description** — most "What is/are...?", "Do you have...?", "Where...?" questions
-→ *"What do you usually do in the morning?"* → `["description"]`
-
-**preference** — "Do you like...?", "Do you prefer...?", "What is your favourite...?"
-→ *"Do you like reading?"* → `["preference"]`
-
-**evaluation** — "Do you think...?", "Is it important...?", "Should...?"
-→ *"Do you think it's important to have a daily routine?"* → `["evaluation"]`
-
-**analyze** — "Why...?" (sentence-initial), "How does...?"
-→ *"Why do people like to walk in parks?"* → `["analyze"]`
-
-**comparison** — "What are the differences...?", "Has X changed...?"
-→ *"What are the differences between team sports and individual sports?"* → `["comparison"]`
-
-**hypothetical** — "Would you like to...?", "If you...?", "Will...?"
-→ *"Would you like to move to a different house in the future?"* → `["hypothetical"]`
-
----
-
-## Tagging with `tag_content_topics.py` (Part 1)
-
-```bash
-python3 pipeline/tag_content_topics.py merged_part1.json
+```json
+{
+  "topic": "a person who likes to look after the natural world",
+  "part": 2,
+  "season": "2026-Jan-Apr",
+  "cue_card": {
+    "prompt": "Describe a person who likes to look after the natural world",
+    "you_should_say": ["Who this person is", "What he or she does"]
+  },
+  "part3": [
+    { "text": "1. Do you think parents should teach their children?", "source": "tongzhuo", "skill_tags": ["evaluation"], "time_frame": "present" }
+  ],
+  "tags": [],
+  "content_tags": {"l1": "abstract_concepts", "l2": ["values"], "l3": ["environment", "policy"]},
+  "qualifier_tags": []
+}
 ```
 
-- Uses fuzzy lookup against `tags/tags.txt` + Claude batch for category assignment.
-- Writes `content_tags` as a new field in each topic object.
-- After running, regenerate `.txt` mirror: `python3 pipeline/json_to_txt.py merged_part1.json`
+---
+
+## Pipeline Scripts
+
+### tag_content_v2.py
+Auto-tags topics with `content_tags` via weighted keyword matching against the 3-layer hierarchy. Supports `--dry-run` and `--overwrite`.
+```bash
+python3 pipeline/tag_content_v2.py merged_part1.json --part 1 --overwrite
+python3 pipeline/tag_content_v2.py merged_part2.json --overwrite
+```
+
+### tag_question_types.py
+Auto-tags questions with `skill_tags` via keyword matching. Uses the unified 8-type taxonomy for both parts.
+```bash
+python3 pipeline/tag_question_types.py merged_part1.json --part 1
+python3 pipeline/tag_question_types.py merged_part2.json
+```
+
+### tag_time_frames.py
+Auto-tags questions with `time_frame` (past/present/future) via keyword matching.
+```bash
+python3 pipeline/tag_time_frames.py merged_part1.json --part 1
+python3 pipeline/tag_time_frames.py merged_part2.json
+```

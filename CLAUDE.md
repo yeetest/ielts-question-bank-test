@@ -219,5 +219,5 @@ git push
 - Strip all Chinese characters and zero-width chars from English fields
 - `content_tags` is a 3-layer object `{"l1": str, "l2": [...], "l3": [...]}` — NOT a flat array
 - `qualifier_tags` is a separate flat array for tone/quality descriptors
-- `skill_tags` (formerly `type_tags`) is a per-question array of 1-3 skill types
+- `skill_tags` is a per-question array of 1-3 skill types
 - After any JSON edit, always regenerate the matching `.txt` mirror
