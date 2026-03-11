@@ -28,10 +28,16 @@
 <div class="tabs">
   <button class="tab" id="tab-part1">Part 1</button>
   <button class="tab" id="tab-part2">Part 2 + Part 3</button>
+  <button class="tab" id="sidebar-toggle">◀ 收起筛选</button>
 </div>
 
-<!-- Card grid — JS renders cards into this container -->
-<div class="grid" id="grid"></div>
+<div id="main-layout">
+  <!-- Sidebar mounts here -->
+  <div id="sidebar-root"></div>
+  
+  <!-- Card grid — JS renders cards into this container -->
+  <div class="grid" id="grid"></div>
+</div>
 
 <!-- Modal overlay — JS fills #modal-content when user clicks a card or tag -->
 <div class="overlay" id="overlay">
@@ -40,9 +46,6 @@
     <div id="modal-content"></div>
   </div>
 </div>
-
-<!-- Sidebar mounts here -->
-<div id="sidebar-root"></div>
 
 <script type="module" src="js/app.js"></script>
 </body>

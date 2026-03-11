@@ -1,5 +1,6 @@
 import { state } from './state.js';
 import { renderGrid } from './components/grid.js';
+import { renderSidebar } from './components/sidebar.js';
 
 export async function loadData() {
   [state.part1Data, state.part2Data] = await Promise.all([
@@ -7,4 +8,5 @@ export async function loadData() {
     fetch('merged_part2.json').then(r => r.json()),
   ]);
   renderGrid('part1');
+  renderSidebar(); // render sidebar after data is available
 }
