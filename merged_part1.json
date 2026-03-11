@@ -2119,151 +2119,6 @@
     "qualifier_tags": []
   },
   {
-    "topic_en": "Work/studies",
-    "part": 1,
-    "season": "2026-Jan-Apr",
-    "questions": [
-      {
-        "text": "1. Do you work or are you a student?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "description"
-        ]
-      },
-      {
-        "text": "2. What do you do?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "description"
-        ]
-      },
-      {
-        "text": "3. Do you like your job? Why/Why not?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "preference"
-        ]
-      },
-      {
-        "text": "4. What do you find the most interesting about the work you do? Why?",
-        "source": "tongzhuo",
-        "type_tags": []
-      },
-      {
-        "text": "5. Will you need to do any more study for your job?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "hypothetical"
-        ]
-      },
-      {
-        "text": "6. Is it a good place to work?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "evaluation"
-        ]
-      },
-      {
-        "text": "7. Would you like the place where you work to make any changes?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "hypothetical"
-        ]
-      },
-      {
-        "text": "8. What technology do you use at work?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "description"
-        ]
-      },
-      {
-        "text": "9. What subject(s) are you studying?",
-        "source": "laokaoya",
-        "type_tags": [
-          "description"
-        ]
-      },
-      {
-        "text": "10. What do you like about your course?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "preference"
-        ]
-      },
-      {
-        "text": "11. What would you like to do after you finish your course?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "hypothetical"
-        ]
-      },
-      {
-        "text": "12. Do you think you will miss being a student once you finish your studies? Why/why not?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "evaluation",
-          "hypothetical"
-        ]
-      },
-      {
-        "text": "13. What technology do you use when you study?",
-        "source": "tongzhuo",
-        "type_tags": [
-          "description"
-        ]
-      },
-      {
-        "text": "14. Are you enjoying your studies at the moment? Why/why not?",
-        "source": "tongzhuo",
-        "type_tags": []
-      },
-      {
-        "text": "15. Why did you choose to do that type of work (or, that job)?",
-        "source": "laokaoya",
-        "type_tags": [
-          "analyze"
-        ]
-      },
-      {
-        "text": "16. Do you miss being a student?",
-        "source": "laokaoya",
-        "type_tags": []
-      },
-      {
-        "text": "17. Is it very interesting?",
-        "source": "laokaoya",
-        "type_tags": [
-          "evaluation"
-        ]
-      },
-      {
-        "text": "18. Why did you choose to study that subject? / Why did you choose to study those subjects?",
-        "source": "laokaoya",
-        "type_tags": [
-          "analyze"
-        ]
-      },
-      {
-        "text": "19. Are you looking forward to working?",
-        "source": "laokaoya",
-        "type_tags": [
-          "hypothetical"
-        ]
-      }
-    ],
-    "tags": [],
-    "content_tags": {
-      "l1": "experience/activity",
-      "l2": [
-        "work",
-        "learning"
-      ],
-      "l3": []
-    },
-    "qualifier_tags": []
-  },
-  {
     "topic_en": "Dreams",
     "part": 1,
     "source": "laokaoya_unmatched",
@@ -2520,42 +2375,81 @@
     "qualifier_tags": []
   },
   {
-    "topic_en": "Work or studies",
+    "topic_en": "Work",
     "part": 1,
-    "season": "",
+    "season": "2026-Jan-Apr",
+    "content_tags": {
+      "l1": "experience/activity",
+      "l2": [
+        "work"
+      ],
+      "l3": []
+    },
+    "qualifier_tags": [],
     "questions": [
       {
-        "text": "1. What subjects are you studying?",
-        "source": "yasige",
+        "text": "1. Do you work or are you a student?",
+        "source": "tongzhuo",
         "type_tags": [
           "description"
         ]
       },
       {
-        "text": "2. Do you like your subject?",
-        "source": "yasige",
+        "text": "2. Do you like your job? Why/Why not?",
+        "source": "tongzhuo",
         "type_tags": [
           "preference"
         ]
       },
       {
-        "text": "3. Do you think that your subject is popular in your country?",
-        "source": "yasige",
-        "type_tags": [
-          "description",
-          "evaluation"
-        ]
+        "text": "3. What do you find the most interesting about the work you do? Why?",
+        "source": "tongzhuo",
+        "type_tags": []
       },
       {
-        "text": "4. Do you have any plans for your studies in the next five years?",
-        "source": "yasige",
+        "text": "4. Will you need to do any more study for your job?",
+        "source": "tongzhuo",
         "type_tags": [
-          "description",
           "hypothetical"
         ]
       },
       {
-        "text": "5. What are the benefits of being your age?",
+        "text": "5. Is it a good place to work?",
+        "source": "tongzhuo",
+        "type_tags": [
+          "evaluation"
+        ]
+      },
+      {
+        "text": "6. Would you like the place where you work to make any changes?",
+        "source": "tongzhuo",
+        "type_tags": [
+          "hypothetical"
+        ]
+      },
+      {
+        "text": "7. What technology do you use at work?",
+        "source": "tongzhuo",
+        "type_tags": [
+          "description"
+        ]
+      },
+      {
+        "text": "8. Why did you choose to do that type of work (or, that job)?",
+        "source": "laokaoya",
+        "type_tags": [
+          "analyze"
+        ]
+      },
+      {
+        "text": "9. Are you looking forward to working?",
+        "source": "laokaoya",
+        "type_tags": [
+          "hypothetical"
+        ]
+      },
+      {
+        "text": "10. What are the benefits of being your age?",
         "source": "yasige",
         "type_tags": [
           "description",
@@ -2563,49 +2457,21 @@
         ]
       },
       {
-        "text": "6. Do you want to change your major?",
-        "source": "yasige",
-        "type_tags": [
-          "hypothetical"
-        ]
-      },
-      {
-        "text": "7. Do you prefer to study in the mornings or in the afternoons?",
-        "source": "yasige",
-        "type_tags": [
-          "preference"
-        ]
-      },
-      {
-        "text": "8. How much time do you spend on your studies each week?",
-        "source": "yasige",
-        "type_tags": [
-          "frequency"
-        ]
-      },
-      {
-        "text": "9. What changes would you like to see in your school?",
-        "source": "yasige",
-        "type_tags": [
-          "hypothetical"
-        ]
-      },
-      {
-        "text": "10. What work do you do?",
+        "text": "11. What work do you do?",
         "source": "yasige",
         "type_tags": [
           "description"
         ]
       },
       {
-        "text": "11. What requirements did you need to meet to get your current job?",
+        "text": "12. What requirements did you need to meet to get your current job?",
         "source": "yasige",
         "type_tags": [
           "description"
         ]
       },
       {
-        "text": "12. Do you have any plans for your work in the next five years?",
+        "text": "13. Do you have any plans for your work in the next five years?",
         "source": "yasige",
         "type_tags": [
           "description",
@@ -2613,35 +2479,142 @@
         ]
       },
       {
-        "text": "13. What do you think is the most important at the moment?",
+        "text": "14. What do you think is the most important at the moment?",
         "source": "yasige",
         "type_tags": [
           "evaluation"
         ]
       },
       {
-        "text": "14. Do you want to change to another job?",
+        "text": "15. Do you want to change to another job?",
         "source": "yasige",
         "type_tags": [
           "hypothetical"
         ]
       },
       {
-        "text": "15. Who helps you the most? And how?",
+        "text": "16. Who helps you the most? And how?",
         "source": "yasige",
         "type_tags": [
           "description"
         ]
       }
     ],
+    "tags": []
+  },
+  {
+    "topic_en": "Studies",
+    "part": 1,
+    "season": "2026-Jan-Apr",
     "content_tags": {
       "l1": "experience/activity",
       "l2": [
-        "work",
         "learning"
       ],
       "l3": []
     },
-    "qualifier_tags": []
+    "qualifier_tags": [],
+    "questions": [
+      {
+        "text": "1. What subject(s) are you studying?",
+        "source": "laokaoya",
+        "type_tags": [
+          "description"
+        ]
+      },
+      {
+        "text": "2. What do you like about your course?",
+        "source": "tongzhuo",
+        "type_tags": [
+          "preference"
+        ]
+      },
+      {
+        "text": "3. What would you like to do after you finish your course?",
+        "source": "tongzhuo",
+        "type_tags": [
+          "hypothetical"
+        ]
+      },
+      {
+        "text": "4. Do you think you will miss being a student once you finish your studies? Why/why not?",
+        "source": "tongzhuo",
+        "type_tags": [
+          "evaluation",
+          "hypothetical"
+        ]
+      },
+      {
+        "text": "5. What technology do you use when you study?",
+        "source": "tongzhuo",
+        "type_tags": [
+          "description"
+        ]
+      },
+      {
+        "text": "6. Are you enjoying your studies at the moment? Why/why not?",
+        "source": "tongzhuo",
+        "type_tags": []
+      },
+      {
+        "text": "7. Why did you choose to study that subject? / Why did you choose to study those subjects?",
+        "source": "laokaoya",
+        "type_tags": [
+          "analyze"
+        ]
+      },
+      {
+        "text": "8. Do you like your subject?",
+        "source": "yasige",
+        "type_tags": [
+          "preference"
+        ]
+      },
+      {
+        "text": "9. Do you think that your subject is popular in your country?",
+        "source": "yasige",
+        "type_tags": [
+          "description",
+          "evaluation"
+        ]
+      },
+      {
+        "text": "10. Do you have any plans for your studies in the next five years?",
+        "source": "yasige",
+        "type_tags": [
+          "description",
+          "hypothetical"
+        ]
+      },
+      {
+        "text": "11. Do you want to change your major?",
+        "source": "yasige",
+        "type_tags": [
+          "hypothetical"
+        ]
+      },
+      {
+        "text": "12. Do you prefer to study in the mornings or in the afternoons?",
+        "source": "yasige",
+        "type_tags": [
+          "preference"
+        ]
+      },
+      {
+        "text": "13. How much time do you spend on your studies each week?",
+        "source": "yasige",
+        "type_tags": [
+          "frequency"
+        ]
+      },
+      {
+        "text": "14. What changes would you like to see in your school?",
+        "source": "yasige",
+        "type_tags": [
+          "hypothetical"
+        ]
+      }
+    ],
+    "tags": []
   }
 ]

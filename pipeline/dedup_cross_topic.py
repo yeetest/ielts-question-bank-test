@@ -38,10 +38,12 @@ DEFAULT_THRESHOLD = 0.82
 
 
 def clean_text(text):
-    """Strip leading number, punctuation, lowercase, normalise whitespace."""
+    """Strip leading number, punctuation, parentheticals, lowercase, normalise whitespace."""
     t = re.sub(r"^\d+[\.\)]\s*", "", text.strip())
     t = t.lower().strip()
-    t = re.sub(r"\s+", " ", t)
+    t = re.sub(r"\([^)]*\)", "", t)       # remove parenthetical alternatives e.g. (s)
+    t = re.sub(r"[^a-z0-9 ?]", " ", t)   # strip punctuation except ?
+    t = re.sub(r"\s+", " ", t).strip()
     return t
 
 
@@ -172,6 +174,22 @@ def write_output(groups, questions, output_path):
     return len(groups)
 
 
+def detect_compound_topics():
+    """Detect topics with compound names (X/Y, X or Y) that may need splitting."""
+    compound = []
+    p1_data = json.load(open(P1_FILE, encoding="utf-8"))
+    for t in p1_data:
+        name = t.get("topic_en", "")
+        if re.search(r"\b(or|and)\b|/", name, re.I):
+            compound.append(("Part 1", name, len(t.get("questions", []))))
+    p2_data = json.load(open(P2_FILE, encoding="utf-8"))
+    for t in p2_data:
+        name = t.get("cue_card", {}).get("prompt", t.get("topic", ""))
+        if re.search(r"\b(or|and)\b|/", name, re.I):
+            compound.append(("Part 2", name, len(t.get("part3", []))))
+    return compound
+
+
 def main():
     threshold = DEFAULT_THRESHOLD
     if "--threshold" in sys.argv:
@@ -186,16 +204,22 @@ def main():
     print(f"Finding duplicates (threshold={threshold})...")
     groups = find_duplicates(questions, threshold)
 
-    if not groups:
-        print("No duplicates found!")
-        return
+    if groups:
+        count = write_output(groups, questions, OUTPUT)
+        print(f"\nFound {count} duplicate groups")
+        print(f"Written to: {OUTPUT}")
+        print(f"\nNext steps:")
+        print(f"  1. Review {OUTPUT} and edit [KEEP]/[REMOVE] markers")
+        print(f"  2. Run: python3 pipeline/apply_dedup.py")
+    else:
+        print("No duplicate questions found!")
 
-    count = write_output(groups, questions, OUTPUT)
-    print(f"\nFound {count} duplicate groups")
-    print(f"Written to: {OUTPUT}")
-    print(f"\nNext steps:")
-    print(f"  1. Review {OUTPUT} and edit [KEEP]/[REMOVE] markers")
-    print(f"  2. Run: python3 pipeline/apply_dedup.py")
+    # Warn about compound topics that may need splitting
+    compound = detect_compound_topics()
+    if compound:
+        print(f"\n⚠  Compound topics detected (may need splitting):")
+        for part, name, qcount in compound:
+            print(f"  {part} | {name} ({qcount} questions)")
 
 
 if __name__ == "__main__":
