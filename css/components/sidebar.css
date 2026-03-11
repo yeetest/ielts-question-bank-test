@@ -2,16 +2,15 @@
 #main-layout {
   display: flex;
   align-items: flex-start;
-  gap: 20px;           /* gap between sidebar and grid */
+  gap: 20px;
 }
 
-/* Grid takes remaining space */
 #grid {
   flex: 1;
   min-width: 0;
 }
 
-/* ---------- Sidebar Root (flex child — width controls collapse) ---------- */
+/* ---------- Sidebar Root ---------- */
 #sidebar-root {
   width: 360px;
   flex-shrink: 0;
@@ -27,20 +26,20 @@
   border-radius: 8px;
   overflow: hidden;
   position: sticky;
-  top: 24px;           /* stays visible when scrolling */
+  top: 24px;
   max-height: calc(100vh - 48px);
 }
 
 /* ---------- Sidebar Content ---------- */
 .sidebar-content {
-  width: 360px;        /* fixed width so collapse animation doesn't squish content */
+  width: 360px;
   padding: 14px;
   overflow-y: auto;
   overflow-x: hidden;
   max-height: calc(100vh - 48px);
 }
 
-/* ---------- Sections (vertical stack) ---------- */
+/* ---------- Sections ---------- */
 .sidebar-section {
   margin-bottom: 14px;
 }
@@ -72,11 +71,43 @@
   margin-left: 2px;
 }
 
+/* ---------- Sidebar tag base (stag) ---------- */
+.stag {
+  font-size: 0.68rem;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: inline-block;
+}
+.stag:hover {
+  filter: brightness(0.92);
+}
+
+/* ---------- One color per section ---------- */
+
+/* Skill — slate blue */
+.stag-skill            { background: #dbeafe; color: #1e40af; }
+
+/* Time Frame — soft green */
+.stag-tf               { background: #d1fae5; color: #065f46; }
+
+/* Category (L1) — violet */
+.stag-l1               { background: #ede9fe; color: #5b21b6; }
+
+/* Theme (L2) — amber */
+.stag-l2               { background: #fef3c7; color: #92400e; }
+
+/* Specific (L3) — teal */
+.stag-l3               { background: #ccfbf1; color: #115e59; }
+
 /* ---------- Active (selected) state ---------- */
 .sidebar-active {
   outline: 2.5px solid currentColor !important;
   filter: brightness(0.82) !important;
-  transform: none !important;   /* override hover scale so outline stays stable */
+  transform: none !important;
 }
 
 /* ---------- Clear filters button ---------- */

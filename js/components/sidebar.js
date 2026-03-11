@@ -3,43 +3,7 @@ import { renderGrid } from './grid.js';
 
 let sidebarCollapsed = false;
 
-// ── L1 → L2 → L3 hierarchy (v2 taxonomy) ──
-const TAG_TREE = {
-  people: {
-    professions: [],
-    close_bonds: [],
-    general: [],
-  },
-  place: {
-    outdoor: [],
-    indoor: [],
-  },
-  object: {
-    tangible: [],
-    intangible: ["artwork", "technology", "money", "media"],
-  },
-  "experience/activity": {
-    work: [],
-    study: [],
-    leisure: ["exercise", "shopping", "cooking", "traveling", "creative", "reading", "entertainment"],
-    routines: [],
-  },
-  abstract_concepts: {
-    communication: [],
-    emotion: ["pride", "happiness", "fear", "anger", "attachment", "regret", "patience"],
-    personal_traits: ["creativity", "problem-solving", "craftsmanship", "responsibility", "honesty"],
-    values: ["policy", "environment", "economics", "fairness"],
-    personal_growth: ["learning", "self-improvement", "adaptation", "goal-setting", "decision"],
-    influence: [],
-    time: [],
-  },
-};
-
 // ── helpers ──────────────────────────────────────────────────────
-function getAllTopics() {
-  return [...state.part1Data, ...state.part2Data];
-}
-
 function getContentTags(topic) {
   const ct = topic.content_tags;
   if (!ct) return { l1: '', l2: [], l3: [] };
@@ -177,9 +141,7 @@ function applyFilters(data, tab) {
     filtered = filtered.filter(item => {
       const questions = tab === 'part1' ? (item.questions || []) : (item.part3 || []);
       return questions.some(q => {
-        // Time frame filter
         if (state.selectedTimeFrame && q.time_frame !== state.selectedTimeFrame) return false;
-        // Skill filter
         if (state.selectedSkillTags.length > 0) {
           if (!q.type_tags || q.type_tags.length === 0) return false;
           if (focused) {
@@ -200,7 +162,6 @@ function applyFilters(data, tab) {
     filtered = filtered.filter(item => {
       const l2 = getContentTags(item).l2 || [];
       if (focused) {
-        // Topic's L2 tags must all be within the selected set
         return l2.length > 0 && l2.every(tag => state.selectedL2Tags.includes(tag));
       }
       return l2.some(tag => state.selectedL2Tags.includes(tag));
@@ -226,23 +187,36 @@ function applyFiltersAndRender() {
   renderGrid(state.currentTab, filteredData);
 }
 
-// ── which L2/L3 tags to show based on hierarchy + selection ──────
-function getVisibleL2Tags() {
-  if (!state.selectedL1Tag) return [];
-  const subtree = TAG_TREE[state.selectedL1Tag];
-  return subtree ? Object.keys(subtree) : [];
+// ── visible L2/L3: data-driven (scan actual tags from filtered topics) ──
+function getVisibleL2Tags(topics, l1Filter, skillFilters, timeFrame) {
+  if (!l1Filter) return [];
+  const tags = new Set();
+  topics.forEach(t => {
+    const ct = getContentTags(t);
+    if (ct.l1 !== l1Filter) return;
+    if (matchingQuestionCount(t, skillFilters, timeFrame) === 0) return;
+    (ct.l2 || []).forEach(tag => tags.add(tag));
+  });
+  return [...tags].sort();
 }
 
-function getVisibleL3Tags() {
-  if (!state.selectedL1Tag || state.selectedL2Tags.length === 0) return [];
-  const subtree = TAG_TREE[state.selectedL1Tag] || {};
-  const l3tags = [];
-  state.selectedL2Tags.forEach(l2 => {
-    (subtree[l2] || []).forEach(l3 => {
-      if (!l3tags.includes(l3)) l3tags.push(l3);
-    });
+function getVisibleL3Tags(topics, l1Filter, l2Filters, skillFilters, timeFrame) {
+  if (!l1Filter || l2Filters.length === 0) return [];
+  const focused = state.filterMode === 'focused';
+  const tags = new Set();
+  topics.forEach(t => {
+    const ct = getContentTags(t);
+    if (ct.l1 !== l1Filter) return;
+    const l2 = ct.l2 || [];
+    if (focused) {
+      if (l2.length === 0 || !l2.every(tag => l2Filters.includes(tag))) return;
+    } else {
+      if (!l2.some(tag => l2Filters.includes(tag))) return;
+    }
+    if (matchingQuestionCount(t, skillFilters, timeFrame) === 0) return;
+    (ct.l3 || []).forEach(tag => tags.add(tag));
   });
-  return l3tags;
+  return [...tags].sort();
 }
 
 // ── render ───────────────────────────────────────────────────────
@@ -265,16 +239,17 @@ function renderSidebar() {
   const tfOrder = ['past', 'present', 'future'];
   const activeTF = state.selectedTimeFrame;
 
-  // L1 counts (cascaded: skill + time frame filters applied)
+  // L1 counts (cascaded: skill + time frame)
   const l1Counts = countByL1(currentTopics, activeSkills, activeTF);
   const l1Order = ["people", "place", "object", "experience/activity", "abstract_concepts"];
 
-  // L2 (cascaded: skill + time frame + L1 filters applied)
-  const visibleL2 = getVisibleL2Tags();
-  const l2Counts = state.selectedL1Tag ? countByL2(currentTopics, state.selectedL1Tag, activeSkills, activeTF) : {};
+  // L2 (cascaded: skill + time frame + L1) — data-driven
+  const visibleL2 = getVisibleL2Tags(currentTopics, state.selectedL1Tag, activeSkills, activeTF);
+  const l2Counts = state.selectedL1Tag
+    ? countByL2(currentTopics, state.selectedL1Tag, activeSkills, activeTF) : {};
 
-  // L3 (cascaded: skill + time frame + L1 + L2 filters applied)
-  const visibleL3 = getVisibleL3Tags();
+  // L3 (cascaded: skill + time frame + L1 + L2) — data-driven
+  const visibleL3 = getVisibleL3Tags(currentTopics, state.selectedL1Tag, state.selectedL2Tags, activeSkills, activeTF);
   const l3Counts = (state.selectedL2Tags.length > 0)
     ? countByL3(currentTopics, state.selectedL1Tag, state.selectedL2Tags, activeSkills, activeTF)
     : {};
@@ -282,7 +257,7 @@ function renderSidebar() {
   const html = `
     <div class="sidebar">
       <div class="sidebar-content">
-        ${hasFilters ? `<button class="sidebar-clear-btn" onclick="window._sidebarClear()">✕ Clear filters</button>` : ''}
+        ${hasFilters ? `<button class="sidebar-clear-btn" onclick="window._sidebarClear()">Clear filters</button>` : ''}
 
         <div class="sidebar-section">
           <div class="sidebar-section-label">Mode</div>
@@ -298,7 +273,7 @@ function renderSidebar() {
           <div class="sidebar-section-label">Skill</div>
           <div class="sidebar-tags">
             ${skillEntries.map(([name, count]) => `
-              <span class="ttag ttag-${name}${state.selectedSkillTags.includes(name) ? ' sidebar-active' : ''}"
+              <span class="stag stag-skill${state.selectedSkillTags.includes(name) ? ' sidebar-active' : ''}"
                     onclick="window._sidebarSkill('${name}')">
                 ${name} <span class="sidebar-count">${count}</span>
               </span>
@@ -310,7 +285,7 @@ function renderSidebar() {
           <div class="sidebar-section-label">Time Frame</div>
           <div class="sidebar-tags">
             ${tfOrder.map(name => `
-              <span class="tftag tftag-${name}${state.selectedTimeFrame === name ? ' sidebar-active' : ''}"
+              <span class="stag stag-tf${state.selectedTimeFrame === name ? ' sidebar-active' : ''}"
                     onclick="window._sidebarTF('${name}')">
                 ${name} <span class="sidebar-count">${tfCounts[name] || 0}</span>
               </span>
@@ -322,7 +297,7 @@ function renderSidebar() {
           <div class="sidebar-section-label">Category</div>
           <div class="sidebar-tags">
             ${l1Order.map(name => `
-              <span class="ctag ctag-${name.replace('/', '-')}${state.selectedL1Tag === name ? ' sidebar-active' : ''}"
+              <span class="stag stag-l1${state.selectedL1Tag === name ? ' sidebar-active' : ''}"
                     onclick="window._sidebarL1('${name}')">
                 ${name} <span class="sidebar-count">${l1Counts[name] || 0}</span>
               </span>
@@ -338,9 +313,9 @@ function renderSidebar() {
                 const c = l2Counts[name] || 0;
                 if (c === 0) return '';
                 return `
-                  <span class="ctag ctag-tag${state.selectedL2Tags.includes(name) ? ' sidebar-active' : ''}"
+                  <span class="stag stag-l2${state.selectedL2Tags.includes(name) ? ' sidebar-active' : ''}"
                         onclick="window._sidebarL2('${name}')">
-                    ${name} <span class="sidebar-count">${c}</span>
+                    ${name.replace(/_/g, ' ')} <span class="sidebar-count">${c}</span>
                   </span>
                 `;
               }).join('')}
@@ -356,9 +331,9 @@ function renderSidebar() {
                 const c = l3Counts[name] || 0;
                 if (c === 0) return '';
                 return `
-                  <span class="ctag ctag-tag${state.selectedL3Tags.includes(name) ? ' sidebar-active' : ''}"
+                  <span class="stag stag-l3${state.selectedL3Tags.includes(name) ? ' sidebar-active' : ''}"
                         onclick="window._sidebarL3('${name}')">
-                    ${name} <span class="sidebar-count">${c}</span>
+                    ${name.replace(/_/g, ' ')} <span class="sidebar-count">${c}</span>
                   </span>
                 `;
               }).join('')}
@@ -390,7 +365,6 @@ function toggleTimeFrame(name) {
 
 function toggleL1(name) {
   if (state.selectedL1Tag === name) {
-    // Deselect L1 → clear L2/L3
     state.selectedL1Tag = null;
     state.selectedL2Tags = [];
     state.selectedL3Tags = [];
@@ -407,9 +381,8 @@ function toggleL2(name) {
   const i = state.selectedL2Tags.indexOf(name);
   if (i > -1) {
     state.selectedL2Tags.splice(i, 1);
-    // Remove L3 tags that no longer have a visible parent
-    const stillVisible = getVisibleL3Tags();
-    state.selectedL3Tags = state.selectedL3Tags.filter(t => stillVisible.includes(t));
+    // Clear L3 selections that may no longer be valid
+    state.selectedL3Tags = [];
   } else {
     state.selectedL2Tags.push(name);
   }
