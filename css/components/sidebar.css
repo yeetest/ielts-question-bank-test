@@ -2,10 +2,10 @@
 #main-layout {
   display: flex;
   align-items: flex-start;
-  gap: 0;
+  gap: 20px;           /* gap between sidebar and grid */
 }
 
-/* Grid takes remaining space; min-width:0 prevents flex overflow */
+/* Grid takes remaining space */
 #grid {
   flex: 1;
   min-width: 0;
@@ -15,128 +15,86 @@
 .sidebar {
   width: 260px;
   flex-shrink: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
   overflow: hidden;
-  transition: width 0.3s ease;
+  transition: width 0.3s ease, opacity 0.3s ease;
+  position: sticky;
+  top: 24px;           /* stays visible when scrolling */
+  max-height: calc(100vh - 48px);
 }
 
 .sidebar.collapsed {
   width: 0;
+  border: none;
+  opacity: 0;
 }
 
 /* ---------- Sidebar Content ---------- */
 .sidebar-content {
-  padding: 16px;
-  height: 100%;
+  width: 260px;        /* fixed width so collapse animation doesn't squish content */
+  padding: 14px;
   overflow-y: auto;
+  max-height: calc(100vh - 48px);
+}
+
+/* ---------- Column Labels (button-style) ---------- */
+.sidebar-col-label {
+  font-size: 0.72rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #fff;
+  background: #222;
+  padding: 3px 10px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  display: inline-block;
 }
 
 /* ---------- Two Column Layout ---------- */
-.sidebar-grid {
+.sidebar-cols {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  gap: 14px;
 }
 
-.sidebar-column {
+.sidebar-col {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-}
-
-/* ---------- Active Filters ---------- */
-.active-filters {
-  grid-column: 1 / -1;
-  background: #f3f4f6;
-  border-radius: 8px;
-  padding: 12px;
-  margin-bottom: 8px;
-}
-
-.active-filters-label {
-  font-size: 12px;
-  font-weight: 500;
-  color: #6b7280;
-  margin: 0 0 8px 0;
-}
-
-.active-filters-list {
-  display: flex;
-  flex-wrap: wrap;
   gap: 6px;
 }
 
-.active-filter-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 4px 8px;
-  border-radius: 12px;
-  font-size: 11px;
-  font-weight: 500;
-}
-
-.active-filter-tag.skill {
-  background: #3b82f6;
-  color: white;
-}
-
-.active-filter-tag.topic {
-  background: #6b7280;
-  color: white;
-}
-
-.active-filter-tag button {
-  background: none;
-  border: none;
-  color: inherit;
-  cursor: pointer;
-  padding: 0;
-  font-size: 10px;
-  opacity: 0.8;
+/* ---------- Tag count badge ---------- */
+.sidebar-count {
+  font-size: 0.6rem;
+  opacity: 0.7;
   margin-left: 2px;
 }
 
-.active-filter-tag button:hover {
-  opacity: 1;
+/* ---------- Active (selected) state ---------- */
+.sidebar-active {
+  outline: 2.5px solid currentColor !important;
+  filter: brightness(0.82) !important;
+  transform: none !important;   /* override hover scale so outline stays stable */
 }
 
-/* ---------- Filter Logic Info ---------- */
-.filter-info {
-  grid-column: 1 / -1;
-  background: #f9fafb;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  padding: 12px;
-  font-size: 11px;
-  color: #6b7280;
-  line-height: 1.4;
-  margin-top: 8px;
-}
-
-.filter-info strong {
-  color: #374151;
-}
-
-/* ---------- Clear Filters Button ---------- */
-.clear-filters-btn {
-  grid-column: 1 / -1;
-  font-size: 12px;
-  color: #6b7280;
-  background: none;
-  border: none;
+/* ---------- Clear filters button ---------- */
+.sidebar-clear-btn {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  color: #6366f1;
+  background: #f0f7ff;
+  border: 1px solid #d0e7ff;
+  border-radius: 6px;
   cursor: pointer;
-  padding: 4px 8px;
-  border-radius: 4px;
-  transition: color 0.2s;
-  margin-bottom: 8px;
+  text-align: center;
+  font-family: 'Georgia', serif;
 }
-
-.clear-filters-btn:hover {
-  color: #dc2626;
-}
-
-/* ---------- Active State for Tags ---------- */
-.ttag.active, .ctag.active {
-  outline: 2px solid currentColor;
-  opacity: 0.85;
+.sidebar-clear-btn:hover {
+  background: #e0f0ff;
 }
