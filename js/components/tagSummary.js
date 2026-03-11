@@ -40,12 +40,12 @@ export function openTypeSummary(typeName) {
   const results = [];
   state.part1Data.forEach((topic, idx) => {
     (topic.questions || [])
-      .filter(q => q.type_tags && q.type_tags.includes(typeName))
+      .filter(q => q.skill_tags && q.skill_tags.includes(typeName))
       .forEach(q => results.push({ topicTitle: topic.topic_en, text: q.text, part: 1, idx }));
   });
   state.part2Data.forEach((topic, idx) => {
     (topic.part3 || [])
-      .filter(q => q.type_tags && q.type_tags.includes(typeName))
+      .filter(q => q.skill_tags && q.skill_tags.includes(typeName))
       .forEach(q => results.push({ topicTitle: topic.topic || topic.topic_en, text: q.text, part: 2, idx }));
   });
 

@@ -26,11 +26,11 @@ function matchingQuestionCount(topic, skillFilters, timeFrame) {
   return qs.filter(q => {
     if (!matchesTimeFrame(q, timeFrame)) return false;
     if (skillFilters.length === 0) return true;
-    if (!q.type_tags || q.type_tags.length === 0) return false;
+    if (!q.skill_tags || q.skill_tags.length === 0) return false;
     if (focused) {
-      return q.type_tags.every(tag => skillFilters.includes(tag));
+      return q.skill_tags.every(tag => skillFilters.includes(tag));
     }
-    return q.type_tags.some(tag => skillFilters.includes(tag));
+    return q.skill_tags.some(tag => skillFilters.includes(tag));
   }).length;
 }
 
@@ -40,12 +40,12 @@ function countByTimeFrame(topics, skillFilters) {
     const qs = getQuestions(t);
     qs.forEach(q => {
       if (skillFilters.length > 0) {
-        if (!q.type_tags || q.type_tags.length === 0) return;
+        if (!q.skill_tags || q.skill_tags.length === 0) return;
         const focused = state.filterMode === 'focused';
         if (focused) {
-          if (!q.type_tags.every(tag => skillFilters.includes(tag))) return;
+          if (!q.skill_tags.every(tag => skillFilters.includes(tag))) return;
         } else {
-          if (!q.type_tags.some(tag => skillFilters.includes(tag))) return;
+          if (!q.skill_tags.some(tag => skillFilters.includes(tag))) return;
         }
       }
       const tf = q.time_frame;
@@ -120,13 +120,13 @@ function extractSkillTags() {
   const p1Counts = {};
   state.part1Data.forEach(topic => {
     (topic.questions || []).forEach(q => {
-      (q.type_tags || []).forEach(tag => { p1Counts[tag] = (p1Counts[tag] || 0) + 1; });
+      (q.skill_tags || []).forEach(tag => { p1Counts[tag] = (p1Counts[tag] || 0) + 1; });
     });
   });
   const p2Counts = {};
   state.part2Data.forEach(topic => {
     (topic.part3 || []).forEach(q => {
-      (q.type_tags || []).forEach(tag => { p2Counts[tag] = (p2Counts[tag] || 0) + 1; });
+      (q.skill_tags || []).forEach(tag => { p2Counts[tag] = (p2Counts[tag] || 0) + 1; });
     });
   });
   return { p1: p1Counts, p2: p2Counts };
@@ -143,11 +143,11 @@ function applyFilters(data, tab) {
       return questions.some(q => {
         if (state.selectedTimeFrame && q.time_frame !== state.selectedTimeFrame) return false;
         if (state.selectedSkillTags.length > 0) {
-          if (!q.type_tags || q.type_tags.length === 0) return false;
+          if (!q.skill_tags || q.skill_tags.length === 0) return false;
           if (focused) {
-            return q.type_tags.every(tag => state.selectedSkillTags.includes(tag));
+            return q.skill_tags.every(tag => state.selectedSkillTags.includes(tag));
           }
-          return q.type_tags.some(tag => state.selectedSkillTags.includes(tag));
+          return q.skill_tags.some(tag => state.selectedSkillTags.includes(tag));
         }
         return true;
       });

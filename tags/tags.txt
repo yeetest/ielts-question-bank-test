@@ -1,10 +1,10 @@
-# IELTS Content Tag Vocabulary — 3-Layer System
+# IELTS Content Tag Vocabulary — v2 3-Layer System
 # ══════════════════════════════════════════════════════════════════
-# Layer 1  — 4 fixed category tags (always exactly one per topic)
+# 5 L1 → 15 L2 → 30 L3
+# Layer 1  — 5 fixed category tags (exactly one per topic)
 # Layer 2  — thematic cluster tags (domain / sub-domain)
 # Layer 3  — specific / concrete tags (narrow concept under an L2)
-# Qualifiers — describe tone/quality of a topic; stored separately
-#              in qualifier_tags field, not in content_tags
+# Qualifiers — describe tone/quality; stored separately in qualifier_tags
 # ══════════════════════════════════════════════════════════════════
 
 ## ── LAYER 1 — fixed categories ──────────────────────────────────
@@ -12,98 +12,79 @@ people
 place
 object
 experience/activity
+abstract_concepts
 
 ## ── LAYER 2 & 3 — by L1 parent ──────────────────────────────────
 
-# [people]
-# L2
-family              # family member, relatives, family gathering, family business context
-friendship          # friend, close companion, trust, personal bond
-celebrity           # famous person, public figure, well-known personality
-influence           # persuasion, encouragement, motivated someone to change behaviour
-admiration          # admire, look up to, inspirational, in awe of someone
-talent              # natural gift, innate skill, born ability
-intelligence        # smart, clever, sharp mind, shrewd thinking
-happiness           # smiling, joyful, cheerful, positive emotional state
-child               # a child or children as the subject (age-specific)
-# L3 under people L2s
-conflict_resolution # [family] apology, saying sorry, making up after a conflict, forgiveness
-helping_others      # [friendship] kindness, generosity, volunteering, being helpful to people
-collaboration       # [friendship] working together, joint effort, group cooperation
+# [people] — 3 L2
+professions          # doctors, actors, athletes, leaders, famous persons
+close_bonds          # family, friends, colleagues, neighbours
+general              # society, citizens, crowd, generation, strangers
 
-# [place]
-# L2
-home                # home life, at home, domestic situation, where you live
-travel              # journey, trip, vacation, visiting places, going somewhere
-nature              # outdoor, natural settings, scenic views, parks, mountains, wilderness
-architecture        # building, structure, design, construction, landmark
-# L3 under place L2s
-everyday_life       # [home] essential, can't live without, daily necessity, routine dependency
-adventure           # [travel] exciting, thrilling, bold activity, daring new experience
-international       # [travel] foreign country, abroad, overseas, cross-cultural experience
-navigation          # [travel] lost, finding your way, directions, getting around
-animals             # [nature] wild animal, creature, wildlife, fauna, pet
-conservation        # [nature] caring for/protecting the environment or animals; eco-minded behaviour
+# [place] — 2 L2
+outdoor              # nature, scenery, parks, mountains, cities, countries
+indoor               # houses, buildings, museums, libraries, shops, schools
 
-# [object]
-# L2
-books               # book as object, written publication
-heirloom            # important old thing kept in family, treasured possession, keepsake
-toy                 # toy as physical object; childhood plaything
-phone               # mobile phone, smartphone; often in context of rules or dependency
-money               # spending, overspending, financial decisions, saving, cost
-technology          # tech device, gadget, electronic equipment, digital tool; broader than phone
-# L3 under object L2s
-app                 # [technology] program, software application, digital app, computer/phone app
-social_media        # [technology] social media platforms, internet posts, online content
+# [object] — 2 L2, 4 L3
+tangible             # food, clothes, shoes, gifts, toys, cameras, instruments, plants
+intangible           # non-physical objects
+# L3 under intangible:
+artwork              # [intangible] books, music, movies, paintings, photographs
+technology           # [intangible] apps, computers, phones, internet, social media
+money                # [intangible] cash, fees, salary, prices, spending
+media                # [intangible] advertisements, news, TV programs, reports
 
-# [experience/activity]
-# L2
-art                 # drawing, painting, visual arts, artistic creation, gallery
-music               # music, singing, concerts, songs, instruments
-reading             # act of reading, books as activity
-movies              # film, movie, cinema, a film you watched
-food                # dinner, meal, eating, cuisine, restaurant
-work                # job, career, occupation, part-time work, family business, employment
-sports              # sport, physical game, athletic activity, exercise for competition
-shopping            # buying items, retail, purchase, customer experience in a shop
-learning            # studying, gaining knowledge, education, acquiring a skill
-science             # scientific subject, field of science, biology, robotics, research
-creativity          # imagination, creative thinking, innovative ideas, inventive approach
-culture             # tradition, cultural heritage, customs, folklore background
-communication       # talking, expressing oneself, verbal/written interaction
-media               # TV, online programs, streaming, entertainment content (non-social)
-celebration         # joyful gathering, festival, occasion with many smiling people
-disruption          # unexpected interruption, power cut, inconvenience, things going wrong
-mistake             # accident, error, broke something, careless action, regret
-service             # good/bad service, hospitality, customer care
-achievement         # proud of, accomplishment, success, milestone reached
-passion             # loves doing something, deeply interested in, devoted to
-aspiration          # want to, would like to, dream of, hope to do/have/be something
-anticipation        # waiting, looking forward to, expecting something special
-childhood           # anything specifically framed in the context of being a child/young
-habit               # regular pattern of behaviour, routine, repeated action or practice
-# L3 under experience/activity L2s
-self-learning       # [learning] self-taught, learned without a teacher, independent study
-curiosity           # [learning] want to know more, eager to learn about, interested in exploring
-stories             # [culture] traditional story, tale, narrative, folklore
-language            # [culture/communication] foreign language, learning/speaking another language
-advice              # [communication] giving or receiving guidance, counselling, recommendations
-social_event        # [celebration] event, occasion, gathering, party, group situation
-first_time          # [celebration] for the first time, debut, new experience, never done before
-restriction         # [disruption] not allowed, banned, prohibited, rules imposed on behaviour
-planning            # [achievement] making plans, goal-setting, organised, forward-thinking
-self-improvement    # [achievement] want to improve, develop a skill, get better at something
-decision            # [achievement] making a choice, weighing options, an important decision
-problem-solving     # [intelligence→people] solved a problem, found a solution, clever solution
-likes_dislikes      # [passion] enjoyed, liked, loved, disliked, didn't enjoy — attitude qualifier
-nostalgia           # [childhood] childhood memory, fond memory of the past (use with childhood or heirloom)
+# [experience/activity] — 4 L2, 7 L3
+work                 # jobs, careers, business, companies, employment
+study                # courses, subjects, education, language learning, exams
+leisure              # free time activities
+# L3 under leisure:
+exercise             # [leisure] sports, games, walking, cycling, team activities
+shopping             # [leisure] buying, stores, malls, markets
+cooking              # [leisure] food prep, meals, restaurants, eating out
+traveling            # [leisure] journeys, trips, visits, tourism, transport
+creative             # [leisure] drawing, painting, photography, crafting
+reading              # [leisure] books, articles, e-books, libraries (leisure context)
+entertainment        # [leisure] movies, music, concerts, shows, games (consuming)
+routines             # daily habits, chores, morning/bedtime, schedule
+
+# [abstract_concepts] — 6 L2, 19 L3
+communication        # advice, arguing, chatting, speaking, apologizing
+emotion              # feelings and emotional states
+# L3 under emotion:
+pride                # [emotion] proud, accomplishment, achievement
+happiness            # [emotion] joy, smiling, enjoyment, fun
+fear                 # [emotion] worry, anxiety, danger, reluctance
+anger                # [emotion] arguing, frustration, conflict
+attachment           # [emotion] missing, nostalgia, sentimental, keeping old things
+regret               # [emotion] sorry, apologize, mistake
+patience             # [emotion] waiting, tolerance, delayed gratification
+personal_traits      # personal attributes, abilities, moral qualities
+# L3 under personal_traits:
+creativity           # [personal_traits] artistic ability, innovation, imagination
+problem-solving      # [personal_traits] finding solutions, fixing issues
+craftsmanship        # [personal_traits] making by hand, quality of handmade work
+responsibility       # [personal_traits] duty, accountability, ownership
+honesty              # [personal_traits] truthfulness, sincerity, authenticity
+values               # social/cultural norms and systems
+# L3 under values:
+policy               # [values] laws, government rules, regulations, bans
+environment          # [values] conservation, pollution, green choices, wildlife
+economics            # [values] spending, consumption, economic growth
+fairness             # [values] equality, justice, access, equity
+personal_growth      # development and self-improvement
+# L3 under personal_growth:
+learning             # [personal_growth] education, acquiring knowledge
+self-improvement     # [personal_growth] getting better at something, practice
+adaptation           # [personal_growth] adjusting to change, coping
+goal-setting         # [personal_growth] plans, ambitions, future aspirations
+decision             # [personal_growth] choices, weighing options, judgement
+influence            # persuasion, inspiration, encouragement, impact
+time                 # life stages, generations, childhood, past vs present
 
 ## ── QUALIFIERS — stored in qualifier_tags, not content_tags ─────
-# Qualifiers describe the tone, emotional quality, or angle of a
-# topic. They do not belong to the L1→L2→L3 hierarchy.
-memorable           # special, noteworthy, stands out in memory, significant moment
-sentimental         # emotionally attached, personally meaningful, nostalgic feeling
-peaceful            # quiet, calm, tranquil — quality of a place or moment
-useful              # helpful, practical, beneficial — quality of an object or experience
-interesting         # unusual, thought-provoking, captured attention — general interest qualifier
+memorable            # special, noteworthy, stands out in memory
+sentimental          # emotionally attached, personally meaningful
+peaceful             # quiet, calm, tranquil
+useful               # helpful, practical, beneficial
+interesting          # unusual, thought-provoking, captured attention

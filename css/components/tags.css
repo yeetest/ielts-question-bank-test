@@ -86,3 +86,27 @@
 .tftag-past    { background: #fed7aa; color: #9a3412; }
 .tftag-present { background: #dbeafe; color: #1e40af; }
 .tftag-future  { background: #ede9fe; color: #5b21b6; }
+
+/* ---------- Inline Topic Tags (L3/last-level, after each question) ---------- */
+.inline-topic-tags {
+  display: inline-flex;
+  gap: 3px;
+  flex-wrap: wrap;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+.itag {
+  font-size: 0.6rem;
+  padding: 1px 5px;
+  border-radius: 6px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  background: #ccfbf1;
+  color: #115e59;
+  transition: all 0.15s ease;
+  display: inline-block;
+}
+.itag:hover {
+  filter: brightness(0.9);
+}

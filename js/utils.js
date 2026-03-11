@@ -1,10 +1,22 @@
-// Builds the colored question-type tag badges (8-type unified taxonomy)
-// shown next to each Part 3 question.
-export function renderTypeTags(tags) {
+// Builds the colored skill tag badges (8-type unified taxonomy)
+// shown next to each question.
+export function renderSkillTags(tags) {
   if (!tags || !tags.length) return '';
   return `<span class="type-tags">
     ${tags.map(t =>
       `<span class="ttag ttag-${t}" data-type-tag="${t}">${t}</span>`
+    ).join('')}
+  </span>`;
+}
+
+// Renders the lowest-level topic tags (L3, or L2 if no L3) inline after a question.
+export function renderInlineTopicTags(ct) {
+  if (!ct || Array.isArray(ct)) return '';
+  const tags = (ct.l3 && ct.l3.length > 0) ? ct.l3 : (ct.l2 || []);
+  if (!tags.length) return '';
+  return `<span class="inline-topic-tags">
+    ${tags.map(t =>
+      `<span class="itag" data-content-tag="${t}">${t.replace(/_/g, ' ')}</span>`
     ).join('')}
   </span>`;
 }
@@ -21,10 +33,10 @@ export function renderContentTags(ct) {
       badges.push(`<span class="ctag ctag-${ct.l1.replace('/', '-')}" data-content-tag="${ct.l1}">${ct.l1}</span>`);
     }
     (ct.l2 || []).forEach(tag => {
-      badges.push(`<span class="ctag ctag-tag" data-content-tag="${tag}">${tag}</span>`);
+      badges.push(`<span class="ctag ctag-tag" data-content-tag="${tag}">${tag.replace(/_/g, ' ')}</span>`);
     });
     (ct.l3 || []).forEach(tag => {
-      badges.push(`<span class="ctag ctag-tag" data-content-tag="${tag}">${tag}</span>`);
+      badges.push(`<span class="ctag ctag-tag" data-content-tag="${tag}">${tag.replace(/_/g, ' ')}</span>`);
     });
     if (!badges.length) return '';
     return `<div class="tag-row">${badges.join('')}</div>`;

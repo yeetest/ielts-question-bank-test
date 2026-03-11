@@ -28,9 +28,8 @@ ielts-question-bank-test/
 └── pipeline/                (local dev only — gitignored)
     ├── dedup_questions.py       (one-time dedup for existing JSONs only)
     ├── renumber_questions.py    (renumbers questions sequentially within each topic)
-    ├── rewrite_content_tags.py  (migrates content_tags to 3-layer format)
-    ├── analyze_tag_hierarchy.py (generates layered hierarchy report)
-    ├── tag_question_types.py    (auto-tags questions with type_tags via keyword matching)
+    ├── tag_question_types.py    (auto-tags questions with skill_tags via keyword matching)
+    ├── tag_content_v2.py        (auto-tags topics with content_tags v2 via keyword matching)
     ├── tag_content_topics.py    (auto-tags topics with content_tags via fuzzy lookup + Claude batch)
     ├── tag_time_frames.py       (auto-tags questions with time_frame via keyword matching)
     └── ingest_pipeline.py       (future: ingest new source files)
@@ -58,7 +57,7 @@ python3 human-in-the-loop/txt_to_json.py human-in-the-loop/merged_part2.txt
 ```
 == Daily routine ==
 SEASON: 2026-Jan-Apr
-TAGS: experience/activity | home | everyday_life
+TAGS: experience/activity | routines
 [tongzhuo] 1. What is your daily study routine? [description] {present}
 [tongzhuo] 2. Have you ever changed your routine? [experience, comparison] {past}
 [tongzhuo] 3. Do you think it is important to have a daily routine? [evaluation] {present}
@@ -68,7 +67,7 @@ TAGS: experience/activity | home | everyday_life
 ```
 == Describe a person who likes to look after the natural world ==
 SEASON: 2026-Jan-Apr
-TAGS: people | nature | conservation
+TAGS: abstract_concepts | close_bonds, professions, values | environment, policy
 - Who this person is
 - What he or she does
 PART3:
@@ -86,12 +85,12 @@ PART3:
   "season": "2026-Jan-Apr",
   "content_tags": {
     "l1": "experience/activity",
-    "l2": ["home"],
-    "l3": ["everyday_life"]
+    "l2": ["routines"],
+    "l3": []
   },
   "qualifier_tags": [],
   "questions": [
-    { "text": "1. Question text", "source": "tongzhuo", "type_tags": ["description"], "time_frame": "present" }
+    { "text": "1. Question text", "source": "tongzhuo", "skill_tags": ["description"], "time_frame": "present" }
   ],
   "tags": []
 }
@@ -108,13 +107,13 @@ PART3:
     "you_should_say": ["Who this person is", "What he or she does"]
   },
   "part3": [
-    { "text": "1. Question text", "source": "tongzhuo", "type_tags": ["evaluation"], "time_frame": "present" }
+    { "text": "1. Question text", "source": "tongzhuo", "skill_tags": ["evaluation"], "time_frame": "present" }
   ],
   "tags": [],
   "content_tags": {
-    "l1": "people",
-    "l2": ["nature"],
-    "l3": ["conservation"]
+    "l1": "abstract_concepts",
+    "l2": ["close_bonds", "professions", "values"],
+    "l3": ["environment", "policy"]
   },
   "qualifier_tags": []
 }
@@ -124,25 +123,29 @@ PART3:
 
 Full tagging rules are in `docs/CLAUDE_tagging.md`. Summary:
 
-### Topic-level (`content_tags`) — 3-Layer System
+### Topic-level (`content_tags`) — v2 3-Layer System
 
-Structured object with 3 layers. Full hierarchy in `tags/tags.txt`.
+Structured object with 3 layers. 5 L1 → 15 L2 → 30 L3.
 
 ```json
-"content_tags": {"l1": "experience/activity", "l2": ["music", "passion"], "l3": ["likes_dislikes"]}
+"content_tags": {"l1": "experience/activity", "l2": ["leisure"], "l3": ["exercise"]}
 "qualifier_tags": ["memorable"]
 ```
 
-**Layer 1 (l1):** Single primary category — `people` | `place` | `object` | `experience/activity`
-**Layer 2 (l2):** Thematic clusters — e.g. `travel`, `music`, `friendship`, `technology`
-**Layer 3 (l3):** Specific/concrete tags — e.g. `adventure`, `nostalgia`, `social_media`
-**Qualifiers:** Stored separately in `qualifier_tags` — `memorable` | `peaceful` | `sentimental` | `useful` | `interesting`
+**Layer 1 (l1):** Single primary category — `people` | `place` | `object` | `experience/activity` | `abstract_concepts`
+**Layer 2 (l2):** Thematic clusters:
+- people: `professions`, `close_bonds`, `general`
+- place: `outdoor`, `indoor`
+- object: `tangible`, `intangible`
+- experience/activity: `work`, `study`, `leisure`, `routines`
+- abstract_concepts: `communication`, `emotion`, `personal_traits`, `values`, `personal_growth`, `influence`, `time`
 
-When an L3 tag is added, its L2 parent is automatically inferred and included.
+**Layer 3 (l3):** Specific tags under L2 (e.g. `artwork`, `technology`, `exercise`, `shopping`, `pride`, `creativity`, `policy`, `learning`)
+**Qualifiers:** Stored separately in `qualifier_tags`
 
-**Thematic tags:** check `tags/tags.txt` before creating a new tag. Normalise synonyms (film/movie → `movies`, job/career → `work`, journey/trip → `travel`). Append new tags to `tags/tags.txt` with a description.
+Full v2 hierarchy in `human-in-the-loop/content_tags_v2_draft.md`.
 
-### Question-level (`type_tags`) — unified 8-type taxonomy (Part 1 and Part 2+3)
+### Question-level (`skill_tags`) — unified 8-type taxonomy (Part 1 and Part 2+3)
 Per-question array. 1–3 tags per question:
 `experience` | `frequency` | `description` | `preference` | `evaluation` | `analyze` | `comparison` | `hypothetical`
 
@@ -162,22 +165,32 @@ Full rules and keyword lists in `docs/CLAUDE_tagging.md`.
 
 ## Pipeline Scripts
 
-### rewrite_content_tags.py
-Migrates content_tags from flat array to 3-layer structured format. Re-runnable. Supports `--dry-run`.
+### tag_question_types.py
+Auto-tags questions with `skill_tags` via keyword matching. Unified 8-type taxonomy for both parts. Unmatched Part 1 questions saved to `claude_p1_type_response.json` for manual review. Auto-regenerates `.txt` mirror after running.
 ```bash
-python3 pipeline/rewrite_content_tags.py          # writes to JSON
-python3 pipeline/rewrite_content_tags.py --dry-run # preview only
+python3 pipeline/tag_question_types.py merged_part1.json --part 1
+python3 pipeline/tag_question_types.py merged_part2.json
 ```
 
-### analyze_tag_hierarchy.py
-Generates the full nested hierarchy report from TAG_HIERARCHY definition.
+### tag_content_v2.py
+Auto-tags topics with `content_tags` using v2 taxonomy (5 L1 → 15 L2 → 30 L3) via weighted keyword matching. Topic name gets higher weight than question text.
 ```bash
-python3 pipeline/analyze_tag_hierarchy.py
-# output → human-in-the-loop/layered_content_tags.txt
+python3 pipeline/tag_content_v2.py merged_part1.json --part 1 --dry-run
+python3 pipeline/tag_content_v2.py merged_part2.json --dry-run
+python3 pipeline/tag_content_v2.py merged_part1.json --part 1 --overwrite   # write
+python3 pipeline/tag_content_v2.py merged_part2.json --overwrite            # write
+```
+
+### tag_time_frames.py
+Auto-tags questions with `time_frame` (past/present/future) via keyword matching. Supports `--dry-run` and `--overwrite`.
+```bash
+python3 pipeline/tag_time_frames.py merged_part1.json --part 1
+python3 pipeline/tag_time_frames.py merged_part2.json
+python3 pipeline/tag_time_frames.py merged_part1.json --part 1 --overwrite  # re-tag all
 ```
 
 ### dedup_questions.py
-Removes near-duplicate questions within each topic using fuzzy matching. **For existing JSONs only** — future ingest dedup is a separate script not yet built.
+Removes near-duplicate questions within each topic using fuzzy matching.
 ```bash
 python3 dedup_questions.py merged_part1.json
 python3 dedup_questions.py merged_part2.json
@@ -188,37 +201,6 @@ Renumbers questions sequentially within each topic after edits or dedup.
 ```bash
 python3 pipeline/renumber_questions.py merged_part1.json
 python3 pipeline/renumber_questions.py merged_part2.json
-```
-
-### tag_question_types.py
-Auto-tags questions with `type_tags` via keyword matching. Different taxonomy per part. Unmatched Part 1 questions → `type_tags: []`, saved to `claude_p1_type_response.json` for manual/Claude review. Auto-regenerates `.txt` mirror after running.
-```bash
-python3 pipeline/tag_question_types.py merged_part1.json --part 1   # 7-type taxonomy
-python3 pipeline/tag_question_types.py merged_part2.json             # 4-type taxonomy
-```
-To re-run cleanly, first wipe existing tags:
-```bash
-python3 -c "import json; data=json.load(open('merged_part1.json')); [q.pop('type_tags',None) for t in data for q in t.get('questions',[])]; json.dump(data,open('merged_part1.json','w'),ensure_ascii=False,indent=2)"
-```
-
-### tag_content_topics.py
-Auto-tags topics with `content_tags` via fuzzy name matching + Claude batch. Supports Part 1 (`topic_en`) and Part 2 (`topic`). After Claude batch, use `--apply` to write tags back.
-```bash
-# Step 1 — run fuzzy match + generate Claude prompt:
-python3 pipeline/tag_content_topics.py merged_part1.json --part 1
-python3 pipeline/tag_content_topics.py merged_part2.json
-
-# Step 2 — after saving Claude's JSON response as claude_tag_response.json:
-python3 pipeline/tag_content_topics.py merged_part1.json --part 1 --apply claude_tag_response.json
-python3 pipeline/tag_content_topics.py merged_part2.json --apply claude_tag_response.json
-```
-
-### tag_time_frames.py
-Auto-tags questions with `time_frame` (past/present/future) via keyword matching. Supports `--dry-run` and `--overwrite`.
-```bash
-python3 pipeline/tag_time_frames.py merged_part1.json --part 1
-python3 pipeline/tag_time_frames.py merged_part2.json
-python3 pipeline/tag_time_frames.py merged_part1.json --part 1 --overwrite  # re-tag all
 ```
 
 ### ingest_pipeline.py
@@ -237,4 +219,5 @@ git push
 - Strip all Chinese characters and zero-width chars from English fields
 - `content_tags` is a 3-layer object `{"l1": str, "l2": [...], "l3": [...]}` — NOT a flat array
 - `qualifier_tags` is a separate flat array for tone/quality descriptors
+- `skill_tags` (formerly `type_tags`) is a per-question array of 1-3 skill types
 - After any JSON edit, always regenerate the matching `.txt` mirror

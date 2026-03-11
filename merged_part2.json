@@ -17,52 +17,52 @@
       {
         "text": "1. Do you think parents should teach their children how to protect the environment?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. What laws about the environment are effective in your country?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. Which do you think people prefer, rewards or punishment, when it comes to government intervention in environmental protection?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. Is it easy for children in cities to get close to the natural world?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. What can people do to protect the natural world?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. Is it important to teach students environmental protection at school?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -97,51 +97,51 @@
       {
         "text": "1. What short-term jobs do young people do in other countries?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. What challenges do young people face when working abroad?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. What are the benefits of working for an international company?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. What personal skills are required to work in an international company?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. What kind of work can young people do in foreign countries?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. Why are some people unwilling to work in other countries?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -175,53 +175,53 @@
       {
         "text": "1. How can leaders encourage their employees?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. When should parents encourage their children?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. What kind of encouragement should parents give?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. Do you think some people are better than others at persuading?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation",
           "comparison"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. Should children do everything their parents ask them to do?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. How can employers encourage their staff?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -253,83 +253,83 @@
       {
         "text": "1. Should children help their parents with household chores?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. What kind of help do people need when looking for a new job?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. Who should people ask for help, colleagues or family members?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. Do people nowadays help others more than in the past?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. Who should teach children to help others? Parents or teachers?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. In what kinds of professions do people help others more?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "7. Why are some people willing to help others?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "8. What can children do to help their parents?",
         "source": "yasige",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "9. Do you think schools should teach children to do household chores?",
         "source": "yasige",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "10. Why are employees reluctant to ask their managers for help?",
         "source": "yasige",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -361,54 +361,54 @@
       {
         "text": "1. Do you often buy more than you expected?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "frequency",
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. What do you think young people spend most of their money on?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. Do you think it is important to save money? Why?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. Do people buy things they don’t need?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. Do you think it is the rich people's responsibility to donate money to people in need?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. What kind of things are people happy to pay a high price for?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -443,52 +443,52 @@
       {
         "text": "1. Do you think adults can have lots of imagination?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. Do you think imagination is essential for scientists?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. What kinds of jobs need imagination?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. What subjects are helpful for children’s imagination?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. What games help develop children's imagination?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. How important is imagination to children?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -521,83 +521,83 @@
       {
         "text": "1. What types of buildings are popular in your country?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. Is it worth spending a lot of money on the exterior appearance of a building?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. Is it more important for a building to look good on the outside or on the inside?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. Why do people like to visit historical sites?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. Do you think it's reasonable to charge an entry fee for visiting interesting buildings?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. Is it better to live in a new building or an old one?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "7. Should all scenic spots charge an entry fee?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "8. Is visiting scenic spots the best choice for us while travelling?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "9. Why do some people like to live in big cities?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "10. Is it necessary for tourists to go to visit landmarks when travelling in a place?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -633,53 +633,53 @@
       {
         "text": "1. Is it necessary to keep learning after graduating from school?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. Should teachers make learning in their classes fun?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. Do you think there are too many subjects for students to learn?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. Is it better to focus on a few subjects or to learn many subjects?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. Do you think enterprises should provide training for their employees?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. Do you think it is good for older adults to continue learning?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -713,53 +713,53 @@
       {
         "text": "1. What kinds of movies do you think are successful in your country?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. What are the factors that make a successful movie?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. Do Chinese people prefer to watch domestic movies or foreign movies?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. Do you think only well-known directors can create the best movies?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. Do you think successful movies should have well-known actors or actresses in leading roles?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. Why do people prefer to watch movies in the cinema?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -794,55 +794,55 @@
       {
         "text": "1. What kind of music events do people like today?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. Do you think children should receive some musical education?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. What are the differences between old and young people's music preferences?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "analyze",
           "comparison"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. What kind of music events are there in your country?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. Why do many people like listening to music while doing sports?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. What are the differences between listening to music at home and at a live concert?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "analyze",
           "comparison"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -877,52 +877,52 @@
       {
         "text": "1. Do you think children are born smart or they learn to be smart?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. How do children become smart at school?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. Why are some people well-rounded and others only good at one thing?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. Why does modern society need talents of all kinds?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. Do you think smart children are happier than other children?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. Is it important for schools to identify and develop each student's talents?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -956,88 +956,88 @@
       {
         "text": "1. What things do families keep for a long time?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. What's the difference between things valued by people in the past and today?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze",
           "comparison"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. What kinds of things are kept in museums?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. What's the influence of technology on museums?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. What are the benefits of technology for learning history?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. Why do people visit museums?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "7. What kind of old things do people like to keep?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "8. Why do people keep old things?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "9. What are the differences between the things old people keep and those young people keep?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "analyze",
           "comparison"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "10. What are the differences between the things that people keep today and the things that people kept in the past?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "analyze",
           "comparison"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -1071,53 +1071,53 @@
       {
         "text": "1. Which form of vehicle is more popular in your country, bikes, cars or motorcycles?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. Do you think air pollution comes mostly from mobile vehicles?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. Do you think people need to change the way of transportation drastically to protect the environment?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. How are the transportation systems in urban areas and rural areas different?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. Why do more people own and drive private vehicles now?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. What do you think of the future of electric cars?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -1152,58 +1152,58 @@
       {
         "text": "1. What are the differences between the technology of the past and that of today?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "analyze",
           "comparison"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. What technology do young people like to use?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. What are the differences between online and face-to-face communication?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "analyze",
           "comparison"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. Do you think technology has changed the way people communicate?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation",
           "comparison"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. What negative effects does technology have on people's relationships?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. What are the differences between making friends in real life and online?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "analyze",
           "comparison"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -1236,54 +1236,54 @@
       {
         "text": "1. What are the differences between old and young people when using apps?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "analyze",
           "comparison"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. Why do some people not like using apps?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. What apps are popular in your country? Why?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. Should parents limit their children's use of computer programs and computer games?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. Do you think young people rely more and more on these programs?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. What do you think about some countries banning children from using social media?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -1316,53 +1316,53 @@
       {
         "text": "1. Do you think it's important to plan ahead?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. What activities do we need to plan ahead?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. Do you think children should plan their future careers?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. Should children ask their teachers or parents for advice when making plans?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. Is making study plans popular among young people?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. Do you think choosing a college major is closely related to a future career?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -1397,53 +1397,53 @@
       {
         "text": "1. What is the right age for a child to learn drawing?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. Why do most children draw more often than adults do?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. Why do some people visit galleries or museums instead of viewing artworks online?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. Do you think galleries and museums should be free of charge?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. How do artworks inspire people?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. What are the differences between reading a book and visiting a museum?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "analyze",
           "comparison"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -1478,52 +1478,52 @@
       {
         "text": "1. Should people prepare before giving advice?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. Is it good to ask advice from strangers online?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. What are the personalities of people whose job is to give advice to others?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. What are the problems if you ask too many people for advice?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "analyze",
           "hypothetical"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. Why do some people think it is better to ask for advice from friends than from parents?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. When would old people ask young people for advice?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -1555,51 +1555,51 @@
       {
         "text": "1. When would parents feel proud of their children?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. Should parents reward children? Why and how?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. Is it good to reward children too often? Why?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. On what occasions would adults be proud of themselves?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. Do rewards help a child become better?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. What do you think about children working hard just for grades?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -1633,51 +1633,51 @@
       {
         "text": "1. Do you think people who like to smile are more friendly?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. Why do most people smile in photographs?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. Do women smile more than men? Why?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. Do people smile more when they are younger or older?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. Is smiling important in your culture?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. Are there any occasions when people need to pretend to smile?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -1709,51 +1709,51 @@
       {
         "text": "1. How do young and old people use mobile phones differently?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. What positive and negative impact do mobile phones have on friendship?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. Is it a waste of time to take pictures with mobile phones?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. Do you think it is necessary to have laws on the use of mobile phones?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. What are examples of good and poor phone manners?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. How does the internet benefit people?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -1788,52 +1788,52 @@
       {
         "text": "1. What are the advantages and disadvantages of being a famous child?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. What can today's children do to become famous?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. What can children do with their fame?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. Do people become famous because of their talent?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. Is it easy to become famous in your country?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. Do you want to be a famous person?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "future",
+        "skill_tags": [
           "description",
           "hypothetical"
-        ],
-        "time_frame": "future"
+        ]
       }
     ],
     "tags": [],
@@ -1863,74 +1863,74 @@
       {
         "text": "1. What kind of job can be called a 'dream job'?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. What jobs do children want to do when they grow up?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "future",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "future"
+        ]
       },
       {
         "text": "3. Do people's ideal jobs change as they grow up?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. What should people consider when choosing jobs?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. ls salary the main reason people choose a certain job?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. What kind of jobs are the most popular in your country?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "7. What kind of job do children like?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "8. Do children like to choose the same profession as their parents?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "9. Will people regret about their career choices when they become older?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "future",
+        "skill_tags": [
           "hypothetical"
-        ],
-        "time_frame": "future"
+        ]
       }
     ],
     "tags": [],
@@ -1965,52 +1965,52 @@
       {
         "text": "1. What programs do people like to watch in your country?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. Do people in your country like to watch foreignTV programs?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. What's the benefit of letting kids watch animal videos than visiting zoos?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. Do teachers play videos in class in your country?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. Do you think watching talk shows is a waste of time?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. Do you think we can acquire knowledge from watching TV programs?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -2045,55 +2045,55 @@
       {
         "text": "1. What kind of people like to visit natural places?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. What are the differences between a natural place and a city?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "analyze",
           "comparison"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. Do you think that going to the park is the only way to get close to nature if you live in a city?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation",
           "hypothetical"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. Are there any wild animals in the city?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. Do you think it is a good idea to let animals stay in local parks for people to visit?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. What can people gain from going to natural places?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -2123,51 +2123,51 @@
       {
         "text": "1. On what occasions do people usually need to wait?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. Who behave better when waiting, children or adults?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. Compared to the past, are people less patient now, why?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "comparison"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. What are the positive and negative effects of waiting on society?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. Why are some people unwilling to wait?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. Where do children learn to be patient, at home or at school?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -2202,43 +2202,43 @@
       {
         "text": "1. What kind of decisions do you think are meaningful?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. What important decisions should be made by teenagers themselves?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. Why are some people unwilling to make quick decisions?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. Do people like to ask for advice about their personal life or their work?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. Why do people like to ask others for advice?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -2271,77 +2271,77 @@
       {
         "text": "1. What are the types of books that young people like to read?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. What's the difference between the reading habits of old people and young people?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze",
           "comparison"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. What's the difference between paper books and e-books?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze",
           "comparison"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. Some people say that it is easier for children who start reading from a young age to succeed, do you agree?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. Have libraries changed a lot with the development of the internet?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "comparison"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. What should we do to prevent modern libraries from closing down?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "7. What should the government do to make libraries better?",
         "source": "yasige",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "8. Do you think old people spend more time reading than young people?",
         "source": "yasige",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "9. Which one is better, paper books or e-books?",
         "source": "yasige",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -2379,50 +2379,50 @@
       {
         "text": "1. Should students have physical education and do sports at school?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. What qualities make an athlete?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. ls talent important in sports?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. ls it easy to identify children's talents?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. What is the most popular sport in your country?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. Why are there so few top athletes?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -2454,53 +2454,53 @@
       {
         "text": "1. What kind of things are more likely to be broken by people at home?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. What kind of people like to fix things by themselves?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. Do you think clothes produced in the factory are of better quality than those made by hand?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. Do you think handmade clothes are more valuable?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. Is the older generation better at fixing things?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. Do you think elderly people should teach young people how to fix things？",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -2535,54 +2535,54 @@
       {
         "text": "1. Why do people like to use social media?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. What kinds of things are popular on social media?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. What are the advantages and disadvantages of using social media?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. What do you think of making friends on social network?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. Are there any people who shouldn't use social media?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. Do you think people spend too much time on social media?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -2616,60 +2616,60 @@
       {
         "text": "1. Do you think children should learn to play musical instruments?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. How do artists acquire inspiration?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. Do you think pictures and videos in news reports are important?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. What can we do to help children keep creative?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. What can we do to help older children learn music?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. What kind of jobs require creativity?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "7. How does drawing help to enhance children’s creativity?",
         "source": "yasige",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -2704,18 +2704,18 @@
       {
         "text": "1. What can we see in a museum?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. What can we learn from a museum?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -2750,53 +2750,53 @@
       {
         "text": "1. At what age should children start learning a foreign language?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. Which skill is more important, speaking or writing?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. Does a person still need to learn other languages, if he or she is good at English?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. Do you think minority languages will disappear?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "future",
+        "skill_tags": [
           "description",
           "evaluation",
           "hypothetical"
-        ],
-        "time_frame": "future"
+        ]
       },
       {
         "text": "5. Does learning a foreign language help in finding a job?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. Which stage of life do you think is the best for learning a foreign language?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -2829,53 +2829,53 @@
       {
         "text": "1. Why are some people unwilling to try new things?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. Why are some people keen on doing dangerous activities?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. Do you think that children adapt to new things more easily than adults?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. Do you think fear stops people from trying new things?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. What can people learn from doing dangerous activities?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. What are the benefits of trying new things?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -2910,52 +2910,52 @@
       {
         "text": "1. Do you think people should apologize for anything wrong they do?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. Do people in your country like to say \"sorry\"?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. On what occasion do people usually apologize to others?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. Why do some people refuse to say \"sorry\" to others?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. Do you think every \"sorry\" is from the bottom of the heart?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. Are women better than men at recognizing emotions?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "comparison"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -2988,53 +2988,53 @@
       {
         "text": "1. Do you think it is a good choice to travel by plane?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. What are the differences between group travelling and travelling alone?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "analyze",
           "comparison"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. What do we need to prepare for a long journey?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. Why do some people like making long journeys?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. Why do some people prefer to travel in their own country?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. Why do some people prefer to travel abroad?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -3068,50 +3068,50 @@
       {
         "text": "1. Do people prefer to eat out at restaurants or eat at home during the Spring Festival?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. What food do you eat on special occasions, like during the Spring Festival or the Mid-autumn Festival?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. Why do people like to have meals together during important festivals?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. Is it a hassle to prepare a meal at home?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. What do people often talk about during meals?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. People are spending less and less time having meals with their families these days. Is this good or bad?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -3146,52 +3146,52 @@
       {
         "text": "1. Which is better, electric bicycles or ordinary bicycles?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. Do you think electric bicycles will replace ordinary bicycles in the future?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "future",
+        "skill_tags": [
           "description",
           "evaluation",
           "hypothetical"
-        ],
-        "time_frame": "future"
+        ]
       },
       {
         "text": "3. Which is better, electric cars or petrol cars?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. How did people manage to live without electricity in the ancient world?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "past",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "past"
+        ]
       },
       {
         "text": "5. Is it difficult for the government to replace all the petrol cars with electric cars?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. Do people use more electricity now than before?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -3226,54 +3226,54 @@
       {
         "text": "1. Why should companies react quickly when customers have difficulties?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "evaluation",
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. What are the advantages and disadvantages of shopping in small shops?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. Why do some people dislike shopping in small shops?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. What are the differences between online shopping and in-store shopping?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "analyze",
           "comparison"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. Can consumption drive economic growth?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. Why are shopping malls so popular in China?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -3309,43 +3309,43 @@
       {
         "text": "1. Would you like to work in a family business?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "future",
+        "skill_tags": [
           "hypothetical"
-        ],
-        "time_frame": "future"
+        ]
       },
       {
         "text": "2. What are the advantages and disadvantages of family business?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. Why do some people choose to start their own company?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. What family businesses do you know in your local area?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. What makes a successful family business?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -3379,54 +3379,54 @@
       {
         "text": "1. How do advertisements influence children?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. Should advertising aimed at kids be prohibited?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. Do you think parents should buy more toys for their kids or spend more time with them?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. What's the difference between the toys kids play now and those they played in the past?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze",
           "comparison"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. What's the difference between the toys boys play with and girls play with?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze",
           "comparison"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. What are the advantages and disadvantages of modern toys?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -3458,53 +3458,53 @@
       {
         "text": "1. Do you think artists with talents should focus on their talents?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. Is it possible for us to know whether children who are 3 or 4 years old will become musicians and painters when they grow up?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "future",
+        "skill_tags": [
           "hypothetical"
-        ],
-        "time_frame": "future"
+        ]
       },
       {
         "text": "3. Why do people like to watch talent shows?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. Do you think it is more interesting to watch famous people's or ordinary people's shows？",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. Do you think it's important to develop children's talents?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. Why do some people like to show their talents online?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -3539,52 +3539,52 @@
       {
         "text": "1. Why are some people better at finding their way around a new place than others?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. Do you think it is important to be able to read a map?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. Do you think it is important to do some preparation before you travel to new places?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. How can people find their way when they are lost?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. Is a paper map still necessary?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. How do people react when they get lost?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -3618,47 +3618,47 @@
       {
         "text": "1. Do you think it is better for children to have a few close friends or many casual friends?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. Do you think a child's relationship with friends can be replaced by that with other people, like parents or other family members?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. How do children make friends when they are not at school?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. What are the differences between friends made inside and outside the workplace?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "analyze",
           "comparison"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. Do you think it's possible for bosses and their employees to become friends?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -3689,51 +3689,51 @@
       {
         "text": "1. What kind of stories do children like?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. What are the benefits of bedtime stories for children?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. Why do most children like listening to stories before bedtime?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. What can children learn from stories?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. Do all stories for children have happy endings？",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. Is a good storyline important for a movie?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -3769,59 +3769,59 @@
       {
         "text": "1. What habits should children have？",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. What should parents do to teach their children good habits？",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. What influences do children with bad habits have on other children？",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. Why do some habits change when people get older？",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. Do you think a person's good habits would influence those around him or her? How?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. How do we develop bad habits?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "7. What can we do to get rid of bad habits?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -3855,52 +3855,52 @@
       {
         "text": "1. Why are some people more willing to protect wild animals than others?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. Why should we protect wild animals?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "evaluation",
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. Do you think it's important to take children to the zoo to see animals?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. Is it more important to protect wild animals or the environment?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. Should people educate children to protect wild animals?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. Why do people attach more importance to protecting animals?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -3932,54 +3932,54 @@
       {
         "text": "1. What kind of music is popular in your country?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. What kind of music do young people like?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. What are the differences between young people's and old people's preferences in music?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "analyze",
           "comparison"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. What are the benefits of children learning a musical instrument?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. Do you know what kind of music children like today?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. Do you think the government should invest more money on concerts?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -4014,50 +4014,50 @@
       {
         "text": "1. Why do some children not like learning science at school?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. Is it important to study science at school?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. Which science subject is the most important for children to learn?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. Should people continue to study science after graduating from school?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. How do you get to know about scientific news?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. Should scientists explain the research process to the public?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -4090,59 +4090,59 @@
       {
         "text": "1. Is it easy to find quiet places in your country? Why?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. Why do old people prefer to live in quiet places?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. Why are there more noises made at home now than in the past?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. Why do some people like to use noise as background sound when they are working or studying?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. How do people spend their leisure time in your country?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. How does technology affect the way people spend their leisure time?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "7. Do you think only old people have time for leisure?",
         "source": "tongzhuo",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [],
@@ -4177,52 +4177,52 @@
       {
         "text": "1. Why are children attracted to new things (such as electronics)?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. Why do some grown-ups hate to throw out old things (such as clothes)?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. Is the way people buy things affected? How?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. What do you think influences people to buy new things?",
         "source": "laokaoya",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. Why do all children like toys?",
         "source": "yasige",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. Do you think it is good for a child to always take his or her favourite toy with",
         "source": "yasige",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "tags": [
@@ -4256,10 +4256,10 @@
       {
         "text": "1. Why do some people get lost more easily than others?",
         "source": "yasige",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "content_tags": {
@@ -4318,18 +4318,18 @@
       {
         "text": "1. What qualities should an athlete have?",
         "source": "yasige",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. Is talent important in sports?",
         "source": "yasige",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "content_tags": {
@@ -4359,19 +4359,19 @@
       {
         "text": "1. Why do some people not like shopping in small shops?",
         "source": "yasige",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. What are the advantages and disadvantages of shopping online?",
         "source": "yasige",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "analyze"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "content_tags": {
@@ -4403,54 +4403,54 @@
       {
         "text": "1. What's the difference between the city and the countryside?",
         "source": "yasige",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze",
           "comparison"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. Some people say large cities are suitable for old people. What do you think?",
         "source": "yasige",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. Do you think it is possible that all of the population move to cities?",
         "source": "yasige",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "4. Do you think people in the countryside are friendlier than people in the city?",
         "source": "yasige",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. Are there any changes in your city?",
         "source": "yasige",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "comparison"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. What should the government do to improve citizens’ safety?",
         "source": "yasige",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "evaluation"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "content_tags": {
@@ -4483,58 +4483,58 @@
       {
         "text": "1. Do people in your country go to the shopping mall frequently?",
         "source": "yasige",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "2. How have people’s shopping habits changed in recent decades?",
         "source": "yasige",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "analyze",
           "comparison"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "3. Do you think shops and shopping malls will disappear in the future?",
         "source": "yasige",
-        "type_tags": [
+        "time_frame": "future",
+        "skill_tags": [
           "description",
           "evaluation",
           "hypothetical"
-        ],
-        "time_frame": "future"
+        ]
       },
       {
         "text": "4. What are the differences between shopping in street markets and big shopping malls?",
         "source": "yasige",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "analyze",
           "comparison"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "5. What are the differences in the shopping habits of different age groups?",
         "source": "yasige",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "comparison"
-        ],
-        "time_frame": "present"
+        ]
       },
       {
         "text": "6. What are the differences between shopping online and in-store?",
         "source": "yasige",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description",
           "analyze",
           "comparison"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "content_tags": {
@@ -4567,10 +4567,10 @@
       {
         "text": "1. Do people in your country like to watch foreign TV programs?",
         "source": "yasige",
-        "type_tags": [
+        "time_frame": "present",
+        "skill_tags": [
           "description"
-        ],
-        "time_frame": "present"
+        ]
       }
     ],
     "content_tags": {

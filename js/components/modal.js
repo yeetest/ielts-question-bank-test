@@ -1,5 +1,5 @@
 import { state } from '../state.js';
-import { renderTypeTags, renderContentTags, cleanTitle } from '../utils.js';
+import { renderSkillTags, renderInlineTopicTags, renderContentTags, cleanTitle } from '../utils.js';
 import { openTagSummary, openTypeSummary } from './tagSummary.js';
 
 export function openOverlay() {
@@ -15,6 +15,7 @@ export function openModal(tab, idx) {
 
   const hasBack = state.lastActiveTag || state.lastTypeSummary;
   const backBtn = hasBack ? `<button class="back-btn" id="back-btn">←</button>` : '';
+  const topicTags = renderInlineTopicTags(item.content_tags);
 
   let html = '';
 
@@ -27,8 +28,8 @@ export function openModal(tab, idx) {
       <div class="section-label" style="margin-top:14px">Questions</div>
       ${item.questions.map(q => {
         const match = state.selectedSkillTags.length > 0
-          && q.type_tags && q.type_tags.some(t => state.selectedSkillTags.includes(t));
-        return `<div class="q-row${match ? ' q-highlight' : ''}"><span>${q.text}${renderTypeTags(q.type_tags)}</span></div>`;
+          && q.skill_tags && q.skill_tags.some(t => state.selectedSkillTags.includes(t));
+        return `<div class="q-row${match ? ' q-highlight' : ''}"><span>${q.text}${renderSkillTags(q.skill_tags)}${topicTags}</span></div>`;
       }).join('')}
     `;
   } else {
@@ -51,8 +52,8 @@ export function openModal(tab, idx) {
       <div class="section-label">Part 3 Questions</div>
       ${p3.map(q => {
         const match = state.selectedSkillTags.length > 0
-          && q.type_tags && q.type_tags.some(t => state.selectedSkillTags.includes(t));
-        return `<div class="q-row${match ? ' q-highlight' : ''}"><span>${q.text}${renderTypeTags(q.type_tags)}</span></div>`;
+          && q.skill_tags && q.skill_tags.some(t => state.selectedSkillTags.includes(t));
+        return `<div class="q-row${match ? ' q-highlight' : ''}"><span>${q.text}${renderSkillTags(q.skill_tags)}${topicTags}</span></div>`;
       }).join('')}
     `;
   }
@@ -60,7 +61,6 @@ export function openModal(tab, idx) {
   document.getElementById('modal-content').innerHTML = html;
   openOverlay();
 
-  // Wire up back button — returns to whichever summary was last open
   const back = document.getElementById('back-btn');
   if (back) {
     back.addEventListener('click', () => {
