@@ -352,7 +352,9 @@ function toggleSidebar() {
 // ── tab change ───────────────────────────────────────────────────
 function onTabChange(newTab) {
   state.selectedSkillTags = [];
+  state.currentTab = newTab;
   renderSidebar();
+  applyFiltersAndRender();
 }
 
 // ── init ─────────────────────────────────────────────────────────

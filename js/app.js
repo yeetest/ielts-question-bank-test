@@ -1,5 +1,4 @@
 import { loadData } from './data.js';
-import { renderGrid } from './components/grid.js';
 import { openModal, openOverlay, closeOverlay } from './components/modal.js';
 import { openTagSummary, openTypeSummary } from './components/tagSummary.js';
 import { initSidebar } from './components/sidebar.js';
@@ -10,9 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize sidebar
   initSidebar();
 
-  // Tab buttons
-  document.getElementById('tab-part1').addEventListener('click', () => renderGrid('part1'));
-  document.getElementById('tab-part2').addEventListener('click', () => renderGrid('part2'));
+  // Tab buttons — handled by sidebar.js (onTabChange renders grid + sidebar)
 
   // Close button inside modal
   document.getElementById('close-btn').addEventListener('click', closeOverlay);
