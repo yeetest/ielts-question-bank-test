@@ -6,9 +6,9 @@ Part 2 (default): targets topic.part3[] with 4-type taxonomy
   (describe / analyze / evaluate / predict)
   Fallback: ["describe"]
 
-Part 1 (--part 1): targets topic.questions[] with 7-type taxonomy
-  (experience / frequency / description / preference / evaluation / comparison / hypothetical)
-  Priority order: experience → frequency → description → preference → evaluation → comparison → hypothetical
+Part 1 (--part 1): targets topic.questions[] with 8-type taxonomy
+  (experience / frequency / description / preference / evaluation / analyze / comparison / hypothetical)
+  Priority order: experience → frequency → description → preference → evaluation → analyze → comparison → hypothetical
   1–3 tags per question (all matching rule groups, capped at 3, in priority order)
   Unmatched → type_tags: [], saved to claude_p1_type_response.json for Claude batch
   After tagging, auto-runs json_to_txt.py on the input file.
@@ -160,7 +160,16 @@ RULES_PART1 = [
         r"\bare.{0,30}(important|necessary|good|bad|right|wrong|fair|useful|beneficial)\b",
         r"\bworth\b",
         r"\bwhat (makes|would make)\b",
-        r"^why\b",                                # "Why do people like ...?" (not trailing "Why?/Why not?")
+    ]),
+    ("analyze", [
+        r"^why\b",                                # "Why do people like ...?"
+        r"^how (does|do|did|has|have|is|are|can)\b",  # "How does X affect Y?"
+        r"\bwhat (causes?|reasons?|factors?)\b",
+        r"\bwhat (impact|effect|influence|role)\b",
+        r"(differences?|similarities?|distinctions?) between",
+        r"how.{0,30}(affect|influence|impact|change|shape)",
+        r"what (has|have).{0,20}changed",
+        r"what (are|were) the (benefits?|advantages?|disadvantages?|drawbacks?|challenges?|problems?|consequences?|results?|effects?)",
     ]),
     ("comparison", [
         r"\bwhat are the differences\b",

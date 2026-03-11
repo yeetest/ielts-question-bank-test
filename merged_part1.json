@@ -85,7 +85,8 @@
         "text": "4. How do people remember each stage of their lives?",
         "source": "laokaoya",
         "type_tags": [
-          "description"
+          "description",
+          "analyze"
         ]
       },
       {
@@ -250,6 +251,7 @@
         "source": "tongzhuo",
         "type_tags": [
           "description",
+          "analyze",
           "comparison"
         ]
       },
@@ -348,7 +350,8 @@
         "text": "4. How do you improve your typing?",
         "source": "laokaoya",
         "type_tags": [
-          "description"
+          "description",
+          "analyze"
         ]
       }
     ],
@@ -440,6 +443,7 @@
         "source": "laokaoya",
         "type_tags": [
           "description",
+          "analyze",
           "comparison"
         ]
       }
@@ -585,6 +589,7 @@
         "source": "laokaoya",
         "type_tags": [
           "description",
+          "analyze",
           "comparison"
         ]
       },
@@ -631,7 +636,7 @@
         "text": "3. Why do people like to walk in parks?",
         "source": "laokaoya",
         "type_tags": [
-          "evaluation"
+          "analyze"
         ]
       },
       {
@@ -849,7 +854,8 @@
         "text": "4. How do you feel after taking a nap?",
         "source": "tongzhuo",
         "type_tags": [
-          "description"
+          "description",
+          "analyze"
         ]
       }
     ],
@@ -888,7 +894,8 @@
         "text": "3. How do you feel when people don't return things they borrowed from you?",
         "source": "tongzhuo",
         "type_tags": [
-          "description"
+          "description",
+          "analyze"
         ]
       },
       {
@@ -1220,7 +1227,8 @@
         "text": "3. What are the benefits of being friends or working with old people?",
         "source": "tongzhuo",
         "type_tags": [
-          "description"
+          "description",
+          "analyze"
         ]
       },
       {
@@ -1752,6 +1760,7 @@
         "text": "12. What's the difference between where you are living now and where you have lived in the past?",
         "source": "laokaoya",
         "type_tags": [
+          "analyze",
           "comparison"
         ]
       },
@@ -2186,7 +2195,7 @@
         "text": "3. Why did you choose to do this type of work?",
         "source": "tongzhuo",
         "type_tags": [
-          "evaluation"
+          "analyze"
         ]
       },
       {
@@ -2247,7 +2256,7 @@
         "text": "12. Why did you choose to study this subject?",
         "source": "tongzhuo",
         "type_tags": [
-          "evaluation"
+          "analyze"
         ]
       },
       {
@@ -2295,7 +2304,7 @@
         "text": "19. Why did you choose to do that type of work (or, that job)?",
         "source": "laokaoya",
         "type_tags": [
-          "evaluation"
+          "analyze"
         ]
       },
       {
@@ -2321,7 +2330,7 @@
         "text": "23. Why did you choose to study that subject? / Why did you choose to study those subjects?",
         "source": "laokaoya",
         "type_tags": [
-          "evaluation"
+          "analyze"
         ]
       },
       {
@@ -2556,7 +2565,8 @@
         "text": "4. How do you remember important things?",
         "source": "yasige",
         "type_tags": [
-          "description"
+          "description",
+          "analyze"
         ]
       }
     ],
@@ -2655,7 +2665,7 @@
         "text": "3. Why did you choose to study that subject?",
         "source": "yasige",
         "type_tags": [
-          "evaluation"
+          "analyze"
         ]
       },
       {
@@ -2678,7 +2688,8 @@
         "text": "6. What are the benefits of being your age?",
         "source": "yasige",
         "type_tags": [
-          "description"
+          "description",
+          "analyze"
         ]
       },
       {
@@ -2734,7 +2745,7 @@
         "text": "14. Why did you choose to do that type of work (or that job)?",
         "source": "yasige",
         "type_tags": [
-          "evaluation"
+          "analyze"
         ]
       },
       {
