@@ -1,0 +1,70 @@
+/* ---------- Content Tags (topic-level) ---------- */
+/* First tag = category (people/place/object/experience/activity) */
+/* Remaining tags = semantic tags */
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 6px;
+}
+.ctag {
+  font-size: 0.68rem;
+  padding: 2px 7px;
+  border-radius: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: inline-block;
+}
+.ctag:hover {
+  transform: scale(1.1);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+/* Category tag colors — one per category type */
+.ctag-people              { background: #fce7f3; color: #9d174d; }
+.ctag-experience-activity { background: #d1fae5; color: #065f46; }
+.ctag-place               { background: #e0f2fe; color: #075985; }
+.ctag-object              { background: #f3f4f6; color: #374151; }
+/* Semantic tags (index 1+) all share one neutral style */
+.ctag-tag                 { background: #ede9fe; color: #5b21b6; }
+
+/* ---------- Question Type Tags (per question) ---------- */
+.type-tags {
+  display: inline-flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+.ttag {
+  font-size: 0.65rem;
+  padding: 1px 6px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: inline-block;
+}
+.ttag:hover {
+  transform: scale(1.1);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  filter: brightness(0.95);
+}
+/* Part 2 type tags */
+.ttag-describe { background: #dbeafe; color: #1e40af; }
+.ttag-analyze  { background: #d1fae5; color: #065f46; }
+.ttag-evaluate { background: #fef3c7; color: #92400e; }
+.ttag-predict  { background: #ede9fe; color: #5b21b6; }
+.ttag-unclear  { background: #f3f4f6; color: #6b7280; }
+/* Part 1 type tags */
+.ttag-experience   { background: #fed7aa; color: #9a3412; }
+.ttag-frequency    { background: #cffafe; color: #155e75; }
+.ttag-description  { background: #dbeafe; color: #1e40af; }
+.ttag-preference   { background: #fce7f3; color: #9d174d; }
+.ttag-evaluation   { background: #fef3c7; color: #92400e; }
+.ttag-comparison   { background: #dcfce7; color: #166534; }
+.ttag-hypothetical { background: #ede9fe; color: #5b21b6; }
