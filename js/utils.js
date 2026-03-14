@@ -55,11 +55,40 @@ export function renderContentTags(ct) {
 
 // Returns true if a topic's content_tags contains a given tag name (any layer).
 export function hasContentTag(ct, tagName) {
+  const normalizedTag = tagName === 'experience/activity' ? 'experience_activity' : tagName;
   if (!ct) return false;
-  if (Array.isArray(ct)) return ct.includes(tagName);
+  if (Array.isArray(ct)) return ct.includes(tagName) || ct.includes(normalizedTag);
+  if (typeof ct === 'object' && !Array.isArray(ct) && ('l1' in ct || 'l2' in ct || 'l3' in ct)) {
+    const l2 = Array.isArray(ct.l2) ? ct.l2 : (ct.l2 ? [ct.l2] : []);
+    const l3 = Array.isArray(ct.l3) ? ct.l3 : (ct.l3 ? [ct.l3] : []);
+    return ct.l1 === tagName || ct.l1 === normalizedTag || l2.includes(tagName) || l2.includes(normalizedTag) || l3.includes(tagName) || l3.includes(normalizedTag);
+  }
   return ct.l1 === tagName
+    || ct.l1 === normalizedTag
     || (ct.l2 || []).includes(tagName)
-    || (ct.l3 || []).includes(tagName);
+    || (ct.l2 || []).includes(normalizedTag)
+    || (ct.l3 || []).includes(tagName)
+    || (ct.l3 || []).includes(normalizedTag);
+}
+
+// Returns taxonomy used specifically for filtering (v2 mapping first, legacy fallback second).
+export function getFilterTaxonomy(topic) {
+  const tx = topic?.taxonomy_v2_primary;
+  if (tx && typeof tx === 'object') {
+    return {
+      l1: tx.l1 || '',
+      l2: tx.l2 ? [tx.l2] : [],
+      l3: tx.l3 ? [tx.l3] : [],
+    };
+  }
+  const ct = topic?.content_tags;
+  if (!ct) return { l1: '', l2: [], l3: [] };
+  if (Array.isArray(ct)) return { l1: ct[0] || '', l2: ct.slice(1), l3: [] };
+  return {
+    l1: ct.l1 || '',
+    l2: Array.isArray(ct.l2) ? ct.l2 : (ct.l2 ? [ct.l2] : []),
+    l3: Array.isArray(ct.l3) ? ct.l3 : (ct.l3 ? [ct.l3] : []),
+  };
 }
 
 // Cleans up Part 2 cue card prompts: removes "Describe", "You should say...", zero-width chars.

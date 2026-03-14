@@ -1,5 +1,6 @@
 import { state } from '../state.js';
 import { renderGrid } from './grid.js';
+import { getFilterTaxonomy } from '../utils.js';
 
 let sidebarCollapsed = false;
 
@@ -8,24 +9,13 @@ const L1_TO_L2 = {
   'people': ['professions', 'close_bonds', 'general'],
   'place': ['outdoor', 'indoor'],
   'object': ['tangible', 'intangible'],
-  'experience/activity': ['work', 'study', 'leisure', 'routines'],
+  'experience_activity': ['work', 'study', 'leisure', 'routines'],
   'abstract_concepts': ['communication', 'emotion', 'personal_traits', 'values', 'personal_growth', 'influence', 'time']
-};
-const L2_TO_L3 = {
-  'intangible': ['artwork', 'technology', 'money', 'media'],
-  'leisure': ['exercise', 'shopping', 'cooking', 'traveling', 'creative', 'reading', 'entertainment'],
-  'emotion': ['pride', 'happiness', 'fear', 'anger', 'attachment', 'regret', 'patience'],
-  'personal_traits': ['creativity', 'problem-solving', 'craftsmanship', 'responsibility', 'honesty'],
-  'values': ['policy', 'environment', 'economics', 'fairness'],
-  'personal_growth': ['learning', 'self-improvement', 'adaptation', 'goal-setting', 'decision']
 };
 
 // ── helpers ──────────────────────────────────────────────────────
 function getContentTags(topic) {
-  const ct = topic.content_tags;
-  if (!ct) return { l1: '', l2: [], l3: [] };
-  if (Array.isArray(ct)) return { l1: ct[0] || '', l2: ct.slice(1), l3: [] };
-  return ct;
+  return getFilterTaxonomy(topic);
 }
 
 function getQuestions(topic) {
@@ -108,9 +98,6 @@ function countByL2(topics, l1Filter, skillFilters, timeFrame) {
 
 function countByL3(topics, l1Filter, l2Filters, skillFilters, timeFrame) {
   const counts = {};
-  // Only count L3 tags that belong to the selected L2 (hierarchy-enforced)
-  const validL3 = new Set();
-  l2Filters.forEach(l2 => (L2_TO_L3[l2] || []).forEach(l3 => validL3.add(l3)));
   const focused = state.filterMode === 'focused';
   topics.forEach(t => {
     const ct = getContentTags(t);
@@ -127,7 +114,6 @@ function countByL3(topics, l1Filter, l2Filters, skillFilters, timeFrame) {
     if (qc === 0) return;
     const l3 = ct.l3 || [];
     l3.forEach(tag => {
-      if (!validL3.has(tag)) return;  // enforce hierarchy
       if (focused) {
         const simSelected = new Set(state.selectedL3Tags);
         simSelected.add(tag);
@@ -226,10 +212,6 @@ function getVisibleL2Tags(topics, l1Filter, skillFilters, timeFrame) {
 
 function getVisibleL3Tags(topics, l1Filter, l2Filters, skillFilters, timeFrame) {
   if (!l1Filter || l2Filters.length === 0) return [];
-  // Build set of valid L3 from the selected L2 tags (hierarchy-enforced)
-  const validL3 = new Set();
-  l2Filters.forEach(l2 => (L2_TO_L3[l2] || []).forEach(l3 => validL3.add(l3)));
-  if (validL3.size === 0) return [];  // selected L2s have no children
   const focused = state.filterMode === 'focused';
   const tags = new Set();
   topics.forEach(t => {
@@ -242,7 +224,7 @@ function getVisibleL3Tags(topics, l1Filter, l2Filters, skillFilters, timeFrame) 
       if (!l2.some(tag => l2Filters.includes(tag))) return;
     }
     if (matchingQuestionCount(t, skillFilters, timeFrame) === 0) return;
-    (ct.l3 || []).forEach(tag => { if (validL3.has(tag)) tags.add(tag); });
+    (ct.l3 || []).forEach(tag => tags.add(tag));
   });
   return [...tags].sort();
 }
@@ -269,7 +251,7 @@ function renderSidebar() {
 
   // L1 counts (cascaded: skill + time frame)
   const l1Counts = countByL1(currentTopics, activeSkills, activeTF);
-  const l1Order = ["people", "place", "object", "experience/activity", "abstract_concepts"];
+  const l1Order = ["people", "place", "object", "experience_activity", "abstract_concepts"];
 
   // L2 (cascaded: skill + time frame + L1) — data-driven
   const visibleL2 = getVisibleL2Tags(currentTopics, state.selectedL1Tag, activeSkills, activeTF);
@@ -327,7 +309,7 @@ function renderSidebar() {
             ${l1Order.map(name => `
               <span class="stag stag-l1${state.selectedL1Tag === name ? ' sidebar-active' : ''}"
                     onclick="window._sidebarL1('${name}')">
-                ${name} <span class="sidebar-count">${l1Counts[name] || 0}</span>
+                ${name === 'experience_activity' ? 'experience/activity' : name} <span class="sidebar-count">${l1Counts[name] || 0}</span>
               </span>
             `).join('')}
           </div>
