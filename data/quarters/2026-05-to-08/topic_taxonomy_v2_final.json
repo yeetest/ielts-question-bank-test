@@ -283,9 +283,9 @@
   },
   {
     "topic": "a person who often helps others",
-    "l1": "people",
-    "l2": "close_bonds",
-    "l3": "supportive_relationship"
+    "l1": "abstract_concepts",
+    "l2": "personal_traits",
+    "l3": "kindness"
   },
   {
     "topic": "an item on which you spent more than expected",
@@ -326,8 +326,8 @@
   {
     "topic": "a person who solved a problem in a smart way",
     "l1": "abstract_concepts",
-    "l2": "personal_traits",
-    "l3": ""
+    "l2": "personal_growth",
+    "l3": "problem_solving"
   },
   {
     "topic": "something important that has been kept in your family for a long time",
@@ -355,9 +355,9 @@
   },
   {
     "topic": "a person who makes plans a lot and is good at planning",
-    "l1": "people",
-    "l2": "close_bonds",
-    "l3": ""
+    "l1": "abstract_concepts",
+    "l2": "personal_traits",
+    "l3": "discipline"
   },
   {
     "topic": "a child who loves drawing/painting",
@@ -505,9 +505,9 @@
   },
   {
     "topic": "a person you know who enjoys working for a family business (e.g. a shop,etc)",
-    "l1": "experience_activity",
-    "l2": "leisure",
-    "l3": "shopping"
+    "l1": "people",
+    "l2": "professions",
+    "l3": "business_owner"
   },
   {
     "topic": "a toy you liked in your childhood",

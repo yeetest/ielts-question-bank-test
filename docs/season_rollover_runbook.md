@@ -68,6 +68,7 @@ Run from repo root, with **the same `<quarter-id>`** as the folder name under `d
 | 0a | `python3 pipeline/dedup_topics_part2.py --quarter <id> --dry-run` | Lists clusters that would merge; then run without `--dry-run` to write `merged_part2.json`. **Removes whole duplicate topic rows** (including empty `part3` shells), not only in-topic question dedup. |
 | 0b | `python3 pipeline/dedup_questions.py data/quarters/<id>/merged_part2.json` | Fuzzy dedup **within** each topic’s `part3` (and Part 1 `questions` if you pass part1 path). |
 | 0c | `python3 pipeline/renumber_questions.py data/quarters/<id>/merged_part2.json` | Sequential `1.` … numbering after edits. |
+| 0d | `python3 pipeline/remap_content_tags_disposition.py --quarter <id>` | Fixes **`people` vs `personal_traits`** (and related) mis-tags on Part 2 — see `docs/taxonomy_people_vs_personal_traits.md`. Run **before** assign so `content_tags` matches the intended sidebar semantics. |
 | 1 | `python3 pipeline/assign_primary_l3_v2.py --quarter <id>` | Reads merged JSON + `config/topic_taxonomy_v2_curated.yaml`; writes `human-in-the-loop/topic_taxonomy_assignment_v2_part1.json` and `..._part2.json`. Does **not** overwrite `content_tags` in merged files. **Note:** this path is **global** — if you assign quarter B then quarter A, re-run assign for **A** before exporting A. |
 | 2 | `python3 pipeline/backfill_content_tags_l3_from_assignment.py --quarter <id>` | (a) Appends assignment `primary.l3` when `content_tags.l3` is empty; (b) **legacy canonical append** for known tokens (`traveling`→`travel`, etc.). Updates merged JSON in place. |
 | 3 | `python3 pipeline/export_runtime_taxonomy_v2.py --quarter <id>` | Writes `data/quarters/<id>/topic_taxonomy_v2_final.json` from assignment outputs. |
@@ -82,7 +83,7 @@ Optional first pass: step 2 with `--dry-run` to audit before writing merged file
 1. **Create** `data/quarters/<new-quarter>/` (copy layout from an existing quarter if helpful).
 2. **Place** `merged_part1.json` and `merged_part2.json` (valid schemas per `CLAUDE.md`).
 3. **Register** the quarter in `js/data.js` and `index.html` **if** it is a new id (not already in `QUARTER_IDS`).
-4. Run **0a–0c** (topic dedup + question dedup + renumber on Part 2 JSON), then **assign → backfill → export → check --strict** (§4).
+4. Run **0a–0d** (topic dedup + question dedup + renumber + **disposition remap** on Part 2), then **assign → backfill → export → check --strict** (§4).
 5. **Local preview:** `python3 -m http.server 8765` from repo root; open `http://127.0.0.1:8765/?quarter=<id>`.
 6. **Smoke-test UI:** switch quarter in dropdown; confirm load succeeds; spot-check a known topic (e.g. sidebar primary L1/L2/L3 vs card `content_tags`).
 7. **Update memory:** `data/quarters/README.md`, and any affected lines in `CLAUDE.md` / `README_ARCH.md` / `README.md` (see `docs/working_rules.md`).

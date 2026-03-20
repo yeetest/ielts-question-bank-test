@@ -333,13 +333,12 @@
     ],
     "tags": [],
     "content_tags": {
-      "l1": "people",
+      "l1": "abstract_concepts",
       "l2": [
-        "close_bonds",
-        "professions"
+        "personal_traits"
       ],
       "l3": [
-        "supportive_relationship"
+        "kindness"
       ]
     },
     "qualifier_tags": []
@@ -925,10 +924,10 @@
       "l1": "abstract_concepts",
       "l2": [
         "personal_traits",
-        "time"
+        "personal_growth"
       ],
       "l3": [
-        "problem-solving"
+        "problem_solving"
       ]
     },
     "qualifier_tags": []
@@ -1355,12 +1354,13 @@
     ],
     "tags": [],
     "content_tags": {
-      "l1": "people",
+      "l1": "abstract_concepts",
       "l2": [
-        "close_bonds",
-        "professions"
+        "personal_traits"
       ],
-      "l3": []
+      "l3": [
+        "discipline"
+      ]
     },
     "qualifier_tags": []
   },
@@ -3315,13 +3315,14 @@
     ],
     "tags": [],
     "content_tags": {
-      "l1": "experience/activity",
+      "l1": "people",
       "l2": [
-        "leisure",
-        "work"
+        "close_bonds",
+        "professions"
       ],
       "l3": [
-        "shopping"
+        "family_activity",
+        "business_owner"
       ]
     },
     "qualifier_tags": []

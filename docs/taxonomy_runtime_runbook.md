@@ -12,6 +12,8 @@ This is the **minimal closed loop** from topic `content_tags` in merged JSON →
 
 If ingest produced **two topic objects** for the same cue (different English phrasing, or one row with **no Part 3** and one complete), run **`pipeline/dedup_topics_part2.py`** on that quarter’s `merged_part2.json` before Step 2 — it **drops the loser topic** after merging into the survivor. Then **`pipeline/dedup_questions.py`** and **`pipeline/renumber_questions.py`** on the same file. Details and keep-best rules: script docstring and `docs/season_rollover_runbook.md` §4.
 
+Run **`pipeline/remap_content_tags_disposition.py --quarter <id>`** after dedup/renumber and **before** assign when Part 2 `content_tags` may confuse **`people`** with **`abstract_concepts` → `personal_traits`** (see **`docs/taxonomy_people_vs_personal_traits.md`**).
+
 ---
 
 ## Step 1 — New topics in merged JSON with `content_tags`
@@ -178,6 +180,7 @@ python3 pipeline/check_taxonomy_runtime_consistency.py --quarter 2026-01-to-04 -
 
 ## Related design docs
 
+- `docs/taxonomy_people_vs_personal_traits.md` — **`people` vs `abstract_concepts` → `personal_traits`** for Part 2 disposition cues
 - `docs/season_rollover_runbook.md` — onboarding a **new quarter folder** end-to-end (merged JSON → pipeline → `?quarter=` → git)
 - `docs/pipeline_v2_design.md` — view derivation, no production overwrite
 - `docs/taxonomy_v2_freeze_notes.md` — freeze artifacts naming
