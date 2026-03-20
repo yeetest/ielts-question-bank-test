@@ -1,0 +1,620 @@
+[
+  {
+    "topic": "Daily routine",
+    "l1": "experience_activity",
+    "l2": "routines",
+    "l3": "daily_life_pattern"
+  },
+  {
+    "topic": "Life stages",
+    "l1": "abstract_concepts",
+    "l2": "time",
+    "l3": "life_stage"
+  },
+  {
+    "topic": "View",
+    "l1": "place",
+    "l2": "outdoor",
+    "l3": "scenery"
+  },
+  {
+    "topic": "Scenery",
+    "l1": "place",
+    "l2": "outdoor",
+    "l3": "scenery"
+  },
+  {
+    "topic": "Childhood activities",
+    "l1": "abstract_concepts",
+    "l2": "time",
+    "l3": "childhood"
+  },
+  {
+    "topic": "Building",
+    "l1": "place",
+    "l2": "indoor",
+    "l3": "building"
+  },
+  {
+    "topic": "Typing",
+    "l1": "experience_activity",
+    "l2": "study",
+    "l3": "learning_method"
+  },
+  {
+    "topic": "Hobby",
+    "l1": "experience_activity",
+    "l2": "leisure",
+    "l3": "hobby"
+  },
+  {
+    "topic": "Sports team",
+    "l1": "experience_activity",
+    "l2": "leisure",
+    "l3": "exercise"
+  },
+  {
+    "topic": "Reading",
+    "l1": "experience_activity",
+    "l2": "leisure",
+    "l3": "reading"
+  },
+  {
+    "topic": "Gifts",
+    "l1": "object",
+    "l2": "tangible",
+    "l3": "gift_item"
+  },
+  {
+    "topic": "Morning time",
+    "l1": "experience_activity",
+    "l2": "routines",
+    "l3": "morning_routine"
+  },
+  {
+    "topic": "Walking",
+    "l1": "experience_activity",
+    "l2": "leisure",
+    "l3": "exercise"
+  },
+  {
+    "topic": "Food",
+    "l1": "object",
+    "l2": "tangible",
+    "l3": "food_gardening_item"
+  },
+  {
+    "topic": "Pets and Animals",
+    "l1": "abstract_concepts",
+    "l2": "values",
+    "l3": "animal_welfare"
+  },
+  {
+    "topic": "Sharing",
+    "l1": "abstract_concepts",
+    "l2": "communication",
+    "l3": "sharing"
+  },
+  {
+    "topic": "Having a break",
+    "l1": "experience_activity",
+    "l2": "routines",
+    "l3": "rest_break"
+  },
+  {
+    "topic": "Borrowing/ Lending",
+    "l1": "abstract_concepts",
+    "l2": "communication",
+    "l3": "resource_exchange"
+  },
+  {
+    "topic": "Advertisement",
+    "l1": "object",
+    "l2": "intangible",
+    "l3": "media"
+  },
+  {
+    "topic": "Chatting",
+    "l1": "abstract_concepts",
+    "l2": "communication",
+    "l3": "conversation"
+  },
+  {
+    "topic": "Growing vegetables/ fruits",
+    "l1": "object",
+    "l2": "tangible",
+    "l3": "food_gardening_item"
+  },
+  {
+    "topic": "Museum",
+    "l1": "place",
+    "l2": "indoor",
+    "l3": "museum"
+  },
+  {
+    "topic": "Crowded place",
+    "l1": "place",
+    "l2": "outdoor",
+    "l3": "public_place"
+  },
+  {
+    "topic": "Going out",
+    "l1": "experience_activity",
+    "l2": "routines",
+    "l3": "leisure_time"
+  },
+  {
+    "topic": "Staying with old people",
+    "l1": "people",
+    "l2": "general",
+    "l3": "elderly_people"
+  },
+  {
+    "topic": "Doing something well",
+    "l1": "abstract_concepts",
+    "l2": "personal_traits",
+    "l3": "competence"
+  },
+  {
+    "topic": "Shoes",
+    "l1": "object",
+    "l2": "tangible",
+    "l3": "personal_item"
+  },
+  {
+    "topic": "Rules",
+    "l1": "abstract_concepts",
+    "l2": "values",
+    "l3": "policy"
+  },
+  {
+    "topic": "Public places",
+    "l1": "place",
+    "l2": "outdoor",
+    "l3": "public_place"
+  },
+  {
+    "topic": "Plants",
+    "l1": "object",
+    "l2": "tangible",
+    "l3": "food_gardening_item"
+  },
+  {
+    "topic": "Spare time",
+    "l1": "experience_activity",
+    "l2": "routines",
+    "l3": "leisure_time"
+  },
+  {
+    "topic": "Taking photos",
+    "l1": "object",
+    "l2": "tangible",
+    "l3": "photography_item"
+  },
+  {
+    "topic": "The city you live in",
+    "l1": "place",
+    "l2": "outdoor",
+    "l3": "city_space"
+  },
+  {
+    "topic": "Home/Accommodation",
+    "l1": "place",
+    "l2": "indoor",
+    "l3": "home"
+  },
+  {
+    "topic": "Hometown",
+    "l1": "place",
+    "l2": "outdoor",
+    "l3": "city_space"
+  },
+  {
+    "topic": "The area you live in",
+    "l1": "place",
+    "l2": "outdoor",
+    "l3": "neighborhood_area"
+  },
+  {
+    "topic": "Dreams",
+    "l1": "abstract_concepts",
+    "l2": "personal_growth",
+    "l3": "goal_setting"
+  },
+  {
+    "topic": "Keys",
+    "l1": "object",
+    "l2": "tangible",
+    "l3": "personal_item"
+  },
+  {
+    "topic": "Day off",
+    "l1": "experience_activity",
+    "l2": "routines",
+    "l3": "rest_break"
+  },
+  {
+    "topic": "Chatting/Conversation",
+    "l1": "abstract_concepts",
+    "l2": "communication",
+    "l3": "conversation"
+  },
+  {
+    "topic": "Memory",
+    "l1": "experience_activity",
+    "l2": "routines",
+    "l3": "memory_reflection"
+  },
+  {
+    "topic": "Happy things",
+    "l1": "abstract_concepts",
+    "l2": "emotion",
+    "l3": "happiness"
+  },
+  {
+    "topic": "Work",
+    "l1": "experience_activity",
+    "l2": "work",
+    "l3": "job_role"
+  },
+  {
+    "topic": "Studies",
+    "l1": "experience_activity",
+    "l2": "study",
+    "l3": "study_subject"
+  },
+  {
+    "topic": "a person who likes to look after the natural world",
+    "l1": "abstract_concepts",
+    "l2": "values",
+    "l3": "environment"
+  },
+  {
+    "topic": "a short-term job you want to have in a foreign country",
+    "l1": "experience_activity",
+    "l2": "work",
+    "l3": "job_role"
+  },
+  {
+    "topic": "a time when you encouraged someone to do something that he/she didn't want to do",
+    "l1": "abstract_concepts",
+    "l2": "communication",
+    "l3": "encouragement"
+  },
+  {
+    "topic": "a person who often helps others",
+    "l1": "people",
+    "l2": "close_bonds",
+    "l3": "supportive_relationship"
+  },
+  {
+    "topic": "an item on which you spent more than expected",
+    "l1": "object",
+    "l2": "intangible",
+    "l3": "money"
+  },
+  {
+    "topic": "a time you needed to use your imagination",
+    "l1": "abstract_concepts",
+    "l2": "personal_traits",
+    "l3": "creativity"
+  },
+  {
+    "topic": "an interesting building",
+    "l1": "place",
+    "l2": "indoor",
+    "l3": "building"
+  },
+  {
+    "topic": "one of your friends who learned something without a teacher",
+    "l1": "abstract_concepts",
+    "l2": "personal_growth",
+    "l3": "learning_growth"
+  },
+  {
+    "topic": "a movie you watched and enjoyed recently",
+    "l1": "object",
+    "l2": "intangible",
+    "l3": "media"
+  },
+  {
+    "topic": "an event you attended in which you didn't enjoy the music played",
+    "l1": "abstract_concepts",
+    "l2": "emotion",
+    "l3": "happiness"
+  },
+  {
+    "topic": "a person who solved a problem in a smart way",
+    "l1": "abstract_concepts",
+    "l2": "personal_traits",
+    "l3": "confidence"
+  },
+  {
+    "topic": "something important that has been kept in your family for a long time",
+    "l1": "people",
+    "l2": "close_bonds",
+    "l3": "family_memory"
+  },
+  {
+    "topic": "a bicycle/motorcycle/car trip you would like to take",
+    "l1": "object",
+    "l2": "tangible",
+    "l3": "transport_item"
+  },
+  {
+    "topic": "a piece of technology (not a phone) that you would like to own",
+    "l1": "object",
+    "l2": "intangible",
+    "l3": "technology"
+  },
+  {
+    "topic": "a program or app on your computer or phone",
+    "l1": "object",
+    "l2": "intangible",
+    "l3": "technology"
+  },
+  {
+    "topic": "a person who makes plans a lot and is good at planning",
+    "l1": "abstract_concepts",
+    "l2": "personal_traits",
+    "l3": "planning_orientation"
+  },
+  {
+    "topic": "a child who loves drawing/painting",
+    "l1": "object",
+    "l2": "intangible",
+    "l3": "book_or_reading_material"
+  },
+  {
+    "topic": "a time when you gave advice to others",
+    "l1": "abstract_concepts",
+    "l2": "communication",
+    "l3": "advice_support"
+  },
+  {
+    "topic": "a time when you felt proud of a family member",
+    "l1": "people",
+    "l2": "close_bonds",
+    "l3": "family_pride_moment"
+  },
+  {
+    "topic": "an occasion when many people were smiling",
+    "l1": "abstract_concepts",
+    "l2": "emotion",
+    "l3": "happiness"
+  },
+  {
+    "topic": "an occasion when you were not allowed to use your mobile phone",
+    "l1": "object",
+    "l2": "intangible",
+    "l3": "technology"
+  },
+  {
+    "topic": "a famous person you would like to meet",
+    "l1": "people",
+    "l2": "professions",
+    "l3": "public_figure"
+  },
+  {
+    "topic": "a perfect job you would like to have in the future",
+    "l1": "experience_activity",
+    "l2": "work",
+    "l3": "job_role"
+  },
+  {
+    "topic": "a TV/online program you enjoy watching",
+    "l1": "object",
+    "l2": "intangible",
+    "l3": "media"
+  },
+  {
+    "topic": "a natural place (e.g. park, mountain)",
+    "l1": "place",
+    "l2": "outdoor",
+    "l3": "nature_place"
+  },
+  {
+    "topic": "a time when you waited for something special that would happen",
+    "l1": "abstract_concepts",
+    "l2": "emotion",
+    "l3": "patience"
+  },
+  {
+    "topic": "an important decision made with the help of other people",
+    "l1": "abstract_concepts",
+    "l2": "personal_growth",
+    "l3": "decision_making"
+  },
+  {
+    "topic": "a book you read that you found useful",
+    "l1": "object",
+    "l2": "intangible",
+    "l3": "book_or_reading_material"
+  },
+  {
+    "topic": "a sportsperson you admire",
+    "l1": "people",
+    "l2": "professions",
+    "l3": "sportsperson"
+  },
+  {
+    "topic": "a time when you broke something",
+    "l1": "abstract_concepts",
+    "l2": "personal_growth",
+    "l3": "problem_solving"
+  },
+  {
+    "topic": "a time you saw something interesting on social media",
+    "l1": "object",
+    "l2": "intangible",
+    "l3": "media"
+  },
+  {
+    "topic": "a creative person (e.g. an artist, a musician, etc.) you admire",
+    "l1": "abstract_concepts",
+    "l2": "personal_traits",
+    "l3": "creativity"
+  },
+  {
+    "topic": "an important old thing that your family has kept for a long time",
+    "l1": "abstract_concepts",
+    "l2": "emotion",
+    "l3": "attachment"
+  },
+  {
+    "topic": "the time when you first talked with others in a foreign language",
+    "l1": "abstract_concepts",
+    "l2": "communication",
+    "l3": "foreign_language_communication"
+  },
+  {
+    "topic": "an exciting activity you have tried for the first time",
+    "l1": "abstract_concepts",
+    "l2": "personal_growth",
+    "l3": "adaptation"
+  },
+  {
+    "topic": "a time when someone apologized to you",
+    "l1": "abstract_concepts",
+    "l2": "communication",
+    "l3": "apology_repair"
+  },
+  {
+    "topic": "a long journey you had and would like to take again",
+    "l1": "experience_activity",
+    "l2": "leisure",
+    "l3": "travel"
+  },
+  {
+    "topic": "a great dinner you and your friend or family members enjoyed",
+    "l1": "people",
+    "l2": "close_bonds",
+    "l3": "family_activity"
+  },
+  {
+    "topic": "a time when the electricity suddenly went off at where you live",
+    "l1": "object",
+    "l2": "intangible",
+    "l3": "technology"
+  },
+  {
+    "topic": "a time when you received good service from a staff member in a shop",
+    "l1": "experience_activity",
+    "l2": "leisure",
+    "l3": "shopping"
+  },
+  {
+    "topic": "a person you know who enjoys working for a family business (e.g. a shop,etc)",
+    "l1": "experience_activity",
+    "l2": "leisure",
+    "l3": "shopping"
+  },
+  {
+    "topic": "a toy you liked in your childhood",
+    "l1": "abstract_concepts",
+    "l2": "time",
+    "l3": "childhood"
+  },
+  {
+    "topic": "a natural talent (sports, music, etc.) you would like to improve",
+    "l1": "experience_activity",
+    "l2": "leisure",
+    "l3": "entertainment"
+  },
+  {
+    "topic": "a time when you lost your way",
+    "l1": "experience_activity",
+    "l2": "leisure",
+    "l3": "travel"
+  },
+  {
+    "topic": "a good friend who is important to you",
+    "l1": "people",
+    "l2": "close_bonds",
+    "l3": "friendship"
+  },
+  {
+    "topic": "an interesting traditional story",
+    "l1": "object",
+    "l2": "intangible",
+    "l3": "book_or_reading_material"
+  },
+  {
+    "topic": "a habit your friend has and you want to develop",
+    "l1": "abstract_concepts",
+    "l2": "personal_growth",
+    "l3": "self_improvement"
+  },
+  {
+    "topic": "a wild animal that you want to know more about",
+    "l1": "abstract_concepts",
+    "l2": "values",
+    "l3": "animal_welfare"
+  },
+  {
+    "topic": "a friend of yours who is good at music/singing",
+    "l1": "experience_activity",
+    "l2": "leisure",
+    "l3": "entertainment"
+  },
+  {
+    "topic": "an area/subject of science (biology,robotics, etc.) that you are interested in and would like to learn more about",
+    "l1": "experience_activity",
+    "l2": "study",
+    "l3": "study_subject"
+  },
+  {
+    "topic": "a quiet place you like to go",
+    "l1": "place",
+    "l2": "outdoor",
+    "l3": "nature_place"
+  },
+  {
+    "topic": "something that you can’t live without (not a computer/phone)",
+    "l1": "object",
+    "l2": "intangible",
+    "l3": "technology"
+  },
+  {
+    "topic": "an occasion when you lost your way",
+    "l1": "experience_activity",
+    "l2": "leisure",
+    "l3": "travel"
+  },
+  {
+    "topic": "a time when the electricity suddenly went off",
+    "l1": "object",
+    "l2": "intangible",
+    "l3": "technology"
+  },
+  {
+    "topic": "a successful sportsperson you admire",
+    "l1": "people",
+    "l2": "professions",
+    "l3": "sportsperson"
+  },
+  {
+    "topic": "a time when you received good service in a shop/store",
+    "l1": "place",
+    "l2": "indoor",
+    "l3": "shopping_venue"
+  },
+  {
+    "topic": "a city that you have been to and would like to visit again",
+    "l1": "place",
+    "l2": "outdoor",
+    "l3": "city_space"
+  },
+  {
+    "topic": "a shop/store you enjoy visiting",
+    "l1": "experience_activity",
+    "l2": "leisure",
+    "l3": "shopping"
+  },
+  {
+    "topic": "a TV or online program you like to watch",
+    "l1": "object",
+    "l2": "intangible",
+    "l3": "media"
+  }
+]

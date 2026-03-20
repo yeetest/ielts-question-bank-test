@@ -1,0 +1,9 @@
+================================================================================
+PLACEHOLDER — NOT REAL May–Aug 2026 CONTENT
+================================================================================
+This folder was initialized by copying 2026-01-to-04 data. Only `season` was
+rewritten to 2026-05-to-08. Replace merged_part1.json, merged_part2.json, and
+topic_taxonomy_v2_final.json when you have real quarter data.
+
+Do NOT edit data/quarters/2026-01-to-04/ for routine May–Aug work.
+================================================================================

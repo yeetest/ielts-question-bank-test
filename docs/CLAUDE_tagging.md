@@ -3,6 +3,8 @@
 This file is the permanent reference for how to tag topics and questions in `merged_part1.json` and `merged_part2.json`.
 Follow it exactly for all current and future question banks.
 
+**Where those files live for the live site:** under `data/quarters/<quarter-id>/` (e.g. frozen `2026-01-to-04`, editable placeholder `2026-05-to-08`). Root `merged_part*.json` may still exist as legacy copies — tagging rules are the same regardless of path.
+
 ---
 
 ## Content Tags (`content_tags`) — 3-Layer System

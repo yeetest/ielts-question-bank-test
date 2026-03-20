@@ -2,10 +2,21 @@
 
 ## Project Overview
 Personal IELTS Speaking question bank tool for Kathy (IELTS teacher).
-- JSON = source of truth. `index.html` fetches data at runtime via `fetch()`.
+- JSON = source of truth. `index.html` fetches data at runtime via `fetch()` from `data/quarters/<quarter-id>/` (quarter switcher + `?quarter=`). Root `merged_part1.json` / `merged_part2.json` are legacy mirrors; **edit May–Aug only under `data/quarters/2026-05-to-08/`**. **Do not change `data/quarters/2026-01-to-04/`** except intentional freeze corrections.
 - Deployed: GitHub main branch → Vercel auto-deploy.
 - **No Claude API calls.** Use Claude Code intelligence only.
 - Git push uses proxy: `http://127.0.0.1:7897`
+
+## Quarter switching (website)
+
+- The **same** frontend (all `js/`, `css/`, sidebar, filters, tags, grid, modal) serves **two** datasets.
+- **Quarter IDs:** `2026-01-to-04` | `2026-05-to-08`
+- **Load paths:** `data/quarters/<quarter-id>/merged_part1.json`, `merged_part2.json`, `topic_taxonomy_v2_final.json`
+- **`2026-01-to-04`:** frozen stable copy — **do not edit** for routine work or May–Aug updates.
+- **`2026-05-to-08`:** currently **placeholder** (copy of 1–4 with `season` rewritten). Real May–Aug: replace only these three files in that folder.
+- **URL:** `?quarter=2026-01-to-04` or `?quarter=2026-05-to-08`. Missing/invalid param → default **`2026-01-to-04`**. UI dropdown syncs the URL via `history.replaceState`.
+- **Local preview:** from repo root, `python3 -m http.server <port>` then open `/` with optional `?quarter=…` (avoid `file://` for `fetch`).
+- **Root** `merged_part1.json` / `merged_part2.json` are legacy mirrors; site reads **`data/quarters/…`**.
 
 ## Folder Structure
 ```
@@ -13,8 +24,13 @@ ielts-question-bank-test/
 ├── CLAUDE.md
 ├── .gitignore
 ├── index.html
-├── merged_part1.json
+├── merged_part1.json          (legacy; site uses data/quarters/…)
 ├── merged_part2.json
+├── data/
+│   ├── topic_taxonomy_v2_final.json   (legacy duplicate; site uses per-quarter copy)
+│   └── quarters/
+│       ├── 2026-01-to-04/   (frozen)
+│       └── 2026-05-to-08/   (active new quarter)
 ├── tags/
 │   └── tags.txt             (ground truth tag vocabulary, tracked by git)
 ├── docs/
@@ -32,6 +48,7 @@ ielts-question-bank-test/
     ├── tag_content_v2.py        (auto-tags topics with content_tags v2 via keyword matching)
     ├── tag_content_topics.py    (auto-tags topics with content_tags via fuzzy lookup + Claude batch)
     ├── tag_time_frames.py       (auto-tags questions with time_frame via keyword matching)
+    ├── generate_topic_hierarchy_markdown.py (exports topic hierarchy markdown for markmap check)
     └── ingest_pipeline.py       (future: ingest new source files)
 ```
 
@@ -171,6 +188,7 @@ Auto-tags questions with `skill_tags` via keyword matching. Unified 8-type taxon
 python3 pipeline/tag_question_types.py merged_part1.json --part 1
 python3 pipeline/tag_question_types.py merged_part2.json
 ```
+For **May–Aug** quarter files, pass paths under `data/quarters/2026-05-to-08/` (do not run against `data/quarters/2026-01-to-04/` unless intentionally updating the freeze).
 
 ### tag_content_v2.py
 Auto-tags topics with `content_tags` using v2 taxonomy (5 L1 → 15 L2 → 30 L3) via weighted keyword matching. Topic name gets higher weight than question text.
@@ -203,6 +221,21 @@ python3 pipeline/renumber_questions.py merged_part1.json
 python3 pipeline/renumber_questions.py merged_part2.json
 ```
 
+### generate_topic_hierarchy_markdown.py
+Exports a topic hierarchy markdown for quick visual validation in TryMarkmap.
+Hierarchy is fixed to:
+- L1 (`content_tags.l1`)
+- L2 (`content_tags.l2`)
+- L3 (`content_tags.l3`)
+- Questions/contents under each path
+
+Output file (overwritten each run):
+`human-in-the-loop/topic_hierarchy.md`
+
+```bash
+python3 pipeline/generate_topic_hierarchy_markdown.py
+```
+
 ### ingest_pipeline.py
 For ingesting new source files into the question bank (future use).
 
@@ -214,8 +247,8 @@ git push
 ```
 
 ## Conventions
-- Never embed data in `index.html` — always `fetch()` from JSON files
-- Always preserve `season` field as-is (e.g. `"2026-Jan-Apr"`)
+- Never embed data in `index.html` — always `fetch()` from JSON files under `data/quarters/<quarter-id>/`
+- Preserve each topic’s `season` consistently within its quarter folder (frozen 1–4 topics keep e.g. `"2026-Jan-Apr"`; May–Aug folder uses `"2026-05-to-08"` unless you standardize otherwise)
 - Strip all Chinese characters and zero-width chars from English fields
 - `content_tags` is a 3-layer object `{"l1": str, "l2": [...], "l3": [...]}` — NOT a flat array
 - `qualifier_tags` is a separate flat array for tone/quality descriptors

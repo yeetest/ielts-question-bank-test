@@ -1,4 +1,5 @@
 export const state = {
+  currentQuarterId: '2026-01-to-04',
   part1Data: [],        // array of Part 1 topic objects from merged_part1.json
   part2Data: [],        // array of Part 2+3 topic objects from merged_part2.json
   taxonomyV2Map: new Map(), // topic -> { l1, l2, l3 } runtime mapping
