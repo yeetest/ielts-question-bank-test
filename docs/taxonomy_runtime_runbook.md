@@ -8,6 +8,12 @@ This is the **minimal closed loop** from topic `content_tags` in merged JSON →
 
 ---
 
+## Step 0 — Part 2 topic de-duplication (grid cards)
+
+If ingest produced **two topic objects** for the same cue (different English phrasing), run **`pipeline/dedup_topics_part2.py`** on that quarter’s `merged_part2.json` before Step 2. Then **`pipeline/dedup_questions.py`** and **`pipeline/renumber_questions.py`** on the same file. Details and keep-best rules: script docstring and `docs/season_rollover_runbook.md` §4.
+
+---
+
 ## Step 1 — New topics in merged JSON with `content_tags`
 
 | | |

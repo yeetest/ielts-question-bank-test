@@ -211,6 +211,16 @@ python3 pipeline/tag_time_frames.py merged_part2.json
 python3 pipeline/tag_time_frames.py merged_part1.json --part 1 --overwrite  # re-tag all
 ```
 
+### dedup_topics_part2.py
+Merges **near-duplicate Part 2 topic records** (one cue card, two titles) so the UI does not show two grid cards. Run on quarter `merged_part2.json` **before** assign → backfill → export. **Keep-best:** more Part 3 questions → more `you_should_say` bullets → richer `content_tags` → non-empty `season` → source tier (tongzhuo > laokaoya > yasige) → shorter `topic` string. Surviving topic keeps its title/prompt; Part 3 lists are merged then fuzzy-deduped (`dedup_questions`).
+
+```bash
+python3 pipeline/dedup_topics_part2.py --quarter 2026-01-to-04 --dry-run
+python3 pipeline/dedup_topics_part2.py --quarter 2026-01-to-04
+python3 pipeline/dedup_questions.py data/quarters/2026-01-to-04/merged_part2.json
+python3 pipeline/renumber_questions.py data/quarters/2026-01-to-04/merged_part2.json
+```
+
 ### dedup_questions.py
 Removes near-duplicate questions within each topic using fuzzy matching.
 ```bash
@@ -245,7 +255,7 @@ For ingesting new source files into the question bank (future use).
 
 ### Taxonomy runtime loop (sidebar `topic_taxonomy_v2_final.json`)
 
-**Do not hand-edit** `data/quarters/<quarter>/topic_taxonomy_v2_final.json`. Flow: **`content_tags`** in merged JSON → optional **`build_topic_taxonomy_view_v2.py`** (still reads **root** merged only) → **`assign_primary_l3_v2.py`** (if the card already lists `content_tags.l3`, primary is chosen only from those labels plus a small **legacy→canonical** map, so runtime primary stays a subset of the card) → **`backfill_content_tags_l3_from_assignment.py`** (empty `l3` → append assignment primary; **plus** global append of canonical peers for legacy tokens e.g. `traveling`→`travel`) → optional minimal edit **`config/topic_taxonomy_v2_curated.yaml`** → **`export_runtime_taxonomy_v2.py`** → **`check_taxonomy_runtime_consistency.py`**.
+**Do not hand-edit** `data/quarters/<quarter>/topic_taxonomy_v2_final.json`. Flow: **`content_tags`** in merged JSON → after ingest, **`dedup_topics_part2.py`** + **`dedup_questions.py`** / **`renumber_questions.py`** on quarter `merged_part2.json` when needed → optional **`build_topic_taxonomy_view_v2.py`** (still reads **root** merged only) → **`assign_primary_l3_v2.py`** (if the card already lists `content_tags.l3`, primary is chosen only from those labels plus a small **legacy→canonical** map, so runtime primary stays a subset of the card) → **`backfill_content_tags_l3_from_assignment.py`** (empty `l3` → append assignment primary; **plus** global append of canonical peers for legacy tokens e.g. `traveling`→`travel`) → optional minimal edit **`config/topic_taxonomy_v2_curated.yaml`** → **`export_runtime_taxonomy_v2.py`** → **`check_taxonomy_runtime_consistency.py`**.
 
 Full steps: **`docs/taxonomy_runtime_runbook.md`**.
 

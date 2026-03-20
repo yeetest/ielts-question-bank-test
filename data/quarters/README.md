@@ -18,7 +18,7 @@ One `index.html`, one `js/` tree, one `css/` tree. Switching quarters **only** s
 Each folder must contain:
 
 1. `merged_part1.json`
-2. `merged_part2.json`
+2. `merged_part2.json` — if two rows describe the same Part 2 cue with different titles, run **`pipeline/dedup_topics_part2.py --quarter <id>`** before taxonomy export (see `docs/season_rollover_runbook.md`)
 3. `topic_taxonomy_v2_final.json` — per-quarter taxonomy map so topic sets can differ without cross-quarter pollution
 
 ## Updating real May–Aug data later

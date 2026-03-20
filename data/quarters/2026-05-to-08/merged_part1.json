@@ -53,7 +53,9 @@
       "l2": [
         "routines"
       ],
-      "l3": []
+      "l3": [
+        "daily_life_pattern"
+      ]
     },
     "qualifier_tags": []
   },
@@ -120,7 +122,9 @@
       "l2": [
         "time"
       ],
-      "l3": []
+      "l3": [
+        "life_stage"
+      ]
     },
     "qualifier_tags": []
   },
@@ -168,7 +172,9 @@
       "l2": [
         "outdoor"
       ],
-      "l3": []
+      "l3": [
+        "scenery"
+      ]
     },
     "qualifier_tags": []
   },
@@ -224,7 +230,9 @@
       "l2": [
         "outdoor"
       ],
-      "l3": []
+      "l3": [
+        "scenery"
+      ]
     },
     "qualifier_tags": []
   },
@@ -283,7 +291,9 @@
       "l2": [
         "time"
       ],
-      "l3": []
+      "l3": [
+        "childhood"
+      ]
     },
     "qualifier_tags": []
   },
@@ -323,7 +333,9 @@
       "l2": [
         "indoor"
       ],
-      "l3": []
+      "l3": [
+        "building"
+      ]
     },
     "qualifier_tags": []
   },
@@ -578,7 +590,9 @@
       "l2": [
         "tangible"
       ],
-      "l3": []
+      "l3": [
+        "gift_item"
+      ]
     },
     "qualifier_tags": [
       "sentimental"
@@ -638,7 +652,9 @@
       "l2": [
         "routines"
       ],
-      "l3": []
+      "l3": [
+        "morning_routine"
+      ]
     },
     "qualifier_tags": []
   },
@@ -745,7 +761,9 @@
       "l2": [
         "tangible"
       ],
-      "l3": []
+      "l3": [
+        "food_gardening_item"
+      ]
     },
     "qualifier_tags": []
   },
@@ -868,7 +886,9 @@
       "l2": [
         "communication"
       ],
-      "l3": []
+      "l3": [
+        "sharing"
+      ]
     },
     "qualifier_tags": []
   },
@@ -918,7 +938,9 @@
       "l2": [
         "routines"
       ],
-      "l3": []
+      "l3": [
+        "rest_break"
+      ]
     },
     "qualifier_tags": []
   },
@@ -967,7 +989,9 @@
       "l2": [
         "communication"
       ],
-      "l3": []
+      "l3": [
+        "resource_exchange"
+      ]
     },
     "qualifier_tags": []
   },
@@ -1138,7 +1162,9 @@
       "l2": [
         "tangible"
       ],
-      "l3": []
+      "l3": [
+        "food_gardening_item"
+      ]
     },
     "qualifier_tags": []
   },
@@ -1186,7 +1212,9 @@
       "l2": [
         "indoor"
       ],
-      "l3": []
+      "l3": [
+        "museum"
+      ]
     },
     "qualifier_tags": []
   },
@@ -1234,7 +1262,9 @@
       "l2": [
         "outdoor"
       ],
-      "l3": []
+      "l3": [
+        "public_place"
+      ]
     },
     "qualifier_tags": []
   },
@@ -1331,7 +1361,9 @@
       "l2": [
         "general"
       ],
-      "l3": []
+      "l3": [
+        "elderly_people"
+      ]
     },
     "qualifier_tags": []
   },
@@ -1372,7 +1404,8 @@
         "personal_growth"
       ],
       "l3": [
-        "self-improvement"
+        "self-improvement",
+        "self_improvement"
       ]
     },
     "qualifier_tags": []
@@ -1421,7 +1454,9 @@
       "l2": [
         "tangible"
       ],
-      "l3": []
+      "l3": [
+        "personal_item"
+      ]
     },
     "qualifier_tags": []
   },
@@ -1535,7 +1570,9 @@
       "l2": [
         "outdoor"
       ],
-      "l3": []
+      "l3": [
+        "public_place"
+      ]
     },
     "qualifier_tags": []
   },
@@ -1583,7 +1620,9 @@
       "l2": [
         "tangible"
       ],
-      "l3": []
+      "l3": [
+        "food_gardening_item"
+      ]
     },
     "qualifier_tags": []
   },
@@ -1631,7 +1670,9 @@
       "l2": [
         "routines"
       ],
-      "l3": []
+      "l3": [
+        "leisure_time"
+      ]
     },
     "qualifier_tags": []
   },
@@ -1696,7 +1737,9 @@
       "l2": [
         "tangible"
       ],
-      "l3": []
+      "l3": [
+        "photography_item"
+      ]
     },
     "qualifier_tags": []
   },
@@ -1801,7 +1844,9 @@
       "l2": [
         "outdoor"
       ],
-      "l3": []
+      "l3": [
+        "city_space"
+      ]
     },
     "qualifier_tags": []
   },
@@ -2024,7 +2069,9 @@
       "l2": [
         "indoor"
       ],
-      "l3": []
+      "l3": [
+        "home"
+      ]
     },
     "qualifier_tags": []
   },
@@ -2208,7 +2255,9 @@
       "l2": [
         "outdoor"
       ],
-      "l3": []
+      "l3": [
+        "city_space"
+      ]
     },
     "qualifier_tags": []
   },
@@ -2330,7 +2379,9 @@
       "l2": [
         "outdoor"
       ],
-      "l3": []
+      "l3": [
+        "neighborhood_area"
+      ]
     },
     "qualifier_tags": []
   },
@@ -2429,7 +2480,9 @@
       "l2": [
         "tangible"
       ],
-      "l3": []
+      "l3": [
+        "personal_item"
+      ]
     },
     "qualifier_tags": [],
     "season": "2026-05-to-08"
@@ -2493,7 +2546,9 @@
       "l2": [
         "communication"
       ],
-      "l3": []
+      "l3": [
+        "conversation"
+      ]
     },
     "qualifier_tags": []
   },
@@ -2541,7 +2596,9 @@
       "l2": [
         "routines"
       ],
-      "l3": []
+      "l3": [
+        "memory_reflection"
+      ]
     },
     "qualifier_tags": [
       "memorable"
@@ -2623,7 +2680,9 @@
         "study",
         "work"
       ],
-      "l3": []
+      "l3": [
+        "work_life_balance"
+      ]
     },
     "qualifier_tags": [],
     "questions": [
@@ -2769,7 +2828,9 @@
       "l2": [
         "study"
       ],
-      "l3": []
+      "l3": [
+        "study_subject"
+      ]
     },
     "qualifier_tags": [],
     "questions": [

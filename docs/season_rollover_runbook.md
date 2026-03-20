@@ -61,9 +61,14 @@ data/quarters/
 
 Run from repo root, with **the same `<quarter-id>`** as the folder name under `data/quarters/`.
 
+**Data quality (before taxonomy):** After dropping in new `merged_part2.json`, run **topic-level** near-duplicate merge so the grid does not show two cards for the same cue (e.g. “TV/online … enjoy watching” vs “TV or online … like to watch”). See `pipeline/dedup_topics_part2.py` docstring for **keep-best** rules. Then dedupe Part 3 lines inside each topic and renumber.
+
 | Step | Command | What it does |
 |------|---------|----------------|
-| 1 | `python3 pipeline/assign_primary_l3_v2.py --quarter <id>` | Reads merged JSON + `config/topic_taxonomy_v2_curated.yaml`; writes `human-in-the-loop/topic_taxonomy_assignment_v2_part1.json` and `..._part2.json`. Does **not** overwrite `content_tags` in merged files. |
+| 0a | `python3 pipeline/dedup_topics_part2.py --quarter <id> --dry-run` | Lists clusters that would merge; then run without `--dry-run` to write `merged_part2.json`. |
+| 0b | `python3 pipeline/dedup_questions.py data/quarters/<id>/merged_part2.json` | Fuzzy dedup **within** each topic’s `part3` (and Part 1 `questions` if you pass part1 path). |
+| 0c | `python3 pipeline/renumber_questions.py data/quarters/<id>/merged_part2.json` | Sequential `1.` … numbering after edits. |
+| 1 | `python3 pipeline/assign_primary_l3_v2.py --quarter <id>` | Reads merged JSON + `config/topic_taxonomy_v2_curated.yaml`; writes `human-in-the-loop/topic_taxonomy_assignment_v2_part1.json` and `..._part2.json`. Does **not** overwrite `content_tags` in merged files. **Note:** this path is **global** — if you assign quarter B then quarter A, re-run assign for **A** before exporting A. |
 | 2 | `python3 pipeline/backfill_content_tags_l3_from_assignment.py --quarter <id>` | (a) Appends assignment `primary.l3` when `content_tags.l3` is empty; (b) **legacy canonical append** for known tokens (`traveling`→`travel`, etc.). Updates merged JSON in place. |
 | 3 | `python3 pipeline/export_runtime_taxonomy_v2.py --quarter <id>` | Writes `data/quarters/<id>/topic_taxonomy_v2_final.json` from assignment outputs. |
 | 4 | `python3 pipeline/check_taxonomy_runtime_consistency.py --quarter <id> --strict` | Fails if a merged topic lacks a taxonomy row, empty taxonomy `l1`, or Part2 **subset** mismatch vs `content_tags`. **Do not relax** the checker to “make it pass”. |
@@ -77,7 +82,7 @@ Optional first pass: step 2 with `--dry-run` to audit before writing merged file
 1. **Create** `data/quarters/<new-quarter>/` (copy layout from an existing quarter if helpful).
 2. **Place** `merged_part1.json` and `merged_part2.json` (valid schemas per `CLAUDE.md`).
 3. **Register** the quarter in `js/data.js` and `index.html` **if** it is a new id (not already in `QUARTER_IDS`).
-4. Run **assign → backfill → export → check --strict** (§4).
+4. Run **0a–0c** (topic dedup + question dedup + renumber on Part 2 JSON), then **assign → backfill → export → check --strict** (§4).
 5. **Local preview:** `python3 -m http.server 8765` from repo root; open `http://127.0.0.1:8765/?quarter=<id>`.
 6. **Smoke-test UI:** switch quarter in dropdown; confirm load succeeds; spot-check a known topic (e.g. sidebar primary L1/L2/L3 vs card `content_tags`).
 7. **Update memory:** `data/quarters/README.md`, and any affected lines in `CLAUDE.md` / `README_ARCH.md` / `README.md` (see `docs/working_rules.md`).
@@ -102,6 +107,7 @@ Optional first pass: step 2 with `--dry-run` to audit before writing merged file
 ## 7. Pitfalls / do not
 
 - Do **not** hand-edit `topic_taxonomy_v2_final.json` — you lose traceability and drift from assignment.
+- Do **not** rely only on **question-level** `dedup_questions.py` — it does not remove **duplicate Part 2 topic objects** with different titles; use **`dedup_topics_part2.py`** when ingest creates near-duplicate cue cards.
 - Do **not** skip **backfill** — empty `l3` and legacy spellings will break or weaken subset alignment.
 - Do **not** change only the frontend and assume the bank is aligned; **merged + export** are the source of truth for taxonomy rows the UI reads.
 - Do **not** forget to update **project memory** (`CLAUDE.md`, `README_ARCH.md`, relevant `docs/*`) when the workflow or quarter list changes.

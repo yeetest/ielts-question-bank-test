@@ -1935,7 +1935,8 @@
         "What it is about",
         "Which country it is from",
         "When you watch it",
-        "And explain why you like to watch it"
+        "And explain why you like to watch it",
+        "Who you watch it with"
       ]
     },
     "part3": [
@@ -1948,8 +1949,8 @@
         ]
       },
       {
-        "text": "2. Do people in your country like to watch foreignTV programs?",
-        "source": "tongzhuo",
+        "text": "2. Do people in your country like to watch foreign TV programs?",
+        "source": "yasige",
         "time_frame": "present",
         "skill_tags": [
           "description"
@@ -4494,42 +4495,6 @@
       ],
       "l3": [
         "shopping"
-      ]
-    },
-    "qualifier_tags": []
-  },
-  {
-    "topic": "a TV or online program you like to watch",
-    "part": 2,
-    "season": "",
-    "cue_card": {
-      "prompt": "Describe a TV or online program you like to watch",
-      "you_should_say": [
-        "What it is",
-        "What it is about",
-        "Who you watch it with",
-        "And explain why you like to watch it"
-      ]
-    },
-    "part3": [
-      {
-        "text": "1. Do people in your country like to watch foreign TV programs?",
-        "source": "yasige",
-        "time_frame": "present",
-        "skill_tags": [
-          "description"
-        ]
-      }
-    ],
-    "content_tags": {
-      "l1": "object",
-      "l2": [
-        "intangible",
-        "tangible"
-      ],
-      "l3": [
-        "media",
-        "technology"
       ]
     },
     "qualifier_tags": []

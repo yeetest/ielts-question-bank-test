@@ -610,11 +610,5 @@
     "l1": "experience_activity",
     "l2": "leisure",
     "l3": "shopping"
-  },
-  {
-    "topic": "a TV or online program you like to watch",
-    "l1": "object",
-    "l2": "intangible",
-    "l3": "media"
   }
 ]
