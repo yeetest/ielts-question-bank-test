@@ -198,12 +198,13 @@ The site loads **`data/quarters/<quarter>/topic_taxonomy_v2_final.json`** for `t
 
 1. Merged JSON has **`content_tags`** (input layer).
 2. Optional **`pipeline/build_topic_taxonomy_view_v2.py`** (reads **root** merged only). **`pipeline/assign_primary_l3_v2.py --quarter <id>`** (or `--part1` / `--part2`) → `human-in-the-loop/topic_taxonomy_assignment_v2_part*.json`.
-3. **`python3 pipeline/backfill_content_tags_l3_from_assignment.py --quarter <id>`** — when `content_tags.l3` is empty, append assignment `primary.l3`; always run the **legacy canonical append** pass (e.g. `traveling`→`travel`, `learning`→`learning_growth`) so subset checks can see YAML spellings (see runbook).
+3. **`python3 pipeline/backfill_content_tags_l3_from_assignment.py --quarter <id>`** — when `content_tags.l3` is empty, append assignment `primary.l3`; always run the **legacy canonical append** pass (see `LEGACY_CONTENT_L3_TO_CURATED` map for current mappings; e.g. `traveling`→`travel`, `learning`/`learning_growth`→`life_lesson`) so subset checks can see YAML spellings (see runbook).
 4. If diagnostics require it, minimally edit **`config/topic_taxonomy_v2_curated.yaml`**, then re-run assign and backfill.
 5. **`python3 pipeline/export_runtime_taxonomy_v2.py --quarter <id>`** → writes flat runtime taxonomy.
 6. **`python3 pipeline/check_taxonomy_runtime_consistency.py --quarter <id> --strict`** before release.
+7. **`python3 pipeline/audit_taxonomy_structure.py --quarter <id> --strict`** — structural audit: no dual-homed L3, no orphan content L3, no name collisions. Rules: **`docs/taxonomy_structural_rules.md`**.
 
-Authoritative copy-paste workflow: **`docs/taxonomy_runtime_runbook.md`**. To **rebuild** the sidebar taxonomy from current quarter merged JSON (assign → backfill → export → check), follow the same doc § **Alignment validation**.
+Authoritative copy-paste workflow: **`docs/taxonomy_runtime_runbook.md`**. To **rebuild** the sidebar taxonomy from current quarter merged JSON (assign → backfill → export → check → audit), follow the same doc § **Alignment validation**.
 
 ## Project memory protocol
 

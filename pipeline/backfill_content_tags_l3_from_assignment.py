@@ -28,8 +28,15 @@ ROOT = Path(__file__).resolve().parent.parent
 # Same map as assign_primary_l3_v2.LEGACY_CONTENT_L3_TO_CURATED — append YAML spellings for subset check.
 LEGACY_CONTENT_L3_TO_CURATED = {
     "traveling": "travel",
-    "learning": "learning_growth",
+    "learning": "life_lesson",
+    "learning_growth": "life_lesson",
     "decision": "decision_making",
+    "fear": "anxiety",
+    "family_activity": "family_gathering",
+    "workplace_experience": "work_environment",
+    "professional_growth": "career_development",
+    "service_experience": "customer_service",
+    "leisure_time": "hobby",
 }
 
 

@@ -25,7 +25,7 @@ l1:
         - decision_making
         - goal_setting
         - problem_solving
-        - learning_growth
+        - life_lesson
         - resilience
     personal_traits:
       l3:
@@ -33,7 +33,6 @@ l1:
         - confidence
         - independence
         - discipline
-        - responsibility
         - kindness
     time:
       l3:
@@ -74,9 +73,7 @@ l1:
         - morning_routine
         - habit_building
         - rest_break
-        - leisure_time
         - self_care_routine
-        - memory_reflection
     study:
       l3:
         - study_subject
@@ -88,11 +85,11 @@ l1:
     work:
       l3:
         - career_planning
-        - workplace_experience
+        - work_environment
         - job_role
         - work_life_balance
-        - professional_growth
-        - service_experience
+        - career_development
+        - customer_service
 
   object:
     intangible:
@@ -118,9 +115,8 @@ l1:
         - family_bond
         - friendship
         - supportive_relationship
-        - family_activity
+        - family_gathering
         - family_pride_moment
-        - childhood
     professions:
       l3:
         - sportsperson

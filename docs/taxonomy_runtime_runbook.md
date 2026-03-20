@@ -4,7 +4,7 @@ This is the **minimal closed loop** from topic `content_tags` in merged JSON →
 
 **Do not hand-edit** `data/quarters/<quarter>/topic_taxonomy_v2_final.json`. Regenerate it with **`pipeline/export_runtime_taxonomy_v2.py`** after assignment outputs change.
 
-**Backfill (formal):** After assign, run **`pipeline/backfill_content_tags_l3_from_assignment.py`**: (1) topics with empty `content_tags.l3` receive the assignment `primary.l3` (append only); (2) **legacy canonical append** on all topics with non-empty l3 — appends YAML spellings for known legacy tokens (`traveling`→`travel`, `learning`→`learning_growth`, `decision`→`decision_making`, and `self_improvement` when only `self-improvement` appears). Keeps merged JSON aligned with the strict subset check without relaxing the checker.
+**Backfill (formal):** After assign, run **`pipeline/backfill_content_tags_l3_from_assignment.py`**: (1) topics with empty `content_tags.l3` receive the assignment `primary.l3` (append only); (2) **legacy canonical append** on all topics with non-empty l3 — appends YAML spellings for known legacy tokens (see `LEGACY_CONTENT_L3_TO_CURATED` map in script; includes `traveling`→`travel`, `learning`/`learning_growth`→`life_lesson`, `fear`→`anxiety`, `family_activity`→`family_gathering`, `workplace_experience`→`work_environment`, `leisure_time`→`hobby`, etc., and `self_improvement` when only `self-improvement` appears). Keeps merged JSON aligned with the strict subset check without relaxing the checker.
 
 ---
 
@@ -67,7 +67,7 @@ python3 pipeline/assign_primary_l3_v2_refined.py --quarter 2026-01-to-04
 
 Assign **does not** overwrite `content_tags` (see script docstring).
 
-**Subset alignment (built-in):** When `content_tags.l3` is non-empty, the engine builds a set of **curated labels** from those strings (including `LEGACY_CONTENT_L3_TO_CURATED` in `assign_primary_l3_v2.py`: e.g. `learning`→`learning_growth`). If any aligned candidate scores above threshold, the winner is chosen **only from that aligned set** — otherwise the global top score wins. Tie-break uses the order of `content_tags.l2` on the card. `happiness` hints omit `enjoy` so phrases like “didn’t enjoy” do not steal the primary from `anger` / `learning_growth`.
+**Subset alignment (built-in):** When `content_tags.l3` is non-empty, the engine builds a set of **curated labels** from those strings (including `LEGACY_CONTENT_L3_TO_CURATED` in `assign_primary_l3_v2.py`: e.g. `learning`→`life_lesson`, `fear`→`anxiety`). If any aligned candidate scores above threshold, the winner is chosen **only from that aligned set** — otherwise the global top score wins. Tie-break uses the order of `content_tags.l2` on the card. `happiness` hints omit `enjoy` so phrases like “didn’t enjoy” do not steal the primary from `anger` / `life_lesson`.
 
 ---
 
@@ -141,6 +141,8 @@ python3 pipeline/check_taxonomy_runtime_consistency.py --quarter 2026-01-to-04 -
 
 Deeper **content_tags vs taxonomy** audit (report only): `docs/content_tags_vs_taxonomy_v2_audit_2026-01-to-04.md` methodology; **缺失:** single automated markdown reporter for arbitrary quarter (optional future).
 
+**Structural audit (recommended):** Run **`pipeline/audit_taxonomy_structure.py --quarter <id> --strict`** after check to verify no dual-homed L3s, no orphan content L3s, no L3-name/L2-name collisions. Rule: each L3 must have exactly one home (L1>L2 parent); exceptions require explicit whitelist in the script's `DUAL_HOME_WHITELIST`. See script docstring for all check codes.
+
 ---
 
 ## Alignment validation (rebuild + diff)
@@ -174,12 +176,14 @@ python3 pipeline/backfill_content_tags_l3_from_assignment.py --quarter 2026-01-t
 
 python3 pipeline/export_runtime_taxonomy_v2.py --quarter 2026-01-to-04
 python3 pipeline/check_taxonomy_runtime_consistency.py --quarter 2026-01-to-04 --strict
+python3 pipeline/audit_taxonomy_structure.py --quarter 2026-01-to-04 --strict
 ```
 
 ---
 
 ## Related design docs
 
+- `docs/taxonomy_structural_rules.md` — **L3 one-home rule**, naming conventions, dual-home whitelist, rename history
 - `docs/taxonomy_people_vs_personal_traits.md` — **`people` vs `abstract_concepts` → `personal_traits`** for Part 2 disposition cues
 - `docs/season_rollover_runbook.md` — onboarding a **new quarter folder** end-to-end (merged JSON → pipeline → `?quarter=` → git)
 - `docs/pipeline_v2_design.md` — view derivation, no production overwrite

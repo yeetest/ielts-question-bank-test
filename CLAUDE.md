@@ -53,6 +53,7 @@ ielts-question-bank-test/
     ├── tag_content_topics.py    (auto-tags topics with content_tags via fuzzy lookup + Claude batch)
     ├── tag_time_frames.py       (auto-tags questions with time_frame via keyword matching)
     ├── generate_topic_hierarchy_markdown.py (exports topic hierarchy markdown for markmap check)
+    ├── audit_taxonomy_structure.py (structural audit: dual-homes, broad L3s, orphan content L3s)
     └── ingest_pipeline.py       (future: ingest new source files)
 ```
 
@@ -260,12 +261,20 @@ Output file (overwritten each run):
 python3 pipeline/generate_topic_hierarchy_markdown.py
 ```
 
+### audit_taxonomy_structure.py
+Structural audit of the 3-level taxonomy hierarchy. Checks `config/topic_taxonomy_v2_curated.yaml` for: (1) **DUAL_HOME** — L3 under >1 L2 bucket (ERROR unless whitelisted); (2) **CROSS_L1** — L3 spanning different L1 categories (ERROR); (3) **NAME_COLLISION** — L3 name matching an L2 name (ERROR); (4) **CROSS_PARENT_NAME** — L3 name containing a non-parent L2 name (WARNING); (5) **BROAD_L3** — L3 with L2-level breadth patterns (WARNING); (6) **ORPHAN_CONTENT_L3** — L3 in `content_tags` but absent from YAML (WARNING); (7) **LEGACY_FORMAT** — hyphenated L3 in `content_tags` (INFO). Rules: each L3 must have exactly **one home** (L1>L2 parent); exceptions require explicit whitelist in the script.
+
+```bash
+python3 pipeline/audit_taxonomy_structure.py --quarter 2026-01-to-04
+python3 pipeline/audit_taxonomy_structure.py --quarter 2026-01-to-04 --strict
+```
+
 ### ingest_pipeline.py
 For ingesting new source files into the question bank (future use).
 
 ### Taxonomy runtime loop (sidebar `topic_taxonomy_v2_final.json`)
 
-**Do not hand-edit** `data/quarters/<quarter>/topic_taxonomy_v2_final.json`. Flow: **`content_tags`** in merged JSON → after ingest, **`dedup_topics_part2.py`** + **`dedup_questions.py`** / **`renumber_questions.py`** on quarter `merged_part2.json` when needed → **`remap_content_tags_disposition.py`** (people vs `experience/activity > work` and people vs `personal_traits` etc., see **`docs/taxonomy_people_vs_personal_traits.md`**) → optional **`build_topic_taxonomy_view_v2.py`** (still reads **root** merged only) → **`assign_primary_l3_v2.py`** (if the card already lists `content_tags.l3`, primary is chosen only from those labels plus a small **legacy→canonical** map, so runtime primary stays a subset of the card) → **`backfill_content_tags_l3_from_assignment.py`** (empty `l3` → append assignment primary; **plus** global append of canonical peers for legacy tokens e.g. `traveling`→`travel`) → optional minimal edit **`config/topic_taxonomy_v2_curated.yaml`** → **`export_runtime_taxonomy_v2.py`** → **`check_taxonomy_runtime_consistency.py`**.
+**Do not hand-edit** `data/quarters/<quarter>/topic_taxonomy_v2_final.json`. Flow: **`content_tags`** in merged JSON → after ingest, **`dedup_topics_part2.py`** + **`dedup_questions.py`** / **`renumber_questions.py`** on quarter `merged_part2.json` when needed → **`remap_content_tags_disposition.py`** (people vs `experience/activity > work` and people vs `personal_traits` etc., see **`docs/taxonomy_people_vs_personal_traits.md`**) → optional **`build_topic_taxonomy_view_v2.py`** (still reads **root** merged only) → **`assign_primary_l3_v2.py`** (if the card already lists `content_tags.l3`, primary is chosen only from those labels plus a small **legacy→canonical** map, so runtime primary stays a subset of the card) → **`backfill_content_tags_l3_from_assignment.py`** (empty `l3` → append assignment primary; **plus** global append of canonical peers for legacy tokens e.g. `traveling`→`travel`) → optional minimal edit **`config/topic_taxonomy_v2_curated.yaml`** → **`export_runtime_taxonomy_v2.py`** → **`check_taxonomy_runtime_consistency.py`** → **`audit_taxonomy_structure.py --strict`** (verify no dual-home, no orphan L3, no structural violations).
 
 Full steps: **`docs/taxonomy_runtime_runbook.md`**.
 
@@ -276,6 +285,7 @@ python3 pipeline/assign_primary_l3_v2.py --quarter 2026-01-to-04
 python3 pipeline/backfill_content_tags_l3_from_assignment.py --quarter 2026-01-to-04
 python3 pipeline/export_runtime_taxonomy_v2.py --quarter 2026-01-to-04
 python3 pipeline/check_taxonomy_runtime_consistency.py --quarter 2026-01-to-04 --strict
+python3 pipeline/audit_taxonomy_structure.py --quarter 2026-01-to-04 --strict
 ```
 
 **Assign inputs:** `--quarter <id>` or `--part1` + `--part2` paths, or default root `merged_part*.json`. **`assign_primary_l3_v2_refined.py`** supports the same flags.

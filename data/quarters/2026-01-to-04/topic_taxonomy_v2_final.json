@@ -182,8 +182,8 @@
   {
     "topic": "Spare time",
     "l1": "experience_activity",
-    "l2": "routines",
-    "l3": "leisure_time"
+    "l2": "leisure",
+    "l3": "hobby"
   },
   {
     "topic": "Taking photos",
@@ -241,8 +241,8 @@
   },
   {
     "topic": "Memory",
-    "l1": "experience_activity",
-    "l2": "routines",
+    "l1": "abstract_concepts",
+    "l2": "time",
     "l3": "memory_reflection"
   },
   {
@@ -308,8 +308,8 @@
   {
     "topic": "one of your friends who learned something without a teacher",
     "l1": "abstract_concepts",
-    "l2": "personal_growth",
-    "l3": "learning_growth"
+    "l2": "emotion",
+    "l3": "happiness"
   },
   {
     "topic": "a movie you watched and enjoyed recently",
@@ -333,7 +333,7 @@
     "topic": "something important that has been kept in your family for a long time",
     "l1": "people",
     "l2": "close_bonds",
-    "l3": "family_activity"
+    "l3": "family_gathering"
   },
   {
     "topic": "a bicycle/motorcycle/car trip you would like to take",
@@ -489,7 +489,7 @@
     "topic": "a great dinner you and your friend or family members enjoyed",
     "l1": "people",
     "l2": "close_bonds",
-    "l3": "family_activity"
+    "l3": "family_gathering"
   },
   {
     "topic": "a time when the electricity suddenly went off at where you live",
@@ -507,7 +507,7 @@
     "topic": "a person you know who enjoys working for a family business (e.g. a shop,etc)",
     "l1": "experience_activity",
     "l2": "work",
-    "l3": "workplace_experience"
+    "l3": "work_environment"
   },
   {
     "topic": "a toy you liked in your childhood",

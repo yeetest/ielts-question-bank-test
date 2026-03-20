@@ -150,7 +150,6 @@
         "work"
       ],
       "l3": [
-        "traveling",
         "travel"
       ]
     },
@@ -686,8 +685,7 @@
       ],
       "l3": [
         "happiness",
-        "learning",
-        "learning_growth"
+        "life_lesson"
       ]
     },
     "qualifier_tags": []
@@ -848,8 +846,7 @@
       ],
       "l3": [
         "anger",
-        "learning",
-        "learning_growth"
+        "life_lesson"
       ]
     },
     "qualifier_tags": []
@@ -1040,7 +1037,7 @@
         "close_bonds"
       ],
       "l3": [
-        "family_activity"
+        "family_gathering"
       ]
     },
     "qualifier_tags": [
@@ -2226,7 +2223,6 @@
         "personal_growth"
       ],
       "l3": [
-        "decision",
         "decision_making"
       ]
     },
@@ -2496,7 +2492,7 @@
         "personal_traits"
       ],
       "l3": [
-        "problem-solving",
+        "problem_solving",
         "regret"
       ]
     },
@@ -2788,7 +2784,6 @@
         "personal_growth"
       ],
       "l3": [
-        "self-improvement",
         "self_improvement"
       ]
     },
@@ -2870,7 +2865,7 @@
       ],
       "l3": [
         "adaptation",
-        "fear"
+        "anxiety"
       ]
     },
     "qualifier_tags": []
@@ -3026,7 +3021,6 @@
         "leisure"
       ],
       "l3": [
-        "traveling",
         "travel"
       ]
     },
@@ -3102,7 +3096,7 @@
         "close_bonds"
       ],
       "l3": [
-        "family_activity"
+        "family_gathering"
       ]
     },
     "qualifier_tags": []
@@ -3330,7 +3324,7 @@
         "work"
       ],
       "l3": [
-        "workplace_experience"
+        "work_environment"
       ]
     },
     "qualifier_tags": []
@@ -3577,7 +3571,6 @@
         "leisure"
       ],
       "l3": [
-        "traveling",
         "travel"
       ]
     },
@@ -3812,7 +3805,6 @@
         "personal_growth"
       ],
       "l3": [
-        "self-improvement",
         "self_improvement"
       ]
     },

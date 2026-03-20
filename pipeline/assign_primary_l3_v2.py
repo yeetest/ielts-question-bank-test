@@ -55,8 +55,15 @@ L1_ALIASES = {
 # Legacy / auto-tag strings in content_tags.l3 → curated YAML l3 label (subset check uses exact strings).
 LEGACY_CONTENT_L3_TO_CURATED = {
     "traveling": "travel",
-    "learning": "learning_growth",
+    "learning": "life_lesson",
+    "learning_growth": "life_lesson",
     "decision": "decision_making",
+    "fear": "anxiety",
+    "family_activity": "family_gathering",
+    "workplace_experience": "work_environment",
+    "professional_growth": "career_development",
+    "service_experience": "customer_service",
+    "leisure_time": "hobby",
 }
 
 

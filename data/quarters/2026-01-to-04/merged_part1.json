@@ -1404,7 +1404,6 @@
         "personal_growth"
       ],
       "l3": [
-        "self-improvement",
         "self_improvement"
       ]
     },
@@ -1668,10 +1667,10 @@
     "content_tags": {
       "l1": "experience/activity",
       "l2": [
-        "routines"
+        "leisure"
       ],
       "l3": [
-        "leisure_time"
+        "hobby"
       ]
     },
     "qualifier_tags": []
@@ -2430,7 +2429,7 @@
         "personal_growth"
       ],
       "l3": [
-        "goal-setting"
+        "goal_setting"
       ]
     },
     "qualifier_tags": []
@@ -2589,9 +2588,9 @@
       }
     ],
     "content_tags": {
-      "l1": "experience/activity",
+      "l1": "abstract_concepts",
       "l2": [
-        "routines"
+        "time"
       ],
       "l3": [
         "memory_reflection"
