@@ -52,3 +52,15 @@ Run `pipeline/audit_taxonomy_structure.py --quarter <id> --strict` after any of:
 - Season rollover / new quarter setup
 
 The `--strict` flag causes exit code 1 on any ERROR finding, suitable for CI/pre-commit checks.
+
+## Common mis-classification patterns
+
+Watch for these when reviewing `content_tags`:
+
+| Pattern | Symptom | Correct action |
+|---------|---------|----------------|
+| Title contains "family" → tagged `people > close_bonds` | Topic is about an *object* kept in the family (heirloom, item) | Reclassify to `object > tangible > personal_item` |
+| Title starts "a person who..." | May be about work/study/activity, not the person | Check cue card bullets: if "what it is" / "how it works" → object; if work context → `experience/activity > work` |
+| Title mentions a role (teacher, worker) | May be about the profession/activity | Check if Part 3 asks about the person or the profession/field |
+
+**Rule of thumb:** Read the cue card `you_should_say` bullets. If 2+ bullets ask about an object ("What it is", "How you got it"), the topic is about the object, not the person/family.

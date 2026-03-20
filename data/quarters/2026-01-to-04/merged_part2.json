@@ -1028,16 +1028,24 @@
           "analyze",
           "comparison"
         ]
+      },
+      {
+        "text": "11. What can we see in a museum?",
+        "source": "tongzhuo",
+        "time_frame": "present",
+        "skill_tags": [
+          "description"
+        ]
       }
     ],
     "tags": [],
     "content_tags": {
-      "l1": "people",
+      "l1": "object",
       "l2": [
-        "close_bonds"
+        "tangible"
       ],
       "l3": [
-        "family_gathering"
+        "personal_item"
       ]
     },
     "qualifier_tags": [
@@ -2664,51 +2672,6 @@
       ]
     },
     "qualifier_tags": []
-  },
-  {
-    "topic": "an important old thing that your family has kept for a long time",
-    "part": 2,
-    "season": "2026-Jan-Apr",
-    "cue_card": {
-      "prompt": "Describe an important old thing that your family has kept for a long time",
-      "you_should_say": [
-        "What it is",
-        "How/when your family first got this thing",
-        "How long your family has kept it",
-        "And explain why this thing is important to your family"
-      ]
-    },
-    "part3": [
-      {
-        "text": "1. What can we see in a museum?",
-        "source": "tongzhuo",
-        "time_frame": "present",
-        "skill_tags": [
-          "description"
-        ]
-      },
-      {
-        "text": "2. What can we learn from a museum?",
-        "source": "tongzhuo",
-        "time_frame": "present",
-        "skill_tags": [
-          "description"
-        ]
-      }
-    ],
-    "tags": [],
-    "content_tags": {
-      "l1": "abstract_concepts",
-      "l2": [
-        "emotion"
-      ],
-      "l3": [
-        "attachment"
-      ]
-    },
-    "qualifier_tags": [
-      "sentimental"
-    ]
   },
   {
     "topic": "the time when you first talked with others in a foreign language",

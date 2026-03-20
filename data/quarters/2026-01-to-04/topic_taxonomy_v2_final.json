@@ -331,9 +331,9 @@
   },
   {
     "topic": "something important that has been kept in your family for a long time",
-    "l1": "people",
-    "l2": "close_bonds",
-    "l3": "family_gathering"
+    "l1": "object",
+    "l2": "tangible",
+    "l3": "personal_item"
   },
   {
     "topic": "a bicycle/motorcycle/car trip you would like to take",
@@ -454,12 +454,6 @@
     "l1": "abstract_concepts",
     "l2": "personal_traits",
     "l3": "creativity"
-  },
-  {
-    "topic": "an important old thing that your family has kept for a long time",
-    "l1": "abstract_concepts",
-    "l2": "emotion",
-    "l3": "attachment"
   },
   {
     "topic": "the time when you first talked with others in a foreign language",

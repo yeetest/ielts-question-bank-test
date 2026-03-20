@@ -27,8 +27,11 @@ export function openModal(tab, idx) {
       ${renderContentTags(item.content_tags)}
       <div class="section-label" style="margin-top:14px">Questions</div>
       ${item.questions.map(q => {
-        const match = state.selectedSkillTags.length > 0
+        const skillMatch = state.selectedSkillTags.length > 0
           && q.skill_tags && q.skill_tags.some(t => state.selectedSkillTags.includes(t));
+        const timeMatch = state.selectedTimeFrame
+          && q.time_frame === state.selectedTimeFrame;
+        const match = skillMatch || timeMatch;
         return `<div class="q-row${match ? ' q-highlight' : ''}"><span>${q.text}${renderSkillTags(q.skill_tags)}${topicTags}</span></div>`;
       }).join('')}
     `;
@@ -51,8 +54,11 @@ export function openModal(tab, idx) {
       </div>
       <div class="section-label">Part 3 Questions</div>
       ${p3.map(q => {
-        const match = state.selectedSkillTags.length > 0
+        const skillMatch = state.selectedSkillTags.length > 0
           && q.skill_tags && q.skill_tags.some(t => state.selectedSkillTags.includes(t));
+        const timeMatch = state.selectedTimeFrame
+          && q.time_frame === state.selectedTimeFrame;
+        const match = skillMatch || timeMatch;
         return `<div class="q-row${match ? ' q-highlight' : ''}"><span>${q.text}${renderSkillTags(q.skill_tags)}${topicTags}</span></div>`;
       }).join('')}
     `;
