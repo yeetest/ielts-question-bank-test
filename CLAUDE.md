@@ -94,7 +94,7 @@ TAGS: abstract_concepts | close_bonds, professions, values | environment, policy
 - What he or she does
 PART3:
 [tongzhuo][description,evaluation]{present} 1. Do you think parents should teach their children how to protect the environment?
-[laokaoya][analyze]{present} 2. Why are some people more willing to protect wild animals than others?
+[laokaoya][analysis]{present} 2. Why are some people more willing to protect wild animals than others?
 ```
 
 ## JSON Schemas
@@ -112,7 +112,7 @@ PART3:
   },
   "qualifier_tags": [],
   "questions": [
-    { "text": "1. Question text", "source": "tongzhuo", "skill_tags": ["description"], "time_frame": "present" }
+    { "text": "1. Question text", "source": "tongzhuo", "skill_tags": ["description"], "skill_subtype": "features", "time_frame": "present" }
   ],
   "tags": []
 }
@@ -129,7 +129,7 @@ PART3:
     "you_should_say": ["Who this person is", "What he or she does"]
   },
   "part3": [
-    { "text": "1. Question text", "source": "tongzhuo", "skill_tags": ["evaluation"], "time_frame": "present" }
+    { "text": "1. Question text", "source": "tongzhuo", "skill_tags": ["evaluation"], "skill_subtype": "importance", "time_frame": "present" }
   ],
   "tags": [],
   "content_tags": {
@@ -169,9 +169,22 @@ Full v2 hierarchy in `human-in-the-loop/content_tags_v2_draft.md`.
 
 ### Question-level (`skill_tags`) — unified 8-type taxonomy (Part 1 and Part 2+3)
 Per-question array. 1–3 tags per question:
-`experience` | `frequency` | `description` | `preference` | `evaluation` | `analyze` | `comparison` | `hypothetical`
+`experience` | `frequency` | `description` | `preference` | `evaluation` | `analysis` | `comparison` | `hypothetical`
 
-Priority order (for auto-tagging): experience → frequency → description → preference → evaluation → analyze → comparison → hypothetical
+Priority order (for auto-tagging): experience → frequency → description → preference → evaluation → analysis → comparison → hypothetical
+
+### Question-level (`skill_subtype`) — second-level skill taxonomy
+Per-question single string. Subtype of the primary (first) `skill_tags` value. 24 subtypes total:
+- experience: `personal_event` | `memory_recall`
+- frequency: `regularity` | `habit`
+- description: `listing` | `features` | `context` | `process`
+- preference: `like_dislike` | `choice`
+- evaluation: `importance` | `recommendation` | `judgment` | `agreement`
+- analysis: `cause_reason` | `effect_impact` | `pros_cons` | `mechanism`
+- comparison: `difference` | `change_over_time` | `ranking`
+- hypothetical: `future_plan` | `conditional` | `prediction`
+
+**Script:** `pipeline/tag_question_types.py --subtype-only` (add subtypes without changing skill_tags). Use `--audit` to generate `human-in-the-loop/skill_subtype_audit.md` for review of low-confidence assignments.
 
 ### Question-level (`time_frame`) — 3-value system (Part 1 and Part 2+3)
 Per-question single value: `"past"` | `"present"` | `"future"`
@@ -188,10 +201,12 @@ Full rules and keyword lists in `docs/CLAUDE_tagging.md`.
 ## Pipeline Scripts
 
 ### tag_question_types.py
-Auto-tags questions with `skill_tags` via keyword matching. Unified 8-type taxonomy for both parts. Unmatched Part 1 questions saved to `claude_p1_type_response.json` for manual review. Auto-regenerates `.txt` mirror after running.
+Auto-tags questions with `skill_tags` (8 top-level types) and `skill_subtype` (24 second-level subtypes) via keyword matching. Unified taxonomy for both parts. Unmatched Part 1 questions saved to `claude_p1_type_response.json` for manual review. Modes: default (tag empty only), `--overwrite` (re-tag all), `--subtype-only` (keep skill_tags, add/update subtypes). `--audit` generates `human-in-the-loop/skill_subtype_audit.md`.
 ```bash
 python3 pipeline/tag_question_types.py merged_part1.json --part 1
 python3 pipeline/tag_question_types.py merged_part2.json
+python3 pipeline/tag_question_types.py merged_part1.json --part 1 --subtype-only  # subtypes only
+python3 pipeline/tag_question_types.py merged_part2.json --subtype-only --audit   # with audit report
 ```
 For **May–Aug** quarter files, pass paths under `data/quarters/2026-05-to-08/` (do not run against `data/quarters/2026-01-to-04/` unless intentionally updating the freeze).
 

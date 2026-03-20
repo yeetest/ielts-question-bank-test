@@ -139,7 +139,7 @@ Each l3 belongs to exactly one l2. Pick 0–2 l3 tags.
 
 Both Part 1 questions and Part 3 questions use the same 8-type taxonomy. Each question gets a `skill_tags` array with 1–3 values. Assign all that apply (up to 3, in priority order); if genuinely ambiguous, use `unclear`.
 
-**Priority order:** `experience` → `frequency` → `description` → `preference` → `evaluation` → `analyze` → `comparison` → `hypothetical`
+**Priority order:** `experience` → `frequency` → `description` → `preference` → `evaluation` → `analysis` → `comparison` → `hypothetical`
 
 **Script:** `pipeline/tag_question_types.py` — auto-tags questions using keyword matching.
 
@@ -152,6 +152,10 @@ Keywords: `have you`, `did you`, `what did you`, `when did you`, `when was`, `ca
 
 **Example:** *Have you ever visited a museum?*
 
+**Subtypes:**
+- `personal_event` — specific past actions ("Have you ever X?", "Did you X?")
+- `memory_recall` — recollection of childhood/past states ("Can you remember?", "When you were young?")
+
 ---
 
 ### frequency
@@ -160,6 +164,10 @@ How often or how regularly something happens.
 Keywords: `how often`, `do you usually`, `do you often`, `every day`, `how frequently/regularly`
 
 **Example:** *How often do you go to the gym?*
+
+**Subtypes:**
+- `regularity` — explicit frequency quantification ("How often?", "How frequently?")
+- `habit` — habitual patterns ("Do you usually?", "Do you often?")
 
 ---
 
@@ -170,6 +178,12 @@ Keywords: `what is/are`, `which`, `how many/much/long`, `tell me`, `describe`, `
 
 **Example:** *What kinds of shops are popular in your city?*
 
+**Subtypes:**
+- `listing` — enumerating types, kinds, examples ("What kinds of?", "What activities?")
+- `features` — characteristics, properties, attributes ("What is X?", "What does X look like?")
+- `context` — location, time, person identification ("Where?", "When?", "Who?")
+- `process` — methods, procedures, amounts ("How do you X?", "How long?")
+
 ---
 
 ### preference
@@ -178,6 +192,10 @@ Personal likes, dislikes, favorites, enjoyment.
 Keywords: `do you like`, `do you prefer`, `favourite`, `do you enjoy`, `which do you prefer`, `do you mind`
 
 **Example:** *Do you prefer shopping online or in stores?*
+
+**Subtypes:**
+- `like_dislike` — simple enjoyment ("Do you like?", "Do you enjoy?")
+- `choice` — selection between alternatives ("Do you prefer X or Y?", "Favourite?")
 
 ---
 
@@ -188,14 +206,26 @@ Keywords: `do you think`, `should/shouldn't`, `is it important/necessary/good/ba
 
 **Example:** *Do you think it's important for people to support local shops?*
 
+**Subtypes:**
+- `importance` — assessing significance ("Is it important?", "Is it necessary?")
+- `recommendation` — prescriptive advice ("Should X?", "What should?")
+- `judgment` — quality assessment ("Is it good/bad?", "Advantages vs disadvantages?")
+- `agreement` — opinion/stance ("Do you agree?", "Do you think?")
+
 ---
 
-### analyze
+### analysis
 Causal or relational reasoning — explaining how or why things work, what the effects are.
 
 Keywords: `why` (sentence-initial), `how does/do/did`, `what causes/reasons/factors`, `what impact/effect/influence`, `what are the benefits/disadvantages/challenges`
 
 **Example:** *Why do some people prefer shopping online?*
+
+**Subtypes:**
+- `cause_reason` — explaining why ("Why?", "What causes?", "What reasons?")
+- `effect_impact` — consequences and influence ("What impact?", "How does X affect?")
+- `pros_cons` — benefits and drawbacks ("What are the benefits/disadvantages?")
+- `mechanism` — how something works ("How does X work?", "In what way?")
 
 ---
 
@@ -206,6 +236,11 @@ Keywords: `what are the differences`, `are there differences`, `has/have changed
 
 **Example:** *What are the differences between team sports and individual sports?*
 
+**Subtypes:**
+- `difference` — contrasting two things ("What are the differences?", "Similarities?")
+- `change_over_time` — temporal comparison ("Has X changed?", "Compared to the past?")
+- `ranking` — relative quality ("Better/worse than?")
+
 ---
 
 ### hypothetical
@@ -215,10 +250,27 @@ Keywords: `would you like`, `if you`, `would you want/prefer/rather`, `imagine`,
 
 **Example:** *Do you think more people will shop online in the future?*
 
+**Subtypes:**
+- `future_plan` — intentions and desires ("Do you want to?", "Plans for?")
+- `conditional` — if-then scenarios ("If you could?", "Would you?")
+- `prediction` — forecasting ("Will X?", "In the future?")
+
 ---
 
 ### unclear
 Use when the question genuinely does not fit any of the above, or is too vague to classify confidently.
+
+---
+
+## Skill Subtype (`skill_subtype`) — Second-Level Taxonomy
+
+Every question also gets a `skill_subtype` string — the subtype of its primary (first) `skill_tags` value. 24 subtypes across 8 categories. Assigned by `pipeline/tag_question_types.py` using keyword matching with confidence tracking.
+
+**Confidence levels:**
+- `high` — matched a specific subtype pattern
+- `default` — assigned the category's catch-all default subtype
+
+**Audit:** Run with `--audit` flag to generate `human-in-the-loop/skill_subtype_audit.md` listing all default-confidence assignments for manual review.
 
 ---
 
@@ -292,7 +344,7 @@ Questions about future plans, predictions, hypothetical/imagined scenarios, desi
   "content_tags": {"l1": "experience/activity", "l2": ["leisure"], "l3": ["reading"]},
   "qualifier_tags": [],
   "questions": [
-    { "text": "1. Do you like reading?", "source": "laokaoya", "skill_tags": ["preference"], "time_frame": "present" }
+    { "text": "1. Do you like reading?", "source": "laokaoya", "skill_tags": ["preference"], "skill_subtype": "like_dislike", "time_frame": "present" }
   ],
   "tags": []
 }
@@ -310,7 +362,7 @@ Questions about future plans, predictions, hypothetical/imagined scenarios, desi
     "you_should_say": ["Who this person is", "What he or she does"]
   },
   "part3": [
-    { "text": "1. Do you think parents should teach their children?", "source": "tongzhuo", "skill_tags": ["evaluation"], "time_frame": "present" }
+    { "text": "1. Do you think parents should teach their children?", "source": "tongzhuo", "skill_tags": ["evaluation"], "skill_subtype": "recommendation", "time_frame": "present" }
   ],
   "tags": [],
   "content_tags": {"l1": "abstract_concepts", "l2": ["values"], "l3": ["environment", "policy"]},
@@ -330,10 +382,11 @@ python3 pipeline/tag_content_v2.py merged_part2.json --overwrite
 ```
 
 ### tag_question_types.py
-Auto-tags questions with `skill_tags` via keyword matching. Uses the unified 8-type taxonomy for both parts.
+Auto-tags questions with `skill_tags` (8 top-level) and `skill_subtype` (24 second-level) via keyword matching. Modes: default (empty only), `--overwrite` (all), `--subtype-only` (keep skill_tags, add subtypes). `--audit` generates `human-in-the-loop/skill_subtype_audit.md`.
 ```bash
 python3 pipeline/tag_question_types.py merged_part1.json --part 1
 python3 pipeline/tag_question_types.py merged_part2.json
+python3 pipeline/tag_question_types.py merged_part2.json --subtype-only --audit
 ```
 
 ### tag_time_frames.py
