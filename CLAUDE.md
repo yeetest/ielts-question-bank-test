@@ -212,7 +212,7 @@ python3 pipeline/tag_time_frames.py merged_part1.json --part 1 --overwrite  # re
 ```
 
 ### remap_content_tags_disposition.py
-Repairs Part 2 **`content_tags`** when disposition/trait cues were mis-tagged as **`people`** (relationship/profession buckets). Also normalises the “solved a problem in a smart way” card (hyphenated l3, `personal_growth` for `problem_solving`) and fixes a gross **family-business** mis-tag. Run **`--quarter <id>`** after topic dedup / `dedup_questions` / `renumber`, **before** assign → backfill → export. Rules: **`docs/taxonomy_people_vs_personal_traits.md`**.
+Batch-fixes Part 2 **`content_tags`** mis-tags. Three remap layers (run in order): (1) **`people` → `experience/activity > work`** when the cue focuses on work/business activity, not person identity (e.g. "a person who enjoys working for a family business"); (2) problem-solver canonical fix (hyphenated l3, `personal_growth`); (3) **`people` → `abstract_concepts > personal_traits`** for disposition/trait cues. Run **`--quarter <id>`** after topic dedup / `dedup_questions` / `renumber`, **before** assign → backfill → export. Rules: **`docs/taxonomy_people_vs_personal_traits.md`**.
 
 ```bash
 python3 pipeline/remap_content_tags_disposition.py --quarter 2026-01-to-04 --dry-run
@@ -220,7 +220,7 @@ python3 pipeline/remap_content_tags_disposition.py --quarter 2026-01-to-04
 ```
 
 ### dedup_topics_part2.py
-Merges **near-duplicate Part 2 topic objects** into one **survivor** and **deletes the loser row** from `merged_part2.json` — not just Part 3 question dedup inside a topic. Fixes duplicate grid cards and **empty Part 3 “shell” topics** (same cue, second row with `part3: []`). Clustering uses normalized **fingerprints** (optional trailing phrases like “at where you live” stripped) plus fuzzy ratio and **contiguous substring** rules; it does **not** use loose partial_ratio across unrelated cues (e.g. sportsperson vs successful sportsperson). Run **before** assign → backfill → export.
+Merges **near-duplicate Part 2 topic objects** into one **survivor** and **deletes the loser row** from `merged_part2.json` — not just Part 3 question dedup inside a topic. Fixes duplicate grid cards and **empty Part 3 "shell" topics** (same cue, second row with `part3: []`). Clustering uses normalized **fingerprints** (optional trailing phrases stripped) plus fuzzy ratio, **contiguous substring** rules, and an **aggressive fingerprint** that strips modifier adjectives (`successful`, `well-known`, etc.) and normalizes temporal phrases (`an occasion` → `a time`) to catch modifier-variant near-duplicates. Run **before** assign → backfill → export.
 
 **Keep-best (survivor):** more Part 3 questions → more `you_should_say` → richer `content_tags` → non-empty `season` → source tier (tongzhuo > laokaoya > yasige) → shorter `topic` string. Loser’s bullets / Part 3 / tags are merged into the survivor, then `dedup_questions` on the combined Part 3 list.
 
@@ -265,7 +265,7 @@ For ingesting new source files into the question bank (future use).
 
 ### Taxonomy runtime loop (sidebar `topic_taxonomy_v2_final.json`)
 
-**Do not hand-edit** `data/quarters/<quarter>/topic_taxonomy_v2_final.json`. Flow: **`content_tags`** in merged JSON → after ingest, **`dedup_topics_part2.py`** + **`dedup_questions.py`** / **`renumber_questions.py`** on quarter `merged_part2.json` when needed → **`remap_content_tags_disposition.py`** (people vs `personal_traits` etc., see **`docs/taxonomy_people_vs_personal_traits.md`**) → optional **`build_topic_taxonomy_view_v2.py`** (still reads **root** merged only) → **`assign_primary_l3_v2.py`** (if the card already lists `content_tags.l3`, primary is chosen only from those labels plus a small **legacy→canonical** map, so runtime primary stays a subset of the card) → **`backfill_content_tags_l3_from_assignment.py`** (empty `l3` → append assignment primary; **plus** global append of canonical peers for legacy tokens e.g. `traveling`→`travel`) → optional minimal edit **`config/topic_taxonomy_v2_curated.yaml`** → **`export_runtime_taxonomy_v2.py`** → **`check_taxonomy_runtime_consistency.py`**.
+**Do not hand-edit** `data/quarters/<quarter>/topic_taxonomy_v2_final.json`. Flow: **`content_tags`** in merged JSON → after ingest, **`dedup_topics_part2.py`** + **`dedup_questions.py`** / **`renumber_questions.py`** on quarter `merged_part2.json` when needed → **`remap_content_tags_disposition.py`** (people vs `experience/activity > work` and people vs `personal_traits` etc., see **`docs/taxonomy_people_vs_personal_traits.md`**) → optional **`build_topic_taxonomy_view_v2.py`** (still reads **root** merged only) → **`assign_primary_l3_v2.py`** (if the card already lists `content_tags.l3`, primary is chosen only from those labels plus a small **legacy→canonical** map, so runtime primary stays a subset of the card) → **`backfill_content_tags_l3_from_assignment.py`** (empty `l3` → append assignment primary; **plus** global append of canonical peers for legacy tokens e.g. `traveling`→`travel`) → optional minimal edit **`config/topic_taxonomy_v2_curated.yaml`** → **`export_runtime_taxonomy_v2.py`** → **`check_taxonomy_runtime_consistency.py`**.
 
 Full steps: **`docs/taxonomy_runtime_runbook.md`**.
 

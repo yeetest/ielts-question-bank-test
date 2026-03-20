@@ -2,8 +2,9 @@
 """
 remap_content_tags_disposition.py
 
-Batch-fix content_tags where the Part 2 cue stresses disposition / trait / habit
-but legacy tagging used people + relationship/profession buckets.
+Batch-fix content_tags where the Part 2 cue is mis-tagged:
+  1. Trait/disposition cues wrongly under people → abstract_concepts/personal_traits
+  2. Work/business activity cues wrongly under people → experience/activity/work
 
 Rules are documented in docs/taxonomy_people_vs_personal_traits.md.
 
@@ -48,8 +49,25 @@ _TRAIT_SIGNALS = re.compile(
     re.I,
 )
 
-_FAMILY_BUSINESS = re.compile(
-    r"^a person you know who.*\b(family business|a shop)\b",
+# --- Work / study activity detection ---
+
+# "a person [you know] who [verb] for/at/in [work context noun]" patterns
+_WORK_CONTEXT_TAIL = re.compile(
+    r"(?:enjoys?\s+)?(?:working|works?|employed|running|managing|operating)\s+"
+    r"(?:for|at|in)\s+.*\b(?:business|company|shop|store|factory|office|firm|enterprise|"
+    r"organi[sz]ation|startup|restaurant|bakery|caf[eé]|market|clinic|salon|studio|agency)\b",
+    re.I,
+)
+
+_STUDY_CONTEXT_TAIL = re.compile(
+    r"(?:enjoys?\s+)?(?:studying|studies|study|learning|teaches|teaching)\s+"
+    r"(?:at|in)\s+.*\b(?:school|university|college|academy|institute|class|course)\b",
+    re.I,
+)
+
+# Exclusion for work/study remap: genuine person-identity cues that happen to mention work/study
+_EXCLUDE_WORK_REMAP = re.compile(
+    r"\b(famous|sportsperson|teacher|older\s+than|younger\s+than|admire|natural world)\b",
     re.I,
 )
 
@@ -142,39 +160,58 @@ def uniq_keep(seq: list[str]) -> list[str]:
     return out
 
 
-def fix_family_business_tags(topic: dict[str, Any]) -> tuple[bool, str]:
-    """Obvious mis-tag (leisure/shopping) → people + work/family context."""
+def remap_work_activity_person_who(topic: dict[str, Any]) -> tuple[bool, str]:
+    """Remap 'a person [you know] who works/enjoys working for [business]' etc.
+    from people → experience/activity when the cue focuses on the work/study
+    activity itself, not on describing who the person is."""
     title = str(topic.get("topic") or "").strip()
-    if not _FAMILY_BUSINESS.match(title):
+    if not title:
         return False, ""
 
     ct = topic.get("content_tags")
     if not isinstance(ct, dict):
         return False, ""
 
-    # Only fix clearly wrong L1 (not already people with sensible tags)
     l1 = norm_l1(str(ct.get("l1") or ""))
-    if l1 == "people":
+    if l1 != "people":
         return False, ""
 
-    ct["l1"] = "people"
-    ct["l2"] = ["close_bonds", "professions"]
-    ct["l3"] = ["family_activity", "business_owner"]
-    return True, "family_business_mis_tag"
+    m = re.match(r"^a person\b.*?\bwho\s+(.+)$", title, re.I)
+    if not m:
+        return False, ""
+
+    tail = m.group(1) or ""
+
+    if _EXCLUDE_WORK_REMAP.search(title):
+        return False, ""
+
+    if _WORK_CONTEXT_TAIL.search(tail):
+        ct["l1"] = "experience/activity"
+        ct["l2"] = ["work"]
+        ct["l3"] = ["workplace_experience"]
+        return True, "work_activity_person_who"
+
+    if _STUDY_CONTEXT_TAIL.search(tail):
+        ct["l1"] = "experience/activity"
+        ct["l2"] = ["study"]
+        ct["l3"] = []
+        return True, "study_activity_person_who"
+
+    return False, ""
 
 
 def run_part2(path: Path, *, dry_run: bool) -> dict[str, Any]:
     data = load_json(path)
-    stats = {"trait_remap": 0, "problem_fix": 0, "family_business": 0, "log": []}
+    stats = {"work_activity": 0, "trait_remap": 0, "problem_fix": 0, "log": []}
 
     for topic in data:
         if topic.get("part") != 2:
             continue
 
-        ok, reason = fix_family_business_tags(topic)
+        ok, reason = remap_work_activity_person_who(topic)
         if ok:
-            stats["family_business"] += 1
-            stats["log"].append(f"FAMILY_BUSINESS {topic.get('topic')!r} -> {reason}")
+            stats["work_activity"] += 1
+            stats["log"].append(f"WORK_ACTIVITY {topic.get('topic')!r} -> {reason}")
 
         ok, reason = fix_problem_solver_tags(topic)
         if ok:
@@ -186,7 +223,7 @@ def run_part2(path: Path, *, dry_run: bool) -> dict[str, Any]:
             stats["trait_remap"] += 1
             stats["log"].append(f"TRAIT_REMAP {topic.get('topic')!r} -> {reason}")
 
-    if not dry_run and (stats["trait_remap"] or stats["problem_fix"] or stats["family_business"]):
+    if not dry_run and (stats["work_activity"] or stats["trait_remap"] or stats["problem_fix"]):
         save_json(path, data)
 
     return stats
@@ -205,12 +242,12 @@ def main() -> int:
 
     stats = run_part2(path, dry_run=args.dry_run)
     print(f"Quarter: {args.quarter} dry_run={args.dry_run}")
+    print(f"  work_activity_remap: {stats['work_activity']}")
     print(f"  trait_remap: {stats['trait_remap']}")
     print(f"  problem_solver_fix: {stats['problem_fix']}")
-    print(f"  family_business_fix: {stats['family_business']}")
     for line in stats["log"]:
         print(line)
-    if not args.dry_run and (stats["trait_remap"] or stats["problem_fix"] or stats["family_business"]):
+    if not args.dry_run and (stats["work_activity"] or stats["trait_remap"] or stats["problem_fix"]):
         print(f"Wrote: {path}")
     return 0
 

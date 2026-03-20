@@ -2399,6 +2399,14 @@
         "skill_tags": [
           "analyze"
         ]
+      },
+      {
+        "text": "7. What qualities should an athlete have?",
+        "source": "yasige",
+        "time_frame": "present",
+        "skill_tags": [
+          "evaluation"
+        ]
       }
     ],
     "tags": [],
@@ -3210,8 +3218,8 @@
         ]
       },
       {
-        "text": "3. Why do some people dislike shopping in small shops?",
-        "source": "tongzhuo",
+        "text": "3. Why do some people not like shopping in small shops?",
+        "source": "yasige",
         "time_frame": "present",
         "skill_tags": [
           "analyze"
@@ -3248,10 +3256,12 @@
     "content_tags": {
       "l1": "experience/activity",
       "l2": [
-        "leisure"
+        "leisure",
+        "indoor"
       ],
       "l3": [
-        "shopping"
+        "shopping",
+        "shopping_venue"
       ]
     },
     "qualifier_tags": []
@@ -3315,14 +3325,12 @@
     ],
     "tags": [],
     "content_tags": {
-      "l1": "people",
+      "l1": "experience/activity",
       "l2": [
-        "close_bonds",
-        "professions"
+        "work"
       ],
       "l3": [
-        "family_activity",
-        "business_owner"
+        "workplace_experience"
       ]
     },
     "qualifier_tags": []
@@ -3495,7 +3503,11 @@
         "When it was",
         "Where you went",
         "How you got lost",
-        "And explain what happened after you lost your way"
+        "And explain what happened after you lost your way",
+        "Where you were",
+        "What happened",
+        "How you felt",
+        "And explain how you found your way"
       ]
     },
     "part3": [
@@ -3544,6 +3556,14 @@
       {
         "text": "6. How do people react when they get lost?",
         "source": "tongzhuo",
+        "time_frame": "present",
+        "skill_tags": [
+          "analyze"
+        ]
+      },
+      {
+        "text": "7. Why do some people get lost more easily than others?",
+        "source": "yasige",
         "time_frame": "present",
         "skill_tags": [
           "analyze"
@@ -4189,129 +4209,6 @@
       ],
       "l3": [
         "technology"
-      ]
-    },
-    "qualifier_tags": []
-  },
-  {
-    "topic": "an occasion when you lost your way",
-    "part": 2,
-    "season": "",
-    "cue_card": {
-      "prompt": "Describe an occasion when you lost your way",
-      "you_should_say": [
-        "Where you were",
-        "What happened",
-        "How you felt",
-        "And explain how you found your way"
-      ]
-    },
-    "part3": [
-      {
-        "text": "1. Why do some people get lost more easily than others?",
-        "source": "yasige",
-        "time_frame": "present",
-        "skill_tags": [
-          "analyze"
-        ]
-      }
-    ],
-    "content_tags": {
-      "l1": "experience/activity",
-      "l2": [
-        "leisure"
-      ],
-      "l3": [
-        "traveling",
-        "travel"
-      ]
-    },
-    "qualifier_tags": [
-      "memorable"
-    ]
-  },
-  {
-    "topic": "a successful sportsperson you admire",
-    "part": 2,
-    "season": "",
-    "cue_card": {
-      "prompt": "Describe a successful sportsperson you admire",
-      "you_should_say": [
-        "Who he/she is",
-        "What you know about him/her",
-        "What he/she is like in real life",
-        "What achievement he/she has made",
-        "And explain why you admire him/her"
-      ]
-    },
-    "part3": [
-      {
-        "text": "1. What qualities should an athlete have?",
-        "source": "yasige",
-        "time_frame": "present",
-        "skill_tags": [
-          "evaluation"
-        ]
-      },
-      {
-        "text": "2. Is talent important in sports?",
-        "source": "yasige",
-        "time_frame": "present",
-        "skill_tags": [
-          "description"
-        ]
-      }
-    ],
-    "content_tags": {
-      "l1": "people",
-      "l2": [
-        "professions"
-      ],
-      "l3": [
-        "sportsperson"
-      ]
-    },
-    "qualifier_tags": []
-  },
-  {
-    "topic": "a time when you received good service in a shop/store",
-    "part": 2,
-    "season": "",
-    "cue_card": {
-      "prompt": "Describe a time when you received good service in a shop/store",
-      "you_should_say": [
-        "Where the shop is",
-        "When you went to the shop",
-        "What service you received from the staff",
-        "And explain how you felt about the service"
-      ]
-    },
-    "part3": [
-      {
-        "text": "1. Why do some people not like shopping in small shops?",
-        "source": "yasige",
-        "time_frame": "present",
-        "skill_tags": [
-          "analyze"
-        ]
-      },
-      {
-        "text": "2. What are the advantages and disadvantages of shopping online?",
-        "source": "yasige",
-        "time_frame": "present",
-        "skill_tags": [
-          "description",
-          "analyze"
-        ]
-      }
-    ],
-    "content_tags": {
-      "l1": "place",
-      "l2": [
-        "indoor"
-      ],
-      "l3": [
-        "shopping_venue"
       ]
     },
     "qualifier_tags": []

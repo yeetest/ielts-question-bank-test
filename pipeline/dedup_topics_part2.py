@@ -25,11 +25,15 @@ Keep-best (survivor) priority, in order:
   6. Shorter topic string (tie-break when still equal)
 
 Similarity (clustering): fuzzy ratio on fingerprints plus **contiguous substring**: the shorter
-fingerprint appears inside the longer (≥55% of longer’s length) or extends it with a space —
-catches “… went off” vs “… went off at where you live”. Optional trailing place phrases are
-stripped in fingerprints only (e.g. “at where you live”), so many variants become identical.
-We do **not** use global partial_ratio (avoids merging distinct cues like “sportsperson” vs
-“successful sportsperson”).
+fingerprint appears inside the longer (>=55%% of longer's length) or extends it with a space.
+Optional trailing place phrases are stripped in fingerprints only (e.g. "at where you live"),
+so many variants become identical.
+
+A secondary **aggressive fingerprint** strips common IELTS modifier adjectives (e.g. "successful",
+"well-known"), normalizes temporal phrases ("an occasion" -> "a time"), and removes role-noun
+prepositional phrases ("from a staff member"). When aggressive fingerprints score >=90 via
+fuzz.ratio, the pair gets a boosted similarity (capped at 97), catching modifier-variant
+near-duplicates like "a sportsperson" vs "a successful sportsperson".
 
 Merged record:
   - topic / cue_card.prompt: survivor's wording
@@ -70,6 +74,18 @@ _OPTIONAL_PLACE_SUFFIX_RES = (
 # Shorter title must be at least this many chars to use substring / partial merge signals.
 _MIN_SUBSTRING_TOPIC_LEN = 22
 
+# Quality/evaluation modifiers that don't change the core IELTS topic.
+# NOT included: famous, elderly, young, old, creative — these genuinely narrow the cue.
+_MODIFIER_ADJECTIVES = re.compile(
+    r"\b(successful|well[ -]?known|popular|favou?rite)\b", re.I
+)
+
+# "from a [word] member/assistant/worker/..." in service contexts
+_FROM_ROLE_PHRASE = re.compile(
+    r"\bfrom an? (?:\w+\s+)?(?:member|assistant|worker|employee|attendant|server|staff)\b",
+    re.I,
+)
+
 
 def topic_fingerprint(raw: str) -> str:
     """Normalize wording so near-identical cue titles cluster together."""
@@ -88,6 +104,22 @@ def topic_fingerprint(raw: str) -> str:
     return t
 
 
+def topic_fingerprint_aggressive(raw: str) -> str:
+    """Aggressively normalized fingerprint for catching modifier-variant duplicates.
+
+    Strips quality adjectives, normalizes temporal phrases, removes role-noun
+    prepositional phrases.  Used only as a secondary similarity signal — the
+    base fingerprint remains conservative for stable clustering.
+    """
+    t = topic_fingerprint(raw)
+    t = _MODIFIER_ADJECTIVES.sub(" ", t)
+    t = re.sub(r"\ban occasion\b", "a time", t)
+    t = re.sub(r"\ba situation\b", "a time", t)
+    t = _FROM_ROLE_PHRASE.sub(" ", t)
+    t = re.sub(r"\s+", " ", t).strip()
+    return t
+
+
 def topic_similarity(a: str, b: str) -> int:
     fa, fb = topic_fingerprint(a), topic_fingerprint(b)
     if not fa or not fb:
@@ -101,6 +133,14 @@ def topic_similarity(a: str, b: str) -> int:
             scores.append(97)
         elif short in long and len(short) >= int(len(long) * 0.55):
             scores.append(96)
+
+    # Aggressive fingerprint: catch modifier-variant near-duplicates
+    fa_agg = topic_fingerprint_aggressive(a)
+    fb_agg = topic_fingerprint_aggressive(b)
+    if fa_agg and fb_agg:
+        agg_ratio = fuzz.ratio(fa_agg, fb_agg)
+        if agg_ratio >= 90:
+            scores.append(min(agg_ratio, 97))
 
     return min(100, max(scores))
 

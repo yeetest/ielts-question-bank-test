@@ -133,7 +133,7 @@ Core principle: data stays in JSON files and is loaded at runtime via `fetch()`.
   - quarter directory contract (frozen vs placeholder, which files to replace)
 - `docs/taxonomy_runtime_runbook.md`
   - convergent loop: content_tags → assign → backfill empty `l3` from assignment → export `topic_taxonomy_v2_final.json` → consistency check
-- **`docs/season_rollover_runbook.md`** — **next quarter onboarding:** new `data/quarters/<id>/`, merged JSON, **`dedup_topics_part2.py`** (topic-level survivor merge — deletes duplicate / empty-Part3 shell rows) + `dedup_questions` / `renumber` + **`remap_content_tags_disposition.py`** (`people` vs **`personal_traits`** — see **`docs/taxonomy_people_vs_personal_traits.md`**), then taxonomy pipeline, `?quarter=` verify, memory updates (read this before seasonal data drops)
+- **`docs/season_rollover_runbook.md`** — **next quarter onboarding:** new `data/quarters/<id>/`, merged JSON, **`dedup_topics_part2.py`** (topic-level survivor merge — deletes duplicate / empty-Part3 shell rows, catches modifier-variant near-duplicates like "a sportsperson" vs "a successful sportsperson") + `dedup_questions` / `renumber` + **`remap_content_tags_disposition.py`** (`people` vs `experience/activity > work`, `people` vs **`personal_traits`** — see **`docs/taxonomy_people_vs_personal_traits.md`**), then taxonomy pipeline, `?quarter=` verify, memory updates (read this before seasonal data drops)
 - `docs/working_rules.md`
   - code + memory file delivery; when to update docs; end-of-task summary
 - `docs/CLAUDE_tagging.md`
