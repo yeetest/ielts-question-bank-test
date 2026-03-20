@@ -169,8 +169,8 @@ This applies to both Part 1 and Part 2 topic objects.
 
 Each question can have:
 
-- `skill_tags`: 1-3 values from unified 8-type taxonomy (`experience` | `frequency` | `description` | `preference` | `evaluation` | `analysis` | `comparison` | `hypothetical`)
-- `skill_subtype`: single second-level tag under the primary skill (24 subtypes total; see `docs/CLAUDE_tagging.md`)
+- `skill_tags`: 1-3 values from unified 7-type taxonomy (`experience` | `description` | `preference` | `evaluation` | `analysis` | `comparison` | `hypothetical`). Note: `frequency` was merged into `experience` as subtypes.
+- `skill_subtype`: single second-level tag under the primary skill (23 subtypes total, named to reflect question phrasing; see `docs/CLAUDE_tagging.md`). Sidebar drill-down: clicking a skill tag reveals its subtypes for filtering.
 - `time_frame`: one of `past` / `present` / `future`
 
 ## 7) Operational Workflows

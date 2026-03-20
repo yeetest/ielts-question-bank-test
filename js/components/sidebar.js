@@ -13,6 +13,16 @@ const L1_TO_L2 = {
   'abstract_concepts': ['communication', 'emotion', 'personal_traits', 'values', 'personal_growth', 'influence', 'time']
 };
 
+const SKILL_TO_SUBTYPES = {
+  'experience':   ['have_you_ever', 'remember_when', 'how_often', 'do_you_usually'],
+  'description':  ['what_types', 'what_is_it', 'where_when_who', 'how_to'],
+  'preference':   ['do_you_like', 'which_prefer'],
+  'evaluation':   ['is_it_important', 'should_people', 'good_or_bad', 'do_you_agree'],
+  'analysis':     ['why', 'what_effect', 'what_pros_cons', 'how_does_it_work'],
+  'comparison':   ['what_differences', 'has_it_changed', 'better_or_worse'],
+  'hypothetical': ['do_you_want_to', 'what_if', 'will_it_happen'],
+};
+
 // ── helpers ──────────────────────────────────────────────────────
 function getContentTags(topic) {
   return getFilterTaxonomy(topic);
@@ -27,34 +37,37 @@ function matchesTimeFrame(q, timeFrame) {
   return q.time_frame === timeFrame;
 }
 
-function matchingQuestionCount(topic, skillFilters, timeFrame) {
+function matchesSkillFilters(q, skillFilters, subtypeFilters, focused) {
+  const hasSkill = skillFilters.length > 0;
+  const hasSub = subtypeFilters.length > 0;
+  if (!hasSkill && !hasSub) return true;
+
+  if (hasSub) {
+    return subtypeFilters.includes(q.skill_subtype);
+  }
+  if (!q.skill_tags || q.skill_tags.length === 0) return false;
+  if (focused) {
+    return q.skill_tags.every(tag => skillFilters.includes(tag));
+  }
+  return q.skill_tags.some(tag => skillFilters.includes(tag));
+}
+
+function matchingQuestionCount(topic, skillFilters, subtypeFilters, timeFrame) {
   const qs = getQuestions(topic);
   const focused = state.filterMode === 'focused';
   return qs.filter(q => {
     if (!matchesTimeFrame(q, timeFrame)) return false;
-    if (skillFilters.length === 0) return true;
-    if (!q.skill_tags || q.skill_tags.length === 0) return false;
-    if (focused) {
-      return q.skill_tags.every(tag => skillFilters.includes(tag));
-    }
-    return q.skill_tags.some(tag => skillFilters.includes(tag));
+    return matchesSkillFilters(q, skillFilters, subtypeFilters, focused);
   }).length;
 }
 
-function countByTimeFrame(topics, skillFilters) {
+function countByTimeFrame(topics, skillFilters, subtypeFilters) {
   const counts = { past: 0, present: 0, future: 0 };
+  const focused = state.filterMode === 'focused';
   topics.forEach(t => {
     const qs = getQuestions(t);
     qs.forEach(q => {
-      if (skillFilters.length > 0) {
-        if (!q.skill_tags || q.skill_tags.length === 0) return;
-        const focused = state.filterMode === 'focused';
-        if (focused) {
-          if (!q.skill_tags.every(tag => skillFilters.includes(tag))) return;
-        } else {
-          if (!q.skill_tags.some(tag => skillFilters.includes(tag))) return;
-        }
-      }
+      if (!matchesSkillFilters(q, skillFilters, subtypeFilters, focused)) return;
       const tf = q.time_frame;
       if (tf && counts.hasOwnProperty(tf)) counts[tf]++;
     });
@@ -62,29 +75,29 @@ function countByTimeFrame(topics, skillFilters) {
   return counts;
 }
 
-function countByL1(topics, skillFilters, timeFrame) {
+function countByL1(topics, skillFilters, subtypeFilters, timeFrame) {
   const counts = {};
   topics.forEach(t => {
     const l1 = getContentTags(t).l1;
     if (!l1) return;
-    const qc = matchingQuestionCount(t, skillFilters, timeFrame);
+    const qc = matchingQuestionCount(t, skillFilters, subtypeFilters, timeFrame);
     if (qc > 0) counts[l1] = (counts[l1] || 0) + qc;
   });
   return counts;
 }
 
-function countByL2(topics, l1Filter, skillFilters, timeFrame) {
+function countByL2(topics, l1Filter, skillFilters, subtypeFilters, timeFrame) {
   const counts = {};
   const validL2 = l1Filter ? new Set(L1_TO_L2[l1Filter] || []) : null;
   const focused = state.filterMode === 'focused';
   topics.forEach(t => {
     const ct = getContentTags(t);
     if (l1Filter && ct.l1 !== l1Filter) return;
-    const qc = matchingQuestionCount(t, skillFilters, timeFrame);
+    const qc = matchingQuestionCount(t, skillFilters, subtypeFilters, timeFrame);
     if (qc === 0) return;
     const l2 = ct.l2 || [];
     l2.forEach(tag => {
-      if (validL2 && !validL2.has(tag)) return;  // enforce hierarchy
+      if (validL2 && !validL2.has(tag)) return;
       if (focused) {
         const simSelected = new Set(state.selectedL2Tags);
         simSelected.add(tag);
@@ -96,7 +109,7 @@ function countByL2(topics, l1Filter, skillFilters, timeFrame) {
   return counts;
 }
 
-function countByL3(topics, l1Filter, l2Filters, skillFilters, timeFrame) {
+function countByL3(topics, l1Filter, l2Filters, skillFilters, subtypeFilters, timeFrame) {
   const counts = {};
   const focused = state.filterMode === 'focused';
   topics.forEach(t => {
@@ -110,7 +123,7 @@ function countByL3(topics, l1Filter, l2Filters, skillFilters, timeFrame) {
         if (!l2.some(tag => l2Filters.includes(tag))) return;
       }
     }
-    const qc = matchingQuestionCount(t, skillFilters, timeFrame);
+    const qc = matchingQuestionCount(t, skillFilters, subtypeFilters, timeFrame);
     if (qc === 0) return;
     const l3 = ct.l3 || [];
     l3.forEach(tag => {
@@ -141,24 +154,41 @@ function extractSkillTags() {
   return { p1: p1Counts, p2: p2Counts };
 }
 
+function extractSkillSubtypes(selectedSkillTags) {
+  if (selectedSkillTags.length === 0) return {};
+  const validSubs = new Set();
+  selectedSkillTags.forEach(st => {
+    (SKILL_TO_SUBTYPES[st] || []).forEach(s => validSubs.add(s));
+  });
+  const data = state.currentTab === 'part1' ? state.part1Data : state.part2Data;
+  const qKey = state.currentTab === 'part1' ? 'questions' : 'part3';
+  const counts = {};
+  data.forEach(topic => {
+    (topic[qKey] || []).forEach(q => {
+      const sub = q.skill_subtype;
+      if (sub && validSubs.has(sub)) {
+        if (selectedSkillTags.length > 0 && q.skill_tags) {
+          if (q.skill_tags.some(t => selectedSkillTags.includes(t))) {
+            counts[sub] = (counts[sub] || 0) + 1;
+          }
+        }
+      }
+    });
+  });
+  return counts;
+}
+
 // ── filter logic ─────────────────────────────────────────────────
 function applyFilters(data, tab) {
   let filtered = [...data];
   const focused = state.filterMode === 'focused';
 
-  if (state.selectedSkillTags.length > 0 || state.selectedTimeFrame) {
+  if (state.selectedSkillTags.length > 0 || state.selectedSkillSubtypes.length > 0 || state.selectedTimeFrame) {
     filtered = filtered.filter(item => {
       const questions = tab === 'part1' ? (item.questions || []) : (item.part3 || []);
       return questions.some(q => {
         if (state.selectedTimeFrame && q.time_frame !== state.selectedTimeFrame) return false;
-        if (state.selectedSkillTags.length > 0) {
-          if (!q.skill_tags || q.skill_tags.length === 0) return false;
-          if (focused) {
-            return q.skill_tags.every(tag => state.selectedSkillTags.includes(tag));
-          }
-          return q.skill_tags.some(tag => state.selectedSkillTags.includes(tag));
-        }
-        return true;
+        return matchesSkillFilters(q, state.selectedSkillTags, state.selectedSkillSubtypes, focused);
       });
     });
   }
@@ -197,20 +227,20 @@ function applyFiltersAndRender() {
 }
 
 // ── visible L2/L3: data-driven (scan actual tags from filtered topics) ──
-function getVisibleL2Tags(topics, l1Filter, skillFilters, timeFrame) {
+function getVisibleL2Tags(topics, l1Filter, skillFilters, subtypeFilters, timeFrame) {
   if (!l1Filter) return [];
   const validL2 = new Set(L1_TO_L2[l1Filter] || []);
   const tags = new Set();
   topics.forEach(t => {
     const ct = getContentTags(t);
     if (ct.l1 !== l1Filter) return;
-    if (matchingQuestionCount(t, skillFilters, timeFrame) === 0) return;
+    if (matchingQuestionCount(t, skillFilters, subtypeFilters, timeFrame) === 0) return;
     (ct.l2 || []).forEach(tag => { if (validL2.has(tag)) tags.add(tag); });
   });
   return [...tags].sort();
 }
 
-function getVisibleL3Tags(topics, l1Filter, l2Filters, skillFilters, timeFrame) {
+function getVisibleL3Tags(topics, l1Filter, l2Filters, skillFilters, subtypeFilters, timeFrame) {
   if (!l1Filter || l2Filters.length === 0) return [];
   const focused = state.filterMode === 'focused';
   const tags = new Set();
@@ -223,7 +253,7 @@ function getVisibleL3Tags(topics, l1Filter, l2Filters, skillFilters, timeFrame) 
     } else {
       if (!l2.some(tag => l2Filters.includes(tag))) return;
     }
-    if (matchingQuestionCount(t, skillFilters, timeFrame) === 0) return;
+    if (matchingQuestionCount(t, skillFilters, subtypeFilters, timeFrame) === 0) return;
     (ct.l3 || []).forEach(tag => tags.add(tag));
   });
   return [...tags].sort();
@@ -235,33 +265,39 @@ function renderSidebar() {
   const skills = extractSkillTags();
   const currentSkills = state.currentTab === 'part1' ? skills.p1 : skills.p2;
   const hasFilters = state.selectedSkillTags.length > 0
+    || state.selectedSkillSubtypes.length > 0
     || state.selectedTimeFrame
     || state.selectedL1Tag
     || state.selectedL2Tags.length > 0
     || state.selectedL3Tags.length > 0;
 
-  // Skill tags
-  const skillEntries = Object.entries(currentSkills).sort((a, b) => b[1] - a[1]);
+  const skillOrder = ['experience', 'description', 'preference', 'evaluation', 'analysis', 'comparison', 'hypothetical'];
+  const skillEntries = skillOrder
+    .filter(name => currentSkills[name] > 0)
+    .map(name => [name, currentSkills[name]]);
 
-  // Time frame counts (cascaded: skill filter applied)
   const activeSkills = state.selectedSkillTags;
-  const tfCounts = countByTimeFrame(currentTopics, activeSkills);
+  const activeSubs = state.selectedSkillSubtypes;
+
+  const subtypeCounts = extractSkillSubtypes(activeSkills);
+  const visibleSubtypes = activeSkills.length > 0
+    ? activeSkills.flatMap(st => SKILL_TO_SUBTYPES[st] || []).filter(s => subtypeCounts[s] > 0)
+    : [];
+
+  const tfCounts = countByTimeFrame(currentTopics, activeSkills, activeSubs);
   const tfOrder = ['past', 'present', 'future'];
   const activeTF = state.selectedTimeFrame;
 
-  // L1 counts (cascaded: skill + time frame)
-  const l1Counts = countByL1(currentTopics, activeSkills, activeTF);
+  const l1Counts = countByL1(currentTopics, activeSkills, activeSubs, activeTF);
   const l1Order = ["people", "place", "object", "experience_activity", "abstract_concepts"];
 
-  // L2 (cascaded: skill + time frame + L1) — data-driven
-  const visibleL2 = getVisibleL2Tags(currentTopics, state.selectedL1Tag, activeSkills, activeTF);
+  const visibleL2 = getVisibleL2Tags(currentTopics, state.selectedL1Tag, activeSkills, activeSubs, activeTF);
   const l2Counts = state.selectedL1Tag
-    ? countByL2(currentTopics, state.selectedL1Tag, activeSkills, activeTF) : {};
+    ? countByL2(currentTopics, state.selectedL1Tag, activeSkills, activeSubs, activeTF) : {};
 
-  // L3 (cascaded: skill + time frame + L1 + L2) — data-driven
-  const visibleL3 = getVisibleL3Tags(currentTopics, state.selectedL1Tag, state.selectedL2Tags, activeSkills, activeTF);
+  const visibleL3 = getVisibleL3Tags(currentTopics, state.selectedL1Tag, state.selectedL2Tags, activeSkills, activeSubs, activeTF);
   const l3Counts = (state.selectedL2Tags.length > 0)
-    ? countByL3(currentTopics, state.selectedL1Tag, state.selectedL2Tags, activeSkills, activeTF)
+    ? countByL3(currentTopics, state.selectedL1Tag, state.selectedL2Tags, activeSkills, activeSubs, activeTF)
     : {};
 
   const html = `
@@ -283,13 +319,30 @@ function renderSidebar() {
           <div class="sidebar-section-label">Skill</div>
           <div class="sidebar-tags">
             ${skillEntries.map(([name, count]) => `
-              <span class="stag stag-skill${state.selectedSkillTags.includes(name) ? ' sidebar-active' : ''}"
+              <span class="stag stag-skill${activeSkills.includes(name) ? ' sidebar-active' : ''}"
                     onclick="window._sidebarSkill('${name}')">
                 ${name} <span class="sidebar-count">${count}</span>
               </span>
             `).join('')}
           </div>
         </div>
+
+        ${visibleSubtypes.length > 0 ? `
+          <div class="sidebar-section">
+            <div class="sidebar-section-label">Subtype</div>
+            <div class="sidebar-tags">
+              ${visibleSubtypes.map(name => {
+                const c = subtypeCounts[name] || 0;
+                return `
+                  <span class="stag stag-subtype${activeSubs.includes(name) ? ' sidebar-active' : ''}"
+                        onclick="window._sidebarSubtype('${name}')">
+                    ${name.replace(/_/g, ' ')} <span class="sidebar-count">${c}</span>
+                  </span>
+                `;
+              }).join('')}
+            </div>
+          </div>
+        ` : ''}
 
         <div class="sidebar-section">
           <div class="sidebar-section-label">Time Frame</div>
@@ -361,8 +414,21 @@ function renderSidebar() {
 // ── toggle handlers ──────────────────────────────────────────────
 function toggleSkillTag(name) {
   const i = state.selectedSkillTags.indexOf(name);
-  if (i > -1) state.selectedSkillTags.splice(i, 1);
-  else state.selectedSkillTags.push(name);
+  if (i > -1) {
+    state.selectedSkillTags.splice(i, 1);
+    state.selectedSkillSubtypes = [];
+  } else {
+    state.selectedSkillTags.push(name);
+    state.selectedSkillSubtypes = [];
+  }
+  renderSidebar();
+  applyFiltersAndRender();
+}
+
+function toggleSkillSubtype(name) {
+  const i = state.selectedSkillSubtypes.indexOf(name);
+  if (i > -1) state.selectedSkillSubtypes.splice(i, 1);
+  else state.selectedSkillSubtypes.push(name);
   renderSidebar();
   applyFiltersAndRender();
 }
@@ -391,7 +457,6 @@ function toggleL2(name) {
   const i = state.selectedL2Tags.indexOf(name);
   if (i > -1) {
     state.selectedL2Tags.splice(i, 1);
-    // Clear L3 selections that may no longer be valid
     state.selectedL3Tags = [];
   } else {
     state.selectedL2Tags.push(name);
@@ -410,6 +475,7 @@ function toggleL3(name) {
 
 function clearAllFilters() {
   state.selectedSkillTags = [];
+  state.selectedSkillSubtypes = [];
   state.selectedTimeFrame = null;
   state.selectedL1Tag = null;
   state.selectedL2Tags = [];
@@ -427,6 +493,7 @@ function setFilterMode(mode) {
 // ── global handlers ──────────────────────────────────────────────
 window._sidebarMode = function(m) { setFilterMode(m); };
 window._sidebarSkill = function(n) { toggleSkillTag(n); };
+window._sidebarSubtype = function(n) { toggleSkillSubtype(n); };
 window._sidebarTF = function(n) { toggleTimeFrame(n); };
 window._sidebarL1 = function(n) { toggleL1(n); };
 window._sidebarL2 = function(n) { toggleL2(n); };
@@ -445,6 +512,7 @@ function toggleSidebar() {
 // ── tab change ───────────────────────────────────────────────────
 function onTabChange(newTab) {
   state.selectedSkillTags = [];
+  state.selectedSkillSubtypes = [];
   state.selectedTimeFrame = null;
   state.selectedL1Tag = null;
   state.selectedL2Tags = [];

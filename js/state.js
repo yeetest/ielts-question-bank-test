@@ -7,7 +7,8 @@ export const state = {
   lastActiveTag: null,  // content tag name — back returns to tag summary
   lastTypeSummary: null, // type tag name — back returns to type summary
   filterMode: 'blended', // 'focused' or 'blended'
-  selectedSkillTags: [], // sidebar skill filter
+  selectedSkillTags: [], // sidebar skill filter (top-level)
+  selectedSkillSubtypes: [], // sidebar skill subtype filter (second-level)
   selectedL1Tag: null,   // single L1 category or null
   selectedL2Tags: [],    // multiple L2 tags
   selectedL3Tags: [],    // multiple L3 tags

@@ -29,9 +29,11 @@ export function openModal(tab, idx) {
       ${item.questions.map(q => {
         const skillMatch = state.selectedSkillTags.length > 0
           && q.skill_tags && q.skill_tags.some(t => state.selectedSkillTags.includes(t));
+        const subtypeMatch = state.selectedSkillSubtypes.length > 0
+          && state.selectedSkillSubtypes.includes(q.skill_subtype);
         const timeMatch = state.selectedTimeFrame
           && q.time_frame === state.selectedTimeFrame;
-        const match = skillMatch || timeMatch;
+        const match = skillMatch || subtypeMatch || timeMatch;
         return `<div class="q-row${match ? ' q-highlight' : ''}"><span>${q.text}${renderSkillTags(q.skill_tags)}${topicTags}</span></div>`;
       }).join('')}
     `;
@@ -56,9 +58,11 @@ export function openModal(tab, idx) {
       ${p3.map(q => {
         const skillMatch = state.selectedSkillTags.length > 0
           && q.skill_tags && q.skill_tags.some(t => state.selectedSkillTags.includes(t));
+        const subtypeMatch = state.selectedSkillSubtypes.length > 0
+          && state.selectedSkillSubtypes.includes(q.skill_subtype);
         const timeMatch = state.selectedTimeFrame
           && q.time_frame === state.selectedTimeFrame;
-        const match = skillMatch || timeMatch;
+        const match = skillMatch || subtypeMatch || timeMatch;
         return `<div class="q-row${match ? ' q-highlight' : ''}"><span>${q.text}${renderSkillTags(q.skill_tags)}${topicTags}</span></div>`;
       }).join('')}
     `;

@@ -21,7 +21,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "2. What laws about the environment are effective in your country?",
@@ -29,7 +30,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "3. Which do you think people prefer, rewards or punishment, when it comes to government intervention in environmental protection?",
@@ -38,7 +40,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "4. Is it easy for children in cities to get close to the natural world?",
@@ -46,7 +49,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "5. What can people do to protect the natural world?",
@@ -54,7 +58,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_types"
       },
       {
         "text": "6. Is it important to teach students environmental protection at school?",
@@ -62,7 +67,8 @@
         "time_frame": "present",
         "skill_tags": [
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "is_it_important"
       }
     ],
     "tags": [],
@@ -98,7 +104,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "2. What challenges do young people face when working abroad?",
@@ -106,7 +113,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "3. What are the benefits of working for an international company?",
@@ -114,8 +122,9 @@
         "time_frame": "present",
         "skill_tags": [
           "description",
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "4. What personal skills are required to work in an international company?",
@@ -123,7 +132,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "5. What kind of work can young people do in foreign countries?",
@@ -131,15 +141,17 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_types"
       },
       {
         "text": "6. Why are some people unwilling to work in other countries?",
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
       }
     ],
     "tags": [],
@@ -150,7 +162,7 @@
         "work"
       ],
       "l3": [
-        "traveling"
+        "travel"
       ]
     },
     "qualifier_tags": []
@@ -175,7 +187,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "2. When should parents encourage their children?",
@@ -183,7 +196,8 @@
         "time_frame": "present",
         "skill_tags": [
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "should_people"
       },
       {
         "text": "3. What kind of encouragement should parents give?",
@@ -192,7 +206,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_types"
       },
       {
         "text": "4. Do you think some people are better than others at persuading?",
@@ -202,7 +217,8 @@
           "description",
           "evaluation",
           "comparison"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "5. Should children do everything their parents ask them to do?",
@@ -210,7 +226,8 @@
         "time_frame": "present",
         "skill_tags": [
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "should_people"
       },
       {
         "text": "6. How can employers encourage their staff?",
@@ -218,7 +235,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       }
     ],
     "tags": [],
@@ -228,7 +246,9 @@
         "communication",
         "influence"
       ],
-      "l3": []
+      "l3": [
+        "encouragement"
+      ]
     },
     "qualifier_tags": []
   },
@@ -252,7 +272,8 @@
         "time_frame": "present",
         "skill_tags": [
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "should_people"
       },
       {
         "text": "2. What kind of help do people need when looking for a new job?",
@@ -260,7 +281,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_types"
       },
       {
         "text": "3. Who should people ask for help, colleagues or family members?",
@@ -268,7 +290,8 @@
         "time_frame": "present",
         "skill_tags": [
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "should_people"
       },
       {
         "text": "4. Do people nowadays help others more than in the past?",
@@ -276,7 +299,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "5. Who should teach children to help others? Parents or teachers?",
@@ -284,7 +308,8 @@
         "time_frame": "present",
         "skill_tags": [
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "should_people"
       },
       {
         "text": "6. In what kinds of professions do people help others more?",
@@ -292,15 +317,17 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_types"
       },
       {
         "text": "7. Why are some people willing to help others?",
         "source": "laokaoya",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
       },
       {
         "text": "8. What can children do to help their parents?",
@@ -308,7 +335,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_types"
       },
       {
         "text": "9. Do you think schools should teach children to do household chores?",
@@ -317,25 +345,28 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "10. Why are employees reluctant to ask their managers for help?",
         "source": "yasige",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
       }
     ],
     "tags": [],
     "content_tags": {
-      "l1": "people",
+      "l1": "abstract_concepts",
       "l2": [
-        "close_bonds",
-        "professions"
+        "personal_traits"
       ],
-      "l3": []
+      "l3": [
+        "kindness"
+      ]
     },
     "qualifier_tags": []
   },
@@ -358,9 +389,10 @@
         "source": "laokaoya",
         "time_frame": "present",
         "skill_tags": [
-          "frequency",
+          "experience",
           "description"
-        ]
+        ],
+        "skill_subtype": "do_you_usually"
       },
       {
         "text": "2. What do you think young people spend most of their money on?",
@@ -369,7 +401,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "3. Do you think it is important to save money? Why?",
@@ -378,7 +411,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "4. Do people buy things they don’t need?",
@@ -386,7 +420,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "5. Do you think it is the rich people's responsibility to donate money to people in need?",
@@ -395,7 +430,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "6. What kind of things are people happy to pay a high price for?",
@@ -403,7 +439,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_types"
       }
     ],
     "tags": [],
@@ -440,7 +477,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "2. Do you think imagination is essential for scientists?",
@@ -449,7 +487,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "3. What kinds of jobs need imagination?",
@@ -457,7 +496,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_types"
       },
       {
         "text": "4. What subjects are helpful for children’s imagination?",
@@ -465,7 +505,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "5. What games help develop children's imagination?",
@@ -473,7 +514,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "6. How important is imagination to children?",
@@ -481,7 +523,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       }
     ],
     "tags": [],
@@ -516,7 +559,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_types"
       },
       {
         "text": "2. Is it worth spending a lot of money on the exterior appearance of a building?",
@@ -524,7 +568,8 @@
         "time_frame": "present",
         "skill_tags": [
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "good_or_bad"
       },
       {
         "text": "3. Is it more important for a building to look good on the outside or on the inside?",
@@ -532,15 +577,17 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "4. Why do people like to visit historical sites?",
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
       },
       {
         "text": "5. Do you think it's reasonable to charge an entry fee for visiting interesting buildings?",
@@ -549,7 +596,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "6. Is it better to live in a new building or an old one?",
@@ -557,7 +605,8 @@
         "time_frame": "present",
         "skill_tags": [
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "good_or_bad"
       },
       {
         "text": "7. Should all scenic spots charge an entry fee?",
@@ -565,7 +614,8 @@
         "time_frame": "present",
         "skill_tags": [
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "should_people"
       },
       {
         "text": "8. Is visiting scenic spots the best choice for us while travelling?",
@@ -573,15 +623,17 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "9. Why do some people like to live in big cities?",
         "source": "laokaoya",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
       },
       {
         "text": "10. Is it necessary for tourists to go to visit landmarks when travelling in a place?",
@@ -589,7 +641,8 @@
         "time_frame": "present",
         "skill_tags": [
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "is_it_important"
       }
     ],
     "tags": [],
@@ -599,7 +652,9 @@
         "indoor",
         "outdoor"
       ],
-      "l3": []
+      "l3": [
+        "building"
+      ]
     },
     "qualifier_tags": [
       "interesting"
@@ -625,7 +680,8 @@
         "time_frame": "present",
         "skill_tags": [
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "is_it_important"
       },
       {
         "text": "2. Should teachers make learning in their classes fun?",
@@ -633,7 +689,8 @@
         "time_frame": "present",
         "skill_tags": [
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "should_people"
       },
       {
         "text": "3. Do you think there are too many subjects for students to learn?",
@@ -642,7 +699,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "4. Is it better to focus on a few subjects or to learn many subjects?",
@@ -650,7 +708,8 @@
         "time_frame": "present",
         "skill_tags": [
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "good_or_bad"
       },
       {
         "text": "5. Do you think enterprises should provide training for their employees?",
@@ -659,7 +718,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "6. Do you think it is good for older adults to continue learning?",
@@ -668,7 +728,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       }
     ],
     "tags": [],
@@ -680,7 +741,7 @@
       ],
       "l3": [
         "happiness",
-        "learning"
+        "life_lesson"
       ]
     },
     "qualifier_tags": []
@@ -706,7 +767,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_types"
       },
       {
         "text": "2. What are the factors that make a successful movie?",
@@ -714,7 +776,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "3. Do Chinese people prefer to watch domestic movies or foreign movies?",
@@ -722,7 +785,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "4. Do you think only well-known directors can create the best movies?",
@@ -731,7 +795,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "5. Do you think successful movies should have well-known actors or actresses in leading roles?",
@@ -740,15 +805,17 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "6. Why do people prefer to watch movies in the cinema?",
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
       }
     ],
     "tags": [],
@@ -784,7 +851,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_types"
       },
       {
         "text": "2. Do you think children should receive some musical education?",
@@ -793,7 +861,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "3. What are the differences between old and young people's music preferences?",
@@ -801,9 +870,10 @@
         "time_frame": "present",
         "skill_tags": [
           "description",
-          "analyze",
+          "analysis",
           "comparison"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "4. What kind of music events are there in your country?",
@@ -811,15 +881,17 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_types"
       },
       {
         "text": "5. Why do many people like listening to music while doing sports?",
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
       },
       {
         "text": "6. What are the differences between listening to music at home and at a live concert?",
@@ -827,9 +899,10 @@
         "time_frame": "present",
         "skill_tags": [
           "description",
-          "analyze",
+          "analysis",
           "comparison"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       }
     ],
     "tags": [],
@@ -841,7 +914,7 @@
       ],
       "l3": [
         "anger",
-        "learning"
+        "life_lesson"
       ]
     },
     "qualifier_tags": []
@@ -867,31 +940,35 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "2. How do children become smart at school?",
         "source": "laokaoya",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "how_does_it_work"
       },
       {
         "text": "3. Why are some people well-rounded and others only good at one thing?",
         "source": "laokaoya",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
       },
       {
         "text": "4. Why does modern society need talents of all kinds?",
         "source": "laokaoya",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
       },
       {
         "text": "5. Do you think smart children are happier than other children?",
@@ -900,7 +977,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "6. Is it important for schools to identify and develop each student's talents?",
@@ -908,7 +986,8 @@
         "time_frame": "present",
         "skill_tags": [
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "is_it_important"
       }
     ],
     "tags": [],
@@ -916,10 +995,10 @@
       "l1": "abstract_concepts",
       "l2": [
         "personal_traits",
-        "time"
+        "personal_growth"
       ],
       "l3": [
-        "problem-solving"
+        "problem_solving"
       ]
     },
     "qualifier_tags": []
@@ -944,16 +1023,18 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_types"
       },
       {
         "text": "2. What's the difference between things valued by people in the past and today?",
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze",
+          "analysis",
           "comparison"
-        ]
+        ],
+        "skill_subtype": "how_does_it_work"
       },
       {
         "text": "3. What kinds of things are kept in museums?",
@@ -961,7 +1042,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_types"
       },
       {
         "text": "4. What's the influence of technology on museums?",
@@ -969,7 +1051,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "5. What are the benefits of technology for learning history?",
@@ -977,16 +1060,18 @@
         "time_frame": "present",
         "skill_tags": [
           "description",
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "6. Why do people visit museums?",
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
       },
       {
         "text": "7. What kind of old things do people like to keep?",
@@ -994,15 +1079,17 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_types"
       },
       {
         "text": "8. Why do people keep old things?",
         "source": "laokaoya",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
       },
       {
         "text": "9. What are the differences between the things old people keep and those young people keep?",
@@ -1010,9 +1097,10 @@
         "time_frame": "present",
         "skill_tags": [
           "description",
-          "analyze",
+          "analysis",
           "comparison"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "10. What are the differences between the things that people keep today and the things that people kept in the past?",
@@ -1020,18 +1108,30 @@
         "time_frame": "present",
         "skill_tags": [
           "description",
-          "analyze",
+          "analysis",
           "comparison"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
+      },
+      {
+        "text": "11. What can we see in a museum?",
+        "source": "tongzhuo",
+        "time_frame": "present",
+        "skill_tags": [
+          "description"
+        ],
+        "skill_subtype": "what_types"
       }
     ],
     "tags": [],
     "content_tags": {
-      "l1": "people",
+      "l1": "object",
       "l2": [
-        "close_bonds"
+        "tangible"
       ],
-      "l3": []
+      "l3": [
+        "personal_item"
+      ]
     },
     "qualifier_tags": [
       "sentimental"
@@ -1056,7 +1156,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "2. Do you think air pollution comes mostly from mobile vehicles?",
@@ -1065,7 +1166,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "3. Do you think people need to change the way of transportation drastically to protect the environment?",
@@ -1074,7 +1176,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "4. How are the transportation systems in urban areas and rural areas different?",
@@ -1082,15 +1185,17 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "5. Why do more people own and drive private vehicles now?",
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
       },
       {
         "text": "6. What do you think of the future of electric cars?",
@@ -1099,7 +1204,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       }
     ],
     "tags": [],
@@ -1108,7 +1214,9 @@
       "l2": [
         "tangible"
       ],
-      "l3": []
+      "l3": [
+        "transport_item"
+      ]
     },
     "qualifier_tags": []
   },
@@ -1132,9 +1240,10 @@
         "time_frame": "present",
         "skill_tags": [
           "description",
-          "analyze",
+          "analysis",
           "comparison"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "2. What technology do young people like to use?",
@@ -1142,7 +1251,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "3. What are the differences between online and face-to-face communication?",
@@ -1150,9 +1260,10 @@
         "time_frame": "present",
         "skill_tags": [
           "description",
-          "analyze",
+          "analysis",
           "comparison"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "4. Do you think technology has changed the way people communicate?",
@@ -1162,7 +1273,8 @@
           "description",
           "evaluation",
           "comparison"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "5. What negative effects does technology have on people's relationships?",
@@ -1170,7 +1282,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "6. What are the differences between making friends in real life and online?",
@@ -1178,9 +1291,10 @@
         "time_frame": "present",
         "skill_tags": [
           "description",
-          "analyze",
+          "analysis",
           "comparison"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       }
     ],
     "tags": [],
@@ -1215,17 +1329,19 @@
         "time_frame": "present",
         "skill_tags": [
           "description",
-          "analyze",
+          "analysis",
           "comparison"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "2. Why do some people not like using apps?",
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
       },
       {
         "text": "3. What apps are popular in your country? Why?",
@@ -1233,7 +1349,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_types"
       },
       {
         "text": "4. Should parents limit their children's use of computer programs and computer games?",
@@ -1241,7 +1358,8 @@
         "time_frame": "present",
         "skill_tags": [
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "should_people"
       },
       {
         "text": "5. Do you think young people rely more and more on these programs?",
@@ -1250,7 +1368,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "6. What do you think about some countries banning children from using social media?",
@@ -1259,7 +1378,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       }
     ],
     "tags": [],
@@ -1295,7 +1415,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "2. What activities do we need to plan ahead?",
@@ -1303,7 +1424,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_types"
       },
       {
         "text": "3. Do you think children should plan their future careers?",
@@ -1312,7 +1434,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "4. Should children ask their teachers or parents for advice when making plans?",
@@ -1320,7 +1443,8 @@
         "time_frame": "present",
         "skill_tags": [
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "should_people"
       },
       {
         "text": "5. Is making study plans popular among young people?",
@@ -1328,7 +1452,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "6. Do you think choosing a college major is closely related to a future career?",
@@ -1337,17 +1462,19 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       }
     ],
     "tags": [],
     "content_tags": {
-      "l1": "people",
+      "l1": "abstract_concepts",
       "l2": [
-        "close_bonds",
-        "professions"
+        "personal_traits"
       ],
-      "l3": []
+      "l3": [
+        "discipline"
+      ]
     },
     "qualifier_tags": []
   },
@@ -1371,23 +1498,26 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "2. Why do most children draw more often than adults do?",
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
       },
       {
         "text": "3. Why do some people visit galleries or museums instead of viewing artworks online?",
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
       },
       {
         "text": "4. Do you think galleries and museums should be free of charge?",
@@ -1396,15 +1526,17 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "5. How do artworks inspire people?",
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "how_does_it_work"
       },
       {
         "text": "6. What are the differences between reading a book and visiting a museum?",
@@ -1412,9 +1544,10 @@
         "time_frame": "present",
         "skill_tags": [
           "description",
-          "analyze",
+          "analysis",
           "comparison"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       }
     ],
     "tags": [],
@@ -1450,7 +1583,8 @@
         "time_frame": "present",
         "skill_tags": [
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "should_people"
       },
       {
         "text": "2. Is it good to ask advice from strangers online?",
@@ -1458,7 +1592,8 @@
         "time_frame": "present",
         "skill_tags": [
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "good_or_bad"
       },
       {
         "text": "3. What are the personalities of people whose job is to give advice to others?",
@@ -1466,7 +1601,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "4. What are the problems if you ask too many people for advice?",
@@ -1474,17 +1610,19 @@
         "time_frame": "present",
         "skill_tags": [
           "description",
-          "analyze",
+          "analysis",
           "hypothetical"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "5. Why do some people think it is better to ask for advice from friends than from parents?",
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
       },
       {
         "text": "6. When would old people ask young people for advice?",
@@ -1492,7 +1630,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "where_when_who"
       }
     ],
     "tags": [],
@@ -1501,7 +1640,9 @@
       "l2": [
         "communication"
       ],
-      "l3": []
+      "l3": [
+        "advice_support"
+      ]
     },
     "qualifier_tags": []
   },
@@ -1525,7 +1666,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "where_when_who"
       },
       {
         "text": "2. Should parents reward children? Why and how?",
@@ -1533,7 +1675,8 @@
         "time_frame": "present",
         "skill_tags": [
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "should_people"
       },
       {
         "text": "3. Is it good to reward children too often? Why?",
@@ -1541,7 +1684,8 @@
         "time_frame": "present",
         "skill_tags": [
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "good_or_bad"
       },
       {
         "text": "4. On what occasions would adults be proud of themselves?",
@@ -1549,7 +1693,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "5. Do rewards help a child become better?",
@@ -1557,7 +1702,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "6. What do you think about children working hard just for grades?",
@@ -1566,7 +1712,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       }
     ],
     "tags": [],
@@ -1575,7 +1722,9 @@
       "l2": [
         "close_bonds"
       ],
-      "l3": []
+      "l3": [
+        "family_pride_moment"
+      ]
     },
     "qualifier_tags": []
   },
@@ -1600,15 +1749,17 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "2. Why do most people smile in photographs?",
         "source": "laokaoya",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
       },
       {
         "text": "3. Do women smile more than men? Why?",
@@ -1616,7 +1767,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "4. Do people smile more when they are younger or older?",
@@ -1624,7 +1776,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "5. Is smiling important in your culture?",
@@ -1632,7 +1785,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "6. Are there any occasions when people need to pretend to smile?",
@@ -1640,7 +1794,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "where_when_who"
       }
     ],
     "tags": [],
@@ -1674,8 +1829,9 @@
         "source": "laokaoya",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "how_does_it_work"
       },
       {
         "text": "2. What positive and negative impact do mobile phones have on friendship?",
@@ -1683,7 +1839,8 @@
         "time_frame": "present",
         "skill_tags": [
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "good_or_bad"
       },
       {
         "text": "3. Is it a waste of time to take pictures with mobile phones?",
@@ -1691,7 +1848,8 @@
         "time_frame": "present",
         "skill_tags": [
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "good_or_bad"
       },
       {
         "text": "4. Do you think it is necessary to have laws on the use of mobile phones?",
@@ -1700,7 +1858,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "5. What are examples of good and poor phone manners?",
@@ -1708,15 +1867,17 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "6. How does the internet benefit people?",
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "how_does_it_work"
       }
     ],
     "tags": [],
@@ -1751,8 +1912,9 @@
         "time_frame": "present",
         "skill_tags": [
           "description",
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "2. What can today's children do to become famous?",
@@ -1760,7 +1922,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "3. What can children do with their fame?",
@@ -1768,7 +1931,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_types"
       },
       {
         "text": "4. Do people become famous because of their talent?",
@@ -1776,7 +1940,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "5. Is it easy to become famous in your country?",
@@ -1784,7 +1949,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "6. Do you want to be a famous person?",
@@ -1793,7 +1959,8 @@
         "skill_tags": [
           "description",
           "hypothetical"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       }
     ],
     "tags": [],
@@ -1802,7 +1969,9 @@
       "l2": [
         "professions"
       ],
-      "l3": []
+      "l3": [
+        "public_figure"
+      ]
     },
     "qualifier_tags": []
   },
@@ -1826,7 +1995,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_types"
       },
       {
         "text": "2. What jobs do children want to do when they grow up?",
@@ -1834,7 +2004,8 @@
         "time_frame": "future",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_types"
       },
       {
         "text": "3. Do people's ideal jobs change as they grow up?",
@@ -1842,7 +2013,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "4. What should people consider when choosing jobs?",
@@ -1850,7 +2022,8 @@
         "time_frame": "present",
         "skill_tags": [
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "should_people"
       },
       {
         "text": "5. ls salary the main reason people choose a certain job?",
@@ -1858,7 +2031,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "6. What kind of jobs are the most popular in your country?",
@@ -1866,7 +2040,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_types"
       },
       {
         "text": "7. What kind of job do children like?",
@@ -1874,7 +2049,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_types"
       },
       {
         "text": "8. Do children like to choose the same profession as their parents?",
@@ -1882,7 +2058,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "9. Will people regret about their career choices when they become older?",
@@ -1890,7 +2067,8 @@
         "time_frame": "future",
         "skill_tags": [
           "hypothetical"
-        ]
+        ],
+        "skill_subtype": "will_it_happen"
       }
     ],
     "tags": [],
@@ -1899,7 +2077,9 @@
       "l2": [
         "work"
       ],
-      "l3": []
+      "l3": [
+        "job_role"
+      ]
     },
     "qualifier_tags": []
   },
@@ -1914,7 +2094,8 @@
         "What it is about",
         "Which country it is from",
         "When you watch it",
-        "And explain why you like to watch it"
+        "And explain why you like to watch it",
+        "Who you watch it with"
       ]
     },
     "part3": [
@@ -1924,15 +2105,17 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
-        "text": "2. Do people in your country like to watch foreignTV programs?",
-        "source": "tongzhuo",
+        "text": "2. Do people in your country like to watch foreign TV programs?",
+        "source": "yasige",
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "3. What's the benefit of letting kids watch animal videos than visiting zoos?",
@@ -1940,7 +2123,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "4. Do teachers play videos in class in your country?",
@@ -1948,7 +2132,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "5. Do you think watching talk shows is a waste of time?",
@@ -1957,7 +2142,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "6. Do you think we can acquire knowledge from watching TV programs?",
@@ -1966,7 +2152,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       }
     ],
     "tags": [],
@@ -2003,7 +2190,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_types"
       },
       {
         "text": "2. What are the differences between a natural place and a city?",
@@ -2011,9 +2199,10 @@
         "time_frame": "present",
         "skill_tags": [
           "description",
-          "analyze",
+          "analysis",
           "comparison"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "3. Do you think that going to the park is the only way to get close to nature if you live in a city?",
@@ -2023,7 +2212,8 @@
           "description",
           "evaluation",
           "hypothetical"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "4. Are there any wild animals in the city?",
@@ -2031,7 +2221,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "where_when_who"
       },
       {
         "text": "5. Do you think it is a good idea to let animals stay in local parks for people to visit?",
@@ -2040,7 +2231,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "6. What can people gain from going to natural places?",
@@ -2048,7 +2240,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_types"
       }
     ],
     "tags": [],
@@ -2057,7 +2250,9 @@
       "l2": [
         "outdoor"
       ],
-      "l3": []
+      "l3": [
+        "nature_place"
+      ]
     },
     "qualifier_tags": []
   },
@@ -2081,7 +2276,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "2. Who behave better when waiting, children or adults?",
@@ -2089,7 +2285,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "where_when_who"
       },
       {
         "text": "3. Compared to the past, are people less patient now, why?",
@@ -2097,7 +2294,8 @@
         "time_frame": "present",
         "skill_tags": [
           "comparison"
-        ]
+        ],
+        "skill_subtype": "has_it_changed"
       },
       {
         "text": "4. What are the positive and negative effects of waiting on society?",
@@ -2106,15 +2304,17 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "5. Why are some people unwilling to wait?",
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
       },
       {
         "text": "6. Where do children learn to be patient, at home or at school?",
@@ -2122,7 +2322,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "where_when_who"
       }
     ],
     "tags": [],
@@ -2160,7 +2361,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_types"
       },
       {
         "text": "2. What important decisions should be made by teenagers themselves?",
@@ -2168,15 +2370,17 @@
         "time_frame": "present",
         "skill_tags": [
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "is_it_important"
       },
       {
         "text": "3. Why are some people unwilling to make quick decisions?",
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
       },
       {
         "text": "4. Do people like to ask for advice about their personal life or their work?",
@@ -2184,15 +2388,17 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "5. Why do people like to ask others for advice?",
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
       }
     ],
     "tags": [],
@@ -2202,7 +2408,7 @@
         "personal_growth"
       ],
       "l3": [
-        "decision"
+        "decision_making"
       ]
     },
     "qualifier_tags": []
@@ -2227,25 +2433,28 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "2. What's the difference between the reading habits of old people and young people?",
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze",
+          "analysis",
           "comparison"
-        ]
+        ],
+        "skill_subtype": "how_does_it_work"
       },
       {
         "text": "3. What's the difference between paper books and e-books?",
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze",
+          "analysis",
           "comparison"
-        ]
+        ],
+        "skill_subtype": "how_does_it_work"
       },
       {
         "text": "4. Some people say that it is easier for children who start reading from a young age to succeed, do you agree?",
@@ -2253,7 +2462,8 @@
         "time_frame": "present",
         "skill_tags": [
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "do_you_agree"
       },
       {
         "text": "5. Have libraries changed a lot with the development of the internet?",
@@ -2261,7 +2471,8 @@
         "time_frame": "present",
         "skill_tags": [
           "comparison"
-        ]
+        ],
+        "skill_subtype": "has_it_changed"
       },
       {
         "text": "6. What should we do to prevent modern libraries from closing down?",
@@ -2269,7 +2480,8 @@
         "time_frame": "present",
         "skill_tags": [
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "should_people"
       },
       {
         "text": "7. What should the government do to make libraries better?",
@@ -2277,7 +2489,8 @@
         "time_frame": "present",
         "skill_tags": [
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "should_people"
       },
       {
         "text": "8. Do you think old people spend more time reading than young people?",
@@ -2286,7 +2499,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "9. Which one is better, paper books or e-books?",
@@ -2294,7 +2508,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       }
     ],
     "tags": [],
@@ -2333,7 +2548,8 @@
         "time_frame": "present",
         "skill_tags": [
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "should_people"
       },
       {
         "text": "2. What qualities make an athlete?",
@@ -2341,7 +2557,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "3. ls talent important in sports?",
@@ -2349,7 +2566,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "4. ls it easy to identify children's talents?",
@@ -2357,7 +2575,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "5. What is the most popular sport in your country?",
@@ -2365,15 +2584,26 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_types"
       },
       {
         "text": "6. Why are there so few top athletes?",
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
+      },
+      {
+        "text": "7. What qualities should an athlete have?",
+        "source": "yasige",
+        "time_frame": "present",
+        "skill_tags": [
+          "evaluation"
+        ],
+        "skill_subtype": "should_people"
       }
     ],
     "tags": [],
@@ -2382,7 +2612,9 @@
       "l2": [
         "professions"
       ],
-      "l3": []
+      "l3": [
+        "sportsperson"
+      ]
     },
     "qualifier_tags": []
   },
@@ -2406,7 +2638,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_types"
       },
       {
         "text": "2. What kind of people like to fix things by themselves?",
@@ -2414,7 +2647,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_types"
       },
       {
         "text": "3. Do you think clothes produced in the factory are of better quality than those made by hand?",
@@ -2423,7 +2657,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "4. Do you think handmade clothes are more valuable?",
@@ -2432,7 +2667,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "5. Is the older generation better at fixing things?",
@@ -2440,7 +2676,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "6. Do you think elderly people should teach young people how to fix things？",
@@ -2449,7 +2686,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       }
     ],
     "tags": [],
@@ -2461,7 +2699,7 @@
         "personal_traits"
       ],
       "l3": [
-        "problem-solving",
+        "problem_solving",
         "regret"
       ]
     },
@@ -2486,8 +2724,9 @@
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
       },
       {
         "text": "2. What kinds of things are popular on social media?",
@@ -2495,7 +2734,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_types"
       },
       {
         "text": "3. What are the advantages and disadvantages of using social media?",
@@ -2503,8 +2743,9 @@
         "time_frame": "present",
         "skill_tags": [
           "description",
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "4. What do you think of making friends on social network?",
@@ -2513,7 +2754,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "5. Are there any people who shouldn't use social media?",
@@ -2522,7 +2764,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "where_when_who"
       },
       {
         "text": "6. Do you think people spend too much time on social media?",
@@ -2531,7 +2774,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       }
     ],
     "tags": [],
@@ -2569,15 +2813,17 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "2. How do artists acquire inspiration?",
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "how_does_it_work"
       },
       {
         "text": "3. Do you think pictures and videos in news reports are important?",
@@ -2586,7 +2832,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "4. What can we do to help children keep creative?",
@@ -2594,7 +2841,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_types"
       },
       {
         "text": "5. What can we do to help older children learn music?",
@@ -2602,7 +2850,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_types"
       },
       {
         "text": "6. What kind of jobs require creativity?",
@@ -2610,15 +2859,17 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_types"
       },
       {
         "text": "7. How does drawing help to enhance children’s creativity?",
         "source": "yasige",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "how_does_it_work"
       }
     ],
     "tags": [],
@@ -2633,51 +2884,6 @@
       ]
     },
     "qualifier_tags": []
-  },
-  {
-    "topic": "an important old thing that your family has kept for a long time",
-    "part": 2,
-    "season": "2026-Jan-Apr",
-    "cue_card": {
-      "prompt": "Describe an important old thing that your family has kept for a long time",
-      "you_should_say": [
-        "What it is",
-        "How/when your family first got this thing",
-        "How long your family has kept it",
-        "And explain why this thing is important to your family"
-      ]
-    },
-    "part3": [
-      {
-        "text": "1. What can we see in a museum?",
-        "source": "tongzhuo",
-        "time_frame": "present",
-        "skill_tags": [
-          "description"
-        ]
-      },
-      {
-        "text": "2. What can we learn from a museum?",
-        "source": "tongzhuo",
-        "time_frame": "present",
-        "skill_tags": [
-          "description"
-        ]
-      }
-    ],
-    "tags": [],
-    "content_tags": {
-      "l1": "abstract_concepts",
-      "l2": [
-        "emotion"
-      ],
-      "l3": [
-        "attachment"
-      ]
-    },
-    "qualifier_tags": [
-      "sentimental"
-    ]
   },
   {
     "topic": "the time when you first talked with others in a foreign language",
@@ -2699,7 +2905,8 @@
         "time_frame": "present",
         "skill_tags": [
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "should_people"
       },
       {
         "text": "2. Which skill is more important, speaking or writing?",
@@ -2707,7 +2914,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "3. Does a person still need to learn other languages, if he or she is good at English?",
@@ -2715,7 +2923,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "4. Do you think minority languages will disappear?",
@@ -2725,7 +2934,8 @@
           "description",
           "evaluation",
           "hypothetical"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "5. Does learning a foreign language help in finding a job?",
@@ -2733,7 +2943,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "6. Which stage of life do you think is the best for learning a foreign language?",
@@ -2742,7 +2953,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       }
     ],
     "tags": [],
@@ -2753,7 +2965,7 @@
         "personal_growth"
       ],
       "l3": [
-        "self-improvement"
+        "self_improvement"
       ]
     },
     "qualifier_tags": []
@@ -2777,16 +2989,18 @@
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
       },
       {
         "text": "2. Why are some people keen on doing dangerous activities?",
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
       },
       {
         "text": "3. Do you think that children adapt to new things more easily than adults?",
@@ -2795,7 +3009,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "4. Do you think fear stops people from trying new things?",
@@ -2804,7 +3019,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "5. What can people learn from doing dangerous activities?",
@@ -2812,7 +3028,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_types"
       },
       {
         "text": "6. What are the benefits of trying new things?",
@@ -2820,8 +3037,9 @@
         "time_frame": "present",
         "skill_tags": [
           "description",
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "what_is_it"
       }
     ],
     "tags": [],
@@ -2834,7 +3052,7 @@
       ],
       "l3": [
         "adaptation",
-        "fear"
+        "anxiety"
       ]
     },
     "qualifier_tags": []
@@ -2860,7 +3078,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "2. Do people in your country like to say \"sorry\"?",
@@ -2868,7 +3087,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "3. On what occasion do people usually apologize to others?",
@@ -2876,15 +3096,17 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "where_when_who"
       },
       {
         "text": "4. Why do some people refuse to say \"sorry\" to others?",
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
       },
       {
         "text": "5. Do you think every \"sorry\" is from the bottom of the heart?",
@@ -2893,7 +3115,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "6. Are women better than men at recognizing emotions?",
@@ -2901,7 +3124,8 @@
         "time_frame": "present",
         "skill_tags": [
           "comparison"
-        ]
+        ],
+        "skill_subtype": "better_or_worse"
       }
     ],
     "tags": [],
@@ -2938,7 +3162,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "2. What are the differences between group travelling and travelling alone?",
@@ -2946,9 +3171,10 @@
         "time_frame": "present",
         "skill_tags": [
           "description",
-          "analyze",
+          "analysis",
           "comparison"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "3. What do we need to prepare for a long journey?",
@@ -2956,31 +3182,35 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "4. Why do some people like making long journeys?",
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
       },
       {
         "text": "5. Why do some people prefer to travel in their own country?",
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
       },
       {
         "text": "6. Why do some people prefer to travel abroad?",
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
       }
     ],
     "tags": [],
@@ -2990,7 +3220,7 @@
         "leisure"
       ],
       "l3": [
-        "traveling"
+        "travel"
       ]
     },
     "qualifier_tags": []
@@ -3015,7 +3245,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "2. What food do you eat on special occasions, like during the Spring Festival or the Mid-autumn Festival?",
@@ -3023,15 +3254,17 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "3. Why do people like to have meals together during important festivals?",
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
       },
       {
         "text": "4. Is it a hassle to prepare a meal at home?",
@@ -3039,7 +3272,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "5. What do people often talk about during meals?",
@@ -3047,7 +3281,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_types"
       },
       {
         "text": "6. People are spending less and less time having meals with their families these days. Is this good or bad?",
@@ -3055,7 +3290,8 @@
         "time_frame": "present",
         "skill_tags": [
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "good_or_bad"
       }
     ],
     "tags": [],
@@ -3064,7 +3300,9 @@
       "l2": [
         "close_bonds"
       ],
-      "l3": []
+      "l3": [
+        "family_gathering"
+      ]
     },
     "qualifier_tags": []
   },
@@ -3078,7 +3316,8 @@
         "When it happened",
         "How long it lasted",
         "What you did during that time",
-        "And explain how you felt about it"
+        "And explain how you felt about it",
+        "When/where it happened"
       ]
     },
     "part3": [
@@ -3088,7 +3327,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "2. Do you think electric bicycles will replace ordinary bicycles in the future?",
@@ -3098,7 +3338,8 @@
           "description",
           "evaluation",
           "hypothetical"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "3. Which is better, electric cars or petrol cars?",
@@ -3106,15 +3347,17 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "4. How did people manage to live without electricity in the ancient world?",
         "source": "tongzhuo",
         "time_frame": "past",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "how_does_it_work"
       },
       {
         "text": "5. Is it difficult for the government to replace all the petrol cars with electric cars?",
@@ -3122,7 +3365,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "6. Do people use more electricity now than before?",
@@ -3130,7 +3374,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       }
     ],
     "tags": [],
@@ -3165,8 +3410,9 @@
         "time_frame": "present",
         "skill_tags": [
           "evaluation",
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "should_people"
       },
       {
         "text": "2. What are the advantages and disadvantages of shopping in small shops?",
@@ -3174,16 +3420,18 @@
         "time_frame": "present",
         "skill_tags": [
           "description",
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
-        "text": "3. Why do some people dislike shopping in small shops?",
-        "source": "tongzhuo",
+        "text": "3. Why do some people not like shopping in small shops?",
+        "source": "yasige",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
       },
       {
         "text": "4. What are the differences between online shopping and in-store shopping?",
@@ -3191,9 +3439,10 @@
         "time_frame": "present",
         "skill_tags": [
           "description",
-          "analyze",
+          "analysis",
           "comparison"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "5. Can consumption drive economic growth?",
@@ -3201,25 +3450,29 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "6. Why are shopping malls so popular in China?",
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
       }
     ],
     "tags": [],
     "content_tags": {
       "l1": "experience/activity",
       "l2": [
-        "leisure"
+        "leisure",
+        "indoor"
       ],
       "l3": [
-        "shopping"
+        "shopping",
+        "shopping_venue"
       ]
     },
     "qualifier_tags": []
@@ -3245,7 +3498,8 @@
         "time_frame": "future",
         "skill_tags": [
           "hypothetical"
-        ]
+        ],
+        "skill_subtype": "what_if"
       },
       {
         "text": "2. What are the advantages and disadvantages of family business?",
@@ -3253,16 +3507,18 @@
         "time_frame": "present",
         "skill_tags": [
           "description",
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "3. Why do some people choose to start their own company?",
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
       },
       {
         "text": "4. What family businesses do you know in your local area?",
@@ -3270,7 +3526,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "5. What makes a successful family business?",
@@ -3278,18 +3535,18 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       }
     ],
     "tags": [],
     "content_tags": {
       "l1": "experience/activity",
       "l2": [
-        "leisure",
         "work"
       ],
       "l3": [
-        "shopping"
+        "work_environment"
       ]
     },
     "qualifier_tags": []
@@ -3313,8 +3570,9 @@
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "what_effect"
       },
       {
         "text": "2. Should advertising aimed at kids be prohibited?",
@@ -3322,7 +3580,8 @@
         "time_frame": "present",
         "skill_tags": [
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "should_people"
       },
       {
         "text": "3. Do you think parents should buy more toys for their kids or spend more time with them?",
@@ -3331,25 +3590,28 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "4. What's the difference between the toys kids play now and those they played in the past?",
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze",
+          "analysis",
           "comparison"
-        ]
+        ],
+        "skill_subtype": "how_does_it_work"
       },
       {
         "text": "5. What's the difference between the toys boys play with and girls play with?",
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze",
+          "analysis",
           "comparison"
-        ]
+        ],
+        "skill_subtype": "how_does_it_work"
       },
       {
         "text": "6. What are the advantages and disadvantages of modern toys?",
@@ -3357,8 +3619,9 @@
         "time_frame": "present",
         "skill_tags": [
           "description",
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "what_is_it"
       }
     ],
     "tags": [],
@@ -3367,7 +3630,9 @@
       "l2": [
         "time"
       ],
-      "l3": []
+      "l3": [
+        "childhood"
+      ]
     },
     "qualifier_tags": []
   },
@@ -3392,7 +3657,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "2. Is it possible for us to know whether children who are 3 or 4 years old will become musicians and painters when they grow up?",
@@ -3400,15 +3666,17 @@
         "time_frame": "future",
         "skill_tags": [
           "hypothetical"
-        ]
+        ],
+        "skill_subtype": "will_it_happen"
       },
       {
         "text": "3. Why do people like to watch talent shows?",
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
       },
       {
         "text": "4. Do you think it is more interesting to watch famous people's or ordinary people's shows？",
@@ -3417,7 +3685,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "5. Do you think it's important to develop children's talents?",
@@ -3426,15 +3695,17 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "6. Why do some people like to show their talents online?",
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
       }
     ],
     "tags": [],
@@ -3460,7 +3731,11 @@
         "When it was",
         "Where you went",
         "How you got lost",
-        "And explain what happened after you lost your way"
+        "And explain what happened after you lost your way",
+        "Where you were",
+        "What happened",
+        "How you felt",
+        "And explain how you found your way"
       ]
     },
     "part3": [
@@ -3469,8 +3744,9 @@
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
       },
       {
         "text": "2. Do you think it is important to be able to read a map?",
@@ -3479,7 +3755,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "3. Do you think it is important to do some preparation before you travel to new places?",
@@ -3488,7 +3765,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "4. How can people find their way when they are lost?",
@@ -3496,7 +3774,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "5. Is a paper map still necessary?",
@@ -3504,15 +3783,26 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "6. How do people react when they get lost?",
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "how_does_it_work"
+      },
+      {
+        "text": "7. Why do some people get lost more easily than others?",
+        "source": "yasige",
+        "time_frame": "present",
+        "skill_tags": [
+          "analysis"
+        ],
+        "skill_subtype": "why"
       }
     ],
     "tags": [],
@@ -3522,7 +3812,7 @@
         "leisure"
       ],
       "l3": [
-        "traveling"
+        "travel"
       ]
     },
     "qualifier_tags": []
@@ -3548,7 +3838,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "2. Do you think a child's relationship with friends can be replaced by that with other people, like parents or other family members?",
@@ -3557,15 +3848,17 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "3. How do children make friends when they are not at school?",
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "how_does_it_work"
       },
       {
         "text": "4. What are the differences between friends made inside and outside the workplace?",
@@ -3573,9 +3866,10 @@
         "time_frame": "present",
         "skill_tags": [
           "description",
-          "analyze",
+          "analysis",
           "comparison"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "5. Do you think it's possible for bosses and their employees to become friends?",
@@ -3584,7 +3878,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       }
     ],
     "tags": [],
@@ -3593,7 +3888,9 @@
       "l2": [
         "close_bonds"
       ],
-      "l3": []
+      "l3": [
+        "friendship"
+      ]
     },
     "qualifier_tags": []
   },
@@ -3617,7 +3914,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_types"
       },
       {
         "text": "2. What are the benefits of bedtime stories for children?",
@@ -3625,16 +3923,18 @@
         "time_frame": "present",
         "skill_tags": [
           "description",
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "3. Why do most children like listening to stories before bedtime?",
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
       },
       {
         "text": "4. What can children learn from stories?",
@@ -3642,7 +3942,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_types"
       },
       {
         "text": "5. Do all stories for children have happy endings？",
@@ -3650,7 +3951,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "6. Is a good storyline important for a movie?",
@@ -3658,7 +3960,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       }
     ],
     "tags": [],
@@ -3695,7 +3998,8 @@
         "time_frame": "present",
         "skill_tags": [
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "should_people"
       },
       {
         "text": "2. What should parents do to teach their children good habits？",
@@ -3703,7 +4007,8 @@
         "time_frame": "present",
         "skill_tags": [
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "should_people"
       },
       {
         "text": "3. What influences do children with bad habits have on other children？",
@@ -3711,15 +4016,17 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "4. Why do some habits change when people get older？",
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
       },
       {
         "text": "5. Do you think a person's good habits would influence those around him or her? How?",
@@ -3728,15 +4035,17 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "6. How do we develop bad habits?",
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "how_does_it_work"
       },
       {
         "text": "7. What can we do to get rid of bad habits?",
@@ -3744,7 +4053,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_types"
       }
     ],
     "tags": [],
@@ -3754,7 +4064,7 @@
         "personal_growth"
       ],
       "l3": [
-        "self-improvement"
+        "self_improvement"
       ]
     },
     "qualifier_tags": []
@@ -3778,8 +4088,9 @@
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
       },
       {
         "text": "2. Why should we protect wild animals?",
@@ -3787,8 +4098,9 @@
         "time_frame": "present",
         "skill_tags": [
           "evaluation",
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "should_people"
       },
       {
         "text": "3. Do you think it's important to take children to the zoo to see animals?",
@@ -3797,7 +4109,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "4. Is it more important to protect wild animals or the environment?",
@@ -3805,7 +4118,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "5. Should people educate children to protect wild animals?",
@@ -3813,15 +4127,17 @@
         "time_frame": "present",
         "skill_tags": [
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "should_people"
       },
       {
         "text": "6. Why do people attach more importance to protecting animals?",
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
       }
     ],
     "tags": [],
@@ -3856,7 +4172,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_types"
       },
       {
         "text": "2. What kind of music do young people like?",
@@ -3864,7 +4181,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_types"
       },
       {
         "text": "3. What are the differences between young people's and old people's preferences in music?",
@@ -3872,9 +4190,10 @@
         "time_frame": "present",
         "skill_tags": [
           "description",
-          "analyze",
+          "analysis",
           "comparison"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "4. What are the benefits of children learning a musical instrument?",
@@ -3882,8 +4201,9 @@
         "time_frame": "present",
         "skill_tags": [
           "description",
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "5. Do you know what kind of music children like today?",
@@ -3891,7 +4211,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_types"
       },
       {
         "text": "6. Do you think the government should invest more money on concerts?",
@@ -3900,7 +4221,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       }
     ],
     "tags": [],
@@ -3934,8 +4256,9 @@
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
       },
       {
         "text": "2. Is it important to study science at school?",
@@ -3943,7 +4266,8 @@
         "time_frame": "present",
         "skill_tags": [
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "is_it_important"
       },
       {
         "text": "3. Which science subject is the most important for children to learn?",
@@ -3951,7 +4275,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "4. Should people continue to study science after graduating from school?",
@@ -3959,15 +4284,17 @@
         "time_frame": "present",
         "skill_tags": [
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "should_people"
       },
       {
         "text": "5. How do you get to know about scientific news?",
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "how_does_it_work"
       },
       {
         "text": "6. Should scientists explain the research process to the public?",
@@ -3975,7 +4302,8 @@
         "time_frame": "present",
         "skill_tags": [
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "should_people"
       }
     ],
     "tags": [],
@@ -3984,7 +4312,9 @@
       "l2": [
         "study"
       ],
-      "l3": []
+      "l3": [
+        "study_subject"
+      ]
     },
     "qualifier_tags": []
   },
@@ -4009,47 +4339,53 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "2. Why do old people prefer to live in quiet places?",
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
       },
       {
         "text": "3. Why are there more noises made at home now than in the past?",
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
       },
       {
         "text": "4. Why do some people like to use noise as background sound when they are working or studying?",
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
       },
       {
         "text": "5. How do people spend their leisure time in your country?",
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "how_does_it_work"
       },
       {
         "text": "6. How does technology affect the way people spend their leisure time?",
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "what_effect"
       },
       {
         "text": "7. Do you think only old people have time for leisure?",
@@ -4058,7 +4394,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       }
     ],
     "tags": [],
@@ -4092,16 +4429,18 @@
         "source": "laokaoya",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
       },
       {
         "text": "2. Why do some grown-ups hate to throw out old things (such as clothes)?",
         "source": "laokaoya",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
       },
       {
         "text": "3. Is the way people buy things affected? How?",
@@ -4109,7 +4448,8 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "4. What do you think influences people to buy new things?",
@@ -4118,15 +4458,17 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "5. Why do all children like toys?",
         "source": "yasige",
         "time_frame": "present",
         "skill_tags": [
-          "analyze"
-        ]
+          "analysis"
+        ],
+        "skill_subtype": "why"
       },
       {
         "text": "6. Do you think it is good for a child to always take his or her favourite toy with",
@@ -4135,7 +4477,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       }
     ],
     "tags": [
@@ -4149,149 +4492,6 @@
       "l3": [
         "technology"
       ]
-    },
-    "qualifier_tags": []
-  },
-  {
-    "topic": "an occasion when you lost your way",
-    "part": 2,
-    "season": "",
-    "cue_card": {
-      "prompt": "Describe an occasion when you lost your way",
-      "you_should_say": [
-        "Where you were",
-        "What happened",
-        "How you felt",
-        "And explain how you found your way"
-      ]
-    },
-    "part3": [
-      {
-        "text": "1. Why do some people get lost more easily than others?",
-        "source": "yasige",
-        "time_frame": "present",
-        "skill_tags": [
-          "analyze"
-        ]
-      }
-    ],
-    "content_tags": {
-      "l1": "experience/activity",
-      "l2": [
-        "leisure"
-      ],
-      "l3": [
-        "traveling"
-      ]
-    },
-    "qualifier_tags": [
-      "memorable"
-    ]
-  },
-  {
-    "topic": "a time when the electricity suddenly went off",
-    "part": 2,
-    "season": "",
-    "cue_card": {
-      "prompt": "Describe a time when the electricity suddenly went off",
-      "you_should_say": [
-        "When/where it happened",
-        "How long it lasted",
-        "What you did during that time",
-        "And explain how you felt about it"
-      ]
-    },
-    "part3": [],
-    "content_tags": {
-      "l1": "object",
-      "l2": [
-        "intangible"
-      ],
-      "l3": [
-        "technology"
-      ]
-    },
-    "qualifier_tags": []
-  },
-  {
-    "topic": "a successful sportsperson you admire",
-    "part": 2,
-    "season": "",
-    "cue_card": {
-      "prompt": "Describe a successful sportsperson you admire",
-      "you_should_say": [
-        "Who he/she is",
-        "What you know about him/her",
-        "What he/she is like in real life",
-        "What achievement he/she has made",
-        "And explain why you admire him/her"
-      ]
-    },
-    "part3": [
-      {
-        "text": "1. What qualities should an athlete have?",
-        "source": "yasige",
-        "time_frame": "present",
-        "skill_tags": [
-          "evaluation"
-        ]
-      },
-      {
-        "text": "2. Is talent important in sports?",
-        "source": "yasige",
-        "time_frame": "present",
-        "skill_tags": [
-          "description"
-        ]
-      }
-    ],
-    "content_tags": {
-      "l1": "people",
-      "l2": [
-        "professions"
-      ],
-      "l3": []
-    },
-    "qualifier_tags": []
-  },
-  {
-    "topic": "a time when you received good service in a shop/store",
-    "part": 2,
-    "season": "",
-    "cue_card": {
-      "prompt": "Describe a time when you received good service in a shop/store",
-      "you_should_say": [
-        "Where the shop is",
-        "When you went to the shop",
-        "What service you received from the staff",
-        "And explain how you felt about the service"
-      ]
-    },
-    "part3": [
-      {
-        "text": "1. Why do some people not like shopping in small shops?",
-        "source": "yasige",
-        "time_frame": "present",
-        "skill_tags": [
-          "analyze"
-        ]
-      },
-      {
-        "text": "2. What are the advantages and disadvantages of shopping online?",
-        "source": "yasige",
-        "time_frame": "present",
-        "skill_tags": [
-          "description",
-          "analyze"
-        ]
-      }
-    ],
-    "content_tags": {
-      "l1": "place",
-      "l2": [
-        "indoor"
-      ],
-      "l3": []
     },
     "qualifier_tags": []
   },
@@ -4314,9 +4514,10 @@
         "source": "yasige",
         "time_frame": "present",
         "skill_tags": [
-          "analyze",
+          "analysis",
           "comparison"
-        ]
+        ],
+        "skill_subtype": "how_does_it_work"
       },
       {
         "text": "2. Some people say large cities are suitable for old people. What do you think?",
@@ -4324,7 +4525,8 @@
         "time_frame": "present",
         "skill_tags": [
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "do_you_agree"
       },
       {
         "text": "3. Do you think it is possible that all of the population move to cities?",
@@ -4333,7 +4535,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "4. Do you think people in the countryside are friendlier than people in the city?",
@@ -4342,7 +4545,8 @@
         "skill_tags": [
           "description",
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "5. Are there any changes in your city?",
@@ -4351,7 +4555,8 @@
         "skill_tags": [
           "description",
           "comparison"
-        ]
+        ],
+        "skill_subtype": "where_when_who"
       },
       {
         "text": "6. What should the government do to improve citizens’ safety?",
@@ -4359,7 +4564,8 @@
         "time_frame": "present",
         "skill_tags": [
           "evaluation"
-        ]
+        ],
+        "skill_subtype": "should_people"
       }
     ],
     "content_tags": {
@@ -4367,7 +4573,9 @@
       "l2": [
         "outdoor"
       ],
-      "l3": []
+      "l3": [
+        "city_space"
+      ]
     },
     "qualifier_tags": []
   },
@@ -4391,16 +4599,18 @@
         "time_frame": "present",
         "skill_tags": [
           "description"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "2. How have people’s shopping habits changed in recent decades?",
         "source": "yasige",
         "time_frame": "present",
         "skill_tags": [
-          "analyze",
+          "analysis",
           "comparison"
-        ]
+        ],
+        "skill_subtype": "how_does_it_work"
       },
       {
         "text": "3. Do you think shops and shopping malls will disappear in the future?",
@@ -4410,7 +4620,8 @@
           "description",
           "evaluation",
           "hypothetical"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "4. What are the differences between shopping in street markets and big shopping malls?",
@@ -4418,9 +4629,10 @@
         "time_frame": "present",
         "skill_tags": [
           "description",
-          "analyze",
+          "analysis",
           "comparison"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "5. What are the differences in the shopping habits of different age groups?",
@@ -4429,7 +4641,8 @@
         "skill_tags": [
           "description",
           "comparison"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "6. What are the differences between shopping online and in-store?",
@@ -4437,9 +4650,10 @@
         "time_frame": "present",
         "skill_tags": [
           "description",
-          "analyze",
+          "analysis",
           "comparison"
-        ]
+        ],
+        "skill_subtype": "what_is_it"
       }
     ],
     "content_tags": {
@@ -4449,42 +4663,6 @@
       ],
       "l3": [
         "shopping"
-      ]
-    },
-    "qualifier_tags": []
-  },
-  {
-    "topic": "a TV or online program you like to watch",
-    "part": 2,
-    "season": "",
-    "cue_card": {
-      "prompt": "Describe a TV or online program you like to watch",
-      "you_should_say": [
-        "What it is",
-        "What it is about",
-        "Who you watch it with",
-        "And explain why you like to watch it"
-      ]
-    },
-    "part3": [
-      {
-        "text": "1. Do people in your country like to watch foreign TV programs?",
-        "source": "yasige",
-        "time_frame": "present",
-        "skill_tags": [
-          "description"
-        ]
-      }
-    ],
-    "content_tags": {
-      "l1": "object",
-      "l2": [
-        "intangible",
-        "tangible"
-      ],
-      "l3": [
-        "media",
-        "technology"
       ]
     },
     "qualifier_tags": []

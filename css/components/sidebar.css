@@ -91,6 +91,9 @@
 /* Skill — slate blue */
 .stag-skill            { background: #dbeafe; color: #1e40af; }
 
+/* Skill Subtype — lighter blue-violet */
+.stag-subtype          { background: #e0e7ff; color: #3730a3; font-size: 0.64rem; }
+
 /* Time Frame — soft green */
 .stag-tf               { background: #d1fae5; color: #065f46; }
 

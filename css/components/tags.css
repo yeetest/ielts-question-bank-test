@@ -55,9 +55,8 @@
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   filter: brightness(0.95);
 }
-/* Unified 8-type taxonomy (both Part 1 and Part 2+3) */
+/* Unified 7-type taxonomy (both Part 1 and Part 2+3) */
 .ttag-experience   { background: #fed7aa; color: #9a3412; }
-.ttag-frequency    { background: #cffafe; color: #155e75; }
 .ttag-description  { background: #dbeafe; color: #1e40af; }
 .ttag-preference   { background: #fce7f3; color: #9d174d; }
 .ttag-evaluation   { background: #fef3c7; color: #92400e; }

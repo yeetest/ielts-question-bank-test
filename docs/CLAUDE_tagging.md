@@ -135,39 +135,30 @@ Each l3 belongs to exactly one l2. Pick 0–2 l3 tags.
 
 ---
 
-## Skill Tags (`skill_tags`) — Unified 8-Type Taxonomy
+## Skill Tags (`skill_tags`) — Unified 7-Type Taxonomy
 
-Both Part 1 questions and Part 3 questions use the same 8-type taxonomy. Each question gets a `skill_tags` array with 1–3 values. Assign all that apply (up to 3, in priority order); if genuinely ambiguous, use `unclear`.
+Both Part 1 questions and Part 3 questions use the same 7-type taxonomy. Each question gets a `skill_tags` array with 1–3 values. Assign all that apply (up to 3, in priority order); if genuinely ambiguous, use `unclear`.
 
-**Priority order:** `experience` → `frequency` → `description` → `preference` → `evaluation` → `analysis` → `comparison` → `hypothetical`
+**Priority order:** `experience` → `description` → `preference` → `evaluation` → `analysis` → `comparison` → `hypothetical`
+
+Note: `frequency` was merged into `experience` as subtypes (`how_often`, `do_you_usually`).
 
 **Script:** `pipeline/tag_question_types.py` — auto-tags questions using keyword matching.
 
 ---
 
 ### experience
-Past personal actions or events — what you did, saw, tried, or remember.
+Past personal actions, events, memories, frequency of activities.
 
-Keywords: `have you`, `did you`, `what did you`, `when did you`, `when was`, `can you remember`
+Keywords: `have you`, `did you`, `what did you`, `when did you`, `when was`, `can you remember`, `how often`, `do you usually`, `do you often`
 
-**Example:** *Have you ever visited a museum?*
-
-**Subtypes:**
-- `personal_event` — specific past actions ("Have you ever X?", "Did you X?")
-- `memory_recall` — recollection of childhood/past states ("Can you remember?", "When you were young?")
-
----
-
-### frequency
-How often or how regularly something happens.
-
-Keywords: `how often`, `do you usually`, `do you often`, `every day`, `how frequently/regularly`
-
-**Example:** *How often do you go to the gym?*
+**Example:** *Have you ever visited a museum?* / *How often do you go to the gym?*
 
 **Subtypes:**
-- `regularity` — explicit frequency quantification ("How often?", "How frequently?")
-- `habit` — habitual patterns ("Do you usually?", "Do you often?")
+- `have_you_ever` — specific past actions ("Have you ever X?", "Did you X?")
+- `remember_when` — recollection of childhood/past states ("Can you remember?", "When you were young?")
+- `how_often` — explicit frequency ("How often?", "How frequently?")
+- `do_you_usually` — habitual patterns ("Do you usually?", "Do you often?", "Every day?")
 
 ---
 
@@ -179,10 +170,10 @@ Keywords: `what is/are`, `which`, `how many/much/long`, `tell me`, `describe`, `
 **Example:** *What kinds of shops are popular in your city?*
 
 **Subtypes:**
-- `listing` — enumerating types, kinds, examples ("What kinds of?", "What activities?")
-- `features` — characteristics, properties, attributes ("What is X?", "What does X look like?")
-- `context` — location, time, person identification ("Where?", "When?", "Who?")
-- `process` — methods, procedures, amounts ("How do you X?", "How long?")
+- `what_types` — enumerating types, kinds, examples ("What kinds of?", "What activities?")
+- `what_is_it` — characteristics, properties, attributes ("What is X?", "What does X look like?")
+- `where_when_who` — location, time, person identification ("Where?", "When?", "Who?")
+- `how_to` — methods, procedures, amounts ("How do you X?", "How long?")
 
 ---
 
@@ -194,8 +185,8 @@ Keywords: `do you like`, `do you prefer`, `favourite`, `do you enjoy`, `which do
 **Example:** *Do you prefer shopping online or in stores?*
 
 **Subtypes:**
-- `like_dislike` — simple enjoyment ("Do you like?", "Do you enjoy?")
-- `choice` — selection between alternatives ("Do you prefer X or Y?", "Favourite?")
+- `do_you_like` — simple enjoyment ("Do you like?", "Do you enjoy?")
+- `which_prefer` — selection between alternatives ("Do you prefer X or Y?", "Favourite?")
 
 ---
 
@@ -207,10 +198,10 @@ Keywords: `do you think`, `should/shouldn't`, `is it important/necessary/good/ba
 **Example:** *Do you think it's important for people to support local shops?*
 
 **Subtypes:**
-- `importance` — assessing significance ("Is it important?", "Is it necessary?")
-- `recommendation` — prescriptive advice ("Should X?", "What should?")
-- `judgment` — quality assessment ("Is it good/bad?", "Advantages vs disadvantages?")
-- `agreement` — opinion/stance ("Do you agree?", "Do you think?")
+- `is_it_important` — assessing significance ("Is it important?", "Is it necessary?")
+- `should_people` — prescriptive advice ("Should X?", "What should?")
+- `good_or_bad` — quality assessment ("Is it good/bad?", "Advantages vs disadvantages?")
+- `do_you_agree` — opinion/stance ("Do you agree?", "Do you think?")
 
 ---
 
@@ -222,10 +213,10 @@ Keywords: `why` (sentence-initial), `how does/do/did`, `what causes/reasons/fact
 **Example:** *Why do some people prefer shopping online?*
 
 **Subtypes:**
-- `cause_reason` — explaining why ("Why?", "What causes?", "What reasons?")
-- `effect_impact` — consequences and influence ("What impact?", "How does X affect?")
-- `pros_cons` — benefits and drawbacks ("What are the benefits/disadvantages?")
-- `mechanism` — how something works ("How does X work?", "In what way?")
+- `why` — explaining causes and reasons ("Why?", "What causes?", "What reasons?")
+- `what_effect` — consequences and influence ("What impact?", "How does X affect?")
+- `what_pros_cons` — benefits and drawbacks ("What are the benefits/disadvantages?")
+- `how_does_it_work` — how something works ("How does X work?", "In what way?")
 
 ---
 
@@ -237,9 +228,9 @@ Keywords: `what are the differences`, `are there differences`, `has/have changed
 **Example:** *What are the differences between team sports and individual sports?*
 
 **Subtypes:**
-- `difference` — contrasting two things ("What are the differences?", "Similarities?")
-- `change_over_time` — temporal comparison ("Has X changed?", "Compared to the past?")
-- `ranking` — relative quality ("Better/worse than?")
+- `what_differences` — contrasting two things ("What are the differences?", "Similarities?")
+- `has_it_changed` — temporal comparison ("Has X changed?", "Compared to the past?")
+- `better_or_worse` — relative quality ("Better/worse than?")
 
 ---
 
@@ -251,9 +242,9 @@ Keywords: `would you like`, `if you`, `would you want/prefer/rather`, `imagine`,
 **Example:** *Do you think more people will shop online in the future?*
 
 **Subtypes:**
-- `future_plan` — intentions and desires ("Do you want to?", "Plans for?")
-- `conditional` — if-then scenarios ("If you could?", "Would you?")
-- `prediction` — forecasting ("Will X?", "In the future?")
+- `do_you_want_to` — intentions and desires ("Do you want to?", "Plans for?")
+- `what_if` — if-then scenarios ("If you could?", "Would you?")
+- `will_it_happen` — forecasting ("Will X?", "In the future?")
 
 ---
 
@@ -264,13 +255,16 @@ Use when the question genuinely does not fit any of the above, or is too vague t
 
 ## Skill Subtype (`skill_subtype`) — Second-Level Taxonomy
 
-Every question also gets a `skill_subtype` string — the subtype of its primary (first) `skill_tags` value. 24 subtypes across 8 categories. Assigned by `pipeline/tag_question_types.py` using keyword matching with confidence tracking.
+Every question also gets a `skill_subtype` string — the subtype of its primary (first) `skill_tags` value. 23 subtypes across 7 categories, named to reflect how questions are phrased. Assigned by `pipeline/tag_question_types.py` using keyword matching with confidence tracking.
 
 **Confidence levels:**
 - `high` — matched a specific subtype pattern
 - `default` — assigned the category's catch-all default subtype
 
 **Audit:** Run with `--audit` flag to generate `human-in-the-loop/skill_subtype_audit.md` listing all default-confidence assignments for manual review.
+
+### Sidebar Drill-Down
+The frontend sidebar shows skill tags as a two-level hierarchy. Clicking a top-level skill tag reveals its subtypes as clickable tags below. Clicking a subtype filters to questions matching that specific subtype and highlights them in the modal.
 
 ---
 
@@ -344,7 +338,7 @@ Questions about future plans, predictions, hypothetical/imagined scenarios, desi
   "content_tags": {"l1": "experience/activity", "l2": ["leisure"], "l3": ["reading"]},
   "qualifier_tags": [],
   "questions": [
-    { "text": "1. Do you like reading?", "source": "laokaoya", "skill_tags": ["preference"], "skill_subtype": "like_dislike", "time_frame": "present" }
+    { "text": "1. Do you like reading?", "source": "laokaoya", "skill_tags": ["preference"], "skill_subtype": "do_you_like", "time_frame": "present" }
   ],
   "tags": []
 }
@@ -362,7 +356,7 @@ Questions about future plans, predictions, hypothetical/imagined scenarios, desi
     "you_should_say": ["Who this person is", "What he or she does"]
   },
   "part3": [
-    { "text": "1. Do you think parents should teach their children?", "source": "tongzhuo", "skill_tags": ["evaluation"], "skill_subtype": "recommendation", "time_frame": "present" }
+    { "text": "1. Do you think parents should teach their children?", "source": "tongzhuo", "skill_tags": ["evaluation"], "skill_subtype": "should_people", "time_frame": "present" }
   ],
   "tags": [],
   "content_tags": {"l1": "abstract_concepts", "l2": ["values"], "l3": ["environment", "policy"]},
@@ -382,7 +376,7 @@ python3 pipeline/tag_content_v2.py merged_part2.json --overwrite
 ```
 
 ### tag_question_types.py
-Auto-tags questions with `skill_tags` (8 top-level) and `skill_subtype` (24 second-level) via keyword matching. Modes: default (empty only), `--overwrite` (all), `--subtype-only` (keep skill_tags, add subtypes). `--audit` generates `human-in-the-loop/skill_subtype_audit.md`.
+Auto-tags questions with `skill_tags` (7 top-level) and `skill_subtype` (23 second-level) via keyword matching. Modes: default (empty only), `--overwrite` (all), `--subtype-only` (keep skill_tags, add subtypes). `--audit` generates `human-in-the-loop/skill_subtype_audit.md`.
 ```bash
 python3 pipeline/tag_question_types.py merged_part1.json --part 1
 python3 pipeline/tag_question_types.py merged_part2.json
