@@ -3109,7 +3109,8 @@
         "When it happened",
         "How long it lasted",
         "What you did during that time",
-        "And explain how you felt about it"
+        "And explain how you felt about it",
+        "When/where it happened"
       ]
     },
     "part3": [
@@ -4227,31 +4228,6 @@
     "qualifier_tags": [
       "memorable"
     ]
-  },
-  {
-    "topic": "a time when the electricity suddenly went off",
-    "part": 2,
-    "season": "",
-    "cue_card": {
-      "prompt": "Describe a time when the electricity suddenly went off",
-      "you_should_say": [
-        "When/where it happened",
-        "How long it lasted",
-        "What you did during that time",
-        "And explain how you felt about it"
-      ]
-    },
-    "part3": [],
-    "content_tags": {
-      "l1": "object",
-      "l2": [
-        "intangible"
-      ],
-      "l3": [
-        "technology"
-      ]
-    },
-    "qualifier_tags": []
   },
   {
     "topic": "a successful sportsperson you admire",

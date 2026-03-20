@@ -65,7 +65,7 @@ Run from repo root, with **the same `<quarter-id>`** as the folder name under `d
 
 | Step | Command | What it does |
 |------|---------|----------------|
-| 0a | `python3 pipeline/dedup_topics_part2.py --quarter <id> --dry-run` | Lists clusters that would merge; then run without `--dry-run` to write `merged_part2.json`. |
+| 0a | `python3 pipeline/dedup_topics_part2.py --quarter <id> --dry-run` | Lists clusters that would merge; then run without `--dry-run` to write `merged_part2.json`. **Removes whole duplicate topic rows** (including empty `part3` shells), not only in-topic question dedup. |
 | 0b | `python3 pipeline/dedup_questions.py data/quarters/<id>/merged_part2.json` | Fuzzy dedup **within** each topic’s `part3` (and Part 1 `questions` if you pass part1 path). |
 | 0c | `python3 pipeline/renumber_questions.py data/quarters/<id>/merged_part2.json` | Sequential `1.` … numbering after edits. |
 | 1 | `python3 pipeline/assign_primary_l3_v2.py --quarter <id>` | Reads merged JSON + `config/topic_taxonomy_v2_curated.yaml`; writes `human-in-the-loop/topic_taxonomy_assignment_v2_part1.json` and `..._part2.json`. Does **not** overwrite `content_tags` in merged files. **Note:** this path is **global** — if you assign quarter B then quarter A, re-run assign for **A** before exporting A. |
@@ -107,7 +107,7 @@ Optional first pass: step 2 with `--dry-run` to audit before writing merged file
 ## 7. Pitfalls / do not
 
 - Do **not** hand-edit `topic_taxonomy_v2_final.json` — you lose traceability and drift from assignment.
-- Do **not** rely only on **question-level** `dedup_questions.py` — it does not remove **duplicate Part 2 topic objects** with different titles; use **`dedup_topics_part2.py`** when ingest creates near-duplicate cue cards.
+- Do **not** rely only on **question-level** `dedup_questions.py` — it does not remove **duplicate Part 2 topic objects** or **shell cards** (`part3: []` alongside a full duplicate); use **`dedup_topics_part2.py`** so the loser topic row is deleted after merging content into the survivor.
 - Do **not** skip **backfill** — empty `l3` and legacy spellings will break or weaken subset alignment.
 - Do **not** change only the frontend and assume the bank is aligned; **merged + export** are the source of truth for taxonomy rows the UI reads.
 - Do **not** forget to update **project memory** (`CLAUDE.md`, `README_ARCH.md`, relevant `docs/*`) when the workflow or quarter list changes.

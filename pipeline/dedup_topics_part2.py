@@ -17,12 +17,19 @@ Usage:
 Requires: thefuzz (same as dedup_questions.py)
 
 Keep-best (survivor) priority, in order:
-  1. More Part 3 questions
+  1. More Part 3 questions (non-empty part3 always beats an empty “shell” card)
   2. More cue-card bullet lines (you_should_say)
   3. Richer content_tags (more l3, then more l2)
   4. Non-empty season field
   5. Higher aggregate source tier (tongzhuo > laokaoya > yasige > other)
-  6. Shorter topic string (slightly prefer compact exam-style titles when tied)
+  6. Shorter topic string (tie-break when still equal)
+
+Similarity (clustering): fuzzy ratio on fingerprints plus **contiguous substring**: the shorter
+fingerprint appears inside the longer (≥55% of longer’s length) or extends it with a space —
+catches “… went off” vs “… went off at where you live”. Optional trailing place phrases are
+stripped in fingerprints only (e.g. “at where you live”), so many variants become identical.
+We do **not** use global partial_ratio (avoids merging distinct cues like “sportsperson” vs
+“successful sportsperson”).
 
 Merged record:
   - topic / cue_card.prompt: survivor's wording
@@ -52,12 +59,25 @@ ROOT = Path(__file__).resolve().parent.parent
 
 SOURCE_TIER = {"tongzhuo": 4, "laokaoya": 3, "yasige": 2}
 
+# Strip from fingerprint only (clustering), not from survivor display strings.
+_OPTIONAL_PLACE_SUFFIX_RES = (
+    re.compile(r"\bat where you live\b", re.I),
+    re.compile(r"\bwhere you live\b", re.I),
+    re.compile(r"\bin your hometown\b", re.I),
+    re.compile(r"\bin your country\b", re.I),
+)
+
+# Shorter title must be at least this many chars to use substring / partial merge signals.
+_MIN_SUBSTRING_TOPIC_LEN = 22
+
 
 def topic_fingerprint(raw: str) -> str:
     """Normalize wording so near-identical cue titles cluster together."""
     t = raw.lower().strip()
     t = t.replace("/", " ")
     t = re.sub(r"\s+", " ", t)
+    for rx in _OPTIONAL_PLACE_SUFFIX_RES:
+        t = rx.sub(" ", t)
     t = re.sub(r"\byou like to watch\b", "you watch", t)
     t = re.sub(r"\byou enjoy watching\b", "you watch", t)
     t = re.sub(r"\byou love to watch\b", "you watch", t)
@@ -70,7 +90,19 @@ def topic_fingerprint(raw: str) -> str:
 
 def topic_similarity(a: str, b: str) -> int:
     fa, fb = topic_fingerprint(a), topic_fingerprint(b)
-    return max(fuzz.ratio(fa, fb), fuzz.ratio(a.lower().strip(), b.lower().strip()))
+    if not fa or not fb:
+        return 0
+    ra, rb = a.lower().strip(), b.lower().strip()
+    scores: list[int] = [fuzz.ratio(fa, fb), fuzz.ratio(ra, rb)]
+
+    short, long = (fa, fb) if len(fa) <= len(fb) else (fb, fa)
+    if len(short) >= _MIN_SUBSTRING_TOPIC_LEN and short != long:
+        if long.startswith(short + " ") or long.endswith(" " + short):
+            scores.append(97)
+        elif short in long and len(short) >= int(len(long) * 0.55):
+            scores.append(96)
+
+    return min(100, max(scores))
 
 
 def source_score(topic: dict[str, Any]) -> int:

@@ -212,7 +212,9 @@ python3 pipeline/tag_time_frames.py merged_part1.json --part 1 --overwrite  # re
 ```
 
 ### dedup_topics_part2.py
-Merges **near-duplicate Part 2 topic records** (one cue card, two titles) so the UI does not show two grid cards. Run on quarter `merged_part2.json` **before** assign → backfill → export. **Keep-best:** more Part 3 questions → more `you_should_say` bullets → richer `content_tags` → non-empty `season` → source tier (tongzhuo > laokaoya > yasige) → shorter `topic` string. Surviving topic keeps its title/prompt; Part 3 lists are merged then fuzzy-deduped (`dedup_questions`).
+Merges **near-duplicate Part 2 topic objects** into one **survivor** and **deletes the loser row** from `merged_part2.json` — not just Part 3 question dedup inside a topic. Fixes duplicate grid cards and **empty Part 3 “shell” topics** (same cue, second row with `part3: []`). Clustering uses normalized **fingerprints** (optional trailing phrases like “at where you live” stripped) plus fuzzy ratio and **contiguous substring** rules; it does **not** use loose partial_ratio across unrelated cues (e.g. sportsperson vs successful sportsperson). Run **before** assign → backfill → export.
+
+**Keep-best (survivor):** more Part 3 questions → more `you_should_say` → richer `content_tags` → non-empty `season` → source tier (tongzhuo > laokaoya > yasige) → shorter `topic` string. Loser’s bullets / Part 3 / tags are merged into the survivor, then `dedup_questions` on the combined Part 3 list.
 
 ```bash
 python3 pipeline/dedup_topics_part2.py --quarter 2026-01-to-04 --dry-run
