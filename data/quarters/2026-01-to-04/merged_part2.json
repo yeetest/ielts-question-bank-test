@@ -150,7 +150,8 @@
         "work"
       ],
       "l3": [
-        "traveling"
+        "traveling",
+        "travel"
       ]
     },
     "qualifier_tags": []
@@ -228,7 +229,9 @@
         "communication",
         "influence"
       ],
-      "l3": []
+      "l3": [
+        "encouragement"
+      ]
     },
     "qualifier_tags": []
   },
@@ -335,7 +338,9 @@
         "close_bonds",
         "professions"
       ],
-      "l3": []
+      "l3": [
+        "supportive_relationship"
+      ]
     },
     "qualifier_tags": []
   },
@@ -599,7 +604,9 @@
         "indoor",
         "outdoor"
       ],
-      "l3": []
+      "l3": [
+        "building"
+      ]
     },
     "qualifier_tags": [
       "interesting"
@@ -680,7 +687,8 @@
       ],
       "l3": [
         "happiness",
-        "learning"
+        "learning",
+        "learning_growth"
       ]
     },
     "qualifier_tags": []
@@ -841,7 +849,8 @@
       ],
       "l3": [
         "anger",
-        "learning"
+        "learning",
+        "learning_growth"
       ]
     },
     "qualifier_tags": []
@@ -1031,7 +1040,9 @@
       "l2": [
         "close_bonds"
       ],
-      "l3": []
+      "l3": [
+        "family_activity"
+      ]
     },
     "qualifier_tags": [
       "sentimental"
@@ -1108,7 +1119,9 @@
       "l2": [
         "tangible"
       ],
-      "l3": []
+      "l3": [
+        "transport_item"
+      ]
     },
     "qualifier_tags": []
   },
@@ -1501,7 +1514,9 @@
       "l2": [
         "communication"
       ],
-      "l3": []
+      "l3": [
+        "advice_support"
+      ]
     },
     "qualifier_tags": []
   },
@@ -1575,7 +1590,9 @@
       "l2": [
         "close_bonds"
       ],
-      "l3": []
+      "l3": [
+        "family_pride_moment"
+      ]
     },
     "qualifier_tags": []
   },
@@ -1802,7 +1819,9 @@
       "l2": [
         "professions"
       ],
-      "l3": []
+      "l3": [
+        "public_figure"
+      ]
     },
     "qualifier_tags": []
   },
@@ -1899,7 +1918,9 @@
       "l2": [
         "work"
       ],
-      "l3": []
+      "l3": [
+        "job_role"
+      ]
     },
     "qualifier_tags": []
   },
@@ -2057,7 +2078,9 @@
       "l2": [
         "outdoor"
       ],
-      "l3": []
+      "l3": [
+        "nature_place"
+      ]
     },
     "qualifier_tags": []
   },
@@ -2202,7 +2225,8 @@
         "personal_growth"
       ],
       "l3": [
-        "decision"
+        "decision",
+        "decision_making"
       ]
     },
     "qualifier_tags": []
@@ -2382,7 +2406,9 @@
       "l2": [
         "professions"
       ],
-      "l3": []
+      "l3": [
+        "sportsperson"
+      ]
     },
     "qualifier_tags": []
   },
@@ -2753,7 +2779,8 @@
         "personal_growth"
       ],
       "l3": [
-        "self-improvement"
+        "self-improvement",
+        "self_improvement"
       ]
     },
     "qualifier_tags": []
@@ -2990,7 +3017,8 @@
         "leisure"
       ],
       "l3": [
-        "traveling"
+        "traveling",
+        "travel"
       ]
     },
     "qualifier_tags": []
@@ -3064,7 +3092,9 @@
       "l2": [
         "close_bonds"
       ],
-      "l3": []
+      "l3": [
+        "family_activity"
+      ]
     },
     "qualifier_tags": []
   },
@@ -3367,7 +3397,9 @@
       "l2": [
         "time"
       ],
-      "l3": []
+      "l3": [
+        "childhood"
+      ]
     },
     "qualifier_tags": []
   },
@@ -3522,7 +3554,8 @@
         "leisure"
       ],
       "l3": [
-        "traveling"
+        "traveling",
+        "travel"
       ]
     },
     "qualifier_tags": []
@@ -3593,7 +3626,9 @@
       "l2": [
         "close_bonds"
       ],
-      "l3": []
+      "l3": [
+        "friendship"
+      ]
     },
     "qualifier_tags": []
   },
@@ -3754,7 +3789,8 @@
         "personal_growth"
       ],
       "l3": [
-        "self-improvement"
+        "self-improvement",
+        "self_improvement"
       ]
     },
     "qualifier_tags": []
@@ -3984,7 +4020,9 @@
       "l2": [
         "study"
       ],
-      "l3": []
+      "l3": [
+        "study_subject"
+      ]
     },
     "qualifier_tags": []
   },
@@ -4181,7 +4219,8 @@
         "leisure"
       ],
       "l3": [
-        "traveling"
+        "traveling",
+        "travel"
       ]
     },
     "qualifier_tags": [
@@ -4250,7 +4289,9 @@
       "l2": [
         "professions"
       ],
-      "l3": []
+      "l3": [
+        "sportsperson"
+      ]
     },
     "qualifier_tags": []
   },
@@ -4291,7 +4332,9 @@
       "l2": [
         "indoor"
       ],
-      "l3": []
+      "l3": [
+        "shopping_venue"
+      ]
     },
     "qualifier_tags": []
   },
@@ -4367,7 +4410,9 @@
       "l2": [
         "outdoor"
       ],
-      "l3": []
+      "l3": [
+        "city_space"
+      ]
     },
     "qualifier_tags": []
   },

@@ -7,6 +7,10 @@ Personal IELTS Speaking question bank tool for Kathy (IELTS teacher).
 - **No Claude API calls.** Use Claude Code intelligence only.
 - Git push uses proxy: `http://127.0.0.1:7897`
 
+## Project memory (delivery protocol)
+
+Non-trivial work must **update project memory in the same delivery** as code. See **`docs/working_rules.md`** for definitions (“memory files”), when to update `CLAUDE.md` / `README_ARCH.md` / `docs/*`, and the required end-of-task summary (files touched, commands, gaps). **Full delivery = implementation + memory sync.**
+
 ## Quarter switching (website)
 
 - The **same** frontend (all `js/`, `css/`, sidebar, filters, tags, grid, modal) serves **two** datasets.
@@ -238,6 +242,27 @@ python3 pipeline/generate_topic_hierarchy_markdown.py
 
 ### ingest_pipeline.py
 For ingesting new source files into the question bank (future use).
+
+### Taxonomy runtime loop (sidebar `topic_taxonomy_v2_final.json`)
+
+**Do not hand-edit** `data/quarters/<quarter>/topic_taxonomy_v2_final.json`. Flow: **`content_tags`** in merged JSON → optional **`build_topic_taxonomy_view_v2.py`** (still reads **root** merged only) → **`assign_primary_l3_v2.py`** (if the card already lists `content_tags.l3`, primary is chosen only from those labels plus a small **legacy→canonical** map, so runtime primary stays a subset of the card) → **`backfill_content_tags_l3_from_assignment.py`** (empty `l3` → append assignment primary; **plus** global append of canonical peers for legacy tokens e.g. `traveling`→`travel`) → optional minimal edit **`config/topic_taxonomy_v2_curated.yaml`** → **`export_runtime_taxonomy_v2.py`** → **`check_taxonomy_runtime_consistency.py`**.
+
+Full steps: **`docs/taxonomy_runtime_runbook.md`**.
+
+**Quarter / season handoff (new May–Aug data, new folder, `?quarter=`):** start with **`docs/season_rollover_runbook.md`** — fixed checklist from new `data/quarters/<id>/` through assign → backfill → export → check → local verify → git.
+
+```bash
+python3 pipeline/assign_primary_l3_v2.py --quarter 2026-01-to-04
+python3 pipeline/backfill_content_tags_l3_from_assignment.py --quarter 2026-01-to-04
+python3 pipeline/export_runtime_taxonomy_v2.py --quarter 2026-01-to-04
+python3 pipeline/check_taxonomy_runtime_consistency.py --quarter 2026-01-to-04 --strict
+```
+
+**Assign inputs:** `--quarter <id>` or `--part1` + `--part2` paths, or default root `merged_part*.json`. **`assign_primary_l3_v2_refined.py`** supports the same flags.
+
+**Refined:** `python3 pipeline/assign_primary_l3_v2_refined.py --quarter 2026-01-to-04`
+
+**Regenerate runtime taxonomy (align with current merged + YAML):** run assign → `backfill_content_tags_l3_from_assignment.py` → `export_runtime_taxonomy_v2.py` → `check_taxonomy_runtime_consistency.py` for the quarter (`docs/taxonomy_runtime_runbook.md` § Alignment validation). Do not edit `topic_taxonomy_v2_final.json` by hand. After a full rebuild, expect tuple-level drift vs any older snapshot that was not produced by this chain; `check_taxonomy_runtime_consistency.py`’s Part2 subset mismatch count tracks sidebar vs `content_tags` agreement.
 
 ## Git / Push
 Proxy must be set for push:

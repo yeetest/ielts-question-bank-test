@@ -1,6 +1,6 @@
 """
 tag_question_types.py
-Tags questions with type_tags using keyword matching.
+Tags questions with skill_tags using keyword matching.
 
 Part 2 (default): targets topic.part3[] with 8-type taxonomy
   (experience / frequency / description / preference / evaluation / analyze / comparison / hypothetical)
@@ -10,7 +10,7 @@ Part 1 (--part 1): targets topic.questions[] with 8-type taxonomy
   (experience / frequency / description / preference / evaluation / analyze / comparison / hypothetical)
   Priority order: experience → frequency → description → preference → evaluation → analyze → comparison → hypothetical
   1–3 tags per question (all matching rule groups, capped at 3, in priority order)
-  Unmatched → type_tags: [], saved to claude_p1_type_response.json for Claude batch
+  Unmatched → skill_tags: [], saved to claude_p1_type_response.json for Claude batch
   After tagging, auto-runs json_to_txt.py on the input file.
 
 Usage:
@@ -291,8 +291,8 @@ def process_part2(filepath):
     tagged = 0
     for topic in data:
         for q in topic.get('part3', []):
-            if not q.get('type_tags'):
-                q['type_tags'] = tag_p2(q['text'])
+            if not q.get('skill_tags'):
+                q['skill_tags'] = tag_p2(q['text'])
                 tagged += 1
 
     with open(filepath, 'w', encoding='utf-8') as f:
@@ -311,9 +311,9 @@ def process_part1(filepath):
     for topic in data:
         topic_name = topic.get('topic_en', 'unknown')
         for i, q in enumerate(topic.get('questions', [])):
-            if not q.get('type_tags'):
+            if not q.get('skill_tags'):
                 tags, unclear = tag_p1(q['text'])
-                q['type_tags'] = tags
+                q['skill_tags'] = tags
                 if unclear:
                     unclear_batch.append({
                         "topic_en": topic_name,

@@ -1,0 +1,156 @@
+l1:
+  abstract_concepts:
+    communication:
+      l3:
+        - conversation
+        - sharing
+        - advice_support
+        - encouragement
+        - apology_repair
+        - resource_exchange
+        - foreign_language_communication
+    emotion:
+      l3:
+        - happiness
+        - attachment
+        - patience
+        - regret
+        - anger
+        - anxiety
+        - pride
+    personal_growth:
+      l3:
+        - self_improvement
+        - adaptation
+        - decision_making
+        - goal_setting
+        - problem_solving
+        - learning_growth
+        - resilience
+    personal_traits:
+      l3:
+        - creativity
+        - confidence
+        - independence
+        - discipline
+        - responsibility
+        - kindness
+    time:
+      l3:
+        - childhood
+        - life_stage
+        - milestone
+        - routine_cycle
+        - transition_period
+        - memory_reflection
+    values:
+      l3:
+        - environment
+        - policy
+        - fairness
+        - responsibility
+        - sustainability
+        - civic_mindedness
+    influence:
+      l3:
+        - role_modeling
+        - social_influence
+        - peer_influence
+        - media_influence
+        - motivation
+
+  experience_activity:
+    leisure:
+      l3:
+        - shopping
+        - entertainment
+        - exercise
+        - reading
+        - travel
+        - hobby
+    routines:
+      l3:
+        - daily_life_pattern
+        - morning_routine
+        - habit_building
+        - rest_break
+        - leisure_time
+        - self_care_routine
+        - memory_reflection
+    study:
+      l3:
+        - study_subject
+        - learning_method
+        - self_study
+        - academic_interest
+        - exam_preparation
+        - language_learning
+    work:
+      l3:
+        - career_planning
+        - workplace_experience
+        - job_role
+        - work_life_balance
+        - professional_growth
+        - service_experience
+
+  object:
+    intangible:
+      l3:
+        - technology
+        - artwork
+        - media
+        - money
+        - digital_service
+        - information_resource
+    tangible:
+      l3:
+        - gift_item
+        - personal_item
+        - food_gardening_item
+        - photography_item
+        - transport_item
+        - household_item
+
+  people:
+    close_bonds:
+      l3:
+        - family_bond
+        - friendship
+        - supportive_relationship
+        - family_activity
+        - family_pride_moment
+        - childhood
+    professions:
+      l3:
+        - sportsperson
+        - public_figure
+        - service_worker
+        - creative_professional
+        - educator
+        - business_owner
+    general:
+      l3:
+        - elderly_people
+        - intergenerational_contact
+        - social_support
+        - personality_trait
+        - community_member
+
+  place:
+    indoor:
+      l3:
+        - home
+        - building
+        - shopping_venue
+        - museum
+        - accommodation
+        - workplace
+    outdoor:
+      l3:
+        - city_space
+        - neighborhood_area
+        - public_place
+        - scenery
+        - nature_place
+        - travel_destination

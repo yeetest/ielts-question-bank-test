@@ -62,7 +62,7 @@ def load_all_questions():
                 "text": q["text"],
                 "clean": clean_text(q["text"]),
                 "source": q.get("source", ""),
-                "type_tags": q.get("type_tags", []),
+                "skill_tags": q.get("skill_tags", []),
             })
 
     p2_data = json.load(open(P2_FILE, encoding="utf-8"))
@@ -76,7 +76,7 @@ def load_all_questions():
                 "text": q["text"],
                 "clean": clean_text(q["text"]),
                 "source": q.get("source", ""),
-                "type_tags": q.get("type_tags", []),
+                "skill_tags": q.get("skill_tags", []),
             })
 
     return questions
@@ -120,7 +120,7 @@ def score_question(q):
     s = len(q["text"])
     if q["text"].strip().endswith("?"):
         s += 20
-    if q["type_tags"]:
+    if q["skill_tags"]:
         s += 10
     return s
 
@@ -164,7 +164,7 @@ def write_output(groups, questions, output_path):
             for idx in scored:
                 q = questions[idx]
                 marker = "KEEP" if idx == best else "REMOVE"
-                tags = ", ".join(q["type_tags"]) if q["type_tags"] else ""
+                tags = ", ".join(q["skill_tags"]) if q["skill_tags"] else ""
                 f.write(f"[{marker}] Part {q['part']} | {q['topic']} | {q['text']}")
                 if tags:
                     f.write(f" [{tags}]")

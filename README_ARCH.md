@@ -131,6 +131,11 @@ Core principle: data stays in JSON files and is loaded at runtime via `fetch()`.
   - highest-priority operational conventions
 - `data/quarters/README.md`
   - quarter directory contract (frozen vs placeholder, which files to replace)
+- `docs/taxonomy_runtime_runbook.md`
+  - convergent loop: content_tags → assign → backfill empty `l3` from assignment → export `topic_taxonomy_v2_final.json` → consistency check
+- **`docs/season_rollover_runbook.md`** — **next quarter onboarding:** new `data/quarters/<id>/`, merged JSON, full pipeline, `?quarter=` verify, memory updates (read this before seasonal data drops)
+- `docs/working_rules.md`
+  - code + memory file delivery; when to update docs; end-of-task summary
 - `docs/CLAUDE_tagging.md`
   - full tagging rules and taxonomy details
 
@@ -186,6 +191,23 @@ Open `http://127.0.0.1:8765/?quarter=2026-01-to-04` or `?quarter=2026-05-to-08`.
    - `python3 human-in-the-loop/json_to_txt.py data/quarters/2026-05-to-08/merged_part1.json`
    - `python3 human-in-the-loop/json_to_txt.py data/quarters/2026-05-to-08/merged_part2.json`
 3. Re-open frontend with the correct `?quarter=` and verify filtering/modal behavior
+
+## Taxonomy runtime runbook (sidebar filters)
+
+The site loads **`data/quarters/<quarter>/topic_taxonomy_v2_final.json`** for `taxonomy_v2_primary`. That file must be **exported from assignment outputs**, not edited by hand.
+
+1. Merged JSON has **`content_tags`** (input layer).
+2. Optional **`pipeline/build_topic_taxonomy_view_v2.py`** (reads **root** merged only). **`pipeline/assign_primary_l3_v2.py --quarter <id>`** (or `--part1` / `--part2`) → `human-in-the-loop/topic_taxonomy_assignment_v2_part*.json`.
+3. **`python3 pipeline/backfill_content_tags_l3_from_assignment.py --quarter <id>`** — when `content_tags.l3` is empty, append assignment `primary.l3`; always run the **legacy canonical append** pass (e.g. `traveling`→`travel`, `learning`→`learning_growth`) so subset checks can see YAML spellings (see runbook).
+4. If diagnostics require it, minimally edit **`config/topic_taxonomy_v2_curated.yaml`**, then re-run assign and backfill.
+5. **`python3 pipeline/export_runtime_taxonomy_v2.py --quarter <id>`** → writes flat runtime taxonomy.
+6. **`python3 pipeline/check_taxonomy_runtime_consistency.py --quarter <id> --strict`** before release.
+
+Authoritative copy-paste workflow: **`docs/taxonomy_runtime_runbook.md`**. To **rebuild** the sidebar taxonomy from current quarter merged JSON (assign → backfill → export → check), follow the same doc § **Alignment validation**.
+
+## Project memory protocol
+
+Non-trivial changes should update **`CLAUDE.md`**, **`README_ARCH.md`**, and any affected **`docs/*`** in the same delivery. Rules and end-of-task summary expectations: **`docs/working_rules.md`**.
 
 ## Human-in-the-loop flow
 

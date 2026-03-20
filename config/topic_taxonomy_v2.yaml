@@ -1,0 +1,106 @@
+canonical_l1:
+  - people
+  - place
+  - object
+  - experience_activity
+  - abstract_concepts
+
+aliases:
+  l1:
+    "experience/activity": "experience_activity"
+
+l1_to_l2:
+  people:
+    - close_bonds
+    - professions
+    - general
+  place:
+    - outdoor
+    - indoor
+  object:
+    - intangible
+    - tangible
+  experience_activity:
+    - leisure
+    - routines
+    - study
+    - work
+  abstract_concepts:
+    - personal_growth
+    - emotion
+    - communication
+    - time
+    - values
+    - personal_traits
+    - influence
+
+l2_to_l3:
+  intangible:
+    - technology
+    - artwork
+    - media
+    - money
+  tangible:
+    - technology
+    - artwork
+    - media
+    - money
+  leisure:
+    - traveling
+    - exercise
+    - shopping
+    - entertainment
+    - reading
+  work:
+    - traveling
+    - shopping
+  values:
+    - environment
+    - policy
+  emotion:
+    - happiness
+    - learning
+    - regret
+    - anger
+    - patience
+    - problem-solving
+    - attachment
+    - adaptation
+    - fear
+  personal_growth:
+    - self-improvement
+    - learning
+    - goal-setting
+    - happiness
+    - anger
+    - decision
+    - problem-solving
+    - regret
+    - adaptation
+    - fear
+  personal_traits:
+    - creativity
+    - problem-solving
+    - regret
+  communication:
+    - self-improvement
+    - regret
+  time:
+    - problem-solving
+    - adaptation
+    - fear
+  influence:
+    - creativity
+
+primary_selection_policy:
+  description: "Temporary deterministic inference policy for derived view only."
+  l2:
+    rule: "if multiple l2 exist, choose first valid l2 by priority order"
+    priority_source: "l1_to_l2 order for selected l1"
+  l3:
+    rule: "if multiple l3 exist, prefer first l3 belonging to chosen primary l2"
+    fallback: "if none match cleanly, set primary.l3 to null and keep all in secondary"
+  notes:
+    - "This is a temporary derivation policy, not final classification truth."
+    - "No LLM and no retraining in this phase."
+

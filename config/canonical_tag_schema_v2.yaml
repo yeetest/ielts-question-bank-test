@@ -1,0 +1,158 @@
+schema:
+  id: canonical_tag_schema_v2
+  version: "2.0-draft"
+  status: draft
+  scope: "design baseline only; no runtime wiring yet"
+
+official_dimensions:
+  - content_tags
+  - skill_tags
+  - time_frame
+  - qualifier_tags
+
+field_definitions:
+  content_tags:
+    level: topic
+    status: official
+    set_type: controlled_hierarchical
+    description: "Topic taxonomy for navigation/filtering only."
+    structure:
+      l1:
+        type: string
+        cardinality: "exactly_one"
+        closed_set:
+          - people
+          - place
+          - object
+          - experience_activity
+          - abstract_concepts
+        compatibility_aliases:
+          "experience/activity": experience_activity
+      l2:
+        type: array[string]
+        cardinality: "1..3"
+        controlled_set: true
+        hierarchy_constraint: "must belong to selected l1"
+      l3:
+        type: array[string]
+        cardinality: "0..2"
+        controlled_set: true
+        hierarchy_constraint: "must belong to selected l2 set"
+    naming_convention:
+      style: snake_case
+      charset: ascii_lowercase
+      separator: underscore
+      notes:
+        - "Avoid slash in canonical values."
+        - "Slash forms allowed only as compatibility aliases."
+
+  skill_tags:
+    level: question
+    status: official
+    set_type: controlled
+    description: "Question task type (answer-frame related)."
+    current_compatible_values:
+      - experience
+      - frequency
+      - description
+      - preference
+      - evaluation
+      - analyze
+      - comparison
+      - hypothetical
+    recommended_canonical_values:
+      - experience
+      - frequency
+      - describe
+      - preference
+      - evaluate
+      - analysis
+      - comparison
+      - hypothetical
+    compatibility_aliases:
+      description: describe
+      evaluation: evaluate
+      analyze: analysis
+
+  time_frame:
+    level: question
+    status: official
+    set_type: closed
+    description: "Tense-training dimension."
+    closed_set:
+      - past
+      - present
+      - future
+    cardinality: exactly_one
+
+  qualifier_tags:
+    level: topic
+    status: official
+    set_type: open_but_curated
+    description: "Tone/quality modifiers; separate from taxonomy tree."
+    current_baseline_values:
+      - memorable
+      - peaceful
+      - sentimental
+      - useful
+      - interesting
+    extension_policy:
+      allow_if_all:
+        - "adjective-like tone/quality descriptor"
+        - "cross-topic reusable"
+        - "not representable by content_tags"
+        - "approved by schema review"
+      reject_if_any:
+        - "domain noun (e.g. technology/policy/traveling)"
+        - "question task type term"
+        - "time-frame term"
+
+boundary_rules:
+  - "qualifier_tags MUST NOT be encoded in content_tags.l2/l3."
+  - "skill_tags MUST NOT be used as topic taxonomy."
+  - "time_frame MUST remain question-level; no topic-derived overwrite."
+  - "legacy frame_angle is not an official production dimension."
+
+source_of_truth_policy:
+  canonical_machine_readable: config/canonical_tag_schema_v2.yaml
+  canonical_human_readable: docs/canonical_tag_schema_v2.md
+  descriptive_docs:
+    - docs/CLAUDE_tagging.md
+    - tags/tags.txt
+  policy_notes:
+    - "Docs are descriptive; YAML is canonical."
+    - "Runtime scripts should eventually read canonical config."
+    - "UI hierarchy mappings should eventually derive from canonical config."
+    - "Hardcoded mapping duplication should be phased out."
+
+runtime_projection_targets:
+  should_eventually_generate_from_config:
+    - "js/components/sidebar.js hierarchy maps"
+    - "pipeline/tag_content_v2.py taxonomy mappings"
+    - "validation dictionaries used by export/check scripts"
+  currently_hardcoded_examples:
+    - js/components/sidebar.js
+    - pipeline/tag_content_v2.py
+    - pipeline/tag_question_types.py
+    - pipeline/tag_time_frames.py
+
+deprecation_map:
+  legacy_fields:
+    category: content_tags.l1
+    substance: content_tags.l2_or_l3
+    frame_angle: "deprecated_no_official_replacement"
+    flat_content_tags_array: content_tags.{l1,l2,l3}
+    tags: "legacy_misc_field_no_canonical_role"
+  legacy_workflows:
+    - pipeline/tag_content_topics.py
+    - pipeline/rewrite_content_tags.py
+    - pipeline/ingest_pipeline.py
+  status_policy:
+    allowed_for_reference_only: true
+    allowed_as_new_dependency: false
+
+non_goals_phase_1:
+  - "No JSON rewrite."
+  - "No pipeline behavior change."
+  - "No UI behavior change."
+  - "No legacy file deletion."

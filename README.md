@@ -49,7 +49,9 @@ Then open e.g. `http://127.0.0.1:8765/?quarter=2026-01-to-04` or `?quarter=2026-
 
 - `CLAUDE.md` — day-to-day conventions for assistants
 - `README_ARCH.md` — architecture and file roles
+- **`docs/season_rollover_runbook.md`** — **quarter / season handoff** (new `data/quarters/<id>/`, taxonomy pipeline, verification)
 - `data/quarters/README.md` — quarter directory contract
+- `docs/taxonomy_runtime_runbook.md` — assign → backfill → export → check (detail)
 - `docs/CLAUDE_tagging.md` — tagging rules
 
 ## Deploy

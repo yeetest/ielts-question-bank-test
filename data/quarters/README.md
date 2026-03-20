@@ -31,6 +31,10 @@ Replace **only** under `2026-05-to-08/`:
 
 You may remove or rewrite `PLACEHOLDER.txt` once the dataset is real.
 
+## Season rollover (operational)
+
+For step-by-step handoff when adding or replacing a quarter’s data, use **`docs/season_rollover_runbook.md`** (assign → backfill → export → check `--strict`, then frontend `?quarter=`).
+
 ## URL switching
 
 - Default (no or invalid `quarter`): **`2026-01-to-04`**

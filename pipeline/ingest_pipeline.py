@@ -8,7 +8,7 @@ Pipeline order:
   2. Clean  (strip Chinese chars, fix spacing, strip numbering)
   3. Format  to exact schema of merged_part1.json / merged_part2.json
   4. Tag topics  (content_tags: category, substance, frame_angle)  — Part 2 only
-  5. Tag questions (type_tags)  — Part 3 only
+  5. Tag questions (skill_tags)  — Part 3 only
   6. Write temp_review.txt for human inspection
   7. On approval, merge into existing JSON and optionally commit
 
@@ -330,7 +330,7 @@ def parse_part2_txt(lines: list, source: str, season: str) -> list:
         elif mode == "part3":
             q_text = clean_text(line)
             if q_text and re.match(r'^\d+', line):
-                current["part3"].append({"text": q_text, "source": source, "type_tags": []})
+                current["part3"].append({"text": q_text, "source": source, "skill_tags": []})
 
     flush()
     return topics
@@ -361,7 +361,7 @@ def parse_json_input(data: list, source: str, season: str, part: int) -> list:
             prompt   = clean_text(cc.get("prompt") or item.get("topic", ""))
             bullets  = [clean_text(b) for b in cc.get("you_should_say", []) if b.strip()]
             p3 = [
-                {"text": clean_text(q.get("text", "")), "source": q.get("source", source), "type_tags": []}
+                {"text": clean_text(q.get("text", "")), "source": q.get("source", source), "skill_tags": []}
                 for q in item.get("part3", [])
                 if q.get("text", "").strip()
             ]
@@ -396,7 +396,7 @@ def write_review(items: list, part: int):
             if item["part3"]:
                 lines.append("    Part 3:")
                 for q in item["part3"]:
-                    tags_str = ", ".join(q.get("type_tags", []))
+                    tags_str = ", ".join(q.get("skill_tags", []))
                     lines.append(f"      [{tags_str}] {q['text']}")
     with open(REVIEW_PATH, "w", encoding="utf-8") as f:
         f.write("\n".join(lines))
@@ -472,11 +472,11 @@ def main():
             ct = item["content_tags"]
             print(f"  [{ct['category']:10s}|{ct['substance']:10s}|{ct['frame_angle']:16s}]  {prompt[:55]}")
 
-        print("Step 5 — Tagging questions (type_tags)...")
+        print("Step 5 — Tagging questions (skill_tags)...")
         total_q = 0
         for item in items:
             for q in item["part3"]:
-                q["type_tags"] = tag_question(q["text"])
+                q["skill_tags"] = tag_question(q["text"])
                 total_q += 1
         print(f"  Tagged {total_q} Part 3 questions.")
 

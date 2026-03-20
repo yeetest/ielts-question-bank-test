@@ -39,13 +39,13 @@
     "topic": "Typing",
     "l1": "experience_activity",
     "l2": "study",
-    "l3": "learning_method"
+    "l3": ""
   },
   {
     "topic": "Hobby",
     "l1": "experience_activity",
-    "l2": "leisure",
-    "l3": "hobby"
+    "l2": "routines",
+    "l3": ""
   },
   {
     "topic": "Sports team",
@@ -87,7 +87,7 @@
     "topic": "Pets and Animals",
     "l1": "abstract_concepts",
     "l2": "values",
-    "l3": "animal_welfare"
+    "l3": "environment"
   },
   {
     "topic": "Sharing",
@@ -117,7 +117,7 @@
     "topic": "Chatting",
     "l1": "abstract_concepts",
     "l2": "communication",
-    "l3": "conversation"
+    "l3": ""
   },
   {
     "topic": "Growing vegetables/ fruits",
@@ -141,7 +141,7 @@
     "topic": "Going out",
     "l1": "experience_activity",
     "l2": "routines",
-    "l3": "leisure_time"
+    "l3": ""
   },
   {
     "topic": "Staying with old people",
@@ -152,8 +152,8 @@
   {
     "topic": "Doing something well",
     "l1": "abstract_concepts",
-    "l2": "personal_traits",
-    "l3": "competence"
+    "l2": "personal_growth",
+    "l3": "self_improvement"
   },
   {
     "topic": "Shoes",
@@ -231,7 +231,7 @@
     "topic": "Day off",
     "l1": "experience_activity",
     "l2": "routines",
-    "l3": "rest_break"
+    "l3": ""
   },
   {
     "topic": "Chatting/Conversation",
@@ -255,7 +255,7 @@
     "topic": "Work",
     "l1": "experience_activity",
     "l2": "work",
-    "l3": "job_role"
+    "l3": "work_life_balance"
   },
   {
     "topic": "Studies",
@@ -272,8 +272,8 @@
   {
     "topic": "a short-term job you want to have in a foreign country",
     "l1": "experience_activity",
-    "l2": "work",
-    "l3": "job_role"
+    "l2": "leisure",
+    "l3": "travel"
   },
   {
     "topic": "a time when you encouraged someone to do something that he/she didn't want to do",
@@ -315,25 +315,25 @@
     "topic": "a movie you watched and enjoyed recently",
     "l1": "object",
     "l2": "intangible",
-    "l3": "media"
+    "l3": "artwork"
   },
   {
     "topic": "an event you attended in which you didn't enjoy the music played",
     "l1": "abstract_concepts",
     "l2": "emotion",
-    "l3": "happiness"
+    "l3": "anger"
   },
   {
     "topic": "a person who solved a problem in a smart way",
     "l1": "abstract_concepts",
     "l2": "personal_traits",
-    "l3": "confidence"
+    "l3": ""
   },
   {
     "topic": "something important that has been kept in your family for a long time",
     "l1": "people",
     "l2": "close_bonds",
-    "l3": "family_memory"
+    "l3": "family_activity"
   },
   {
     "topic": "a bicycle/motorcycle/car trip you would like to take",
@@ -355,15 +355,15 @@
   },
   {
     "topic": "a person who makes plans a lot and is good at planning",
-    "l1": "abstract_concepts",
-    "l2": "personal_traits",
-    "l3": "planning_orientation"
+    "l1": "people",
+    "l2": "close_bonds",
+    "l3": ""
   },
   {
     "topic": "a child who loves drawing/painting",
     "l1": "object",
     "l2": "intangible",
-    "l3": "book_or_reading_material"
+    "l3": "artwork"
   },
   {
     "topic": "a time when you gave advice to others",
@@ -429,7 +429,7 @@
     "topic": "a book you read that you found useful",
     "l1": "object",
     "l2": "intangible",
-    "l3": "book_or_reading_material"
+    "l3": "artwork"
   },
   {
     "topic": "a sportsperson you admire",
@@ -440,14 +440,14 @@
   {
     "topic": "a time when you broke something",
     "l1": "abstract_concepts",
-    "l2": "personal_growth",
-    "l3": "problem_solving"
+    "l2": "emotion",
+    "l3": "regret"
   },
   {
     "topic": "a time you saw something interesting on social media",
     "l1": "object",
     "l2": "intangible",
-    "l3": "media"
+    "l3": "technology"
   },
   {
     "topic": "a creative person (e.g. an artist, a musician, etc.) you admire",
@@ -464,8 +464,8 @@
   {
     "topic": "the time when you first talked with others in a foreign language",
     "l1": "abstract_concepts",
-    "l2": "communication",
-    "l3": "foreign_language_communication"
+    "l2": "personal_growth",
+    "l3": "self_improvement"
   },
   {
     "topic": "an exciting activity you have tried for the first time",
@@ -476,8 +476,8 @@
   {
     "topic": "a time when someone apologized to you",
     "l1": "abstract_concepts",
-    "l2": "communication",
-    "l3": "apology_repair"
+    "l2": "emotion",
+    "l3": "regret"
   },
   {
     "topic": "a long journey you had and would like to take again",
@@ -537,7 +537,7 @@
     "topic": "an interesting traditional story",
     "l1": "object",
     "l2": "intangible",
-    "l3": "book_or_reading_material"
+    "l3": "artwork"
   },
   {
     "topic": "a habit your friend has and you want to develop",
@@ -549,7 +549,7 @@
     "topic": "a wild animal that you want to know more about",
     "l1": "abstract_concepts",
     "l2": "values",
-    "l3": "animal_welfare"
+    "l3": "environment"
   },
   {
     "topic": "a friend of yours who is good at music/singing",
@@ -567,7 +567,7 @@
     "topic": "a quiet place you like to go",
     "l1": "place",
     "l2": "outdoor",
-    "l3": "nature_place"
+    "l3": ""
   },
   {
     "topic": "something that you can’t live without (not a computer/phone)",
