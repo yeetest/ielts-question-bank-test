@@ -2483,13 +2483,13 @@
         "skill_subtype": "what_is_it"
       },
       {
-        "text": "3. ls talent important in sports?",
+        "text": "3. Is talent important in sports?",
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "description"
+          "evaluation"
         ],
-        "skill_subtype": "what_is_it"
+        "skill_subtype": "is_it_important"
       },
       {
         "text": "4. ls it easy to identify children's talents?",

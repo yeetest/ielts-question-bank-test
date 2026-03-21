@@ -81,7 +81,7 @@ PREFERENCE_SEMANTIC_PATTERNS = [
     r"\blike (the )?most\b",
     r"\bdo you prefer\b",
     r"\bwhich\b.{0,80}\b(prefer|would you rather|do you like)\b",
-    r"\bwhat (is|was|were) your favou?rite\b",
+    r"\bwhat (is|was|were) your favo?u?rite\b",
     r"\b(enjoy|enjoyed|enjoying)\s+(the\s+)?(most|best)\b",
     r"\bwould (you )?rather\b",
     r"\bwould you choose\b",
@@ -144,7 +144,7 @@ RULES_PART2 = [
     ("preference", [
         r"\bdo you like\b",
         r"\bdo you prefer\b",
-        r"\bwhat (is|was|were) your favou?rite\b",
+        r"\bwhat (is|was|were) your favo?u?rite\b",
         r"\bdo you enjoy\b",
         r"\bwhich do you prefer\b",
         r"\bdo you mind\b",
@@ -213,10 +213,12 @@ RULES_PART1 = [
     ("experience", [
         r"^have you\b",
         r"^did you\b",
+        r"^did your\b",
         r"^what did you\b",
         r"^when did you\b",
         r"^when was\b",
         r"^can you remember\b",
+        r"^do you remember\b",
         r"^what made you\b",
         r"^how often\b",
         r"\bdo you usually\b",
@@ -226,10 +228,14 @@ RULES_PART1 = [
         r"\bdo you always\b",
         r"\bhow (frequently|regularly)\b",
         r"do you.{0,20}\ba lot\b",
+        # Present-behaviour "Do you …" (narrow verbs; "Do you like/prefer …" → preference)
+        r"^do you (look|wear|bring|argue|eat|feel|share|live|plan)\b",
     ]),
     ("description", [
         r"^what (is|are|was|were)\b",
-        r"^what (city|place|room|name|subject|language|technology|part|work)\b",
+        r"^what (city|place|room|name|subject|language|technology|part|work|gifts|plant)\b",
+        r"^what kinds?\b",
+        r"^what do you (need|find)\b",
         r"^who (is|are|helps|do)\b",
         r"^how do (you|people|they|we|others)\b",
         r"^how long\b",
@@ -239,6 +245,8 @@ RULES_PART1 = [
         r"^is (the|this|that)\b",
         r"^are there\b",
         r"^are (the|team|most|many)\b",
+        r"^do many\b",
+        r"^do chinese people\b",
         r"\bare.{0,30}popular\b",
         r"\bis.{0,30}popular\b",
         r"^do you have\b",
@@ -259,9 +267,11 @@ RULES_PART1 = [
     ("preference", [
         r"\bdo you like\b",
         r"\bdo you prefer\b",
-        r"\bwhat (is|was|were) your favou?rite\b",
+        r"\bwhat (is|was|were) your favo?u?rite\b",
         r"\bdo you enjoy\b",
         r"\bwhich do you prefer\b",
+        r"\bwhich (day|room)\b",
+        r"\bare you (interested|happy|enjoying)\b",
         r"\bdo you mind\b",
         r"\bdo you take\b",
     ]),
@@ -302,6 +312,7 @@ RULES_PART1 = [
     ]),
     ("hypothetical", [
         r"\bwould you like\b",
+        r"\bwould you recommend\b",
         r"\bif you\b",
         r"\bif you had\b",
         r"\bwould you want\b",
@@ -378,7 +389,7 @@ SUBTYPE_RULES: dict[str, list[tuple[str, list[str]]]] = {
             r"\blike (the )?most\b",
             r"\bdo you enjoy\b",
             r"\benjoy (the )?most\b",
-            r"\bwhat (is|was|were) your favou?rite\b",
+            r"\bwhat (is|was|were) your favo?u?rite\b",
         ]),
         ("which_prefer", [
             r"do you prefer\b",
@@ -388,7 +399,7 @@ SUBTYPE_RULES: dict[str, list[tuple[str, list[str]]]] = {
             r"would (you )?rather\b",
             r"would you choose\b",
             r"which one\b.{0,40}\b(choose|prefer)\b",
-            r"favou?rite\b",
+            r"favo?u?rite\b",
             r"\bor\b",
         ]),
     ],
@@ -466,7 +477,13 @@ SUBTYPE_RULES: dict[str, list[tuple[str, list[str]]]] = {
 # ---------------------------------------------------------------------------
 
 def clean(text: str) -> str:
-    return re.sub(r'^\d+[\.\)]\s*', '', text.lower().strip())
+    """Normalize question text for tagging (strip numbering, common typos, contractions)."""
+    t = re.sub(r'^\d+[\.\)]\s*', '', text.lower().strip())
+    # Common OCR/keyboard typo: "ls" for "Is" at the start of a clause
+    t = re.sub(r"^ls\b", "is", t)
+    # Contraction → expand so L1 patterns using "what is/are" can match
+    t = re.sub(r"\bwhat's\b", "what is", t)
+    return t
 
 
 def assign_subtype(text: str, primary_tag: str) -> tuple[str, str]:
@@ -694,13 +711,13 @@ def process_part1(filepath: str, *, overwrite: bool = False,
         json.dump(data, f, ensure_ascii=False, indent=2)
         f.write("\n")
     print(f"Part 1: tagged {tagged}, subtyped {subtyped} in {filepath}")
+    batch_path = Path(filepath).resolve().parent / 'claude_p1_type_response.json'
+    with open(batch_path, 'w', encoding='utf-8') as f:
+        json.dump(unclear_batch, f, ensure_ascii=False, indent=2)
     if unclear_batch:
-        batch_path = Path(filepath).resolve().parent / 'claude_p1_type_response.json'
-        with open(batch_path, 'w', encoding='utf-8') as f:
-            json.dump(unclear_batch, f, ensure_ascii=False, indent=2)
         print(f"{len(unclear_batch)} unclear questions saved to {batch_path}")
     else:
-        print("No unclear questions — all matched.")
+        print("No unclear questions — all matched (empty unclear batch written).")
     txt_script = Path(__file__).parent.parent / 'human-in-the-loop' / 'json_to_txt.py'
     if txt_script.exists():
         print(f"\nRegenerating .txt mirror...")

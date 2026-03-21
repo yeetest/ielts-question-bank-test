@@ -383,6 +383,11 @@ python3 pipeline/tag_content_v2.py merged_part2.json --overwrite
 
 ### tag_question_types.py
 Auto-tags questions with `skill_tags` (7 top-level) and `skill_subtype` (23 second-level) via keyword matching. Modes: default (empty only), `--overwrite` (all), `--subtype-only` (keep skill_tags, add subtypes). `--audit` generates `human-in-the-loop/skill_subtype_audit.md`.
+
+**Text normalization (`clean()`):** Strips leading `1.` numbering; rewrites common source typos **`ls` → `is`** at the start of the utterance (so *Is there…* tags correctly); expands **`what's` → `what is`** so description/preference rules match contracted forms. This is tagging-only normalization — prefer fixing obvious typos in source JSON when you notice them.
+
+**Part 1 unclear batch:** If no `RULES_PART1` pattern matches, the question is left without `skill_tags` and listed in `claude_p1_type_response.json` next to the quarter. After a full `--overwrite`, that file is **overwritten** (empty array when all questions match). This is **skill-tag coverage**, not content taxonomy.
+
 ```bash
 python3 pipeline/tag_question_types.py merged_part1.json --part 1
 python3 pipeline/tag_question_types.py merged_part2.json

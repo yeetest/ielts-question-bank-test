@@ -211,7 +211,7 @@ Full rules and keyword lists in `docs/CLAUDE_tagging.md`.
 ## Pipeline Scripts
 
 ### tag_question_types.py
-Auto-tags questions with `skill_tags` (7 top-level types) and `skill_subtype` (23 second-level subtypes) via keyword matching. Unified taxonomy for both parts. Unmatched Part 1 questions saved to `claude_p1_type_response.json` for manual review. Modes: default (tag empty only), `--overwrite` (re-tag all), `--subtype-only` (keep skill_tags, add/update subtypes). `--audit` generates `human-in-the-loop/skill_subtype_audit.md`. `--audit-only` runs a read-only structural audit (no data modification).
+Auto-tags questions with `skill_tags` (7 top-level types) and `skill_subtype` (23 second-level subtypes) via keyword matching. Unified taxonomy for both parts. **`clean()`** applies light normalization (strip `1.` prefix, `what's`→`what is`, line-initial `ls`→`is` for tagging). Unmatched Part 1 questions are written to `claude_p1_type_response.json` (empty `[]` when none). Modes: default (tag empty only), `--overwrite` (re-tag all), `--subtype-only` (keep skill_tags, add/update subtypes). `--audit` generates `human-in-the-loop/skill_subtype_audit.md`. `--audit-only` runs a read-only structural audit (no data modification).
 ```bash
 python3 pipeline/tag_question_types.py merged_part1.json --part 1
 python3 pipeline/tag_question_types.py merged_part2.json

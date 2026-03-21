@@ -197,8 +197,10 @@
         "text": "1. Do you look out the window at the scenery when travelling by bus or car?",
         "source": "laokaoya",
         "time_frame": "present",
-        "skill_tags": [],
-        "skill_subtype": ""
+        "skill_tags": [
+          "experience"
+        ],
+        "skill_subtype": "have_you_ever"
       },
       {
         "text": "2. Do you prefer the mountains or the sea?",
@@ -614,8 +616,10 @@
         "text": "5. What gifts have you received recently?",
         "source": "laokaoya",
         "time_frame": "present",
-        "skill_tags": [],
-        "skill_subtype": ""
+        "skill_tags": [
+          "description"
+        ],
+        "skill_subtype": "what_is_it"
       }
     ],
     "tags": [],
@@ -785,8 +789,10 @@
         "text": "3. Do you eat different foods at different times of the year?",
         "source": "laokaoya",
         "time_frame": "present",
-        "skill_tags": [],
-        "skill_subtype": ""
+        "skill_tags": [
+          "experience"
+        ],
+        "skill_subtype": "have_you_ever"
       },
       {
         "text": "4. Has your favourite food changed since you were a child?",
@@ -819,8 +825,10 @@
         "text": "1. What's your favourite animal? Why?",
         "source": "laokaoya",
         "time_frame": "present",
-        "skill_tags": [],
-        "skill_subtype": ""
+        "skill_tags": [
+          "preference"
+        ],
+        "skill_subtype": "do_you_like"
       },
       {
         "text": "2. Have you ever had a pet before?",
@@ -871,8 +879,10 @@
         "text": "1. Did your parents teach you to share when you were a child?",
         "source": "tongzhuo",
         "time_frame": "past",
-        "skill_tags": [],
-        "skill_subtype": ""
+        "skill_tags": [
+          "experience"
+        ],
+        "skill_subtype": "remember_when"
       },
       {
         "text": "2. What kinds of things do you like to share with others?",
@@ -887,8 +897,10 @@
         "text": "3. What kinds of things are not suitable for sharing?",
         "source": "tongzhuo",
         "time_frame": "present",
-        "skill_tags": [],
-        "skill_subtype": ""
+        "skill_tags": [
+          "description"
+        ],
+        "skill_subtype": "what_types"
       },
       {
         "text": "4. Do you have anything to share with others recently?",
@@ -1053,11 +1065,13 @@
     "season": "2026-05-to-08",
     "questions": [
       {
-        "text": "1. ls there an advertisement that made an impression on you when you were a child?",
+        "text": "1. Is there an advertisement that made an impression on you when you were a child?",
         "source": "tongzhuo",
         "time_frame": "past",
-        "skill_tags": [],
-        "skill_subtype": ""
+        "skill_tags": [
+          "description"
+        ],
+        "skill_subtype": "where_when_who"
       },
       {
         "text": "2. Do you see a lot of advertising on trains or other transport?",
@@ -1153,8 +1167,10 @@
         "text": "5. Do you argue with friends?",
         "source": "tongzhuo",
         "time_frame": "present",
-        "skill_tags": [],
-        "skill_subtype": ""
+        "skill_tags": [
+          "experience"
+        ],
+        "skill_subtype": "have_you_ever"
       }
     ],
     "tags": [],
@@ -1176,8 +1192,10 @@
         "text": "1. Are you interested in growing vegetables and fruits?",
         "source": "tongzhuo",
         "time_frame": "present",
-        "skill_tags": [],
-        "skill_subtype": ""
+        "skill_tags": [
+          "preference"
+        ],
+        "skill_subtype": "which_prefer"
       },
       {
         "text": "2. Is growing vegetables popular in your country？",
@@ -1192,8 +1210,10 @@
         "text": "3. Do many people grow vegetables in your city?",
         "source": "tongzhuo",
         "time_frame": "present",
-        "skill_tags": [],
-        "skill_subtype": ""
+        "skill_tags": [
+          "description"
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "4. Do you think it's easy to grow vegetables?",
@@ -1343,8 +1363,10 @@
         "text": "1. Do you bring food or snacks with you when going out?",
         "source": "tongzhuo",
         "time_frame": "present",
-        "skill_tags": [],
-        "skill_subtype": ""
+        "skill_tags": [
+          "experience"
+        ],
+        "skill_subtype": "have_you_ever"
       },
       {
         "text": "2. Do you always take your mobile phone with you when going out?",
@@ -1402,8 +1424,10 @@
         "text": "2. Are you happy to work with people who are older than you?",
         "source": "tongzhuo",
         "time_frame": "present",
-        "skill_tags": [],
-        "skill_subtype": ""
+        "skill_tags": [
+          "preference"
+        ],
+        "skill_subtype": "which_prefer"
       },
       {
         "text": "3. What are the benefits of being friends or working with old people?",
@@ -1563,8 +1587,10 @@
         "text": "3. Do you remember a teacher who does his or her job very well?",
         "source": "tongzhuo",
         "time_frame": "present",
-        "skill_tags": [],
-        "skill_subtype": ""
+        "skill_tags": [
+          "experience"
+        ],
+        "skill_subtype": "have_you_ever"
       },
       {
         "text": "4. Do you prefer to have more or fewer rules at school?",
@@ -1624,8 +1650,10 @@
         "text": "2. Do you wear headphones in public places?",
         "source": "tongzhuo",
         "time_frame": "present",
-        "skill_tags": [],
-        "skill_subtype": ""
+        "skill_tags": [
+          "experience"
+        ],
+        "skill_subtype": "have_you_ever"
       },
       {
         "text": "3. Would you like to see more public places near where you live?",
@@ -1676,8 +1704,10 @@
         "text": "2. What plant did you grow when you were young?",
         "source": "tongzhuo",
         "time_frame": "past",
-        "skill_tags": [],
-        "skill_subtype": ""
+        "skill_tags": [
+          "description"
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "3. Do you know anything about growing a plant?",
@@ -1692,8 +1722,10 @@
         "text": "4. Do Chinese people send plants as gifts?",
         "source": "tongzhuo",
         "time_frame": "present",
-        "skill_tags": [],
-        "skill_subtype": ""
+        "skill_tags": [
+          "description"
+        ],
+        "skill_subtype": "what_is_it"
       }
     ],
     "tags": [],
@@ -1735,8 +1767,10 @@
         "text": "3. Which day do you have more free time on, Saturday or Sunday?",
         "source": "tongzhuo",
         "time_frame": "present",
-        "skill_tags": [],
-        "skill_subtype": ""
+        "skill_tags": [
+          "preference"
+        ],
+        "skill_subtype": "which_prefer"
       },
       {
         "text": "4. Would you like to have more free time in the future?",
@@ -1787,8 +1821,10 @@
         "text": "3. What's your favourite family photo?",
         "source": "tongzhuo",
         "time_frame": "present",
-        "skill_tags": [],
-        "skill_subtype": ""
+        "skill_tags": [
+          "preference"
+        ],
+        "skill_subtype": "do_you_like"
       },
       {
         "text": "4. Do you want to improve your photography skills?",
@@ -1872,11 +1908,13 @@
         "skill_subtype": "has_it_changed"
       },
       {
-        "text": "5. ls this city your permanent residence?",
+        "text": "5. Is this city your permanent residence?",
         "source": "tongzhuo",
         "time_frame": "present",
-        "skill_tags": [],
-        "skill_subtype": ""
+        "skill_tags": [
+          "description"
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "6. Are there people of different ages living in this city?",
@@ -1918,15 +1956,19 @@
         "text": "10. What's the weather like where you live?",
         "source": "yasige",
         "time_frame": "present",
-        "skill_tags": [],
-        "skill_subtype": ""
+        "skill_tags": [
+          "description"
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "11. Would you recommend your city to others?",
         "source": "yasige",
         "time_frame": "present",
-        "skill_tags": [],
-        "skill_subtype": ""
+        "skill_tags": [
+          "hypothetical"
+        ],
+        "skill_subtype": "what_if"
       }
     ],
     "tags": [],
@@ -1960,9 +2002,9 @@
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "description"
+          "experience"
         ],
-        "skill_subtype": "what_is_it"
+        "skill_subtype": "have_you_ever"
       },
       {
         "text": "3. Do you like the place you currently live in? Why/Why not?",
@@ -2031,8 +2073,10 @@
         "text": "10. Do you plan to live there for a long time?",
         "source": "laokaoya",
         "time_frame": "future",
-        "skill_tags": [],
-        "skill_subtype": ""
+        "skill_tags": [
+          "experience"
+        ],
+        "skill_subtype": "have_you_ever"
       },
       {
         "text": "11. What's the difference between where you are living now and where you have lived in the past?",
@@ -2056,8 +2100,10 @@
         "text": "13. Which room does your family spend most of the time in?",
         "source": "laokaoya",
         "time_frame": "present",
-        "skill_tags": [],
-        "skill_subtype": ""
+        "skill_tags": [
+          "preference"
+        ],
+        "skill_subtype": "which_prefer"
       },
       {
         "text": "14. Are there transport facilities to your home that are very good?",
@@ -2126,8 +2172,10 @@
         "text": "21. What's your favorite room in your apartment or house?",
         "source": "yasige",
         "time_frame": "present",
-        "skill_tags": [],
-        "skill_subtype": ""
+        "skill_tags": [
+          "preference"
+        ],
+        "skill_subtype": "do_you_like"
       },
       {
         "text": "22. What makes you feel pleasant in your home?",
@@ -2152,9 +2200,9 @@
         "source": "yasige",
         "time_frame": "present",
         "skill_tags": [
-          "description"
+          "experience"
         ],
-        "skill_subtype": "what_is_it"
+        "skill_subtype": "have_you_ever"
       },
       {
         "text": "25. What do you usually do in your apartment?",
@@ -2277,8 +2325,10 @@
         "text": "11. What's the name of your hometown (again)?",
         "source": "laokaoya",
         "time_frame": "present",
-        "skill_tags": [],
-        "skill_subtype": ""
+        "skill_tags": [
+          "description"
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "12. Is that a big city or a small place?",
@@ -2320,8 +2370,10 @@
         "text": "16. What's your hometown famous for?",
         "source": "yasige",
         "time_frame": "present",
-        "skill_tags": [],
-        "skill_subtype": ""
+        "skill_tags": [
+          "description"
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "17. Did you learn about the history of your hometown at school?",
@@ -2499,9 +2551,9 @@
         "source": "yasige",
         "time_frame": "present",
         "skill_tags": [
-          "description"
+          "experience"
         ],
-        "skill_subtype": "what_is_it"
+        "skill_subtype": "have_you_ever"
       }
     ],
     "tags": [],
@@ -2534,8 +2586,10 @@
         "text": "2. Do you share your dreams with others?",
         "source": "laokaoya",
         "time_frame": "present",
-        "skill_tags": [],
-        "skill_subtype": ""
+        "skill_tags": [
+          "experience"
+        ],
+        "skill_subtype": "have_you_ever"
       },
       {
         "text": "3. Do you think dreams have special meanings?",
@@ -2720,8 +2774,10 @@
         "text": "3. What do you need to remember in your daily life?",
         "source": "yasige",
         "time_frame": "present",
-        "skill_tags": [],
-        "skill_subtype": ""
+        "skill_tags": [
+          "description"
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "4. How do you remember important things?",
@@ -2791,8 +2847,10 @@
         "text": "5. Do you feel happy when buying new things?",
         "source": "yasige",
         "time_frame": "present",
-        "skill_tags": [],
-        "skill_subtype": ""
+        "skill_tags": [
+          "experience"
+        ],
+        "skill_subtype": "have_you_ever"
       },
       {
         "text": "6. Do you think people are happy when buying new things?",
@@ -2853,8 +2911,10 @@
         "text": "3. What do you find the most interesting about the work you do? Why?",
         "source": "tongzhuo",
         "time_frame": "present",
-        "skill_tags": [],
-        "skill_subtype": ""
+        "skill_tags": [
+          "description"
+        ],
+        "skill_subtype": "what_is_it"
       },
       {
         "text": "4. Will you need to do any more study for your job?",
@@ -3040,8 +3100,10 @@
         "text": "6. Are you enjoying your studies at the moment? Why/why not?",
         "source": "tongzhuo",
         "time_frame": "present",
-        "skill_tags": [],
-        "skill_subtype": ""
+        "skill_tags": [
+          "preference"
+        ],
+        "skill_subtype": "which_prefer"
       },
       {
         "text": "7. Why did you choose to study that subject? / Why did you choose to study those subjects?",
