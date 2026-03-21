@@ -1,6 +1,7 @@
 import { state } from '../state.js';
 import { renderGrid } from './grid.js';
 import { getFilterTaxonomy } from '../utils.js';
+import { SKILL_TO_SUBTYPES } from '../skillTaxonomy.js';
 
 let sidebarCollapsed = false;
 
@@ -11,16 +12,6 @@ const L1_TO_L2 = {
   'object': ['tangible', 'intangible'],
   'experience_activity': ['work', 'study', 'leisure', 'routines'],
   'abstract_concepts': ['communication', 'emotion', 'personal_traits', 'values', 'personal_growth', 'influence', 'time']
-};
-
-const SKILL_TO_SUBTYPES = {
-  'experience':   ['have_you_ever', 'remember_when', 'how_often', 'do_you_usually'],
-  'description':  ['what_types', 'what_is_it', 'where_when_who', 'how_to'],
-  'preference':   ['do_you_like', 'which_prefer'],
-  'evaluation':   ['is_it_important', 'should_people', 'good_or_bad', 'do_you_agree'],
-  'analysis':     ['why', 'what_effect', 'what_pros_cons', 'how_does_it_work'],
-  'comparison':   ['what_differences', 'has_it_changed', 'better_or_worse'],
-  'hypothetical': ['do_you_want_to', 'what_if', 'will_it_happen'],
 };
 
 // ── helpers ──────────────────────────────────────────────────────

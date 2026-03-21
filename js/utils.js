@@ -1,10 +1,14 @@
+import { parentSkillFromSubtype } from './skillTaxonomy.js';
+
 export function renderSkillBadge(q) {
   const subtype = q.skill_subtype;
-  const primary = (q.skill_tags && q.skill_tags[0]) || '';
-  if (!subtype && !primary) return '';
-  const display = subtype || primary;
+  const primaryL1 = (q.skill_tags && q.skill_tags[0]) || '';
+  const parentForStyle = parentSkillFromSubtype(subtype) || primaryL1;
+  if (!subtype && !primaryL1) return '';
+  const display = subtype || primaryL1;
+  const summaryKey = subtype || primaryL1;
   return `<span class="type-tags">
-    <span class="ttag ttag-${primary}" data-type-tag="${display}" data-skill-parent="${primary}">${display.replace(/_/g, ' ')}</span>
+    <span class="ttag ttag-${parentForStyle}" data-type-tag="${summaryKey}" data-skill-parent="${parentForStyle}">${display.replace(/_/g, ' ')}</span>
   </span>`;
 }
 

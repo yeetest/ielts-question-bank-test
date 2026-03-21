@@ -49,6 +49,27 @@ SKILL_TO_SUBTYPES: dict[str, list[str]] = {
     "hypothetical": ["do_you_want_to", "what_if", "will_it_happen"],
 }
 
+# When keyword rules match more than one top-level type, pick ONE primary using this
+# order (lower index wins). Puts evaluation/analysis/etc. before description so
+# opinion/causal questions are not classified as pure description.
+PRIMARY_WIN_ORDER: list[str] = [
+    "experience",
+    "comparison",
+    "hypothetical",
+    "preference",
+    "analysis",
+    "evaluation",
+    "description",
+]
+
+
+def pick_primary_l1(matched: list[str]) -> str:
+    """Return the winning single primary L1 from a list of matched categories."""
+    if not matched:
+        return "description"
+    rank = {t: i for i, t in enumerate(PRIMARY_WIN_ORDER)}
+    return min(matched, key=lambda t: rank.get(t, len(PRIMARY_WIN_ORDER)))
+
 # ---------------------------------------------------------------------------
 # Top-level skill tag rules (shared by Part 1 and Part 2)
 # Priority order: experience → description → preference →
@@ -98,8 +119,10 @@ RULES_PART2 = [
     ("evaluation", [
         r"do you think\b",
         r"what do you think\b",
+        r"\bwhich\b.{0,50}\b(more )?important\b",
         r"should\b",
         r"shouldn't\b",
+        r"\b(is|are)\b.{0,30}\bimportant\b",
         r"is it\b.{0,15}\b(important|necessary|good|bad|better|worse|right|wrong|fair|useful|harmful|beneficial|effective|appropriate|reasonable)\b",
         r"^is\b.{1,30}\b(important|necessary|essential|crucial|vital|meaningful)\b",
         r"^how (important|necessary|essential|good|bad|useful|beneficial|effective)\b",
@@ -427,7 +450,10 @@ def tag_p2(text: str) -> list[str]:
                 if tag not in tags:
                     tags.append(tag)
                 break
-    return tags if tags else ["description"]
+    if not tags:
+        tags = ["description"]
+    primary = pick_primary_l1(tags)
+    return [primary]
 
 
 def tag_p1(text: str) -> tuple[list[str], bool]:
@@ -442,7 +468,8 @@ def tag_p1(text: str) -> tuple[list[str], bool]:
             break
     if not tags:
         return [], True
-    return tags, False
+    primary = pick_primary_l1(tags)
+    return [primary], False
 
 
 # ---------------------------------------------------------------------------
@@ -510,6 +537,9 @@ def audit_data(part1_path: str | None, part2_path: str | None) -> None:
         if not tags:
             issues.append(f"NO_SKILL_TAGS [{part_label}] {topic_name}: {text}")
             stats['no_skill_tags'] += 1
+        if len(tags) > 1:
+            issues.append(f"MULTI_L1_SKILL_TAGS [{part_label}] {topic_name}: {tags} | {text}")
+            stats['multi_l1_skill_tags'] += 1
         if not sub:
             issues.append(f"NO_SUBTYPE [{part_label}] {topic_name}: {text}")
             stats['no_subtype'] += 1
@@ -539,7 +569,7 @@ def audit_data(part1_path: str | None, part2_path: str | None) -> None:
     report = ["# Skill Tagging Audit Report\n"]
     report.append(f"Total questions scanned: {stats['total']}\n")
     report.append("## Issue counts\n")
-    for key in ['no_skill_tags', 'no_subtype', 'subtype_mismatch', 'suspicious_description']:
+    for key in ['no_skill_tags', 'multi_l1_skill_tags', 'no_subtype', 'subtype_mismatch', 'suspicious_description']:
         report.append(f"- {key}: {stats[key]}")
     report.append(f"\n## All issues ({len(issues)})\n")
     for line in issues:
@@ -547,7 +577,7 @@ def audit_data(part1_path: str | None, part2_path: str | None) -> None:
     out = Path(__file__).parent.parent / 'human-in-the-loop' / 'skill_audit_report.md'
     out.write_text("\n".join(report), encoding='utf-8')
     print(f"Audit: {stats['total']} questions, {len(issues)} issues → {out}")
-    for key in ['no_skill_tags', 'no_subtype', 'subtype_mismatch', 'suspicious_description']:
+    for key in ['no_skill_tags', 'multi_l1_skill_tags', 'no_subtype', 'subtype_mismatch', 'suspicious_description']:
         if stats[key]:
             print(f"  {key}: {stats[key]}")
 

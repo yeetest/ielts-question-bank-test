@@ -168,12 +168,14 @@ Structured object with 3 layers. 5 L1 → 15 L2 → 30 L3.
 Full v2 hierarchy in `human-in-the-loop/content_tags_v2_draft.md`.
 
 ### Question-level (`skill_tags`) — unified 7-type taxonomy (Part 1 and Part 2+3)
-Per-question array. 1–3 tags per question:
+Per-question array with **one** primary top-level skill (L1), stored as `skill_tags: [<primary>]`:
 `experience` | `description` | `preference` | `evaluation` | `analysis` | `comparison` | `hypothetical`
 
-**Primary-based semantics:** `skill_tags[0]` is the **primary** type. Sidebar filtering, modal highlighting, sidebar counts, and type summary all use the primary tag only — not `.some()` across all tags. This prevents description from over-firing on questions whose secondary tag happens to include description.
+**Primary-based semantics:** `skill_tags[0]` is the **primary** L1 type. Sidebar filtering (by L1), modal highlighting, sidebar counts, and type summary (when opened from an L1 badge) use this field. The pipeline may match several keyword groups; **`pipeline/tag_question_types.py` collapses matches with `PRIMARY_WIN_ORDER`** so opinion/evaluation beats description when both match.
 
-Priority order (for auto-tagging): experience → description → preference → evaluation → analysis → comparison → hypothetical
+**Rule-table order vs primary:** Keyword rules are evaluated in table order to collect candidate types; the **winning** primary is chosen by `PRIMARY_WIN_ORDER` (evaluation/analysis before description). This stops Part 3 questions such as “What kinds of … do you think …?” from staying under `description`.
+
+Priority order (keyword pass / legacy reference): experience → description → preference → evaluation → analysis → comparison → hypothetical — **not** the same as `PRIMARY_WIN_ORDER` used for the single primary.
 
 Note: `frequency` was merged into `experience` as subtypes (`how_often`, `do_you_usually`).
 
@@ -187,7 +189,7 @@ Per-question single string. Subtype of the primary (first) `skill_tags` value. 2
 - comparison: `what_differences` | `has_it_changed` | `better_or_worse`
 - hypothetical: `do_you_want_to` | `what_if` | `will_it_happen`
 
-**Display:** The question badge next to each question row shows `skill_subtype` (L2) with the parent `skill_tags[0]` (L1) color. This is rendered by `renderSkillBadge(q)` in `js/utils.js`.
+**Display:** The question badge shows the **L2** label (`skill_subtype`, humanized). Badge color uses the parent L1 (`skill_tags[0]`, or parent inferred from subtype via `js/skillTaxonomy.js`). Question-type summary from a badge click matches **subtype** when the badge is L2, else L1.
 
 **Script:** `pipeline/tag_question_types.py --subtype-only` (add subtypes without changing skill_tags). Use `--audit` to generate `human-in-the-loop/skill_subtype_audit.md` for review of low-confidence assignments. Use `--audit-only --part1 <P1> --part2 <P2>` for read-only structural audit.
 
@@ -331,5 +333,5 @@ git push
 - Strip all Chinese characters and zero-width chars from English fields
 - `content_tags` is a 3-layer object `{"l1": str, "l2": [...], "l3": [...]}` — NOT a flat array
 - `qualifier_tags` is a separate flat array for tone/quality descriptors
-- `skill_tags` is a per-question array of 1-3 skill types
+- `skill_tags` is a per-question array with one primary L1 skill type
 - After any JSON edit, always regenerate the matching `.txt` mirror

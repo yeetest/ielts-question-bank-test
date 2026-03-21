@@ -1,6 +1,7 @@
 import { state } from '../state.js';
 import { hasContentTag, getFilterTaxonomy } from '../utils.js';
 import { openOverlay } from './modal.js';
+import { ALL_SKILL_SUBTYPES } from '../skillTaxonomy.js';
 
 export function openTagSummary(tagName) {
   state.lastActiveTag = tagName;
@@ -38,14 +39,19 @@ export function openTypeSummary(typeName) {
   state.lastActiveTag = null;
 
   const results = [];
+  const bySubtype = ALL_SKILL_SUBTYPES.has(typeName);
+  function matchesSkillType(q) {
+    if (bySubtype) return q.skill_subtype === typeName;
+    return q.skill_tags && q.skill_tags[0] === typeName;
+  }
   state.part1Data.forEach((topic, idx) => {
     (topic.questions || [])
-      .filter(q => q.skill_tags && q.skill_tags[0] === typeName)
+      .filter(matchesSkillType)
       .forEach(q => results.push({ topicTitle: topic.topic_en, text: q.text, part: 1, idx }));
   });
   state.part2Data.forEach((topic, idx) => {
     (topic.part3 || [])
-      .filter(q => q.skill_tags && q.skill_tags[0] === typeName)
+      .filter(matchesSkillType)
       .forEach(q => results.push({ topicTitle: topic.topic || topic.topic_en, text: q.text, part: 2, idx }));
   });
 

@@ -137,15 +137,15 @@ Each l3 belongs to exactly one l2. Pick 0–2 l3 tags.
 
 ## Skill Tags (`skill_tags`) — Unified 7-Type Taxonomy
 
-Both Part 1 questions and Part 3 questions use the same 7-type taxonomy. Each question gets a `skill_tags` array with 1–3 values. Assign all that apply (up to 3, in priority order); if genuinely ambiguous, use `unclear`.
+Both Part 1 questions and Part 3 questions use the same 7-type taxonomy. Each question gets **one** primary top-level skill stored as `skill_tags: [<primary>]`. If genuinely ambiguous after rules, Part 1 may leave `skill_tags` empty for manual follow-up (`claude_p1_type_response.json`).
 
-**Primary-based semantics:** The **first element** of `skill_tags` is the **primary** skill type. Sidebar filtering, modal highlighting, and question counts all use the primary tag only (not `.some()` across all tags). The displayed badge on each question row is `skill_subtype` (L2), not `skill_tags[0]` (L1), but the badge color inherits from the parent L1.
+**Primary-based semantics:** `skill_tags[0]` is the **primary L1** skill type. Sidebar filtering (L1), modal highlighting, and counts use this field. The auto-tagger can match several keyword groups; **`pick_primary_l1` / `PRIMARY_WIN_ORDER` in `pipeline/tag_question_types.py`** selects a single winner (e.g. `evaluation` beats `description` when both match). The displayed badge text is **`skill_subtype` (L2)**; badge color uses parent L1 (`skill_tags[0]`, or L1 inferred from subtype in `js/skillTaxonomy.js`).
 
-**Priority order:** `experience` → `description` → `preference` → `evaluation` → `analysis` → `comparison` → `hypothetical`
+**Keyword rule order** (which patterns are tested first) differs from **primary win order** (which single L1 is stored). See `PRIMARY_WIN_ORDER` in `tag_question_types.py`.
 
 Note: `frequency` was merged into `experience` as subtypes (`how_often`, `do_you_usually`).
 
-**Script:** `pipeline/tag_question_types.py` — auto-tags questions using keyword matching. Use `--audit-only --part1 <P1> --part2 <P2>` for read-only auditing (detects missing tags, subtype mismatches, suspicious description assignments).
+**Script:** `pipeline/tag_question_types.py` — auto-tags questions using keyword matching. Use `--audit-only --part1 <P1> --part2 <P2>` for read-only auditing (detects missing tags, multi-L1 arrays, subtype mismatches, suspicious description assignments).
 
 ---
 
