@@ -1,5 +1,5 @@
 import { state } from '../state.js';
-import { renderSkillTags, renderInlineTopicTags, renderContentTags, cleanTitle } from '../utils.js';
+import { renderSkillBadge, renderInlineTopicTags, renderContentTags, cleanTitle } from '../utils.js';
 import { openTagSummary, openTypeSummary } from './tagSummary.js';
 
 export function openOverlay() {
@@ -27,14 +27,15 @@ export function openModal(tab, idx) {
       ${renderContentTags(item.content_tags)}
       <div class="section-label" style="margin-top:14px">Questions</div>
       ${item.questions.map(q => {
+        const primary = (q.skill_tags && q.skill_tags[0]) || '';
         const skillMatch = state.selectedSkillTags.length > 0
-          && q.skill_tags && q.skill_tags.some(t => state.selectedSkillTags.includes(t));
+          && primary && state.selectedSkillTags.includes(primary);
         const subtypeMatch = state.selectedSkillSubtypes.length > 0
           && state.selectedSkillSubtypes.includes(q.skill_subtype);
         const timeMatch = state.selectedTimeFrame
           && q.time_frame === state.selectedTimeFrame;
         const match = skillMatch || subtypeMatch || timeMatch;
-        return `<div class="q-row${match ? ' q-highlight' : ''}"><span>${q.text}${renderSkillTags(q.skill_tags)}${topicTags}</span></div>`;
+        return `<div class="q-row${match ? ' q-highlight' : ''}"><span>${q.text}${renderSkillBadge(q)}${topicTags}</span></div>`;
       }).join('')}
     `;
   } else {
@@ -56,14 +57,15 @@ export function openModal(tab, idx) {
       </div>
       <div class="section-label">Part 3 Questions</div>
       ${p3.map(q => {
+        const primary = (q.skill_tags && q.skill_tags[0]) || '';
         const skillMatch = state.selectedSkillTags.length > 0
-          && q.skill_tags && q.skill_tags.some(t => state.selectedSkillTags.includes(t));
+          && primary && state.selectedSkillTags.includes(primary);
         const subtypeMatch = state.selectedSkillSubtypes.length > 0
           && state.selectedSkillSubtypes.includes(q.skill_subtype);
         const timeMatch = state.selectedTimeFrame
           && q.time_frame === state.selectedTimeFrame;
         const match = skillMatch || subtypeMatch || timeMatch;
-        return `<div class="q-row${match ? ' q-highlight' : ''}"><span>${q.text}${renderSkillTags(q.skill_tags)}${topicTags}</span></div>`;
+        return `<div class="q-row${match ? ' q-highlight' : ''}"><span>${q.text}${renderSkillBadge(q)}${topicTags}</span></div>`;
       }).join('')}
     `;
   }

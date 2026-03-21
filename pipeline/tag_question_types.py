@@ -71,16 +71,16 @@ RULES_PART2 = [
         r"\bhow (frequently|regularly)\b",
     ]),
     ("description", [
-        r"^what (is|are|was|were|kind|type|do|did|can|other|examples|sorts)\b",
-        r"^which\b",
+        r"^what (is|are|was|were|kind|type|can|other|examples|sorts)\b",
+        r"^what (do|did)\b(?!.{0,15}\bthink\b)",
+        r"^which\b(?!.{0,40}\b(think|prefer|better|rather)\b)",
         r"^how (many|much|long|far)\b",
         r"^tell me\b",
         r"^describe\b",
         r"^can you (describe|tell|explain)\b",
-        r"^do (you|people|children|young|old|most)\b",
         r"^is there\b",
         r"^are there\b",
-        r"^what (do|did) people\b",
+        r"^what (do|did) people\b(?!.{0,15}\bthink\b)",
         r"^what (activities|things|jobs|places|ways)\b",
         r"what.*in your country",
         r"what.*popular",
@@ -100,7 +100,9 @@ RULES_PART2 = [
         r"what do you think\b",
         r"should\b",
         r"shouldn't\b",
-        r"is it (important|necessary|good|bad|better|worse|right|wrong|fair|useful|harmful|beneficial|effective|appropriate|reasonable)\b",
+        r"is it\b.{0,15}\b(important|necessary|good|bad|better|worse|right|wrong|fair|useful|harmful|beneficial|effective|appropriate|reasonable)\b",
+        r"^is\b.{1,30}\b(important|necessary|essential|crucial|vital|meaningful)\b",
+        r"^how (important|necessary|essential|good|bad|useful|beneficial|effective)\b",
         r"do you (agree|believe|support|prefer|consider)\b",
         r"would you (say|recommend|consider)\b",
         r"whether (or not|it is|people should)\b",
@@ -488,6 +490,68 @@ class AuditCollector:
         print(f"Audit report: {path}")
 
 
+EVAL_KEYWORDS = re.compile(
+    r'\b(think|should|shouldn\'t|important|necessary|essential|agree|believe|worth'
+    r'|good or bad|better or worse|right or wrong)\b', re.I)
+
+
+def audit_data(part1_path: str | None, part2_path: str | None) -> None:
+    """Read-only audit: detects tagging issues without modifying data."""
+    issues: list[str] = []
+    stats = Counter()
+
+    def check_question(part_label: str, topic_name: str, q: dict):
+        text = q.get('text', '')
+        tags = q.get('skill_tags', [])
+        sub = q.get('skill_subtype', '')
+        primary = tags[0] if tags else ''
+        stats['total'] += 1
+
+        if not tags:
+            issues.append(f"NO_SKILL_TAGS [{part_label}] {topic_name}: {text}")
+            stats['no_skill_tags'] += 1
+        if not sub:
+            issues.append(f"NO_SUBTYPE [{part_label}] {topic_name}: {text}")
+            stats['no_subtype'] += 1
+        if sub and primary:
+            valid = SKILL_TO_SUBTYPES.get(primary, [])
+            if sub not in valid:
+                issues.append(f"SUBTYPE_MISMATCH [{part_label}] primary={primary} sub={sub}: {text}")
+                stats['subtype_mismatch'] += 1
+        if primary == 'description' and EVAL_KEYWORDS.search(clean(text)):
+            issues.append(f"SUSPICIOUS_DESCRIPTION [{part_label}] {topic_name}: tags={tags} sub={sub} | {text}")
+            stats['suspicious_description'] += 1
+
+    if part1_path:
+        with open(part1_path, encoding='utf-8') as f:
+            for topic in json.load(f):
+                name = topic.get('topic_en', '?')
+                for q in topic.get('questions', []):
+                    check_question('p1', name, q)
+
+    if part2_path:
+        with open(part2_path, encoding='utf-8') as f:
+            for topic in json.load(f):
+                name = topic.get('topic', topic.get('topic_en', '?'))
+                for q in topic.get('part3', []):
+                    check_question('p3', name, q)
+
+    report = ["# Skill Tagging Audit Report\n"]
+    report.append(f"Total questions scanned: {stats['total']}\n")
+    report.append("## Issue counts\n")
+    for key in ['no_skill_tags', 'no_subtype', 'subtype_mismatch', 'suspicious_description']:
+        report.append(f"- {key}: {stats[key]}")
+    report.append(f"\n## All issues ({len(issues)})\n")
+    for line in issues:
+        report.append(f"- {line}")
+    out = Path(__file__).parent.parent / 'human-in-the-loop' / 'skill_audit_report.md'
+    out.write_text("\n".join(report), encoding='utf-8')
+    print(f"Audit: {stats['total']} questions, {len(issues)} issues → {out}")
+    for key in ['no_skill_tags', 'no_subtype', 'subtype_mismatch', 'suspicious_description']:
+        if stats[key]:
+            print(f"  {key}: {stats[key]}")
+
+
 # ---------------------------------------------------------------------------
 # Processors
 # ---------------------------------------------------------------------------
@@ -571,7 +635,15 @@ def main():
         print("  python3 pipeline/tag_question_types.py merged_part1.json --part 1")
         print("  python3 pipeline/tag_question_types.py merged_part2.json --overwrite")
         print("  python3 pipeline/tag_question_types.py merged_part2.json --subtype-only --audit")
+        print("  python3 pipeline/tag_question_types.py --audit-only --part1 P1.json --part2 P2.json")
         sys.exit(1)
+
+    if '--audit-only' in sys.argv:
+        p1 = sys.argv[sys.argv.index('--part1') + 1] if '--part1' in sys.argv else None
+        p2 = sys.argv[sys.argv.index('--part2') + 1] if '--part2' in sys.argv else None
+        audit_data(p1, p2)
+        return
+
     filepath = sys.argv[1]
     part = 2
     if '--part' in sys.argv:

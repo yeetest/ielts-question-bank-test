@@ -19,3 +19,5 @@ ideation//pipeline/
 !tags/tags.txt
 !data/quarters/**/PLACEHOLDER.txt
 claude_tag_response.json
+claude_p1_type_response.json
+**/claude_p1_type_response.json

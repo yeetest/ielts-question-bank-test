@@ -37,7 +37,7 @@ function matchesTimeFrame(q, timeFrame) {
   return q.time_frame === timeFrame;
 }
 
-function matchesSkillFilters(q, skillFilters, subtypeFilters, focused) {
+function matchesSkillFilters(q, skillFilters, subtypeFilters) {
   const hasSkill = skillFilters.length > 0;
   const hasSub = subtypeFilters.length > 0;
   if (!hasSkill && !hasSub) return true;
@@ -45,29 +45,25 @@ function matchesSkillFilters(q, skillFilters, subtypeFilters, focused) {
   if (hasSub) {
     return subtypeFilters.includes(q.skill_subtype);
   }
-  if (!q.skill_tags || q.skill_tags.length === 0) return false;
-  if (focused) {
-    return q.skill_tags.every(tag => skillFilters.includes(tag));
-  }
-  return q.skill_tags.some(tag => skillFilters.includes(tag));
+  const primary = (q.skill_tags && q.skill_tags[0]) || '';
+  if (!primary) return false;
+  return skillFilters.includes(primary);
 }
 
 function matchingQuestionCount(topic, skillFilters, subtypeFilters, timeFrame) {
   const qs = getQuestions(topic);
-  const focused = state.filterMode === 'focused';
   return qs.filter(q => {
     if (!matchesTimeFrame(q, timeFrame)) return false;
-    return matchesSkillFilters(q, skillFilters, subtypeFilters, focused);
+    return matchesSkillFilters(q, skillFilters, subtypeFilters);
   }).length;
 }
 
 function countByTimeFrame(topics, skillFilters, subtypeFilters) {
   const counts = { past: 0, present: 0, future: 0 };
-  const focused = state.filterMode === 'focused';
   topics.forEach(t => {
     const qs = getQuestions(t);
     qs.forEach(q => {
-      if (!matchesSkillFilters(q, skillFilters, subtypeFilters, focused)) return;
+      if (!matchesSkillFilters(q, skillFilters, subtypeFilters)) return;
       const tf = q.time_frame;
       if (tf && counts.hasOwnProperty(tf)) counts[tf]++;
     });
@@ -142,13 +138,15 @@ function extractSkillTags() {
   const p1Counts = {};
   state.part1Data.forEach(topic => {
     (topic.questions || []).forEach(q => {
-      (q.skill_tags || []).forEach(tag => { p1Counts[tag] = (p1Counts[tag] || 0) + 1; });
+      const primary = (q.skill_tags && q.skill_tags[0]) || '';
+      if (primary) p1Counts[primary] = (p1Counts[primary] || 0) + 1;
     });
   });
   const p2Counts = {};
   state.part2Data.forEach(topic => {
     (topic.part3 || []).forEach(q => {
-      (q.skill_tags || []).forEach(tag => { p2Counts[tag] = (p2Counts[tag] || 0) + 1; });
+      const primary = (q.skill_tags && q.skill_tags[0]) || '';
+      if (primary) p2Counts[primary] = (p2Counts[primary] || 0) + 1;
     });
   });
   return { p1: p1Counts, p2: p2Counts };
@@ -167,10 +165,9 @@ function extractSkillSubtypes(selectedSkillTags) {
     (topic[qKey] || []).forEach(q => {
       const sub = q.skill_subtype;
       if (sub && validSubs.has(sub)) {
-        if (selectedSkillTags.length > 0 && q.skill_tags) {
-          if (q.skill_tags.some(t => selectedSkillTags.includes(t))) {
-            counts[sub] = (counts[sub] || 0) + 1;
-          }
+        const primary = (q.skill_tags && q.skill_tags[0]) || '';
+        if (primary && selectedSkillTags.includes(primary)) {
+          counts[sub] = (counts[sub] || 0) + 1;
         }
       }
     });
@@ -188,7 +185,7 @@ function applyFilters(data, tab) {
       const questions = tab === 'part1' ? (item.questions || []) : (item.part3 || []);
       return questions.some(q => {
         if (state.selectedTimeFrame && q.time_frame !== state.selectedTimeFrame) return false;
-        return matchesSkillFilters(q, state.selectedSkillTags, state.selectedSkillSubtypes, focused);
+        return matchesSkillFilters(q, state.selectedSkillTags, state.selectedSkillSubtypes);
       });
     });
   }

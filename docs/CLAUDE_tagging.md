@@ -139,11 +139,13 @@ Each l3 belongs to exactly one l2. Pick 0–2 l3 tags.
 
 Both Part 1 questions and Part 3 questions use the same 7-type taxonomy. Each question gets a `skill_tags` array with 1–3 values. Assign all that apply (up to 3, in priority order); if genuinely ambiguous, use `unclear`.
 
+**Primary-based semantics:** The **first element** of `skill_tags` is the **primary** skill type. Sidebar filtering, modal highlighting, and question counts all use the primary tag only (not `.some()` across all tags). The displayed badge on each question row is `skill_subtype` (L2), not `skill_tags[0]` (L1), but the badge color inherits from the parent L1.
+
 **Priority order:** `experience` → `description` → `preference` → `evaluation` → `analysis` → `comparison` → `hypothetical`
 
 Note: `frequency` was merged into `experience` as subtypes (`how_often`, `do_you_usually`).
 
-**Script:** `pipeline/tag_question_types.py` — auto-tags questions using keyword matching.
+**Script:** `pipeline/tag_question_types.py` — auto-tags questions using keyword matching. Use `--audit-only --part1 <P1> --part2 <P2>` for read-only auditing (detects missing tags, subtype mismatches, suspicious description assignments).
 
 ---
 

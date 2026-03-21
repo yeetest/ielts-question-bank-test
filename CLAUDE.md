@@ -171,6 +171,8 @@ Full v2 hierarchy in `human-in-the-loop/content_tags_v2_draft.md`.
 Per-question array. 1–3 tags per question:
 `experience` | `description` | `preference` | `evaluation` | `analysis` | `comparison` | `hypothetical`
 
+**Primary-based semantics:** `skill_tags[0]` is the **primary** type. Sidebar filtering, modal highlighting, sidebar counts, and type summary all use the primary tag only — not `.some()` across all tags. This prevents description from over-firing on questions whose secondary tag happens to include description.
+
 Priority order (for auto-tagging): experience → description → preference → evaluation → analysis → comparison → hypothetical
 
 Note: `frequency` was merged into `experience` as subtypes (`how_often`, `do_you_usually`).
@@ -185,10 +187,12 @@ Per-question single string. Subtype of the primary (first) `skill_tags` value. 2
 - comparison: `what_differences` | `has_it_changed` | `better_or_worse`
 - hypothetical: `do_you_want_to` | `what_if` | `will_it_happen`
 
-**Script:** `pipeline/tag_question_types.py --subtype-only` (add subtypes without changing skill_tags). Use `--audit` to generate `human-in-the-loop/skill_subtype_audit.md` for review of low-confidence assignments.
+**Display:** The question badge next to each question row shows `skill_subtype` (L2) with the parent `skill_tags[0]` (L1) color. This is rendered by `renderSkillBadge(q)` in `js/utils.js`.
+
+**Script:** `pipeline/tag_question_types.py --subtype-only` (add subtypes without changing skill_tags). Use `--audit` to generate `human-in-the-loop/skill_subtype_audit.md` for review of low-confidence assignments. Use `--audit-only --part1 <P1> --part2 <P2>` for read-only structural audit.
 
 ### Sidebar skill drill-down
-The frontend sidebar shows skill tags as a two-level hierarchy (like content L1→L2). Clicking a top-level skill tag reveals its subtypes. Clicking a subtype filters to questions matching that specific subtype. Highlight logic in the modal applies to skill_tags, skill_subtype, and time_frame.
+The frontend sidebar shows skill tags as a two-level hierarchy (like content L1→L2). Clicking a top-level skill tag filters to questions whose **primary** `skill_tags[0]` matches, then reveals subtypes. Clicking a subtype filters to questions matching that specific `skill_subtype`. Highlight logic in the modal applies to primary `skill_tags[0]`, `skill_subtype`, and `time_frame`.
 
 ### Question-level (`time_frame`) — 3-value system (Part 1 and Part 2+3)
 Per-question single value: `"past"` | `"present"` | `"future"`
@@ -205,12 +209,13 @@ Full rules and keyword lists in `docs/CLAUDE_tagging.md`.
 ## Pipeline Scripts
 
 ### tag_question_types.py
-Auto-tags questions with `skill_tags` (7 top-level types) and `skill_subtype` (23 second-level subtypes) via keyword matching. Unified taxonomy for both parts. Unmatched Part 1 questions saved to `claude_p1_type_response.json` for manual review. Modes: default (tag empty only), `--overwrite` (re-tag all), `--subtype-only` (keep skill_tags, add/update subtypes). `--audit` generates `human-in-the-loop/skill_subtype_audit.md`.
+Auto-tags questions with `skill_tags` (7 top-level types) and `skill_subtype` (23 second-level subtypes) via keyword matching. Unified taxonomy for both parts. Unmatched Part 1 questions saved to `claude_p1_type_response.json` for manual review. Modes: default (tag empty only), `--overwrite` (re-tag all), `--subtype-only` (keep skill_tags, add/update subtypes). `--audit` generates `human-in-the-loop/skill_subtype_audit.md`. `--audit-only` runs a read-only structural audit (no data modification).
 ```bash
 python3 pipeline/tag_question_types.py merged_part1.json --part 1
 python3 pipeline/tag_question_types.py merged_part2.json
 python3 pipeline/tag_question_types.py merged_part1.json --part 1 --subtype-only  # subtypes only
 python3 pipeline/tag_question_types.py merged_part2.json --subtype-only --audit   # with audit report
+python3 pipeline/tag_question_types.py --audit-only --part1 P1.json --part2 P2.json  # read-only audit
 ```
 For **May–Aug** quarter files, pass paths under `data/quarters/2026-05-to-08/` (do not run against `data/quarters/2026-01-to-04/` unless intentionally updating the freeze).
 

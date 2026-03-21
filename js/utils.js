@@ -1,11 +1,10 @@
-// Builds the colored skill tag badges (8-type unified taxonomy)
-// shown next to each question.
-export function renderSkillTags(tags) {
-  if (!tags || !tags.length) return '';
+export function renderSkillBadge(q) {
+  const subtype = q.skill_subtype;
+  const primary = (q.skill_tags && q.skill_tags[0]) || '';
+  if (!subtype && !primary) return '';
+  const display = subtype || primary;
   return `<span class="type-tags">
-    ${tags.map(t =>
-      `<span class="ttag ttag-${t}" data-type-tag="${t}">${t}</span>`
-    ).join('')}
+    <span class="ttag ttag-${primary}" data-type-tag="${display}" data-skill-parent="${primary}">${display.replace(/_/g, ' ')}</span>
   </span>`;
 }
 
