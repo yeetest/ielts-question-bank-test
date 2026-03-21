@@ -70,6 +70,39 @@ def pick_primary_l1(matched: list[str]) -> str:
     rank = {t: i for i, t in enumerate(PRIMARY_WIN_ORDER)}
     return min(matched, key=lambda t: rank.get(t, len(PRIMARY_WIN_ORDER)))
 
+
+# After L1 keyword rules run, ensure "preference" is in the candidate set when the
+# utterance is clearly about liking, choice, or favourite — even if shallow "what /
+# which / what part" patterns already matched description. pick_primary_l1 then
+# prefers preference over description (PRIMARY_WIN_ORDER).
+PREFERENCE_SEMANTIC_PATTERNS = [
+    r"\bdo you like\b",
+    r"\blike best\b",
+    r"\blike (the )?most\b",
+    r"\bdo you prefer\b",
+    r"\bwhich\b.{0,80}\b(prefer|would you rather|do you like)\b",
+    r"\bwhat (is|was|were) your favou?rite\b",
+    r"\b(enjoy|enjoyed|enjoying)\s+(the\s+)?(most|best)\b",
+    r"\bwould (you )?rather\b",
+    r"\bwould you choose\b",
+    r"\bwhich one\b.{0,40}\b(choose|prefer)\b",
+    r"\bwhat\s+kind\s+of\b.{0,40}\b(do you enjoy most|do you like best)\b",
+]
+
+
+def preference_semantic_intent(t: str) -> bool:
+    """True if the question is preference/choice-shaped (not just interrogative form)."""
+    return any(re.search(p, t) for p in PREFERENCE_SEMANTIC_PATTERNS)
+
+
+def apply_semantic_preference_boost(t: str, matched: list[str]) -> None:
+    """Inject preference into matched L1s when semantic intent is preference/choice."""
+    if not matched:
+        return
+    if preference_semantic_intent(t) and "preference" not in matched:
+        matched.append("preference")
+
+
 # ---------------------------------------------------------------------------
 # Top-level skill tag rules (shared by Part 1 and Part 2)
 # Priority order: experience → description → preference →
@@ -338,14 +371,26 @@ SUBTYPE_RULES: dict[str, list[tuple[str, list[str]]]] = {
         ("what_is_it", []),
     ],
     "preference": [
+        # Prefer specific liking/choice phrasing before loose patterns (e.g. bare "\bor\b").
+        ("do_you_like", [
+            r"\bdo you like\b",
+            r"\blike best\b",
+            r"\blike (the )?most\b",
+            r"\bdo you enjoy\b",
+            r"\benjoy (the )?most\b",
+            r"\bwhat (is|was|were) your favou?rite\b",
+        ]),
         ("which_prefer", [
             r"do you prefer\b",
             r"which do you prefer\b",
+            r"which\b.{0,80}\bprefer\b",
             r"which.*better\b",
+            r"would (you )?rather\b",
+            r"would you choose\b",
+            r"which one\b.{0,40}\b(choose|prefer)\b",
             r"favou?rite\b",
             r"\bor\b",
         ]),
-        ("do_you_like", []),
     ],
     "evaluation": [
         ("is_it_important", [
@@ -452,6 +497,7 @@ def tag_p2(text: str) -> list[str]:
                 break
     if not tags:
         tags = ["description"]
+    apply_semantic_preference_boost(t, tags)
     primary = pick_primary_l1(tags)
     return [primary]
 
@@ -468,6 +514,7 @@ def tag_p1(text: str) -> tuple[list[str], bool]:
             break
     if not tags:
         return [], True
+    apply_semantic_preference_boost(t, tags)
     primary = pick_primary_l1(tags)
     return [primary], False
 
@@ -551,6 +598,10 @@ def audit_data(part1_path: str | None, part2_path: str | None) -> None:
         if primary == 'description' and EVAL_KEYWORDS.search(clean(text)):
             issues.append(f"SUSPICIOUS_DESCRIPTION [{part_label}] {topic_name}: tags={tags} sub={sub} | {text}")
             stats['suspicious_description'] += 1
+        if primary == 'description' and preference_semantic_intent(clean(text)):
+            issues.append(
+                f"DESCRIPTION_BUT_PREF_SEMANTIC [{part_label}] {topic_name}: sub={sub} | {text}")
+            stats['description_but_pref_semantic'] += 1
 
     if part1_path:
         with open(part1_path, encoding='utf-8') as f:
@@ -569,7 +620,8 @@ def audit_data(part1_path: str | None, part2_path: str | None) -> None:
     report = ["# Skill Tagging Audit Report\n"]
     report.append(f"Total questions scanned: {stats['total']}\n")
     report.append("## Issue counts\n")
-    for key in ['no_skill_tags', 'multi_l1_skill_tags', 'no_subtype', 'subtype_mismatch', 'suspicious_description']:
+    for key in ['no_skill_tags', 'multi_l1_skill_tags', 'no_subtype', 'subtype_mismatch',
+                'suspicious_description', 'description_but_pref_semantic']:
         report.append(f"- {key}: {stats[key]}")
     report.append(f"\n## All issues ({len(issues)})\n")
     for line in issues:
@@ -577,7 +629,8 @@ def audit_data(part1_path: str | None, part2_path: str | None) -> None:
     out = Path(__file__).parent.parent / 'human-in-the-loop' / 'skill_audit_report.md'
     out.write_text("\n".join(report), encoding='utf-8')
     print(f"Audit: {stats['total']} questions, {len(issues)} issues → {out}")
-    for key in ['no_skill_tags', 'multi_l1_skill_tags', 'no_subtype', 'subtype_mismatch', 'suspicious_description']:
+    for key in ['no_skill_tags', 'multi_l1_skill_tags', 'no_subtype', 'subtype_mismatch',
+                'suspicious_description', 'description_but_pref_semantic']:
         if stats[key]:
             print(f"  {key}: {stats[key]}")
 

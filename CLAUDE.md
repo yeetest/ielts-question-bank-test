@@ -173,7 +173,7 @@ Per-question array with **one** primary top-level skill (L1), stored as `skill_t
 
 **Primary-based semantics:** `skill_tags[0]` is the **primary** L1 type. Sidebar filtering (by L1), modal highlighting, sidebar counts, and type summary (when opened from an L1 badge) use this field. The pipeline may match several keyword groups; **`pipeline/tag_question_types.py` collapses matches with `PRIMARY_WIN_ORDER`** so opinion/evaluation beats description when both match.
 
-**Rule-table order vs primary:** Keyword rules are evaluated in table order to collect candidate types; the **winning** primary is chosen by `PRIMARY_WIN_ORDER` (evaluation/analysis before description). This stops Part 3 questions such as “What kinds of … do you think …?” from staying under `description`.
+**Rule-table order vs primary:** Keyword rules are evaluated in table order to collect candidate types; the **winning** primary is chosen by `PRIMARY_WIN_ORDER` (evaluation/analysis before description). This stops Part 3 questions such as “What kinds of … do you think …?” from staying under `description`. **Preference intent:** `PREFERENCE_SEMANTIC_PATTERNS` + `apply_semantic_preference_boost` can add `preference` when the question is clearly liking/choice-shaped (*like best*, *favourite*, *do you prefer*…), so shallow “what/which/what part” openings do not dominate.
 
 Priority order (keyword pass / legacy reference): experience → description → preference → evaluation → analysis → comparison → hypothetical — **not** the same as `PRIMARY_WIN_ORDER` used for the single primary.
 

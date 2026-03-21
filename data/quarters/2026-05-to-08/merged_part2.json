@@ -37,9 +37,9 @@
         "source": "tongzhuo",
         "time_frame": "present",
         "skill_tags": [
-          "evaluation"
+          "preference"
         ],
-        "skill_subtype": "do_you_agree"
+        "skill_subtype": "which_prefer"
       },
       {
         "text": "4. Is it easy for children in cities to get close to the natural world?",

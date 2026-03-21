@@ -270,7 +270,7 @@
         "skill_tags": [
           "preference"
         ],
-        "skill_subtype": "which_prefer"
+        "skill_subtype": "do_you_like"
       },
       {
         "text": "3. Did you prefer to do activities alone or with a group of people when you were a child?",
@@ -333,7 +333,7 @@
         "skill_tags": [
           "preference"
         ],
-        "skill_subtype": "do_you_like"
+        "skill_subtype": "which_prefer"
       },
       {
         "text": "3. Do you want to live in a tall building?",
@@ -770,7 +770,7 @@
         "skill_tags": [
           "preference"
         ],
-        "skill_subtype": "which_prefer"
+        "skill_subtype": "do_you_like"
       },
       {
         "text": "2. What kind of food did you like when you were young?",
@@ -969,7 +969,7 @@
         "skill_tags": [
           "preference"
         ],
-        "skill_subtype": "do_you_like"
+        "skill_subtype": "which_prefer"
       },
       {
         "text": "4. How do you feel after taking a nap?",
@@ -1032,7 +1032,7 @@
         "skill_tags": [
           "preference"
         ],
-        "skill_subtype": "do_you_like"
+        "skill_subtype": "which_prefer"
       }
     ],
     "tags": [],
@@ -1815,7 +1815,7 @@
         "skill_tags": [
           "preference"
         ],
-        "skill_subtype": "which_prefer"
+        "skill_subtype": "do_you_like"
       }
     ],
     "tags": [],
@@ -1980,7 +1980,7 @@
         "skill_tags": [
           "preference"
         ],
-        "skill_subtype": "which_prefer"
+        "skill_subtype": "do_you_like"
       },
       {
         "text": "5. Would you like to change anything in your house/apartment?",

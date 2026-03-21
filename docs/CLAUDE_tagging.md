@@ -265,6 +265,10 @@ Every question also gets a `skill_subtype` string — the subtype of its primary
 
 **Audit:** Run with `--audit` flag to generate `human-in-the-loop/skill_subtype_audit.md` listing all default-confidence assignments for manual review.
 
+**Preference vs surface “what/which”:** After L1 keyword rules, `apply_semantic_preference_boost` may add `preference` when `PREFERENCE_SEMANTIC_PATTERNS` match (e.g. *like best*, *do you like*, *your favourite*, *enjoy most*, *would rather*). `pick_primary_l1` then keeps **preference** above **description** so questions such as *What part of your day do you like best?* are not left as description / `what_is_it`.
+
+**Subtype order (preference):** Within `preference`, **`do_you_like`** patterns are evaluated before **`which_prefer`** so liking/favour phrasing wins over broad “A or B” / `or` patterns.
+
 ### Sidebar Drill-Down
 The frontend sidebar shows skill tags as a two-level hierarchy. Clicking a top-level skill tag reveals its subtypes as clickable tags below. Clicking a subtype filters to questions matching that specific subtype and highlights them in the modal.
 
