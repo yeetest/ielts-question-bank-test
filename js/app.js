@@ -1,10 +1,10 @@
-import { loadData, sectionFromURL, setSectionInURL, writingTabFromURL } from './data.js';
-import { openModal, closeOverlay } from './components/modal.js';
-import { openTagSummary, openTypeSummary } from './components/tagSummary.js';
-import { initSidebar, renderSidebar } from './components/sidebar.js';
+import { loadData, sectionFromURL, setSectionInURL, writingTabFromURL } from './shared/data.js';
+import { openModal, closeOverlay } from './speaking/modal.js';
+import { openTagSummary, openTypeSummary } from './speaking/tagSummary.js';
+import { initSidebar, renderSidebar } from './speaking/sidebar.js';
 import { renderGrid } from './components/grid.js';
-import { closeAuthModal, refreshSession } from './auth.js';
-import { state } from './state.js';
+import { closeAuthModal, refreshSession } from './writing/auth.js';
+import { state } from './shared/state.js';
 
 function resetSpeakingFilters() {
   state.selectedSkillTags = [];

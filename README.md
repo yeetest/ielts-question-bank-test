@@ -95,7 +95,8 @@ If either env var is missing, `api/ai.js` returns a clear error and does not gen
 
 - `CLAUDE.md` — day-to-day conventions for assistants
 - `README_ARCH.md` — architecture and file roles
-- `docs/writing_practice_flow.md` — current writing practice logic, data model, auth/credit flow
+- `docs/PROJECT_STRUCTURE.md` — where speaking / writing / shared files live now
+- `docs/writing/writing_practice_flow.md` — current writing practice logic, data model, auth/credit flow
 - **`docs/season_rollover_runbook.md`** — **quarter / season handoff** (new `data/quarters/<id>/`, taxonomy pipeline, verification)
 - `data/quarters/README.md` — quarter directory contract
 - `docs/taxonomy_runtime_runbook.md` — assign → backfill → export → check (detail)

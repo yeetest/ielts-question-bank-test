@@ -1,5 +1,5 @@
-import { state } from '../state.js';
-import { renderContentTags, cleanTitle } from '../utils.js';
+import { state } from '../shared/state.js';
+import { renderContentTags, cleanTitle } from '../shared/utils.js';
 
 function setCount(text) {
   const el = document.getElementById('total-count');
