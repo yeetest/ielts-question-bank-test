@@ -92,7 +92,7 @@ function defaultWorkspace(task) {
   return {
     taskId: task.id,
     essay: '',
-    activeTab: 'revised',
+    activeTab: 'feedback',
     viewMode: 'practice',
     viewTaskId: task.id,
     correctionResult: null,
@@ -120,7 +120,9 @@ function normalizeWorkspace(task, value) {
   merged.flashcards = Array.isArray(merged.flashcards) && merged.flashcards.length
     ? merged.flashcards
     : buildFlashcards(merged.highlights);
-  merged.activeTab = 'revised';
+  if (!['feedback', 'revised', 'notes'].includes(merged.activeTab)) {
+    merged.activeTab = 'feedback';
+  }
   if (typeof merged.editorWidth !== 'number') merged.editorWidth = 48;
   if (typeof merged.timerStartedAt !== 'number') merged.timerStartedAt = Date.now();
   merged.selectionText = '';
@@ -218,6 +220,13 @@ function renderHighlightedText(text, highlights) {
   return html.replace(/\n/g, '<br>');
 }
 
+function renderEssayParagraphs(text) {
+  const html = String(text || '').trim().replace(/\n/g, '<br>');
+  if (!html) return '<div class="muted">还没有内容。</div>';
+  const paragraphs = html.split(/(?:<br>\s*){2,}/).map(item => item.trim()).filter(Boolean);
+  return paragraphs.map(item => `<p>${item}</p>`).join('');
+}
+
 function renderFeedbackCards(correctionResult) {
   const feedback = correctionResult?.feedback;
   if (!feedback || typeof feedback !== 'object') {
@@ -225,40 +234,23 @@ function renderFeedbackCards(correctionResult) {
   }
 
   const cards = [
-    {
-      title: 'Overall Band',
-      band: feedback.overall_band,
-      comments: Array.isArray(feedback.key_improvements) ? feedback.key_improvements.join(' ') : ''
-    },
-    {
-      title: 'Task Achievement / Task Response',
-      band: feedback.task_achievement?.band,
-      comments: feedback.task_achievement?.comments
-    },
-    {
-      title: 'Coherence & Cohesion',
-      band: feedback.coherence_cohesion?.band,
-      comments: feedback.coherence_cohesion?.comments
-    },
-    {
-      title: 'Lexical Resource',
-      band: feedback.lexical_resource?.band,
-      comments: feedback.lexical_resource?.comments
-    },
-    {
-      title: 'Grammatical Range & Accuracy',
-      band: feedback.grammatical_range?.band,
-      comments: feedback.grammatical_range?.comments
-    }
+    ['Task Achievement / Task Response', feedback.task_achievement?.band, feedback.task_achievement?.comments],
+    ['Coherence & Cohesion', feedback.coherence_cohesion?.band, feedback.coherence_cohesion?.comments],
+    ['Lexical Resource', feedback.lexical_resource?.band, feedback.lexical_resource?.comments],
+    ['Grammatical Range & Accuracy', feedback.grammatical_range?.band, feedback.grammatical_range?.comments]
   ];
 
   return `
+    <div class="writing-result-block">
+      <div class="feedback-line"><strong>Overall Band: ${escapeHtml(feedback.overall_band)}</strong></div>
+    </div>
     <div class="writing-feedback-grid">
-      ${cards.map(item => `
+      ${cards.map(([title, band, comments]) => `
         <div class="feedback-card-mini">
-          <div class="section-label">${escapeHtml(item.title)}</div>
-          <div><strong>${escapeHtml(item.band)}</strong></div>
-          <div>${escapeHtml(item.comments || '')}</div>
+          <div class="feedback-line"><strong>${escapeHtml(title)}: ${escapeHtml(band)}</strong></div>
+          <ul class="feedback-points">
+            <li>${escapeHtml(comments || '')}</li>
+          </ul>
         </div>
       `).join('')}
     </div>
@@ -267,26 +259,34 @@ function renderFeedbackCards(correctionResult) {
 
 function renderRevisionNote(correctionResult) {
   const note = correctionResult?.revisionNote;
-  if (!note) return '';
-  return `
-    <section class="writing-pane writing-revision-note">
-      <div class="writing-pane-head">
-        <h3>修改说明</h3>
-      </div>
-      <div class="writing-reading-panel">${escapeHtml(note).replace(/\n/g, '<br>')}</div>
-    </section>
-  `;
-}
+  if (!note) return '<div class="muted">还没有修改说明。</div>';
 
-function renderKeywordOutline(correctionResult) {
-  const outline = correctionResult?.keywordOutline;
-  if (!outline) return '';
+  const sections = {
+    Structure: '',
+    Content: '',
+    Grammar: '',
+    Vocabulary: ''
+  };
+  let current = '';
+  String(note || '').split('\n').forEach(line => {
+    const trimmed = line.trim();
+    if (/^structure[:：]?$/i.test(trimmed)) current = 'Structure';
+    else if (/^content[:：]?$/i.test(trimmed)) current = 'Content';
+    else if (/^grammar[:：]?$/i.test(trimmed)) current = 'Grammar';
+    else if (/^vocabulary[:：]?$/i.test(trimmed)) current = 'Vocabulary';
+    else if (current && trimmed) sections[current] += `${sections[current] ? ' ' : ''}${trimmed}`;
+  });
+
   return `
-    <section class="writing-pane writing-revision-note">
-      <div class="writing-pane-head">
-        <h3>Keyword Outline</h3>
-      </div>
-      <div class="writing-reading-panel">${escapeHtml(outline).replace(/\n/g, '<br>')}</div>
+    <section class="writing-revision-note">
+      ${Object.entries(sections).map(([title, content]) => `
+        <div class="writing-result-block">
+          <h3>${title}</h3>
+          <ul class="feedback-points">
+            <li>${escapeHtml(content || ' ')}</li>
+          </ul>
+        </div>
+      `).join('')}
     </section>
   `;
 }
@@ -378,9 +378,11 @@ function renderPracticeView(task, workspace) {
   const revisedEssay = workspace.correctionResult?.revisedEssay || '';
   const editorWidth = Math.min(Math.max(workspace.editorWidth, 28), 72);
   const wordCount = countWords(workspace.essay);
-  const accountMeta = authState.session
-    ? `${authState.session.identity} · ${authState.session.credits} credits`
-    : '未登录';
+  const tabs = [
+    ['feedback', 'Score & Feedback'],
+    ['revised', 'Revised Essay'],
+    ['notes', 'Revision Notes']
+  ];
 
   return `
     <div class="writing-main-view">
@@ -406,15 +408,17 @@ function renderPracticeView(task, workspace) {
         <div class="writing-divider" id="writing-divider" aria-label="resize panes"></div>
 
         <section class="writing-pane writing-pane-right" id="writing-result-pane">
-          <div class="writing-pane-head">
-            <h3>我的专属 9 分范文</h3>
-          </div>
-
           ${workspace.correctionResult ? `
-            ${renderFeedbackCards(workspace.correctionResult)}
-            <div class="writing-reading-panel writing-highlight-surface" id="writing-reading-panel" data-highlight-source="revised">${renderHighlightedText(revisedEssay, workspace.highlights)}</div>
-            ${renderRevisionNote(workspace.correctionResult)}
-            ${renderKeywordOutline(workspace.correctionResult)}
+            <div class="writing-tabs">
+              ${tabs.map(([key, label]) => `
+                <button class="secondary-btn writing-tab-btn${workspace.activeTab === key ? ' active' : ''}" data-writing-tab="${key}">${label}</button>
+              `).join('')}
+            </div>
+            <div class="writing-tab-panel">
+              ${workspace.activeTab === 'feedback' ? renderFeedbackCards(workspace.correctionResult) : ''}
+              ${workspace.activeTab === 'revised' ? `<div class="writing-reading-panel writing-highlight-surface" id="writing-reading-panel" data-highlight-source="revised">${renderEssayParagraphs(renderHighlightedText(revisedEssay, workspace.highlights))}</div>` : ''}
+              ${workspace.activeTab === 'notes' ? renderRevisionNote(workspace.correctionResult) : ''}
+            </div>
             <div class="button-inline writing-cta-row">
               <button class="secondary-btn" id="writing-save-library">保存到我的私有满分作文库</button>
             </div>
@@ -750,7 +754,7 @@ async function runCorrection(task) {
 
   patchWritingWorkspace(task, {
     essay,
-    activeTab: 'revised',
+    activeTab: 'feedback',
     correctionResult: {
       feedback: response.feedback,
       revisedEssay: response.revisedEssay,
@@ -803,6 +807,15 @@ function bindPractice(task) {
     if (wordCountEl) {
       wordCountEl.textContent = `字数 ${countWords(event.target.value)}`;
     }
+  });
+
+  document.querySelectorAll('[data-writing-tab]').forEach(button => {
+    button.addEventListener('click', () => {
+      patchWritingWorkspace(task, {
+        activeTab: button.dataset.writingTab
+      });
+      rerender();
+    });
   });
 
   document.getElementById('writing-correct-essay')?.addEventListener('click', async () => {
