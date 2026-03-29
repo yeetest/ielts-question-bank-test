@@ -129,15 +129,17 @@ async function verifySupabaseAccessToken(accessToken) {
   };
 }
 
-async function decrementProfileCredits(userId, currentCredits) {
+async function decrementProfileCredits(accessToken, userId, currentCredits) {
   const nextCredits = Math.max(Number(currentCredits || 0) - 1, 0);
   const path = `/rest/v1/profiles?id=eq.${encodeURIComponent(userId)}&credits=eq.${encodeURIComponent(String(currentCredits))}`;
+  const serviceKey = String(process.env.SUPABASE_SERVICE_ROLE_KEY || '').trim();
   const { response, payload } = await supabaseRest(path, {
+    accessToken,
     method: 'PATCH',
     body: {
       credits: nextCredits
     },
-    serviceRole: true
+    serviceRole: Boolean(serviceKey)
   });
 
   if (!response.ok) {

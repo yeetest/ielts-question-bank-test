@@ -150,7 +150,7 @@ Two browser-side stores are used right now:
 
 - New signups get `profiles.credits = 0` (table default). The `handle_new_user` trigger inserts `(id, email)` only.
 - `POST /api/ai` reads credits from Supabase with the user JWT and returns **403** before calling OpenRouter when `credits <= 0`.
-- Clients cannot grant themselves credits: the `profiles_update_own` policy is removed (migration `20260330140000_profiles_revoke_client_update.sql`); credit decrements use **`SUPABASE_SERVICE_ROLE_KEY`** on the server only.
+- Optional hardening: migration `20260330140000_profiles_revoke_client_update.sql` drops `profiles_update_own` so clients cannot PATCH `profiles` via PostgREST; then **`SUPABASE_SERVICE_ROLE_KEY`** must be set on Vercel for deduction. Without that migration, deduction can use the user JWT only (legacy).
 - There is no in-app purchase UI; top-ups are manual in Supabase (SQL or dashboard) for trusted accounts.
 
 ## Known limitation

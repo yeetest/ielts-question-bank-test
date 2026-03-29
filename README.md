@@ -98,7 +98,7 @@ SUPABASE_DB_PASSWORD=placeholder
 SUPABASE_SERVICE_ROLE_KEY=placeholder
 ```
 
-**Vercel / server:** set `SUPABASE_SERVICE_ROLE_KEY` to your project’s **service_role** key (Settings → API). It is used only in `api/_lib/auth.js` to PATCH `profiles.credits` after AI correction; never expose it in frontend or commit it. After pulling migration `20260330140000_profiles_revoke_client_update.sql`, apply it to your Supabase project so users cannot self-update `profiles` via the anon key.
+**Optional but recommended:** `SUPABASE_SERVICE_ROLE_KEY` (Settings → API → *service_role*). If set, credit deduction uses it in `api/_lib/auth.js`. If **omitted**, the API falls back to the user’s JWT (same as before) — works when `profiles_update_own` still exists. **If you applied** migration `20260330140000_profiles_revoke_client_update.sql` (no self-update on `profiles`), you **must** set this key on Vercel or deduction will fail. Never expose the service role key in frontend or commit it.
 
 Optional (defaults avoid truncated JSON from long assessments): `OPENROUTER_MODEL_ASSESSMENT`, `OPENROUTER_MAX_TOKENS_ASSESSMENT` (default `4096`), `OPENROUTER_MAX_TOKENS_REWRITE` (default `8192`).
 
