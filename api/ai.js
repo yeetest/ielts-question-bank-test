@@ -1,5 +1,25 @@
 const { readJson, readSession, writeSession } = require('./_lib/auth');
 
+function extractJsonPayload(raw) {
+  const text = String(raw || '').trim();
+  if (!text) return '';
+
+  if (text.startsWith('```')) {
+    const fenceMatch = text.match(/^```(?:json)?\s*([\s\S]*?)\s*```$/i);
+    if (fenceMatch?.[1]) {
+      return fenceMatch[1].trim();
+    }
+  }
+
+  const firstBrace = text.indexOf('{');
+  const lastBrace = text.lastIndexOf('}');
+  if (firstBrace !== -1 && lastBrace !== -1 && lastBrace > firstBrace) {
+    return text.slice(firstBrace, lastBrace + 1).trim();
+  }
+
+  return text;
+}
+
 async function requestOpenRouter(taskPrompt, essay, taskType) {
   const apiKey = process.env.OPENROUTER_API_KEY;
   const model = process.env.OPENROUTER_MODEL;
@@ -26,6 +46,9 @@ async function requestOpenRouter(taskPrompt, essay, taskType) {
       model,
       temperature: 0.3,
       max_tokens: 1200,
+      response_format: {
+        type: 'json_object'
+      },
       messages: [
         {
           role: 'system',
@@ -112,7 +135,7 @@ Do NOT output anything outside JSON.
 
   let parsed;
   try {
-    parsed = JSON.parse(raw);
+    parsed = JSON.parse(extractJsonPayload(raw));
   } catch {
     const error = new Error('OpenRouter returned invalid JSON.');
     error.statusCode = 502;
