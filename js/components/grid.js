@@ -46,6 +46,7 @@ function renderWriting(grid, tab) {
     card.className = 'card';
     card.dataset.idx = idx;
     card.dataset.tab = tab;
+    card.dataset.practiceId = item.id;
     card.innerHTML = `
       <div class="card-title">${title}</div>
       <div class="card-meta">${tab === 'task1' ? 'Task 1' : 'Task 2'}</div>

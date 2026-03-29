@@ -206,10 +206,15 @@ document.addEventListener('DOMContentLoaded', async () => {
       state.lastActiveTag = null;
       state.lastTypeSummary = null;
       if (state.currentSection === 'writing') {
-        const item = card.dataset.tab === 'task1'
-          ? state.writingTask1Data[parseInt(card.dataset.idx, 10)]
-          : state.writingTask2Data[parseInt(card.dataset.idx, 10)];
-        renderWritingPracticePage(item.id);
+        const practiceId = card.dataset.practiceId;
+        if (!practiceId) return;
+        renderWritingPracticePage(practiceId).catch(error => {
+          console.error(error);
+          const u = new URL(window.location.href);
+          u.searchParams.set('section', 'writing');
+          u.searchParams.set('practice', practiceId);
+          window.location.assign(`${u.pathname}${u.search}${u.hash}`);
+        });
         return;
       }
       openModal(card.dataset.tab, parseInt(card.dataset.idx, 10));
