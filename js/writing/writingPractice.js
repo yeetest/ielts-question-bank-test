@@ -69,8 +69,30 @@ function buildFlashcards(highlights = []) {
   }));
 }
 
-function maskOutlineText(text) {
-  return String(text || '').replace(/[A-Za-z][A-Za-z-]*/g, match => '_'.repeat(Math.max(match.length, 3)));
+function normalizeCorrectionResult(value) {
+  if (!value || typeof value !== 'object') return null;
+  if (value.criteria && value.revisionNotes) {
+    return value;
+  }
+
+  const feedback = value.feedback || {};
+  return {
+    overallBand: value.overallBand ?? feedback.overall_band ?? '',
+    criteria: value.criteria || {
+      task_achievement: feedback.task_achievement || null,
+      coherence_cohesion: feedback.coherence_cohesion || null,
+      lexical_resource: feedback.lexical_resource || null,
+      grammatical_range_accuracy: feedback.grammatical_range || null
+    },
+    revisedEssay: value.revisedEssay || value.band9_rewrite || '',
+    revisionNotes: value.revisionNotes || {
+      structure: value.revisionNote || '',
+      content: '',
+      grammar: '',
+      vocabulary: ''
+    },
+    correctedAt: value.correctedAt || null
+  };
 }
 
 function countWords(text) {
@@ -113,6 +135,7 @@ function defaultWorkspace(task) {
 
 function normalizeWorkspace(task, value) {
   const merged = { ...defaultWorkspace(task), ...(value || {}) };
+  merged.correctionResult = normalizeCorrectionResult(merged.correctionResult);
   merged.highlights = Array.isArray(merged.highlights) ? merged.highlights : [];
   merged.flashcards = Array.isArray(merged.flashcards) && merged.flashcards.length
     ? merged.flashcards
@@ -172,7 +195,7 @@ function createPracticeRecord(task, workspace) {
     type: task.type,
     prompt: task.prompt,
     originalEssay: workspace.essay,
-    correctionResult: workspace.correctionResult,
+    correctionResult: normalizeCorrectionResult(workspace.correctionResult),
     highlights: workspace.highlights,
     flashcards: buildFlashcards(workspace.highlights),
     savedAt: new Date().toISOString()
@@ -385,6 +408,7 @@ function renderPracticeView(task, workspace) {
 }
 
 function renderRecordView(record) {
+  const correctionResult = normalizeCorrectionResult(record.correctionResult);
   return `
     <div class="writing-main-view">
       <div class="writing-prompt">
@@ -404,9 +428,9 @@ function renderRecordView(record) {
           <h3>AI 修改结果</h3>
           <div class="writing-save-status"><span>${new Date(record.savedAt).toLocaleString()}</span></div>
         </div>
-        ${renderFeedbackCards(record.correctionResult)}
-        <div class="writing-reading-panel">${renderEssayHtml(record.correctionResult?.revisedEssay || '')}</div>
-        ${renderRevisionNote(record.correctionResult)}
+        ${renderFeedbackCards(correctionResult)}
+        <div class="writing-reading-panel">${renderEssayHtml(correctionResult?.revisedEssay || '')}</div>
+        ${renderRevisionNote(correctionResult)}
       </section>
       </div>
     </div>
@@ -472,10 +496,7 @@ export function renderWritingPractice(task) {
   return `
     <div class="writing-page" data-writing-task-id="${task.id}">
       <div class="writing-page-head">
-        <div>
-          <div class="section-label">${task.type === 'task1' ? 'Task 1' : 'Task 2'}</div>
-          <h2>${escapeHtml(task.title || 'Writing task')}</h2>
-        </div>
+        <div></div>
         <div class="writing-save-status">
           <span>${authState.session ? `${escapeHtml(authState.session.identity)} · ${escapeHtml(authState.session.credits)} credits` : '未登录'}</span>
         </div>
