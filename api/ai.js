@@ -11,11 +11,14 @@ function extractJsonPayload(raw) {
   if (!text) return '';
 
   if (text.startsWith('```')) {
-    const fenceMatch = text.match(/^```(?:json)?\s*([\s\S]*?)\s*```$/i);
+    const fenceMatch = text.match(/^```(?:json)?\s*([\s\S]*?)\s*```/im);
     if (fenceMatch?.[1]) {
       return fenceMatch[1].trim();
     }
   }
+
+  const balanced = extractBalancedJsonObject(text);
+  if (balanced) return balanced;
 
   const firstBrace = text.indexOf('{');
   const lastBrace = text.lastIndexOf('}');
@@ -24,6 +27,52 @@ function extractJsonPayload(raw) {
   }
 
   return text;
+}
+
+/** Prefer over first/last `}` — fixes wrong slice when strings contain `}` or output has trailing text. */
+function extractBalancedJsonObject(text) {
+  const start = text.indexOf('{');
+  if (start === -1) return null;
+  let depth = 0;
+  let inString = false;
+  let escape = false;
+  for (let i = start; i < text.length; i += 1) {
+    const ch = text[i];
+    if (escape) {
+      escape = false;
+      continue;
+    }
+    if (inString) {
+      if (ch === '\\') escape = true;
+      else if (ch === '"') inString = false;
+      continue;
+    }
+    if (ch === '"') {
+      inString = true;
+      continue;
+    }
+    if (ch === '{') depth += 1;
+    else if (ch === '}') {
+      depth -= 1;
+      if (depth === 0) return text.slice(start, i + 1);
+    }
+  }
+  return null;
+}
+
+function getAssistantTextContent(message) {
+  const c = message?.content;
+  if (typeof c === 'string') return c;
+  if (Array.isArray(c)) {
+    return c
+      .map(part => {
+        if (typeof part === 'string') return part;
+        if (part?.type === 'text' && typeof part.text === 'string') return part.text;
+        return '';
+      })
+      .join('');
+  }
+  return '';
 }
 
 // Verbatim Band 9 wording from the official public document:
@@ -86,7 +135,8 @@ function buildAssessmentSystemPrompt(taskType) {
 ${t}
 Return JSON only:
 {"overall_band":number,"criteria":{"task_achievement":{"band":number,"comments":string},"coherence_cohesion":{"band":number,"comments":string},"lexical_resource":{"band":number,"comments":string},"grammatical_range_accuracy":{"band":number,"comments":string}}}
-Per criterion: band + 1–2 sentences (brief evaluation + one concrete fix).`.trim();
+Per criterion: band + 1–2 sentences (brief evaluation + one concrete fix).
+CRITICAL: comments must be valid JSON strings — escape every " as \\" inside comments; use \\n for newlines; never put raw double-quotes inside a string value.`.trim();
 }
 
 function buildRewriteSystemPrompt(taskType) {
@@ -106,7 +156,8 @@ User message includes EXAMINER_ASSESSMENT_JSON — use to prioritise fixes.
 
 ${band9Block}
 
-Return JSON only: {"revised_essay":string,"revision_notes":{"structure":string,"content":string,"grammar":string,"vocabulary":string}}`.trim();
+Return JSON only: {"revised_essay":string,"revision_notes":{"structure":string,"content":string,"grammar":string,"vocabulary":string}}
+CRITICAL: escape every " inside revised_essay and revision_notes strings as \\"; use \\n for paragraph breaks inside JSON strings.`.trim();
 }
 
 function normaliseCriteria(criteria) {
@@ -157,20 +208,35 @@ async function openRouterJson({ apiKey, model, max_tokens, system, user }) {
     throw error;
   }
 
-  const raw = payload?.choices?.[0]?.message?.content;
-  if (typeof raw !== 'string' || !raw.trim()) {
+  const raw = getAssistantTextContent(payload?.choices?.[0]?.message);
+  if (!String(raw).trim()) {
     const error = new Error('OpenRouter returned an empty response.');
     error.statusCode = 502;
     throw error;
   }
 
-  try {
-    return JSON.parse(extractJsonPayload(raw));
-  } catch {
-    const error = new Error('OpenRouter returned invalid JSON.');
-    error.statusCode = 502;
-    throw error;
+  const candidates = [
+    () => JSON.parse(String(raw).trim()),
+    () => JSON.parse(extractJsonPayload(raw)),
+    () => JSON.parse(extractBalancedJsonObject(String(raw)) || '')
+  ];
+
+  let lastErr = null;
+  for (const tryParse of candidates) {
+    try {
+      const out = tryParse();
+      if (out && typeof out === 'object') return out;
+    } catch (e) {
+      lastErr = e;
+    }
   }
+
+  const preview = String(raw).replace(/\s+/g, ' ').slice(0, 280);
+  const error = new Error(
+    `OpenRouter returned JSON that could not be parsed (${lastErr?.message || 'unknown'}). Preview: ${preview}`
+  );
+  error.statusCode = 502;
+  throw error;
 }
 
 function intEnv(name, fallback) {
@@ -197,8 +263,8 @@ async function requestOpenRouter(taskPrompt, essay, taskType) {
     throw error;
   }
 
-  const maxAssess = intEnv('OPENROUTER_MAX_TOKENS_ASSESSMENT', 640);
-  const maxRewrite = intEnv('OPENROUTER_MAX_TOKENS_REWRITE', 2600);
+  const maxAssess = intEnv('OPENROUTER_MAX_TOKENS_ASSESSMENT', 1100);
+  const maxRewrite = intEnv('OPENROUTER_MAX_TOKENS_REWRITE', 3200);
 
   const userTaskBlock = `TASK_TYPE: ${taskType}\n\nTASK:\n${taskPrompt}\n\nSTUDENT_ESSAY:\n${essay}`;
 
