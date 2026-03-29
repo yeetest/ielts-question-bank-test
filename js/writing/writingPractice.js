@@ -210,8 +210,9 @@ function renderHighlightedText(text, highlights) {
   const unique = [...new Set((highlights || []).map(item => item.text).filter(Boolean))].sort((a, b) => b.length - a.length);
   let html = escapeHtml(text || '');
   unique.forEach(item => {
-    const escaped = item.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    html = html.replace(new RegExp(escaped, 'g'), `<mark class="inline-highlight">${escapeHtml(item)}</mark>`);
+    const safeItem = escapeHtml(item);
+    const escaped = safeItem.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    html = html.replace(new RegExp(escaped, 'g'), `<mark class="inline-highlight">${safeItem}</mark>`);
   });
   return html.replace(/\n/g, '<br>');
 }
