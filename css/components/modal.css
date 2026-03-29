@@ -219,6 +219,32 @@
 .writing-pane-left {
   flex: 0 0 auto;
   max-width: none;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+.writing-left-stack {
+  display: grid;
+  grid-template-rows: minmax(0, 34%) minmax(0, 66%);
+  gap: 14px;
+  height: 100%;
+  min-height: 62vh;
+}
+.writing-question-box,
+.writing-editor-box {
+  min-height: 0;
+  display: grid;
+  gap: 10px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 14px;
+  background: #fff;
+}
+.writing-question-box {
+  overflow: hidden;
+}
+.writing-editor-box {
+  overflow: hidden;
 }
 .writing-pane-right {
   flex: 1 1 auto;
@@ -248,6 +274,12 @@
   background: #faf9f6;
   margin-bottom: 14px;
 }
+.writing-prompt-box {
+  margin-bottom: 0;
+  min-height: 0;
+  overflow: auto;
+  padding: 12px 14px;
+}
 .writing-textarea {
   width: 100%;
   min-height: 420px;
@@ -257,6 +289,17 @@
   border-radius: 4px;
   font: inherit;
   resize: vertical;
+}
+.writing-textarea-fill {
+  min-height: 0;
+  height: 100%;
+  margin-top: 0;
+  overflow: auto;
+  resize: none;
+}
+.prompt-prewrap-compact {
+  font-size: 0.84rem;
+  line-height: 1.45;
 }
 .writing-tabs {
   margin-bottom: 0;
