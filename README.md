@@ -134,7 +134,8 @@ This requires these env vars to be set locally:
 
 - `SUPABASE_PROJECT_REF`
 - `SUPABASE_ACCESS_TOKEN`
-- `SUPABASE_DB_PASSWORD`
+
+`SUPABASE_DB_PASSWORD` is no longer required for the default path because the apply script now uses the Supabase Management API instead of direct Postgres TLS.
 
 ## Docs
 
