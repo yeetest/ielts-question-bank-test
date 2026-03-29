@@ -6,6 +6,24 @@ body {
   color: #222;
   padding: 24px;
 }
+.site-nav {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.site-nav-link {
+  padding: 8px 18px;
+  border: 1.5px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  font-size: 0.9rem;
+  text-transform: lowercase;
+}
+.site-nav-link.active {
+  background: #222;
+  color: #fff;
+  border-color: #222;
+}
 h1 {
   font-size: 1.4rem;
   font-weight: bold;

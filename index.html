@@ -22,17 +22,16 @@
 </head>
 <body>
 
+<nav class="site-nav">
+  <button class="site-nav-link active" id="nav-homepage">homepage</button>
+  <button class="site-nav-link" id="nav-speaking">speaking</button>
+  <button class="site-nav-link" id="nav-writing">writing</button>
+</nav>
+
 <header class="page-head">
   <div class="page-head-main">
-    <h1>IELTS Speaking Question Bank</h1>
-    <div class="subtitle"><span id="quarter-label"></span> · <span id="total-count"></span></div>
-  </div>
-  <div class="quarter-switch">
-    <label for="quarter-select" class="visually-hidden">Quarter</label>
-    <select id="quarter-select" aria-label="IELTS speaking quarter">
-      <option value="2026-01-to-04">2026 Jan–Apr</option>
-      <option value="2026-05-to-08">2026 May–Aug</option>
-    </select>
+    <h1 id="page-title">IELTS Question Bank</h1>
+    <div class="subtitle"><span id="section-meta"></span> · <span id="total-count"></span></div>
   </div>
 </header>
 
@@ -51,6 +50,13 @@
   <div class="modal" id="modal">
     <button class="close-btn" id="close-btn">✕</button>
     <div id="modal-content"></div>
+  </div>
+</div>
+
+<div class="overlay" id="auth-overlay">
+  <div class="modal" id="auth-modal">
+    <button class="close-btn" id="auth-close-btn">✕</button>
+    <div id="auth-modal-content"></div>
   </div>
 </div>
 

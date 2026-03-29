@@ -1,11 +1,14 @@
-import { loadData, quarterFromURL, setQuarterInURL, QUARTER_IDS } from './data.js';
-import { openModal, openOverlay, closeOverlay } from './components/modal.js';
+import { loadData, sectionFromURL, setSectionInURL } from './data.js';
+import { openModal, closeOverlay } from './components/modal.js';
 import { openTagSummary, openTypeSummary } from './components/tagSummary.js';
-import { initSidebar } from './components/sidebar.js';
+import { initSidebar, renderSidebar } from './components/sidebar.js';
+import { renderGrid } from './components/grid.js';
+import { closeAuthModal, refreshSession } from './auth.js';
 import { state } from './state.js';
 
-function resetFiltersForQuarterSwitch() {
+function resetSpeakingFilters() {
   state.selectedSkillTags = [];
+  state.selectedSkillSubtypes = [];
   state.selectedL1Tag = null;
   state.selectedL2Tags = [];
   state.selectedL3Tags = [];
@@ -14,46 +17,137 @@ function resetFiltersForQuarterSwitch() {
   state.lastTypeSummary = null;
 }
 
-async function applyQuarter(quarterId) {
-  if (!QUARTER_IDS.includes(quarterId)) return;
-  closeOverlay();
-  resetFiltersForQuarterSwitch();
-  state.currentTab = 'part1';
-  setQuarterInURL(quarterId);
-  try {
-    await loadData(quarterId);
-  } catch (e) {
-    console.error(e);
-    alert('Could not load quarter data. See console for details.');
-  }
+function updateNav() {
+  document.getElementById('nav-homepage').classList.toggle('active', state.currentSection === 'homepage');
+  document.getElementById('nav-speaking').classList.toggle('active', state.currentSection === 'speaking');
+  document.getElementById('nav-writing').classList.toggle('active', state.currentSection === 'writing');
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+function updatePageChrome() {
+  const pageTitle = document.getElementById('page-title');
+  const sectionMeta = document.getElementById('section-meta');
+  const tabs = document.querySelector('.tabs');
+  const sidebarRoot = document.getElementById('sidebar-root');
+  const sidebarToggle = document.getElementById('sidebar-toggle');
+  const tab1 = document.getElementById('tab-part1');
+  const tab2 = document.getElementById('tab-part2');
 
+  if (state.currentSection === 'homepage') {
+    document.title = 'IELTS Question Bank';
+    pageTitle.textContent = 'IELTS Question Bank';
+    sectionMeta.textContent = 'One shared interface for speaking and writing.';
+    tabs.style.display = 'none';
+    sidebarRoot.innerHTML = '';
+    sidebarRoot.style.display = 'none';
+    return;
+  }
+
+  tabs.style.display = 'flex';
+  if (state.currentSection === 'speaking') {
+    document.title = 'IELTS Speaking Question Bank';
+    pageTitle.textContent = 'IELTS Speaking Question Bank';
+    sectionMeta.textContent = 'Jan–Apr 2026';
+    tab1.textContent = 'Part 1';
+    tab2.textContent = 'Part 2 + Part 3';
+    sidebarToggle.style.display = '';
+    sidebarRoot.style.display = '';
+    return;
+  }
+
+  document.title = 'IELTS Writing Question Bank';
+  pageTitle.textContent = 'IELTS Writing Question Bank';
+  sectionMeta.textContent = 'IELTS General Training Writing';
+  tab1.textContent = 'Task 1';
+  tab2.textContent = 'Task 2';
+  sidebarToggle.style.display = 'none';
+  sidebarRoot.innerHTML = '';
+  sidebarRoot.style.display = 'none';
+}
+
+function switchSection(section) {
+  if (!['homepage', 'speaking', 'writing'].includes(section)) return;
+  closeOverlay();
+  state.currentSection = section;
+  setSectionInURL(section);
+  resetSpeakingFilters();
+
+  if (section === 'speaking') {
+    state.currentTab = 'part1';
+    renderSidebar();
+  } else if (section === 'writing') {
+    state.currentTab = 'task1';
+  }
+
+  updateNav();
+  updatePageChrome();
+  renderGrid(state.currentTab);
+  refreshSession();
+}
+
+function switchSubtab(tab) {
+  if (state.currentSection === 'speaking' && !['part1', 'part2'].includes(tab)) return;
+  if (state.currentSection === 'writing' && !['task1', 'task2'].includes(tab)) return;
+  closeOverlay();
+  if (state.currentSection === 'speaking') {
+    resetSpeakingFilters();
+    state.currentTab = tab;
+    renderSidebar();
+  } else {
+    state.currentTab = tab;
+  }
+  renderGrid(state.currentTab);
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
   initSidebar();
 
-  document.getElementById('close-btn').addEventListener('click', closeOverlay);
+  document.getElementById('nav-homepage').addEventListener('click', () => switchSection('homepage'));
+  document.getElementById('nav-speaking').addEventListener('click', () => switchSection('speaking'));
+  document.getElementById('nav-writing').addEventListener('click', () => switchSection('writing'));
 
+  document.getElementById('tab-part1').addEventListener('click', () => {
+    switchSubtab(state.currentSection === 'writing' ? 'task1' : 'part1');
+  });
+  document.getElementById('tab-part2').addEventListener('click', () => {
+    switchSubtab(state.currentSection === 'writing' ? 'task2' : 'part2');
+  });
+
+  document.getElementById('close-btn').addEventListener('click', closeOverlay);
+  document.getElementById('auth-close-btn').addEventListener('click', closeAuthModal);
   document.getElementById('overlay').addEventListener('click', e => {
     if (e.target === document.getElementById('overlay')) closeOverlay();
   });
+  document.getElementById('auth-overlay').addEventListener('click', e => {
+    if (e.target === document.getElementById('auth-overlay')) closeAuthModal();
+  });
 
   document.getElementById('grid').addEventListener('click', e => {
-    const ctag = e.target.closest('[data-content-tag]');
-    if (ctag) {
-      e.stopPropagation();
-      openTagSummary(ctag.dataset.contentTag);
+    const homepageCard = e.target.closest('[data-section-link]');
+    if (homepageCard) {
+      switchSection(homepageCard.dataset.sectionLink);
       return;
     }
+
+    if (state.currentSection === 'speaking') {
+      const ctag = e.target.closest('[data-content-tag]');
+      if (ctag) {
+        e.stopPropagation();
+        openTagSummary(ctag.dataset.contentTag);
+        return;
+      }
+    }
+
     const card = e.target.closest('.card');
     if (card) {
       state.lastActiveTag = null;
       state.lastTypeSummary = null;
-      openModal(card.dataset.tab, parseInt(card.dataset.idx));
+      openModal(card.dataset.tab, parseInt(card.dataset.idx, 10));
     }
   });
 
   document.getElementById('modal-content').addEventListener('click', e => {
+    if (state.currentSection !== 'speaking') return;
+
     const ctag = e.target.closest('[data-content-tag]');
     if (ctag) { openTagSummary(ctag.dataset.contentTag); return; }
 
@@ -62,16 +156,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const summaryItem = e.target.closest('[data-modal-idx]');
     if (summaryItem) {
-      openModal(summaryItem.dataset.modalTab, parseInt(summaryItem.dataset.modalIdx));
+      openModal(summaryItem.dataset.modalTab, parseInt(summaryItem.dataset.modalIdx, 10));
     }
   });
 
-  const sel = document.getElementById('quarter-select');
-  if (sel) {
-    sel.addEventListener('change', () => applyQuarter(sel.value));
+  try {
+    await loadData();
+    await refreshSession();
+  } catch (e) {
+    console.error(e);
+    alert('Could not load data. See console for details.');
+    return;
   }
 
-  const initial = quarterFromURL();
-  if (sel) sel.value = initial;
-  applyQuarter(initial);
+  state.currentSection = sectionFromURL();
+  if (state.currentSection === 'speaking') {
+    state.currentTab = 'part1';
+    renderSidebar();
+  } else if (state.currentSection === 'writing') {
+    state.currentTab = 'task1';
+  }
+
+  updateNav();
+  updatePageChrome();
+  renderGrid(state.currentTab);
+  await refreshSession();
 });

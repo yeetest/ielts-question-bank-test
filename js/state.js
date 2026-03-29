@@ -1,16 +1,19 @@
 export const state = {
-  currentQuarterId: '2026-01-to-04',
-  part1Data: [],        // array of Part 1 topic objects from merged_part1.json
-  part2Data: [],        // array of Part 2+3 topic objects from merged_part2.json
-  taxonomyV2Map: new Map(), // topic -> { l1, l2, l3 } runtime mapping
+  currentSection: 'homepage',
+  part1Data: [],
+  part2Data: [],
+  writingTask1Data: [],
+  writingTask2Data: [],
+  taxonomyV2Map: new Map(),
   currentTab: 'part1',
-  lastActiveTag: null,  // content tag name — back returns to tag summary
-  lastTypeSummary: null, // type tag name — back returns to type summary
-  filterMode: 'blended', // 'focused' or 'blended'
-  selectedSkillTags: [], // sidebar skill filter (top-level)
-  selectedSkillSubtypes: [], // sidebar skill subtype filter (second-level)
-  selectedL1Tag: null,   // single L1 category or null
-  selectedL2Tags: [],    // multiple L2 tags
-  selectedL3Tags: [],    // multiple L3 tags
-  selectedTimeFrame: null // 'past' | 'present' | 'future' | null
+  lastActiveTag: null,
+  lastTypeSummary: null,
+  filterMode: 'blended',
+  selectedSkillTags: [],
+  selectedSkillSubtypes: [],
+  selectedL1Tag: null,
+  selectedL2Tags: [],
+  selectedL3Tags: [],
+  selectedTimeFrame: null,
+  activeWritingContext: null
 };

@@ -514,11 +514,6 @@ function onTabChange(newTab) {
 export function initSidebar() {
   const toggleBtn = document.getElementById('sidebar-toggle');
   if (toggleBtn) toggleBtn.addEventListener('click', toggleSidebar);
-
-  const tab1Btn = document.getElementById('tab-part1');
-  const tab2Btn = document.getElementById('tab-part2');
-  if (tab1Btn) tab1Btn.addEventListener('click', () => onTabChange('part1'));
-  if (tab2Btn) tab2Btn.addEventListener('click', () => onTabChange('part2'));
 }
 
 export { renderSidebar };

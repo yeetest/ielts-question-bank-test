@@ -21,3 +21,12 @@
   font-size: 0.75rem;
   color: #888;
 }
+.card-copy {
+  margin-top: 10px;
+  color: #444;
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+.section-card {
+  min-height: 190px;
+}

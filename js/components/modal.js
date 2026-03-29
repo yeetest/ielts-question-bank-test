@@ -1,16 +1,54 @@
 import { state } from '../state.js';
+import { authState, ensureActionAccess, refreshSession } from '../auth.js';
 import { renderSkillBadge, renderInlineTopicTags, renderContentTags, cleanTitle } from '../utils.js';
 import { openTagSummary, openTypeSummary } from './tagSummary.js';
+import {
+  attemptCloseWritingModal,
+  bindWritingPractice,
+  renderWritingPractice
+} from './writingPractice.js';
 
 export function openOverlay() {
   document.getElementById('overlay').classList.add('open');
 }
 
 export function closeOverlay() {
-  document.getElementById('overlay').classList.remove('open');
+  const finishClose = () => {
+    document.getElementById('overlay').classList.remove('open');
+    document.getElementById('modal').classList.remove('modal-wide');
+    state.activeWritingContext = null;
+  };
+
+  if (!state.activeWritingContext) {
+    finishClose();
+    return;
+  }
+
+  attemptCloseWritingModal().then(allowed => {
+    if (allowed) finishClose();
+  });
 }
 
 export function openModal(tab, idx) {
+  if (tab === 'task1' || tab === 'task2') {
+    const item = tab === 'task1' ? state.writingTask1Data[idx] : state.writingTask2Data[idx];
+    const modal = document.getElementById('modal');
+    state.activeWritingContext = { tab, idx, taskId: item.id };
+    modal.classList.add('modal-wide');
+    document.getElementById('modal-content').innerHTML = renderWritingPractice(item);
+    openOverlay();
+    bindWritingPractice(item, () => openModal(tab, idx), {
+      ensureActionAccess,
+      runAiCorrection: async (_task, essay) => {
+        return runAiCorrection(item, essay);
+      },
+      refreshSession: async () => {
+        await refreshSession();
+      }
+    });
+    return;
+  }
+
   const item = tab === 'part1' ? state.part1Data[idx] : state.part2Data[idx];
 
   const hasBack = state.lastActiveTag || state.lastTypeSummary;
@@ -80,4 +118,31 @@ export function openModal(tab, idx) {
       else if (state.lastTypeSummary) openTypeSummary(state.lastTypeSummary);
     });
   }
+}
+
+async function runAiCorrection(item, essay) {
+  const response = await fetch('/api/ai', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      prompt: item.prompt,
+      essay
+    })
+  });
+  const payload = await response.json();
+  await refreshSession();
+  if (!response.ok) {
+    return {
+      ok: false,
+      status: response.status,
+      error: payload.error || 'AI correction failed.'
+    };
+  }
+
+  authState.session = payload.session || authState.session;
+  return {
+    ok: true,
+    feedback: payload.feedback || null,
+    revisedEssay: payload.band9_rewrite || ''
+  };
 }

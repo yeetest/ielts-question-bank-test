@@ -2,48 +2,43 @@ import { state } from './state.js';
 import { renderGrid } from './components/grid.js';
 import { renderSidebar } from './components/sidebar.js';
 
-export const QUARTER_IDS = Object.freeze(['2026-01-to-04', '2026-05-to-08']);
+export const SECTIONS = Object.freeze(['homepage', 'speaking', 'writing']);
 
-export const QUARTER_LABELS = Object.freeze({
-  '2026-01-to-04': 'Jan–Apr 2026',
-  '2026-05-to-08': 'May–Aug 2026',
-});
-
-export function quarterFromURL() {
-  try {
-    const q = new URLSearchParams(window.location.search).get('quarter');
-    if (q && QUARTER_IDS.includes(q)) return q;
-  } catch {
-    /* ignore */
-  }
-  return '2026-01-to-04';
-}
-
-export function quarterDataBase(quarterId) {
-  return `data/quarters/${quarterId}/`;
-}
-
-export function setQuarterInURL(quarterId) {
+export function sectionFromURL() {
   const u = new URL(window.location.href);
-  u.searchParams.set('quarter', quarterId);
+  const section = u.searchParams.get('section');
+  return SECTIONS.includes(section) ? section : 'writing';
+}
+
+export function setSectionInURL(section) {
+  const u = new URL(window.location.href);
+  u.searchParams.set('section', section);
   history.replaceState(null, '', `${u.pathname}${u.search}${u.hash}`);
 }
 
-function updateChromeForQuarter(quarterId) {
-  const label = document.getElementById('quarter-label');
-  if (label) {
-    const base = QUARTER_LABELS[quarterId] || quarterId;
-    const suffix = quarterId === '2026-05-to-08' ? ' · placeholder' : '';
-    label.textContent = base + suffix;
+function updateChrome() {
+  const label = document.getElementById('section-meta');
+  if (!label) return;
+
+  if (state.currentSection === 'homepage') {
+    document.title = 'IELTS Question Bank';
+    label.textContent = 'Unified entrance for speaking and writing.';
+    return;
   }
-  document.title = `IELTS Speaking Question Bank — ${QUARTER_LABELS[quarterId] || quarterId}`;
-  const sel = document.getElementById('quarter-select');
-  if (sel) sel.value = quarterId;
+
+  if (state.currentSection === 'speaking') {
+    document.title = 'IELTS Speaking Question Bank';
+    label.textContent = 'Jan–Apr 2026';
+    return;
+  }
+
+  document.title = 'IELTS Writing Question Bank';
+  label.textContent = 'IELTS General Training Writing';
 }
 
-export async function loadData(quarterId) {
-  const base = quarterDataBase(quarterId);
-  const [part1, part2, taxonomyRows] = await Promise.all([
+export async function loadData() {
+  const base = 'data/quarters/2026-01-to-04/';
+  const [part1, part2, taxonomyRows, writingPayload] = await Promise.all([
     fetch(`${base}merged_part1.json`).then(r => {
       if (!r.ok) throw new Error(`merged_part1: ${r.status}`);
       return r.json();
@@ -56,9 +51,12 @@ export async function loadData(quarterId) {
       if (!r.ok) throw new Error(`topic_taxonomy: ${r.status}`);
       return r.json();
     }),
+    fetch('data/writing_questions.json').then(r => {
+      if (!r.ok) throw new Error(`writing_questions: ${r.status}`);
+      return r.json();
+    })
   ]);
 
-  state.currentQuarterId = quarterId;
   state.part1Data = part1;
   state.part2Data = part2;
   state.taxonomyV2Map = new Map(
@@ -67,6 +65,12 @@ export async function loadData(quarterId) {
       { l1: row.l1 || null, l2: row.l2 || null, l3: row.l3 || null },
     ])
   );
+  const list = (writingPayload?.questions || []).map(item => ({
+    ...item,
+    content_tags: null
+  }));
+  state.writingTask1Data = list.filter(item => item.type === 'task1');
+  state.writingTask2Data = list.filter(item => item.type === 'task2');
 
   state.part1Data.forEach(topic => {
     const key = (topic.topic_en || '').trim();
@@ -77,7 +81,7 @@ export async function loadData(quarterId) {
     topic.taxonomy_v2_primary = state.taxonomyV2Map.get(key) || null;
   });
 
-  updateChromeForQuarter(quarterId);
+  updateChrome();
   renderGrid(state.currentTab);
   renderSidebar();
 }

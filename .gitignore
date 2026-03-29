@@ -21,3 +21,4 @@ ideation//pipeline/
 claude_tag_response.json
 claude_p1_type_response.json
 **/claude_p1_type_response.json
+.env

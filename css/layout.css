@@ -1,4 +1,4 @@
-/* ---------- Page header + quarter switch ---------- */
+/* ---------- Page header ---------- */
 .page-head {
   display: flex;
   justify-content: space-between;
@@ -13,17 +13,6 @@
 }
 .page-head .subtitle {
   margin-bottom: 0;
-}
-.quarter-switch select {
-  font-family: inherit;
-  font-size: 0.85rem;
-  padding: 8px 12px;
-  border: 1.5px solid #ccc;
-  border-radius: 4px;
-  background: #fff;
-  color: #222;
-  cursor: pointer;
-  margin-top: 2px;
 }
 
 /* ---------- Tabs ---------- */
@@ -74,6 +63,9 @@
   max-width: 620px;
   width: 100%;
   position: relative;
+}
+.modal-wide {
+  max-width: 1220px;
 }
 .modal h2 {
   font-size: 1.2rem;
