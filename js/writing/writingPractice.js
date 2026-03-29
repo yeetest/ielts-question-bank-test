@@ -669,7 +669,7 @@ function bindSelection(task) {
     document.removeEventListener('selectionchange', selectionHandler);
   }
 
-  selectionHandler = () => {
+  const syncSelectionFromPanel = () => {
     const selection = window.getSelection();
     const text = selection?.toString().trim() || '';
     console.debug('[writing selection] text selected:', text);
@@ -683,7 +683,9 @@ function bindSelection(task) {
     const range = selection.getRangeAt(0);
     const anchorInside = Boolean(selection.anchorNode && panel.contains(selection.anchorNode));
     const focusInside = Boolean(selection.focusNode && panel.contains(selection.focusNode));
-    const inside = (anchorInside && focusInside) || isRangeInsidePanel(range, panel);
+    const startInside = Boolean(range.startContainer && panel.contains(range.startContainer));
+    const endInside = Boolean(range.endContainer && panel.contains(range.endContainer));
+    const inside = anchorInside || focusInside || startInside || endInside || isRangeInsidePanel(range, panel);
     console.debug('[writing selection] inside revised essay:', inside);
     if (!inside) {
       updateSelectionDebug({ length: text.length, inside: false, x: 0, y: 0 });
@@ -712,9 +714,18 @@ function bindSelection(task) {
     updateSelectionPopover(task);
   };
 
+  selectionHandler = () => {
+    const selection = window.getSelection();
+    const text = selection?.toString().trim() || '';
+    if (text) return;
+    updateSelectionDebug({ length: 0, inside: false, x: 0, y: 0 });
+    clearSelectionUI(task);
+    updateSelectionPopover(task);
+  };
+
   document.addEventListener('selectionchange', selectionHandler);
-  panel.addEventListener('mouseup', () => window.setTimeout(selectionHandler, 0));
-  panel.addEventListener('keyup', () => window.setTimeout(selectionHandler, 0));
+  panel.addEventListener('mouseup', () => window.setTimeout(syncSelectionFromPanel, 0));
+  panel.addEventListener('keyup', () => window.setTimeout(syncSelectionFromPanel, 0));
   getSelectionToolbar();
 
   const translateBtn = document.getElementById('writing-translate');
