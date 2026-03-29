@@ -216,25 +216,27 @@
   position: relative;
 }
 .writing-divider {
-  width: 12px;
+  width: 18px;
   cursor: col-resize;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .writing-divider::before {
   content: '';
-  position: absolute;
-  top: 16px;
-  bottom: 16px;
-  left: 5px;
-  width: 2px;
-  background: #d9d2c6;
+  width: 3px;
+  height: calc(100% - 32px);
+  background: #b9ae9d;
   border-radius: 999px;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.7);
 }
 .writing-prompt {
   border: 1px solid #eee;
   border-radius: 8px;
   padding: 16px;
   background: #faf9f6;
+  margin-bottom: 14px;
 }
 .writing-textarea {
   width: 100%;

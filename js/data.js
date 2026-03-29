@@ -29,6 +29,32 @@ function extractLeadSentence(prompt) {
   return (lead || paragraphs[0] || '').replace(/\s+/g, ' ').trim();
 }
 
+function extractCoreQuestion(prompt, type) {
+  const cleaned = cleanWritingPrompt(prompt);
+  const lines = cleaned
+    .split(/\n+/)
+    .map(item => item.trim().replace(/\s+/g, ' '))
+    .filter(Boolean)
+    .filter(item => !/^write (a letter|about|at least)/i.test(item))
+    .filter(item => !/^give reasons/i.test(item))
+    .filter(item => !/^include any relevant examples/i.test(item))
+    .filter(item => !/^you should say/i.test(item));
+
+  if (type === 'task2') {
+    const directQuestion = lines.find(item => /\?$/.test(item) && item.length > 20);
+    if (directQuestion) return directQuestion;
+    const lastPromptLine = [...lines].reverse().find(item => item.length > 20);
+    if (lastPromptLine) return lastPromptLine;
+  }
+
+  if (type === 'task1') {
+    const instruction = lines.find(item => /^write a letter/i.test(item));
+    if (instruction) return instruction;
+  }
+
+  return extractLeadSentence(cleaned);
+}
+
 function compactTitle(text, maxWords = 7) {
   const words = String(text || '').replace(/[.:]/g, '').split(/\s+/).filter(Boolean);
   return words.slice(0, maxWords).join(' ');
@@ -83,11 +109,11 @@ function inferTask2Tags(prompt) {
 }
 
 function buildWritingTitle(item, cleanedPrompt) {
-  const lead = extractLeadSentence(cleanedPrompt);
+  const lead = extractCoreQuestion(cleanedPrompt, item.type);
   if (item.type === 'task1') {
-    return compactTitle(lead, 6) || 'Letter task';
+    return compactTitle(lead, 8) || 'Letter task';
   }
-  return compactTitle(lead, 8) || 'Essay task';
+  return compactTitle(lead, 12) || 'Essay task';
 }
 
 function prepareWritingTasks(rawQuestions) {
@@ -102,7 +128,7 @@ function prepareWritingTasks(rawQuestions) {
         ...item,
         prompt: cleanedPrompt,
         title: buildWritingTitle(item, cleanedPrompt),
-        promptLead: extractLeadSentence(cleanedPrompt),
+        promptLead: extractCoreQuestion(cleanedPrompt, item.type),
         content_tags: item.type === 'task1' ? inferTask1Tags(cleanedPrompt) : inferTask2Tags(cleanedPrompt),
         sampleAnswer: typeof item.sampleAnswer === 'string' && item.sampleAnswer.trim() ? item.sampleAnswer.trim() : ''
       };

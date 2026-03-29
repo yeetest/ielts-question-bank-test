@@ -327,18 +327,16 @@ function renderLibrarySidebar(task, workspace) {
 function renderPracticeView(task, workspace) {
   const sampleAnswer = getSampleAnswer(task);
   const revisedEssay = workspace.correctionResult?.revisedEssay || '';
-  const rightText = workspace.activeTab === 'sample' ? sampleAnswer : revisedEssay;
   const editorWidth = Math.min(Math.max(workspace.editorWidth, 28), 72);
 
   return `
     <div class="writing-main-view">
-      <div class="writing-prompt">
-        <div class="section-label">${task.type === 'task1' ? 'Task 1' : 'Task 2'}</div>
-        <div class="prompt-prewrap">${escapeHtml(task.prompt)}</div>
-      </div>
-
       <div class="writing-layout writing-layout-resizable">
         <section class="writing-pane writing-pane-left" id="writing-editor-pane" style="width:${editorWidth}%;">
+          <div class="writing-prompt">
+            <div class="section-label">${task.type === 'task1' ? 'Task 1' : 'Task 2'}</div>
+            <div class="prompt-prewrap">${escapeHtml(task.prompt)}</div>
+          </div>
           <div class="writing-pane-head">
             <h3>写作区</h3>
             <div class="writing-save-status">
@@ -353,8 +351,8 @@ function renderPracticeView(task, workspace) {
         <section class="writing-pane writing-pane-right" id="writing-result-pane">
           <div class="writing-pane-head">
             <div class="tabs writing-tabs">
-              <button class="tab${workspace.activeTab === 'sample' ? ' active' : ''}" data-writing-tab="sample">Sample Band 9</button>
-              <button class="tab${workspace.activeTab === 'revised' ? ' active' : ''}" data-writing-tab="revised">My Revised Band 9</button>
+              <button class="tab${workspace.activeTab === 'sample' ? ' active' : ''}" data-writing-tab="sample">9 分范文</button>
+              <button class="tab${workspace.activeTab === 'revised' ? ' active' : ''}" data-writing-tab="revised">我的专属 9 分范文</button>
             </div>
           </div>
 
@@ -368,7 +366,7 @@ function renderPracticeView(task, workspace) {
             </div>
           ` : `
             <div class="writing-empty-state">
-              <button class="secondary-btn primary-action-btn" id="writing-correct-essay">AI 修改</button>
+              <button class="secondary-btn primary-action-btn" id="writing-correct-essay">把我的文章改到 9 分</button>
             </div>
           `}
 
