@@ -645,10 +645,20 @@ function saveHighlight(task, source) {
 
 function isRangeInsidePanel(range, panel) {
   if (!range || !panel) return false;
-  const node = range.commonAncestorContainer;
-  if (!node) return false;
-  const element = node.nodeType === Node.TEXT_NODE ? node.parentNode : node;
-  return Boolean(element && panel.contains(element));
+  const startNode = range.startContainer;
+  const endNode = range.endContainer;
+  const commonNode = range.commonAncestorContainer;
+  const normalizeNode = node => {
+    if (!node) return null;
+    return node.nodeType === Node.TEXT_NODE ? node.parentNode : node;
+  };
+  const startElement = normalizeNode(startNode);
+  const endElement = normalizeNode(endNode);
+  const commonElement = normalizeNode(commonNode);
+  return Boolean(
+    (startElement && panel.contains(startElement) && endElement && panel.contains(endElement)) ||
+    (commonElement && panel.contains(commonElement))
+  );
 }
 
 function bindSelection(task) {
@@ -671,7 +681,9 @@ function bindSelection(task) {
     }
 
     const range = selection.getRangeAt(0);
-    const inside = isRangeInsidePanel(range, panel);
+    const anchorInside = Boolean(selection.anchorNode && panel.contains(selection.anchorNode));
+    const focusInside = Boolean(selection.focusNode && panel.contains(selection.focusNode));
+    const inside = (anchorInside && focusInside) || isRangeInsidePanel(range, panel);
     console.debug('[writing selection] inside revised essay:', inside);
     if (!inside) {
       updateSelectionDebug({ length: text.length, inside: false, x: 0, y: 0 });
