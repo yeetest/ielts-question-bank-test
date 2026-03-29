@@ -103,6 +103,7 @@ function defaultWorkspace(task) {
     selectionTranslation: '',
     selectionX: 0,
     selectionY: 0,
+    correcting: false,
     dirty: false
   };
 }
@@ -387,13 +388,15 @@ function renderPracticeView(task, workspace) {
               ${workspace.activeTab === 'revised' ? `<div class="writing-reading-panel writing-highlight-surface" data-highlight-source="revised">${renderEssayParagraphs(renderHighlightedText(revisedEssay, workspace.highlights))}</div>` : ''}
               ${workspace.activeTab === 'notes' ? renderRevisionNote(workspace.correctionResult) : ''}
             </div>
+            ${workspace.correcting ? '<div class="writing-inline-status">正在修改请稍后</div>' : ''}
             <div class="button-inline writing-cta-row">
-              <button class="secondary-btn" id="writing-rerun-correction">重新修改</button>
+              <button class="secondary-btn" id="writing-rerun-correction"${workspace.correcting ? ' disabled' : ''}>重新修改</button>
               <button class="secondary-btn" id="writing-save-library">保存到我的私有满分作文库</button>
             </div>
           ` : `
             <div class="writing-empty-state">
-              <button class="secondary-btn primary-action-btn" id="writing-correct-essay">把我的文章改到 9 分</button>
+              ${workspace.correcting ? '<div class="writing-inline-status">正在修改请稍后</div>' : ''}
+              <button class="secondary-btn primary-action-btn" id="writing-correct-essay"${workspace.correcting ? ' disabled' : ''}>把我的文章改到 9 分</button>
             </div>
           `}
 
@@ -747,8 +750,15 @@ async function runCorrection(task) {
     return;
   }
 
+  patchWritingWorkspace(task, {
+    essay,
+    correcting: true
+  });
+  rerender();
+
   const response = await activeController.hooks.runAiCorrection(task, essay);
   if (!response.ok) {
+    patchWritingWorkspace(task, { correcting: false });
     if (response.status === 401 || response.status === 403) {
       activeController.hooks.ensureActionAccess({
         type: 'correctEssay',
@@ -758,12 +768,14 @@ async function runCorrection(task) {
       return;
     }
     alert(response.error || 'AI 修改失败。');
+    rerender();
     return;
   }
 
   patchWritingWorkspace(task, {
     essay,
     activeTab: 'feedback',
+    correcting: false,
     correctionResult: {
       feedback: response.feedback,
       revisedEssay: response.revisedEssay,
