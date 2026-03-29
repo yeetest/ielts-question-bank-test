@@ -522,10 +522,7 @@ export function renderWritingPractice(task) {
   return `
     <div class="writing-page" data-writing-task-id="${task.id}">
       <div class="writing-page-head">
-        <div>
-          <div class="section-label">${task.type === 'task1' ? 'Task 1' : 'Task 2'}</div>
-          <h2>${escapeHtml(task.title || 'Writing task')}</h2>
-        </div>
+        <div></div>
         <div class="writing-save-status">
           <span>${authState.session ? escapeHtml(authState.session.identity) : '未登录'}</span>
           <span>${workspace.highlights.length} highlights</span>
