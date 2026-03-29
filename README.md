@@ -97,6 +97,8 @@ SUPABASE_ACCESS_TOKEN=placeholder
 SUPABASE_DB_PASSWORD=placeholder
 ```
 
+Optional (defaults avoid truncated JSON from long assessments): `OPENROUTER_MODEL_ASSESSMENT`, `OPENROUTER_MAX_TOKENS_ASSESSMENT` (default `4096`), `OPENROUTER_MAX_TOKENS_REWRITE` (default `8192`).
+
 If OpenRouter env is missing, `api/ai.js` returns a clear error and does not generate any fallback output.
 Writing auth now uses Supabase email auth only.
 
