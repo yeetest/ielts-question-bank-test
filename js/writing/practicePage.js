@@ -64,10 +64,10 @@ async function renderPractice(taskId) {
       }
       return {
         ok: true,
-        feedback: payload.feedback || null,
-        revisedEssay: payload.band9_rewrite || '',
-        revisionNote: payload.revision_note || '',
-        keywordOutline: payload.keyword_outline || ''
+        overallBand: payload.overall_band ?? null,
+        criteria: payload.criteria || null,
+        revisedEssay: payload.revised_essay || '',
+        revisionNotes: payload.revision_notes || null
       };
     },
     exitPractice: () => {
