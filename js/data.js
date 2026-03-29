@@ -121,6 +121,12 @@ export function practiceIdFromURL() {
   return u.searchParams.get('practice') || '';
 }
 
+export function writingTabFromURL() {
+  const u = new URL(window.location.href);
+  const tab = u.searchParams.get('tab');
+  return tab === 'task2' ? 'task2' : 'task1';
+}
+
 export function setSectionInURL(section) {
   const u = new URL(window.location.href);
   u.searchParams.set('section', section);
