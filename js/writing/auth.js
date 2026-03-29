@@ -172,6 +172,10 @@ function escapeAuthText(value) {
     .replace(/>/g, '&gt;');
 }
 
+function setAuthFeedback(element, message) {
+  if (element) element.textContent = message || '';
+}
+
 async function signOutAll() {
   const supabase = await ensureSupabase();
   await supabase.auth.signOut();
@@ -219,62 +223,84 @@ function bindAuthActions(action) {
   const passwordInput = document.getElementById('auth-password');
 
   loginBtn.addEventListener('click', async () => {
+    setAuthFeedback(feedback, '登录中...');
     let supabase;
     try {
       supabase = await ensureSupabase();
     } catch (error) {
-      feedback.textContent = error.message || '认证配置缺失。';
+      setAuthFeedback(feedback, error.message || '认证配置缺失。');
       return;
     }
-    const { error } = await supabase.auth.signInWithPassword({
-      email: emailInput.value.trim(),
-      password: passwordInput.value
-    });
-    if (error) {
-      feedback.textContent = error.message || '登录失败。';
+    try {
+      const { error } = await supabase.auth.signInWithPassword({
+        email: emailInput.value.trim(),
+        password: passwordInput.value
+      });
+      if (error) {
+        setAuthFeedback(feedback, error.message || '登录失败。');
+        return;
+      }
+      setAuthFeedback(feedback, '登录成功。');
+      await refreshSession();
+      content.innerHTML = renderAuthBody(action);
+      bindAuthActions(action);
+      await resumePendingActionIfPossible();
+    } catch (error) {
+      setAuthFeedback(feedback, error?.message || '登录请求失败。');
       return;
     }
-    feedback.textContent = '登录成功。';
-    await refreshSession();
-    content.innerHTML = renderAuthBody(action);
-    bindAuthActions(action);
-    await resumePendingActionIfPossible();
   });
 
   document.getElementById('auth-signup-btn')?.addEventListener('click', async () => {
+    setAuthFeedback(feedback, '注册中...');
     let supabase;
     try {
       supabase = await ensureSupabase();
     } catch (error) {
-      feedback.textContent = error.message || '认证配置缺失。';
+      setAuthFeedback(feedback, error.message || '认证配置缺失。');
       return;
     }
-    const { error } = await supabase.auth.signUp({
-      email: emailInput.value.trim(),
-      password: passwordInput.value
-    });
-    feedback.textContent = error
-      ? (error.message || '注册失败。')
-      : '注册请求已提交。请检查邮箱确认链接，然后返回继续。';
+    try {
+      const { error } = await supabase.auth.signUp({
+        email: emailInput.value.trim(),
+        password: passwordInput.value
+      });
+      setAuthFeedback(
+        feedback,
+        error
+          ? (error.message || '注册失败。')
+          : '注册请求已提交。请检查邮箱确认链接，然后返回继续。'
+      );
+    } catch (error) {
+      setAuthFeedback(feedback, error?.message || '注册请求失败。');
+    }
   });
 
   document.getElementById('auth-magic-link-btn')?.addEventListener('click', async () => {
+    setAuthFeedback(feedback, '发送中...');
     let supabase;
     try {
       supabase = await ensureSupabase();
     } catch (error) {
-      feedback.textContent = error.message || '认证配置缺失。';
+      setAuthFeedback(feedback, error.message || '认证配置缺失。');
       return;
     }
-    const { error } = await supabase.auth.signInWithOtp({
-      email: emailInput.value.trim(),
-      options: {
-        emailRedirectTo: window.location.href
-      }
-    });
-    feedback.textContent = error
-      ? (error.message || 'Magic Link 发送失败。')
-      : 'Magic Link 已发送，请检查邮箱。';
+    try {
+      const { error } = await supabase.auth.signInWithOtp({
+        email: emailInput.value.trim(),
+        options: {
+          emailRedirectTo: window.location.href
+        }
+      });
+      setAuthFeedback(
+        feedback,
+        error
+          ? (error.message || 'Magic Link 发送失败。')
+          : 'Magic Link 已发送，请检查邮箱。'
+      );
+    } catch (error) {
+      setAuthFeedback(feedback, error?.message || 'Magic Link 请求失败。');
+    }
   });
 }
 
