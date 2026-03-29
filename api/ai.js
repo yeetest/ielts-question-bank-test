@@ -62,6 +62,14 @@ After the rewrite, briefly explain how the revised version is improved in terms 
 - vocabulary
 - etc
 
+4. Keyword Outline
+After the rewrite, provide a paragraph-by-paragraph keyword outline of the Band 9 rewrite.
+Requirements:
+- label each paragraph as P1, P2, P3, etc.
+- use short keywords and arrows, not full sentences
+- reflect the actual structure of the rewritten essay
+- include the main idea and key supporting points for each paragraph
+
 Return format:
 {
   "feedback": {
@@ -73,7 +81,8 @@ Return format:
     "key_improvements": string[]
   },
   "band9_rewrite": string,
-  "revision_note": string
+  "revision_note": string,
+  "keyword_outline": string
 }
 
 Do NOT output anything outside JSON.
@@ -113,6 +122,7 @@ Do NOT output anything outside JSON.
   const feedback = parsed?.feedback;
   const rewrite = parsed?.band9_rewrite;
   const revisionNote = parsed?.revision_note;
+  const keywordOutline = parsed?.keyword_outline;
   if (
     !feedback ||
     typeof feedback !== 'object' ||
@@ -123,9 +133,10 @@ Do NOT output anything outside JSON.
     !feedback.grammatical_range ||
     !Array.isArray(feedback.key_improvements) ||
     typeof rewrite !== 'string' ||
-    typeof revisionNote !== 'string'
+    typeof revisionNote !== 'string' ||
+    typeof keywordOutline !== 'string'
   ) {
-    const error = new Error('OpenRouter response did not match the required feedback + rewrite + revision note format.');
+    const error = new Error('OpenRouter response did not match the required feedback + rewrite + revision note + keyword outline format.');
     error.statusCode = 502;
     throw error;
   }
@@ -133,7 +144,8 @@ Do NOT output anything outside JSON.
   return {
     feedback,
     band9_rewrite: rewrite.trim(),
-    revision_note: revisionNote.trim()
+    revision_note: revisionNote.trim(),
+    keyword_outline: keywordOutline.trim()
   };
 }
 
@@ -190,6 +202,7 @@ module.exports = async (req, res) => {
     feedback: result.feedback,
     band9_rewrite: result.band9_rewrite,
     revision_note: result.revision_note,
+    keyword_outline: result.keyword_outline,
     session: nextSession
   }));
 };

@@ -63,7 +63,8 @@ async function renderPractice(taskId) {
         ok: true,
         feedback: payload.feedback || null,
         revisedEssay: payload.band9_rewrite || '',
-        revisionNote: payload.revision_note || ''
+        revisionNote: payload.revision_note || '',
+        keywordOutline: payload.keyword_outline || ''
       };
     },
     exitPractice: () => {

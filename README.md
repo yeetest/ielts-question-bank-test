@@ -21,6 +21,7 @@ The site remains a static HTML/CSS/JS app on Vercel with JSON loaded at runtime.
   - one correction returns both:
     - IELTS band-score feedback
     - revised Band 9 version
+    - keyword outline
   - right panel now shows only the user-specific revised Band 9 result
   - left panel is the personal writing-library tree
   - manual save writes to the same library data source used by the left sidebar

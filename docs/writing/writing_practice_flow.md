@@ -26,9 +26,10 @@ This file is the current source of truth for the writing practice implementation
 - Left collapsible sidebar:
   - `Return to Question Page`
   - `My Practice Records`
-  - each saved question has exactly 2 children:
+  - each saved question has exactly 3 children:
     - `My Practice Record`
     - `Practice High-Score Expressions`
+    - `Keyword Outline`
 - Main content:
   - left = writing editor
   - right = result tabs
@@ -63,6 +64,7 @@ Band descriptors are embedded into the AI prompt only.
   - concise 4-dimension IELTS feedback
   - revised Band 9 version
   - revision note
+  - keyword outline
 - OpenRouter is the only AI provider.
 - Endpoint:
   - `POST https://openrouter.ai/api/v1/chat/completions`

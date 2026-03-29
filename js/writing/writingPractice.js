@@ -69,6 +69,10 @@ function buildFlashcards(highlights = []) {
   }));
 }
 
+function maskOutlineText(text) {
+  return String(text || '').replace(/[A-Za-z][A-Za-z-]*/g, match => '_'.repeat(Math.max(match.length, 3)));
+}
+
 function countWords(text) {
   return String(text || '').trim().split(/\s+/).filter(Boolean).length;
 }
@@ -99,6 +103,7 @@ function defaultWorkspace(task) {
     timerStartedAt: Date.now(),
     flashcardIndex: 0,
     flashcardAnswerVisible: false,
+    outlineAnswerVisible: false,
     selectionText: '',
     selectionTranslation: '',
     selectionX: 0,
@@ -271,6 +276,41 @@ function renderRevisionNote(correctionResult) {
   `;
 }
 
+function renderKeywordOutlineExercise(record, workspace) {
+  const outline = record.correctionResult?.keywordOutline || '';
+  if (!outline) {
+    return `
+      <div class="writing-main-view">
+        <section class="writing-pane">
+          <div class="writing-empty-copy">这条记录还没有 keyword outline。</div>
+        </section>
+      </div>
+    `;
+  }
+
+  const masked = maskOutlineText(outline).replace(/\n/g, '<br>');
+  const answer = escapeHtml(outline).replace(/\n/g, '<br>');
+  return `
+    <div class="writing-main-view">
+      <section class="writing-pane">
+        <div class="writing-pane-head">
+          <h3>Keyword Outline 填空练习</h3>
+          <div class="writing-save-status"><span>${workspace.outlineAnswerVisible ? '已显示答案' : '先回忆再看答案'}</span></div>
+        </div>
+        <div class="flashcard-shell">
+          <div class="flashcard-face">
+            <div class="section-label">Fill in the outline</div>
+            <div class="flashcard-copy">${workspace.outlineAnswerVisible ? answer : masked}</div>
+          </div>
+          <div class="button-inline">
+            <button class="secondary-btn" id="outline-toggle-answer">${workspace.outlineAnswerVisible ? '隐藏答案' : '显示答案'}</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  `;
+}
+
 function renderFloatingSelection(workspace) {
   const hasSelection = Boolean(workspace.selectionText);
   const style = hasSelection
@@ -309,6 +349,7 @@ function renderLibrarySidebar(task, workspace) {
               <div class="library-children">
                 <button class="library-child-btn${currentViewKey === `record:${record.taskId}` ? ' active' : ''}" data-library-view="record" data-library-task="${record.taskId}">我的练习</button>
                 <button class="library-child-btn${currentViewKey === `flashcards:${record.taskId}` ? ' active' : ''}" data-library-view="flashcards" data-library-task="${record.taskId}">高分表达</button>
+                <button class="library-child-btn${currentViewKey === `outline:${record.taskId}` ? ' active' : ''}" data-library-view="outline" data-library-task="${record.taskId}">Keyword Outline</button>
               </div>
             </div>
           `).join('') : '<div class="muted">还没有保存的记录。</div>'}
@@ -449,6 +490,7 @@ function renderMainView(task, workspace) {
     `;
   }
   if (workspace.viewMode === 'record') return renderRecordView(record);
+  if (workspace.viewMode === 'outline') return renderKeywordOutlineExercise(record, workspace);
   return renderFlashcardsView(record, workspace);
 }
 
@@ -698,6 +740,7 @@ async function runCorrection(task) {
       feedback: response.feedback,
       revisedEssay: response.revisedEssay,
       revisionNote: response.revisionNote,
+      keywordOutline: response.keywordOutline,
       correctedAt: new Date().toISOString()
     },
     dirty: true
@@ -808,6 +851,16 @@ function bindFlashcards(task) {
   });
 }
 
+function bindOutline(task) {
+  document.getElementById('outline-toggle-answer')?.addEventListener('click', () => {
+    const workspace = getWritingWorkspace(task);
+    patchWritingWorkspace(task, {
+      outlineAnswerVisible: !workspace.outlineAnswerVisible
+    });
+    rerender();
+  });
+}
+
 function cleanup() {
   if (selectionHandler) {
     document.removeEventListener('selectionchange', selectionHandler);
@@ -833,6 +886,7 @@ export function bindWritingPractice(task, reopen, hooks) {
   bindSidebar(task);
   bindPractice(task);
   bindFlashcards(task);
+  bindOutline(task);
   bindBeforeUnload(task);
 }
 
