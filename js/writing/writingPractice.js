@@ -288,6 +288,7 @@ function renderRevisionNote(correctionResult) {
 
 function renderFloatingSelection(workspace) {
   const hasSelection = Boolean(workspace.selectionText);
+  const isSaved = hasSelection && workspace.highlights.some(item => item.text === workspace.selectionText.trim());
   const style = hasSelection
     ? `style="left:${workspace.selectionX}px; top:${workspace.selectionY}px;"`
     : '';
@@ -295,7 +296,7 @@ function renderFloatingSelection(workspace) {
     <div class="writing-selection-float" id="writing-selection-float" ${hasSelection ? '' : 'hidden'} ${style}>
       <div class="button-inline">
         <button class="secondary-btn selection-btn" id="writing-translate">翻译</button>
-        <button class="secondary-btn selection-btn" id="writing-save-highlight">保存到学习材料</button>
+        <button class="secondary-btn selection-btn" id="writing-save-highlight">${isSaved ? '取消保存' : '保存'}</button>
       </div>
       <div class="selection-translation-pop"${workspace.selectionTranslation ? '' : ' hidden'}>${escapeHtml(workspace.selectionTranslation)}</div>
     </div>
@@ -557,8 +558,17 @@ function saveHighlight(task, source) {
   const workspace = getWritingWorkspace(task);
   const text = workspace.selectionText.trim();
   if (!text) return;
-  if (workspace.highlights.some(item => item.text === text)) {
-    clearSelectionUI(task);
+
+  const existing = workspace.highlights.find(item => item.text === text);
+  if (existing) {
+    patchWritingWorkspace(task, {
+      highlights: workspace.highlights.filter(item => item.text !== text),
+      dirty: true,
+      selectionText: '',
+      selectionTranslation: '',
+      selectionX: 0,
+      selectionY: 0
+    });
     rerender();
     return;
   }
@@ -581,6 +591,14 @@ function saveHighlight(task, source) {
   rerender();
 }
 
+function isRangeInsidePanel(range, panel) {
+  if (!range || !panel) return false;
+  const node = range.commonAncestorContainer;
+  if (!node) return false;
+  const element = node.nodeType === Node.TEXT_NODE ? node.parentNode : node;
+  return Boolean(element && panel.contains(element));
+}
+
 function bindSelection(task) {
   const panel = document.getElementById('writing-reading-panel');
   if (!panel) return;
@@ -593,14 +611,26 @@ function bindSelection(task) {
   selectionHandler = () => {
     const selection = window.getSelection();
     const text = selection?.toString().trim() || '';
-    if (!text || !panel.contains(selection?.anchorNode)) {
+    if (!selection || !selection.rangeCount || selection.isCollapsed || !text) {
       clearSelectionUI(task);
       updateSelectionPopover(task);
       return;
     }
 
     const range = selection.getRangeAt(0);
+    if (!isRangeInsidePanel(range, panel)) {
+      clearSelectionUI(task);
+      updateSelectionPopover(task);
+      return;
+    }
+
     const rect = range.getBoundingClientRect();
+    if (!rect.width && !rect.height) {
+      clearSelectionUI(task);
+      updateSelectionPopover(task);
+      return;
+    }
+
     patchWritingWorkspace(task, {
       selectionText: text,
       selectionTranslation: '',
