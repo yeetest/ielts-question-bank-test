@@ -92,10 +92,49 @@ OPENROUTER_API_KEY=placeholder
 OPENROUTER_MODEL=anthropic/claude-opus-4.6
 SUPABASE_URL=placeholder
 SUPABASE_ANON_KEY=placeholder
+SUPABASE_PROJECT_REF=placeholder
+SUPABASE_ACCESS_TOKEN=placeholder
+SUPABASE_DB_PASSWORD=placeholder
 ```
 
 If OpenRouter env is missing, `api/ai.js` returns a clear error and does not generate any fallback output.
 Writing auth now uses Supabase email auth only.
+
+## Supabase schema
+
+The repo now includes formal Supabase migrations under:
+
+```bash
+supabase/migrations/
+```
+
+They create:
+
+- `profiles`
+- `credit_transactions`
+- `writing_tasks`
+- `practice_records`
+- `highlights`
+- `flashcards`
+- `pending_actions`
+
+They also:
+
+- enable RLS on user-owned tables
+- add the `auth.users` -> `profiles` signup trigger
+- backfill profile rows for existing auth users
+
+To apply the schema to a remote Supabase project without using Table Editor manually:
+
+```bash
+zsh scripts/apply-supabase-schema.sh
+```
+
+This requires these env vars to be set locally:
+
+- `SUPABASE_PROJECT_REF`
+- `SUPABASE_ACCESS_TOKEN`
+- `SUPABASE_DB_PASSWORD`
 
 ## Docs
 
