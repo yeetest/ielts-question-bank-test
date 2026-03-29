@@ -136,7 +136,7 @@ ${t}
 Output a single raw JSON object only — no markdown, no \`\`\` fences, no text before or after the object.
 Shape:
 {"overall_band":number,"criteria":{"task_achievement":{"band":number,"comments":string},"coherence_cohesion":{"band":number,"comments":string},"lexical_resource":{"band":number,"comments":string},"grammatical_range_accuracy":{"band":number,"comments":string}}}
-Each "comments" value: max 220 characters, preferably one sentence. Briefly justify the band — main gap vs Band 9 on that criterion (use descriptors for both). No praise-only. The JSON object must be fully complete; never stop mid-string or mid-value.
+Keep the whole JSON assessment concise: all "comments" text combined should stay within about 600 words total (bands + justification + any Band-9 contrast). Do not pad length. Justify each score clearly; avoid praise-only. Contrast the awarded band with Band 9 only where it is needed to explain why the score is not higher — otherwise a short gap note without quoting both descriptors is enough. The JSON must be fully complete; never stop mid-string or mid-value.
 The user message includes STUDENT_ESSAY: its line breaks and blank lines are the candidate's paragraphing as submitted (not stripped). For coherence_cohesion, do not claim there is no paragraphing or a single wall of text when breaks are visible; only critique organisation if paragraphing is weak, unclear, or missing relative to the descriptors.
 CRITICAL: comments must be valid JSON strings — escape every " as \\" inside comments; use \\n for newlines.`.trim();
 }
