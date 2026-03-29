@@ -312,6 +312,17 @@ function renderFloatingSelection(workspace) {
   `;
 }
 
+function renderSelectionDebug() {
+  return `
+    <div class="writing-selection-debug" id="writing-selection-debug">
+      <div class="writing-selection-debug-marker">selection-toolbar-debug-fafd77c</div>
+      <div>selected text length: <span id="writing-selection-debug-length">0</span></div>
+      <div>inside revised essay: <span id="writing-selection-debug-inside">false</span></div>
+      <div>toolbar x/y: <span id="writing-selection-debug-pos">0 / 0</span></div>
+    </div>
+  `;
+}
+
 function renderLibrarySidebar(task, workspace) {
   const records = getLibraryRecords();
   const currentViewKey = `${workspace.viewMode}:${workspace.viewTaskId || task.id}`;
@@ -385,7 +396,7 @@ function renderPracticeView(task, workspace) {
             </div>
             <div class="writing-tab-panel">
               ${workspace.activeTab === 'feedback' ? renderFeedbackCards(workspace.correctionResult) : ''}
-              ${workspace.activeTab === 'revised' ? `<div class="writing-reading-panel writing-highlight-surface" id="writing-revised-essay-content" data-highlight-source="revised">${renderEssayParagraphs(renderHighlightedText(revisedEssay, workspace.highlights))}</div>` : ''}
+              ${workspace.activeTab === 'revised' ? `${renderSelectionDebug()}<div class="writing-reading-panel writing-highlight-surface" id="writing-revised-essay-content" data-highlight-source="revised">${renderEssayParagraphs(renderHighlightedText(revisedEssay, workspace.highlights))}</div>` : ''}
               ${workspace.activeTab === 'notes' ? renderRevisionNote(workspace.correctionResult) : ''}
             </div>
             ${workspace.correcting ? '<div class="writing-inline-status">正在修改请稍后</div>' : ''}
@@ -546,19 +557,48 @@ function clearSelectionUI(task) {
   });
 }
 
+function updateSelectionDebug({ length = 0, inside = false, x = 0, y = 0 } = {}) {
+  const lengthEl = document.getElementById('writing-selection-debug-length');
+  const insideEl = document.getElementById('writing-selection-debug-inside');
+  const posEl = document.getElementById('writing-selection-debug-pos');
+  if (lengthEl) lengthEl.textContent = String(length);
+  if (insideEl) insideEl.textContent = String(Boolean(inside));
+  if (posEl) posEl.textContent = `${Math.round(x)} / ${Math.round(y)}`;
+}
+
+function getSelectionToolbar() {
+  const scoped = document.querySelector('#writing-result-pane #writing-selection-float');
+  const pop = scoped || document.getElementById('writing-selection-float');
+  if (!pop) return null;
+  document.querySelectorAll('#writing-selection-float').forEach(node => {
+    if (node !== pop) node.remove();
+  });
+  if (pop.parentNode !== document.body) {
+    document.body.appendChild(pop);
+  }
+  return pop;
+}
+
 function updateSelectionPopover(task) {
   const workspace = getWritingWorkspace(task);
-  const pop = document.getElementById('writing-selection-float');
+  const pop = getSelectionToolbar();
   if (!pop) return;
 
   if (!workspace.selectionText) {
     pop.hidden = true;
+    updateSelectionDebug();
     return;
   }
 
   pop.hidden = false;
   pop.style.left = `${workspace.selectionX}px`;
   pop.style.top = `${workspace.selectionY}px`;
+  updateSelectionDebug({
+    length: workspace.selectionText.length,
+    inside: true,
+    x: workspace.selectionX,
+    y: workspace.selectionY
+  });
   const translation = pop.querySelector('.selection-translation-pop');
   if (translation) {
     translation.textContent = workspace.selectionTranslation || '';
@@ -624,6 +664,7 @@ function bindSelection(task) {
     const text = selection?.toString().trim() || '';
     console.debug('[writing selection] text selected:', text);
     if (!selection || !selection.rangeCount || selection.isCollapsed || !text) {
+      updateSelectionDebug({ length: 0, inside: false, x: 0, y: 0 });
       clearSelectionUI(task);
       updateSelectionPopover(task);
       return;
@@ -633,6 +674,7 @@ function bindSelection(task) {
     const inside = isRangeInsidePanel(range, panel);
     console.debug('[writing selection] inside revised essay:', inside);
     if (!inside) {
+      updateSelectionDebug({ length: text.length, inside: false, x: 0, y: 0 });
       clearSelectionUI(task);
       updateSelectionPopover(task);
       return;
@@ -640,6 +682,7 @@ function bindSelection(task) {
 
     const rect = range.getBoundingClientRect();
     if (!rect.width && !rect.height) {
+      updateSelectionDebug({ length: text.length, inside: true, x: 0, y: 0 });
       clearSelectionUI(task);
       updateSelectionPopover(task);
       return;
@@ -660,6 +703,7 @@ function bindSelection(task) {
   document.addEventListener('selectionchange', selectionHandler);
   panel.addEventListener('mouseup', () => window.setTimeout(selectionHandler, 0));
   panel.addEventListener('keyup', () => window.setTimeout(selectionHandler, 0));
+  getSelectionToolbar();
 
   const translateBtn = document.getElementById('writing-translate');
   translateBtn?.addEventListener('mousedown', event => event.preventDefault());
@@ -908,6 +952,7 @@ function cleanup() {
     document.removeEventListener('selectionchange', selectionHandler);
     selectionHandler = null;
   }
+  document.querySelectorAll('#writing-selection-float').forEach(node => node.remove());
   unbindSplit();
   unbindTimer();
   window.onbeforeunload = null;
