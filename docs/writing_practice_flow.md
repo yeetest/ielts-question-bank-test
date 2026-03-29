@@ -5,8 +5,9 @@ This file is the current source of truth for the writing practice implementation
 ## UI boundary
 
 - Keep the existing static site visual style.
-- Writing cards open a wide practice workspace inside the shared modal system.
-- Auth and payment are modal overlays on top of that practice workspace.
+- Writing cards open a dedicated full-page practice workspace.
+- Auth and payment are modal overlays on top of that practice page.
+- In practice mode, the site-level top menu is hidden.
 
 ## Main practice structure
 
@@ -20,6 +21,8 @@ This file is the current source of truth for the writing practice implementation
 - Main content:
   - left = writing editor
   - right = result tabs
+- The editor and result panes are separated by a draggable divider.
+- If the left library is collapsed, the remaining workspace expands automatically.
 
 ## Right panel tabs
 
@@ -85,6 +88,7 @@ The pending action is kept in the front-end auth state so the user returns to th
 - Highlights can be created in:
   - `Sample Band 9`
   - `My Revised Band 9`
+- When text is selected, actions appear near the selected text instead of at the bottom.
 - Highlight data generates the flashcard data for the same task.
 - Flashcard direction is Chinese -> English.
 - If a saved task has no highlights, show exactly:
@@ -95,7 +99,7 @@ The pending action is kept in the front-end auth state so the user returns to th
 
 Two browser-side stores are used right now:
 
-1. `ielts_writing_workspace_v2`
+1. `ielts_writing_workspace_v3`
    - temporary per-task workspace
    - essay draft
    - active tab
@@ -105,7 +109,7 @@ Two browser-side stores are used right now:
    - flashcards
    - dirty flag
 
-2. `ielts_writing_library_v2`
+2. `ielts_writing_library_v3`
    - manual saved records grouped by user identity
    - one record per user per task
    - original essay
@@ -129,3 +133,4 @@ Two browser-side stores are used right now:
 
 - Payment is still a placeholder `Buy 5 credits` action, not a real payment provider.
 - Verification currently returns a preview code outside production unless a real delivery provider is added.
+- If a question does not have a real pre-generated sample in the data source, the sample tab now shows an explicit unavailable message instead of a fake local sample.

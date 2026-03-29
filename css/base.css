@@ -6,6 +6,9 @@ body {
   color: #222;
   padding: 24px;
 }
+body.practice-active {
+  padding: 0;
+}
 .site-nav {
   display: flex;
   gap: 8px;

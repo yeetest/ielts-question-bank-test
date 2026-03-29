@@ -1,10 +1,11 @@
-import { loadData, sectionFromURL, setSectionInURL } from './data.js';
+import { loadData, practiceIdFromURL, sectionFromURL, setPracticeInURL, setSectionInURL } from './data.js';
 import { openModal, closeOverlay } from './components/modal.js';
 import { openTagSummary, openTypeSummary } from './components/tagSummary.js';
 import { initSidebar, renderSidebar } from './components/sidebar.js';
 import { renderGrid } from './components/grid.js';
-import { closeAuthModal, refreshSession } from './auth.js';
+import { closeAuthModal, ensureActionAccess, refreshSession } from './auth.js';
 import { state } from './state.js';
+import { bindWritingPractice, renderWritingPractice } from './components/writingPractice.js';
 
 function resetSpeakingFilters() {
   state.selectedSkillTags = [];
@@ -20,6 +21,82 @@ function resetSpeakingFilters() {
 function updateNav() {
   document.getElementById('nav-speaking').classList.toggle('active', state.currentSection === 'speaking');
   document.getElementById('nav-writing').classList.toggle('active', state.currentSection === 'writing');
+}
+
+function getWritingTaskById(taskId) {
+  return [...state.writingTask1Data, ...state.writingTask2Data].find(item => item.id === taskId) || null;
+}
+
+function isWritingPracticeMode() {
+  return state.currentSection === 'writing' && Boolean(state.activeWritingContext?.taskId);
+}
+
+function updatePracticeLayout() {
+  const practiceRoot = document.getElementById('practice-root');
+  const mainLayout = document.getElementById('main-layout');
+  const pageHead = document.querySelector('.page-head');
+  const tabs = document.querySelector('.tabs');
+  const siteNav = document.querySelector('.site-nav');
+  const active = isWritingPracticeMode();
+
+  document.body.classList.toggle('practice-active', active);
+  practiceRoot.hidden = !active;
+  mainLayout.hidden = active;
+  if (pageHead) pageHead.hidden = active;
+  if (tabs) tabs.hidden = active;
+  if (siteNav) siteNav.hidden = active;
+}
+
+async function renderWritingPracticePage(taskId) {
+  const task = getWritingTaskById(taskId);
+  if (!task) {
+    state.activeWritingContext = null;
+    setPracticeInURL('');
+    updatePracticeLayout();
+    renderGrid(state.currentTab);
+    return;
+  }
+
+  state.currentTab = task.type === 'task1' ? 'task1' : 'task2';
+  state.activeWritingContext = { taskId };
+  setPracticeInURL(task.id);
+  updatePracticeLayout();
+
+  const root = document.getElementById('practice-root');
+  root.innerHTML = renderWritingPractice(task);
+  bindWritingPractice(task, () => renderWritingPracticePage(task.id), {
+    ensureActionAccess,
+    runAiCorrection: async (_task, essay) => {
+      const response = await fetch('/api/ai', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          prompt: task.prompt,
+          essay
+        })
+      });
+      const payload = await response.json();
+      await refreshSession();
+      if (!response.ok) {
+        return {
+          ok: false,
+          status: response.status,
+          error: payload.error || 'AI correction failed.'
+        };
+      }
+      return {
+        ok: true,
+        feedback: payload.feedback || null,
+        revisedEssay: payload.band9_rewrite || ''
+      };
+    },
+    exitPractice: () => {
+      state.activeWritingContext = null;
+      setPracticeInURL('');
+      updatePracticeLayout();
+      renderGrid(state.currentTab);
+    }
+  });
 }
 
 function updatePageChrome() {
@@ -58,6 +135,10 @@ function switchSection(section) {
   closeOverlay();
   state.currentSection = section;
   setSectionInURL(section);
+  if (section !== 'writing') {
+    state.activeWritingContext = null;
+    setPracticeInURL('');
+  }
   resetSpeakingFilters();
 
   if (section === 'speaking') {
@@ -69,6 +150,7 @@ function switchSection(section) {
 
   updateNav();
   updatePageChrome();
+  updatePracticeLayout();
   renderGrid(state.currentTab);
   refreshSession();
 }
@@ -123,6 +205,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (card) {
       state.lastActiveTag = null;
       state.lastTypeSummary = null;
+      if (state.currentSection === 'writing') {
+        const item = card.dataset.tab === 'task1'
+          ? state.writingTask1Data[parseInt(card.dataset.idx, 10)]
+          : state.writingTask2Data[parseInt(card.dataset.idx, 10)];
+        renderWritingPracticePage(item.id);
+        return;
+      }
       openModal(card.dataset.tab, parseInt(card.dataset.idx, 10));
     }
   });
@@ -161,6 +250,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   updateNav();
   updatePageChrome();
-  renderGrid(state.currentTab);
+  updatePracticeLayout();
+  const taskId = practiceIdFromURL();
+  if (state.currentSection === 'writing' && taskId) {
+    await renderWritingPracticePage(taskId);
+  } else {
+    renderGrid(state.currentTab);
+  }
   await refreshSession();
 });

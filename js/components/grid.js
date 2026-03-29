@@ -41,14 +41,15 @@ function renderWriting(grid, tab) {
 
   data.forEach((item, idx) => {
     const title = item.title || `Task ${tab === 'task1' ? '1' : '2'}`;
-    const preview = item.prompt.split('\n').filter(Boolean).slice(0, 4).join(' ');
+    const preview = item.promptLead || item.prompt.split('\n').filter(Boolean)[0] || '';
     const card = document.createElement('div');
     card.className = 'card';
     card.dataset.idx = idx;
     card.dataset.tab = tab;
     card.innerHTML = `
       <div class="card-title">${title}</div>
-      <div class="card-meta">${item.collection || (tab === 'task1' ? 'Task 1' : 'Task 2')}</div>
+      <div class="card-meta">${tab === 'task1' ? 'Task 1' : 'Task 2'}</div>
+      ${renderContentTags(item.content_tags)}
       <div class="card-copy">${preview}</div>
     `;
     grid.appendChild(card);

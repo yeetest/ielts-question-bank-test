@@ -1,12 +1,13 @@
 import { authState } from '../auth.js';
 import { state } from '../state.js';
 
-const WORKSPACE_KEY = 'ielts_writing_workspace_v2';
-const LIBRARY_KEY = 'ielts_writing_library_v2';
+const WORKSPACE_KEY = 'ielts_writing_workspace_v3';
+const LIBRARY_KEY = 'ielts_writing_library_v3';
 const EMPTY_FLASHCARD_MESSAGE = '当前你还没有高光选中你想要学习的表达，快去右侧 sample 部分选中吧';
 
 let activeController = null;
 let selectionHandler = null;
+let splitHandlers = null;
 
 const LOCAL_DICTIONARY = {
   outstanding: '杰出的，出色的',
@@ -51,36 +52,12 @@ function userLibraryKey(session = authState.session) {
   return session?.identity || 'anonymous';
 }
 
-function buildSampleAnswer(task) {
-  if (task.type === 'task1') {
-    return [
-      'Dear Sir or Madam,',
-      '',
-      'I am writing to express my appreciation for the moving service your company recently provided when I relocated to my new flat. Overall, the experience was efficient, professional and far less stressful than I had anticipated.',
-      '',
-      'The most impressive aspect of the service was the team’s punctuality and organisation. The movers arrived exactly on time, packed the remaining loose items carefully, and handled my furniture with considerable care. As a result, the entire move was completed smoothly and within the period originally promised.',
-      '',
-      'I would also like to commend one member of staff in particular, Daniel, whose attitude was outstanding throughout the day. He remained polite, patient and reassuring, especially when I was concerned about several fragile boxes containing kitchenware and books. His professionalism made an excellent impression.',
-      '',
-      'The only area that could be improved was the communication on the evening before the move. I was not given a clear final arrival window until rather late, which made it difficult to organise the rest of my day. Even so, the quality of the actual service was excellent.',
-      '',
-      'Thank you again for such a positive experience. I would certainly recommend your company to others.',
-      '',
-      'Yours faithfully,'
-    ].join('\n');
-  }
+function readWorkspaceStore() {
+  return readJsonStorage(WORKSPACE_KEY);
+}
 
-  return [
-    'In many cases, this trend is beneficial overall, even though it may create some short-term inconvenience. I believe it should generally be regarded as a positive development because its long-term advantages are more significant than its immediate drawbacks.',
-    '',
-    'Admittedly, some people oppose this kind of change because it may disrupt established habits or impose extra costs in the beginning. Individuals often have to adapt their routines, and in some cases they may feel uncertain about the practical consequences. These concerns are understandable, particularly when the transition happens quickly or without enough support.',
-    '',
-    'However, the broader picture is much more positive. Developments of this kind often encourage people to make more responsible decisions and to think beyond their immediate comfort. In the long run, this can improve personal well-being, reduce unnecessary harm and create benefits for society as a whole. Even when adaptation is required at first, the lasting gains usually outweigh the temporary inconvenience.',
-    '',
-    'Furthermore, positive change rarely occurs without some degree of adjustment. If every policy or social shift were rejected simply because it was inconvenient at the start, progress would be extremely limited. A more balanced judgement should consider whether the long-term outcome is constructive, and in this case it clearly is.',
-    '',
-    'In conclusion, although there may be some initial disadvantages, I consider this to be a positive development because the lasting benefits are both wider and more meaningful.'
-  ].join('\n');
+function writeWorkspaceStore(store) {
+  writeJsonStorage(WORKSPACE_KEY, store);
 }
 
 function buildFlashcards(highlights = []) {
@@ -102,39 +79,34 @@ function defaultWorkspace(task) {
     highlights: [],
     flashcards: [],
     sidebarCollapsed: false,
+    editorWidth: 48,
     flashcardIndex: 0,
     flashcardAnswerVisible: false,
     selectionText: '',
     selectionTranslation: '',
+    selectionX: 0,
+    selectionY: 0,
     dirty: false
   };
 }
 
-function getWorkspaceStore() {
-  return readJsonStorage(WORKSPACE_KEY);
-}
-
-function setWorkspaceStore(store) {
-  writeJsonStorage(WORKSPACE_KEY, store);
-}
-
 function normalizeWorkspace(task, value) {
-  const base = defaultWorkspace(task);
-  const merged = { ...base, ...(value || {}) };
+  const merged = { ...defaultWorkspace(task), ...(value || {}) };
   merged.highlights = Array.isArray(merged.highlights) ? merged.highlights : [];
   merged.flashcards = Array.isArray(merged.flashcards) && merged.flashcards.length
     ? merged.flashcards
     : buildFlashcards(merged.highlights);
+  if (typeof merged.editorWidth !== 'number') merged.editorWidth = 48;
   return merged;
 }
 
 export function getWritingWorkspace(task) {
-  const store = getWorkspaceStore();
+  const store = readWorkspaceStore();
   return normalizeWorkspace(task, store[task.id]);
 }
 
 export function patchWritingWorkspace(task, patch) {
-  const store = getWorkspaceStore();
+  const store = readWorkspaceStore();
   const next = {
     ...getWritingWorkspace(task),
     ...patch
@@ -143,25 +115,21 @@ export function patchWritingWorkspace(task, patch) {
     next.flashcards = buildFlashcards(next.highlights);
   }
   store[task.id] = next;
-  setWorkspaceStore(store);
+  writeWorkspaceStore(store);
   return next;
 }
 
-function getLibraryStore() {
+function readLibraryStore() {
   return readJsonStorage(LIBRARY_KEY);
 }
 
-function setLibraryStore(store) {
+function writeLibraryStore(store) {
   writeJsonStorage(LIBRARY_KEY, store);
 }
 
 function getUserLibrary(session = authState.session) {
-  const store = getLibraryStore();
+  const store = readLibraryStore();
   return store[userLibraryKey(session)] || {};
-}
-
-function getSavedRecord(taskId, session = authState.session) {
-  return getUserLibrary(session)[taskId] || null;
 }
 
 function getLibraryRecords(session = authState.session) {
@@ -174,7 +142,7 @@ function createPracticeRecord(task, workspace) {
     title: task.title,
     type: task.type,
     prompt: task.prompt,
-    sampleAnswer: buildSampleAnswer(task),
+    sampleAnswer: task.sampleAnswer || '',
     originalEssay: workspace.essay,
     correctionResult: workspace.correctionResult,
     highlights: workspace.highlights,
@@ -185,17 +153,15 @@ function createPracticeRecord(task, workspace) {
 
 function savePracticeRecord(task, session = authState.session) {
   if (!session) return null;
-
   const workspace = getWritingWorkspace(task);
   if (!workspace.correctionResult) return null;
 
-  const store = getLibraryStore();
+  const store = readLibraryStore();
   const key = userLibraryKey(session);
-  const library = store[key] || {};
-  const record = createPracticeRecord(task, workspace);
-  library[task.id] = record;
-  store[key] = library;
-  setLibraryStore(store);
+  const nextLibrary = store[key] || {};
+  nextLibrary[task.id] = createPracticeRecord(task, workspace);
+  store[key] = nextLibrary;
+  writeLibraryStore(store);
 
   patchWritingWorkspace(task, {
     dirty: false,
@@ -203,19 +169,19 @@ function savePracticeRecord(task, session = authState.session) {
     viewTaskId: task.id
   });
 
-  return record;
+  return nextLibrary[task.id];
 }
 
 function lookupTranslation(text) {
   const normalized = String(text || '').trim().toLowerCase().replace(/[^\w\s-]/g, '');
   if (!normalized) return '';
-  const firstWord = normalized.split(/\s+/)[0];
-  return LOCAL_DICTIONARY[firstWord] || `暂未收录，建议结合上下文确认：${text.trim()}`;
+  const word = normalized.split(/\s+/)[0];
+  return LOCAL_DICTIONARY[word] || `暂未收录：${text.trim()}`;
 }
 
 function renderHighlightedText(text, highlights) {
   const unique = [...new Set((highlights || []).map(item => item.text).filter(Boolean))].sort((a, b) => b.length - a.length);
-  let html = escapeHtml(text);
+  let html = escapeHtml(text || '');
   unique.forEach(item => {
     const escaped = item.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     html = html.replace(new RegExp(escaped, 'g'), `<mark class="inline-highlight">${escapeHtml(item)}</mark>`);
@@ -223,59 +189,65 @@ function renderHighlightedText(text, highlights) {
   return html.replace(/\n/g, '<br>');
 }
 
-function getViewTask(task, workspace) {
-  if (workspace.viewMode === 'practice') {
-    return task;
-  }
-
-  const records = getLibraryRecords();
-  const matched = records.find(item => item.taskId === workspace.viewTaskId);
-  return matched || task;
-}
-
 function renderFeedbackCards(correctionResult) {
   const feedback = correctionResult?.feedback;
   if (!feedback || typeof feedback !== 'object') {
-    return '<div class="muted">No correction result yet. Use “Correct My Essay” to generate the combined IELTS feedback and revised Band 9 version.</div>';
+    return '<div class="muted">还没有批改结果。</div>';
   }
+
+  const cards = [
+    {
+      title: 'Overall Band',
+      band: feedback.overall_band,
+      comments: Array.isArray(feedback.key_improvements) ? feedback.key_improvements.join(' ') : ''
+    },
+    {
+      title: 'Task Achievement / Task Response',
+      band: feedback.task_achievement?.band,
+      comments: feedback.task_achievement?.comments
+    },
+    {
+      title: 'Coherence & Cohesion',
+      band: feedback.coherence_cohesion?.band,
+      comments: feedback.coherence_cohesion?.comments
+    },
+    {
+      title: 'Lexical Resource',
+      band: feedback.lexical_resource?.band,
+      comments: feedback.lexical_resource?.comments
+    },
+    {
+      title: 'Grammatical Range & Accuracy',
+      band: feedback.grammatical_range?.band,
+      comments: feedback.grammatical_range?.comments
+    }
+  ];
 
   return `
     <div class="writing-feedback-grid">
-      ${[
-        {
-          title: 'Overall Band',
-          band: feedback.overall_band,
-          comments: Array.isArray(feedback.key_improvements)
-            ? feedback.key_improvements.join(' ')
-            : ''
-        },
-        {
-          title: 'Task Achievement / Task Response',
-          band: feedback.task_achievement?.band,
-          comments: feedback.task_achievement?.comments
-        },
-        {
-          title: 'Coherence & Cohesion',
-          band: feedback.coherence_cohesion?.band,
-          comments: feedback.coherence_cohesion?.comments
-        },
-        {
-          title: 'Lexical Resource',
-          band: feedback.lexical_resource?.band,
-          comments: feedback.lexical_resource?.comments
-        },
-        {
-          title: 'Grammatical Range & Accuracy',
-          band: feedback.grammatical_range?.band,
-          comments: feedback.grammatical_range?.comments
-        }
-      ].map(item => `
+      ${cards.map(item => `
         <div class="feedback-card-mini">
           <div class="section-label">${escapeHtml(item.title)}</div>
           <div><strong>${escapeHtml(item.band)}</strong></div>
           <div>${escapeHtml(item.comments || '')}</div>
         </div>
       `).join('')}
+    </div>
+  `;
+}
+
+function renderFloatingSelection(workspace) {
+  const hasSelection = Boolean(workspace.selectionText);
+  const style = hasSelection
+    ? `style="left:${workspace.selectionX}px; top:${workspace.selectionY}px;"`
+    : '';
+  return `
+    <div class="writing-selection-float" id="writing-selection-float" ${hasSelection ? '' : 'hidden'} ${style}>
+      <div class="button-inline">
+        <button class="secondary-btn selection-btn" id="writing-translate">翻译</button>
+        <button class="secondary-btn selection-btn" id="writing-save-highlight">保存到学习材料</button>
+      </div>
+      <div class="selection-translation-pop"${workspace.selectionTranslation ? '' : ' hidden'}>${escapeHtml(workspace.selectionTranslation)}</div>
     </div>
   `;
 }
@@ -287,25 +259,25 @@ function renderLibrarySidebar(task, workspace) {
   return `
     <aside class="writing-library-panel${workspace.sidebarCollapsed ? ' is-collapsed' : ''}">
       <div class="writing-library-head">
-        <button class="secondary-btn" id="writing-library-toggle">${workspace.sidebarCollapsed ? '▶' : '◀'}</button>
-        ${workspace.sidebarCollapsed ? '' : '<div class="section-label">Personal Writing Library</div>'}
+        <button class="secondary-btn" id="writing-library-toggle">${workspace.sidebarCollapsed ? '展开' : '收起'}</button>
+        ${workspace.sidebarCollapsed ? '' : '<div class="section-label">我的写作库</div>'}
       </div>
       ${workspace.sidebarCollapsed ? '' : `
         <button class="library-nav-btn${currentViewKey === `practice:${task.id}` ? ' active' : ''}" data-library-view="practice" data-library-task="${task.id}">
-          Return to Question Page
+          返回题库
         </button>
-        <div class="section-label">My Practice Records</div>
+        <div class="section-label">我的练习记录</div>
         <div class="library-tree">
           ${records.length ? records.map(record => `
             <div class="library-question${record.taskId === workspace.viewTaskId ? ' active' : ''}">
               <div class="library-question-title">${escapeHtml(record.title)}</div>
               <div class="library-children">
-                <button class="library-child-btn${currentViewKey === `record:${record.taskId}` ? ' active' : ''}" data-library-view="record" data-library-task="${record.taskId}">My Practice Record</button>
-                <button class="library-child-btn${currentViewKey === `sample:${record.taskId}` ? ' active' : ''}" data-library-view="sample" data-library-task="${record.taskId}">Sample Band 9</button>
-                <button class="library-child-btn${currentViewKey === `flashcards:${record.taskId}` ? ' active' : ''}" data-library-view="flashcards" data-library-task="${record.taskId}">Practice High-Score Expressions</button>
+                <button class="library-child-btn${currentViewKey === `record:${record.taskId}` ? ' active' : ''}" data-library-view="record" data-library-task="${record.taskId}">我的练习</button>
+                <button class="library-child-btn${currentViewKey === `sample:${record.taskId}` ? ' active' : ''}" data-library-view="sample" data-library-task="${record.taskId}">满分范文</button>
+                <button class="library-child-btn${currentViewKey === `flashcards:${record.taskId}` ? ' active' : ''}" data-library-view="flashcards" data-library-task="${record.taskId}">高分表达</button>
               </div>
             </div>
-          `).join('') : '<div class="muted">No saved practice records yet.</div>'}
+          `).join('') : '<div class="muted">还没有保存的记录。</div>'}
         </div>
       `}
     </aside>
@@ -313,34 +285,32 @@ function renderLibrarySidebar(task, workspace) {
 }
 
 function renderPracticeView(task, workspace) {
-  const sampleAnswer = buildSampleAnswer(task);
+  const sampleAnswer = task.sampleAnswer || '';
   const revisedEssay = workspace.correctionResult?.revisedEssay || '';
-  const rightPanelText = workspace.activeTab === 'sample' ? sampleAnswer : revisedEssay;
-  const highlightedHtml = renderHighlightedText(rightPanelText, workspace.highlights);
+  const rightText = workspace.activeTab === 'sample' ? sampleAnswer : revisedEssay;
+  const editorWidth = Math.min(Math.max(workspace.editorWidth, 28), 72);
 
   return `
     <div class="writing-main-view">
       <div class="writing-prompt">
-        <div class="section-label">Prompt</div>
+        <div class="section-label">${task.type === 'task1' ? 'Task 1' : 'Task 2'}</div>
         <div class="prompt-prewrap">${escapeHtml(task.prompt)}</div>
       </div>
 
-      <div class="writing-layout">
-        <section class="writing-pane writing-pane-left">
+      <div class="writing-layout writing-layout-resizable">
+        <section class="writing-pane writing-pane-left" id="writing-editor-pane" style="width:${editorWidth}%;">
           <div class="writing-pane-head">
-            <h3>Writing Editor</h3>
+            <h3>写作区</h3>
             <div class="writing-save-status">
-              <span>${workspace.dirty ? 'Unsaved changes' : 'All manual changes saved'}</span>
+              <span>${workspace.dirty ? '未保存' : '已保存'}</span>
             </div>
           </div>
-          <textarea id="writing-essay-input" class="writing-textarea" placeholder="Write or paste your essay here.">${escapeHtml(workspace.essay)}</textarea>
-          <div class="writing-notes">
-            <div class="section-label">Save Rule</div>
-            <p>Your workspace is restored locally, but only “Save to My Private Template Library” creates the official writing-library record shown in the sidebar.</p>
-          </div>
+          <textarea id="writing-essay-input" class="writing-textarea" placeholder="在这里输入或粘贴你的作文。">${escapeHtml(workspace.essay)}</textarea>
         </section>
 
-        <section class="writing-pane writing-pane-right">
+        <div class="writing-divider" id="writing-divider" aria-label="resize panes"></div>
+
+        <section class="writing-pane writing-pane-right" id="writing-result-pane">
           <div class="writing-pane-head">
             <div class="tabs writing-tabs">
               <button class="tab${workspace.activeTab === 'sample' ? ' active' : ''}" data-writing-tab="sample">Sample Band 9</button>
@@ -349,31 +319,23 @@ function renderPracticeView(task, workspace) {
           </div>
 
           ${workspace.activeTab === 'sample' ? `
-            <div class="writing-reading-panel writing-highlight-surface" id="writing-reading-panel" data-highlight-source="sample">${highlightedHtml}</div>
-            <div class="writing-tab-note">Use the sample for reference, but build your own private high-score version and expression library from your own correction result.</div>
+            ${sampleAnswer
+              ? `<div class="writing-reading-panel writing-highlight-surface" id="writing-reading-panel" data-highlight-source="sample">${renderHighlightedText(sampleAnswer, workspace.highlights)}</div>`
+              : `<div class="writing-empty-copy">这道题目前还没有预生成的 Band 9 sample，所以这里不会显示假范文。</div>`
+            }
           ` : workspace.correctionResult ? `
             ${renderFeedbackCards(workspace.correctionResult)}
-            <div class="writing-reading-panel writing-highlight-surface" id="writing-reading-panel" data-highlight-source="revised">${highlightedHtml}</div>
+            <div class="writing-reading-panel writing-highlight-surface" id="writing-reading-panel" data-highlight-source="revised">${renderHighlightedText(revisedEssay, workspace.highlights)}</div>
             <div class="button-inline writing-cta-row">
-              <button class="secondary-btn" id="writing-save-library">Save to My Private Template Library</button>
+              <button class="secondary-btn" id="writing-save-library">保存到我的私有满分作文库</button>
             </div>
           ` : `
             <div class="writing-empty-state">
-              <button class="secondary-btn primary-action-btn" id="writing-correct-essay">Correct My Essay</button>
+              <button class="secondary-btn primary-action-btn" id="writing-correct-essay">AI 修改</button>
             </div>
           `}
 
-          <div class="writing-selection-bar" id="writing-selection-bar" hidden>
-            <div>
-              <div class="section-label">Selected text</div>
-              <div id="writing-selected-text"></div>
-              <div class="muted" id="writing-translation"></div>
-            </div>
-            <div class="button-inline">
-              <button class="secondary-btn" id="writing-translate">Translate</button>
-              <button class="secondary-btn" id="writing-save-highlight">Save Highlight</button>
-            </div>
-          </div>
+          ${renderFloatingSelection(workspace)}
         </section>
       </div>
     </div>
@@ -390,14 +352,14 @@ function renderRecordView(record) {
       <div class="writing-record-grid">
         <section class="writing-pane">
           <div class="writing-pane-head">
-            <h3>My Original Essay</h3>
-            <div class="writing-save-status"><span>Saved record</span></div>
+            <h3>我的原文</h3>
+            <div class="writing-save-status"><span>已保存</span></div>
           </div>
           <div class="writing-reading-panel">${escapeHtml(record.originalEssay).replace(/\n/g, '<br>')}</div>
         </section>
         <section class="writing-pane">
           <div class="writing-pane-head">
-            <h3>AI Correction Result</h3>
+            <h3>AI 修改结果</h3>
             <div class="writing-save-status"><span>${new Date(record.savedAt).toLocaleString()}</span></div>
           </div>
           ${renderFeedbackCards(record.correctionResult)}
@@ -408,7 +370,7 @@ function renderRecordView(record) {
   `;
 }
 
-function renderSavedSampleView(record) {
+function renderSampleView(record) {
   return `
     <div class="writing-main-view">
       <div class="writing-prompt">
@@ -416,7 +378,10 @@ function renderSavedSampleView(record) {
         <div class="prompt-prewrap">${escapeHtml(record.prompt)}</div>
       </div>
       <section class="writing-pane">
-        <div class="writing-reading-panel">${renderHighlightedText(record.sampleAnswer, record.highlights)}</div>
+        ${record.sampleAnswer
+          ? `<div class="writing-reading-panel">${renderHighlightedText(record.sampleAnswer, record.highlights)}</div>`
+          : '<div class="writing-empty-copy">这道题目前还没有预生成的 Band 9 sample。</div>'
+        }
       </section>
     </div>
   `;
@@ -436,24 +401,23 @@ function renderFlashcardsView(record, workspace) {
 
   const index = Math.min(workspace.flashcardIndex || 0, flashcards.length - 1);
   const current = flashcards[index];
-
   return `
     <div class="writing-main-view">
       <section class="writing-pane">
         <div class="writing-pane-head">
-          <h3>Practice High-Score Expressions</h3>
+          <h3>高分表达</h3>
           <div class="writing-save-status"><span>${index + 1} / ${flashcards.length}</span></div>
         </div>
         <div class="flashcard-shell">
           <div class="flashcard-face">
             <div class="section-label">Chinese -> English</div>
             <div class="flashcard-copy">${escapeHtml(current.chinese)}</div>
-            ${workspace.flashcardAnswerVisible ? `<div class="flashcard-answer">${escapeHtml(current.english)}</div>` : '<div class="flashcard-answer muted">Think of the English expression first, then reveal the answer.</div>'}
+            ${workspace.flashcardAnswerVisible ? `<div class="flashcard-answer">${escapeHtml(current.english)}</div>` : '<div class="flashcard-answer muted">先回忆英文，再点显示答案。</div>'}
           </div>
           <div class="button-inline">
-            <button class="secondary-btn" id="flashcard-prev"${index === 0 ? ' disabled' : ''}>Previous</button>
-            <button class="secondary-btn" id="flashcard-show">Show Answer</button>
-            <button class="secondary-btn" id="flashcard-next"${index === flashcards.length - 1 ? ' disabled' : ''}>Next</button>
+            <button class="secondary-btn" id="flashcard-prev"${index === 0 ? ' disabled' : ''}>上一个</button>
+            <button class="secondary-btn" id="flashcard-show">显示答案</button>
+            <button class="secondary-btn" id="flashcard-next"${index === flashcards.length - 1 ? ' disabled' : ''}>下一个</button>
           </div>
         </div>
       </section>
@@ -462,45 +426,38 @@ function renderFlashcardsView(record, workspace) {
 }
 
 function renderMainView(task, workspace) {
-  if (workspace.viewMode === 'practice') {
-    return renderPracticeView(task, workspace);
-  }
-
-  const records = getLibraryRecords();
-  const record = records.find(item => item.taskId === workspace.viewTaskId);
+  if (workspace.viewMode === 'practice') return renderPracticeView(task, workspace);
+  const record = getLibraryRecords().find(item => item.taskId === workspace.viewTaskId);
   if (!record) {
     return `
       <div class="writing-main-view">
         <section class="writing-pane">
-          <div class="writing-empty-copy">Select a saved practice record from the sidebar.</div>
+          <div class="writing-empty-copy">请先从左侧选择一条记录。</div>
         </section>
       </div>
     `;
   }
-
   if (workspace.viewMode === 'record') return renderRecordView(record);
-  if (workspace.viewMode === 'sample') return renderSavedSampleView(record);
+  if (workspace.viewMode === 'sample') return renderSampleView(record);
   return renderFlashcardsView(record, workspace);
 }
 
 export function renderWritingPractice(task) {
   const workspace = getWritingWorkspace(task);
-  const currentTask = getViewTask(task, workspace);
-
   return `
-    <div class="writing-workspace" data-writing-task-id="${task.id}">
-      <div class="writing-header">
+    <div class="writing-page" data-writing-task-id="${task.id}">
+      <div class="writing-page-head">
         <div>
-          <h2>${escapeHtml(currentTask.title || task.title)}</h2>
-          <div class="section-label">${currentTask.type === 'task1' ? 'Task 1' : 'Task 2'}</div>
+          <div class="section-label">${task.type === 'task1' ? 'Task 1' : 'Task 2'}</div>
+          <h2>${escapeHtml(task.title || 'Writing task')}</h2>
         </div>
         <div class="writing-save-status">
-          <span>${authState.session ? escapeHtml(authState.session.identity) : 'Browse freely until you use protected actions'}</span>
+          <span>${authState.session ? escapeHtml(authState.session.identity) : '未登录'}</span>
           <span>${workspace.highlights.length} highlights</span>
         </div>
       </div>
 
-      <div class="writing-shell">
+      <div class="writing-shell${workspace.sidebarCollapsed ? ' writing-shell-wide' : ''}">
         ${renderLibrarySidebar(task, workspace)}
         ${renderMainView(task, workspace)}
       </div>
@@ -513,12 +470,7 @@ async function trySaveBeforeNavigation(task, onSaved = null) {
   if (!workspace.dirty) return true;
 
   const hasResult = Boolean(workspace.correctionResult);
-  const confirmed = window.confirm(
-    hasResult
-      ? 'You have unsaved changes. Click OK to save this result to My Private Template Library before leaving.'
-      : 'You have unsaved draft changes. Click OK to keep them in the temporary workspace and leave this view, or Cancel to stay.'
-  );
-
+  const confirmed = window.confirm(hasResult ? '当前内容还没保存到作文库，是否先保存？' : '当前作文还没有正式保存，确认离开吗？');
   if (!confirmed) return false;
   if (!hasResult) return true;
 
@@ -544,13 +496,44 @@ function rerender() {
   activeController?.reopen();
 }
 
-function saveHighlight(task, source) {
-  const selection = window.getSelection();
-  const text = selection?.toString().trim();
-  if (!text) return;
+function clearSelectionUI(task) {
+  patchWritingWorkspace(task, {
+    selectionText: '',
+    selectionTranslation: '',
+    selectionX: 0,
+    selectionY: 0
+  });
+}
 
+function updateSelectionPopover(task) {
   const workspace = getWritingWorkspace(task);
-  if (workspace.highlights.some(item => item.text === text)) return;
+  const pop = document.getElementById('writing-selection-float');
+  if (!pop) return;
+
+  if (!workspace.selectionText) {
+    pop.hidden = true;
+    return;
+  }
+
+  pop.hidden = false;
+  pop.style.left = `${workspace.selectionX}px`;
+  pop.style.top = `${workspace.selectionY}px`;
+  const translation = pop.querySelector('.selection-translation-pop');
+  if (translation) {
+    translation.textContent = workspace.selectionTranslation || '';
+    translation.hidden = !workspace.selectionTranslation;
+  }
+}
+
+function saveHighlight(task, source) {
+  const workspace = getWritingWorkspace(task);
+  const text = workspace.selectionText.trim();
+  if (!text) return;
+  if (workspace.highlights.some(item => item.text === text)) {
+    clearSelectionUI(task);
+    rerender();
+    return;
+  }
 
   patchWritingWorkspace(task, {
     highlights: [
@@ -563,19 +546,16 @@ function saveHighlight(task, source) {
         createdAt: new Date().toISOString()
       }
     ],
+    dirty: true,
     selectionText: '',
-    selectionTranslation: '',
-    dirty: true
+    selectionTranslation: ''
   });
-
   rerender();
 }
 
 function bindSelection(task) {
   const panel = document.getElementById('writing-reading-panel');
-  const bar = document.getElementById('writing-selection-bar');
-  if (!panel || !bar) return;
-
+  if (!panel) return;
   const source = panel.dataset.highlightSource || 'sample';
 
   if (selectionHandler) {
@@ -583,43 +563,85 @@ function bindSelection(task) {
   }
 
   selectionHandler = () => {
-    if (!panel.contains(document.getSelection()?.anchorNode)) return;
-    const text = document.getSelection()?.toString().trim() || '';
-    if (!text) {
-      bar.hidden = true;
+    const selection = window.getSelection();
+    const text = selection?.toString().trim() || '';
+    if (!text || !panel.contains(selection?.anchorNode)) {
+      clearSelectionUI(task);
+      updateSelectionPopover(task);
       return;
     }
 
-    bar.hidden = false;
-    document.getElementById('writing-selected-text').textContent = text;
-    document.getElementById('writing-translation').textContent = '';
-
-    const workspace = getWritingWorkspace(task);
+    const range = selection.getRangeAt(0);
+    const rect = range.getBoundingClientRect();
     patchWritingWorkspace(task, {
       selectionText: text,
-      selectionTranslation: workspace.selectionTranslation
+      selectionTranslation: '',
+      selectionX: rect.left + (rect.width / 2),
+      selectionY: Math.max(rect.top - 12, 12)
     });
+    updateSelectionPopover(task);
   };
 
   document.addEventListener('selectionchange', selectionHandler);
 
-  document.getElementById('writing-translate')?.addEventListener('click', () => {
+  const translateBtn = document.getElementById('writing-translate');
+  translateBtn?.addEventListener('mousedown', event => event.preventDefault());
+  translateBtn?.addEventListener('click', () => {
     const workspace = getWritingWorkspace(task);
-    const translation = lookupTranslation(workspace.selectionText);
-    patchWritingWorkspace(task, { selectionTranslation: translation });
-    document.getElementById('writing-translation').textContent = translation;
+    patchWritingWorkspace(task, {
+      selectionTranslation: lookupTranslation(workspace.selectionText)
+    });
+    updateSelectionPopover(task);
   });
 
-  document.getElementById('writing-save-highlight')?.addEventListener('click', () => {
+  const saveBtn = document.getElementById('writing-save-highlight');
+  saveBtn?.addEventListener('mousedown', event => event.preventDefault());
+  saveBtn?.addEventListener('click', () => {
     saveHighlight(task, source);
   });
 }
 
+function unbindSplit() {
+  if (!splitHandlers) return;
+  window.removeEventListener('mousemove', splitHandlers.move);
+  window.removeEventListener('mouseup', splitHandlers.up);
+  splitHandlers = null;
+}
+
+function bindResizableSplit(task) {
+  const layout = document.querySelector('.writing-layout-resizable');
+  const divider = document.getElementById('writing-divider');
+  if (!layout || !divider) return;
+
+  divider.addEventListener('mousedown', event => {
+    event.preventDefault();
+    const rect = layout.getBoundingClientRect();
+
+    const onMove = moveEvent => {
+      const next = ((moveEvent.clientX - rect.left) / rect.width) * 100;
+      patchWritingWorkspace(task, {
+        editorWidth: Math.min(Math.max(next, 28), 72)
+      });
+      const current = getWritingWorkspace(task).editorWidth;
+      const editorPane = document.getElementById('writing-editor-pane');
+      if (editorPane) editorPane.style.width = `${current}%`;
+    };
+
+    const onUp = () => {
+      unbindSplit();
+      rerender();
+    };
+
+    splitHandlers = { move: onMove, up: onUp };
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('mouseup', onUp);
+  });
+}
+
 async function runCorrection(task) {
-  const essayInput = document.getElementById('writing-essay-input');
-  const essay = essayInput?.value.trim() || '';
+  const essay = document.getElementById('writing-essay-input')?.value.trim() || '';
   if (!essay) {
-    alert('Paste or write your essay before running the correction.');
+    alert('请先输入作文。');
     return;
   }
 
@@ -629,22 +651,17 @@ async function runCorrection(task) {
       activeController.hooks.ensureActionAccess({
         type: 'correctEssay',
         requiresCredits: true,
-        onAllowed: async () => {
-          await runCorrection(task);
-        }
+        onAllowed: async () => runCorrection(task)
       });
       return;
     }
-
-    alert(response.error || 'AI correction failed.');
+    alert(response.error || 'AI 修改失败。');
     return;
   }
 
   patchWritingWorkspace(task, {
     essay,
     activeTab: 'revised',
-    viewMode: 'practice',
-    viewTaskId: task.id,
     correctionResult: {
       feedback: response.feedback,
       revisedEssay: response.revisedEssay,
@@ -652,7 +669,6 @@ async function runCorrection(task) {
     },
     dirty: true
   });
-
   rerender();
 }
 
@@ -669,34 +685,25 @@ function bindSidebar(task) {
       const nextTaskId = button.dataset.libraryTask;
 
       if (nextView === 'practice') {
-        const allow = await trySaveBeforeNavigation(task, () => {
-          activeController?.onReturnToQuestions();
-        });
+        const allow = await trySaveBeforeNavigation(task, () => activeController?.hooks.exitPractice?.());
         if (!allow) return;
-        activeController.onReturnToQuestions();
+        activeController?.hooks.exitPractice?.();
         return;
       }
 
       const allow = await trySaveBeforeNavigation(task, () => {
-        patchWritingWorkspace(task, {
-          viewMode: nextView,
-          viewTaskId: nextTaskId
-        });
+        patchWritingWorkspace(task, { viewMode: nextView, viewTaskId: nextTaskId });
       });
       if (!allow) return;
 
-      patchWritingWorkspace(task, {
-        viewMode: nextView,
-        viewTaskId: nextTaskId
-      });
+      patchWritingWorkspace(task, { viewMode: nextView, viewTaskId: nextTaskId });
       rerender();
     });
   });
 }
 
-function bindPracticeView(task) {
-  const textarea = document.getElementById('writing-essay-input');
-  textarea?.addEventListener('input', event => {
+function bindPractice(task) {
+  document.getElementById('writing-essay-input')?.addEventListener('input', event => {
     patchWritingWorkspace(task, {
       essay: event.target.value,
       dirty: true
@@ -713,7 +720,6 @@ function bindPracticeView(task) {
         });
       });
       if (!allow) return;
-
       patchWritingWorkspace(task, {
         activeTab: button.dataset.writingTab,
         viewMode: 'practice',
@@ -727,19 +733,17 @@ function bindPracticeView(task) {
     const allowed = activeController.hooks.ensureActionAccess({
       type: 'correctEssay',
       requiresCredits: true,
-      onAllowed: async () => {
-        await runCorrection(task);
-      }
+      onAllowed: async () => runCorrection(task)
     });
     if (!allowed) return;
     await runCorrection(task);
   });
 
   document.getElementById('writing-save-library')?.addEventListener('click', async () => {
-    const saveNow = async () => {
+    const persist = async () => {
       const record = savePracticeRecord(task);
       if (!record) {
-        alert('Run “Correct My Essay” first, then save the official record.');
+        alert('请先完成 AI 修改。');
         return;
       }
       rerender();
@@ -749,15 +753,15 @@ function bindPracticeView(task) {
       activeController.hooks.ensureActionAccess({
         type: 'saveLibrary',
         requiresCredits: false,
-        onAllowed: saveNow
+        onAllowed: persist
       });
       return;
     }
-
-    await saveNow();
+    await persist();
   });
 
   bindSelection(task);
+  bindResizableSplit(task);
 }
 
 function bindFlashcards(task) {
@@ -765,7 +769,6 @@ function bindFlashcards(task) {
     patchWritingWorkspace(task, { flashcardAnswerVisible: true });
     rerender();
   });
-
   document.getElementById('flashcard-prev')?.addEventListener('click', () => {
     const workspace = getWritingWorkspace(task);
     patchWritingWorkspace(task, {
@@ -774,18 +777,25 @@ function bindFlashcards(task) {
     });
     rerender();
   });
-
   document.getElementById('flashcard-next')?.addEventListener('click', () => {
     const workspace = getWritingWorkspace(task);
-    const records = getLibraryRecords();
-    const record = records.find(item => item.taskId === workspace.viewTaskId);
-    const total = record?.flashcards?.length || record?.highlights?.length || 0;
+    const record = getLibraryRecords().find(item => item.taskId === workspace.viewTaskId);
+    const total = record?.flashcards?.length || 0;
     patchWritingWorkspace(task, {
       flashcardIndex: Math.min((workspace.flashcardIndex || 0) + 1, Math.max(total - 1, 0)),
       flashcardAnswerVisible: false
     });
     rerender();
   });
+}
+
+function cleanup() {
+  if (selectionHandler) {
+    document.removeEventListener('selectionchange', selectionHandler);
+    selectionHandler = null;
+  }
+  unbindSplit();
+  window.onbeforeunload = null;
 }
 
 function bindBeforeUnload(task) {
@@ -798,50 +808,23 @@ function bindBeforeUnload(task) {
 }
 
 export function bindWritingPractice(task, reopen, hooks) {
-  activeController = {
-    task,
-    reopen,
-    hooks,
-    onReturnToQuestions: () => {
-      if (selectionHandler) {
-        document.removeEventListener('selectionchange', selectionHandler);
-        selectionHandler = null;
-      }
-      window.onbeforeunload = null;
-      state.activeWritingContext = null;
-      activeController = null;
-      document.getElementById('overlay').classList.remove('open');
-      document.getElementById('modal').classList.remove('modal-wide');
-    }
-  };
-
+  cleanup();
+  activeController = { task, reopen, hooks };
   bindSidebar(task);
-  bindPracticeView(task);
+  bindPractice(task);
   bindFlashcards(task);
   bindBeforeUnload(task);
 }
 
 export async function attemptCloseWritingModal() {
   if (!activeController) return true;
-
   const allow = await trySaveBeforeNavigation(activeController.task, () => {
-    if (selectionHandler) {
-      document.removeEventListener('selectionchange', selectionHandler);
-      selectionHandler = null;
-    }
-    window.onbeforeunload = null;
-    activeController = null;
+    cleanup();
     state.activeWritingContext = null;
-    document.getElementById('overlay').classList.remove('open');
-    document.getElementById('modal').classList.remove('modal-wide');
   });
   if (!allow) return false;
-
-  if (selectionHandler) {
-    document.removeEventListener('selectionchange', selectionHandler);
-    selectionHandler = null;
-  }
-  window.onbeforeunload = null;
+  cleanup();
+  state.activeWritingContext = null;
   activeController = null;
   return true;
 }

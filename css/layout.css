@@ -41,6 +41,9 @@
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 14px;
 }
+#practice-root {
+  min-height: 100vh;
+}
 
 /* ---------- Overlay & Modal ---------- */
 .overlay {
