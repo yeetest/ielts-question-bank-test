@@ -34,6 +34,11 @@ This file is the current source of truth for the writing practice implementation
   - right = result tabs
 - The editor and result panes are separated by a draggable divider.
 - If the left library is collapsed, the remaining workspace expands automatically.
+- The writing editor now shows:
+  - live word count
+  - countdown timer
+  - `Task 1`: 20 minutes
+  - `Task 2`: 40 minutes
 
 ## Right panel
 
@@ -57,6 +62,7 @@ Band descriptors are embedded into the AI prompt only.
 - The correction result always includes both:
   - concise 4-dimension IELTS feedback
   - revised Band 9 version
+  - revision note
 - OpenRouter is the only AI provider.
 - Endpoint:
   - `POST https://openrouter.ai/api/v1/chat/completions`

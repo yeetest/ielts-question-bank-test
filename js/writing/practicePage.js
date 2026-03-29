@@ -46,6 +46,7 @@ async function renderPractice(taskId) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           prompt: task.prompt,
+          taskType: task.type,
           essay
         })
       });
@@ -61,7 +62,8 @@ async function renderPractice(taskId) {
       return {
         ok: true,
         feedback: payload.feedback || null,
-        revisedEssay: payload.band9_rewrite || ''
+        revisedEssay: payload.band9_rewrite || '',
+        revisionNote: payload.revision_note || ''
       };
     },
     exitPractice: () => {

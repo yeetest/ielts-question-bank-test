@@ -1,6 +1,6 @@
 const { readJson, readSession, writeSession } = require('./_lib/auth');
 
-async function requestOpenRouter(taskPrompt, essay) {
+async function requestOpenRouter(taskPrompt, essay, taskType) {
   const apiKey = process.env.OPENROUTER_API_KEY;
   const model = process.env.OPENROUTER_MODEL;
 
@@ -35,9 +35,32 @@ You are an IELTS examiner and expert writing coach.
 Evaluate the essay using IELTS band descriptors and return JSON only.
 
 Requirements:
-- Each feedback criterion: max 2 sentences
-- Keep feedback concise
-- Band 9 rewrite: 250–300 words, do NOT exceed 300 words
+
+1. Feedback
+Briefly comment on the student's performance for each of the four IELTS criteria :
+- Task Achievement / Task Response
+- Coherence & Cohesion
+- Lexical Resource
+- Grammatical Range & Accuracy
+
+For each criterion:
+- briefly explain how the student performs according to the band descriptors and give a band score
+- give short improvement suggestions
+- keep it concise: maximum 2–3 sentences
+
+2. Band 9 Rewrite
+Write a Band 9 sample essay based on the student's essay.
+- Use the most appropriate, natural, and precise expressions based on the student's original meaning, ideas, and general direction
+- Do not force fancy vocabulary
+- Length: ${taskType === 'task1' ? '150-200 words for task1' : '250-300 words for task2'}
+
+3. Revision Note
+After the rewrite, briefly explain how the revised version is improved in terms of:
+- structure
+- content
+- grammar
+- vocabulary
+- etc
 
 Return format:
 {
@@ -49,7 +72,8 @@ Return format:
     "grammatical_range": { "band": number, "comments": string },
     "key_improvements": string[]
   },
-  "band9_rewrite": string
+  "band9_rewrite": string,
+  "revision_note": string
 }
 
 Do NOT output anything outside JSON.
@@ -88,6 +112,7 @@ Do NOT output anything outside JSON.
 
   const feedback = parsed?.feedback;
   const rewrite = parsed?.band9_rewrite;
+  const revisionNote = parsed?.revision_note;
   if (
     !feedback ||
     typeof feedback !== 'object' ||
@@ -97,16 +122,18 @@ Do NOT output anything outside JSON.
     !feedback.lexical_resource ||
     !feedback.grammatical_range ||
     !Array.isArray(feedback.key_improvements) ||
-    typeof rewrite !== 'string'
+    typeof rewrite !== 'string' ||
+    typeof revisionNote !== 'string'
   ) {
-    const error = new Error('OpenRouter response did not match the required feedback + rewrite format.');
+    const error = new Error('OpenRouter response did not match the required feedback + rewrite + revision note format.');
     error.statusCode = 502;
     throw error;
   }
 
   return {
     feedback,
-    band9_rewrite: rewrite.trim()
+    band9_rewrite: rewrite.trim(),
+    revision_note: revisionNote.trim()
   };
 }
 
@@ -134,6 +161,7 @@ module.exports = async (req, res) => {
 
   const body = await readJson(req);
   const essay = String(body.essay || '').trim();
+  const taskType = body.taskType === 'task1' ? 'task1' : 'task2';
   if (!essay) {
     res.statusCode = 400;
     res.setHeader('Content-Type', 'application/json');
@@ -143,7 +171,7 @@ module.exports = async (req, res) => {
 
   let result;
   try {
-    result = await requestOpenRouter(String(body.prompt || ''), essay);
+    result = await requestOpenRouter(String(body.prompt || ''), essay, taskType);
   } catch (error) {
     res.statusCode = error.statusCode || 500;
     res.setHeader('Content-Type', 'application/json');
@@ -161,6 +189,7 @@ module.exports = async (req, res) => {
   res.end(JSON.stringify({
     feedback: result.feedback,
     band9_rewrite: result.band9_rewrite,
+    revision_note: result.revision_note,
     session: nextSession
   }));
 };

@@ -8,6 +8,7 @@ const EMPTY_FLASHCARD_MESSAGE = '当前你还没有高光选中你想要学习�
 let activeController = null;
 let selectionHandler = null;
 let splitHandlers = null;
+let timerInterval = null;
 
 const LOCAL_DICTIONARY = {
   outstanding: '杰出的，出色的',
@@ -68,6 +69,21 @@ function buildFlashcards(highlights = []) {
   }));
 }
 
+function countWords(text) {
+  return String(text || '').trim().split(/\s+/).filter(Boolean).length;
+}
+
+function getTaskDurationMs(task) {
+  return (task.type === 'task1' ? 20 : 40) * 60 * 1000;
+}
+
+function formatCountdown(ms) {
+  const totalSeconds = Math.max(Math.ceil(ms / 1000), 0);
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = totalSeconds % 60;
+  return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+}
+
 function defaultWorkspace(task) {
   return {
     taskId: task.id,
@@ -80,6 +96,7 @@ function defaultWorkspace(task) {
     flashcards: [],
     sidebarCollapsed: false,
     editorWidth: 48,
+    timerStartedAt: Date.now(),
     flashcardIndex: 0,
     flashcardAnswerVisible: false,
     selectionText: '',
@@ -98,6 +115,7 @@ function normalizeWorkspace(task, value) {
     : buildFlashcards(merged.highlights);
   merged.activeTab = 'revised';
   if (typeof merged.editorWidth !== 'number') merged.editorWidth = 48;
+  if (typeof merged.timerStartedAt !== 'number') merged.timerStartedAt = Date.now();
   merged.selectionText = '';
   merged.selectionTranslation = '';
   merged.selectionX = 0;
@@ -240,6 +258,19 @@ function renderFeedbackCards(correctionResult) {
   `;
 }
 
+function renderRevisionNote(correctionResult) {
+  const note = correctionResult?.revisionNote;
+  if (!note) return '';
+  return `
+    <section class="writing-pane writing-revision-note">
+      <div class="writing-pane-head">
+        <h3>修改说明</h3>
+      </div>
+      <div class="writing-reading-panel">${escapeHtml(note).replace(/\n/g, '<br>')}</div>
+    </section>
+  `;
+}
+
 function renderFloatingSelection(workspace) {
   const hasSelection = Boolean(workspace.selectionText);
   const style = hasSelection
@@ -290,6 +321,7 @@ function renderLibrarySidebar(task, workspace) {
 function renderPracticeView(task, workspace) {
   const revisedEssay = workspace.correctionResult?.revisedEssay || '';
   const editorWidth = Math.min(Math.max(workspace.editorWidth, 28), 72);
+  const wordCount = countWords(workspace.essay);
 
   return `
     <div class="writing-main-view">
@@ -303,6 +335,8 @@ function renderPracticeView(task, workspace) {
             <h3>写作区</h3>
             <div class="writing-save-status">
               <span>${workspace.dirty ? '未保存' : '已保存'}</span>
+              <span id="writing-word-count">字数 ${wordCount}</span>
+              <span id="writing-timer" data-deadline="${workspace.timerStartedAt + getTaskDurationMs(task)}">倒计时 ${formatCountdown((workspace.timerStartedAt + getTaskDurationMs(task)) - Date.now())}</span>
             </div>
           </div>
           <textarea id="writing-essay-input" class="writing-textarea" placeholder="在这里输入或粘贴你的作文。">${escapeHtml(workspace.essay)}</textarea>
@@ -318,6 +352,7 @@ function renderPracticeView(task, workspace) {
           ${workspace.correctionResult ? `
             ${renderFeedbackCards(workspace.correctionResult)}
             <div class="writing-reading-panel writing-highlight-surface" id="writing-reading-panel" data-highlight-source="revised">${renderHighlightedText(revisedEssay, workspace.highlights)}</div>
+            ${renderRevisionNote(workspace.correctionResult)}
             <div class="button-inline writing-cta-row">
               <button class="secondary-btn" id="writing-save-library">保存到我的私有满分作文库</button>
             </div>
@@ -356,6 +391,7 @@ function renderRecordView(record) {
           </div>
           ${renderFeedbackCards(record.correctionResult)}
           <div class="writing-reading-panel">${renderHighlightedText(record.correctionResult?.revisedEssay || '', record.highlights)}</div>
+          ${record.correctionResult?.revisionNote ? `<div class="writing-reading-panel">${escapeHtml(record.correctionResult.revisionNote).replace(/\n/g, '<br>')}</div>` : ''}
         </section>
       </div>
     </div>
@@ -584,6 +620,26 @@ function unbindSplit() {
   splitHandlers = null;
 }
 
+function unbindTimer() {
+  if (!timerInterval) return;
+  window.clearInterval(timerInterval);
+  timerInterval = null;
+}
+
+function bindTimer(task) {
+  const timerEl = document.getElementById('writing-timer');
+  if (!timerEl) return;
+  const deadline = Number(timerEl.dataset.deadline || 0);
+  const paint = () => {
+    const remaining = deadline - Date.now();
+    timerEl.textContent = `倒计时 ${formatCountdown(remaining)}`;
+    timerEl.classList.toggle('is-overtime', remaining <= 0);
+  };
+  paint();
+  unbindTimer();
+  timerInterval = window.setInterval(paint, 1000);
+}
+
 function bindResizableSplit(task) {
   const layout = document.querySelector('.writing-layout-resizable');
   const divider = document.getElementById('writing-divider');
@@ -641,6 +697,7 @@ async function runCorrection(task) {
     correctionResult: {
       feedback: response.feedback,
       revisedEssay: response.revisedEssay,
+      revisionNote: response.revisionNote,
       correctedAt: new Date().toISOString()
     },
     dirty: true
@@ -684,6 +741,10 @@ function bindPractice(task) {
       essay: event.target.value,
       dirty: true
     });
+    const wordCountEl = document.getElementById('writing-word-count');
+    if (wordCountEl) {
+      wordCountEl.textContent = `字数 ${countWords(event.target.value)}`;
+    }
   });
 
   document.getElementById('writing-correct-essay')?.addEventListener('click', async () => {
@@ -719,6 +780,7 @@ function bindPractice(task) {
 
   bindSelection(task);
   bindResizableSplit(task);
+  bindTimer(task);
 }
 
 function bindFlashcards(task) {
@@ -752,6 +814,7 @@ function cleanup() {
     selectionHandler = null;
   }
   unbindSplit();
+  unbindTimer();
   window.onbeforeunload = null;
 }
 
