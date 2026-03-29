@@ -114,6 +114,8 @@ function defaultWorkspace(task) {
 
 function normalizeWorkspace(task, value) {
   const merged = { ...defaultWorkspace(task), ...(value || {}) };
+  merged.viewMode = 'practice';
+  merged.viewTaskId = task.id;
   merged.highlights = Array.isArray(merged.highlights) ? merged.highlights : [];
   merged.flashcards = Array.isArray(merged.flashcards) && merged.flashcards.length
     ? merged.flashcards
