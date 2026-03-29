@@ -1,6 +1,6 @@
-# Writing Core Sentence Review
+# Writing Card Core Text Review
 
-This file is for review only. No card-title logic has been changed from this file yet.
+Review-only draft. This file is not wired into the UI yet.
 
 Total items: 168
 
@@ -28,7 +28,7 @@ Begin your letter as follows:
 
 Dear Sir or Madam,
 ```
-Card core candidate: `Write a letter to the removal company. In your letter`
+Card core text: `feedback about a service you recently used`
 
 ### 2. itongzhuo-2957
 Source title: `G20 Test3 Part1`
@@ -52,7 +52,7 @@ Begin your letter as follows:
 
 Dear .........,
 ```
-Card core candidate: `Write a letter to this famous actor. In your letter`
+Card core text: `inviting someone to open an event or venue`
 
 ### 3. itongzhuo-2953
 Source title: `G20 Test2 Part1`
@@ -76,7 +76,7 @@ Begin your letter as follows:
 
 Dear .........,
 ```
-Card core candidate: `Write a letter to your friend's sister. In your letter`
+Card core text: `advice about spending a year studying abroad`
 
 ### 4. itongzhuo-2949
 Source title: `G20 Test1 Part1`
@@ -100,7 +100,7 @@ Begin your letter as follows:
 
 Dear .........,
 ```
-Card core candidate: `Write a letter to one of your college friends. In your letter`
+Card core text: `organising a ten-year college reunion celebration`
 
 ### 5. itongzhuo-2780
 Source title: `G19 Test4 Part1`
@@ -124,7 +124,7 @@ Begin your letter as follows:
 
 Dear ......,
 ```
-Card core candidate: `Write a letter to your manager. In your letter`
+Card core text: `requesting a transfer to another department in the same company`
 
 ### 6. itongzhuo-2778
 Source title: `G19 Test3 Part1`
@@ -148,7 +148,7 @@ Begin your letter as follows:
 
 Dear ......,
 ```
-Card core candidate: `Write a letter to the owner of your apartment. In your letter`
+Card core text: `asking to extend the rental period for an apartment`
 
 ### 7. itongzhuo-2776
 Source title: `G19 Test2 Part1`
@@ -172,7 +172,7 @@ Begin your letter as follows:
 
 Dear Lius,
 ```
-Card core candidate: `Write a letter to the event organiser, Luis. In your letter`
+Card core text: `recommending a popular dish for an international food event`
 
 ### 8. itongzhuo-2774
 Source title: `G19 Test1 Part1`
@@ -196,7 +196,7 @@ Begin your letter as follows:
 
 Dear .........,
 ```
-Card core candidate: `Write a letter to your boss. In your letter`
+Card core text: `requesting reduced working hours in order to study part time`
 
 ### 9. itongzhuo-2534
 Source title: `G18 Test4 Part1`
@@ -222,7 +222,7 @@ Begin your letter as follows:
 
 Dear ...,
 ```
-Card core candidate: `Write a letter to your employer In your letter`
+Card core text: `feedback on a work training course`
 
 ### 10. itongzhuo-2532
 Source title: `G18 Test3 Part1`
@@ -246,7 +246,7 @@ Begin your letter as follows:
 
 Dear Sir or Madam,
 ```
-Card core candidate: `Write a letter to the train company. In your letter`
+Card core text: `complaint about train tickets and unhelpful station staff`
 
 ### 11. itongzhuo-2530
 Source title: `G18 Test2 Part1`
@@ -272,7 +272,7 @@ Begin your letter as follows:
 
 Dear Sir or Madam,
 ```
-Card core candidate: `Write a letter to the manager of the organisation where you are going to do work experience. In your letter`
+Card core text: `are soon going to spend three months doing work experience in an organisation`
 
 ### 12. itongzhuo-2528
 Source title: `G18 Test1 Part1`
@@ -296,7 +296,7 @@ Begin your letter as follows:
 
 Dear ...,
 ```
-Card core candidate: `Write a letter to your friend. In your letter`
+Card core text: `your English-speaking friend has asked for your help with a college project he/she is doing about celebrating New Year in different countries`
 
 ### 13. itongzhuo-2406
 Source title: `G17 Test4 Part1`
@@ -320,7 +320,7 @@ Begin your letter as follows:
 
 Dear Sir or Madam,
 ```
-Card core candidate: `Write a letter to the company that you bought the clothing from. In your email`
+Card core text: `have bought some clothing online and are not satisfied with your purchase`
 
 ### 14. itongzhuo-2404
 Source title: `G17 Test3 Part1`
@@ -344,7 +344,7 @@ Begin your letter as follows:
 
 Dear Sir or Madam,
 ```
-Card core candidate: `Write a letter to the college administrator. In your letter.`
+Card core text: `recently booked a part-time course at a college. You now need to cancel your booking`
 
 ### 15. itongzhuo-2402
 Source title: `G17 Test2 Part1`
@@ -368,7 +368,7 @@ Begin your letter as follows:
 
 Dear Mr and Mrs Collins,
 ```
-Card core candidate: `Write a letter to Chris's parents. In your letter`
+Card core text: `the parents of your Australian friend Chris have invited you to a surprise birthday party for him/her`
 
 ### 16. itongzhuo-2400
 Source title: `G17 Test1 Part1`
@@ -392,7 +392,7 @@ Begin your letter as follows:
 
 Dear ... ,
 ```
-Card core candidate: `Your English-speaking friend who lives in your town has asked for your advice about learning a new sport.`
+Card core text: `your English-speaking friend who lives in your town has asked for your advice about learning a new sport. Write an email to your friend. In your email`
 
 ### 17. itongzhuo-2398
 Source title: `G16 Test4 Part1`
@@ -416,7 +416,7 @@ Begin your email as follow：
 
 Dear ... ,
 ```
-Card core candidate: `Your friend has been offered a place on a course at the university where you studied. He/She would like your advice about finding a place to live.`
+Card core text: `your friend has been offered a place on a course at the university where you studied. He/She would like your advice about finding a place to live. Write an email to your friend. In your email`
 
 ### 18. itongzhuo-2396
 Source title: `G16 Test3 Part1`
@@ -440,7 +440,7 @@ Begin your letter as follows:
 
 Dear Sir or Madam,
 ```
-Card core candidate: `Write a letter to the editor of the magazine about the book that influenced you most. In your letter`
+Card core text: `a magazine wants to include contributions from its readers for an article called 'The book that influenced me most'`
 
 ### 19. itongzhuo-2394
 Source title: `G16 Test2 Part1`
@@ -464,7 +464,7 @@ Begin your letter as follows:
 
 Dear Sir or Madam,
 ```
-Card core candidate: `Write a letter to the editor of the newspaper. In your letter`
+Card core text: `have just read an article in a national newspaper which claims that town centres in your country all look very similar to each other. You don't fully agree with this opinion`
 
 ### 20. itongzhuo-2392
 Source title: `G16 Test1 Part1`
@@ -488,7 +488,7 @@ Begin your letter as follows:
 
 Dear Mrs Barrett,
 ```
-Card core candidate: `Write a letter to Mrs Barrett. In your letter`
+Card core text: `mrs Barrett, an English-speaking woman who lives in your town, has advertised for someone to help her in her home for a few hours a day next summer`
 
 ### 21. itongzhuo-2390
 Source title: `G15 Test4 Part1`
@@ -512,7 +512,7 @@ Begin your letter as follows:
 
 Dear ... ,
 ```
-Card core candidate: `Write a letter to the couple. In your letter`
+Card core text: `have seen an advertisement from a couple, who live in Australia, for someone to teach their two children your language for a year`
 
 ### 22. itongzhuo-2388
 Source title: `G15 Test3 Part1`
@@ -536,7 +536,7 @@ Begin your letter as follows:
 
 Dear ... ,
 ```
-Card core candidate: `Write a letter to your friend. In your letter`
+Card core text: `a friend of yours is thinking about applying for the same course that you did at university. He/She has asked for your advice about studying this subject`
 
 ### 23. itongzhuo-2386
 Source title: `G15 Test2 Part1`
@@ -560,7 +560,7 @@ Begin your letter as follows:
 
 Dear Sir or Madam,
 ```
-Card core candidate: `Write a letter to the museum director to apply for the voluntary/unpaid work. In your letter`
+Card core text: `a museum near your home is looking for people to do part-time voluntary/unpaid work. You would like to do some voluntary/unpaid work at the museum`
 
 ### 24. itongzhuo-2384
 Source title: `G15 Test1 Part1`
@@ -584,7 +584,7 @@ Begin your letter as follows:
 
 Dear ... ,
 ```
-Card core candidate: `Write a letter to your friend. In your letter`
+Card core text: `a friend of yours is thinking of going on a camping holiday for the first time this summer. He/She has asked for your advice`
 
 ### 25. itongzhuo-2382
 Source title: `G14 Test4 Part1`
@@ -608,7 +608,7 @@ Begin your letter as follows:
 
 Dear ... ,
 ```
-Card core candidate: `Write a letter to the singer. In your letter`
+Card core text: `recently went to a concert and thought one of the singers was very good. You want to tell him how you feel`
 
 ### 26. itongzhuo-2380
 Source title: `G14 Test3 Part1`
@@ -632,7 +632,7 @@ Begin your letter as follows:
 
 Dear Sir or Madam,
 ```
-Card core candidate: `Write a letter to the course director at the cookery school. In your letter`
+Card core text: `recently did a short cookery course. The cookery school has asked for your feedback on this course`
 
 ### 27. itongzhuo-2378
 Source title: `G14 Test2 Part1`
@@ -656,7 +656,7 @@ Begin your letter as follows:
 
 Dear Sir or Madam,
 ```
-Card core candidate: `Write a letter to the editor of the magazine. In your letter`
+Card core text: `have just read an article in an international travel magazine which contained some information about your town that is incorrect`
 
 ### 28. itongzhuo-2376
 Source title: `G14 Test1 Part1`
@@ -680,7 +680,7 @@ Begin your letter as follows:
 
 Dear Sir or Madam,
 ```
-Card core candidate: `Write a letter to the parents. In your letter`
+Card core text: `have seen an advertisement in an Australian magazine for someone to live with a family for six months and look after their six-year-old child`
 
 ### 29. itongzhuo-2374
 Source title: `G13 Test4 Part1`
@@ -704,7 +704,7 @@ Begin your letter as follows:
 
 Dear ... ,
 ```
-Card core candidate: `Write a letter to this friend. In your letter`
+Card core text: `a friend you made while you were studying abroad has written to ask you for help in finding a job in your country. You have heard about a job in a local company that might be suitable for him/her`
 
 ### 30. itongzhuo-2372
 Source title: `G13 Test3 Part1`
@@ -728,7 +728,7 @@ Begin your letter as follows:
 
 Dear Sir or Madam,
 ```
-Card core candidate: `Write a letter to the local council. In your letter`
+Card core text: `the system used for rubbish/garbage collection in your local area is not working properly. This is causing problems for you and your neighbours`
 
 ### 31. itongzhuo-2370
 Source title: `G13 Test2 Part1`
@@ -752,7 +752,7 @@ Begin your letter as follows:
 
 Dear Sir or Madam,
 ```
-Card core candidate: `Write a letter to the manager of the hotel. In your letter`
+Card core text: `recently organised an all-day meeting for your company, which took place in a local hotel. In their feedback, participants at the meeting said that they liked the hotel, but they were unhappy about the food that was served for lunch`
 
 ### 32. itongzhuo-2368
 Source title: `G13 Test1 Part1`
@@ -776,7 +776,7 @@ Begin your letter as follows:
 
 Dear ... ,
 ```
-Card core candidate: `Write a letter to your manager. In your letter`
+Card core text: `work for an international company, and would like to spend six months working in its head office in another country`
 
 ### 33. itongzhuo-2366
 Source title: `G12 Test4 Part1`
@@ -800,7 +800,7 @@ Begin your letter as follows:
 
 Dear ... ,
 ```
-Card core candidate: `Write a letter to your manager. In your letter`
+Card core text: `a request to your manager`
 
 ### 34. itongzhuo-2364
 Source title: `G12 Test3 Part1`
@@ -824,7 +824,7 @@ Begin your letter as follows:
 
 Dear Sir or Madam,
 ```
-Card core candidate: `Write a letter to the company. In your letter`
+Card core text: `a large company in your area has decided to spend a certain amount of money, either to sponsor a local children's sports team for two years, or to pay for two open-air concerts. It has asked for feedback from the general public`
 
 ### 35. itongzhuo-2362
 Source title: `G12 Test2 Part1`
@@ -848,7 +848,7 @@ Begin your letter as follows:
 
 Dear ... ,
 ```
-Card core candidate: `Write a letter to this businessman. In your letter`
+Card core text: `during a recent plane journey, you sat next to a businessman who owns a chain of restaurants. You talked to him and he suggested that you should contact him about a possible job in one of his restaurants`
 
 ### 36. itongzhuo-2360
 Source title: `G12 Test1 Part1`
@@ -872,7 +872,7 @@ Begin your letter as follows:
 
 Dear Sir or Madam,
 ```
-Card core candidate: `Write a letter to the shop or company which supplied the equipment. In your letter`
+Card core text: `work at home and have a problem with a piece of equipment that you use for your job`
 
 ### 37. itongzhuo-2358
 Source title: `G11 Test4 Part1`
@@ -896,7 +896,7 @@ Begin your letter as follows:
 
 Dear Sir or Madam,
 ```
-Card core candidate: `Write a letter to your manager. In your letter`
+Card core text: `feedback on a work training course`
 
 ### 38. itongzhuo-2356
 Source title: `G11 Test3 Part1`
@@ -920,7 +920,7 @@ Begin your letter as follows:
 
 Dear Sir or Madam,
 ```
-Card core candidate: `Write a letter to the local council. In your letter`
+Card core text: `your local council is considering closing a sports and leisure centre that it runs, in order to save money`
 
 ### 39. itongzhuo-2354
 Source title: `G11 Test2 Part1`
@@ -944,7 +944,7 @@ Begin your letter as follows:
 
 Dear Sir or Madam,
 ```
-Card core candidate: `Write a letter to the manager of the hotel. In your letter`
+Card core text: `recently attended a meeting at a hotel. When you returned home, you found you had left some important papers at the hotel`
 
 ### 40. itongzhuo-2352
 Source title: `G11 Test1 Part1`
@@ -968,7 +968,7 @@ Begin your letter as follows:
 
 Dear ... ,
 ```
-Card core candidate: `Write a letter to this friend. In your letter`
+Card core text: `recently received a letter from a friend asking for advice about whether to go to college or to try to get a job. You think he/she should get a job`
 
 ### 41. itongzhuo-2350
 Source title: `G10 TestB Part1`
@@ -992,7 +992,7 @@ Begin your letter as follows:
 
 Dear Sir or Madam,
 ```
-Card core candidate: `Write a letter to the restaurant manager. In your letter`
+Card core text: `and some friends ate a meal at a restaurant to celebrate a special occasion, and you were very pleased with the food and service`
 
 ### 42. itongzhuo-2348
 Source title: `G10 TestA Part1`
@@ -1016,7 +1016,7 @@ Begin your letter as follows:
 
 Dear ... ,
 ```
-Card core candidate: `Write a letter to this friend. In your letter`
+Card core text: `are going to another country to study. You would like to do a part-time job while you are studying, so you want to ask a friend who lives there for some help`
 
 ### 43. itongzhuo-2346
 Source title: `G9 TestB Part1`
@@ -1040,7 +1040,7 @@ Begin your letter as follows:
 
 Dear Sir or Madam,
 ```
-Card core candidate: `Write a letter to the manager of your insurance company. In your letter`
+Card core text: `on a recent holiday you lost a valuable item. Fortunately you have travel insurance to cover the cost of anything lost`
 
 ### 44. itongzhuo-2343
 Source title: `G9 TestA Part1`
@@ -1064,7 +1064,7 @@ Begin your letter as follows:
 
 Dear ... ,
 ```
-Card core candidate: `Write a letter to your manager. In your letter`
+Card core text: `a request to your manager`
 
 ### 45. itongzhuo-2341
 Source title: `G8 TestB Part1`
@@ -1088,7 +1088,7 @@ Begin your letter as follows:
 
 Dear Sir or Madam,
 ```
-Card core candidate: `Write a letter to the shop manager. In your letter`
+Card core text: `recently bought a piece of equipment for your kitchen but it did not work. You phoned the shop but no action was taken`
 
 ### 46. itongzhuo-2339
 Source title: `G8 TestA Part1`
@@ -1112,7 +1112,7 @@ Begin your letter as follows:
 
 Dear ... ,
 ```
-Card core candidate: `Write a letter to an English-speaking friend. In your letter`
+Card core text: `have recently moved to a different house`
 
 ### 47. itongzhuo-2337
 Source title: `G7 TestB Part1`
@@ -1136,7 +1136,7 @@ Begin your letter as follows:
 
 Dear ... ,
 ```
-Card core candidate: `Write a letter to your friends. In your letter`
+Card core text: `last month you had a holiday overseas where you stayed with some friends. They have just sent you some photos of your holiday`
 
 ### 48. itongzhuo-2335
 Source title: `G7 TestA Part1`
@@ -1160,7 +1160,7 @@ Begin your letter as follows:
 
 Dear ... ,
 ```
-Card core candidate: `Write a letter to an English-speaking friend. In your letter`
+Card core text: `have recently started work in a new company`
 
 ### 49. itongzhuo-2333
 Source title: `G6 TestB Part1`
@@ -1184,7 +1184,7 @@ Begin your letter as follows:
 
 Dear ... ,
 ```
-Card core candidate: `Write a letter to your neighbour. In your letter`
+Card core text: `have just moved into a new home and are planning to hold a party. You are worried that the noise may disturb your neighbour`
 
 ### 50. itongzhuo-2331
 Source title: `G6 TestA Part1`
@@ -1208,7 +1208,7 @@ Begin your letter as follows:
 
 Dear ... ,
 ```
-Card core candidate: `Write a letter to the landlord. In your letter`
+Card core text: `and your family are living in rented accommodation in an English-speaking country. You are not satisfied with the condition of some of the furniture`
 
 ### 51. itongzhuo-2328
 Source title: `G5 TestB Part1`
@@ -1234,7 +1234,7 @@ Begin your letter as follows:
 
 Dear ... ,
 ```
-Card core candidate: `Write a letter to the course tutor. In your letter`
+Card core text: `have a full-time job and are also doing a part-time evening course. You now find that you cannot continue the course`
 
 ### 52. itongzhuo-2326
 Source title: `G5 TestA Part1`
@@ -1258,7 +1258,7 @@ Begin your letter as follows:
 
 Dear ... ,
 ```
-Card core candidate: `Write a letter to your neighbours. In your letter`
+Card core text: `your neighbours have recently written to you to complain about the noise from your house/flat`
 
 ### 53. itongzhuo-2324
 Source title: `G4 TestB Part1`
@@ -1282,7 +1282,7 @@ Begin your letter as follows:
 
 Dear ... ,
 ```
-Card core candidate: `Write a letter to your friend. In your letter`
+Card core text: `want to sell some of your furniture. You think a friend of yours might like to buy it from you`
 
 ### 54. itongzhuo-2320
 Source title: `G4 TestA Part1`
@@ -1306,7 +1306,7 @@ Begin your letter as follows:
 
 Dear Sir or Madam,
 ```
-Card core candidate: `Write a letter to the manager of the supermarket. In your letter`
+Card core text: `were hurt in a minor accident inside a supermarket, and you wish to complain to the supermarket`
 
 ## TASK2 (114)
 
@@ -1326,7 +1326,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `How can people be persuaded to reduce the number of clothes they buy?`
+Card core text: `How can people be persuaded to reduce the number of clothes they buy?`
 
 ### 2. itongzhuo-2958
 Source title: `G20 Test3 Part2`
@@ -1340,7 +1340,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `Is this a good thing or a bad thing?`
+Card core text: `Is this a good thing or a bad thing?`
 
 ### 3. itongzhuo-2954
 Source title: `G20 Test2 Part2`
@@ -1356,7 +1356,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `Do you think family businesses have more advantages than disadvantages?`
+Card core text: `Do you think family businesses have more advantages than disadvantages?`
 
 ### 4. itongzhuo-2950
 Source title: `G20 Test1 Part2`
@@ -1372,7 +1372,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `What's your opinion about this?`
+Card core text: `What's your opinion about this?`
 
 ### 5. itongzhuo-2781
 Source title: `G19 Test4 Part2`
@@ -1388,7 +1388,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `Nowadays famous people are photographed by professional photographers everywhere they go. Some people say this is a good thing because the public are interested in their lives. Other people think that photographers are wrong to follow famous people.`
+Card core text: `Are photographers wrong to follow famous people everywhere they go?`
 
 ### 6. itongzhuo-2779
 Source title: `G19 Test3 Part2`
@@ -1406,7 +1406,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `Is this a positive or a negative trend?`
+Card core text: `Is this a positive or a negative trend?`
 
 ### 7. itongzhuo-2777
 Source title: `G19 Test2 Part2`
@@ -1424,7 +1424,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `Should people do these things themselves?`
+Card core text: `Should people do these things themselves?`
 
 ### 8. itongzhuo-2775
 Source title: `G19 Test1 Part2`
@@ -1442,7 +1442,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `Is it a positive or a negative trend?`
+Card core text: `Is it a positive or a negative trend?`
 
 ### 9. itongzhuo-2535
 Source title: `G18 Test4 Part2`
@@ -1460,7 +1460,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `Why should change be regarded as something positive?`
+Card core text: `Why should change be regarded as something positive?`
 
 ### 10. itongzhuo-2533
 Source title: `G18 Test3 Part2`
@@ -1478,7 +1478,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `What are the advantages and disadvantages of having more than one job?`
+Card core text: `What are the advantages and disadvantages of having more than one job?`
 
 ### 11. itongzhuo-2531
 Source title: `G18 Test2 Part2`
@@ -1494,7 +1494,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `Is this a good thing or a bad thing?`
+Card core text: `Is this a good thing or a bad thing?`
 
 ### 12. itongzhuo-2529
 Source title: `G18 Test1 Part2`
@@ -1510,7 +1510,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `Do you agree or disagree?`
+Card core text: `Do you agree or disagree?`
 
 ### 13. itongzhuo-2407
 Source title: `G17 Test4 Part2`
@@ -1526,7 +1526,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `Some people think that it's a good idea to socialise with work colleagues during evenings and weekends. Other people think it's important to keep working life completely separate from social life.`
+Card core text: `Some people think that it's a good idea to socialise with work colleagues during evenings and weekends. Other people think it's important to keep working life completely separate from social life`
 
 ### 14. itongzhuo-2405
 Source title: `G17 Test3 Part2`
@@ -1542,7 +1542,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `Do you agree or disagree?`
+Card core text: `Do you agree or disagree?`
 
 ### 15. itongzhuo-2403
 Source title: `G17 Test2 Part2`
@@ -1560,7 +1560,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `ls this a positive or a negative development?`
+Card core text: `ls this a positive or a negative development?`
 
 ### 16. itongzhuo-2401
 Source title: `G17 Test1 Part2`
@@ -1578,7 +1578,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `Do you think this will happen one day?`
+Card core text: `Do you think this will happen one day?`
 
 ### 17. itongzhuo-2399
 Source title: `G16 Test4 Part2`
@@ -1596,7 +1596,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `What is your opinion about this?`
+Card core text: `What is your opinion about this?`
 
 ### 18. itongzhuo-2397
 Source title: `G16 Test3 Part2`
@@ -1614,7 +1614,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `What are the advantages and disadvantages?`
+Card core text: `What are the advantages and disadvantages?`
 
 ### 19. itongzhuo-2395
 Source title: `G16 Test2 Part2`
@@ -1630,7 +1630,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `Some people like to try new things, for example, places to visit and types of food. Other people prefer to keep doing things they are familiar with.`
+Card core text: `Some people like to try new things, for example, places to visit and types of food. Other people prefer to keep doing things they are familiar with`
 
 ### 20. itongzhuo-2393
 Source title: `G16 Test1 Part2`
@@ -1648,7 +1648,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `What can be done by governments and individuals to solve this problem?`
+Card core text: `What can be done by governments and individuals to solve this problem?`
 
 ### 21. itongzhuo-2391
 Source title: `G15 Test4 Part2`
@@ -1664,7 +1664,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `Does this development have more advantages or more disadvantages?`
+Card core text: `Does this development have more advantages or more disadvantages?`
 
 ### 22. itongzhuo-2389
 Source title: `G15 Test3 Part2`
@@ -1680,7 +1680,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `Do you agree or disagree?`
+Card core text: `Do you agree or disagree?`
 
 ### 23. itongzhuo-2387
 Source title: `G15 Test2 Part2`
@@ -1698,7 +1698,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `What can be done about lack of sleep?`
+Card core text: `What can be done about lack of sleep?`
 
 ### 24. itongzhuo-2385
 Source title: `G15 Test1 Part2`
@@ -1716,7 +1716,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `What is your opinion of crime fiction and TV crime dramas?`
+Card core text: `Why do you think these books and TV shows are popular?`
 
 ### 25. itongzhuo-2383
 Source title: `G14 Test4 Part2`
@@ -1732,7 +1732,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `Does this situation have more advantages or more disadvantages?`
+Card core text: `Does this situation have more advantages or more disadvantages?`
 
 ### 26. itongzhuo-2381
 Source title: `G14 Test3 Part2`
@@ -1750,7 +1750,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `What other things in life can make people happy?`
+Card core text: `What other things in life can make people happy?`
 
 ### 27. itongzhuo-2379
 Source title: `G14 Test2 Part2`
@@ -1766,7 +1766,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `Some people think it's better to choose friends who always have the same opinions as them. Other people believe it's good to have friends who sometimes disagree with them.`
+Card core text: `Some people think it's better to choose friends who always have the same opinions as them. Other people believe it's good to have friends who sometimes disagree with them`
 
 ### 28. itongzhuo-2377
 Source title: `G14 Test1 Part2`
@@ -1782,7 +1782,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `Do you agree or disagree?`
+Card core text: `Do you agree or disagree?`
 
 ### 29. itongzhuo-2375
 Source title: `G13 Test4 Part2`
@@ -1798,7 +1798,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `What is your opinion about this?`
+Card core text: `What is your opinion about this?`
 
 ### 30. itongzhuo-2373
 Source title: `G13 Test3 Part2`
@@ -1814,7 +1814,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `Some people say that now we can see films on our phones or tablets there is no need to go to the cinema. Others say that to be fully enjoyed, films need to be seen in a cinema.`
+Card core text: `Some people say that now we can see films on our phones or tablets there is no need to go to the cinema. Others say that to be fully enjoyed, films need to be seen in a cinema`
 
 ### 31. itongzhuo-2371
 Source title: `G13 Test2 Part2`
@@ -1832,7 +1832,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `What can be done about this problem?`
+Card core text: `What can be done about this problem?`
 
 ### 32. itongzhuo-2369
 Source title: `G13 Test1 Part2`
@@ -1848,7 +1848,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `What is your opinion about this?`
+Card core text: `What is your opinion about this?`
 
 ### 33. itongzhuo-2367
 Source title: `G12 Test4 Part2`
@@ -1864,7 +1864,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `Is this a positive or a negative development?`
+Card core text: `Is this a positive or a negative development?`
 
 ### 34. itongzhuo-2365
 Source title: `G12 Test3 Part2`
@@ -1880,7 +1880,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `Some people say that parents should encourage their children to take part in organised group activities in their free time. Others say that it is important for children to learn how to occupy themselves on their own.`
+Card core text: `Some people say that parents should encourage their children to take part in organised group activities in their free time. Others say that it is important for children to learn how to occupy themselves on their own`
 
 ### 35. itongzhuo-2363
 Source title: `G12 Test2 Part2`
@@ -1896,7 +1896,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `What is your opinion about this?`
+Card core text: `What is your opinion about this?`
 
 ### 36. itongzhuo-2361
 Source title: `G12 Test1 Part2`
@@ -1912,7 +1912,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `What are the benefits and disadvantages for tourists who visit such places?`
+Card core text: `What are the benefits and disadvantages for tourists who visit such places?`
 
 ### 37. itongzhuo-2359
 Source title: `G11 Test4 Part2`
@@ -1928,7 +1928,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `Do you agree or disagree?`
+Card core text: `Do you agree or disagree?`
 
 ### 38. itongzhuo-2357
 Source title: `G11 Test3 Part2`
@@ -1946,7 +1946,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `What is your opinion about this?`
+Card core text: `What is your opinion about this?`
 
 ### 39. itongzhuo-2355
 Source title: `G11 Test2 Part2`
@@ -1962,7 +1962,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `Do you agree or disagree?`
+Card core text: `Do you agree or disagree?`
 
 ### 40. itongzhuo-2353
 Source title: `G11 Test1 Part2`
@@ -1978,7 +1978,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `Employers sometimes ask people applying for jobs for personal information, such as their hobbies and interests, and whether they are married or single. Some people say that this information may be relevant and useful. Others disagree.`
+Card core text: `Employers sometimes ask people applying for jobs for personal information, such as their hobbies and interests, and whether they are married or single. Some people say that this information may be relevant and useful. Others disagree`
 
 ### 41. itongzhuo-2351
 Source title: `G10 TestB Part2`
@@ -1994,7 +1994,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `What are the advantages and disadvantages for the child of having a large number of toys?`
+Card core text: `What are the advantages and disadvantages for the child of having a large number of toys?`
 
 ### 42. itongzhuo-2349
 Source title: `G10 TestA Part2`
@@ -2012,7 +2012,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `How can we deal with those causes?`
+Card core text: `How can we deal with those causes?`
 
 ### 43. itongzhuo-2347
 Source title: `G9 TestB Part2`
@@ -2028,7 +2028,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `Some people think that the teenage years are the happiest times of most people's lives. Others think that adult life brings more happiness, in spite of greater responsibilities.`
+Card core text: `Some people think that the teenage years are the happiest times of most people's lives. Others think that adult life brings more happiness, in spite of greater responsibilities`
 
 ### 44. itongzhuo-2344
 Source title: `G9 TestA Part2`
@@ -2044,7 +2044,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `Do you think that being a celebrity brings more benefits or more problems?`
+Card core text: `Do you think that being a celebrity brings more benefits or more problems?`
 
 ### 45. itongzhuo-2342
 Source title: `G8 TestB Part2`
@@ -2060,7 +2060,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `Some people think that it is better to educate boys and girls in separate schools. Others, however, believe that boys and girls benefit more from attending mixed schools.`
+Card core text: `Some people think that it is better to educate boys and girls in separate schools. Others, however, believe that boys and girls benefit more from attending mixed schools`
 
 ### 46. itongzhuo-2340
 Source title: `G8 TestA Part2`
@@ -2078,7 +2078,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `What are the benefits of travelling for the traveller?`
+Card core text: `What are the benefits of travelling for the traveller?`
 
 ### 47. itongzhuo-2338
 Source title: `G7 TestB Part2`
@@ -2096,7 +2096,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `Which other types of job should he highly paid?`
+Card core text: `Which other types of job should he highly paid?`
 
 ### 48. itongzhuo-2336
 Source title: `G7 TestA Part2`
@@ -2112,7 +2112,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `Are there more advantages than disadvantages of living in a house compared with living in an apartment?`
+Card core text: `Are there more advantages than disadvantages of living in a house compared with living in an apartment?`
 
 ### 49. itongzhuo-2334
 Source title: `G6 TestB Part2`
@@ -2128,7 +2128,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `Do you agree or disagree?`
+Card core text: `Do you agree or disagree?`
 
 ### 50. itongzhuo-2332
 Source title: `G6 TestA Part2`
@@ -2144,7 +2144,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `Do you agree or disagree with this opinion? Describe the skills a person needs to be a good parent.?`
+Card core text: `Do you agree or disagree with this opinion? Describe the skills a person needs to be a good parent`
 
 ### 51. itongzhuo-2330
 Source title: `G5 TestB Part2`
@@ -2162,7 +2162,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `Why do you think this is happening?`
+Card core text: `Why do you think this is happening?`
 
 ### 52. itongzhuo-2327
 Source title: `G5 TestA Part2`
@@ -2178,7 +2178,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `How do you think children should spend their free time?`
+Card core text: `How do you think children should spend their free time?`
 
 ### 53. itongzhuo-2325
 Source title: `G4 TestB Part2`
@@ -2194,7 +2194,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `What do you think are the advantages of attending school from a young age?`
+Card core text: `What do you think are the advantages of attending school from a young age?`
 
 ### 54. itongzhuo-2321
 Source title: `G4 TestA Part2`
@@ -2212,7 +2212,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `Why do you think this change is happening?`
+Card core text: `Why do you think this change is happening?`
 
 ### 55. kmf-926
 Source title: `C20 Test 4 Task 2`
@@ -2226,7 +2226,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `How has global fashion become such a strong influence on people's lives? Do you think this is a positive or negative development?`
+Card core text: `How has global fashion become such a strong influence on people's lives? Do you think this is a positive or negative development?`
 
 ### 56. kmf-924
 Source title: `C20 Test 3 Task 2`
@@ -2240,7 +2240,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `Do you think the environmental benefits of this development outweigh the disadvantages for individuals and businesses?`
+Card core text: `Do you think the environmental benefits of this development outweigh the disadvantages for individuals and businesses?`
 
 ### 57. kmf-922
 Source title: `C20 Test 2 Task 2`
@@ -2256,7 +2256,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `What are the arguments in favour of shorter school holidays?`
+Card core text: `What are the arguments in favour of shorter school holidays?`
 
 ### 58. kmf-920
 Source title: `C20 Test 1 Task 2`
@@ -2272,7 +2272,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `Do you agree or disagree?`
+Card core text: `Do you agree or disagree?`
 
 ### 59. kmf-846
 Source title: `C19 Test 4 Task 2`
@@ -2284,7 +2284,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `In many countries nowadays, consumers can go to a supermarket and buy food produced all over the world. Do you think this is a positive or negative development?`
+Card core text: `In many countries nowadays, consumers can go to a supermarket and buy food produced all over the world. Do you think this is a positive or negative development?`
 
 ### 60. kmf-844
 Source title: `C19 Test 3 Task 2`
@@ -2296,7 +2296,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `It is important for everyone, including young people, to save money for their future. To what extent do you agree or disagree with this statement?`
+Card core text: `It is important for everyone, including young people, to save money for their future. To what extent do you agree or disagree with this statement?`
 
 ### 61. kmf-842
 Source title: `C19 Test 2 Task 2`
@@ -2308,7 +2308,7 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 ```
-Card core candidate: `The working week should be shorter and workers should have a longer weekend. Do you agree or disagree?`
+Card core text: `The working week should be shorter and workers should have a longer weekend. Do you agree or disagree?`
 
 ### 62. kmf-840
 Source title: `C19 Test 1 Task 2`
@@ -2318,7 +2318,7 @@ Some people think that competition at work, at school and in daily life is a goo
 
 Give reasons for your answer and include any relevant examples from your own knowledge or experience. Write at least 250 words.
 ```
-Card core candidate: `Some people think that competition at work, at school and in daily life is a good thing. Others believe that we should try to cooperate more, rather than competing against each other. Discuss both these views and give your own opinion.`
+Card core text: `Some people think that competition at work, at school and in daily life is a good thing. Others believe that we should try to cooperate more, rather than competing against each other. Discuss both these views and give your own opinion`
 
 ### 63. kmf-797
 Source title: `C18 Test 4 Task 2`
@@ -2328,7 +2328,7 @@ In many countries, people are now living longer than ever before. Some people sa
 
 To what extent do the advantages of having an ageing population outweigh the disadvantages?
 ```
-Card core candidate: `To what extent do the advantages of having an ageing population outweigh the disadvantages?`
+Card core text: `To what extent do the advantages of having an ageing population outweigh the disadvantages?`
 
 ### 64. kmf-795
 Source title: `C18 Test 3 Task 2`
@@ -2338,7 +2338,7 @@ In many countries around the world, rural people are moving to cities, so the po
 
 Do you think this is a positive or a negative development?
 ```
-Card core candidate: `Do you think this is a positive or a negative development?`
+Card core text: `Do you think this is a positive or a negative development?`
 
 ### 65. kmf-793
 Source title: `C18 Test 2 Task 2`
@@ -2348,7 +2348,7 @@ Some university students want to learn about other subjects in addition to their
 
 Discuss both these views and give your own opinion.
 ```
-Card core candidate: `Some university students want to learn about other subjects in addition to their main subjects. Others believe it is more important to give all their time and attention to studying for a qualification.`
+Card core text: `Some university students want to learn about other subjects in addition to their main subjects. Others believe it is more important to give all their time and attention to studying for a qualification`
 
 ### 66. kmf-791
 Source title: `C18 Test 1 Task 2`
@@ -2358,7 +2358,7 @@ The most important aim of science should be to improve people's lives.
 
 To what extent do you agree or disagree with this statement?
 ```
-Card core candidate: `To what extent do you agree or disagree with this statement?`
+Card core text: `To what extent do you agree or disagree with this statement?`
 
 ### 67. kmf-789
 Source title: `C17 Test 4 Task 2`
@@ -2368,7 +2368,7 @@ Nowadays, a growing number of people with health problems are trying alternative
 
 Do you think this is a positive or a negative development?
 ```
-Card core candidate: `Do you think this is a positive or a negative development?`
+Card core text: `Do you think this is a positive or a negative development?`
 
 ### 68. kmf-787
 Source title: `C17 Test 3 Task 2`
@@ -2378,7 +2378,7 @@ Some people believe that professionals, such as doctors and engineers, should be
 
 Discuss both these views and give your own opinion.
 ```
-Card core candidate: `Some people believe that professionals, such as doctors and engineers, should be required to work in the country where they did their training. Others believe they should be free to work in another country if they wish.`
+Card core text: `Some people believe that professionals, such as doctors and engineers, should be required to work in the country where they did their training. Others believe they should be free to work in another country if they wish`
 
 ### 69. kmf-785
 Source title: `C17 Test 2 Task 2`
@@ -2388,7 +2388,7 @@ Some children spend hours every day on their smartphones.
 
 Why is this the case? Do you think this is a positive or a negative development?
 ```
-Card core candidate: `Why is this the case? Do you think this is a positive or a negative development?`
+Card core text: `Why is this the case? Do you think this is a positive or a negative development?`
 
 ### 70. kmf-783
 Source title: `C17 Test 1 Task 2`
@@ -2398,7 +2398,7 @@ It is important for people to take risks, both in their professional lives and t
 
 Do you think the advantages of taking risks outweigh the disadvantages?
 ```
-Card core candidate: `Do you think the advantages of taking risks outweigh the disadvantages?`
+Card core text: `Do you think the advantages of taking risks outweigh the disadvantages?`
 
 ### 71. kmf-781
 Source title: `C16 Test 4 Task 2`
@@ -2408,7 +2408,7 @@ In the future all cars, buses and trucks will be driverless. The only people tra
 
 Do you think the advantages of driverless vehicles outweigh the disadvantages?
 ```
-Card core candidate: `Do you think the advantages of driverless vehicles outweigh the disadvantages?`
+Card core text: `Do you think the advantages of driverless vehicles outweigh the disadvantages?`
 
 ### 72. kmf-779
 Source title: `C16 Test 3 Task 2`
@@ -2420,7 +2420,7 @@ Sugary products should be made more expensive to encourage people to consume les
 
 Do you agree or disagree?
 ```
-Card core candidate: `Do you agree or disagree?`
+Card core text: `Do you agree or disagree?`
 
 ### 73. kmf-777
 Source title: `C16 Test 2 Task 2`
@@ -2430,7 +2430,7 @@ In their advertising, businesses nowadays usually emphasise that their products 
 
 Why is this? Do you think it is a positive or negative development?
 ```
-Card core candidate: `Why is this? Do you think it is a positive or negative development?`
+Card core text: `Why is this? Do you think it is a positive or negative development?`
 
 ### 74. kmf-775
 Source title: `C16 Test 1 Task 2`
@@ -2442,7 +2442,7 @@ What are the reasons for this?
 
 How can people research this?
 ```
-Card core candidate: `How can people research this?`
+Card core text: `How can people research this?`
 
 ### 75. kmf-773
 Source title: `C15 Test 4 Task 2`
@@ -2452,7 +2452,7 @@ In some cultures, children are often told that they can achieve anything if they
 
 What are the advantages and disadvantages of giving children this message?
 ```
-Card core candidate: `What are the advantages and disadvantages of giving children this message?`
+Card core text: `What are the advantages and disadvantages of giving children this message?`
 
 ### 76. kmf-771
 Source title: `C15 Test 3 Task 2`
@@ -2464,7 +2464,7 @@ Other people think that advertising is so common that we no longer pay attention
 
 Discuss both these views and give your own opinion.
 ```
-Card core candidate: `Some people say that advertising is extremely successful at persuading us to buy things.`
+Card core text: `Some people say that advertising is extremely successful at persuading us to buy things`
 
 ### 77. kmf-769
 Source title: `C15 Test 2 Task 2`
@@ -2474,7 +2474,7 @@ In the future, nobody will buy printed newspapers or books because they will be 
 
 To what extent do you agree or disagree with this statement?
 ```
-Card core candidate: `To what extent do you agree or disagree with this statement?`
+Card core text: `To what extent do you agree or disagree with this statement?`
 
 ### 78. kmf-767
 Source title: `C15 Test 1 Task 2`
@@ -2486,7 +2486,7 @@ Why might this be the case?
 
 Do you think this is a positive or negative situation?
 ```
-Card core candidate: `Do you think this is a positive or negative situation?`
+Card core text: `Do you think this is a positive or negative situation?`
 
 ### 79. kmf-765
 Source title: `C14 Test 4 Task 2`
@@ -2498,7 +2498,7 @@ Why might this be the case?
 
 What could be the disadvantages of being self-employed?
 ```
-Card core candidate: `What could be the disadvantages of being self-employed?`
+Card core text: `What could be the disadvantages of being self-employed?`
 
 ### 80. kmf-763
 Source title: `C14 Test 3 Task 2`
@@ -2508,7 +2508,7 @@ Some people say that music is a good way of bringing people of different culture
 
 To what extent do you agree or disagree with this opinion?
 ```
-Card core candidate: `To what extent do you agree or disagree with this opinion?`
+Card core text: `To what extent do you agree or disagree with this opinion?`
 
 ### 81. kmf-761
 Source title: `C14 Test 2 Task 2`
@@ -2518,7 +2518,7 @@ Some people say that the main environmental problem of our time is the loss of p
 
 Discuss both these views and give your own opinion.
 ```
-Card core candidate: `Some people say that the main environmental problem of our time is the loss of particular species of plants and animals. Others say that there are more important environmental problems.`
+Card core text: `Some people say that the main environmental problem of our time is the loss of particular species of plants and animals. Others say that there are more important environmental problems`
 
 ### 82. kmf-759
 Source title: `C14 Test 1 Task 2`
@@ -2528,7 +2528,7 @@ Some people believe that it is best to accept a bad situation, such as an unsati
 
 Discuss both these views and give your own opinion.
 ```
-Card core candidate: `Some people believe that it is best to accept a bad situation, such as an unsatisfactory job or shortage of money. Others argue that it is better to try and improve such situations.`
+Card core text: `Some people believe that it is best to accept a bad situation, such as an unsatisfactory job or shortage of money. Others argue that it is better to try and improve such situations`
 
 ### 83. kmf-757
 Source title: `C13 Test 4 Task 2`
@@ -2540,7 +2540,7 @@ Why is this the case?
 
 What can be done about this problem?
 ```
-Card core candidate: `What can be done about this problem?`
+Card core text: `What can be done about this problem?`
 
 ### 84. kmf-755
 Source title: `C13 Test 3 Task 2`
@@ -2550,7 +2550,7 @@ Some people believe that nowadays we have too many choices.
 
 To what extent do you agree or disagree with this statement?
 ```
-Card core candidate: `To what extent do you agree or disagree with this statement?`
+Card core text: `To what extent do you agree or disagree with this statement?`
 
 ### 85. kmf-753
 Source title: `C13 Test 2 Task 2`
@@ -2560,7 +2560,7 @@ Some people say History is one of the most important school subjects. Other peop
 
 Discuss both these views and give your own opinion.
 ```
-Card core candidate: `Some people say History is one of the most important school subjects. Other people think that, in today's world, subjects like Science and Technology are more important than History.`
+Card core text: `Some people say History is one of the most important school subjects. Other people think that, in today's world, subjects like Science and Technology are more important than History`
 
 ### 86. kmf-751
 Source title: `C13 Test 1 Task 2`
@@ -2570,7 +2570,7 @@ Living in a country where you have to speak a foreign language can cause serious
 
 To what extent do you agree or disagree with this statement?
 ```
-Card core candidate: `To what extent do you agree or disagree with this statement?`
+Card core text: `To what extent do you agree or disagree with this statement?`
 
 ### 87. kmf-749
 Source title: `C12 Test 4 Task 2`
@@ -2580,7 +2580,7 @@ Some people believe that allowing children to make their own choices on everyday
 
 Discuss both these views and give your own opinion.
 ```
-Card core candidate: `Some people believe that allowing children to make their own choices on everyday matters (such as food, clothes and entertainment) is likely to result in a society of individuals who only think about their own wishes. Other people believe that it is important for children to make decisions about matters that affect them.`
+Card core text: `Some people believe that allowing children to make their own choices on everyday matters (such as food, clothes and entertainment) is likely to result in a society of individuals who only think about their own wishes. Other people believe that it is important for children to make decisions about matters that affect them`
 
 ### 88. kmf-747
 Source title: `C12 Test 3 Task 2`
@@ -2590,7 +2590,7 @@ In a number of countries, some people think it is necessary to spend large sums 
 
 Discuss both these views and give your own opinion.
 ```
-Card core candidate: `In a number of countries, some people think it is necessary to spend large sums of money on constructing new railway lines for very fast trains between cities. Others believe the money should be spent on improving existing public transport.`
+Card core text: `In a number of countries, some people think it is necessary to spend large sums of money on constructing new railway lines for very fast trains between cities. Others believe the money should be spent on improving existing public transport`
 
 ### 89. kmf-745
 Source title: `C12 Test 2 Task 2`
@@ -2600,7 +2600,7 @@ At the present time, the population of some countries includes a relatively larg
 
 Do the advantages of this situation outweigh the disadvantages?
 ```
-Card core candidate: `Do the advantages of this situation outweigh the disadvantages?`
+Card core text: `Do the advantages of this situation outweigh the disadvantages?`
 
 ### 90. kmf-743
 Source title: `C12 Test 1 Task 2`
@@ -2612,7 +2612,7 @@ Discuss both these views and give your own opinion.
 
 Give reasons for your answer and include any relevant examples from your own knowledge or experience
 ```
-Card core candidate: `Some people believe that it is good to share as much information as possible in scientific research, business and the academic world. Others believe that some information is too important or too valuable to be shared freely.`
+Card core text: `Some people believe that it is good to share as much information as possible in scientific research, business and the academic world. Others believe that some information is too important or too valuable to be shared freely`
 
 ### 91. kmf-741
 Source title: `C11 Test 4 Task 2`
@@ -2622,7 +2622,7 @@ Many governments think that economic progress is their most important goal. Some
 
 Discuss both these views and give your own opinion.
 ```
-Card core candidate: `Many governments think that economic progress is their most important goal. Some people, however, think that other types of progress are equally important for a country.`
+Card core text: `Many governments think that economic progress is their most important goal. Some people, however, think that other types of progress are equally important for a country`
 
 ### 92. kmf-739
 Source title: `C11 Test 3 Task 2`
@@ -2632,7 +2632,7 @@ Some people say that the only reason for learning a foreign language is in order
 
 Discuss both these views and give your own opinion.
 ```
-Card core candidate: `Some people say that the only reason for learning a foreign language is in order to travel to or work in a foreign country. Others say that these are not the only reasons why someone should learn a foreign language.`
+Card core text: `Some people say that the only reason for learning a foreign language is in order to travel to or work in a foreign country. Others say that these are not the only reasons why someone should learn a foreign language`
 
 ### 93. kmf-737
 Source title: `C11 Test 2 Task 2`
@@ -2642,7 +2642,7 @@ Some people claim that not enough of the waste from homes is recycled. They say 
 
 To what extent do you think laws are needed to make people recycle more of their waste?
 ```
-Card core candidate: `To what extent do you think laws are needed to make people recycle more of their waste?`
+Card core text: `To what extent do you think laws are needed to make people recycle more of their waste?`
 
 ### 94. kmf-735
 Source title: `C11 Test 1 Task 2`
@@ -2652,7 +2652,7 @@ Governments should spend money on railways rather than roads.
 
 To what extent do you agree or disagree with this statement?
 ```
-Card core candidate: `To what extent do you agree or disagree with this statement?`
+Card core text: `To what extent do you agree or disagree with this statement?`
 
 ### 95. kmf-733
 Source title: `C10 Test 4 Task 2`
@@ -2662,7 +2662,7 @@ Many museums charge for admission while others are free.
 
 Do you think the advantages of charging people for admission to museums outweigh the disadvantages?
 ```
-Card core candidate: `Do you think the advantages of charging people for admission to museums outweigh the disadvantages?`
+Card core text: `Do you think the advantages of charging people for admission to museums outweigh the disadvantages?`
 
 ### 96. kmf-731
 Source title: `C10 Test 3 Task 2`
@@ -2672,7 +2672,7 @@ Countries are becoming more and more similar because people are able to buy the 
 
 Do you think this is a positive or negative development?
 ```
-Card core candidate: `Do you think this is a positive or negative development?`
+Card core text: `Do you think this is a positive or negative development?`
 
 ### 97. kmf-729
 Source title: `C10 Test 2 Task 2`
@@ -2682,7 +2682,7 @@ Some people think that all university students should study whatever they like.O
 
 Discuss both these views and give your own opinion.
 ```
-Card core candidate: `Some people think that all university students should study whatever they like.Others believe that they should only be allowed to study subjects that will be useful in the future,such as those related to science and technology.`
+Card core text: `Some people think that all university students should study whatever they like.Others believe that they should only be allowed to study subjects that will be useful in the future,such as those related to science and technology`
 
 ### 98. kmf-727
 Source title: `C10 Test 1 Task 2`
@@ -2694,7 +2694,7 @@ To what extent do you agree or disagree with this opinion?
 
 What sort of punishment should parents and teachers be allowed to use to teach good behaviour to children?
 ```
-Card core candidate: `What sort of punishment should parents and teachers be allowed to use to teach good behaviour to children?`
+Card core text: `What sort of punishment should parents and teachers be allowed to use to teach good behaviour to children?`
 
 ### 99. kmf-725
 Source title: `C9 Test 4 Task 2`
@@ -2704,7 +2704,7 @@ Every year several languages die out Some people think that this is not importan
 
 To what extent do you agree or disagree with this opinion?
 ```
-Card core candidate: `To what extent do you agree or disagree with this opinion?`
+Card core text: `To what extent do you agree or disagree with this opinion?`
 
 ### 100. kmf-723
 Source title: `C9 Test 3 Task 2`
@@ -2714,7 +2714,7 @@ Some people say that the best way to improve public health is by increasing the 
 
 Discuss both these views and give your own opinion.
 ```
-Card core candidate: `Some people say that the best way to improve public health is by increasing the number of sports facilities. Others, however, say that this would have little effect on public health and that other measures are required.`
+Card core text: `Some people say that the best way to improve public health is by increasing the number of sports facilities. Others, however, say that this would have little effect on public health and that other measures are required`
 
 ### 101. kmf-721
 Source title: `C9 Test 2 Task 2`
@@ -2724,7 +2724,7 @@ Some people believe that unpaid community service should be a compulsory part of
 
 To what extent do you agree or disagree?
 ```
-Card core candidate: `To what extent do you agree or disagree?`
+Card core text: `To what extent do you agree or disagree?`
 
 ### 102. kmf-719
 Source title: `C9 Test 1 Task 2`
@@ -2734,7 +2734,7 @@ Some experts believe that it is better for children to begin learning a foreign 
 
 Do the advantages of this outweigh the disadvantages?
 ```
-Card core candidate: `Do the advantages of this outweigh the disadvantages?`
+Card core text: `Do the advantages of this outweigh the disadvantages?`
 
 ### 103. kmf-717
 Source title: `C8 Test 4 Task 2`
@@ -2744,7 +2744,7 @@ In some countries the average weight of people is increasing and their levels of
 
 What do you think are the causes of these problems and what measures could be taken to solve them?
 ```
-Card core candidate: `What do you think are the causes of these problems and what measures could be taken to solve them?`
+Card core text: `What do you think are the causes of these problems and what measures could be taken to solve them?`
 
 ### 104. kmf-715
 Source title: `C8 Test 3 Task 2`
@@ -2756,7 +2756,7 @@ To what extent do you agree or disagree?
 
 What other measures do you think might be effective?
 ```
-Card core candidate: `What other measures do you think might be effective?`
+Card core text: `What other measures do you think might be effective?`
 
 ### 105. kmf-713
 Source title: `C8 Test 2 Task 2`
@@ -2768,7 +2768,7 @@ In what ways has technology affected the types of relationships people make?
 
 Has this become a positive or negative development?
 ```
-Card core candidate: `Has this become a positive or negative development?`
+Card core text: `Has this become a positive or negative development?`
 
 ### 106. kmf-711
 Source title: `C8 Test 1 Task 2`
@@ -2778,7 +2778,7 @@ Some people think that parents should teach children how to be good members of s
 
 Discuss both these views and give your own opinion.
 ```
-Card core candidate: `Some people think that parents should teach children how to be good members of society.Others, however, believe that school is the place to learn this.`
+Card core text: `Some people think that parents should teach children how to be good members of society.Others, however, believe that school is the place to learn this`
 
 ### 107. kmf-709
 Source title: `C7 Test 4 Task 2`
@@ -2788,7 +2788,7 @@ Some people think that universities should provide graduates with the knowledge 
 
 What, in your opinion, should be the main function of a university?
 ```
-Card core candidate: `What, in your opinion, should be the main function of a university?`
+Card core text: `What, in your opinion, should be the main function of a university?`
 
 ### 108. kmf-707
 Source title: `C7 Test 3 Task 2`
@@ -2800,7 +2800,7 @@ What factors contribute to job satisfaction?
 
 How realistic is the expectation of job satisfaction for all workers?
 ```
-Card core candidate: `How realistic is the expectation of job satisfaction for all workers?`
+Card core text: `How realistic is the expectation of job satisfaction for all workers?`
 
 ### 109. kmf-705
 Source title: `C7 Test 2 Task 2`
@@ -2810,7 +2810,7 @@ Some people believe that there should be fixed punishments for each type of crim
 
 Discuss both these views and give your own opinion.
 ```
-Card core candidate: `Some people believe that there should be fixed punishments for each type of crime. Others, however, argue that the circumstances of an individual crime, and the motivation for committing it, should always be taken into account when deciding on the punishment.`
+Card core text: `Some people believe that there should be fixed punishments for each type of crime. Others, however, argue that the circumstances of an individual crime, and the motivation for committing it, should always be taken into account when deciding on the punishment`
 
 ### 110. kmf-703
 Source title: `C7 Test 1 Task 2`
@@ -2820,7 +2820,7 @@ It is generally believed that some people are born with certain talents, for ins
 
 Discuss both these views and give your own opinion.
 ```
-Card core candidate: `It is generally believed that some people are born with certain talents, for instance for sport or music, and others are not. However, it is sometimes claimed that any child can be taught to become a good sports person or musician.`
+Card core text: `It is generally believed that some people are born with certain talents, for instance for sport or music, and others are not. However, it is sometimes claimed that any child can be taught to become a good sports person or musician`
 
 ### 111. kmf-701
 Source title: `C6 Test 4 Task 2`
@@ -2830,7 +2830,7 @@ Some people prefer to spend their lives doing the same things and avoiding chang
 
 Discuss both these views and give your own opinion.
 ```
-Card core candidate: `Some people prefer to spend their lives doing the same things and avoiding change. Others, however, think that change is always a good thing.`
+Card core text: `Some people prefer to spend their lives doing the same things and avoiding change. Others, however, think that change is always a good thing`
 
 ### 112. kmf-699
 Source title: `C6 Test 3 Task 2`
@@ -2840,7 +2840,7 @@ Some people believe that visitors to other countries should follow local customs
 
 Discuss both these views and give your own opinion.
 ```
-Card core candidate: `Some people believe that visitors to other countries should follow local customs and behaviour.Others disagree and think that the host country should welcome cultural differences.`
+Card core text: `Some people believe that visitors to other countries should follow local customs and behaviour.Others disagree and think that the host country should welcome cultural differences`
 
 ### 113. kmf-697
 Source title: `C6 Test 2 Task 2`
@@ -2850,7 +2850,7 @@ Successful sports professionals can earn a great deal more money than people in 
 
 Discuss both these views and give your own opinion.
 ```
-Card core candidate: `Successful sports professionals can earn a great deal more money than people in other important professions.Some people think this is fully justified while others think it is unfair.`
+Card core text: `Successful sports professionals can earn a great deal more money than people in other important professions.Some people think this is fully justified while others think it is unfair`
 
 ### 114. kmf-695
 Source title: `C6 Test 1 Task 2`
@@ -2860,4 +2860,4 @@ Today, the high sales of popular consumer goods reflect the power of advertising
 
 To what extent do you agree or disagree?
 ```
-Card core candidate: `To what extent do you agree or disagree?`
+Card core text: `To what extent do you agree or disagree?`

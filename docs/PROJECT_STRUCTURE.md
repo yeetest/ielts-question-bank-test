@@ -41,6 +41,10 @@ Writing data:
 Writing docs:
 
 - `docs/writing/`
+  - `README.md`
+  - `writing_card_core_text_review.md`
+  - `writing_card_core_text_review.json`
+  - `writing_practice_flow.md`
 
 General / speaking-heavy taxonomy docs:
 
