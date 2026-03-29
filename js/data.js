@@ -2,7 +2,7 @@ import { state } from './state.js';
 import { renderGrid } from './components/grid.js';
 import { renderSidebar } from './components/sidebar.js';
 
-export const SECTIONS = Object.freeze(['homepage', 'speaking', 'writing']);
+export const SECTIONS = Object.freeze(['speaking', 'writing']);
 
 export function sectionFromURL() {
   const u = new URL(window.location.href);
@@ -19,12 +19,6 @@ export function setSectionInURL(section) {
 function updateChrome() {
   const label = document.getElementById('section-meta');
   if (!label) return;
-
-  if (state.currentSection === 'homepage') {
-    document.title = 'IELTS Question Bank';
-    label.textContent = 'Unified entrance for speaking and writing.';
-    return;
-  }
 
   if (state.currentSection === 'speaking') {
     document.title = 'IELTS Speaking Question Bank';

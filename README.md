@@ -1,8 +1,7 @@
 # IELTS Question Bank
 
-Static IELTS site with one shared visual system and three top-level sections:
+Static IELTS site with one shared visual system and two top-level sections:
 
-- `homepage`
 - `speaking`
 - `writing`
 
@@ -33,11 +32,10 @@ The site remains a static HTML/CSS/JS app on Vercel with JSON loaded at runtime.
 - The old `May–Aug 2026` placeholder tab is removed from the UI.
 - Speaking now uses only the real `2026-01-to-04` dataset.
 - Writing is integrated into the same static project and rendered with the same card / modal system.
-- The top menu is now the main navigation: `homepage / speaking / writing`.
+- The top menu is now the main navigation: `speaking / writing`.
 
 ## URL
 
-- `?section=homepage`
 - `?section=speaking`
 - `?section=writing`
 
@@ -74,7 +72,6 @@ python3 -m http.server 8765
 
 Then open e.g.:
 
-- `http://127.0.0.1:8765/?section=homepage`
 - `http://127.0.0.1:8765/?section=speaking`
 - `http://127.0.0.1:8765/?section=writing`
 

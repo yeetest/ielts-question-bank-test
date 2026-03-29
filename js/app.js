@@ -18,7 +18,6 @@ function resetSpeakingFilters() {
 }
 
 function updateNav() {
-  document.getElementById('nav-homepage').classList.toggle('active', state.currentSection === 'homepage');
   document.getElementById('nav-speaking').classList.toggle('active', state.currentSection === 'speaking');
   document.getElementById('nav-writing').classList.toggle('active', state.currentSection === 'writing');
 }
@@ -31,16 +30,6 @@ function updatePageChrome() {
   const sidebarToggle = document.getElementById('sidebar-toggle');
   const tab1 = document.getElementById('tab-part1');
   const tab2 = document.getElementById('tab-part2');
-
-  if (state.currentSection === 'homepage') {
-    document.title = 'IELTS Question Bank';
-    pageTitle.textContent = 'IELTS Question Bank';
-    sectionMeta.textContent = 'One shared interface for speaking and writing.';
-    tabs.style.display = 'none';
-    sidebarRoot.innerHTML = '';
-    sidebarRoot.style.display = 'none';
-    return;
-  }
 
   tabs.style.display = 'flex';
   if (state.currentSection === 'speaking') {
@@ -65,7 +54,7 @@ function updatePageChrome() {
 }
 
 function switchSection(section) {
-  if (!['homepage', 'speaking', 'writing'].includes(section)) return;
+  if (!['speaking', 'writing'].includes(section)) return;
   closeOverlay();
   state.currentSection = section;
   setSectionInURL(section);
@@ -101,7 +90,6 @@ function switchSubtab(tab) {
 document.addEventListener('DOMContentLoaded', async () => {
   initSidebar();
 
-  document.getElementById('nav-homepage').addEventListener('click', () => switchSection('homepage'));
   document.getElementById('nav-speaking').addEventListener('click', () => switchSection('speaking'));
   document.getElementById('nav-writing').addEventListener('click', () => switchSection('writing'));
 
@@ -122,12 +110,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 
   document.getElementById('grid').addEventListener('click', e => {
-    const homepageCard = e.target.closest('[data-section-link]');
-    if (homepageCard) {
-      switchSection(homepageCard.dataset.sectionLink);
-      return;
-    }
-
     if (state.currentSection === 'speaking') {
       const ctag = e.target.closest('[data-content-tag]');
       if (ctag) {
