@@ -69,6 +69,10 @@ function buildFlashcards(highlights = []) {
   }));
 }
 
+function maskOutlineText(text) {
+  return String(text || '').replace(/[A-Za-z][A-Za-z-]*/g, match => '_'.repeat(Math.max(match.length, 3)));
+}
+
 function countWords(text) {
   return String(text || '').trim().split(/\s+/).filter(Boolean).length;
 }
@@ -88,7 +92,7 @@ function defaultWorkspace(task) {
   return {
     taskId: task.id,
     essay: '',
-    activeTab: 'feedback',
+    activeTab: 'revised',
     viewMode: 'practice',
     viewTaskId: task.id,
     correctionResult: null,
@@ -99,6 +103,7 @@ function defaultWorkspace(task) {
     timerStartedAt: Date.now(),
     flashcardIndex: 0,
     flashcardAnswerVisible: false,
+    outlineAnswerVisible: false,
     selectionText: '',
     selectionTranslation: '',
     selectionX: 0,
@@ -113,9 +118,7 @@ function normalizeWorkspace(task, value) {
   merged.flashcards = Array.isArray(merged.flashcards) && merged.flashcards.length
     ? merged.flashcards
     : buildFlashcards(merged.highlights);
-  if (!['feedback', 'revised', 'notes'].includes(merged.activeTab)) {
-    merged.activeTab = 'feedback';
-  }
+  merged.activeTab = 'revised';
   if (typeof merged.editorWidth !== 'number') merged.editorWidth = 48;
   if (typeof merged.timerStartedAt !== 'number') merged.timerStartedAt = Date.now();
   merged.selectionText = '';
@@ -213,50 +216,47 @@ function renderHighlightedText(text, highlights) {
   return html.replace(/\n/g, '<br>');
 }
 
-function renderEssayContent(text) {
-  const paragraphs = String(text || '')
-    .split(/\n\s*\n/)
-    .map(item => item.trim())
-    .filter(Boolean);
-
-  if (!paragraphs.length) return '<div class="muted">还没有内容。</div>';
-  return paragraphs.map(item => `<p>${escapeHtml(item).replace(/\n/g, '<br>')}</p>`).join('');
-}
-
-function renderEssayMarkup(html) {
-  const paragraphs = String(html || '')
-    .split(/(?:<br>\s*){2,}/)
-    .map(item => item.trim())
-    .filter(Boolean);
-
-  if (!paragraphs.length) return '<div class="muted">还没有内容。</div>';
-  return paragraphs.map(item => `<p>${item}</p>`).join('');
-}
-
 function renderFeedbackCards(correctionResult) {
-  if (!correctionResult || typeof correctionResult !== 'object') {
+  const feedback = correctionResult?.feedback;
+  if (!feedback || typeof feedback !== 'object') {
     return '<div class="muted">还没有批改结果。</div>';
   }
 
-  const criteria = correctionResult.criteria || {};
   const cards = [
-    ['Task Achievement / Task Response', criteria.task_achievement],
-    ['Coherence & Cohesion', criteria.coherence_cohesion],
-    ['Lexical Resource', criteria.lexical_resource],
-    ['Grammatical Range & Accuracy', criteria.grammatical_range_accuracy]
+    {
+      title: 'Overall Band',
+      band: feedback.overall_band,
+      comments: Array.isArray(feedback.key_improvements) ? feedback.key_improvements.join(' ') : ''
+    },
+    {
+      title: 'Task Achievement / Task Response',
+      band: feedback.task_achievement?.band,
+      comments: feedback.task_achievement?.comments
+    },
+    {
+      title: 'Coherence & Cohesion',
+      band: feedback.coherence_cohesion?.band,
+      comments: feedback.coherence_cohesion?.comments
+    },
+    {
+      title: 'Lexical Resource',
+      band: feedback.lexical_resource?.band,
+      comments: feedback.lexical_resource?.comments
+    },
+    {
+      title: 'Grammatical Range & Accuracy',
+      band: feedback.grammatical_range?.band,
+      comments: feedback.grammatical_range?.comments
+    }
   ];
 
   return `
-    <section class="writing-result-block">
-      <div class="writing-overall-band">Overall Band: <strong>${escapeHtml(correctionResult.overallBand)}</strong></div>
-    </section>
     <div class="writing-feedback-grid">
-      ${cards.map(([title, item]) => `
+      ${cards.map(item => `
         <div class="feedback-card-mini">
-          <div class="feedback-line"><strong>${escapeHtml(title)}: ${escapeHtml(item?.band)}</strong></div>
-          <ul class="feedback-points">
-            <li>${escapeHtml(item?.comment || '')}</li>
-          </ul>
+          <div class="section-label">${escapeHtml(item.title)}</div>
+          <div><strong>${escapeHtml(item.band)}</strong></div>
+          <div>${escapeHtml(item.comments || '')}</div>
         </div>
       `).join('')}
     </div>
@@ -264,25 +264,63 @@ function renderFeedbackCards(correctionResult) {
 }
 
 function renderRevisionNote(correctionResult) {
-  const notes = correctionResult?.revisionNotes;
-  if (!notes) return '<div class="muted">还没有修改说明。</div>';
-
+  const note = correctionResult?.revisionNote;
+  if (!note) return '';
   return `
-    <section class="writing-revision-note">
-      ${[
-        ['Structure', notes.structure],
-        ['Content', notes.content],
-        ['Grammar', notes.grammar],
-        ['Vocabulary', notes.vocabulary]
-      ].map(([title, content]) => `
-        <div class="writing-result-block">
-          <h3>${title}</h3>
-          <ul class="feedback-points">
-            <li>${escapeHtml(content || '')}</li>
-          </ul>
-        </div>
-      `).join('')}
+    <section class="writing-pane writing-revision-note">
+      <div class="writing-pane-head">
+        <h3>修改说明</h3>
+      </div>
+      <div class="writing-reading-panel">${escapeHtml(note).replace(/\n/g, '<br>')}</div>
     </section>
+  `;
+}
+
+function renderKeywordOutline(correctionResult) {
+  const outline = correctionResult?.keywordOutline;
+  if (!outline) return '';
+  return `
+    <section class="writing-pane writing-revision-note">
+      <div class="writing-pane-head">
+        <h3>Keyword Outline</h3>
+      </div>
+      <div class="writing-reading-panel">${escapeHtml(outline).replace(/\n/g, '<br>')}</div>
+    </section>
+  `;
+}
+
+function renderKeywordOutlineExercise(record, workspace) {
+  const outline = record.correctionResult?.keywordOutline || '';
+  if (!outline) {
+    return `
+      <div class="writing-main-view">
+        <section class="writing-pane">
+          <div class="writing-empty-copy">这条记录还没有 keyword outline。</div>
+        </section>
+      </div>
+    `;
+  }
+
+  const masked = maskOutlineText(outline).replace(/\n/g, '<br>');
+  const answer = escapeHtml(outline).replace(/\n/g, '<br>');
+  return `
+    <div class="writing-main-view">
+      <section class="writing-pane">
+        <div class="writing-pane-head">
+          <h3>Keyword Outline 填空练习</h3>
+          <div class="writing-save-status"><span>${workspace.outlineAnswerVisible ? '已显示答案' : '先回忆再看答案'}</span></div>
+        </div>
+        <div class="flashcard-shell">
+          <div class="flashcard-face">
+            <div class="section-label">Fill in the outline</div>
+            <div class="flashcard-copy">${workspace.outlineAnswerVisible ? answer : masked}</div>
+          </div>
+          <div class="button-inline">
+            <button class="secondary-btn" id="outline-toggle-answer">${workspace.outlineAnswerVisible ? '隐藏答案' : '显示答案'}</button>
+          </div>
+        </div>
+      </section>
+    </div>
   `;
 }
 
@@ -324,6 +362,7 @@ function renderLibrarySidebar(task, workspace) {
               <div class="library-children">
                 <button class="library-child-btn${currentViewKey === `record:${record.taskId}` ? ' active' : ''}" data-library-view="record" data-library-task="${record.taskId}">我的练习</button>
                 <button class="library-child-btn${currentViewKey === `flashcards:${record.taskId}` ? ' active' : ''}" data-library-view="flashcards" data-library-task="${record.taskId}">高分表达</button>
+                <button class="library-child-btn${currentViewKey === `outline:${record.taskId}` ? ' active' : ''}" data-library-view="outline" data-library-task="${record.taskId}">Keyword Outline</button>
               </div>
             </div>
           `).join('') : '<div class="muted">还没有保存的记录。</div>'}
@@ -337,22 +376,23 @@ function renderPracticeView(task, workspace) {
   const revisedEssay = workspace.correctionResult?.revisedEssay || '';
   const editorWidth = Math.min(Math.max(workspace.editorWidth, 28), 72);
   const wordCount = countWords(workspace.essay);
-  const tabs = [
-    ['feedback', 'Score & Feedback'],
-    ['revised', 'Revised Essay'],
-    ['notes', 'Revision Notes']
-  ];
+  const accountMeta = authState.session
+    ? `${authState.session.identity} · ${authState.session.credits} credits`
+    : '未登录';
 
   return `
     <div class="writing-main-view">
       <div class="writing-layout writing-layout-resizable">
         <section class="writing-pane writing-pane-left" id="writing-editor-pane" style="width:${editorWidth}%;">
+          <div class="writing-pane-head">
+            <h3>写作区</h3>
+            <div class="writing-save-status">
+              <span>${escapeHtml(accountMeta)}</span>
+            </div>
+          </div>
           <div class="writing-prompt">
             <div class="section-label">${task.type === 'task1' ? 'Task 1' : 'Task 2'}</div>
             <div class="prompt-prewrap">${escapeHtml(task.prompt)}</div>
-          </div>
-          <div class="writing-pane-head">
-            <h3>写作区</h3>
           </div>
           <div class="writing-pane-head">
             <div class="section-label">${workspace.dirty ? '未保存' : '已保存'}</div>
@@ -367,17 +407,15 @@ function renderPracticeView(task, workspace) {
         <div class="writing-divider" id="writing-divider" aria-label="resize panes"></div>
 
         <section class="writing-pane writing-pane-right" id="writing-result-pane">
+          <div class="writing-pane-head">
+            <h3>我的专属 9 分范文</h3>
+          </div>
+
           ${workspace.correctionResult ? `
-            <div class="writing-tabs">
-              ${tabs.map(([key, label]) => `
-                <button class="secondary-btn writing-tab-btn${workspace.activeTab === key ? ' active' : ''}" data-writing-tab="${key}">${label}</button>
-              `).join('')}
-            </div>
-            <div class="writing-tab-panel">
-              ${workspace.activeTab === 'feedback' ? renderFeedbackCards(workspace.correctionResult) : ''}
-              ${workspace.activeTab === 'revised' ? `<div class="writing-reading-panel writing-highlight-surface" id="writing-reading-panel" data-highlight-source="revised">${renderEssayMarkup(renderHighlightedText(revisedEssay, workspace.highlights))}</div>` : ''}
-              ${workspace.activeTab === 'notes' ? renderRevisionNote(workspace.correctionResult) : ''}
-            </div>
+            ${renderFeedbackCards(workspace.correctionResult)}
+            <div class="writing-reading-panel writing-highlight-surface" id="writing-reading-panel" data-highlight-source="revised">${renderHighlightedText(revisedEssay, workspace.highlights)}</div>
+            ${renderRevisionNote(workspace.correctionResult)}
+            ${renderKeywordOutline(workspace.correctionResult)}
             <div class="button-inline writing-cta-row">
               <button class="secondary-btn" id="writing-save-library">保存到我的私有满分作文库</button>
             </div>
@@ -397,24 +435,29 @@ function renderPracticeView(task, workspace) {
 function renderRecordView(record) {
   return `
     <div class="writing-main-view">
-      <section class="writing-pane">
-        <div class="writing-pane-head">
-          <h3>我的原文</h3>
-          <div class="writing-save-status"><span>${new Date(record.savedAt).toLocaleString()}</span></div>
-        </div>
-        <div class="writing-reading-panel">${renderEssayContent(record.originalEssay)}</div>
-      </section>
-      <section class="writing-pane">
-        ${renderFeedbackCards(record.correctionResult)}
-      </section>
-      <section class="writing-pane">
-        <h3>Revised Essay</h3>
-        <div class="writing-reading-panel">${renderEssayMarkup(renderHighlightedText(record.correctionResult?.revisedEssay || '', record.highlights || []))}</div>
-      </section>
-      <section class="writing-pane">
-        <h3>Revision Notes</h3>
-        ${renderRevisionNote(record.correctionResult)}
-      </section>
+      <div class="writing-prompt">
+        <div class="section-label">${record.type === 'task1' ? 'Task 1' : 'Task 2'}</div>
+        <div class="prompt-prewrap">${escapeHtml(record.prompt)}</div>
+      </div>
+      <div class="writing-record-grid">
+        <section class="writing-pane">
+          <div class="writing-pane-head">
+            <h3>我的原文</h3>
+            <div class="writing-save-status"><span>已保存</span></div>
+          </div>
+          <div class="writing-reading-panel">${escapeHtml(record.originalEssay).replace(/\n/g, '<br>')}</div>
+        </section>
+        <section class="writing-pane">
+          <div class="writing-pane-head">
+            <h3>AI 修改结果</h3>
+            <div class="writing-save-status"><span>${new Date(record.savedAt).toLocaleString()}</span></div>
+          </div>
+          ${renderFeedbackCards(record.correctionResult)}
+          <div class="writing-reading-panel">${renderHighlightedText(record.correctionResult?.revisedEssay || '', record.highlights)}</div>
+          ${record.correctionResult?.revisionNote ? `<div class="writing-reading-panel">${escapeHtml(record.correctionResult.revisionNote).replace(/\n/g, '<br>')}</div>` : ''}
+          ${record.correctionResult?.keywordOutline ? `<div class="writing-reading-panel">${escapeHtml(record.correctionResult.keywordOutline).replace(/\n/g, '<br>')}</div>` : ''}
+        </section>
+      </div>
     </div>
   `;
 }
@@ -470,6 +513,7 @@ function renderMainView(task, workspace) {
     `;
   }
   if (workspace.viewMode === 'record') return renderRecordView(record);
+  if (workspace.viewMode === 'outline') return renderKeywordOutlineExercise(record, workspace);
   return renderFlashcardsView(record, workspace);
 }
 
@@ -483,7 +527,8 @@ export function renderWritingPractice(task) {
           <h2>${escapeHtml(task.title || 'Writing task')}</h2>
         </div>
         <div class="writing-save-status">
-          <span>${authState.session ? `${escapeHtml(authState.session.identity)} · ${escapeHtml(authState.session.credits)} credits` : '未登录'}</span>
+          <span>${authState.session ? escapeHtml(authState.session.identity) : '未登录'}</span>
+          <span>${workspace.highlights.length} highlights</span>
         </div>
       </div>
 
@@ -595,26 +640,19 @@ function bindSelection(task) {
   selectionHandler = () => {
     const selection = window.getSelection();
     const text = selection?.toString().trim() || '';
-    if (!text || !selection?.rangeCount) {
+    if (!text || !panel.contains(selection?.anchorNode)) {
       clearSelectionUI(task);
       updateSelectionPopover(task);
       return;
     }
 
     const range = selection.getRangeAt(0);
-    const container = range.commonAncestorContainer;
-    if (!panel.contains(container)) {
-      clearSelectionUI(task);
-      updateSelectionPopover(task);
-      return;
-    }
-
     const rect = range.getBoundingClientRect();
     patchWritingWorkspace(task, {
       selectionText: text,
       selectionTranslation: '',
       selectionX: rect.left + (rect.width / 2),
-      selectionY: Math.max(rect.top - 8, 8)
+      selectionY: Math.max(rect.top - 12, 12)
     });
     updateSelectionPopover(task);
   };
@@ -720,12 +758,12 @@ async function runCorrection(task) {
 
   patchWritingWorkspace(task, {
     essay,
-    activeTab: 'feedback',
+    activeTab: 'revised',
     correctionResult: {
-      overallBand: response.overallBand,
-      criteria: response.criteria,
+      feedback: response.feedback,
       revisedEssay: response.revisedEssay,
-      revisionNotes: response.revisionNotes,
+      revisionNote: response.revisionNote,
+      keywordOutline: response.keywordOutline,
       correctedAt: new Date().toISOString()
     },
     dirty: true
@@ -773,13 +811,6 @@ function bindPractice(task) {
     if (wordCountEl) {
       wordCountEl.textContent = `字数 ${countWords(event.target.value)}`;
     }
-  });
-
-  document.querySelectorAll('[data-writing-tab]').forEach(button => {
-    button.addEventListener('click', () => {
-      patchWritingWorkspace(task, { activeTab: button.dataset.writingTab });
-      rerender();
-    });
   });
 
   document.getElementById('writing-correct-essay')?.addEventListener('click', async () => {
@@ -843,6 +874,16 @@ function bindFlashcards(task) {
   });
 }
 
+function bindOutline(task) {
+  document.getElementById('outline-toggle-answer')?.addEventListener('click', () => {
+    const workspace = getWritingWorkspace(task);
+    patchWritingWorkspace(task, {
+      outlineAnswerVisible: !workspace.outlineAnswerVisible
+    });
+    rerender();
+  });
+}
+
 function cleanup() {
   if (selectionHandler) {
     document.removeEventListener('selectionchange', selectionHandler);
@@ -868,6 +909,7 @@ export function bindWritingPractice(task, reopen, hooks) {
   bindSidebar(task);
   bindPractice(task);
   bindFlashcards(task);
+  bindOutline(task);
   bindBeforeUnload(task);
 }
 

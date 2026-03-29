@@ -253,18 +253,7 @@
   resize: vertical;
 }
 .writing-tabs {
-  margin-bottom: 14px;
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-.writing-tab-btn.active {
-  border-color: #d0e7ff;
-  background: #f0f7ff;
-}
-.writing-tab-panel {
-  display: grid;
-  gap: 16px;
+  margin-bottom: 0;
 }
 .writing-reading-panel {
   border: 1px solid #eee;
@@ -275,12 +264,6 @@
   max-height: 520px;
   overflow: auto;
   line-height: 1.7;
-}
-.writing-reading-panel p {
-  margin: 0 0 14px;
-}
-.writing-reading-panel p:last-child {
-  margin-bottom: 0;
 }
 .writing-tab-note,
 .writing-empty-copy {
@@ -329,9 +312,10 @@
   line-height: 1.5;
 }
 .writing-feedback-grid {
+  margin-top: 16px;
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
 }
 .feedback-card-mini {
   border: 1px solid #eee;
@@ -341,29 +325,8 @@
   font-size: 0.82rem;
   line-height: 1.5;
 }
-.writing-result-block {
-  border: 1px solid #eee;
-  border-radius: 8px;
-  background: #fafafa;
-  padding: 14px 16px;
-}
-.writing-overall-band {
-  font-size: 1rem;
-  color: #222;
-}
-.feedback-line {
-  margin-bottom: 8px;
-}
-.feedback-points {
-  margin: 0;
-  padding-left: 18px;
-}
-.feedback-points li {
-  margin: 0;
-}
 .writing-revision-note {
-  display: grid;
-  gap: 12px;
+  margin-top: 12px;
 }
 .highlight-row {
   padding: 10px 0;
