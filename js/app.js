@@ -2,6 +2,7 @@ import { loadData, sectionFromURL, setSectionInURL, writingTabFromURL } from './
 import { openModal, closeOverlay } from './speaking/modal.js';
 import { openTagSummary, openTypeSummary } from './speaking/tagSummary.js';
 import { initSidebar, renderSidebar } from './speaking/sidebar.js';
+import { renderWritingSidebar, getFilteredWritingData } from './writing/sidebar.js';
 import { renderGrid } from './components/grid.js';
 import { closeAuthModal, refreshSession } from './writing/auth.js';
 import { state } from './shared/state.js';
@@ -15,6 +16,12 @@ function resetSpeakingFilters() {
   state.selectedTimeFrame = null;
   state.lastActiveTag = null;
   state.lastTypeSummary = null;
+}
+
+function resetWritingFilters() {
+  state.selectedWritingTaskTags = [];
+  state.selectedWritingRegisterTags = [];
+  state.selectedWritingTopicTags = [];
 }
 
 function updateNav() {
@@ -48,9 +55,9 @@ function updatePageChrome() {
   sectionMeta.textContent = 'IELTS General Training Writing';
   tab1.textContent = 'Task 1';
   tab2.textContent = 'Task 2';
-  sidebarToggle.style.display = 'none';
-  sidebarRoot.innerHTML = '';
-  sidebarRoot.style.display = 'none';
+  sidebarToggle.style.display = '';
+  sidebarRoot.style.display = '';
+  renderWritingSidebar();
 }
 
 function switchSection(section) {
@@ -59,12 +66,14 @@ function switchSection(section) {
   state.currentSection = section;
   setSectionInURL(section);
   resetSpeakingFilters();
+  resetWritingFilters();
 
   if (section === 'speaking') {
     state.currentTab = 'part1';
     renderSidebar();
   } else if (section === 'writing') {
     state.currentTab = 'task1';
+    renderWritingSidebar();
   }
 
   updateNav();
@@ -83,8 +92,10 @@ function switchSubtab(tab) {
     renderSidebar();
   } else {
     state.currentTab = tab;
+    resetWritingFilters();
+    renderWritingSidebar();
   }
-  renderGrid(state.currentTab);
+  renderGrid(state.currentTab, state.currentSection === 'writing' ? getFilteredWritingData() : null);
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -163,10 +174,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     renderSidebar();
   } else if (state.currentSection === 'writing') {
     state.currentTab = writingTabFromURL();
+    renderWritingSidebar();
   }
 
   updateNav();
   updatePageChrome();
-  renderGrid(state.currentTab);
+  renderGrid(state.currentTab, state.currentSection === 'writing' ? getFilteredWritingData() : null);
   await refreshSession();
 });

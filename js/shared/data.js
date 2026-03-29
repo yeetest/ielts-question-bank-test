@@ -69,6 +69,93 @@ function buildWritingCoreMap(rows) {
   return map;
 }
 
+function inferTask1Action(text) {
+  const source = String(text || '').toLowerCase();
+  const pairs = [
+    ['complaint', /(complain|complaint)/],
+    ['request', /(asking|requesting|reporting|contacting|opposing)/],
+    ['feedback', /(feedback|replying|responding)/],
+    ['advice', /(advising)/],
+    ['invite', /(inviting)/],
+    ['application', /(applying)/],
+    ['suggestion', /(suggesting|planning|offering|helping|correcting)/],
+    ['inform', /(informing|warning)/],
+    ['praise', /(praising|thanking)/]
+  ];
+  return pairs.find(([, pattern]) => pattern.test(source))?.[0] || 'other';
+}
+
+function inferTask1Register(prompt) {
+  const source = String(prompt || '').toLowerCase();
+  if (/(friend|friends|sister|neighbour|neighbors|neighbours)/.test(source)) return 'informal';
+  if (/(mrs |mr and mrs|singer|actor|parents|barrett|luis|luis|chris)/.test(source)) return 'semi-formal';
+  return 'formal';
+}
+
+function inferTask1Topic(prompt, coreText) {
+  const source = `${prompt} ${coreText}`.toLowerCase();
+  const topics = [
+    ['work', /(job|work|manager|boss|company|department|training|restaurant|employer|placement)/],
+    ['study', /(study|college|university|course|school|student|abroad|museum)/],
+    ['housing', /(apartment|flat|rent|rental|owner|landlord|house|move|furniture|accommodation)/],
+    ['travel', /(travel|holiday|hotel|train|airport|insurance|concert|camping)/],
+    ['service', /(service|shop|company|tickets|equipment|rubbish|supermarket|cookery)/],
+    ['event', /(party|theatre|food event|celebration|reunion|new year)/],
+    ['people', /(friend|sister|parents|neighbour|barrett)/]
+  ];
+  return topics.find(([, pattern]) => pattern.test(source))?.[0] || 'general';
+}
+
+function inferTask2Mode(prompt, coreText) {
+  const source = `${prompt} ${coreText}`.toLowerCase();
+  const modes = [
+    ['advantages_disadvantages', /(advantages and disadvantages|outweigh the disadvantages|outweigh the advantages|more advantages|more disadvantages)/],
+    ['reasons_solutions', /(what can be done|solve|solutions|measures could be taken|how can|deal with|reduce|research this)/],
+    ['discuss_both_views', /(discuss both these views|discuss both views|others say|others believe|others argue|others disagree)/],
+    ['should_shouldnt', /(should|shouldn't|should not)/],
+    ['will_wont', /(will|future|become|one day|no longer)/],
+    ['good_or_bad', /(good thing|bad thing)/],
+    ['positive_negative', /(positive or negative|positive or a negative)/],
+    ['agree_disagree', /(agree or disagree|to what extent)/],
+    ['reasons_evaluation', /(what are the reasons|why is this|why do you think this is happening|what might be the reasons)/]
+  ];
+  return modes.find(([, pattern]) => pattern.test(source))?.[0] || 'other';
+}
+
+function inferTask2Topic(prompt, coreText) {
+  const source = `${prompt} ${coreText}`.toLowerCase();
+  const topics = [
+    ['work', /(work|job|company|employee|employer|working week|self-employed|career|workplace)/],
+    ['education', /(school|student|university|teacher|education|course|children learn|high school)/],
+    ['technology', /(technology|computer|online|smartphone|driverless|phone|tablet|cashless|advertising)/],
+    ['environment', /(environment|plastic|recycle|waste|pollution|petrol|species|clean water|flying|shops closing)/],
+    ['money', /(money|save money|economic|pay|salary|paid|consumer goods)/],
+    ['health', /(health|sleep|exercise|fitness|sugar|medicine|public health)/],
+    ['family_children', /(children|child|parent|parents|teenager|teenage|young people|elderly|ageing)/],
+    ['society', /(society|government|crime|punishment|language|culture|celebrity|famous people|law)/],
+    ['housing', /(house|home|renting|building|countryside)/],
+    ['travel', /(travel|holiday|tourists|tourism|foreign country|living close)/],
+    ['media_culture', /(cinema|film|music|news|museum|fashion|history|books|newspapers)/],
+    ['shopping_consumption', /(shopping|clothes|goods|products|buy|supermarket)/]
+  ];
+  return topics.find(([, pattern]) => pattern.test(source))?.[0] || 'general';
+}
+
+function inferWritingTags(item, prompt, coreText) {
+  if (item.type === 'task1') {
+    return {
+      task: [inferTask1Action(coreText)],
+      register: [inferTask1Register(prompt)],
+      topic: [inferTask1Topic(prompt, coreText)]
+    };
+  }
+  return {
+    task: [inferTask2Mode(prompt, coreText)],
+    register: [],
+    topic: [inferTask2Topic(prompt, coreText)]
+  };
+}
+
 function inferTask1Tags(prompt) {
   const text = prompt.toLowerCase();
   const action = [
@@ -141,6 +228,7 @@ function prepareWritingTasks(rawQuestions, coreMap = new Map()) {
         title: buildWritingTitle(item, cleanedPrompt, cardCoreText),
         cardCoreText,
         promptLead: extractCoreQuestion(cleanedPrompt, item.type),
+        writingTags: inferWritingTags(item, cleanedPrompt, cardCoreText),
         content_tags: item.type === 'task1' ? inferTask1Tags(cleanedPrompt) : inferTask2Tags(cleanedPrompt),
         sampleAnswer: typeof item.sampleAnswer === 'string' && item.sampleAnswer.trim() ? item.sampleAnswer.trim() : ''
       };

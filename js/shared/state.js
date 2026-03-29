@@ -15,5 +15,8 @@ export const state = {
   selectedL2Tags: [],
   selectedL3Tags: [],
   selectedTimeFrame: null,
+  selectedWritingTaskTags: [],
+  selectedWritingRegisterTags: [],
+  selectedWritingTopicTags: [],
   activeWritingContext: null
 };

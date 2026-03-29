@@ -9,6 +9,18 @@ This file is the current source of truth for the writing practice implementation
 - Auth and payment are modal overlays on top of that practice page.
 - In practice mode, the site-level top menu is hidden.
 
+## Card filtering
+
+- Writing question cards now use a quick left-sidebar filter for immediate navigation.
+- `Task 1` filters:
+  - `Task`
+  - `Register`
+  - `Topic`
+- `Task 2` filters:
+  - `Mode`
+  - `Topic`
+- Card copy now shows only the approved manual core sentence and no duplicate legacy preview.
+
 ## Main practice structure
 
 - Left collapsible sidebar:

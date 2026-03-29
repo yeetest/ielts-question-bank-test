@@ -12,6 +12,9 @@ The site remains a static HTML/CSS/JS app on Vercel with JSON loaded at runtime.
 - The site now defaults to `?section=writing`.
 - Writing uses the same existing visual style as the static question-bank project.
 - Opening a writing card now enters a dedicated full-page practice workspace.
+- Writing card pages now have a quick left-sidebar filter for immediate use:
+  - `Task 1`: action / register / topic
+  - `Task 2`: mode / topic
 - The workspace now follows the current product rule set:
   - one AI correction action only
   - one AI call deducts exactly 1 credit
@@ -33,6 +36,7 @@ The site remains a static HTML/CSS/JS app on Vercel with JSON loaded at runtime.
 - The old `May–Aug 2026` placeholder tab is removed from the UI.
 - Speaking now uses only the real `2026-01-to-04` dataset.
 - Writing is integrated into the same static project and rendered with the same card system plus a dedicated practice page.
+- Writing cards now display only the approved manual core sentence, not the old auto-extracted duplicate preview.
 - The top menu is now the main navigation: `speaking / writing`.
 
 ## URL
