@@ -388,9 +388,6 @@ function renderPracticeView(task, workspace) {
         <section class="writing-pane writing-pane-left" id="writing-editor-pane" style="width:${editorWidth}%;">
           <div class="writing-pane-head">
             <h3>写作区</h3>
-            <div class="writing-save-status">
-              <span>${escapeHtml(accountMeta)}</span>
-            </div>
           </div>
           <div class="writing-prompt">
             <div class="section-label">${task.type === 'task1' ? 'Task 1' : 'Task 2'}</div>
@@ -524,8 +521,7 @@ export function renderWritingPractice(task) {
   return `
     <div class="writing-page" data-writing-task-id="${task.id}">
       <div class="writing-page-status">
-        <span>${authState.session ? escapeHtml(authState.session.identity) : '未登录'}</span>
-        <span>${workspace.highlights.length} highlights</span>
+        <span>${authState.session ? escapeHtml(`${authState.session.identity} · ${authState.session.credits} credits`) : '未登录'}</span>
       </div>
 
       <div class="writing-shell${workspace.sidebarCollapsed ? ' writing-shell-wide' : ''}">
