@@ -393,7 +393,7 @@ module.exports = async (req, res) => {
 
   let nextSession;
   try {
-    nextSession = await decrementProfileCredits(bearer, session.userId, session.credits);
+    nextSession = await decrementProfileCredits(session.userId, session.credits);
   } catch (error) {
     res.statusCode = error.statusCode || 500;
     res.setHeader('Content-Type', 'application/json');

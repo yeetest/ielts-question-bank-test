@@ -66,7 +66,7 @@ function getSupabaseConfig() {
   };
 }
 
-async function supabaseRest(path, { accessToken, method = 'GET', body } = {}) {
+async function supabaseRest(path, { accessToken, method = 'GET', body, serviceRole = false } = {}) {
   const { url, anonKey } = getSupabaseConfig();
   if (!url || !anonKey) {
     const error = new Error('Missing SUPABASE_URL or SUPABASE_ANON_KEY.');
@@ -74,11 +74,20 @@ async function supabaseRest(path, { accessToken, method = 'GET', body } = {}) {
     throw error;
   }
 
+  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
+  const apikey = serviceRole ? serviceKey : anonKey;
+  const bearer = serviceRole ? serviceKey : accessToken;
+  if (serviceRole && !serviceKey) {
+    const error = new Error('Missing SUPABASE_SERVICE_ROLE_KEY (required for credit updates).');
+    error.statusCode = 500;
+    throw error;
+  }
+
   const response = await fetch(`${url}${path}`, {
     method,
     headers: {
-      apikey: anonKey,
-      Authorization: `Bearer ${accessToken}`,
+      apikey,
+      Authorization: `Bearer ${bearer}`,
       'Content-Type': 'application/json',
       Prefer: 'return=representation'
     },
@@ -120,15 +129,15 @@ async function verifySupabaseAccessToken(accessToken) {
   };
 }
 
-async function decrementProfileCredits(accessToken, userId, currentCredits) {
+async function decrementProfileCredits(userId, currentCredits) {
   const nextCredits = Math.max(Number(currentCredits || 0) - 1, 0);
   const path = `/rest/v1/profiles?id=eq.${encodeURIComponent(userId)}&credits=eq.${encodeURIComponent(String(currentCredits))}`;
   const { response, payload } = await supabaseRest(path, {
-    accessToken,
     method: 'PATCH',
     body: {
       credits: nextCredits
-    }
+    },
+    serviceRole: true
   });
 
   if (!response.ok) {

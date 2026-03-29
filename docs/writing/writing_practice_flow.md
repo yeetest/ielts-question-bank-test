@@ -143,12 +143,17 @@ Two browser-side stores are used right now:
 - `api/auth/config.js`
 - `api/auth/session.js`
 - `api/auth/logout.js`
-- `api/billing/starter-pack.js`
 - `api/ai.js`
 - `api/_lib/auth.js`
 
+## Credits and security
+
+- New signups get `profiles.credits = 0` (table default). The `handle_new_user` trigger inserts `(id, email)` only.
+- `POST /api/ai` reads credits from Supabase with the user JWT and returns **403** before calling OpenRouter when `credits <= 0`.
+- Clients cannot grant themselves credits: the `profiles_update_own` policy is removed (migration `20260330140000_profiles_revoke_client_update.sql`); credit decrements use **`SUPABASE_SERVICE_ROLE_KEY`** on the server only.
+- There is no in-app purchase UI; top-ups are manual in Supabase (SQL or dashboard) for trusted accounts.
+
 ## Known limitation
 
-- Payment is still a placeholder `Buy 5 credits` action, not a real payment provider.
 - Verification currently returns a preview code outside production unless a real delivery provider is added.
 - The practice page no longer shows a separate pre-generated sample panel.

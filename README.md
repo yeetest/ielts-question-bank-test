@@ -95,7 +95,10 @@ SUPABASE_ANON_KEY=placeholder
 SUPABASE_PROJECT_REF=placeholder
 SUPABASE_ACCESS_TOKEN=placeholder
 SUPABASE_DB_PASSWORD=placeholder
+SUPABASE_SERVICE_ROLE_KEY=placeholder
 ```
+
+**Vercel / server:** set `SUPABASE_SERVICE_ROLE_KEY` to your project’s **service_role** key (Settings → API). It is used only in `api/_lib/auth.js` to PATCH `profiles.credits` after AI correction; never expose it in frontend or commit it. After pulling migration `20260330140000_profiles_revoke_client_update.sql`, apply it to your Supabase project so users cannot self-update `profiles` via the anon key.
 
 Optional (defaults avoid truncated JSON from long assessments): `OPENROUTER_MODEL_ASSESSMENT`, `OPENROUTER_MAX_TOKENS_ASSESSMENT` (default `4096`), `OPENROUTER_MAX_TOKENS_REWRITE` (default `8192`).
 
