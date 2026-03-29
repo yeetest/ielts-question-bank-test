@@ -17,6 +17,12 @@ module.exports = async (req, res) => {
         session = existing && existing.identity === verified.identity
           ? existing
           : verified;
+        session = {
+          ...session,
+          userId: verified.userId,
+          identity: verified.identity,
+          credits: verified.credits
+        };
         writeSession(res, session);
       }
     } catch (error) {

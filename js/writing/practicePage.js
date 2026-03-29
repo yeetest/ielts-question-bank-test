@@ -1,5 +1,5 @@
 import { loadData, practiceIdFromURL } from '../shared/data.js';
-import { closeAuthModal, ensureActionAccess, refreshSession } from './auth.js';
+import { closeAuthModal, currentAccessToken, ensureActionAccess, refreshSession } from './auth.js';
 import { state } from '../shared/state.js';
 import { bindWritingPractice, renderWritingPractice } from './writingPractice.js';
 
@@ -43,7 +43,10 @@ async function renderPractice(taskId) {
     runAiCorrection: async (_task, essay) => {
       const response = await fetch('/api/ai', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${currentAccessToken()}`
+        },
         body: JSON.stringify({
           prompt: task.prompt,
           taskType: task.type,

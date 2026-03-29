@@ -66,6 +66,29 @@ function getSupabaseConfig() {
   };
 }
 
+async function supabaseRest(path, { accessToken, method = 'GET', body } = {}) {
+  const { url, anonKey } = getSupabaseConfig();
+  if (!url || !anonKey) {
+    const error = new Error('Missing SUPABASE_URL or SUPABASE_ANON_KEY.');
+    error.statusCode = 500;
+    throw error;
+  }
+
+  const response = await fetch(`${url}${path}`, {
+    method,
+    headers: {
+      apikey: anonKey,
+      Authorization: `Bearer ${accessToken}`,
+      'Content-Type': 'application/json',
+      Prefer: 'return=representation'
+    },
+    body: body ? JSON.stringify(body) : undefined
+  });
+
+  const payload = await response.json().catch(() => null);
+  return { response, payload };
+}
+
 async function verifySupabaseAccessToken(accessToken) {
   const { url, anonKey } = getSupabaseConfig();
   if (!url || !anonKey) {
@@ -82,11 +105,49 @@ async function verifySupabaseAccessToken(accessToken) {
   });
   const payload = await response.json().catch(() => null);
   if (!response.ok) return null;
+  const userId = String(payload?.id || '').trim();
   const email = String(payload?.email || '').trim().toLowerCase();
-  if (!email) return null;
+  if (!email || !userId) return null;
+
+  const profileQuery = `/rest/v1/profiles?id=eq.${encodeURIComponent(userId)}&select=id,email,credits&limit=1`;
+  const profileResult = await supabaseRest(profileQuery, { accessToken });
+  const profile = Array.isArray(profileResult.payload) ? profileResult.payload[0] : null;
+
   return {
+    userId,
     identity: email,
-    credits: 0
+    credits: Number(profile?.credits || 0)
+  };
+}
+
+async function decrementProfileCredits(accessToken, userId, currentCredits) {
+  const nextCredits = Math.max(Number(currentCredits || 0) - 1, 0);
+  const path = `/rest/v1/profiles?id=eq.${encodeURIComponent(userId)}&credits=eq.${encodeURIComponent(String(currentCredits))}`;
+  const { response, payload } = await supabaseRest(path, {
+    accessToken,
+    method: 'PATCH',
+    body: {
+      credits: nextCredits
+    }
+  });
+
+  if (!response.ok) {
+    const error = new Error(payload?.message || 'Failed to update credits.');
+    error.statusCode = 500;
+    throw error;
+  }
+
+  const updated = Array.isArray(payload) ? payload[0] : null;
+  if (!updated) {
+    const error = new Error('Credits changed before deduction completed. Please retry.');
+    error.statusCode = 409;
+    throw error;
+  }
+
+  return {
+    userId,
+    identity: String(updated.email || '').trim().toLowerCase(),
+    credits: Number(updated.credits || 0)
   };
 }
 
@@ -95,6 +156,7 @@ function readSession(req) {
   const payload = decode(token);
   if (!payload || payload.kind !== 'session') return null;
   return {
+    userId: payload.userId,
     identity: payload.identity,
     credits: payload.credits
   };
@@ -103,6 +165,7 @@ function readSession(req) {
 function writeSession(res, session) {
   const token = encode({
     kind: 'session',
+    userId: session.userId,
     identity: session.identity,
     credits: session.credits,
     iat: Date.now()
@@ -129,7 +192,9 @@ function clearSession(res) {
 module.exports = {
   readJson,
   getSupabaseConfig,
+  supabaseRest,
   verifySupabaseAccessToken,
+  decrementProfileCredits,
   readSession,
   writeSession,
   clearSession

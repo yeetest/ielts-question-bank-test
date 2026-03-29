@@ -1,4 +1,10 @@
-const { readJson, readSession, writeSession } = require('./_lib/auth');
+const {
+  readJson,
+  readSession,
+  writeSession,
+  verifySupabaseAccessToken,
+  decrementProfileCredits
+} = require('./_lib/auth');
 
 function extractJsonPayload(raw) {
   const text = String(raw || '').trim();
@@ -179,7 +185,25 @@ module.exports = async (req, res) => {
     return;
   }
 
-  const session = readSession(req);
+  const authHeader = req.headers.authorization || '';
+  const bearer = authHeader.startsWith('Bearer ') ? authHeader.slice(7).trim() : '';
+  if (!bearer) {
+    res.statusCode = 401;
+    res.setHeader('Content-Type', 'application/json');
+    res.end(JSON.stringify({ error: 'Login required.' }));
+    return;
+  }
+
+  let session = null;
+  try {
+    session = await verifySupabaseAccessToken(bearer);
+  } catch (error) {
+    res.statusCode = error.statusCode || 500;
+    res.setHeader('Content-Type', 'application/json');
+    res.end(JSON.stringify({ error: error.message || 'Session verification failed.' }));
+    return;
+  }
+
   if (!session) {
     res.statusCode = 401;
     res.setHeader('Content-Type', 'application/json');
@@ -214,10 +238,15 @@ module.exports = async (req, res) => {
     return;
   }
 
-  const nextSession = {
-    ...session,
-    credits: Math.max(session.credits - 1, 0)
-  };
+  let nextSession;
+  try {
+    nextSession = await decrementProfileCredits(bearer, session.userId, session.credits);
+  } catch (error) {
+    res.statusCode = error.statusCode || 500;
+    res.setHeader('Content-Type', 'application/json');
+    res.end(JSON.stringify({ error: error.message || 'Could not deduct credits.' }));
+    return;
+  }
 
   writeSession(res, nextSession);
   res.setHeader('Content-Type', 'application/json');

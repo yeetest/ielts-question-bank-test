@@ -4,6 +4,7 @@ export const authState = {
   session: null,
   pendingAction: null,
   supabase: null,
+  accessToken: '',
   configLoaded: false,
   authError: '',
   isBusy: false
@@ -11,7 +12,7 @@ export const authState = {
 
 function writingMeta(session) {
   if (!session) return 'IELTS General Training Writing';
-  return `IELTS General Training Writing · ${session.credits} credits`;
+  return `${session.identity} · ${session.credits} credits`;
 }
 
 async function ensureSupabase() {
@@ -39,9 +40,11 @@ async function ensureSupabase() {
     authState.supabase.auth.onAuthStateChange(async (_event, session) => {
       if (!session?.access_token) {
         authState.session = null;
+        authState.accessToken = '';
         syncSessionBadge();
         return;
       }
+      authState.accessToken = session.access_token;
       await syncServerSession(session.access_token);
       await resumePendingActionIfPossible();
     });
@@ -68,9 +71,11 @@ async function syncServerSessionFromSupabase() {
   const { data, error } = await supabase.auth.getSession();
   if (error || !data.session?.access_token) {
     authState.session = null;
+    authState.accessToken = '';
     syncSessionBadge();
     return null;
   }
+  authState.accessToken = data.session.access_token;
   return syncServerSession(data.session.access_token);
 }
 
@@ -80,12 +85,15 @@ export async function refreshSession() {
     const { data, error } = await supabase.auth.getSession();
     if (error || !data.session?.access_token) {
       authState.session = null;
+      authState.accessToken = '';
       syncSessionBadge();
       return null;
     }
+    authState.accessToken = data.session.access_token;
     return syncServerSession(data.session.access_token);
   } catch (error) {
     authState.session = null;
+    authState.accessToken = '';
     authState.authError = error.message || 'Auth init failed.';
     syncSessionBadge();
     return null;
@@ -121,9 +129,9 @@ function actionTitle(action) {
 
 function renderAuthBody(action) {
   const session = authState.session;
-  const needsPayment = session && action?.requiresCredits && session.credits <= 0;
+  const needsCredits = session && action?.requiresCredits && session.credits <= 0;
 
-  if (session && !needsPayment) {
+  if (session && !needsCredits) {
     return `
       <div class="auth-gate">
         <h2>账号</h2>
@@ -138,16 +146,17 @@ function renderAuthBody(action) {
     `;
   }
 
-  if (needsPayment) {
+  if (needsCredits) {
     return `
       <div class="auth-gate">
-        <h2>购买 credits</h2>
+        <h2>Credits 不足</h2>
         <div class="section-label">${actionTitle(action)}</div>
-        <p class="auth-copy">账号 ${session.identity} 当前 credits 不足。</p>
+        <p class="auth-copy">账号 ${session.identity} 当前 credits：${session.credits}</p>
         <div class="auth-actions">
-          <button class="secondary-btn" id="auth-buy-credits">购买 5 credits</button>
+          <button class="secondary-btn" id="auth-refresh-session">刷新状态</button>
           <button class="secondary-btn" id="auth-logout-btn">切换账号</button>
         </div>
+        <div class="auth-copy">请先确认你在 Supabase 后台为该账号添加了 credits。</div>
         <div class="auth-feedback" id="auth-feedback"></div>
       </div>
     `;
@@ -226,6 +235,7 @@ async function signOutAll() {
   }
   await fetch('/api/auth/logout', { method: 'POST', credentials: 'same-origin' }).catch(() => {});
   authState.session = null;
+  authState.accessToken = '';
   syncSessionBadge();
 }
 
@@ -233,7 +243,7 @@ function bindAuthActions(action) {
   const content = document.getElementById('auth-modal-content');
   const feedback = document.getElementById('auth-feedback');
   const session = authState.session;
-  const needsPayment = session && action?.requiresCredits && session.credits <= 0;
+  const needsCredits = session && action?.requiresCredits && session.credits <= 0;
 
   document.getElementById('auth-continue-btn')?.addEventListener('click', async () => {
     await resumePendingActionIfPossible();
@@ -245,26 +255,16 @@ function bindAuthActions(action) {
     bindAuthActions(action);
   });
 
-  const buyBtn = document.getElementById('auth-buy-credits');
-  if (buyBtn && needsPayment) {
-    buyBtn.addEventListener('click', async () => {
-      await runBusyAction(feedback, '购买中...', async () => {
+  const refreshBtn = document.getElementById('auth-refresh-session');
+  if (refreshBtn && needsCredits) {
+    refreshBtn.addEventListener('click', async () => {
+      await runBusyAction(feedback, '刷新中...', async () => {
         const syncedSession = await syncServerSessionFromSupabase();
         if (!syncedSession) {
-          throw new Error('登录状态已失效，请重新登录后再购买。');
+          throw new Error('登录状态已失效，请重新登录。');
         }
-
-        const response = await fetch('/api/billing/starter-pack', {
-          method: 'POST',
-          credentials: 'same-origin'
-        });
-        const payload = await response.json().catch(() => ({}));
-        if (!response.ok) {
-          throw new Error(payload.error || 'Could not complete payment.');
-        }
-        authState.session = payload.session;
-        syncSessionBadge();
-        setAuthFeedback(feedback, `支付完成，当前 credits：${payload.session.credits}`);
+        content.innerHTML = renderAuthBody(action);
+        bindAuthActions(action);
         await resumePendingActionIfPossible();
       });
     });
@@ -354,4 +354,8 @@ export function openAuthModal(action = null) {
 export function closeAuthModal() {
   resetAuthUiState({ clearPendingAction: true });
   document.getElementById('auth-overlay').classList.remove('open');
+}
+
+export function currentAccessToken() {
+  return authState.accessToken || '';
 }

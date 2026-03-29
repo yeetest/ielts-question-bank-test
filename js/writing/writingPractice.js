@@ -376,19 +376,27 @@ function renderPracticeView(task, workspace) {
   const revisedEssay = workspace.correctionResult?.revisedEssay || '';
   const editorWidth = Math.min(Math.max(workspace.editorWidth, 28), 72);
   const wordCount = countWords(workspace.essay);
+  const accountMeta = authState.session
+    ? `${authState.session.identity} · ${authState.session.credits} credits`
+    : '未登录';
 
   return `
     <div class="writing-main-view">
       <div class="writing-layout writing-layout-resizable">
         <section class="writing-pane writing-pane-left" id="writing-editor-pane" style="width:${editorWidth}%;">
+          <div class="writing-pane-head">
+            <h3>写作区</h3>
+            <div class="writing-save-status">
+              <span>${escapeHtml(accountMeta)}</span>
+            </div>
+          </div>
           <div class="writing-prompt">
             <div class="section-label">${task.type === 'task1' ? 'Task 1' : 'Task 2'}</div>
             <div class="prompt-prewrap">${escapeHtml(task.prompt)}</div>
           </div>
           <div class="writing-pane-head">
-            <h3>写作区</h3>
+            <div class="section-label">${workspace.dirty ? '未保存' : '已保存'}</div>
             <div class="writing-save-status">
-              <span>${workspace.dirty ? '未保存' : '已保存'}</span>
               <span id="writing-word-count">字数 ${wordCount}</span>
               <span id="writing-timer" data-deadline="${workspace.timerStartedAt + getTaskDurationMs(task)}">倒计时 ${formatCountdown((workspace.timerStartedAt + getTaskDurationMs(task)) - Date.now())}</span>
             </div>
