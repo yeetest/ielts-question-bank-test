@@ -1,10 +1,4 @@
-const {
-  readJson,
-  readSession,
-  writeSession,
-  verifySupabaseAccessToken,
-  decrementProfileCredits
-} = require('./_lib/auth');
+const { readJson, writeSession, verifySupabaseAccessToken, decrementProfileCredits } = require('./_lib/auth');
 
 function extractJsonPayload(raw) {
   const text = String(raw || '').trim();
@@ -50,7 +44,6 @@ async function requestOpenRouter(taskPrompt, essay, taskType) {
     },
     body: JSON.stringify({
       model,
-      temperature: 0.3,
       max_tokens: 1200,
       response_format: {
         type: 'json_object'
@@ -59,59 +52,57 @@ async function requestOpenRouter(taskPrompt, essay, taskType) {
         {
           role: 'system',
           content: `
-You are an IELTS examiner and expert writing coach.
+You are an IELTS General Training writing examiner and expert writing coach.
 
-Evaluate the essay using IELTS band descriptors and return JSON only.
+Evaluate the essay using IELTS General Training writing band descriptors and return JSON only.
 
 Requirements:
 
-1. Feedback
-Briefly comment on the student's performance for each of the four IELTS criteria :
+1. Overall Band
+- Return ONE overall band score
+- Do NOT explain it
+
+2. Four Criteria
+For each:
+- give a band score
+- give 1–2 sentences (evaluation + suggestion)
+
+Criteria:
 - Task Achievement / Task Response
 - Coherence & Cohesion
 - Lexical Resource
 - Grammatical Range & Accuracy
 
-For each criterion:
-- briefly explain how the student performs according to the band descriptors and give a band score
-- give short improvement suggestions
-- keep it concise: maximum 2–3 sentences
+3. Revised Band 9 Essay
+- based on the student's ideas, but revise where necessary
+- follow Band 9 descriptors
 
-2. Band 9 Rewrite
-Write a Band 9 sample essay based on the student's essay.
-- Use the most appropriate, natural, and precise expressions based on the student's original meaning, ideas, and general direction
-- Do not force fancy vocabulary
-- Length: ${taskType === 'task1' ? '150-200 words for task1' : '250-300 words for task2'}
+Length:
+- ${taskType === 'task1' ? 'Task 1: 150–200 words' : 'Task 2: 250–300 words'}
 
-3. Revision Note
-After the rewrite, briefly explain how the revised version is improved in terms of:
-- structure
-- content
-- grammar
-- vocabulary
-- etc
-
-4. Keyword Outline
-After the rewrite, provide a paragraph-by-paragraph keyword outline of the Band 9 rewrite.
-Requirements:
-- label each paragraph as P1, P2, P3, etc.
-- use short keywords and arrows, not full sentences
-- reflect the actual structure of the rewritten essay
-- include the main idea and key supporting points for each paragraph
+4. Revision Notes
+Explain improvements in:
+- Structure
+- Content
+- Grammar
+- Vocabulary
 
 Return format:
 {
-  "feedback": {
-    "overall_band": number,
-    "task_achievement": { "band": number, "comments": string },
-    "coherence_cohesion": { "band": number, "comments": string },
-    "lexical_resource": { "band": number, "comments": string },
-    "grammatical_range": { "band": number, "comments": string },
-    "key_improvements": string[]
+  "overall_band": number,
+  "criteria": {
+    "task_achievement": { "band": number, "comment": string },
+    "coherence_cohesion": { "band": number, "comment": string },
+    "lexical_resource": { "band": number, "comment": string },
+    "grammatical_range_accuracy": { "band": number, "comment": string }
   },
-  "band9_rewrite": string,
-  "revision_note": string,
-  "keyword_outline": string
+  "revised_essay": string,
+  "revision_notes": {
+    "structure": string,
+    "content": string,
+    "grammar": string,
+    "vocabulary": string
+  }
 }
 
 Do NOT output anything outside JSON.
@@ -148,33 +139,41 @@ Do NOT output anything outside JSON.
     throw error;
   }
 
-  const feedback = parsed?.feedback;
-  const rewrite = parsed?.band9_rewrite;
-  const revisionNote = parsed?.revision_note;
-  const keywordOutline = parsed?.keyword_outline;
+  const overallBand = parsed?.overall_band;
+  const criteria = parsed?.criteria;
+  const rewrite = parsed?.revised_essay;
+  const revisionNotes = parsed?.revision_notes;
   if (
-    !feedback ||
-    typeof feedback !== 'object' ||
-    typeof feedback.overall_band !== 'number' ||
-    !feedback.task_achievement ||
-    !feedback.coherence_cohesion ||
-    !feedback.lexical_resource ||
-    !feedback.grammatical_range ||
-    !Array.isArray(feedback.key_improvements) ||
+    typeof overallBand !== 'number' ||
+    !criteria ||
+    typeof criteria !== 'object' ||
+    !criteria.task_achievement ||
+    !criteria.coherence_cohesion ||
+    !criteria.lexical_resource ||
+    !criteria.grammatical_range_accuracy ||
     typeof rewrite !== 'string' ||
-    typeof revisionNote !== 'string' ||
-    typeof keywordOutline !== 'string'
+    !revisionNotes ||
+    typeof revisionNotes !== 'object' ||
+    typeof revisionNotes.structure !== 'string' ||
+    typeof revisionNotes.content !== 'string' ||
+    typeof revisionNotes.grammar !== 'string' ||
+    typeof revisionNotes.vocabulary !== 'string'
   ) {
-    const error = new Error('OpenRouter response did not match the required feedback + rewrite + revision note + keyword outline format.');
+    const error = new Error('OpenRouter response did not match the required score + criteria + revised essay + revision notes format.');
     error.statusCode = 502;
     throw error;
   }
 
   return {
-    feedback,
-    band9_rewrite: rewrite.trim(),
-    revision_note: revisionNote.trim(),
-    keyword_outline: keywordOutline.trim()
+    overall_band: overallBand,
+    criteria,
+    revised_essay: rewrite.trim(),
+    revision_notes: {
+      structure: revisionNotes.structure.trim(),
+      content: revisionNotes.content.trim(),
+      grammar: revisionNotes.grammar.trim(),
+      vocabulary: revisionNotes.vocabulary.trim()
+    }
   };
 }
 
@@ -251,10 +250,10 @@ module.exports = async (req, res) => {
   writeSession(res, nextSession);
   res.setHeader('Content-Type', 'application/json');
   res.end(JSON.stringify({
-    feedback: result.feedback,
-    band9_rewrite: result.band9_rewrite,
-    revision_note: result.revision_note,
-    keyword_outline: result.keyword_outline,
+    overall_band: result.overall_band,
+    criteria: result.criteria,
+    revised_essay: result.revised_essay,
+    revision_notes: result.revision_notes,
     session: nextSession
   }));
 };
