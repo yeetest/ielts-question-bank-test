@@ -12,9 +12,7 @@ let timerInterval = null;
 let selectionRuntime = {
   text: '',
   x: 0,
-  y: 0,
-  mouseupFired: 0,
-  keyupFired: 0
+  y: 0
 };
 
 const LOCAL_DICTIONARY = {
@@ -315,19 +313,6 @@ function renderFloatingSelection() {
   `;
 }
 
-function renderSelectionDebug() {
-  return `
-    <div class="writing-selection-debug" id="writing-selection-debug">
-      <div class="writing-selection-debug-marker">selection-toolbar-debug-fafd77c</div>
-      <div>essay mouseup fired: <span id="writing-selection-debug-mouseup">0</span></div>
-      <div>essay keyup fired: <span id="writing-selection-debug-keyup">0</span></div>
-      <div>essay selected text length: <span id="writing-selection-debug-length">0</span></div>
-      <div>inside revised essay: <span id="writing-selection-debug-inside">false</span></div>
-      <div>toolbar x/y: <span id="writing-selection-debug-pos">0 / 0</span></div>
-    </div>
-  `;
-}
-
 function renderLibrarySidebar(task, workspace) {
   const records = getLibraryRecords();
   const currentViewKey = `${workspace.viewMode}:${workspace.viewTaskId || task.id}`;
@@ -401,7 +386,7 @@ function renderPracticeView(task, workspace) {
             </div>
             <div class="writing-tab-panel">
               ${workspace.activeTab === 'feedback' ? renderFeedbackCards(workspace.correctionResult) : ''}
-              ${workspace.activeTab === 'revised' ? `${renderSelectionDebug()}<div class="writing-reading-panel"><div class="writing-revised-essay-text" id="writing-revised-essay-text">${escapeHtml(revisedEssay).replace(/\n/g, '<br>')}</div></div>` : ''}
+              ${workspace.activeTab === 'revised' ? `<div class="writing-reading-panel"><div class="writing-revised-essay-text" id="writing-revised-essay-text">${escapeHtml(revisedEssay).replace(/\n/g, '<br>')}</div></div>` : ''}
               ${workspace.activeTab === 'notes' ? renderRevisionNote(workspace.correctionResult) : ''}
             </div>
             ${workspace.correcting ? '<div class="writing-inline-status">正在修改请稍后</div>' : ''}
@@ -559,19 +544,6 @@ function clearSelectionUI() {
   selectionRuntime.y = 0;
 }
 
-function updateSelectionDebug({ length = 0, inside = false, x = 0, y = 0 } = {}) {
-  const mouseupEl = document.getElementById('writing-selection-debug-mouseup');
-  const keyupEl = document.getElementById('writing-selection-debug-keyup');
-  const lengthEl = document.getElementById('writing-selection-debug-length');
-  const insideEl = document.getElementById('writing-selection-debug-inside');
-  const posEl = document.getElementById('writing-selection-debug-pos');
-  if (mouseupEl) mouseupEl.textContent = String(selectionRuntime.mouseupFired);
-  if (keyupEl) keyupEl.textContent = String(selectionRuntime.keyupFired);
-  if (lengthEl) lengthEl.textContent = String(length);
-  if (insideEl) insideEl.textContent = String(Boolean(inside));
-  if (posEl) posEl.textContent = `${Math.round(x)} / ${Math.round(y)}`;
-}
-
 function getSelectionToolbar() {
   const scoped = document.querySelector('#writing-result-pane #writing-selection-float');
   const pop = scoped || document.getElementById('writing-selection-float');
@@ -591,19 +563,12 @@ function updateSelectionPopover(task) {
 
   if (!selectionRuntime.text) {
     pop.hidden = true;
-    updateSelectionDebug();
     return;
   }
 
   pop.hidden = false;
   pop.style.left = `${selectionRuntime.x}px`;
   pop.style.top = `${selectionRuntime.y}px`;
-  updateSelectionDebug({
-    length: selectionRuntime.text.length,
-    inside: true,
-    x: selectionRuntime.x,
-    y: selectionRuntime.y
-  });
   const translation = pop.querySelector('.selection-translation-pop');
   if (translation) {
     translation.textContent = '';
@@ -652,14 +617,10 @@ function bindSelection(task) {
     document.removeEventListener('selectionchange', selectionHandler);
   }
 
-  const syncSelectionFromEssay = eventType => {
+  const syncSelectionFromEssay = () => {
     const selection = window.getSelection();
     const text = selection?.toString().trim() || '';
-    console.debug('[writing selection] text selected:', text);
-    if (eventType === 'mouseup') selectionRuntime.mouseupFired += 1;
-    if (eventType === 'keyup') selectionRuntime.keyupFired += 1;
     if (!selection || !selection.rangeCount || selection.isCollapsed || !text) {
-      updateSelectionDebug({ length: 0, inside: false, x: 0, y: 0 });
       clearSelectionUI();
       updateSelectionPopover(task);
       return;
@@ -671,9 +632,7 @@ function bindSelection(task) {
     const startInside = Boolean(range.startContainer && essayText.contains(range.startContainer));
     const endInside = Boolean(range.endContainer && essayText.contains(range.endContainer));
     const inside = anchorInside || focusInside || startInside || endInside;
-    console.debug('[writing selection] inside revised essay:', inside);
     if (!inside) {
-      updateSelectionDebug({ length: text.length, inside: false, x: 0, y: 0 });
       clearSelectionUI();
       updateSelectionPopover(task);
       return;
@@ -681,14 +640,12 @@ function bindSelection(task) {
 
     const rect = range.getBoundingClientRect();
     if (!rect.width && !rect.height) {
-      updateSelectionDebug({ length: text.length, inside: true, x: 0, y: 0 });
-      clearSelectionUI(task);
+      clearSelectionUI();
       updateSelectionPopover(task);
       return;
     }
     const posX = rect.left + (rect.width / 2);
     const posY = Math.max(rect.top - 12, 12);
-    console.debug('[writing selection] toolbar position:', { x: posX, y: posY });
 
     selectionRuntime.text = text;
     selectionRuntime.x = posX;
@@ -700,14 +657,13 @@ function bindSelection(task) {
     const selection = window.getSelection();
     const text = selection?.toString().trim() || '';
     if (text) return;
-    updateSelectionDebug({ length: 0, inside: false, x: 0, y: 0 });
     clearSelectionUI();
     updateSelectionPopover(task);
   };
 
   document.addEventListener('selectionchange', selectionHandler);
-  essayText.addEventListener('mouseup', () => window.setTimeout(() => syncSelectionFromEssay('mouseup'), 0));
-  essayText.addEventListener('keyup', () => window.setTimeout(() => syncSelectionFromEssay('keyup'), 0));
+  essayText.addEventListener('mouseup', () => window.setTimeout(() => syncSelectionFromEssay(), 0));
+  essayText.addEventListener('keyup', () => window.setTimeout(() => syncSelectionFromEssay(), 0));
   getSelectionToolbar();
 
   const translateBtn = document.getElementById('writing-translate');
@@ -956,7 +912,15 @@ function cleanup() {
     document.removeEventListener('selectionchange', selectionHandler);
     selectionHandler = null;
   }
-  document.querySelectorAll('#writing-selection-float').forEach(node => node.remove());
+  // Only strip floats that live outside the current page (e.g. moved to document.body by
+  // getSelectionToolbar). Removing every #writing-selection-float would delete the node that
+  // was just rendered inside #practice-root before bindSelection/getSelectionToolbar run.
+  const practiceRoot = document.getElementById('practice-root');
+  document.querySelectorAll('#writing-selection-float').forEach(node => {
+    if (!practiceRoot || !practiceRoot.contains(node)) {
+      node.remove();
+    }
+  });
   unbindSplit();
   unbindTimer();
   window.onbeforeunload = null;
