@@ -5,7 +5,8 @@ export const authState = {
   pendingAction: null,
   supabase: null,
   configLoaded: false,
-  authError: ''
+  authError: '',
+  isBusy: false
 };
 
 function writingMeta(session) {
@@ -176,10 +177,42 @@ function setAuthFeedback(element, message) {
   if (element) element.textContent = message || '';
 }
 
+function setBusyState(isBusy) {
+  authState.isBusy = Boolean(isBusy);
+  document.querySelectorAll('#auth-modal button, #auth-modal input').forEach(element => {
+    element.disabled = authState.isBusy;
+  });
+}
+
+function resetAuthUiState({ clearPendingAction = false } = {}) {
+  authState.isBusy = false;
+  if (clearPendingAction) {
+    authState.pendingAction = null;
+  }
+  document.querySelectorAll('#auth-modal button, #auth-modal input').forEach(element => {
+    element.disabled = false;
+  });
+}
+
+async function runBusyAction(feedbackEl, loadingMessage, fn) {
+  if (authState.isBusy) return;
+  setBusyState(true);
+  setAuthFeedback(feedbackEl, loadingMessage);
+  try {
+    return await fn();
+  } catch (error) {
+    setAuthFeedback(feedbackEl, error?.message || '请求失败。');
+    return null;
+  } finally {
+    resetAuthUiState();
+  }
+}
+
 async function signOutAll() {
-  const supabase = await ensureSupabase();
-  await supabase.auth.signOut();
-  await fetch('/api/auth/logout', { method: 'POST' });
+  if (authState.supabase) {
+    await authState.supabase.auth.signOut().catch(() => {});
+  }
+  await fetch('/api/auth/logout', { method: 'POST' }).catch(() => {});
   authState.session = null;
   syncSessionBadge();
 }
@@ -203,16 +236,18 @@ function bindAuthActions(action) {
   const buyBtn = document.getElementById('auth-buy-credits');
   if (buyBtn && needsPayment) {
     buyBtn.addEventListener('click', async () => {
-      const response = await fetch('/api/billing/starter-pack', { method: 'POST' });
-      const payload = await response.json();
-      if (!response.ok) {
-        feedback.textContent = payload.error || 'Could not complete payment.';
-        return;
-      }
-      authState.session = payload.session;
-      syncSessionBadge();
-      feedback.textContent = `支付完成，当前 credits：${payload.session.credits}`;
-      await resumePendingActionIfPossible();
+      await runBusyAction(feedback, '购买中...', async () => {
+        const response = await fetch('/api/billing/starter-pack', { method: 'POST' });
+        const payload = await response.json().catch(() => ({}));
+        if (!response.ok) {
+          setAuthFeedback(feedback, payload.error || 'Could not complete payment.');
+          return;
+        }
+        authState.session = payload.session;
+        syncSessionBadge();
+        setAuthFeedback(feedback, `支付完成，当前 credits：${payload.session.credits}`);
+        await resumePendingActionIfPossible();
+      });
     });
   }
 
@@ -223,15 +258,8 @@ function bindAuthActions(action) {
   const passwordInput = document.getElementById('auth-password');
 
   loginBtn.addEventListener('click', async () => {
-    setAuthFeedback(feedback, '登录中...');
-    let supabase;
-    try {
-      supabase = await ensureSupabase();
-    } catch (error) {
-      setAuthFeedback(feedback, error.message || '认证配置缺失。');
-      return;
-    }
-    try {
+    await runBusyAction(feedback, '登录中...', async () => {
+      const supabase = await ensureSupabase();
       const { error } = await supabase.auth.signInWithPassword({
         email: emailInput.value.trim(),
         password: passwordInput.value
@@ -245,22 +273,12 @@ function bindAuthActions(action) {
       content.innerHTML = renderAuthBody(action);
       bindAuthActions(action);
       await resumePendingActionIfPossible();
-    } catch (error) {
-      setAuthFeedback(feedback, error?.message || '登录请求失败。');
-      return;
-    }
+    });
   });
 
   document.getElementById('auth-signup-btn')?.addEventListener('click', async () => {
-    setAuthFeedback(feedback, '注册中...');
-    let supabase;
-    try {
-      supabase = await ensureSupabase();
-    } catch (error) {
-      setAuthFeedback(feedback, error.message || '认证配置缺失。');
-      return;
-    }
-    try {
+    await runBusyAction(feedback, '注册中...', async () => {
+      const supabase = await ensureSupabase();
       const { error } = await supabase.auth.signUp({
         email: emailInput.value.trim(),
         password: passwordInput.value
@@ -271,21 +289,12 @@ function bindAuthActions(action) {
           ? (error.message || '注册失败。')
           : '注册请求已提交。请检查邮箱确认链接，然后返回继续。'
       );
-    } catch (error) {
-      setAuthFeedback(feedback, error?.message || '注册请求失败。');
-    }
+    });
   });
 
   document.getElementById('auth-magic-link-btn')?.addEventListener('click', async () => {
-    setAuthFeedback(feedback, '发送中...');
-    let supabase;
-    try {
-      supabase = await ensureSupabase();
-    } catch (error) {
-      setAuthFeedback(feedback, error.message || '认证配置缺失。');
-      return;
-    }
-    try {
+    await runBusyAction(feedback, '发送中...', async () => {
+      const supabase = await ensureSupabase();
       const { error } = await supabase.auth.signInWithOtp({
         email: emailInput.value.trim(),
         options: {
@@ -298,9 +307,7 @@ function bindAuthActions(action) {
           ? (error.message || 'Magic Link 发送失败。')
           : 'Magic Link 已发送，请检查邮箱。'
       );
-    } catch (error) {
-      setAuthFeedback(feedback, error?.message || 'Magic Link 请求失败。');
-    }
+    });
   });
 }
 
@@ -317,6 +324,7 @@ export function ensureActionAccess(action) {
 
 export function openAuthModal(action = null) {
   authState.pendingAction = action;
+  resetAuthUiState();
   const content = document.getElementById('auth-modal-content');
   const overlay = document.getElementById('auth-overlay');
   content.innerHTML = renderAuthBody(action);
@@ -325,5 +333,6 @@ export function openAuthModal(action = null) {
 }
 
 export function closeAuthModal() {
+  resetAuthUiState({ clearPendingAction: true });
   document.getElementById('auth-overlay').classList.remove('open');
 }
