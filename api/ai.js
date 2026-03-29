@@ -137,6 +137,7 @@ Output a single raw JSON object only — no markdown, no \`\`\` fences, no text 
 Shape:
 {"overall_band":number,"criteria":{"task_achievement":{"band":number,"comments":string},"coherence_cohesion":{"band":number,"comments":string},"lexical_resource":{"band":number,"comments":string},"grammatical_range_accuracy":{"band":number,"comments":string}}}
 Per criterion: band + at most 2 short sentences in comments (keep comments compact).
+For each criterion, briefly explain why the score is not higher: identify the main gap between the awarded band and Band 9, using the relevant band descriptors for both on that criterion. Do not give praise-only comments; each comment must clearly justify the score.
 The user message includes STUDENT_ESSAY: its line breaks and blank lines are the candidate's paragraphing as submitted (not stripped). For coherence_cohesion, do not claim there is no paragraphing or a single wall of text when breaks are visible; only critique organisation if paragraphing is weak, unclear, or missing relative to the descriptors.
 CRITICAL: comments must be valid JSON strings — escape every " as \\" inside comments; use \\n for newlines.`.trim();
 }
