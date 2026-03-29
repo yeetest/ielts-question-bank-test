@@ -150,7 +150,7 @@ Do NOT output anything outside JSON.
 
   const feedback = parsed?.feedback;
   const rewrite = parsed?.band9_rewrite;
-  const revisionNote = parsed?.revision_note;
+  const revisionNote = parsed?.revision_notes ?? parsed?.revision_note;
   const keywordOutline = parsed?.keyword_outline;
   if (
     !feedback ||
@@ -162,7 +162,8 @@ Do NOT output anything outside JSON.
     !feedback.grammatical_range ||
     !Array.isArray(feedback.key_improvements) ||
     typeof rewrite !== 'string' ||
-    typeof revisionNote !== 'string' ||
+    !revisionNote ||
+    (typeof revisionNote !== 'string' && typeof revisionNote !== 'object') ||
     typeof keywordOutline !== 'string'
   ) {
     const error = new Error('OpenRouter response did not match the required feedback + rewrite + revision note + keyword outline format.');
@@ -173,7 +174,14 @@ Do NOT output anything outside JSON.
   return {
     feedback,
     band9_rewrite: rewrite.trim(),
-    revision_note: revisionNote.trim(),
+    revision_note: typeof revisionNote === 'string'
+      ? revisionNote.trim()
+      : {
+          structure: String(revisionNote.structure || '').trim(),
+          content: String(revisionNote.content || '').trim(),
+          grammar: String(revisionNote.grammar || '').trim(),
+          vocabulary: String(revisionNote.vocabulary || '').trim()
+        },
     keyword_outline: keywordOutline.trim()
   };
 }

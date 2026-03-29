@@ -262,15 +262,23 @@ function renderRevisionNote(correctionResult) {
     Grammar: '',
     Vocabulary: ''
   };
-  let current = '';
-  String(note || '').split('\n').forEach(line => {
-    const trimmed = line.trim();
-    if (/^structure[:：]?$/i.test(trimmed)) current = 'Structure';
-    else if (/^content[:：]?$/i.test(trimmed)) current = 'Content';
-    else if (/^grammar[:：]?$/i.test(trimmed)) current = 'Grammar';
-    else if (/^vocabulary[:：]?$/i.test(trimmed)) current = 'Vocabulary';
-    else if (current && trimmed) sections[current] += `${sections[current] ? ' ' : ''}${trimmed}`;
-  });
+
+  if (typeof note === 'object') {
+    sections.Structure = String(note.structure || '').trim();
+    sections.Content = String(note.content || '').trim();
+    sections.Grammar = String(note.grammar || '').trim();
+    sections.Vocabulary = String(note.vocabulary || '').trim();
+  } else {
+    let current = '';
+    String(note || '').split('\n').forEach(line => {
+      const trimmed = line.trim();
+      if (/^structure[:：]?$/i.test(trimmed)) current = 'Structure';
+      else if (/^content[:：]?$/i.test(trimmed)) current = 'Content';
+      else if (/^grammar[:：]?$/i.test(trimmed)) current = 'Grammar';
+      else if (/^vocabulary[:：]?$/i.test(trimmed)) current = 'Vocabulary';
+      else if (current && trimmed) sections[current] += `${sections[current] ? ' ' : ''}${trimmed}`;
+    });
+  }
 
   return `
     <section class="writing-revision-note">
@@ -278,7 +286,7 @@ function renderRevisionNote(correctionResult) {
         <div class="writing-result-block">
           <h3>${title}</h3>
           <ul class="feedback-points">
-            <li>${escapeHtml(content || ' ')}</li>
+            <li>${escapeHtml(content || '还没有对应内容。')}</li>
           </ul>
         </div>
       `).join('')}
