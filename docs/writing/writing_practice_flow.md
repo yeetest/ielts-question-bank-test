@@ -83,6 +83,11 @@ Band descriptors are embedded into the AI prompt only.
 This project now uses credit-only access control.
 
 - No free / paid / admin roles
+- Auth provider: Supabase Auth only
+- Supported auth methods:
+  - email + password
+  - magic link
+- SMS verification is not implemented
 - If not logged in and the user clicks `Correct My Essay`:
   - open auth modal
 - If logged in with 0 credits:
@@ -135,8 +140,7 @@ Two browser-side stores are used right now:
 
 ## Current server-side API files
 
-- `api/auth/send-code.js`
-- `api/auth/verify-code.js`
+- `api/auth/config.js`
 - `api/auth/session.js`
 - `api/auth/logout.js`
 - `api/billing/starter-pack.js`

@@ -1,4 +1,4 @@
-const { createHmac, randomInt, timingSafeEqual } = require('node:crypto');
+const { createHmac, timingSafeEqual } = require('node:crypto');
 
 function getSecret() {
   return process.env.AUTH_SESSION_SECRET || 'local-static-auth-secret';
@@ -59,38 +59,33 @@ async function readJson(req) {
   return raw ? JSON.parse(raw) : {};
 }
 
-function validateIdentity(identity, mode) {
-  const trimmed = String(identity || '').trim();
-  if (mode === 'email') return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed);
-  return /^\+?[0-9]{6,20}$/.test(trimmed.replace(/\s+/g, ''));
-}
-
-function normalizeIdentity(identity, mode) {
-  const trimmed = String(identity || '').trim();
-  return mode === 'email' ? trimmed.toLowerCase() : trimmed.replace(/\s+/g, '');
-}
-
-function issueVerification(identity, mode) {
-  const normalized = normalizeIdentity(identity, mode);
-  const code = String(randomInt(0, 1000000)).padStart(6, '0');
-  const token = encode({
-    kind: 'verification',
-    identity: normalized,
-    mode,
-    code,
-    exp: Date.now() + 10 * 60 * 1000
-  });
-  return { normalized, code, token };
-}
-
-function verifyCode(token, code) {
-  const payload = decode(token);
-  if (!payload || payload.kind !== 'verification' || payload.exp < Date.now()) return null;
-  const left = Buffer.from(String(payload.code));
-  const right = Buffer.from(String(code || '').trim());
-  if (left.length !== right.length || !timingSafeEqual(left, right)) return null;
+function getSupabaseConfig() {
   return {
-    identity: payload.identity,
+    url: process.env.SUPABASE_URL || '',
+    anonKey: process.env.SUPABASE_ANON_KEY || ''
+  };
+}
+
+async function verifySupabaseAccessToken(accessToken) {
+  const { url, anonKey } = getSupabaseConfig();
+  if (!url || !anonKey) {
+    const error = new Error('Missing SUPABASE_URL or SUPABASE_ANON_KEY.');
+    error.statusCode = 500;
+    throw error;
+  }
+
+  const response = await fetch(`${url}/auth/v1/user`, {
+    headers: {
+      apikey: anonKey,
+      Authorization: `Bearer ${accessToken}`
+    }
+  });
+  const payload = await response.json().catch(() => null);
+  if (!response.ok) return null;
+  const email = String(payload?.email || '').trim().toLowerCase();
+  if (!email) return null;
+  return {
+    identity: email,
     credits: 0
   };
 }
@@ -133,10 +128,8 @@ function clearSession(res) {
 
 module.exports = {
   readJson,
-  validateIdentity,
-  normalizeIdentity,
-  issueVerification,
-  verifyCode,
+  getSupabaseConfig,
+  verifySupabaseAccessToken,
   readSession,
   writeSession,
   clearSession

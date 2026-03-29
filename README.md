@@ -90,9 +90,12 @@ Required env vars:
 ```bash
 OPENROUTER_API_KEY=placeholder
 OPENROUTER_MODEL=anthropic/claude-opus-4.6
+SUPABASE_URL=placeholder
+SUPABASE_ANON_KEY=placeholder
 ```
 
-If either env var is missing, `api/ai.js` returns a clear error and does not generate any fallback output.
+If OpenRouter env is missing, `api/ai.js` returns a clear error and does not generate any fallback output.
+Writing auth now uses Supabase email auth only.
 
 ## Docs
 

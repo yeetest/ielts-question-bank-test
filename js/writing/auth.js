@@ -1,7 +1,10 @@
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
 export const authState = {
   session: null,
   pendingAction: null,
-  verificationToken: null
+  supabase: null,
+  configLoaded: false
 };
 
 function writingMeta(session) {
@@ -9,12 +12,60 @@ function writingMeta(session) {
   return `IELTS General Training Writing · ${session.credits} credits`;
 }
 
-export async function refreshSession() {
-  const response = await fetch('/api/auth/session');
+async function ensureSupabase() {
+  if (authState.supabase) return authState.supabase;
+
+  const response = await fetch('/api/auth/config');
+  const payload = await response.json();
+  if (!response.ok || !payload.supabaseUrl || !payload.supabaseAnonKey) {
+    throw new Error(payload.error || 'Missing SUPABASE_URL or SUPABASE_ANON_KEY.');
+  }
+
+  authState.supabase = createClient(payload.supabaseUrl, payload.supabaseAnonKey, {
+    auth: {
+      persistSession: true,
+      autoRefreshToken: true,
+      detectSessionInUrl: true
+    }
+  });
+
+  if (!authState.configLoaded) {
+    authState.configLoaded = true;
+    authState.supabase.auth.onAuthStateChange(async (_event, session) => {
+      if (!session?.access_token) {
+        authState.session = null;
+        syncSessionBadge();
+        return;
+      }
+      await syncServerSession(session.access_token);
+      await resumePendingActionIfPossible();
+    });
+  }
+
+  return authState.supabase;
+}
+
+async function syncServerSession(accessToken) {
+  const response = await fetch('/api/auth/session', {
+    headers: {
+      Authorization: `Bearer ${accessToken}`
+    }
+  });
   const payload = await response.json();
   authState.session = payload.session || null;
   syncSessionBadge();
   return authState.session;
+}
+
+export async function refreshSession() {
+  const supabase = await ensureSupabase();
+  const { data, error } = await supabase.auth.getSession();
+  if (error || !data.session?.access_token) {
+    authState.session = null;
+    syncSessionBadge();
+    return null;
+  }
+  return syncServerSession(data.session.access_token);
 }
 
 export function syncSessionBadge() {
@@ -82,26 +133,33 @@ function renderAuthBody(action) {
     <div class="auth-gate">
       <h2>登录 / 注册</h2>
       <div class="section-label">${actionTitle(action)}</div>
-      <p class="auth-copy">浏览题目不需要登录，只有使用受限功能时才需要验证。</p>
-      <div class="tabs">
-        <button class="tab active" id="auth-mode-email">邮箱验证码</button>
-        <button class="tab" id="auth-mode-phone">手机验证码</button>
-      </div>
+      <p class="auth-copy">使用 Supabase 邮箱认证。支持邮箱 + 密码，或 Magic Link。</p>
       <div class="auth-form-grid">
         <label>
-          <span id="auth-identity-label">邮箱</span>
-          <input id="auth-identity" placeholder="you@example.com">
+          邮箱
+          <input id="auth-email" placeholder="you@example.com">
         </label>
-        <button class="secondary-btn" id="auth-send-code">发送验证码</button>
         <label>
-          验证码
-          <input id="auth-code" placeholder="123456">
+          密码
+          <input id="auth-password" type="password" placeholder="至少 6 位">
         </label>
-        <button class="secondary-btn" id="auth-verify-code">确认</button>
+      </div>
+      <div class="auth-actions">
+        <button class="secondary-btn" id="auth-login-btn">登录</button>
+        <button class="secondary-btn" id="auth-signup-btn">注册</button>
+        <button class="secondary-btn" id="auth-magic-link-btn">发送 Magic Link</button>
       </div>
       <div class="auth-feedback" id="auth-feedback"></div>
     </div>
   `;
+}
+
+async function signOutAll() {
+  const supabase = await ensureSupabase();
+  await supabase.auth.signOut();
+  await fetch('/api/auth/logout', { method: 'POST' });
+  authState.session = null;
+  syncSessionBadge();
 }
 
 function bindAuthActions(action) {
@@ -110,24 +168,15 @@ function bindAuthActions(action) {
   const session = authState.session;
   const needsPayment = session && action?.requiresCredits && session.credits <= 0;
 
-  const continueBtn = document.getElementById('auth-continue-btn');
-  if (continueBtn) {
-    continueBtn.addEventListener('click', async () => {
-      await resumePendingActionIfPossible();
-    });
-  }
+  document.getElementById('auth-continue-btn')?.addEventListener('click', async () => {
+    await resumePendingActionIfPossible();
+  });
 
-  const logoutBtn = document.getElementById('auth-logout-btn');
-  if (logoutBtn) {
-    logoutBtn.addEventListener('click', async () => {
-      await fetch('/api/auth/logout', { method: 'POST' });
-      authState.session = null;
-      authState.verificationToken = null;
-      syncSessionBadge();
-      content.innerHTML = renderAuthBody(action);
-      bindAuthActions(action);
-    });
-  }
+  document.getElementById('auth-logout-btn')?.addEventListener('click', async () => {
+    await signOutAll();
+    content.innerHTML = renderAuthBody(action);
+    bindAuthActions(action);
+  });
 
   const buyBtn = document.getElementById('auth-buy-credits');
   if (buyBtn && needsPayment) {
@@ -145,60 +194,51 @@ function bindAuthActions(action) {
     });
   }
 
-  const sendCodeBtn = document.getElementById('auth-send-code');
-  if (!sendCodeBtn) return;
+  const loginBtn = document.getElementById('auth-login-btn');
+  if (!loginBtn) return;
 
-  let mode = 'email';
-  const identityLabel = document.getElementById('auth-identity-label');
-  const identityInput = document.getElementById('auth-identity');
+  const emailInput = document.getElementById('auth-email');
+  const passwordInput = document.getElementById('auth-password');
 
-  function setMode(next) {
-    mode = next;
-    document.getElementById('auth-mode-email').classList.toggle('active', next === 'email');
-    document.getElementById('auth-mode-phone').classList.toggle('active', next === 'phone');
-    identityLabel.textContent = next === 'email' ? '邮箱' : '手机号';
-    identityInput.placeholder = next === 'email' ? 'you@example.com' : '+6588888888';
-  }
-
-  document.getElementById('auth-mode-email').addEventListener('click', () => setMode('email'));
-  document.getElementById('auth-mode-phone').addEventListener('click', () => setMode('phone'));
-
-  sendCodeBtn.addEventListener('click', async () => {
-    const response = await fetch('/api/auth/send-code', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ identity: identityInput.value, mode })
+  loginBtn.addEventListener('click', async () => {
+    const supabase = await ensureSupabase();
+    const { error } = await supabase.auth.signInWithPassword({
+      email: emailInput.value.trim(),
+      password: passwordInput.value
     });
-    const payload = await response.json();
-    if (!response.ok) {
-      feedback.textContent = payload.error || '验证码发送失败。';
+    if (error) {
+      feedback.textContent = error.message || '登录失败。';
       return;
     }
-    authState.verificationToken = payload.verificationToken;
-    feedback.textContent = payload.previewCode
-      ? `验证码已发送。当前预览码：${payload.previewCode}`
-      : '验证码已发送。';
-  });
-
-  document.getElementById('auth-verify-code').addEventListener('click', async () => {
-    const response = await fetch('/api/auth/verify-code', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        verificationToken: authState.verificationToken,
-        code: document.getElementById('auth-code').value
-      })
-    });
-    const payload = await response.json();
-    if (!response.ok) {
-      feedback.textContent = payload.error || '验证失败。';
-      return;
-    }
-    authState.session = payload.session;
-    syncSessionBadge();
+    feedback.textContent = '登录成功。';
+    await refreshSession();
     content.innerHTML = renderAuthBody(action);
     bindAuthActions(action);
     await resumePendingActionIfPossible();
+  });
+
+  document.getElementById('auth-signup-btn')?.addEventListener('click', async () => {
+    const supabase = await ensureSupabase();
+    const { error } = await supabase.auth.signUp({
+      email: emailInput.value.trim(),
+      password: passwordInput.value
+    });
+    feedback.textContent = error
+      ? (error.message || '注册失败。')
+      : '注册请求已提交。请检查邮箱确认链接，然后返回继续。';
+  });
+
+  document.getElementById('auth-magic-link-btn')?.addEventListener('click', async () => {
+    const supabase = await ensureSupabase();
+    const { error } = await supabase.auth.signInWithOtp({
+      email: emailInput.value.trim(),
+      options: {
+        emailRedirectTo: window.location.href
+      }
+    });
+    feedback.textContent = error
+      ? (error.message || 'Magic Link 发送失败。')
+      : 'Magic Link 已发送，请检查邮箱。';
   });
 }
 
