@@ -18,9 +18,7 @@ The site remains a static HTML/CSS/JS app on Vercel with JSON loaded at runtime.
   - one correction returns both:
     - IELTS band-score feedback
     - revised Band 9 version
-  - right panel has only 2 tabs:
-    - `Sample Band 9`
-    - `My Revised Band 9`
+  - right panel now shows only the user-specific revised Band 9 result
   - left panel is the personal writing-library tree
   - manual save writes to the same library data source used by the left sidebar
   - highlights generate the flashcards used in `Practice High-Score Expressions`
@@ -86,7 +84,7 @@ Required env vars:
 
 ```bash
 OPENROUTER_API_KEY=placeholder
-OPENROUTER_MODEL=deepseek/deepseek-r1-0528
+OPENROUTER_MODEL=anthropic/claude-opus-4.6
 ```
 
 If either env var is missing, `api/ai.js` returns a clear error and does not generate any fallback output.

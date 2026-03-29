@@ -3,7 +3,7 @@ import { state } from '../shared/state.js';
 
 const WORKSPACE_KEY = 'ielts_writing_workspace_v3';
 const LIBRARY_KEY = 'ielts_writing_library_v3';
-const EMPTY_FLASHCARD_MESSAGE = '当前你还没有高光选中你想要学习的表达，快去右侧 sample 部分选中吧';
+const EMPTY_FLASHCARD_MESSAGE = '当前你还没有高光选中你想要学习的表达，快去右侧我的专属 9 分范文部分选中吧';
 
 let activeController = null;
 let selectionHandler = null;
@@ -68,47 +68,11 @@ function buildFlashcards(highlights = []) {
   }));
 }
 
-function buildSampleAnswer(task) {
-  if (task.type === 'task1') {
-    return [
-      'Dear Sir or Madam,',
-      '',
-      'I am writing to express my appreciation for the moving service your company recently provided when I relocated to my new flat. Overall, the experience was efficient, professional and far less stressful than I had anticipated.',
-      '',
-      'The most impressive aspect of the service was the team’s punctuality and organisation. The movers arrived exactly on time, packed the remaining loose items carefully, and handled my furniture with considerable care. As a result, the entire move was completed smoothly and within the period originally promised.',
-      '',
-      'I would also like to commend one member of staff in particular, Daniel, whose attitude was outstanding throughout the day. He remained polite, patient and reassuring, especially when I was concerned about several fragile boxes containing kitchenware and books. His professionalism made an excellent impression.',
-      '',
-      'The only area that could be improved was the communication on the evening before the move. I was not given a clear final arrival window until rather late, which made it difficult to organise the rest of my day. Even so, the quality of the actual service was excellent.',
-      '',
-      'Thank you again for such a positive experience. I would certainly recommend your company to others.',
-      '',
-      'Yours faithfully,'
-    ].join('\n');
-  }
-
-  return [
-    'In many cases, this trend is beneficial overall, even though it may create some short-term inconvenience. I believe it should generally be regarded as a positive development because its long-term advantages are more significant than its immediate drawbacks.',
-    '',
-    'Admittedly, some people oppose this kind of change because it may disrupt established habits or impose extra costs in the beginning. Individuals often have to adapt their routines, and in some cases they may feel uncertain about the practical consequences. These concerns are understandable, particularly when the transition happens quickly or without enough support.',
-    '',
-    'However, the broader picture is much more positive. Developments of this kind often encourage people to make more responsible decisions and to think beyond their immediate comfort. In the long run, this can improve personal well-being, reduce unnecessary harm and create benefits for society as a whole. Even when adaptation is required at first, the lasting gains usually outweigh the temporary inconvenience.',
-    '',
-    'Furthermore, positive change rarely occurs without some degree of adjustment. If every policy or social shift were rejected simply because it was inconvenient at the start, progress would be extremely limited. A more balanced judgement should consider whether the long-term outcome is constructive, and in this case it clearly is.',
-    '',
-    'In conclusion, although there may be some initial disadvantages, I consider this to be a positive development because the lasting benefits are both wider and more meaningful.'
-  ].join('\n');
-}
-
-function getSampleAnswer(task) {
-  return task.sampleAnswer || buildSampleAnswer(task);
-}
-
 function defaultWorkspace(task) {
   return {
     taskId: task.id,
     essay: '',
-    activeTab: 'sample',
+    activeTab: 'revised',
     viewMode: 'practice',
     viewTaskId: task.id,
     correctionResult: null,
@@ -132,6 +96,7 @@ function normalizeWorkspace(task, value) {
   merged.flashcards = Array.isArray(merged.flashcards) && merged.flashcards.length
     ? merged.flashcards
     : buildFlashcards(merged.highlights);
+  merged.activeTab = 'revised';
   if (typeof merged.editorWidth !== 'number') merged.editorWidth = 48;
   merged.selectionText = '';
   merged.selectionTranslation = '';
@@ -182,7 +147,6 @@ function createPracticeRecord(task, workspace) {
     title: task.title,
     type: task.type,
     prompt: task.prompt,
-    sampleAnswer: getSampleAnswer(task),
     originalEssay: workspace.essay,
     correctionResult: workspace.correctionResult,
     highlights: workspace.highlights,
@@ -313,7 +277,6 @@ function renderLibrarySidebar(task, workspace) {
               <div class="library-question-title">${escapeHtml(record.title)}</div>
               <div class="library-children">
                 <button class="library-child-btn${currentViewKey === `record:${record.taskId}` ? ' active' : ''}" data-library-view="record" data-library-task="${record.taskId}">我的练习</button>
-                <button class="library-child-btn${currentViewKey === `sample:${record.taskId}` ? ' active' : ''}" data-library-view="sample" data-library-task="${record.taskId}">满分范文</button>
                 <button class="library-child-btn${currentViewKey === `flashcards:${record.taskId}` ? ' active' : ''}" data-library-view="flashcards" data-library-task="${record.taskId}">高分表达</button>
               </div>
             </div>
@@ -325,7 +288,6 @@ function renderLibrarySidebar(task, workspace) {
 }
 
 function renderPracticeView(task, workspace) {
-  const sampleAnswer = getSampleAnswer(task);
   const revisedEssay = workspace.correctionResult?.revisedEssay || '';
   const editorWidth = Math.min(Math.max(workspace.editorWidth, 28), 72);
 
@@ -350,15 +312,10 @@ function renderPracticeView(task, workspace) {
 
         <section class="writing-pane writing-pane-right" id="writing-result-pane">
           <div class="writing-pane-head">
-            <div class="tabs writing-tabs">
-              <button class="tab${workspace.activeTab === 'sample' ? ' active' : ''}" data-writing-tab="sample">9 分范文</button>
-              <button class="tab${workspace.activeTab === 'revised' ? ' active' : ''}" data-writing-tab="revised">我的专属 9 分范文</button>
-            </div>
+            <h3>我的专属 9 分范文</h3>
           </div>
 
-          ${workspace.activeTab === 'sample' ? `
-            <div class="writing-reading-panel writing-highlight-surface" id="writing-reading-panel" data-highlight-source="sample">${renderHighlightedText(sampleAnswer, workspace.highlights)}</div>
-          ` : workspace.correctionResult ? `
+          ${workspace.correctionResult ? `
             ${renderFeedbackCards(workspace.correctionResult)}
             <div class="writing-reading-panel writing-highlight-surface" id="writing-reading-panel" data-highlight-source="revised">${renderHighlightedText(revisedEssay, workspace.highlights)}</div>
             <div class="button-inline writing-cta-row">
@@ -401,23 +358,6 @@ function renderRecordView(record) {
           <div class="writing-reading-panel">${renderHighlightedText(record.correctionResult?.revisedEssay || '', record.highlights)}</div>
         </section>
       </div>
-    </div>
-  `;
-}
-
-function renderSampleView(record) {
-  return `
-    <div class="writing-main-view">
-      <div class="writing-prompt">
-        <div class="section-label">Sample Band 9</div>
-        <div class="prompt-prewrap">${escapeHtml(record.prompt)}</div>
-      </div>
-      <section class="writing-pane">
-        ${record.sampleAnswer
-          ? `<div class="writing-reading-panel">${renderHighlightedText(record.sampleAnswer, record.highlights)}</div>`
-          : '<div class="writing-empty-copy">这道题目前还没有预生成的 Band 9 sample。</div>'
-        }
-      </section>
     </div>
   `;
 }
@@ -473,7 +413,6 @@ function renderMainView(task, workspace) {
     `;
   }
   if (workspace.viewMode === 'record') return renderRecordView(record);
-  if (workspace.viewMode === 'sample') return renderSampleView(record);
   return renderFlashcardsView(record, workspace);
 }
 
@@ -591,7 +530,7 @@ function saveHighlight(task, source) {
 function bindSelection(task) {
   const panel = document.getElementById('writing-reading-panel');
   if (!panel) return;
-  const source = panel.dataset.highlightSource || 'sample';
+  const source = panel.dataset.highlightSource || 'revised';
 
   if (selectionHandler) {
     document.removeEventListener('selectionchange', selectionHandler);
@@ -744,25 +683,6 @@ function bindPractice(task) {
     patchWritingWorkspace(task, {
       essay: event.target.value,
       dirty: true
-    });
-  });
-
-  document.querySelectorAll('[data-writing-tab]').forEach(button => {
-    button.addEventListener('click', async () => {
-      const allow = await trySaveBeforeNavigation(task, () => {
-        patchWritingWorkspace(task, {
-          activeTab: button.dataset.writingTab,
-          viewMode: 'practice',
-          viewTaskId: task.id
-        });
-      });
-      if (!allow) return;
-      patchWritingWorkspace(task, {
-        activeTab: button.dataset.writingTab,
-        viewMode: 'practice',
-        viewTaskId: task.id
-      });
-      rerender();
     });
   });
 

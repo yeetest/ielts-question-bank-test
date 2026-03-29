@@ -14,9 +14,8 @@ This file is the current source of truth for the writing practice implementation
 - Left collapsible sidebar:
   - `Return to Question Page`
   - `My Practice Records`
-  - each saved question has exactly 3 children:
+  - each saved question has exactly 2 children:
     - `My Practice Record`
-    - `Sample Band 9`
     - `Practice High-Score Expressions`
 - Main content:
   - left = writing editor
@@ -24,17 +23,14 @@ This file is the current source of truth for the writing practice implementation
 - The editor and result panes are separated by a draggable divider.
 - If the left library is collapsed, the remaining workspace expands automatically.
 
-## Right panel tabs
+## Right panel
 
-Only 2 tabs are used:
-
-1. `Sample Band 9`
-2. `My Revised Band 9`
+Only the user-specific revised result is shown on the right.
 
 Rules:
 
-- Before correction, `My Revised Band 9` shows only `Correct My Essay`.
-- After correction, the same tab shows:
+- Before correction, show only `Correct My Essay`.
+- After correction, show:
   - IELTS band-score feedback
   - revised Band 9 version
   - `Save to My Private Template Library`
@@ -56,7 +52,7 @@ Band descriptors are embedded into the AI prompt only.
   - `OPENROUTER_API_KEY`
   - `OPENROUTER_MODEL`
 - Recommended default env value:
-  - `OPENROUTER_MODEL=deepseek/deepseek-r1-0528`
+  - `OPENROUTER_MODEL=anthropic/claude-opus-4.6`
 - Project root local env file:
   - `.env`
 - If either env var is missing, the API returns a clear error.
@@ -86,14 +82,13 @@ The pending action is kept in the front-end auth state so the user returns to th
 ## Highlight / flashcard rule
 
 - Highlights can be created in:
-  - `Sample Band 9`
   - `My Revised Band 9`
 - When text is selected, actions appear near the selected text instead of at the bottom.
 - Highlight data generates the flashcard data for the same task.
 - Flashcard direction is Chinese -> English.
 - If a saved task has no highlights, show exactly:
 
-`当前你还没有高光选中你想要学习的表达，快去右侧 sample 部分选中吧`
+`当前你还没有高光选中你想要学习的表达，快去右侧我的专属 9 分范文部分选中吧`
 
 ## Current local storage model
 
@@ -114,10 +109,9 @@ Two browser-side stores are used right now:
    - one record per user per task
    - original essay
    - correction result
-   - sample answer
-   - highlights
-   - flashcards
-   - saved timestamp
+  - highlights
+  - flashcards
+  - saved timestamp
 
 ## Current server-side API files
 
@@ -133,4 +127,4 @@ Two browser-side stores are used right now:
 
 - Payment is still a placeholder `Buy 5 credits` action, not a real payment provider.
 - Verification currently returns a preview code outside production unless a real delivery provider is added.
-- If a question does not have a real pre-generated sample in the data source, the sample tab now shows an explicit unavailable message instead of a fake local sample.
+- The practice page no longer shows a separate pre-generated sample panel.
