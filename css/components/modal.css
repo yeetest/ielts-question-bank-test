@@ -288,6 +288,11 @@
 .writing-reading-panel p:last-child {
   margin-bottom: 0;
 }
+.writing-record-original {
+  min-height: 320px;
+  max-height: 520px;
+  overflow: auto;
+}
 .writing-revised-essay-text {
   white-space: pre-wrap;
   user-select: text;

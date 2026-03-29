@@ -115,8 +115,12 @@ function defaultWorkspace(task) {
 
 function normalizeWorkspace(task, value) {
   const merged = { ...defaultWorkspace(task), ...(value || {}) };
-  merged.viewMode = 'practice';
-  merged.viewTaskId = task.id;
+  if (!['practice', 'record', 'flashcards'].includes(merged.viewMode)) {
+    merged.viewMode = 'practice';
+  }
+  if (!merged.viewTaskId) {
+    merged.viewTaskId = task.id;
+  }
   merged.highlights = Array.isArray(merged.highlights) ? merged.highlights : [];
   merged.flashcards = Array.isArray(merged.flashcards) && merged.flashcards.length
     ? merged.flashcards
@@ -408,29 +412,51 @@ function renderPracticeView(task, workspace) {
   `;
 }
 
-function renderRecordView(record) {
+function renderRecordView(record, workspace) {
+  const revisedEssay = record.correctionResult?.revisedEssay || '';
+  const editorWidth = Math.min(Math.max(workspace.editorWidth, 28), 72);
+  const tabs = [
+    ['feedback', 'Score & Feedback'],
+    ['revised', 'Revised Essay'],
+    ['notes', 'Revision Notes']
+  ];
+  const activeTab = ['feedback', 'revised', 'notes'].includes(workspace.activeTab) ? workspace.activeTab : 'feedback';
+
   return `
     <div class="writing-main-view">
-      <div class="writing-prompt">
-        <div class="section-label">${record.type === 'task1' ? 'Task 1' : 'Task 2'}</div>
-        <div class="prompt-prewrap">${escapeHtml(record.prompt)}</div>
-      </div>
-      <div class="writing-record-grid">
-        <section class="writing-pane">
+      <div class="writing-layout writing-layout-resizable">
+        <section class="writing-pane writing-pane-left" id="writing-editor-pane" style="width:${editorWidth}%;">
           <div class="writing-pane-head">
-            <h3>我的原文</h3>
+            <h3>我的练习</h3>
             <div class="writing-save-status"><span>已保存</span></div>
           </div>
-          <div class="writing-reading-panel">${escapeHtml(record.originalEssay).replace(/\n/g, '<br>')}</div>
+          <div class="writing-prompt">
+            <div class="section-label">${record.type === 'task1' ? 'Task 1' : 'Task 2'}</div>
+            <div class="prompt-prewrap">${escapeHtml(record.prompt)}</div>
+          </div>
+          <div class="writing-pane-head">
+            <div class="section-label">我的原文</div>
+          </div>
+          <div class="writing-reading-panel writing-record-original">${escapeHtml(record.originalEssay).replace(/\n/g, '<br>')}</div>
         </section>
-        <section class="writing-pane">
+
+        <div class="writing-divider" id="writing-divider" aria-label="resize panes"></div>
+
+        <section class="writing-pane writing-pane-right" id="writing-result-pane">
           <div class="writing-pane-head">
             <h3>AI 修改结果</h3>
             <div class="writing-save-status"><span>${new Date(record.savedAt).toLocaleString()}</span></div>
           </div>
-          ${renderFeedbackCards(record.correctionResult)}
-          <div class="writing-reading-panel writing-highlight-surface" data-highlight-source="revised">${renderHighlightedText(record.correctionResult?.revisedEssay || '', record.highlights)}</div>
-          ${record.correctionResult?.revisionNote ? `<div class="writing-reading-panel">${typeof record.correctionResult.revisionNote === 'string' ? escapeHtml(record.correctionResult.revisionNote).replace(/\n/g, '<br>') : renderRevisionNote(record.correctionResult)}</div>` : ''}
+          <div class="writing-tabs">
+            ${tabs.map(([key, label]) => `
+              <button class="secondary-btn writing-tab-btn${activeTab === key ? ' active' : ''}" data-writing-tab="${key}">${label}</button>
+            `).join('')}
+          </div>
+          <div class="writing-tab-panel">
+            ${activeTab === 'feedback' ? renderFeedbackCards(record.correctionResult) : ''}
+            ${activeTab === 'revised' ? `<div class="writing-reading-panel writing-highlight-surface" data-highlight-source="revised">${renderHighlightedText(revisedEssay, record.highlights)}</div>` : ''}
+            ${activeTab === 'notes' ? (record.correctionResult?.revisionNote ? (typeof record.correctionResult.revisionNote === 'string' ? `<div class="writing-reading-panel">${escapeHtml(record.correctionResult.revisionNote).replace(/\n/g, '<br>')}</div>` : renderRevisionNote(record.correctionResult)) : '<div class="muted">还没有修改说明。</div>') : ''}
+          </div>
         </section>
       </div>
     </div>
@@ -487,7 +513,7 @@ function renderMainView(task, workspace) {
       </div>
     `;
   }
-  if (workspace.viewMode === 'record') return renderRecordView(record);
+  if (workspace.viewMode === 'record') return renderRecordView(record, workspace);
   return renderFlashcardsView(record, workspace);
 }
 

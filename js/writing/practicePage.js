@@ -1,7 +1,7 @@
 import { loadData, practiceIdFromURL } from '../shared/data.js';
 import { closeAuthModal, currentAccessToken, ensureActionAccess, refreshSession } from './auth.js';
 import { state } from '../shared/state.js';
-import { bindWritingPractice, renderWritingPractice } from './writingPractice.js';
+import { bindWritingPractice, renderWritingPractice, patchWritingWorkspace } from './writingPractice.js';
 
 function getWritingTaskById(taskId) {
   return [...state.writingTask1Data, ...state.writingTask2Data].find(item => item.id === taskId) || null;
@@ -24,11 +24,19 @@ function renderMissingState() {
   });
 }
 
-async function renderPractice(taskId) {
+async function renderPractice(taskId, { entryReset = false } = {}) {
   const task = getWritingTaskById(taskId);
   if (!task) {
     renderMissingState();
     return;
+  }
+
+  if (entryReset) {
+    patchWritingWorkspace(task, {
+      viewMode: 'practice',
+      viewTaskId: task.id,
+      activeTab: 'feedback'
+    });
   }
 
   state.currentSection = 'writing';
@@ -111,5 +119,5 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   const taskId = practiceIdFromURL();
-  await renderPractice(taskId);
+  await renderPractice(taskId, { entryReset: true });
 });
