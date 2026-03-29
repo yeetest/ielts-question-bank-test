@@ -386,31 +386,24 @@ function renderPracticeView(task, workspace) {
     <div class="writing-main-view">
       <div class="writing-layout writing-layout-resizable">
         <section class="writing-pane writing-pane-left" id="writing-editor-pane" style="width:${editorWidth}%;">
-          <div class="writing-left-stack">
-            <section class="writing-question-box">
-              <div class="writing-pane-head">
-                <div class="section-label">${task.type === 'task1' ? 'Task 1' : 'Task 2'}</div>
-                <div class="writing-save-status">
-                  <span>${escapeHtml(accountMeta)}</span>
-                </div>
-              </div>
-              <div class="writing-prompt writing-prompt-box">
-                <div class="prompt-prewrap prompt-prewrap-compact">${escapeHtml(task.prompt)}</div>
-              </div>
-            </section>
-
-            <section class="writing-editor-box">
-              <div class="writing-pane-head">
-                <h3>写作区</h3>
-                <div class="writing-save-status">
-                  <span>${workspace.dirty ? '未保存' : '已保存'}</span>
-                  <span id="writing-word-count">字数 ${wordCount}</span>
-                  <span id="writing-timer" data-deadline="${workspace.timerStartedAt + getTaskDurationMs(task)}">倒计时 ${formatCountdown((workspace.timerStartedAt + getTaskDurationMs(task)) - Date.now())}</span>
-                </div>
-              </div>
-              <textarea id="writing-essay-input" class="writing-textarea writing-textarea-fill" placeholder="在这里输入或粘贴你的作文。">${escapeHtml(workspace.essay)}</textarea>
-            </section>
+          <div class="writing-pane-head">
+            <h3>写作区</h3>
+            <div class="writing-save-status">
+              <span>${escapeHtml(accountMeta)}</span>
+            </div>
           </div>
+          <div class="writing-prompt">
+            <div class="section-label">${task.type === 'task1' ? 'Task 1' : 'Task 2'}</div>
+            <div class="prompt-prewrap">${escapeHtml(task.prompt)}</div>
+          </div>
+          <div class="writing-pane-head">
+            <div class="section-label">${workspace.dirty ? '未保存' : '已保存'}</div>
+            <div class="writing-save-status">
+              <span id="writing-word-count">字数 ${wordCount}</span>
+              <span id="writing-timer" data-deadline="${workspace.timerStartedAt + getTaskDurationMs(task)}">倒计时 ${formatCountdown((workspace.timerStartedAt + getTaskDurationMs(task)) - Date.now())}</span>
+            </div>
+          </div>
+          <textarea id="writing-essay-input" class="writing-textarea" placeholder="在这里输入或粘贴你的作文。">${escapeHtml(workspace.essay)}</textarea>
         </section>
 
         <div class="writing-divider" id="writing-divider" aria-label="resize panes"></div>
