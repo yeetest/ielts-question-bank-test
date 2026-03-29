@@ -276,6 +276,19 @@ function renderRevisionNote(correctionResult) {
   `;
 }
 
+function renderKeywordOutline(correctionResult) {
+  const outline = correctionResult?.keywordOutline;
+  if (!outline) return '';
+  return `
+    <section class="writing-pane writing-revision-note">
+      <div class="writing-pane-head">
+        <h3>Keyword Outline</h3>
+      </div>
+      <div class="writing-reading-panel">${escapeHtml(outline).replace(/\n/g, '<br>')}</div>
+    </section>
+  `;
+}
+
 function renderKeywordOutlineExercise(record, workspace) {
   const outline = record.correctionResult?.keywordOutline || '';
   if (!outline) {
@@ -394,6 +407,7 @@ function renderPracticeView(task, workspace) {
             ${renderFeedbackCards(workspace.correctionResult)}
             <div class="writing-reading-panel writing-highlight-surface" id="writing-reading-panel" data-highlight-source="revised">${renderHighlightedText(revisedEssay, workspace.highlights)}</div>
             ${renderRevisionNote(workspace.correctionResult)}
+            ${renderKeywordOutline(workspace.correctionResult)}
             <div class="button-inline writing-cta-row">
               <button class="secondary-btn" id="writing-save-library">保存到我的私有满分作文库</button>
             </div>
@@ -433,6 +447,7 @@ function renderRecordView(record) {
           ${renderFeedbackCards(record.correctionResult)}
           <div class="writing-reading-panel">${renderHighlightedText(record.correctionResult?.revisedEssay || '', record.highlights)}</div>
           ${record.correctionResult?.revisionNote ? `<div class="writing-reading-panel">${escapeHtml(record.correctionResult.revisionNote).replace(/\n/g, '<br>')}</div>` : ''}
+          ${record.correctionResult?.keywordOutline ? `<div class="writing-reading-panel">${escapeHtml(record.correctionResult.keywordOutline).replace(/\n/g, '<br>')}</div>` : ''}
         </section>
       </div>
     </div>
