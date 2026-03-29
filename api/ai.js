@@ -137,6 +137,7 @@ Output a single raw JSON object only — no markdown, no \`\`\` fences, no text 
 Shape:
 {"overall_band":number,"criteria":{"task_achievement":{"band":number,"comments":string},"coherence_cohesion":{"band":number,"comments":string},"lexical_resource":{"band":number,"comments":string},"grammatical_range_accuracy":{"band":number,"comments":string}}}
 Per criterion: band + at most 2 short sentences in comments (keep comments compact).
+The user message includes STUDENT_ESSAY: its line breaks and blank lines are the candidate's paragraphing as submitted (not stripped). For coherence_cohesion, do not claim there is no paragraphing or a single wall of text when breaks are visible; only critique organisation if paragraphing is weak, unclear, or missing relative to the descriptors.
 CRITICAL: comments must be valid JSON strings — escape every " as \\" inside comments; use \\n for newlines.`.trim();
 }
 
@@ -154,6 +155,7 @@ ${hint} Words: Task1≥150, Task2≥250.
 revision_notes: each of structure/content/grammar/vocabulary = 2–5 tight sentences (no long essays).
 
 User message includes EXAMINER_ASSESSMENT_JSON — use to prioritise fixes.
+Preserve the student's paragraph breaks in revised_essay unless a clearer structure is needed; match their grouping where sensible.
 
 ${band9Block}
 
@@ -274,7 +276,7 @@ async function requestOpenRouter(taskPrompt, essay, taskType) {
   const maxAssess = intEnv('OPENROUTER_MAX_TOKENS_ASSESSMENT', 4096);
   const maxRewrite = intEnv('OPENROUTER_MAX_TOKENS_REWRITE', 8192);
 
-  const userTaskBlock = `TASK_TYPE: ${taskType}\n\nTASK:\n${taskPrompt}\n\nSTUDENT_ESSAY:\n${essay}`;
+  const userTaskBlock = `TASK_TYPE: ${taskType}\n\nTASK:\n${taskPrompt}\n\nSTUDENT_ESSAY (line breaks = candidate's paragraph breaks as typed):\n${essay}`;
 
   const assessment = await openRouterJson({
     apiKey,
