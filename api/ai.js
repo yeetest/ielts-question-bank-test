@@ -136,8 +136,7 @@ ${t}
 Output a single raw JSON object only — no markdown, no \`\`\` fences, no text before or after the object.
 Shape:
 {"overall_band":number,"criteria":{"task_achievement":{"band":number,"comments":string},"coherence_cohesion":{"band":number,"comments":string},"lexical_resource":{"band":number,"comments":string},"grammatical_range_accuracy":{"band":number,"comments":string}}}
-Per criterion: band + at most 2 short sentences in comments (keep comments compact).
-For each criterion, briefly explain why the score is not higher: identify the main gap between the awarded band and Band 9, using the relevant band descriptors for both on that criterion. Do not give praise-only comments; each comment must clearly justify the score.
+Each "comments" value: max 220 characters, preferably one sentence. Briefly justify the band — main gap vs Band 9 on that criterion (use descriptors for both). No praise-only. The JSON object must be fully complete; never stop mid-string or mid-value.
 The user message includes STUDENT_ESSAY: its line breaks and blank lines are the candidate's paragraphing as submitted (not stripped). For coherence_cohesion, do not claim there is no paragraphing or a single wall of text when breaks are visible; only critique organisation if paragraphing is weak, unclear, or missing relative to the descriptors.
 CRITICAL: comments must be valid JSON strings — escape every " as \\" inside comments; use \\n for newlines.`.trim();
 }
@@ -239,10 +238,13 @@ async function openRouterJson({ apiKey, model, max_tokens, system, user }) {
   }
 
   const preview = String(raw).replace(/\s+/g, ' ').slice(0, 280);
-  let msg = `OpenRouter returned JSON that could not be parsed (${lastErr?.message || 'unknown'}). Preview: ${preview}`;
-  if (finishReason === 'length') {
+  const rawTrim = String(raw).trim();
+  const looksTruncated =
+    finishReason === 'length' || (!rawTrim.endsWith('}') && rawTrim.includes('{'));
+  let msg = `OpenRouter returned JSON that could not be parsed (${lastErr?.message || 'unknown'}). finish_reason=${finishReason ?? 'unknown'}. Preview: ${preview}`;
+  if (looksTruncated) {
     msg +=
-      ' Response hit max_tokens (finish_reason=length). Raise OPENROUTER_MAX_TOKENS_ASSESSMENT or OPENROUTER_MAX_TOKENS_REWRITE.';
+      ' Output was likely truncated (max_tokens). Raise OPENROUTER_MAX_TOKENS_ASSESSMENT (assessment) or OPENROUTER_MAX_TOKENS_REWRITE (rewrite), or use a model with a higher output limit.';
   }
   const error = new Error(msg);
   error.statusCode = 502;
@@ -273,8 +275,8 @@ async function requestOpenRouter(taskPrompt, essay, taskType) {
     throw error;
   }
 
-  // Assessment JSON was truncating around ~1100 tokens; defaults must fit 4 criteria + overhead.
-  const maxAssess = intEnv('OPENROUTER_MAX_TOKENS_ASSESSMENT', 4096);
+  // Assessment step truncates easily when comments run long; default high enough for json_object + 4 criteria.
+  const maxAssess = intEnv('OPENROUTER_MAX_TOKENS_ASSESSMENT', 8192);
   const maxRewrite = intEnv('OPENROUTER_MAX_TOKENS_REWRITE', 8192);
 
   const userTaskBlock = `TASK_TYPE: ${taskType}\n\nTASK:\n${taskPrompt}\n\nSTUDENT_ESSAY (line breaks = candidate's paragraph breaks as typed):\n${essay}`;

@@ -100,7 +100,7 @@ SUPABASE_SERVICE_ROLE_KEY=placeholder
 
 **Optional but recommended:** `SUPABASE_SERVICE_ROLE_KEY` (Settings → API → *service_role*). If set, credit deduction uses it in `api/_lib/auth.js`. If **omitted**, the API falls back to the user’s JWT (same as before) — works when `profiles_update_own` still exists. **If you applied** migration `20260330140000_profiles_revoke_client_update.sql` (no self-update on `profiles`), you **must** set this key on Vercel or deduction will fail. Never expose the service role key in frontend or commit it.
 
-Optional (defaults avoid truncated JSON from long assessments): `OPENROUTER_MODEL_ASSESSMENT`, `OPENROUTER_MAX_TOKENS_ASSESSMENT` (default `4096`), `OPENROUTER_MAX_TOKENS_REWRITE` (default `8192`).
+Optional: `OPENROUTER_MODEL_ASSESSMENT`, `OPENROUTER_MAX_TOKENS_ASSESSMENT` (default `8192`), `OPENROUTER_MAX_TOKENS_REWRITE` (default `8192`). Raise these if you still see truncated assessment JSON.
 
 If OpenRouter env is missing, `api/ai.js` returns a clear error and does not generate any fallback output.
 Writing auth now uses Supabase email auth only.
