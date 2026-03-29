@@ -92,12 +92,18 @@
   padding: 24px;
   display: grid;
   gap: 18px;
+  position: relative;
 }
-.writing-page-head {
+.writing-page-status {
+  position: absolute;
+  top: 24px;
+  right: 24px;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 16px;
+  gap: 10px;
+  flex-wrap: wrap;
+  color: #888;
+  font-size: 0.76rem;
+  z-index: 2;
 }
 .writing-workspace {
   display: grid;
@@ -424,10 +430,13 @@
     grid-template-columns: 1fr;
   }
   .writing-layout,
-  .writing-page-head,
+  .writing-page-status,
   .writing-pane-head,
   .auth-form-grid {
     flex-direction: column;
+  }
+  .writing-page-status {
+    position: static;
   }
   .writing-layout-resizable {
     flex-direction: column;

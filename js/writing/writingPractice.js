@@ -521,12 +521,9 @@ export function renderWritingPractice(task) {
   const workspace = getWritingWorkspace(task);
   return `
     <div class="writing-page" data-writing-task-id="${task.id}">
-      <div class="writing-page-head">
-        <div></div>
-        <div class="writing-save-status">
-          <span>${authState.session ? escapeHtml(authState.session.identity) : '未登录'}</span>
-          <span>${workspace.highlights.length} highlights</span>
-        </div>
+      <div class="writing-page-status">
+        <span>${authState.session ? escapeHtml(authState.session.identity) : '未登录'}</span>
+        <span>${workspace.highlights.length} highlights</span>
       </div>
 
       <div class="writing-shell${workspace.sidebarCollapsed ? ' writing-shell-wide' : ''}">
