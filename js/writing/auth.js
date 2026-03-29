@@ -4,7 +4,8 @@ export const authState = {
   session: null,
   pendingAction: null,
   supabase: null,
-  configLoaded: false
+  configLoaded: false,
+  authError: ''
 };
 
 function writingMeta(session) {
@@ -18,7 +19,9 @@ async function ensureSupabase() {
   const response = await fetch('/api/auth/config');
   const payload = await response.json();
   if (!response.ok || !payload.supabaseUrl || !payload.supabaseAnonKey) {
-    throw new Error(payload.error || 'Missing SUPABASE_URL or SUPABASE_ANON_KEY.');
+    const error = new Error(payload.error || 'Missing SUPABASE_URL or SUPABASE_ANON_KEY.');
+    authState.authError = error.message;
+    throw error;
   }
 
   authState.supabase = createClient(payload.supabaseUrl, payload.supabaseAnonKey, {
@@ -28,6 +31,7 @@ async function ensureSupabase() {
       detectSessionInUrl: true
     }
   });
+  authState.authError = '';
 
   if (!authState.configLoaded) {
     authState.configLoaded = true;
@@ -58,14 +62,21 @@ async function syncServerSession(accessToken) {
 }
 
 export async function refreshSession() {
-  const supabase = await ensureSupabase();
-  const { data, error } = await supabase.auth.getSession();
-  if (error || !data.session?.access_token) {
+  try {
+    const supabase = await ensureSupabase();
+    const { data, error } = await supabase.auth.getSession();
+    if (error || !data.session?.access_token) {
+      authState.session = null;
+      syncSessionBadge();
+      return null;
+    }
+    return syncServerSession(data.session.access_token);
+  } catch (error) {
     authState.session = null;
+    authState.authError = error.message || 'Auth init failed.';
     syncSessionBadge();
     return null;
   }
-  return syncServerSession(data.session.access_token);
 }
 
 export function syncSessionBadge() {
@@ -149,9 +160,16 @@ function renderAuthBody(action) {
         <button class="secondary-btn" id="auth-signup-btn">注册</button>
         <button class="secondary-btn" id="auth-magic-link-btn">发送 Magic Link</button>
       </div>
-      <div class="auth-feedback" id="auth-feedback"></div>
+      <div class="auth-feedback" id="auth-feedback">${escapeAuthText(authState.authError)}</div>
     </div>
   `;
+}
+
+function escapeAuthText(value) {
+  return String(value || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
 }
 
 async function signOutAll() {
@@ -201,7 +219,13 @@ function bindAuthActions(action) {
   const passwordInput = document.getElementById('auth-password');
 
   loginBtn.addEventListener('click', async () => {
-    const supabase = await ensureSupabase();
+    let supabase;
+    try {
+      supabase = await ensureSupabase();
+    } catch (error) {
+      feedback.textContent = error.message || '认证配置缺失。';
+      return;
+    }
     const { error } = await supabase.auth.signInWithPassword({
       email: emailInput.value.trim(),
       password: passwordInput.value
@@ -218,7 +242,13 @@ function bindAuthActions(action) {
   });
 
   document.getElementById('auth-signup-btn')?.addEventListener('click', async () => {
-    const supabase = await ensureSupabase();
+    let supabase;
+    try {
+      supabase = await ensureSupabase();
+    } catch (error) {
+      feedback.textContent = error.message || '认证配置缺失。';
+      return;
+    }
     const { error } = await supabase.auth.signUp({
       email: emailInput.value.trim(),
       password: passwordInput.value
@@ -229,7 +259,13 @@ function bindAuthActions(action) {
   });
 
   document.getElementById('auth-magic-link-btn')?.addEventListener('click', async () => {
-    const supabase = await ensureSupabase();
+    let supabase;
+    try {
+      supabase = await ensureSupabase();
+    } catch (error) {
+      feedback.textContent = error.message || '认证配置缺失。';
+      return;
+    }
     const { error } = await supabase.auth.signInWithOtp({
       email: emailInput.value.trim(),
       options: {
