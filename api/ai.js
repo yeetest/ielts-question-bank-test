@@ -28,7 +28,15 @@ function extractJsonPayload(raw) {
 
 // Verbatim Band 9 wording from the official public document:
 // "IELTS Writing band descriptors" (updated May 2023), https://cdn.ielts.org/Guides/ielts-writing-band-descriptors.pdf
-// Do not paraphrase these strings when instructing the model what Band 9 means.
+// Task 1 and Task 2 share identical Coherence & Cohesion at Band 9 — store once to cut input tokens.
+
+const OFFICIAL_BAND9_COHERENCE = `
+Coherence & Cohesion:
+The message can be followed effortlessly.
+Cohesion is used in such a way that it very rarely attracts attention.
+Any lapses in coherence or cohesion are minimal.
+Paragraphing is skilfully managed.
+`.trim();
 
 const OFFICIAL_TASK1_BAND9 = `
 Writing Task 1 — Band 9 (official descriptor text):
@@ -37,11 +45,7 @@ Task Achievement:
 All the requirements of the task are fully and appropriately satisfied.
 There may be extremely rare lapses in content.
 
-Coherence & Cohesion:
-The message can be followed effortlessly.
-Cohesion is used in such a way that it very rarely attracts attention.
-Any lapses in coherence or cohesion are minimal.
-Paragraphing is skilfully managed.
+${OFFICIAL_BAND9_COHERENCE}
 
 Lexical Resource:
 Full flexibility and precise use are evident within the scope of the task.
@@ -63,11 +67,7 @@ A clear and fully developed position is presented which directly answers the que
 Ideas are relevant, fully extended and well supported.
 Any lapses in content or support are extremely rare.
 
-Coherence & Cohesion:
-The message can be followed effortlessly.
-Cohesion is used in such a way that it very rarely attracts attention.
-Any lapses in coherence or cohesion are minimal.
-Paragraphing is skilfully managed.
+${OFFICIAL_BAND9_COHERENCE}
 
 Lexical Resource:
 Full flexibility and precise use are widely evident.
@@ -80,83 +80,59 @@ Punctuation and grammar are used appropriately throughout.
 Minor errors are extremely rare and have minimal impact on communication
 `.trim();
 
-function buildSystemPrompt(taskType) {
+function buildAssessmentSystemPrompt(taskType) {
+  const t = taskType === 'task1' ? 'Task 1; first criterion = Task Achievement.' : 'Task 2; first criterion = Task Response (JSON key still task_achievement).';
+  return `IELTS General Training examiner. Score using public Writing band descriptors (May 2023): https://cdn.ielts.org/Guides/ielts-writing-band-descriptors.pdf
+${t}
+Return JSON only:
+{"overall_band":number,"criteria":{"task_achievement":{"band":number,"comments":string},"coherence_cohesion":{"band":number,"comments":string},"lexical_resource":{"band":number,"comments":string},"grammatical_range_accuracy":{"band":number,"comments":string}}}
+Per criterion: band + 1–2 sentences (brief evaluation + one concrete fix).`.trim();
+}
+
+function buildRewriteSystemPrompt(taskType) {
   const band9Block = taskType === 'task1' ? OFFICIAL_TASK1_BAND9 : OFFICIAL_TASK2_BAND9;
+  const hint =
+    taskType === 'task1'
+      ? 'Task 1: full letter/email; tone; greeting/closing; all bullets.'
+      : 'Task 2: full essay; intro, body, conclusion.';
+  return `IELTS GT writing coach — produce model answer + brief revision_notes only (do not rescore).
 
-  const task1Genre = `
-This submission is IELTS General Training Writing Task 1. The revised_essay must be a complete answer in the appropriate letter/email format (tone, greeting/closing, bullet points) and must satisfy Band 9 as defined ONLY by the official descriptor block above.`;
+Band 9 = official wording below (May 2023 PDF). revised_essay must meet it; keep student's ideas where sensible; natural English.
+${hint} Words: Task1≥150, Task2≥250.
 
-  const task2Genre = `
-This submission is IELTS General Training Writing Task 2. The revised_essay must be a complete essay and must satisfy Band 9 as defined ONLY by the official descriptor block above.`;
+revision_notes: each of structure/content/grammar/vocabulary = 2–5 tight sentences (no long essays).
 
-  return `
-You are an IELTS General Training writing examiner and expert writing coach.
-
-Source for Band 9 standard (reproduce the criteria below exactly as published; do not substitute your own summary for what "Band 9" means):
-IELTS Writing band descriptors (updated May 2023) — https://cdn.ielts.org/Guides/ielts-writing-band-descriptors.pdf
+User message includes EXAMINER_ASSESSMENT_JSON — use to prioritise fixes.
 
 ${band9Block}
 
-Evaluate the student's essay using these descriptors and return JSON only.
-
-Requirements:
-
-1. Overall Band
-- Return ONE overall band score (number)
-- Do NOT explain it in prose outside the JSON fields
-
-2. Four Criteria
-For each criterion give a band score and 1–2 sentences (brief evaluation + concrete suggestion).
-
-Use these criterion names in your judgement (Task 1: Task Achievement; Task 2: Task Response; both tasks: Coherence & Cohesion, Lexical Resource, Grammatical Range & Accuracy). In the JSON output, keep the schema keys as given below (task_achievement for the first criterion in both tasks).
-
-3. revised_essay
-- Preserve the student's main ideas where possible, but the text must be a model answer that would fully satisfy the official Band 9 descriptor above for this task type.
-- Word count: Task 1 at least 150 words; Task 2 at least 250 words.
-
-${taskType === 'task1' ? task1Genre : task2Genre}
-
-4. revision_notes
-Explain what you improved under: structure, content, grammar, vocabulary (each a short paragraph).
-
-Return format:
-{
-  "overall_band": number,
-  "criteria": {
-    "task_achievement": { "band": number, "comments": string },
-    "coherence_cohesion": { "band": number, "comments": string },
-    "lexical_resource": { "band": number, "comments": string },
-    "grammatical_range_accuracy": { "band": number, "comments": string }
-  },
-  "revised_essay": string,
-  "revision_notes": {
-    "structure": string,
-    "content": string,
-    "grammar": string,
-    "vocabulary": string
-  }
+Return JSON only: {"revised_essay":string,"revision_notes":{"structure":string,"content":string,"grammar":string,"vocabulary":string}}`.trim();
 }
 
-Do NOT output anything outside JSON.
-`;
+function normaliseCriteria(criteria) {
+  return {
+    task_achievement: {
+      band: criteria.task_achievement.band,
+      comment: String(criteria.task_achievement.comment || criteria.task_achievement.comments || '').trim()
+    },
+    coherence_cohesion: {
+      band: criteria.coherence_cohesion.band,
+      comment: String(criteria.coherence_cohesion.comment || criteria.coherence_cohesion.comments || '').trim()
+    },
+    lexical_resource: {
+      band: criteria.lexical_resource.band,
+      comment: String(criteria.lexical_resource.comment || criteria.lexical_resource.comments || '').trim()
+    },
+    grammatical_range_accuracy: {
+      band: criteria.grammatical_range_accuracy.band,
+      comment: String(
+        criteria.grammatical_range_accuracy.comment || criteria.grammatical_range_accuracy.comments || ''
+      ).trim()
+    }
+  };
 }
 
-async function requestOpenRouter(taskPrompt, essay, taskType) {
-  const apiKey = process.env.OPENROUTER_API_KEY;
-  const model = process.env.OPENROUTER_MODEL;
-
-  if (!apiKey) {
-    const error = new Error('Missing OPENROUTER_API_KEY.');
-    error.statusCode = 500;
-    throw error;
-  }
-
-  if (!model) {
-    const error = new Error('Missing OPENROUTER_MODEL.');
-    error.statusCode = 500;
-    throw error;
-  }
-
+async function openRouterJson({ apiKey, model, max_tokens, system, user }) {
   const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
     method: 'POST',
     headers: {
@@ -165,19 +141,11 @@ async function requestOpenRouter(taskPrompt, essay, taskType) {
     },
     body: JSON.stringify({
       model,
-      max_tokens: 2800,
-      response_format: {
-        type: 'json_object'
-      },
+      max_tokens,
+      response_format: { type: 'json_object' },
       messages: [
-        {
-          role: 'system',
-          content: buildSystemPrompt(taskType)
-        },
-        {
-          role: 'user',
-          content: `TASK_TYPE: ${taskType}\n\nTASK:\n${taskPrompt}\n\nSTUDENT_ESSAY:\n${essay}`
-        }
+        { role: 'system', content: system },
+        { role: 'user', content: user }
       ]
     })
   });
@@ -196,56 +164,89 @@ async function requestOpenRouter(taskPrompt, essay, taskType) {
     throw error;
   }
 
-  let parsed;
   try {
-    parsed = JSON.parse(extractJsonPayload(raw));
+    return JSON.parse(extractJsonPayload(raw));
   } catch {
     const error = new Error('OpenRouter returned invalid JSON.');
     error.statusCode = 502;
     throw error;
   }
+}
 
-  const overallBand = parsed?.overall_band;
-  const criteria = parsed?.criteria;
-  const rewrite = parsed?.revised_essay;
-  const revisionNote = parsed?.revision_notes;
+function intEnv(name, fallback) {
+  const v = process.env[name];
+  if (v === undefined || v === '') return fallback;
+  const n = parseInt(v, 10);
+  return Number.isFinite(n) && n > 0 ? n : fallback;
+}
+
+async function requestOpenRouter(taskPrompt, essay, taskType) {
+  const apiKey = process.env.OPENROUTER_API_KEY;
+  const model = process.env.OPENROUTER_MODEL;
+  const modelAssessment = process.env.OPENROUTER_MODEL_ASSESSMENT || model;
+
+  if (!apiKey) {
+    const error = new Error('Missing OPENROUTER_API_KEY.');
+    error.statusCode = 500;
+    throw error;
+  }
+
+  if (!model) {
+    const error = new Error('Missing OPENROUTER_MODEL.');
+    error.statusCode = 500;
+    throw error;
+  }
+
+  const maxAssess = intEnv('OPENROUTER_MAX_TOKENS_ASSESSMENT', 640);
+  const maxRewrite = intEnv('OPENROUTER_MAX_TOKENS_REWRITE', 2600);
+
+  const userTaskBlock = `TASK_TYPE: ${taskType}\n\nTASK:\n${taskPrompt}\n\nSTUDENT_ESSAY:\n${essay}`;
+
+  const assessment = await openRouterJson({
+    apiKey,
+    model: modelAssessment,
+    max_tokens: maxAssess,
+    system: buildAssessmentSystemPrompt(taskType),
+    user: userTaskBlock
+  });
+
+  const overallBand = assessment?.overall_band;
+  const criteriaRaw = assessment?.criteria;
   if (
     typeof overallBand !== 'number' ||
-    !criteria ||
-    typeof criteria !== 'object' ||
-    !criteria.task_achievement ||
-    !criteria.coherence_cohesion ||
-    !criteria.lexical_resource ||
-    !criteria.grammatical_range_accuracy ||
-    typeof rewrite !== 'string' ||
-    !revisionNote ||
-    typeof revisionNote !== 'object'
+    !criteriaRaw ||
+    typeof criteriaRaw !== 'object' ||
+    !criteriaRaw.task_achievement ||
+    !criteriaRaw.coherence_cohesion ||
+    !criteriaRaw.lexical_resource ||
+    !criteriaRaw.grammatical_range_accuracy
   ) {
-    const error = new Error('OpenRouter response did not match the required overall band + criteria + revised essay + revision notes format.');
+    const error = new Error('OpenRouter (assessment step) did not return valid overall_band and criteria.');
+    error.statusCode = 502;
+    throw error;
+  }
+
+  const criteria = normaliseCriteria(criteriaRaw);
+
+  const rewritePayload = await openRouterJson({
+    apiKey,
+    model,
+    max_tokens: maxRewrite,
+    system: buildRewriteSystemPrompt(taskType),
+    user: `${userTaskBlock}\n\nEXAMINER_ASSESSMENT_JSON:\n${JSON.stringify({ overall_band: overallBand, criteria: assessment.criteria })}`
+  });
+
+  const rewrite = rewritePayload?.revised_essay;
+  const revisionNote = rewritePayload?.revision_notes;
+  if (typeof rewrite !== 'string' || !revisionNote || typeof revisionNote !== 'object') {
+    const error = new Error('OpenRouter (rewrite step) did not return revised_essay and revision_notes.');
     error.statusCode = 502;
     throw error;
   }
 
   return {
     overall_band: overallBand,
-    criteria: {
-      task_achievement: {
-        band: criteria.task_achievement.band,
-        comment: String(criteria.task_achievement.comment || criteria.task_achievement.comments || '').trim()
-      },
-      coherence_cohesion: {
-        band: criteria.coherence_cohesion.band,
-        comment: String(criteria.coherence_cohesion.comment || criteria.coherence_cohesion.comments || '').trim()
-      },
-      lexical_resource: {
-        band: criteria.lexical_resource.band,
-        comment: String(criteria.lexical_resource.comment || criteria.lexical_resource.comments || '').trim()
-      },
-      grammatical_range_accuracy: {
-        band: criteria.grammatical_range_accuracy.band,
-        comment: String(criteria.grammatical_range_accuracy.comment || criteria.grammatical_range_accuracy.comments || '').trim()
-      }
-    },
+    criteria,
     revised_essay: rewrite.trim(),
     revision_notes: {
       structure: String(revisionNote.structure || '').trim(),
