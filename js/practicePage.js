@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 
   try {
-    await loadData();
+    await loadData({ render: false });
     await refreshSession();
   } catch (error) {
     console.error(error);

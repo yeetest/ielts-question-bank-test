@@ -154,7 +154,8 @@ function updateChrome() {
   label.textContent = 'IELTS General Training Writing';
 }
 
-export async function loadData() {
+export async function loadData(options = {}) {
+  const { render = true } = options;
   const base = 'data/quarters/2026-01-to-04/';
   const [part1, part2, taxonomyRows, writingPayload] = await Promise.all([
     fetch(`${base}merged_part1.json`).then(r => {
@@ -196,7 +197,9 @@ export async function loadData() {
     topic.taxonomy_v2_primary = state.taxonomyV2Map.get(key) || null;
   });
 
-  updateChrome();
-  renderGrid(state.currentTab);
-  renderSidebar();
+  if (render) {
+    updateChrome();
+    renderGrid(state.currentTab);
+    renderSidebar();
+  }
 }
