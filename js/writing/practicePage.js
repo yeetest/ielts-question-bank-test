@@ -64,10 +64,27 @@ async function renderPractice(taskId) {
       }
       return {
         ok: true,
-        feedback: payload.feedback || null,
-        revisedEssay: payload.band9_rewrite || '',
-        revisionNote: payload.revision_note || payload.revision_notes || '',
-        keywordOutline: payload.keyword_outline || ''
+        feedback: payload.criteria ? {
+          overall_band: payload.overall_band,
+          task_achievement: {
+            band: payload.criteria.task_achievement?.band,
+            comments: payload.criteria.task_achievement?.comment || ''
+          },
+          coherence_cohesion: {
+            band: payload.criteria.coherence_cohesion?.band,
+            comments: payload.criteria.coherence_cohesion?.comment || ''
+          },
+          lexical_resource: {
+            band: payload.criteria.lexical_resource?.band,
+            comments: payload.criteria.lexical_resource?.comment || ''
+          },
+          grammatical_range: {
+            band: payload.criteria.grammatical_range_accuracy?.band,
+            comments: payload.criteria.grammatical_range_accuracy?.comment || ''
+          }
+        } : null,
+        revisedEssay: payload.revised_essay || '',
+        revisionNote: payload.revision_notes || ''
       };
     },
     exitPractice: () => {

@@ -384,10 +384,11 @@ function renderPracticeView(task, workspace) {
             </div>
             <div class="writing-tab-panel">
               ${workspace.activeTab === 'feedback' ? renderFeedbackCards(workspace.correctionResult) : ''}
-              ${workspace.activeTab === 'revised' ? `<div class="writing-reading-panel writing-highlight-surface" id="writing-reading-panel" data-highlight-source="revised">${renderEssayParagraphs(renderHighlightedText(revisedEssay, workspace.highlights))}</div>` : ''}
+              ${workspace.activeTab === 'revised' ? `<div class="writing-reading-panel writing-highlight-surface" data-highlight-source="revised">${renderEssayParagraphs(renderHighlightedText(revisedEssay, workspace.highlights))}</div>` : ''}
               ${workspace.activeTab === 'notes' ? renderRevisionNote(workspace.correctionResult) : ''}
             </div>
             <div class="button-inline writing-cta-row">
+              <button class="secondary-btn" id="writing-rerun-correction">重新修改</button>
               <button class="secondary-btn" id="writing-save-library">保存到我的私有满分作文库</button>
             </div>
           ` : `
@@ -424,8 +425,8 @@ function renderRecordView(record) {
             <div class="writing-save-status"><span>${new Date(record.savedAt).toLocaleString()}</span></div>
           </div>
           ${renderFeedbackCards(record.correctionResult)}
-          <div class="writing-reading-panel">${renderHighlightedText(record.correctionResult?.revisedEssay || '', record.highlights)}</div>
-          ${record.correctionResult?.revisionNote ? `<div class="writing-reading-panel">${escapeHtml(record.correctionResult.revisionNote).replace(/\n/g, '<br>')}</div>` : ''}
+          <div class="writing-reading-panel writing-highlight-surface" data-highlight-source="revised">${renderHighlightedText(record.correctionResult?.revisedEssay || '', record.highlights)}</div>
+          ${record.correctionResult?.revisionNote ? `<div class="writing-reading-panel">${typeof record.correctionResult.revisionNote === 'string' ? escapeHtml(record.correctionResult.revisionNote).replace(/\n/g, '<br>') : renderRevisionNote(record.correctionResult)}</div>` : ''}
         </section>
       </div>
     </div>
@@ -607,10 +608,15 @@ function isRangeInsidePanel(range, panel) {
   return Boolean(element && panel.contains(element));
 }
 
+function getActiveHighlightSurface(selection) {
+  if (!selection || !selection.rangeCount) return null;
+  const range = selection.getRangeAt(0);
+  return [...document.querySelectorAll('.writing-highlight-surface')].find(panel => isRangeInsidePanel(range, panel)) || null;
+}
+
 function bindSelection(task) {
-  const panel = document.getElementById('writing-reading-panel');
-  if (!panel) return;
-  const source = panel.dataset.highlightSource || 'revised';
+  const surfaces = [...document.querySelectorAll('.writing-highlight-surface')];
+  if (!surfaces.length) return;
 
   if (selectionHandler) {
     document.removeEventListener('selectionchange', selectionHandler);
@@ -626,7 +632,8 @@ function bindSelection(task) {
     }
 
     const range = selection.getRangeAt(0);
-    if (!isRangeInsidePanel(range, panel)) {
+    const panel = getActiveHighlightSurface(selection);
+    if (!panel) {
       clearSelectionUI(task);
       updateSelectionPopover(task);
       return;
@@ -649,8 +656,10 @@ function bindSelection(task) {
   };
 
   document.addEventListener('selectionchange', selectionHandler);
-  panel.addEventListener('mouseup', selectionHandler);
-  panel.addEventListener('keyup', selectionHandler);
+  surfaces.forEach(panel => {
+    panel.addEventListener('mouseup', () => window.setTimeout(selectionHandler, 0));
+    panel.addEventListener('keyup', () => window.setTimeout(selectionHandler, 0));
+  });
 
   const translateBtn = document.getElementById('writing-translate');
   translateBtn?.addEventListener('mousedown', event => event.preventDefault());
@@ -666,6 +675,9 @@ function bindSelection(task) {
   const saveBtn = document.getElementById('writing-save-highlight');
   saveBtn?.addEventListener('mousedown', event => event.preventDefault());
   saveBtn?.addEventListener('click', () => {
+    const selection = window.getSelection();
+    const panel = getActiveHighlightSurface(selection);
+    const source = panel?.dataset.highlightSource || 'revised';
     saveHighlight(task, source);
     window.getSelection()?.removeAllRanges();
   });
@@ -756,7 +768,6 @@ async function runCorrection(task) {
       feedback: response.feedback,
       revisedEssay: response.revisedEssay,
       revisionNote: response.revisionNote,
-      keywordOutline: response.keywordOutline,
       correctedAt: new Date().toISOString()
     },
     dirty: true
@@ -816,6 +827,16 @@ function bindPractice(task) {
   });
 
   document.getElementById('writing-correct-essay')?.addEventListener('click', async () => {
+    const allowed = activeController.hooks.ensureActionAccess({
+      type: 'correctEssay',
+      requiresCredits: true,
+      onAllowed: async () => runCorrection(task)
+    });
+    if (!allowed) return;
+    await runCorrection(task);
+  });
+
+  document.getElementById('writing-rerun-correction')?.addEventListener('click', async () => {
     const allowed = activeController.hooks.ensureActionAccess({
       type: 'correctEssay',
       requiresCredits: true,
