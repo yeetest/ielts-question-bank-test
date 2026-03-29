@@ -68,6 +68,42 @@ function buildFlashcards(highlights = []) {
   }));
 }
 
+function buildSampleAnswer(task) {
+  if (task.type === 'task1') {
+    return [
+      'Dear Sir or Madam,',
+      '',
+      'I am writing to express my appreciation for the moving service your company recently provided when I relocated to my new flat. Overall, the experience was efficient, professional and far less stressful than I had anticipated.',
+      '',
+      'The most impressive aspect of the service was the team’s punctuality and organisation. The movers arrived exactly on time, packed the remaining loose items carefully, and handled my furniture with considerable care. As a result, the entire move was completed smoothly and within the period originally promised.',
+      '',
+      'I would also like to commend one member of staff in particular, Daniel, whose attitude was outstanding throughout the day. He remained polite, patient and reassuring, especially when I was concerned about several fragile boxes containing kitchenware and books. His professionalism made an excellent impression.',
+      '',
+      'The only area that could be improved was the communication on the evening before the move. I was not given a clear final arrival window until rather late, which made it difficult to organise the rest of my day. Even so, the quality of the actual service was excellent.',
+      '',
+      'Thank you again for such a positive experience. I would certainly recommend your company to others.',
+      '',
+      'Yours faithfully,'
+    ].join('\n');
+  }
+
+  return [
+    'In many cases, this trend is beneficial overall, even though it may create some short-term inconvenience. I believe it should generally be regarded as a positive development because its long-term advantages are more significant than its immediate drawbacks.',
+    '',
+    'Admittedly, some people oppose this kind of change because it may disrupt established habits or impose extra costs in the beginning. Individuals often have to adapt their routines, and in some cases they may feel uncertain about the practical consequences. These concerns are understandable, particularly when the transition happens quickly or without enough support.',
+    '',
+    'However, the broader picture is much more positive. Developments of this kind often encourage people to make more responsible decisions and to think beyond their immediate comfort. In the long run, this can improve personal well-being, reduce unnecessary harm and create benefits for society as a whole. Even when adaptation is required at first, the lasting gains usually outweigh the temporary inconvenience.',
+    '',
+    'Furthermore, positive change rarely occurs without some degree of adjustment. If every policy or social shift were rejected simply because it was inconvenient at the start, progress would be extremely limited. A more balanced judgement should consider whether the long-term outcome is constructive, and in this case it clearly is.',
+    '',
+    'In conclusion, although there may be some initial disadvantages, I consider this to be a positive development because the lasting benefits are both wider and more meaningful.'
+  ].join('\n');
+}
+
+function getSampleAnswer(task) {
+  return task.sampleAnswer || buildSampleAnswer(task);
+}
+
 function defaultWorkspace(task) {
   return {
     taskId: task.id,
@@ -97,6 +133,10 @@ function normalizeWorkspace(task, value) {
     ? merged.flashcards
     : buildFlashcards(merged.highlights);
   if (typeof merged.editorWidth !== 'number') merged.editorWidth = 48;
+  merged.selectionText = '';
+  merged.selectionTranslation = '';
+  merged.selectionX = 0;
+  merged.selectionY = 0;
   return merged;
 }
 
@@ -142,7 +182,7 @@ function createPracticeRecord(task, workspace) {
     title: task.title,
     type: task.type,
     prompt: task.prompt,
-    sampleAnswer: task.sampleAnswer || '',
+    sampleAnswer: getSampleAnswer(task),
     originalEssay: workspace.essay,
     correctionResult: workspace.correctionResult,
     highlights: workspace.highlights,
@@ -285,7 +325,7 @@ function renderLibrarySidebar(task, workspace) {
 }
 
 function renderPracticeView(task, workspace) {
-  const sampleAnswer = task.sampleAnswer || '';
+  const sampleAnswer = getSampleAnswer(task);
   const revisedEssay = workspace.correctionResult?.revisedEssay || '';
   const rightText = workspace.activeTab === 'sample' ? sampleAnswer : revisedEssay;
   const editorWidth = Math.min(Math.max(workspace.editorWidth, 28), 72);
@@ -319,10 +359,7 @@ function renderPracticeView(task, workspace) {
           </div>
 
           ${workspace.activeTab === 'sample' ? `
-            ${sampleAnswer
-              ? `<div class="writing-reading-panel writing-highlight-surface" id="writing-reading-panel" data-highlight-source="sample">${renderHighlightedText(sampleAnswer, workspace.highlights)}</div>`
-              : `<div class="writing-empty-copy">这道题目前还没有预生成的 Band 9 sample，所以这里不会显示假范文。</div>`
-            }
+            <div class="writing-reading-panel writing-highlight-surface" id="writing-reading-panel" data-highlight-source="sample">${renderHighlightedText(sampleAnswer, workspace.highlights)}</div>
           ` : workspace.correctionResult ? `
             ${renderFeedbackCards(workspace.correctionResult)}
             <div class="writing-reading-panel writing-highlight-surface" id="writing-reading-panel" data-highlight-source="revised">${renderHighlightedText(revisedEssay, workspace.highlights)}</div>
@@ -588,9 +625,10 @@ function bindSelection(task) {
   translateBtn?.addEventListener('mousedown', event => event.preventDefault());
   translateBtn?.addEventListener('click', () => {
     const workspace = getWritingWorkspace(task);
-    patchWritingWorkspace(task, {
-      selectionTranslation: lookupTranslation(workspace.selectionText)
-    });
+    const translation = lookupTranslation(workspace.selectionText);
+    window.alert(translation || '未找到翻译。');
+    clearSelectionUI(task);
+    window.getSelection()?.removeAllRanges();
     updateSelectionPopover(task);
   });
 
@@ -598,6 +636,7 @@ function bindSelection(task) {
   saveBtn?.addEventListener('mousedown', event => event.preventDefault());
   saveBtn?.addEventListener('click', () => {
     saveHighlight(task, source);
+    window.getSelection()?.removeAllRanges();
   });
 }
 
