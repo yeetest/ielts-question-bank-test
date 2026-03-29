@@ -9,6 +9,13 @@ let activeController = null;
 let selectionHandler = null;
 let splitHandlers = null;
 let timerInterval = null;
+let selectionRuntime = {
+  text: '',
+  x: 0,
+  y: 0,
+  mouseupFired: 0,
+  keyupFired: 0
+};
 
 const LOCAL_DICTIONARY = {
   outstanding: '杰出的，出色的',
@@ -296,18 +303,14 @@ function renderRevisionNote(correctionResult) {
   `;
 }
 
-function renderFloatingSelection(workspace) {
-  const hasSelection = Boolean(workspace.selectionText);
-  const style = hasSelection
-    ? `style="left:${workspace.selectionX}px; top:${workspace.selectionY}px;"`
-    : '';
+function renderFloatingSelection() {
   return `
-    <div class="writing-selection-float" id="writing-selection-float" ${hasSelection ? '' : 'hidden'} ${style}>
+    <div class="writing-selection-float" id="writing-selection-float" hidden>
       <div class="button-inline">
         <button class="secondary-btn selection-btn" id="writing-translate">Translate</button>
         <button class="secondary-btn selection-btn" id="writing-save-highlight">Save to My Learning Materials</button>
       </div>
-      <div class="selection-translation-pop"${workspace.selectionTranslation ? '' : ' hidden'}>${escapeHtml(workspace.selectionTranslation)}</div>
+      <div class="selection-translation-pop" hidden></div>
     </div>
   `;
 }
@@ -316,7 +319,9 @@ function renderSelectionDebug() {
   return `
     <div class="writing-selection-debug" id="writing-selection-debug">
       <div class="writing-selection-debug-marker">selection-toolbar-debug-fafd77c</div>
-      <div>selected text length: <span id="writing-selection-debug-length">0</span></div>
+      <div>essay mouseup fired: <span id="writing-selection-debug-mouseup">0</span></div>
+      <div>essay keyup fired: <span id="writing-selection-debug-keyup">0</span></div>
+      <div>essay selected text length: <span id="writing-selection-debug-length">0</span></div>
       <div>inside revised essay: <span id="writing-selection-debug-inside">false</span></div>
       <div>toolbar x/y: <span id="writing-selection-debug-pos">0 / 0</span></div>
     </div>
@@ -396,7 +401,7 @@ function renderPracticeView(task, workspace) {
             </div>
             <div class="writing-tab-panel">
               ${workspace.activeTab === 'feedback' ? renderFeedbackCards(workspace.correctionResult) : ''}
-              ${workspace.activeTab === 'revised' ? `${renderSelectionDebug()}<div class="writing-reading-panel writing-highlight-surface" id="writing-revised-essay-content" data-highlight-source="revised">${renderEssayParagraphs(renderHighlightedText(revisedEssay, workspace.highlights))}</div>` : ''}
+              ${workspace.activeTab === 'revised' ? `${renderSelectionDebug()}<div class="writing-reading-panel"><div class="writing-revised-essay-text" id="writing-revised-essay-text">${escapeHtml(revisedEssay).replace(/\n/g, '<br>')}</div></div>` : ''}
               ${workspace.activeTab === 'notes' ? renderRevisionNote(workspace.correctionResult) : ''}
             </div>
             ${workspace.correcting ? '<div class="writing-inline-status">正在修改请稍后</div>' : ''}
@@ -411,7 +416,7 @@ function renderPracticeView(task, workspace) {
             </div>
           `}
 
-          ${renderFloatingSelection(workspace)}
+          ${renderFloatingSelection()}
         </section>
       </div>
     </div>
@@ -548,19 +553,20 @@ function rerender() {
   activeController?.reopen();
 }
 
-function clearSelectionUI(task) {
-  patchWritingWorkspace(task, {
-    selectionText: '',
-    selectionTranslation: '',
-    selectionX: 0,
-    selectionY: 0
-  });
+function clearSelectionUI() {
+  selectionRuntime.text = '';
+  selectionRuntime.x = 0;
+  selectionRuntime.y = 0;
 }
 
 function updateSelectionDebug({ length = 0, inside = false, x = 0, y = 0 } = {}) {
+  const mouseupEl = document.getElementById('writing-selection-debug-mouseup');
+  const keyupEl = document.getElementById('writing-selection-debug-keyup');
   const lengthEl = document.getElementById('writing-selection-debug-length');
   const insideEl = document.getElementById('writing-selection-debug-inside');
   const posEl = document.getElementById('writing-selection-debug-pos');
+  if (mouseupEl) mouseupEl.textContent = String(selectionRuntime.mouseupFired);
+  if (keyupEl) keyupEl.textContent = String(selectionRuntime.keyupFired);
   if (lengthEl) lengthEl.textContent = String(length);
   if (insideEl) insideEl.textContent = String(Boolean(inside));
   if (posEl) posEl.textContent = `${Math.round(x)} / ${Math.round(y)}`;
@@ -580,47 +586,43 @@ function getSelectionToolbar() {
 }
 
 function updateSelectionPopover(task) {
-  const workspace = getWritingWorkspace(task);
   const pop = getSelectionToolbar();
   if (!pop) return;
 
-  if (!workspace.selectionText) {
+  if (!selectionRuntime.text) {
     pop.hidden = true;
     updateSelectionDebug();
     return;
   }
 
   pop.hidden = false;
-  pop.style.left = `${workspace.selectionX}px`;
-  pop.style.top = `${workspace.selectionY}px`;
+  pop.style.left = `${selectionRuntime.x}px`;
+  pop.style.top = `${selectionRuntime.y}px`;
   updateSelectionDebug({
-    length: workspace.selectionText.length,
+    length: selectionRuntime.text.length,
     inside: true,
-    x: workspace.selectionX,
-    y: workspace.selectionY
+    x: selectionRuntime.x,
+    y: selectionRuntime.y
   });
   const translation = pop.querySelector('.selection-translation-pop');
   if (translation) {
-    translation.textContent = workspace.selectionTranslation || '';
-    translation.hidden = !workspace.selectionTranslation;
+    translation.textContent = '';
+    translation.hidden = true;
   }
 }
 
-function saveHighlight(task, source) {
+function saveHighlight(task, source, explicitText = '') {
   const workspace = getWritingWorkspace(task);
-  const text = workspace.selectionText.trim();
+  const text = String(explicitText || selectionRuntime.text || '').trim();
   if (!text) return;
 
   const existing = workspace.highlights.find(item => item.text === text);
   if (existing) {
     patchWritingWorkspace(task, {
       highlights: workspace.highlights.filter(item => item.text !== text),
-      dirty: true,
-      selectionText: '',
-      selectionTranslation: '',
-      selectionX: 0,
-      selectionY: 0
+      dirty: true
     });
+    clearSelectionUI();
     rerender();
     return;
   }
@@ -636,60 +638,43 @@ function saveHighlight(task, source) {
         createdAt: new Date().toISOString()
       }
     ],
-    dirty: true,
-    selectionText: '',
-    selectionTranslation: ''
+    dirty: true
   });
+  clearSelectionUI();
   rerender();
 }
 
-function isRangeInsidePanel(range, panel) {
-  if (!range || !panel) return false;
-  const startNode = range.startContainer;
-  const endNode = range.endContainer;
-  const commonNode = range.commonAncestorContainer;
-  const normalizeNode = node => {
-    if (!node) return null;
-    return node.nodeType === Node.TEXT_NODE ? node.parentNode : node;
-  };
-  const startElement = normalizeNode(startNode);
-  const endElement = normalizeNode(endNode);
-  const commonElement = normalizeNode(commonNode);
-  return Boolean(
-    (startElement && panel.contains(startElement) && endElement && panel.contains(endElement)) ||
-    (commonElement && panel.contains(commonElement))
-  );
-}
-
 function bindSelection(task) {
-  const panel = document.getElementById('writing-revised-essay-content');
-  if (!panel) return;
+  const essayText = document.getElementById('writing-revised-essay-text');
+  if (!essayText) return;
 
   if (selectionHandler) {
     document.removeEventListener('selectionchange', selectionHandler);
   }
 
-  const syncSelectionFromPanel = () => {
+  const syncSelectionFromEssay = eventType => {
     const selection = window.getSelection();
     const text = selection?.toString().trim() || '';
     console.debug('[writing selection] text selected:', text);
+    if (eventType === 'mouseup') selectionRuntime.mouseupFired += 1;
+    if (eventType === 'keyup') selectionRuntime.keyupFired += 1;
     if (!selection || !selection.rangeCount || selection.isCollapsed || !text) {
       updateSelectionDebug({ length: 0, inside: false, x: 0, y: 0 });
-      clearSelectionUI(task);
+      clearSelectionUI();
       updateSelectionPopover(task);
       return;
     }
 
     const range = selection.getRangeAt(0);
-    const anchorInside = Boolean(selection.anchorNode && panel.contains(selection.anchorNode));
-    const focusInside = Boolean(selection.focusNode && panel.contains(selection.focusNode));
-    const startInside = Boolean(range.startContainer && panel.contains(range.startContainer));
-    const endInside = Boolean(range.endContainer && panel.contains(range.endContainer));
-    const inside = anchorInside || focusInside || startInside || endInside || isRangeInsidePanel(range, panel);
+    const anchorInside = Boolean(selection.anchorNode && essayText.contains(selection.anchorNode));
+    const focusInside = Boolean(selection.focusNode && essayText.contains(selection.focusNode));
+    const startInside = Boolean(range.startContainer && essayText.contains(range.startContainer));
+    const endInside = Boolean(range.endContainer && essayText.contains(range.endContainer));
+    const inside = anchorInside || focusInside || startInside || endInside;
     console.debug('[writing selection] inside revised essay:', inside);
     if (!inside) {
       updateSelectionDebug({ length: text.length, inside: false, x: 0, y: 0 });
-      clearSelectionUI(task);
+      clearSelectionUI();
       updateSelectionPopover(task);
       return;
     }
@@ -705,12 +690,9 @@ function bindSelection(task) {
     const posY = Math.max(rect.top - 12, 12);
     console.debug('[writing selection] toolbar position:', { x: posX, y: posY });
 
-    patchWritingWorkspace(task, {
-      selectionText: text,
-      selectionTranslation: '',
-      selectionX: posX,
-      selectionY: posY
-    });
+    selectionRuntime.text = text;
+    selectionRuntime.x = posX;
+    selectionRuntime.y = posY;
     updateSelectionPopover(task);
   };
 
@@ -719,22 +701,21 @@ function bindSelection(task) {
     const text = selection?.toString().trim() || '';
     if (text) return;
     updateSelectionDebug({ length: 0, inside: false, x: 0, y: 0 });
-    clearSelectionUI(task);
+    clearSelectionUI();
     updateSelectionPopover(task);
   };
 
   document.addEventListener('selectionchange', selectionHandler);
-  panel.addEventListener('mouseup', () => window.setTimeout(syncSelectionFromPanel, 0));
-  panel.addEventListener('keyup', () => window.setTimeout(syncSelectionFromPanel, 0));
+  essayText.addEventListener('mouseup', () => window.setTimeout(() => syncSelectionFromEssay('mouseup'), 0));
+  essayText.addEventListener('keyup', () => window.setTimeout(() => syncSelectionFromEssay('keyup'), 0));
   getSelectionToolbar();
 
   const translateBtn = document.getElementById('writing-translate');
   translateBtn?.addEventListener('mousedown', event => event.preventDefault());
   translateBtn?.addEventListener('click', () => {
-    const workspace = getWritingWorkspace(task);
-    const translation = lookupTranslation(workspace.selectionText);
+    const translation = lookupTranslation(selectionRuntime.text);
     window.alert(translation || '未找到翻译。');
-    clearSelectionUI(task);
+    clearSelectionUI();
     window.getSelection()?.removeAllRanges();
     updateSelectionPopover(task);
   });
@@ -742,7 +723,7 @@ function bindSelection(task) {
   const saveBtn = document.getElementById('writing-save-highlight');
   saveBtn?.addEventListener('mousedown', event => event.preventDefault());
   saveBtn?.addEventListener('click', () => {
-    saveHighlight(task, 'revised');
+    saveHighlight(task, 'revised', selectionRuntime.text);
     window.getSelection()?.removeAllRanges();
   });
 }

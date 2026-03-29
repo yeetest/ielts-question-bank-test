@@ -288,6 +288,14 @@
 .writing-reading-panel p:last-child {
   margin-bottom: 0;
 }
+.writing-revised-essay-text {
+  white-space: pre-wrap;
+  user-select: text;
+  -webkit-user-select: text;
+  pointer-events: auto;
+  position: relative;
+  z-index: 1;
+}
 .writing-tab-note,
 .writing-empty-copy {
   color: #666;
