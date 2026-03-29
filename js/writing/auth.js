@@ -52,6 +52,7 @@ async function ensureSupabase() {
 
 async function syncServerSession(accessToken) {
   const response = await fetch('/api/auth/session', {
+    credentials: 'same-origin',
     headers: {
       Authorization: `Bearer ${accessToken}`
     }
@@ -60,6 +61,17 @@ async function syncServerSession(accessToken) {
   authState.session = payload.session || null;
   syncSessionBadge();
   return authState.session;
+}
+
+async function syncServerSessionFromSupabase() {
+  const supabase = await ensureSupabase();
+  const { data, error } = await supabase.auth.getSession();
+  if (error || !data.session?.access_token) {
+    authState.session = null;
+    syncSessionBadge();
+    return null;
+  }
+  return syncServerSession(data.session.access_token);
 }
 
 export async function refreshSession() {
@@ -212,7 +224,7 @@ async function signOutAll() {
   if (authState.supabase) {
     await authState.supabase.auth.signOut().catch(() => {});
   }
-  await fetch('/api/auth/logout', { method: 'POST' }).catch(() => {});
+  await fetch('/api/auth/logout', { method: 'POST', credentials: 'same-origin' }).catch(() => {});
   authState.session = null;
   syncSessionBadge();
 }
@@ -237,11 +249,18 @@ function bindAuthActions(action) {
   if (buyBtn && needsPayment) {
     buyBtn.addEventListener('click', async () => {
       await runBusyAction(feedback, '购买中...', async () => {
-        const response = await fetch('/api/billing/starter-pack', { method: 'POST' });
+        const syncedSession = await syncServerSessionFromSupabase();
+        if (!syncedSession) {
+          throw new Error('登录状态已失效，请重新登录后再购买。');
+        }
+
+        const response = await fetch('/api/billing/starter-pack', {
+          method: 'POST',
+          credentials: 'same-origin'
+        });
         const payload = await response.json().catch(() => ({}));
         if (!response.ok) {
-          setAuthFeedback(feedback, payload.error || 'Could not complete payment.');
-          return;
+          throw new Error(payload.error || 'Could not complete payment.');
         }
         authState.session = payload.session;
         syncSessionBadge();
