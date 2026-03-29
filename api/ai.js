@@ -133,10 +133,11 @@ function buildAssessmentSystemPrompt(taskType) {
   const t = taskType === 'task1' ? 'Task 1; first criterion = Task Achievement.' : 'Task 2; first criterion = Task Response (JSON key still task_achievement).';
   return `IELTS General Training examiner. Score using public Writing band descriptors (May 2023): https://cdn.ielts.org/Guides/ielts-writing-band-descriptors.pdf
 ${t}
-Return JSON only:
+Output a single raw JSON object only — no markdown, no \`\`\` fences, no text before or after the object.
+Shape:
 {"overall_band":number,"criteria":{"task_achievement":{"band":number,"comments":string},"coherence_cohesion":{"band":number,"comments":string},"lexical_resource":{"band":number,"comments":string},"grammatical_range_accuracy":{"band":number,"comments":string}}}
-Per criterion: band + 1–2 sentences (brief evaluation + one concrete fix).
-CRITICAL: comments must be valid JSON strings — escape every " as \\" inside comments; use \\n for newlines; never put raw double-quotes inside a string value.`.trim();
+Per criterion: band + at most 2 short sentences in comments (keep comments compact).
+CRITICAL: comments must be valid JSON strings — escape every " as \\" inside comments; use \\n for newlines.`.trim();
 }
 
 function buildRewriteSystemPrompt(taskType) {
@@ -156,8 +157,9 @@ User message includes EXAMINER_ASSESSMENT_JSON — use to prioritise fixes.
 
 ${band9Block}
 
-Return JSON only: {"revised_essay":string,"revision_notes":{"structure":string,"content":string,"grammar":string,"vocabulary":string}}
-CRITICAL: escape every " inside revised_essay and revision_notes strings as \\"; use \\n for paragraph breaks inside JSON strings.`.trim();
+Output a single raw JSON object only — no markdown or code fences.
+{"revised_essay":string,"revision_notes":{"structure":string,"content":string,"grammar":string,"vocabulary":string}}
+CRITICAL: escape every " inside string values as \\"; use \\n for line breaks inside JSON strings.`.trim();
 }
 
 function normaliseCriteria(criteria) {
@@ -208,7 +210,9 @@ async function openRouterJson({ apiKey, model, max_tokens, system, user }) {
     throw error;
   }
 
-  const raw = getAssistantTextContent(payload?.choices?.[0]?.message);
+  const choice = payload?.choices?.[0];
+  const finishReason = choice?.finish_reason;
+  const raw = getAssistantTextContent(choice?.message);
   if (!String(raw).trim()) {
     const error = new Error('OpenRouter returned an empty response.');
     error.statusCode = 502;
@@ -232,9 +236,12 @@ async function openRouterJson({ apiKey, model, max_tokens, system, user }) {
   }
 
   const preview = String(raw).replace(/\s+/g, ' ').slice(0, 280);
-  const error = new Error(
-    `OpenRouter returned JSON that could not be parsed (${lastErr?.message || 'unknown'}). Preview: ${preview}`
-  );
+  let msg = `OpenRouter returned JSON that could not be parsed (${lastErr?.message || 'unknown'}). Preview: ${preview}`;
+  if (finishReason === 'length') {
+    msg +=
+      ' Response hit max_tokens (finish_reason=length). Raise OPENROUTER_MAX_TOKENS_ASSESSMENT or OPENROUTER_MAX_TOKENS_REWRITE.';
+  }
+  const error = new Error(msg);
   error.statusCode = 502;
   throw error;
 }
@@ -263,8 +270,9 @@ async function requestOpenRouter(taskPrompt, essay, taskType) {
     throw error;
   }
 
-  const maxAssess = intEnv('OPENROUTER_MAX_TOKENS_ASSESSMENT', 1100);
-  const maxRewrite = intEnv('OPENROUTER_MAX_TOKENS_REWRITE', 3200);
+  // Assessment JSON was truncating around ~1100 tokens; defaults must fit 4 criteria + overhead.
+  const maxAssess = intEnv('OPENROUTER_MAX_TOKENS_ASSESSMENT', 4096);
+  const maxRewrite = intEnv('OPENROUTER_MAX_TOKENS_REWRITE', 8192);
 
   const userTaskBlock = `TASK_TYPE: ${taskType}\n\nTASK:\n${taskPrompt}\n\nSTUDENT_ESSAY:\n${essay}`;
 
