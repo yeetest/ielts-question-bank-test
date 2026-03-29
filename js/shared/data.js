@@ -60,6 +60,15 @@ function compactTitle(text, maxWords = 7) {
   return words.slice(0, maxWords).join(' ');
 }
 
+function buildWritingCoreMap(rows) {
+  const map = new Map();
+  (rows || []).forEach(row => {
+    if (!row || !row.id || !row.card_core_text) return;
+    map.set(row.id, String(row.card_core_text).trim());
+  });
+  return map;
+}
+
 function inferTask1Tags(prompt) {
   const text = prompt.toLowerCase();
   const action = [
@@ -108,7 +117,8 @@ function inferTask2Tags(prompt) {
   return { l1: essayType, l2: [topic], l3: [] };
 }
 
-function buildWritingTitle(item, cleanedPrompt) {
+function buildWritingTitle(item, cleanedPrompt, coreText = '') {
+  if (coreText) return coreText;
   const lead = extractCoreQuestion(cleanedPrompt, item.type);
   if (item.type === 'task1') {
     return compactTitle(lead, 8) || 'Letter task';
@@ -116,7 +126,7 @@ function buildWritingTitle(item, cleanedPrompt) {
   return compactTitle(lead, 12) || 'Essay task';
 }
 
-function prepareWritingTasks(rawQuestions) {
+function prepareWritingTasks(rawQuestions, coreMap = new Map()) {
   const seen = new Set();
   return rawQuestions
     .map(item => {
@@ -124,10 +134,12 @@ function prepareWritingTasks(rawQuestions) {
       const dedupeKey = normalizePromptForDedup(cleanedPrompt);
       if (!cleanedPrompt || seen.has(dedupeKey)) return null;
       seen.add(dedupeKey);
+      const cardCoreText = coreMap.get(item.id) || '';
       return {
         ...item,
         prompt: cleanedPrompt,
-        title: buildWritingTitle(item, cleanedPrompt),
+        title: buildWritingTitle(item, cleanedPrompt, cardCoreText),
+        cardCoreText,
         promptLead: extractCoreQuestion(cleanedPrompt, item.type),
         content_tags: item.type === 'task1' ? inferTask1Tags(cleanedPrompt) : inferTask2Tags(cleanedPrompt),
         sampleAnswer: typeof item.sampleAnswer === 'string' && item.sampleAnswer.trim() ? item.sampleAnswer.trim() : ''
@@ -183,7 +195,7 @@ function updateChrome() {
 export async function loadData(options = {}) {
   const { render = true } = options;
   const base = 'data/quarters/2026-01-to-04/';
-  const [part1, part2, taxonomyRows, writingPayload] = await Promise.all([
+  const [part1, part2, taxonomyRows, writingPayload, writingCoreRows] = await Promise.all([
     fetch(`${base}merged_part1.json`).then(r => {
       if (!r.ok) throw new Error(`merged_part1: ${r.status}`);
       return r.json();
@@ -199,6 +211,10 @@ export async function loadData(options = {}) {
     fetch('data/writing_questions.json').then(r => {
       if (!r.ok) throw new Error(`writing_questions: ${r.status}`);
       return r.json();
+    }),
+    fetch('data/writing_card_core_text.json').then(r => {
+      if (!r.ok) throw new Error(`writing_card_core_text: ${r.status}`);
+      return r.json();
     })
   ]);
 
@@ -210,7 +226,8 @@ export async function loadData(options = {}) {
       { l1: row.l1 || null, l2: row.l2 || null, l3: row.l3 || null },
     ])
   );
-  const list = prepareWritingTasks(writingPayload?.questions || []);
+  const coreMap = buildWritingCoreMap(writingCoreRows);
+  const list = prepareWritingTasks(writingPayload?.questions || [], coreMap);
   state.writingTask1Data = list.filter(item => item.type === 'task1');
   state.writingTask2Data = list.filter(item => item.type === 'task2');
 

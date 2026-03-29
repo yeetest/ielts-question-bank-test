@@ -4,1175 +4,1175 @@
     "type": "task1",
     "source_title": "G20 Test4 Part1",
     "full_prompt": "You recently used a company to help you move your furniture and possessions to your new apartment. The removal company has now asked for your feedback about the service they provided.\n\nWrite a letter to the removal company. In your letter\n\n• explain what went well on the day you moved house\n\n• praise an employee who was particularly helpful\n\n• mention an aspect of the service that you were not happy with\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear Sir or Madam,",
-    "card_core_text": "feedback about a service you recently used"
+    "card_core_text": "giving feedback to a removal company about the service they provided"
   },
   {
     "id": "itongzhuo-2957",
     "type": "task1",
     "source_title": "G20 Test3 Part1",
     "full_prompt": "You work for an entertainment company which plans to open a new theatre soon. You want to invite a famous actor to open the new theatre.\n\nWrite a letter to this famous actor. In your letter\n\n• give some information about the new theatre\n\n• invite her/him to open the new theatre\n\n• explain why she/he would be a good person to open the theatre\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear .........,",
-    "card_core_text": "inviting someone to open an event or venue"
+    "card_core_text": "inviting a famous actor to open a new theatre"
   },
   {
     "id": "itongzhuo-2953",
     "type": "task1",
     "source_title": "G20 Test2 Part1",
     "full_prompt": "The younger sister of one of your friends is thinking about spending a year studying abroad as part of her university course. You did this recently, and she has asked you about your experience.\n\nWrite a letter to your friend's sister. In your letter\n\n• tell her where you studied during your year abroad\n\n• describe what you learnt about the country you studied in\n\n• explain why your year abroad was helpful for your studies\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear .........,",
-    "card_core_text": "advice about spending a year studying abroad"
+    "card_core_text": "advising your friend's younger sister about spending a year studying abroad"
   },
   {
     "id": "itongzhuo-2949",
     "type": "task1",
     "source_title": "G20 Test1 Part1",
     "full_prompt": "It is ten years since you left college, You'd like to organise an event to celebrate this anniversary with all your friends and classmates from college.\n\nWrite a letter to one of your college friends. In your letter\n\n• say what kind of celebration event you'd like to organise\n\n• explain why you think it would be good to celebrate in this way\n\n• describe what help you need to organise this event\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear .........,",
-    "card_core_text": "organising a ten-year college reunion celebration"
+    "card_core_text": "planning a ten-year college reunion celebration with a college friend"
   },
   {
     "id": "itongzhuo-2780",
     "type": "task1",
     "source_title": "G19 Test4 Part1",
     "full_prompt": "You started in your present job two years ago. You now feel it is important for your career development to move to a different department in the same company.\n\nWrite a letter to your manager. In your letter\n\n• say what you have learned in your present job\n\n• suggest how the company would benefit from moving you to a different department\n\n• explain why you do not wish to leave the company\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear ......,",
-    "card_core_text": "requesting a transfer to another department in the same company"
+    "card_core_text": "asking your manager to move you to a different department in the same company"
   },
   {
     "id": "itongzhuo-2778",
     "type": "task1",
     "source_title": "G19 Test3 Part1",
     "full_prompt": "Five months ago, you started renting an apartment on a six-month agreement. You now wish to stay in the apartment for longer than the six months you originally agreed with the owner.\n\nWrite a letter to the owner of your apartment. In your letter\n\n• say how long you now want to rent the apartment for\n\n• explain why your plans have changed\n\n• tell the owner about a problem in the apartment.\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear ......,",
-    "card_core_text": "asking to extend the rental period for an apartment"
+    "card_core_text": "asking your apartment owner to extend your rental period"
   },
   {
     "id": "itongzhuo-2776",
     "type": "task1",
     "source_title": "G19 Test2 Part1",
     "full_prompt": "You are a member of an International Students' club. The club is organising an event to celebrate popular food from around the world.\n\nWrite a letter to the event organiser, Luis. In your letter\n\n• offer to make a popular dish from your country\n\n• describe what this dish is\n\n• explain why it should be included in the event\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear Lius,",
-    "card_core_text": "recommending a popular dish for an international food event"
+    "card_core_text": "suggesting a popular dish from your country to an international food event organiser"
   },
   {
     "id": "itongzhuo-2774",
     "type": "task1",
     "source_title": "G19 Test1 Part1",
     "full_prompt": "You would like to reduce your working hours in order to study part time.\n\nWrite a letter to your boss. In your letter\n\n• explain why you want to reduce your working hours\n\n• say which hours you would like to work\n\n• describe how your part-time studies would benefit your employer\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear .........,",
-    "card_core_text": "requesting reduced working hours in order to study part time"
+    "card_core_text": "asking your boss to reduce your working hours for part-time study"
   },
   {
     "id": "itongzhuo-2534",
     "type": "task1",
     "source_title": "G18 Test4 Part1",
     "full_prompt": "You recently attended a training course for your work. Your employer has\n\nasked you for your feedback on the training course.\n\nWrite a letter to your employer In your letter\n\n• remind your employer what the course was about\n\n• explain why the course was useful to you in your work\n\n• suggest why the course may be suitable for some of your other colleagues\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear ...,",
-    "card_core_text": "feedback on a work training course"
+    "card_core_text": "giving feedback to your employer on a work training course"
   },
   {
     "id": "itongzhuo-2532",
     "type": "task1",
     "source_title": "G18 Test3 Part1",
     "full_prompt": "You recently bought some train tickets for a journey a week in advance. When you went to the station to catch the train, you were told you could not use the tickets and the staff were very unhelpful to you.\n\nWrite a letter to the train company. In your letter\n\n• describe the problem you had with the tickets\n\n• say why you were unhappy with the staff\n\n• suggest what action the train company should take\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear Sir or Madam,",
-    "card_core_text": "complaint about train tickets and unhelpful station staff"
+    "card_core_text": "complaining to a train company about unusable tickets and unhelpful staff"
   },
   {
     "id": "itongzhuo-2530",
     "type": "task1",
     "source_title": "G18 Test2 Part1",
     "full_prompt": "You are soon going to spend three months doing work experience in an\n\norganisation.\n\nWrite a letter to the manager of the organisation where you are going to do work experience. In your letter\n\n• thank the manager for the opportunity to do work experience\n\n• explain what you hope to learn from the work experience\n\n• ask some questions about the work experience you are going to do\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear Sir or Madam,",
-    "card_core_text": "are soon going to spend three months doing work experience in an organisation"
+    "card_core_text": "thanking a work experience manager and asking about your upcoming placement"
   },
   {
     "id": "itongzhuo-2528",
     "type": "task1",
     "source_title": "G18 Test1 Part1",
     "full_prompt": "Your English-speaking friend has asked for your help with a college project he/she is doing about celebrating New Year in different countries.\n\nWrite a letter to your friend. In your letter\n\n• say how important New Year is to people in your country\n\n• describe how New Year is celebrated in your country\n\n• explain what you like about New Year celebrations in your country\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear ...,",
-    "card_core_text": "your English-speaking friend has asked for your help with a college project he/she is doing about celebrating New Year in different countries"
+    "card_core_text": "helping an English-speaking friend with a college project about New Year celebrations in your country"
   },
   {
     "id": "itongzhuo-2406",
     "type": "task1",
     "source_title": "G17 Test4 Part1",
     "full_prompt": "You have bought some clothing online and are not satisfied with your purchase.\n\nWrite a letter to the company that you bought the clothing from. In your email\n\n• give details of the purchase\n\n• describe the problem\n\n• explain why you need a replacement urgently\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear Sir or Madam,",
-    "card_core_text": "have bought some clothing online and are not satisfied with your purchase"
+    "card_core_text": "complaining to an online clothing company and requesting a replacement"
   },
   {
     "id": "itongzhuo-2404",
     "type": "task1",
     "source_title": "G17 Test3 Part1",
     "full_prompt": "You recently booked a part-time course at a college. You now need to cancel your booking\n\nWrite a letter to the college administrator. In your letter.\n\n• say which part-time course you booked\n\n• explain why you need to cancel your booking.\n\n• ask about booking a different course\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear Sir or Madam,",
-    "card_core_text": "recently booked a part-time course at a college. You now need to cancel your booking"
+    "card_core_text": "cancelling a part-time course booking and asking about another course"
   },
   {
     "id": "itongzhuo-2402",
     "type": "task1",
     "source_title": "G17 Test2 Part1",
     "full_prompt": "The parents of your Australian friend Chris have invited you to a surprise birthday party for him/her.\n\nWrite a letter to Chris's parents. In your letter\n\n• say why you think Chris will enjoy the surprise party\n\n• explain why you won't be able to attend the party\n\n• give details of a plan to see Chris at a different time\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear Mr and Mrs Collins,",
-    "card_core_text": "the parents of your Australian friend Chris have invited you to a surprise birthday party for him/her"
+    "card_core_text": "replying to Chris's parents about his surprise birthday party and another plan to see him"
   },
   {
     "id": "itongzhuo-2400",
     "type": "task1",
     "source_title": "G17 Test1 Part1",
     "full_prompt": "Your English-speaking friend who lives in your town has asked for your advice about learning a new sport.\n\nWrite an email to your friend. In your email\n\n• recommend a new sport that would be suitable for your friend to learn\n\n• explain how your friend could learn this sport\n\n• suggest that you both learn this sport together\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear ... ,",
-    "card_core_text": "your English-speaking friend who lives in your town has asked for your advice about learning a new sport. Write an email to your friend. In your email"
+    "card_core_text": "advising a friend about learning a new sport"
   },
   {
     "id": "itongzhuo-2398",
     "type": "task1",
     "source_title": "G16 Test4 Part1",
     "full_prompt": "Your friend has been offered a place on a course at the university where you studied. He/She would like your advice about finding a place to live.\n\nWrite an email to your friend. In your email\n\n• describe where you lived when you were a student at the university\n\n• recommend the best way for him/her to look for accommodation\n\n• warn him/her of mistakes students make when choosing accommodation\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your email as follow：\n\nDear ... ,",
-    "card_core_text": "your friend has been offered a place on a course at the university where you studied. He/She would like your advice about finding a place to live. Write an email to your friend. In your email"
+    "card_core_text": "advising a friend about finding accommodation near university"
   },
   {
     "id": "itongzhuo-2396",
     "type": "task1",
     "source_title": "G16 Test3 Part1",
     "full_prompt": "A magazine wants to include contributions from its readers for an article called 'The book that influenced me most'.\n\nWrite a letter to the editor of the magazine about the book that influenced you most. In your letter\n\n• describe what this book was about\n\n• explain how this book influenced you\n\n• say whether this book would be likely to influence other people\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear Sir or Madam,",
-    "card_core_text": "a magazine wants to include contributions from its readers for an article called 'The book that influenced me most'"
+    "card_core_text": "contributing to a magazine article about the book that influenced you most"
   },
   {
     "id": "itongzhuo-2394",
     "type": "task1",
     "source_title": "G16 Test2 Part1",
     "full_prompt": "You have just read an article in a national newspaper which claims that town centres in your country all look very similar to each other. You don't fully agree with this opinion.\n\nWrite a letter to the editor of the newspaper. In your letter\n\n• say which points in the article you agree with\n\n• explain ways in which your town centre is different from most other town centres\n\n• offer to give a guided tour of your town to the writer of the article\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear Sir or Madam,",
-    "card_core_text": "have just read an article in a national newspaper which claims that town centres in your country all look very similar to each other. You don't fully agree with this opinion"
+    "card_core_text": "responding to a newspaper article about town centres looking too similar"
   },
   {
     "id": "itongzhuo-2392",
     "type": "task1",
     "source_title": "G16 Test1 Part1",
     "full_prompt": "Mrs Barrett, an English-speaking woman who lives in your town, has advertised for someone to help her in her home for a few hours a day next summer.\n\nWrite a letter to Mrs Barrett. In your letter\n\n• suggest how you could help her in her home\n\n• say why you would like to do this work\n\n• explain when you will and will not be available\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear Mrs Barrett,",
-    "card_core_text": "mrs Barrett, an English-speaking woman who lives in your town, has advertised for someone to help her in her home for a few hours a day next summer"
+    "card_core_text": "applying to help Mrs Barrett at home next summer"
   },
   {
     "id": "itongzhuo-2390",
     "type": "task1",
     "source_title": "G15 Test4 Part1",
     "full_prompt": "You have seen an advertisement from a couple, who live in Australia, for someone to teach their two children your language for a year.\n\nWrite a letter to the couple. In your letter\n\n• explain why you think you would be suitable for the job\n\n• say what else you could do for the family\n\n• give your reasons for wanting the job\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear ... ,",
-    "card_core_text": "have seen an advertisement from a couple, who live in Australia, for someone to teach their two children your language for a year"
+    "card_core_text": "applying to teach a couple's children your language in Australia"
   },
   {
     "id": "itongzhuo-2388",
     "type": "task1",
     "source_title": "G15 Test3 Part1",
     "full_prompt": "A friend of yours is thinking about applying for the same course that you did at university. He/She has asked for your advice about studying this subject.\n\nWrite a letter to your friend. In your letter\n\n• give details of the course you took at the university\n\n• explain why you recommend the university\n\n• give some advice about how to apply\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear ... ,",
-    "card_core_text": "a friend of yours is thinking about applying for the same course that you did at university. He/She has asked for your advice about studying this subject"
+    "card_core_text": "advising a friend about applying for your university course"
   },
   {
     "id": "itongzhuo-2386",
     "type": "task1",
     "source_title": "G15 Test2 Part1",
     "full_prompt": "A museum near your home is looking for people to do part-time voluntary/unpaid work. You would like to do some voluntary/unpaid work at the museum.\n\nWrite a letter to the museum director to apply for the voluntary/unpaid work. In your letter\n\n• explain why you want to do voluntary/unpaid work at the museum\n\n• describe some skills and qualities you have that would be useful\n\n• give details of when you would be available for work\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear Sir or Madam,",
-    "card_core_text": "a museum near your home is looking for people to do part-time voluntary/unpaid work. You would like to do some voluntary/unpaid work at the museum"
+    "card_core_text": "applying for part-time voluntary work at a museum"
   },
   {
     "id": "itongzhuo-2384",
     "type": "task1",
     "source_title": "G15 Test1 Part1",
     "full_prompt": "A friend of yours is thinking of going on a camping holiday for the first time this summer. He/She has asked for your advice.\n\nWrite a letter to your friend. In your letter\n\n• explain why you think your friend would enjoy a camping holiday\n\n• describe some possible disadvantages\n\n• say whether you would like to go camping with your friend this summer\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear ... ,",
-    "card_core_text": "a friend of yours is thinking of going on a camping holiday for the first time this summer. He/She has asked for your advice"
+    "card_core_text": "advising a friend about a first camping holiday"
   },
   {
     "id": "itongzhuo-2382",
     "type": "task1",
     "source_title": "G14 Test4 Part1",
     "full_prompt": "You recently went to a concert and thought one of the singers was very good. You want to tell him how you feel.\n\nWrite a letter to the singer. In your letter\n\n• say how you feel about his performance\n\n• give details of your musical activities\n\n• explain how you would like him to help you with your musical activities\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear ... ,",
-    "card_core_text": "recently went to a concert and thought one of the singers was very good. You want to tell him how you feel"
+    "card_core_text": "praising a singer after enjoying a concert"
   },
   {
     "id": "itongzhuo-2380",
     "type": "task1",
     "source_title": "G14 Test3 Part1",
     "full_prompt": "You recently did a short cookery course. The cookery school has asked for your feedback on this course.\n\nWrite a letter to the course director at the cookery school. In your letter\n\n• describe what you enjoyed about the course\n\n• say how much cooking you've done since the course\n\n• suggest another cookery course you'd like the school to offer\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear Sir or Madam,",
-    "card_core_text": "recently did a short cookery course. The cookery school has asked for your feedback on this course"
+    "card_core_text": "giving feedback to a cookery school on a short cookery course"
   },
   {
     "id": "itongzhuo-2378",
     "type": "task1",
     "source_title": "G14 Test2 Part1",
     "full_prompt": "You have just read an article in an international travel magazine which contained some information about your town that is incorrect.\n\nWrite a letter to the editor of the magazine. In your letter\n\n• correct the information in the article\n\n• explain why it is important for the magazine to give correct information\n\n• suggest what the magazine should do about this situation\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear Sir or Madam,",
-    "card_core_text": "have just read an article in an international travel magazine which contained some information about your town that is incorrect"
+    "card_core_text": "correcting inaccurate information about your town in a travel magazine"
   },
   {
     "id": "itongzhuo-2376",
     "type": "task1",
     "source_title": "G14 Test1 Part1",
     "full_prompt": "You have seen an advertisement in an Australian magazine for someone to live with a family for six months and look after their six-year-old child.\n\nWrite a letter to the parents. In your letter\n\n• explain why you would like the job\n\n• give details of why you would be a suitable person to employ\n\n• say how you would spend your free time while you are in Australia\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear Sir or Madam,",
-    "card_core_text": "have seen an advertisement in an Australian magazine for someone to live with a family for six months and look after their six-year-old child"
+    "card_core_text": "applying to live with an Australian family and care for their child"
   },
   {
     "id": "itongzhuo-2374",
     "type": "task1",
     "source_title": "G13 Test4 Part1",
     "full_prompt": "A friend you made while you were studying abroad has written to ask you for help in finding a job in your country. You have heard about a job in a local company that might be suitable for him/her.\n\nWrite a letter to this friend. In your letter\n\n• tell your friend about the job and what sort of work it involves\n\n• say why you think the job would be suitable for him/her\n\n• explain how to apply for the job\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear ... ,",
-    "card_core_text": "a friend you made while you were studying abroad has written to ask you for help in finding a job in your country. You have heard about a job in a local company that might be suitable for him/her"
+    "card_core_text": "helping a friend from abroad find a job in your country"
   },
   {
     "id": "itongzhuo-2372",
     "type": "task1",
     "source_title": "G13 Test3 Part1",
     "full_prompt": "The system used for rubbish/garbage collection in your local area is not working properly. This is causing problems for you and your neighbours.\n\nWrite a letter to the local council. In your letter\n\n• describe how the rubbish collection system is not working properly\n\n• explain how this is affecting you and your neighbours\n\n• suggest what should be done about the problem\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear Sir or Madam,",
-    "card_core_text": "the system used for rubbish/garbage collection in your local area is not working properly. This is causing problems for you and your neighbours"
+    "card_core_text": "complaining to the council about problems with rubbish collection"
   },
   {
     "id": "itongzhuo-2370",
     "type": "task1",
     "source_title": "G13 Test2 Part1",
     "full_prompt": "You recently organised an all-day meeting for your company, which took place in a local hotel. In their feedback, participants at the meeting said that they liked the hotel, but they were unhappy about the food that was served for lunch.\n\nWrite a letter to the manager of the hotel. In your letter\n\n• say what the participants liked about the hotel\n\n• explain why they were unhappy about the food\n\n• suggest what the manager should do to improve the food in future\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear Sir or Madam,",
-    "card_core_text": "recently organised an all-day meeting for your company, which took place in a local hotel. In their feedback, participants at the meeting said that they liked the hotel, but they were unhappy about the food that was served for lunch"
+    "card_core_text": "complaining to a hotel manager about lunch served at a company meeting"
   },
   {
     "id": "itongzhuo-2368",
     "type": "task1",
     "source_title": "G13 Test1 Part1",
     "full_prompt": "You work for an international company, and would like to spend six months working in its head office in another country.\n\nWrite a letter to your manager. In your letter\n\n• explain why you want to work in the company's head office for six months\n\n• say how your work could be done while you are away\n\n• ask for his/her help in arranging it\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear ... ,",
-    "card_core_text": "work for an international company, and would like to spend six months working in its head office in another country"
+    "card_core_text": "asking to work for six months at your company's overseas head office"
   },
   {
     "id": "itongzhuo-2366",
     "type": "task1",
     "source_title": "G12 Test4 Part1",
     "full_prompt": "There have been several complaints about the reception area where visitors to your company arrive. Your manager has asked you to suggest how the reception area could be improved.\n\nWrite a letter to your manager. In your letter\n\n• describe the complaints that have been made\n\n• say why the reception area is important\n\n• suggest how the reception area could be improved\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear ... ,",
-    "card_core_text": "a request to your manager"
+    "card_core_text": "suggesting improvements to your company's reception area"
   },
   {
     "id": "itongzhuo-2364",
     "type": "task1",
     "source_title": "G12 Test3 Part1",
     "full_prompt": "A large company in your area has decided to spend a certain amount of money, either to sponsor a local children's sports team for two years, or to pay for two open-air concerts. It has asked for feedback from the general public.\n\nWrite a letter to the company. In your letter\n\n• describe the benefits of sponsoring the sports team\n\n• summarise the benefits of paying for the concerts\n\n• say how you think the company should spend the money\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear Sir or Madam,",
-    "card_core_text": "a large company in your area has decided to spend a certain amount of money, either to sponsor a local children's sports team for two years, or to pay for two open-air concerts. It has asked for feedback from the general public"
+    "card_core_text": "giving feedback to a local company on whether to sponsor children's sports or open-air concerts"
   },
   {
     "id": "itongzhuo-2362",
     "type": "task1",
     "source_title": "G12 Test2 Part1",
     "full_prompt": "During a recent plane journey, you sat next to a businessman who owns a chain of restaurants. You talked to him and he suggested that you should contact him about a possible job in one of his restaurants.\n\nWrite a letter to this businessman. In your letter\n\n• remind him when and where you met\n\n• tell him what kind of job you are interested in\n\n• say why you think you would be suitable for the job\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear ... ,",
-    "card_core_text": "during a recent plane journey, you sat next to a businessman who owns a chain of restaurants. You talked to him and he suggested that you should contact him about a possible job in one of his restaurants"
+    "card_core_text": "contacting a businessman about a possible restaurant job"
   },
   {
     "id": "itongzhuo-2360",
     "type": "task1",
     "source_title": "G12 Test1 Part1",
     "full_prompt": "You work at home and have a problem with a piece of equipment that you use for your job.\n\nWrite a letter to the shop or company which supplied the equipment. In your letter\n\n• describe the problem with the equipment\n\n• explain how this problem is affecting your work\n\n• say what you want the shop or company to do\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear Sir or Madam,",
-    "card_core_text": "work at home and have a problem with a piece of equipment that you use for your job"
+    "card_core_text": "reporting to your equipment supplier about faulty work equipment and asking for help"
   },
   {
     "id": "itongzhuo-2358",
     "type": "task1",
     "source_title": "G11 Test4 Part1",
     "full_prompt": "You work for an international company. You have seen an advertisement for a training course which will be useful for your job.\n\nWrite a letter to your manager. In your letter\n\n• describe the training course you want to do\n\n• explain what the company could do to help you\n\n• say how the course will be useful for your job\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear Sir or Madam,",
-    "card_core_text": "feedback on a work training course"
+    "card_core_text": "asking your company to support your attendance at a useful training course"
   },
   {
     "id": "itongzhuo-2356",
     "type": "task1",
     "source_title": "G11 Test3 Part1",
     "full_prompt": "Your local council is considering closing a sports and leisure centre that it runs, in order to save money.\n\nWrite a letter to the local council. In your letter\n\n• give details of how you and your friends or family use the centre\n\n• explain why the sports and leisure centre is important for the local community\n\n• describe the possible effects on local people if the centre closes\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear Sir or Madam,",
-    "card_core_text": "your local council is considering closing a sports and leisure centre that it runs, in order to save money"
+    "card_core_text": "opposing the local council's plan to close a sports and leisure centre"
   },
   {
     "id": "itongzhuo-2354",
     "type": "task1",
     "source_title": "G11 Test2 Part1",
     "full_prompt": "You recently attended a meeting at a hotel. When you returned home, you found you had left some important papers at the hotel.\n\nWrite a letter to the manager of the hotel. In your letter\n\n• say where you think you left the papers\n\n• explain why they are so important\n\n• tell the manager what you want him/her to do\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear Sir or Madam,",
-    "card_core_text": "recently attended a meeting at a hotel. When you returned home, you found you had left some important papers at the hotel"
+    "card_core_text": "asking a hotel to find and return important papers you left behind"
   },
   {
     "id": "itongzhuo-2352",
     "type": "task1",
     "source_title": "G11 Test1 Part1",
     "full_prompt": "You recently received a letter from a friend asking for advice about whether to go to college or to try to get a job. You think he/she should get a job.\n\nWrite a letter to this friend. In your letter\n\n• say why he/she would not enjoy going to college\n\n• explain why getting a job is a good idea for him/her\n\n• suggest types of job that would be suitable for him/her\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear ... ,",
-    "card_core_text": "recently received a letter from a friend asking for advice about whether to go to college or to try to get a job. You think he/she should get a job"
+    "card_core_text": "advising a friend to get a job instead of going to college"
   },
   {
     "id": "itongzhuo-2350",
     "type": "task1",
     "source_title": "G10 TestB Part1",
     "full_prompt": "You and some friends ate a meal at a restaurant to celebrate a special occasion, and you were very pleased with the food and service.\n\nWrite a letter to the restaurant manager. In your letter\n\n• give details of your visit to the restaurant\n\n• explain the reason for the celebration\n\n• say what was good about the food and the service\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear Sir or Madam,",
-    "card_core_text": "and some friends ate a meal at a restaurant to celebrate a special occasion, and you were very pleased with the food and service"
+    "card_core_text": "praising a restaurant for excellent food and service at a special celebration"
   },
   {
     "id": "itongzhuo-2348",
     "type": "task1",
     "source_title": "G10 TestA Part1",
     "full_prompt": "You are going to another country to study. You would like to do a part-time job while you are studying, so you want to ask a friend who lives there for some help.\n\nWrite a letter to this friend. In your letter\n\n• give details of your study plans\n\n• explain why you want to get a part-time job\n\n• suggest how your friend could help you find a job\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear ... ,",
-    "card_core_text": "are going to another country to study. You would like to do a part-time job while you are studying, so you want to ask a friend who lives there for some help"
+    "card_core_text": "asking a friend abroad for help finding a part-time job while studying"
   },
   {
     "id": "itongzhuo-2346",
     "type": "task1",
     "source_title": "G9 TestB Part1",
     "full_prompt": "On a recent holiday you lost a valuable item. Fortunately you have travel insurance to cover the cost of anything lost.\n\nWrite a letter to the manager of your insurance company. In your letter\n\n• describe the item you lost\n\n• explain how you lost it\n\n• tell the insurance company what you would like them to do\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear Sir or Madam,",
-    "card_core_text": "on a recent holiday you lost a valuable item. Fortunately you have travel insurance to cover the cost of anything lost"
+    "card_core_text": "making a travel insurance claim for a lost valuable item on holiday"
   },
   {
     "id": "itongzhuo-2343",
     "type": "task1",
     "source_title": "G9 TestA Part1",
     "full_prompt": "You are working for a company.You need to take some time off work and want to ask your manager about this.\n\nWrite a letter to your manager. In your letter\n\n• explain why you want to take time off work\n\n• give details of the amount of time you need\n\n• suggest how your work could be covered while you are away\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear ... ,",
-    "card_core_text": "a request to your manager"
+    "card_core_text": "asking your manager for time off work"
   },
   {
     "id": "itongzhuo-2341",
     "type": "task1",
     "source_title": "G8 TestB Part1",
     "full_prompt": "You recently bought a piece of equipment for your kitchen but it did not work. You phoned the shop but no action was taken.\n\nWrite a letter to the shop manager. In your letter\n\n• describe the problem with the equipment\n\n• explain what happened when you phoned the shop\n\n• say what you would like the manager to do\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear Sir or Madam,",
-    "card_core_text": "recently bought a piece of equipment for your kitchen but it did not work. You phoned the shop but no action was taken"
+    "card_core_text": "complaining to a shop about faulty kitchen equipment"
   },
   {
     "id": "itongzhuo-2339",
     "type": "task1",
     "source_title": "G8 TestA Part1",
     "full_prompt": "You have recently moved to a different house.\n\nWrite a letter to an English-speaking friend. In your letter\n\n• explain why you have moved\n\n• describe the new house\n\n• invite your friend to come and visit\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear ... ,",
-    "card_core_text": "have recently moved to a different house"
+    "card_core_text": "informing a friend about your new house and inviting a visit"
   },
   {
     "id": "itongzhuo-2337",
     "type": "task1",
     "source_title": "G7 TestB Part1",
     "full_prompt": "Last month you had a holiday overseas where you stayed with some friends. They have just sent you some photos of your holiday.\n\nWrite a letter to your friends. In your letter\n\n• thank them for the photos and for the holiday\n\n• explain why you didn't write earlier\n\n• invite them to come and stay with you\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear ... ,",
-    "card_core_text": "last month you had a holiday overseas where you stayed with some friends. They have just sent you some photos of your holiday"
+    "card_core_text": "thanking friends for hosting you during a holiday overseas"
   },
   {
     "id": "itongzhuo-2335",
     "type": "task1",
     "source_title": "G7 TestA Part1",
     "full_prompt": "You have recently started work in a new company.\n\nWrite a letter to an English-speaking friend. In your letter\n\n• explain why you changed jobs\n\n• describe your new job\n\n• tell him/her your other news\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear ... ,",
-    "card_core_text": "have recently started work in a new company"
+    "card_core_text": "updating a friend about your new job and other news"
   },
   {
     "id": "itongzhuo-2333",
     "type": "task1",
     "source_title": "G6 TestB Part1",
     "full_prompt": "You have just moved into a new home and are planning to hold a party. You are worried that the noise may disturb your neighbour.\n\nWrite a letter to your neighbour. In your letter\n\n• introduce yourself\n\n• describe your plans for the party\n\n• invite your neighbour to come\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear ... ,",
-    "card_core_text": "have just moved into a new home and are planning to hold a party. You are worried that the noise may disturb your neighbour"
+    "card_core_text": "warning a neighbour about possible noise from your house party"
   },
   {
     "id": "itongzhuo-2331",
     "type": "task1",
     "source_title": "G6 TestA Part1",
     "full_prompt": "You and your family are living in rented accommodation in an English-speaking country. You are not satisfied with the condition of some of the furniture.\n\nWrite a letter to the landlord. In your letter\n\n• introduce yourself\n\n• explain what is wrong with the furniture\n\n• say what action you would like the landlord to take\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear ... ,",
-    "card_core_text": "and your family are living in rented accommodation in an English-speaking country. You are not satisfied with the condition of some of the furniture"
+    "card_core_text": "complaining to a landlord or agency about furniture in rented accommodation"
   },
   {
     "id": "itongzhuo-2328",
     "type": "task1",
     "source_title": "G5 TestB Part1",
     "full_prompt": "You have a full-time job and are also doing a part-time evening course.\n\nYou now find that you cannot continue the course.\n\nWrite a letter to the course tutor. In your letter\n\n• describe the situation\n\n• explain why you cannot continue at this time\n\n• say what action you would like to take\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear ... ,",
-    "card_core_text": "have a full-time job and are also doing a part-time evening course. You now find that you cannot continue the course"
+    "card_core_text": "informing a course tutor that you must leave your part-time evening course"
   },
   {
     "id": "itongzhuo-2326",
     "type": "task1",
     "source_title": "G5 TestA Part1",
     "full_prompt": "Your neighbours have recently written to you to complain about the noise from your house/flat.\n\nWrite a letter to your neighbours. In your letter\n\n• explain the reasons for the noise\n\n• apologise\n\n• describe what action you will take\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear ... ,",
-    "card_core_text": "your neighbours have recently written to you to complain about the noise from your house/flat"
+    "card_core_text": "replying to neighbours about noise from your house or flat and apologising"
   },
   {
     "id": "itongzhuo-2324",
     "type": "task1",
     "source_title": "G4 TestB Part1",
     "full_prompt": "You want to sell some of your furniture. You think a friend of yours might like to buy it from you.\n\nWrite a letter to your friend. In your letter\n\n• explain why you are selling\n\n• describe the furniture\n\n• suggest a date when your friend can come and see the furniture\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear ... ,",
-    "card_core_text": "want to sell some of your furniture. You think a friend of yours might like to buy it from you"
+    "card_core_text": "offering to sell furniture to a friend"
   },
   {
     "id": "itongzhuo-2320",
     "type": "task1",
     "source_title": "G4 TestA Part1",
     "full_prompt": "You were hurt in a minor accident inside a supermarket, and you wish to complain to the supermarket.\n\nWrite a letter to the manager of the supermarket. In your letter\n\n• say who you are\n\n• give details about the accident\n\n• suggest how the supermarket could prevent similar accidents\n\nWrite at least 150 words.\n\nYou do NOT need to write any addresses.\n\nBegin your letter as follows:\n\nDear Sir or Madam,",
-    "card_core_text": "were hurt in a minor accident inside a supermarket, and you wish to complain to the supermarket"
+    "card_core_text": "complaining to a supermarket about a minor accident in the store"
   },
   {
     "id": "itongzhuo-2962",
     "type": "task2",
     "source_title": "G20 Test4 Part2",
     "full_prompt": "Write about the following topic:\n\nIn some parts of the world, people buy far too many clothes.\n\nWhat are the reasons for this?\n\nHow can people be persuaded to reduce the number of clothes they buy?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experi ence.\n\nWrite at least 250 words.",
-    "card_core_text": "How can people be persuaded to reduce the number of clothes they buy?"
+    "card_core_text": "how people can be persuaded to buy fewer clothes"
   },
   {
     "id": "itongzhuo-2958",
     "type": "task2",
     "source_title": "G20 Test3 Part2",
     "full_prompt": "Nowadays it's possible for people to buy many products or pay for treatments that help them to look younger.\n\nIs this a good thing or a bad thing?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experi ence.\n\nWrite at least 250 words.",
-    "card_core_text": "Is this a good thing or a bad thing?"
+    "card_core_text": "whether spending money to look younger is a good or bad thing"
   },
   {
     "id": "itongzhuo-2954",
     "type": "task2",
     "source_title": "G20 Test2 Part2",
     "full_prompt": "Write about the following topic:\n\nIn many countries, family members work together in their family business.\n\nDo you think family businesses have more advantages than disadvantages?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experi ence.\n\nWrite at least 250 words.",
-    "card_core_text": "Do you think family businesses have more advantages than disadvantages?"
+    "card_core_text": "whether family businesses have more advantages than disadvantages"
   },
   {
     "id": "itongzhuo-2950",
     "type": "task2",
     "source_title": "G20 Test1 Part2",
     "full_prompt": "Write about the following topic:\n\nIt is important for children, young adults, working people and the retired to have at least one hobby.\n\nWhat's your opinion about this?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experi ence.\n\nWrite at least 250 words.",
-    "card_core_text": "What's your opinion about this?"
+    "card_core_text": "whether people at every stage of life should have a hobby"
   },
   {
     "id": "itongzhuo-2781",
     "type": "task2",
     "source_title": "G19 Test4 Part2",
     "full_prompt": "Write about the following topic:\n\nNowadays famous people are photographed by professional photographers everywhere they go. Some people say this is a good thing because the public are interested in their lives. Other people think that photographers are wrong to follow famous people.\n\nDiscuss both these views and give your own opinion.\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "Are photographers wrong to follow famous people everywhere they go?"
+    "card_core_text": "whether photographers are wrong to follow famous people everywhere"
   },
   {
     "id": "itongzhuo-2779",
     "type": "task2",
     "source_title": "G19 Test3 Part2",
     "full_prompt": "Write about the following topic:\n\nSome consumers are increasingly choosing to buy goods that are produced in their local area, rather than imported goods.\n\nWhat are the reasons for this?\n\nIs this a positive or a negative trend?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "Is this a positive or a negative trend?"
+    "card_core_text": "whether buying locally produced goods is a positive or negative trend"
   },
   {
     "id": "itongzhuo-2777",
     "type": "task2",
     "source_title": "G19 Test2 Part2",
     "full_prompt": "Write about the following topic:\n\nIt is sometimes possible to pay somebody to do things you don't want to do, or don't have time to do, for example, household chores or looking after children.\n\nIs this a good way of providing work for others?\n\nShould people do these things themselves?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "Should people do these things themselves?"
+    "card_core_text": "whether people should pay others to do chores and childcare for them"
   },
   {
     "id": "itongzhuo-2775",
     "type": "task2",
     "source_title": "G19 Test1 Part2",
     "full_prompt": "Write about the following topic:\n\nMore and more people nowadays visit well-known places to take photographs of themselves, without looking at the place.\n\nWhy do you think this is happening?\n\nIs it a positive or a negative trend?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "Is it a positive or a negative trend?"
+    "card_core_text": "why people visit famous places mainly to take photos of themselves"
   },
   {
     "id": "itongzhuo-2535",
     "type": "task2",
     "source_title": "G18 Test4 Part2",
     "full_prompt": "Write about the following topic:\n\nSome people dislike changes in their society and in their own lives, and want things to stay the same.\n\nWhy do some people want things to stay the same?\n\nWhy should change be regarded as something positive?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "Why should change be regarded as something positive?"
+    "card_core_text": "why change should be regarded as something positive"
   },
   {
     "id": "itongzhuo-2533",
     "type": "task2",
     "source_title": "G18 Test3 Part2",
     "full_prompt": "Write about the following topic:\n\nIn the past, most working people had only one job. However, nowadays, more and more people have more than one job at the same time.\n\nWhat are the reasons for this development?\n\nWhat are the advantages and disadvantages of having more than one job?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "What are the advantages and disadvantages of having more than one job?"
+    "card_core_text": "the advantages and disadvantages of having more than one job"
   },
   {
     "id": "itongzhuo-2531",
     "type": "task2",
     "source_title": "G18 Test2 Part2",
     "full_prompt": "Write about the following topic:\n\nWhen we meet someone for the first time, we generally decide very quickly what kind of person we think they are and if we like them or not.\n\nIs this a good thing or a bad thing?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "Is this a good thing or a bad thing?"
+    "card_core_text": "whether judging people quickly when first meeting them is a good or bad thing"
   },
   {
     "id": "itongzhuo-2529",
     "type": "task2",
     "source_title": "G18 Test1 Part2",
     "full_prompt": "Write about the following topic:\n\nSome people say that it is better to work for a large company than a small one.\n\nDo you agree or disagree?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "Do you agree or disagree?"
+    "card_core_text": "whether it is better to work for a large company than a small one"
   },
   {
     "id": "itongzhuo-2407",
     "type": "task2",
     "source_title": "G17 Test4 Part2",
     "full_prompt": "Write about the following topic:\n\nSome people think that it's a good idea to socialise with work colleagues during evenings and weekends. Other people think it's important to keep working life completely separate from social life.\n\nDiscuss both these views and give your own opinion.\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "Some people think that it's a good idea to socialise with work colleagues during evenings and weekends. Other people think it's important to keep working life completely separate from social life"
+    "card_core_text": "whether people should socialise with work colleagues outside working hours"
   },
   {
     "id": "itongzhuo-2405",
     "type": "task2",
     "source_title": "G17 Test3 Part2",
     "full_prompt": "Write about the following topic:\n\nIt is better to buy just a few expensive clothes, rather than lots of cheaper clothes.\n\nDo you agree or disagree?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "Do you agree or disagree?"
+    "card_core_text": "whether it is better to buy a few expensive clothes than many cheap ones"
   },
   {
     "id": "itongzhuo-2403",
     "type": "task2",
     "source_title": "G17 Test2 Part2",
     "full_prompt": "Write about the following topic:\n\nIn some countries,more and more people are hiring a personal fitness trainer, rather than playing sports or doing exercise classes.\n\nWhat are the reasons for this?\n\nls this a positive or a negative development?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "ls this a positive or a negative development?"
+    "card_core_text": "whether hiring a personal fitness trainer is a positive or negative development"
   },
   {
     "id": "itongzhuo-2401",
     "type": "task2",
     "source_title": "G17 Test1 Part2",
     "full_prompt": "Write about the following topic:\n\nIn the future, people may no longer be able to pay for things in shops using cash.All payments may have to be made by card or using phones.\n\nDo you think this will happen one day?\n\nWhy do you think some people might not be happy to give up using cash?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "Do you think this will happen one day?"
+    "card_core_text": "whether society will become cashless and why some people would resist it"
   },
   {
     "id": "itongzhuo-2399",
     "type": "task2",
     "source_title": "G16 Test4 Part2",
     "full_prompt": "Write about the following topic:\n\nSome people say that now is the best time in history to be living.\n\nWhat is your opinion about this?\n\nWhat other time in history would be interesting to live in?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "What is your opinion about this?"
+    "card_core_text": "whether now is the best time in history to be living"
   },
   {
     "id": "itongzhuo-2397",
     "type": "task2",
     "source_title": "G16 Test3 Part2",
     "full_prompt": "Write about the following topic:\n\nSome people spend most of their lives living close to where they were born.\n\nWhat might be the reasons for this?\n\nWhat are the advantages and disadvantages?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "What are the advantages and disadvantages?"
+    "card_core_text": "the advantages and disadvantages of living close to where you were born"
   },
   {
     "id": "itongzhuo-2395",
     "type": "task2",
     "source_title": "G16 Test2 Part2",
     "full_prompt": "Write about the following topic:\n\nSome people like to try new things, for example, places to visit and types of food. Other people prefer to keep doing things they are familiar with.\n\nDiscuss both these attitudes and give your own opinion.\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "Some people like to try new things, for example, places to visit and types of food. Other people prefer to keep doing things they are familiar with"
+    "card_core_text": "whether it is better to try new things or stick to familiar ones"
   },
   {
     "id": "itongzhuo-2393",
     "type": "task2",
     "source_title": "G16 Test1 Part2",
     "full_prompt": "Write about the following topic:\n\nPlastic bags, plastic bottles and plastic packaging are bad for the environment.\n\nWhat damage does plastic do to the environment?\n\nWhat can be done by governments and individuals to solve this problem?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "What can be done by governments and individuals to solve this problem?"
+    "card_core_text": "how plastic damages the environment and what governments and individuals can do"
   },
   {
     "id": "itongzhuo-2391",
     "type": "task2",
     "source_title": "G15 Test4 Part2",
     "full_prompt": "Write about the following topic:\n\nIn many countries, paying for things using mobile phone (cellphone) apps is becoming increasingly common.\n\nDoes this development have more advantages or more disadvantages?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "Does this development have more advantages or more disadvantages?"
+    "card_core_text": "whether paying by mobile phone apps has more advantages or disadvantages"
   },
   {
     "id": "itongzhuo-2389",
     "type": "task2",
     "source_title": "G15 Test3 Part2",
     "full_prompt": "Write about the following topic:\n\nIn the future, more people will choose to go on holiday in their own country and not travel abroad on holiday.\n\nDo you agree or disagree?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "Do you agree or disagree?"
+    "card_core_text": "whether more people will choose domestic holidays instead of travelling abroad"
   },
   {
     "id": "itongzhuo-2387",
     "type": "task2",
     "source_title": "G15 Test2 Part2",
     "full_prompt": "Write about the following topic:\n\nNowadays many people complain that they have difficulties getting enough sleep.\n\nWhat problems can lack of sleep cause?\n\nWhat can be done about lack of sleep?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "What can be done about lack of sleep?"
+    "card_core_text": "the problems caused by lack of sleep and how to reduce them"
   },
   {
     "id": "itongzhuo-2385",
     "type": "task2",
     "source_title": "G15 Test1 Part2",
     "full_prompt": "Write about the following topic:\n\nIn many countries today, crime novels and TV crime dramas are becoming more and more popular.\n\nWhy do you think these books and TV shows are popular?\n\nWhat is your opinion of crime fiction and TV crime dramas?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "Why do you think these books and TV shows are popular?"
+    "card_core_text": "why crime novels and crime dramas are so popular"
   },
   {
     "id": "itongzhuo-2383",
     "type": "task2",
     "source_title": "G14 Test4 Part2",
     "full_prompt": "Write about the following topic:\n\nMany people work long hours, leaving very little time for leisure activities.\n\nDoes this situation have more advantages or more disadvantages?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "Does this situation have more advantages or more disadvantages?"
+    "card_core_text": "whether working long hours and having little leisure has more advantages or disadvantages"
   },
   {
     "id": "itongzhuo-2381",
     "type": "task2",
     "source_title": "G14 Test3 Part2",
     "full_prompt": "Write about the following topic:\n\nSome people say the main way to be happy in life is to have a lot of money.\n\nHow might having a lot of money make people happy?\n\nWhat other things in life can make people happy?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "What other things in life can make people happy?"
+    "card_core_text": "whether money is the main way to achieve happiness"
   },
   {
     "id": "itongzhuo-2379",
     "type": "task2",
     "source_title": "G14 Test2 Part2",
     "full_prompt": "Write about the following topic:\n\nSome people think it's better to choose friends who always have the same opinions as them. Other people believe it's good to have friends who sometimes disagree with them.\n\nDiscuss both these views and give your own opinion.\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "Some people think it's better to choose friends who always have the same opinions as them. Other people believe it's good to have friends who sometimes disagree with them"
+    "card_core_text": "whether it is better to have friends who share your opinions or challenge them"
   },
   {
     "id": "itongzhuo-2377",
     "type": "task2",
     "source_title": "G14 Test1 Part2",
     "full_prompt": "Write about the following topic:\n\nThe growth of online shopping will one day lead to all shops in towns and cities closing.\n\nDo you agree or disagree?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "Do you agree or disagree?"
+    "card_core_text": "whether online shopping will eventually make all town and city shops close"
   },
   {
     "id": "itongzhuo-2375",
     "type": "task2",
     "source_title": "G13 Test4 Part2",
     "full_prompt": "Write about the following topic:\n\nSome people say it is important to keep your home and your workplace tidy, with everything organised and in the correct place.\n\nWhat is your opinion about this?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "What is your opinion about this?"
+    "card_core_text": "whether keeping home and work spaces tidy is important for life"
   },
   {
     "id": "itongzhuo-2373",
     "type": "task2",
     "source_title": "G13 Test3 Part2",
     "full_prompt": "Write about the following topic:\n\nSome people say that now we can see films on our phones or tablets there is no need to go to the cinema. Others say that to be fully enjoyed, films need to be seen in a cinema.\n\nDiscuss both these views and give your own opinion.\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "Some people say that now we can see films on our phones or tablets there is no need to go to the cinema. Others say that to be fully enjoyed, films need to be seen in a cinema"
+    "card_core_text": "whether films need the cinema experience or can be fully enjoyed on phones and tablets"
   },
   {
     "id": "itongzhuo-2371",
     "type": "task2",
     "source_title": "G13 Test2 Part2",
     "full_prompt": "Write about the following topic:\n\nMany working people get little or no exercise either during the working day or in their free time, and have health problems as a result.\n\nWhy do many working people not get enough exercise?\n\nWhat can be done about this problem?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "What can be done about this problem?"
+    "card_core_text": "why many working people get too little exercise and what can be done about it"
   },
   {
     "id": "itongzhuo-2369",
     "type": "task2",
     "source_title": "G13 Test1 Part2",
     "full_prompt": "Write about the following topic:\n\nIn some areas of the US, a 'curfew' is imposed, in which teenagers are not allowed to be out of doors after a particular time at night unless they are accompanied by an adult.\n\nWhat is your opinion about this?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "What is your opinion about this?"
+    "card_core_text": "whether teenagers should be banned from going out late at night without an adult"
   },
   {
     "id": "itongzhuo-2367",
     "type": "task2",
     "source_title": "G12 Test4 Part2",
     "full_prompt": "Write about the following topic:\n\nIn recent years, many small local shops have closed because customers travel to large shopping centres or malls to do their shopping.\n\nIs this a positive or a negative development?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "Is this a positive or a negative development?"
+    "card_core_text": "whether the closure of local shops in favour of shopping malls is positive or negative"
   },
   {
     "id": "itongzhuo-2365",
     "type": "task2",
     "source_title": "G12 Test3 Part2",
     "full_prompt": "Write about the following topic:\n\nSome people say that parents should encourage their children to take part in organised group activities in their free time. Others say that it is important for children to learn how to occupy themselves on their own.\n\nDiscuss both these views and give your own opinion.\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "Some people say that parents should encourage their children to take part in organised group activities in their free time. Others say that it is important for children to learn how to occupy themselves on their own"
+    "card_core_text": "whether children should join organised group activities or learn to occupy themselves alone"
   },
   {
     "id": "itongzhuo-2363",
     "type": "task2",
     "source_title": "G12 Test2 Part2",
     "full_prompt": "Write about the following topic:\n\nIn many places, new homes are needed, but the only space available for building them is in the countryside. Some people believe it is more important to protect the countryside and not build new homes there.\n\nWhat is your opinion about this?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "What is your opinion about this?"
+    "card_core_text": "whether new homes should be built in the countryside or the countryside should be protected"
   },
   {
     "id": "itongzhuo-2361",
     "type": "task2",
     "source_title": "G12 Test1 Part2",
     "full_prompt": "Write about the following topic:\n\nToday more and more tourists are visiting places where conditions are difficult, such as the Sahara desert or the Antarctic.\n\nWhat are the benefits and disadvantages for tourists who visit such places?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "What are the benefits and disadvantages for tourists who visit such places?"
+    "card_core_text": "the benefits and disadvantages of travelling to places with difficult conditions"
   },
   {
     "id": "itongzhuo-2359",
     "type": "task2",
     "source_title": "G11 Test4 Part2",
     "full_prompt": "Write about the following topic:\n\nSome people say that it is possible to tell a lot about a person's culture and character from their choice of clothes.\n\nDo you agree or disagree?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "Do you agree or disagree?"
+    "card_core_text": "whether clothes reveal a person's culture and character"
   },
   {
     "id": "itongzhuo-2357",
     "type": "task2",
     "source_title": "G11 Test3 Part2",
     "full_prompt": "Write about the following topic:\n\nNews stories on TV and in newspapers are very often accompanied by pictures.\n\nSome people say that these pictures are more effective than words.\n\nWhat is your opinion about this?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "What is your opinion about this?"
+    "card_core_text": "whether pictures in the news are more effective than words"
   },
   {
     "id": "itongzhuo-2355",
     "type": "task2",
     "source_title": "G11 Test2 Part2",
     "full_prompt": "Write about the following topic:\n\nSome people say that in all levels of education, from primary schools to universities, too much time is spent on learning facts and not enough on learning practical skills.\n\nDo you agree or disagree?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "Do you agree or disagree?"
+    "card_core_text": "whether education spends too much time on facts and not enough on practical skills"
   },
   {
     "id": "itongzhuo-2353",
     "type": "task2",
     "source_title": "G11 Test1 Part2",
     "full_prompt": "Write about the following topic:\n\nEmployers sometimes ask people applying for jobs for personal information, such as their hobbies and interests, and whether they are married or single. Some people say that this information may be relevant and useful. Others disagree.\n\nDiscuss both these views and give your own opinion.\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "Employers sometimes ask people applying for jobs for personal information, such as their hobbies and interests, and whether they are married or single. Some people say that this information may be relevant and useful. Others disagree"
+    "card_core_text": "whether employers should ask job applicants for personal information"
   },
   {
     "id": "itongzhuo-2351",
     "type": "task2",
     "source_title": "G10 TestB Part2",
     "full_prompt": "Write about the following topic:\n\nSome parents buy their children a large number of toys to play with.\n\nWhat are the advantages and disadvantages for the child of having a large number of toys?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "What are the advantages and disadvantages for the child of having a large number of toys?"
+    "card_core_text": "the advantages and disadvantages of children having too many toys"
   },
   {
     "id": "itongzhuo-2349",
     "type": "task2",
     "source_title": "G10 TestA Part2",
     "full_prompt": "Write about the following topic:\n\nIn many countries, the amount of crime is increasing.\n\nWhat do you think are the main causes of crime?\n\nHow can we deal with those causes?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "How can we deal with those causes?"
+    "card_core_text": "the main causes of crime and how to deal with them"
   },
   {
     "id": "itongzhuo-2347",
     "type": "task2",
     "source_title": "G9 TestB Part2",
     "full_prompt": "Write about the following topic:\n\nSome people think that the teenage years are the happiest times of most people's lives. Others think that adult life brings more happiness, in spite of greater responsibilities.\n\nDiscuss both these views and give your own opinion.\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "Some people think that the teenage years are the happiest times of most people's lives. Others think that adult life brings more happiness, in spite of greater responsibilities"
+    "card_core_text": "whether the happiest time of life is the teenage years or adulthood"
   },
   {
     "id": "itongzhuo-2344",
     "type": "task2",
     "source_title": "G9 TestA Part2",
     "full_prompt": "Write about the following topic:\n\nBeing a celebrity - such as a famous film star or sports personality - brings problems as well as benefits.\n\nDo you think that being a celebrity brings more benefits or more problems?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "Do you think that being a celebrity brings more benefits or more problems?"
+    "card_core_text": "whether being a celebrity brings more benefits or more problems"
   },
   {
     "id": "itongzhuo-2342",
     "type": "task2",
     "source_title": "G8 TestB Part2",
     "full_prompt": "Write about the following topic:\n\nSome people think that it is better to educate boys and girls in separate schools. Others, however, believe that boys and girls benefit more from attending mixed schools.\n\nDiscuss both these views and give your own opinion.\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "Some people think that it is better to educate boys and girls in separate schools. Others, however, believe that boys and girls benefit more from attending mixed schools"
+    "card_core_text": "whether boys and girls benefit more from separate schools or mixed schools"
   },
   {
     "id": "itongzhuo-2340",
     "type": "task2",
     "source_title": "G8 TestA Part2",
     "full_prompt": "Write about the following topic:\n\nToday more people are travelling than ever before.\n\nWhy is this the case?\n\nWhat are the benefits of travelling for the traveller?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "What are the benefits of travelling for the traveller?"
+    "card_core_text": "why more people travel than ever before and how travellers benefit from it"
   },
   {
     "id": "itongzhuo-2338",
     "type": "task2",
     "source_title": "G7 TestB Part2",
     "full_prompt": "Write about the following topic:\n\nSome people feel that entertainers (e.g. film stars, pop musicians or sports stars) are paid too much money.\n\nDo you agree or disagree?\n\nWhich other types of job should he highly paid?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "Which other types of job should he highly paid?"
+    "card_core_text": "whether entertainers are paid too much and which other jobs should be highly paid"
   },
   {
     "id": "itongzhuo-2336",
     "type": "task2",
     "source_title": "G7 TestA Part2",
     "full_prompt": "Write about the following topic:\n\nSome people prefer to live in a house, while others feel that there are more advantages to living in an apartment.\n\nAre there more advantages than disadvantages of living in a house compared with living in an apartment?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "Are there more advantages than disadvantages of living in a house compared with living in an apartment?"
+    "card_core_text": "whether living in a house has more advantages than living in an apartment"
   },
   {
     "id": "itongzhuo-2334",
     "type": "task2",
     "source_title": "G6 TestB Part2",
     "full_prompt": "Write about the following topic:\n\nUsing a computer every day can have more negative than positive effects on young children.\n\nDo you agree or disagree?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "Do you agree or disagree?"
+    "card_core_text": "whether daily computer use has more negative than positive effects on young children"
   },
   {
     "id": "itongzhuo-2332",
     "type": "task2",
     "source_title": "G6 TestA Part2",
     "full_prompt": "Write about the following topic:\n\nSome people think it would be a good idea for schools to teach every young person how to be a good parent.\n\nDo you agree or disagree with this opinion? Describe the skills a person needs to be a good parent.\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "Do you agree or disagree with this opinion? Describe the skills a person needs to be a good parent"
+    "card_core_text": "whether schools should teach young people how to be good parents"
   },
   {
     "id": "itongzhuo-2330",
     "type": "task2",
     "source_title": "G5 TestB Part2",
     "full_prompt": "Write about the following topic:\n\nNowadays we are producing more and more rubbish.\n\nWhy do you think this is happening?\n\nWhat can governments do to help reduce the amount of rubbish produced?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "Why do you think this is happening?"
+    "card_core_text": "why people are producing more rubbish and what governments can do about it"
   },
   {
     "id": "itongzhuo-2327",
     "type": "task2",
     "source_title": "G5 TestA Part2",
     "full_prompt": "Write about the following topic:\n\nSome people believe that children are given too much free time. They feel that this time should be used to do more school work.\n\nHow do you think children should spend their free time?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "How do you think children should spend their free time?"
+    "card_core_text": "how children should spend their free time"
   },
   {
     "id": "itongzhuo-2325",
     "type": "task2",
     "source_title": "G4 TestB Part2",
     "full_prompt": "Write about the following topic:\n\nSome people believe that children should be allowed to stay at home and play until they are six or seven years old. Others believe that it is important for young children to go to school as soon as possible.\n\nWhat do you think are the advantages of attending school from a young age?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "What do you think are the advantages of attending school from a young age?"
+    "card_core_text": "the advantages of children starting school at a young age"
   },
   {
     "id": "itongzhuo-2321",
     "type": "task2",
     "source_title": "G4 TestA Part2",
     "full_prompt": "Write about the following topic:\n\nIn the past, many people had skills such as making their own clothes and doing repairs to things in the house. In many countries, nowadays, skills like these are disappearing.\n\nWhy do you think this change is happening?\n\nHow far is this situation true in your country?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "Why do you think this change is happening?"
+    "card_core_text": "why practical household skills are disappearing in many countries"
   },
   {
     "id": "kmf-926",
     "type": "task2",
     "source_title": "C20 Test 4 Task 2",
     "full_prompt": "Many aspects of the way people dress today are influenced by global fashion trends.\n\nHow has global fashion become such a strong influence on people's lives? Do you think this is a positive or negative development?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "How has global fashion become such a strong influence on people's lives? Do you think this is a positive or negative development?"
+    "card_core_text": "whether global fashion trends are a positive or negative influence on the way people dress"
   },
   {
     "id": "kmf-924",
     "type": "task2",
     "source_title": "C20 Test 3 Task 2",
     "full_prompt": "Some people have decided to reduce the number of times they fly every year or to stop flying altogether.\n\nDo you think the environmental benefits of this development outweigh the disadvantages for individuals and businesses?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "Do you think the environmental benefits of this development outweigh the disadvantages for individuals and businesses?"
+    "card_core_text": "whether reducing air travel brings more environmental benefits than disadvantages"
   },
   {
     "id": "kmf-922",
     "type": "task2",
     "source_title": "C20 Test 2 Task 2",
     "full_prompt": "In many countries, primary and secondary schools close for two months or more in the summer holidays.\n\nWhat is the value of long school holidays?\n\nWhat are the arguments in favour of shorter school holidays?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "What are the arguments in favour of shorter school holidays?"
+    "card_core_text": "the value of long school holidays versus the case for shorter ones"
   },
   {
     "id": "kmf-920",
     "type": "task2",
     "source_title": "C20 Test 1 Task 2",
     "full_prompt": "Give reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nAccess to clean water is a basic human right. Therefore every home should have a water supply that is provided free of charge.\n\nDo you agree or disagree?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "Do you agree or disagree?"
+    "card_core_text": "whether every home should receive free water as a basic human right"
   },
   {
     "id": "kmf-846",
     "type": "task2",
     "source_title": "C19 Test 4 Task 2",
     "full_prompt": "In many countries nowadays, consumers can go to a supermarket and buy food produced all over the world. Do you think this is a positive or negative development?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "In many countries nowadays, consumers can go to a supermarket and buy food produced all over the world. Do you think this is a positive or negative development?"
+    "card_core_text": "whether buying food from all over the world in supermarkets is a positive or negative development"
   },
   {
     "id": "kmf-844",
     "type": "task2",
     "source_title": "C19 Test 3 Task 2",
     "full_prompt": "It is important for everyone, including young people, to save money for their future. To what extent do you agree or disagree with this statement?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "It is important for everyone, including young people, to save money for their future. To what extent do you agree or disagree with this statement?"
+    "card_core_text": "whether everyone, including young people, should save money for the future"
   },
   {
     "id": "kmf-842",
     "type": "task2",
     "source_title": "C19 Test 2 Task 2",
     "full_prompt": "The working week should be shorter and workers should have a longer weekend. Do you agree or disagree?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words.",
-    "card_core_text": "The working week should be shorter and workers should have a longer weekend. Do you agree or disagree?"
+    "card_core_text": "whether the working week should be shorter and the weekend longer"
   },
   {
     "id": "kmf-840",
     "type": "task2",
     "source_title": "C19 Test 1 Task 2",
     "full_prompt": "Some people think that competition at work, at school and in daily life is a good thing. Others believe that we should try to cooperate more, rather than competing against each other. Discuss both these views and give your own opinion.\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience. Write at least 250 words.",
-    "card_core_text": "Some people think that competition at work, at school and in daily life is a good thing. Others believe that we should try to cooperate more, rather than competing against each other. Discuss both these views and give your own opinion"
+    "card_core_text": "whether competition or cooperation is better in work, school and daily life"
   },
   {
     "id": "kmf-797",
     "type": "task2",
     "source_title": "C18 Test 4 Task 2",
     "full_prompt": "In many countries, people are now living longer than ever before. Some people say an ageing population creates problems for governments.Other people think there are benefits if society has more elderly people.\n\nTo what extent do the advantages of having an ageing population outweigh the disadvantages?",
-    "card_core_text": "To what extent do the advantages of having an ageing population outweigh the disadvantages?"
+    "card_core_text": "whether an ageing population brings more advantages than disadvantages"
   },
   {
     "id": "kmf-795",
     "type": "task2",
     "source_title": "C18 Test 3 Task 2",
     "full_prompt": "In many countries around the world, rural people are moving to cities, so the population in the countryside is decreasing.\n\nDo you think this is a positive or a negative development?",
-    "card_core_text": "Do you think this is a positive or a negative development?"
+    "card_core_text": "whether people moving from the countryside to cities is a positive or negative development"
   },
   {
     "id": "kmf-793",
     "type": "task2",
     "source_title": "C18 Test 2 Task 2",
     "full_prompt": "Some university students want to learn about other subjects in addition to their main subjects. Others believe it is more important to give all their time and attention to studying for a qualification.\n\nDiscuss both these views and give your own opinion.",
-    "card_core_text": "Some university students want to learn about other subjects in addition to their main subjects. Others believe it is more important to give all their time and attention to studying for a qualification"
+    "card_core_text": "whether university students should study other subjects or focus only on their main qualification"
   },
   {
     "id": "kmf-791",
     "type": "task2",
     "source_title": "C18 Test 1 Task 2",
     "full_prompt": "The most important aim of science should be to improve people's lives.\n\nTo what extent do you agree or disagree with this statement?",
-    "card_core_text": "To what extent do you agree or disagree with this statement?"
+    "card_core_text": "whether the most important aim of science should be to improve people's lives"
   },
   {
     "id": "kmf-789",
     "type": "task2",
     "source_title": "C17 Test 4 Task 2",
     "full_prompt": "Nowadays, a growing number of people with health problems are trying alternative medicines and treatments instead of visiting their usual doctor.\n\nDo you think this is a positive or a negative development?",
-    "card_core_text": "Do you think this is a positive or a negative development?"
+    "card_core_text": "whether using alternative medicine instead of conventional doctors is a positive or negative development"
   },
   {
     "id": "kmf-787",
     "type": "task2",
     "source_title": "C17 Test 3 Task 2",
     "full_prompt": "Some people believe that professionals, such as doctors and engineers, should be required to work in the country where they did their training. Others believe they should be free to work in another country if they wish.\n\nDiscuss both these views and give your own opinion.",
-    "card_core_text": "Some people believe that professionals, such as doctors and engineers, should be required to work in the country where they did their training. Others believe they should be free to work in another country if they wish"
+    "card_core_text": "whether trained professionals should stay in the country where they qualified or be free to leave"
   },
   {
     "id": "kmf-785",
     "type": "task2",
     "source_title": "C17 Test 2 Task 2",
     "full_prompt": "Some children spend hours every day on their smartphones.\n\nWhy is this the case? Do you think this is a positive or a negative development?",
-    "card_core_text": "Why is this the case? Do you think this is a positive or a negative development?"
+    "card_core_text": "why children spend so much time on smartphones and whether this is positive or negative"
   },
   {
     "id": "kmf-783",
     "type": "task2",
     "source_title": "C17 Test 1 Task 2",
     "full_prompt": "It is important for people to take risks, both in their professional lives and their personal lives.\n\nDo you think the advantages of taking risks outweigh the disadvantages?",
-    "card_core_text": "Do you think the advantages of taking risks outweigh the disadvantages?"
+    "card_core_text": "whether the advantages of taking risks outweigh the disadvantages"
   },
   {
     "id": "kmf-781",
     "type": "task2",
     "source_title": "C16 Test 4 Task 2",
     "full_prompt": "In the future all cars, buses and trucks will be driverless. The only people travelling inside these vehicles will be passengers.\n\nDo you think the advantages of driverless vehicles outweigh the disadvantages?",
-    "card_core_text": "Do you think the advantages of driverless vehicles outweigh the disadvantages?"
+    "card_core_text": "whether driverless vehicles will bring more advantages than disadvantages"
   },
   {
     "id": "kmf-779",
     "type": "task2",
     "source_title": "C16 Test 3 Task 2",
     "full_prompt": "Many manufactured food and drink products contain high levels of sugar, which causes many health problems.\n\nSugary products should be made more expensive to encourage people to consume less sugar.\n\nDo you agree or disagree?",
-    "card_core_text": "Do you agree or disagree?"
+    "card_core_text": "whether sugary food and drink should be made more expensive"
   },
   {
     "id": "kmf-777",
     "type": "task2",
     "source_title": "C16 Test 2 Task 2",
     "full_prompt": "In their advertising, businesses nowadays usually emphasise that their products are new in some way.\n\nWhy is this? Do you think it is a positive or negative development?",
-    "card_core_text": "Why is this? Do you think it is a positive or negative development?"
+    "card_core_text": "why advertisers emphasise that products are new and whether this is positive or negative"
   },
   {
     "id": "kmf-775",
     "type": "task2",
     "source_title": "C16 Test 1 Task 2",
     "full_prompt": "In some countries, more and more people are becoming interested in finding out about the history of the house or building they live in.\n\nWhat are the reasons for this?\n\nHow can people research this?",
-    "card_core_text": "How can people research this?"
+    "card_core_text": "why people want to know the history of their home and how they can research it"
   },
   {
     "id": "kmf-773",
     "type": "task2",
     "source_title": "C15 Test 4 Task 2",
     "full_prompt": "In some cultures, children are often told that they can achieve anything if they try hard enough.\n\nWhat are the advantages and disadvantages of giving children this message?",
-    "card_core_text": "What are the advantages and disadvantages of giving children this message?"
+    "card_core_text": "the advantages and disadvantages of telling children they can achieve anything if they try hard"
   },
   {
     "id": "kmf-771",
     "type": "task2",
     "source_title": "C15 Test 3 Task 2",
     "full_prompt": "Some people say that advertising is extremely successful at persuading us to buy things.\n\nOther people think that advertising is so common that we no longer pay attention to it.\n\nDiscuss both these views and give your own opinion.",
-    "card_core_text": "Some people say that advertising is extremely successful at persuading us to buy things"
+    "card_core_text": "whether advertising still persuades people to buy things or has lost its power"
   },
   {
     "id": "kmf-769",
     "type": "task2",
     "source_title": "C15 Test 2 Task 2",
     "full_prompt": "In the future, nobody will buy printed newspapers or books because they will be able to read everything they want online without paying.\n\nTo what extent do you agree or disagree with this statement?",
-    "card_core_text": "To what extent do you agree or disagree with this statement?"
+    "card_core_text": "whether printed newspapers and books will disappear because everything can be read online for free"
   },
   {
     "id": "kmf-767",
     "type": "task2",
     "source_title": "C15 Test 1 Task 2",
     "full_prompt": "In some countries, owning a home rather than renting one is very important for people.\n\nWhy might this be the case?\n\nDo you think this is a positive or negative situation?",
-    "card_core_text": "Do you think this is a positive or negative situation?"
+    "card_core_text": "why owning a home is so important in some countries and whether this is positive or negative"
   },
   {
     "id": "kmf-765",
     "type": "task2",
     "source_title": "C14 Test 4 Task 2",
     "full_prompt": "Nowadays many people choose to be self-employed, rather than to work for a company or organisation.\n\nWhy might this be the case?\n\nWhat could be the disadvantages of being self-employed?",
-    "card_core_text": "What could be the disadvantages of being self-employed?"
+    "card_core_text": "why many people choose self-employment and what disadvantages it has"
   },
   {
     "id": "kmf-763",
     "type": "task2",
     "source_title": "C14 Test 3 Task 2",
     "full_prompt": "Some people say that music is a good way of bringing people of different cultures and ages together.\n\nTo what extent do you agree or disagree with this opinion?",
-    "card_core_text": "To what extent do you agree or disagree with this opinion?"
+    "card_core_text": "whether music is a good way to bring people of different cultures and ages together"
   },
   {
     "id": "kmf-761",
     "type": "task2",
     "source_title": "C14 Test 2 Task 2",
     "full_prompt": "Some people say that the main environmental problem of our time is the loss of particular species of plants and animals. Others say that there are more important environmental problems.\n\nDiscuss both these views and give your own opinion.",
-    "card_core_text": "Some people say that the main environmental problem of our time is the loss of particular species of plants and animals. Others say that there are more important environmental problems"
+    "card_core_text": "whether the loss of species is the main environmental problem or whether other problems matter more"
   },
   {
     "id": "kmf-759",
     "type": "task2",
     "source_title": "C14 Test 1 Task 2",
     "full_prompt": "Some people believe that it is best to accept a bad situation, such as an unsatisfactory job or shortage of money. Others argue that it is better to try and improve such situations.\n\nDiscuss both these views and give your own opinion.",
-    "card_core_text": "Some people believe that it is best to accept a bad situation, such as an unsatisfactory job or shortage of money. Others argue that it is better to try and improve such situations"
+    "card_core_text": "whether people should accept a bad situation or try to improve it"
   },
   {
     "id": "kmf-757",
     "type": "task2",
     "source_title": "C13 Test 4 Task 2",
     "full_prompt": "In spite of the advances made in agriculture, many people around the world still go hungry.\n\nWhy is this the case?\n\nWhat can be done about this problem?",
-    "card_core_text": "What can be done about this problem?"
+    "card_core_text": "why hunger still exists despite advances in agriculture and what can be done about it"
   },
   {
     "id": "kmf-755",
     "type": "task2",
     "source_title": "C13 Test 3 Task 2",
     "full_prompt": "Some people believe that nowadays we have too many choices.\n\nTo what extent do you agree or disagree with this statement?",
-    "card_core_text": "To what extent do you agree or disagree with this statement?"
+    "card_core_text": "whether modern life gives people too many choices"
   },
   {
     "id": "kmf-753",
     "type": "task2",
     "source_title": "C13 Test 2 Task 2",
     "full_prompt": "Some people say History is one of the most important school subjects. Other people think that, in today's world, subjects like Science and Technology are more important than History.\n\nDiscuss both these views and give your own opinion.",
-    "card_core_text": "Some people say History is one of the most important school subjects. Other people think that, in today's world, subjects like Science and Technology are more important than History"
+    "card_core_text": "whether History or Science and Technology is more important at school"
   },
   {
     "id": "kmf-751",
     "type": "task2",
     "source_title": "C13 Test 1 Task 2",
     "full_prompt": "Living in a country where you have to speak a foreign language can cause serious social problems, as well as practical problems.\n\nTo what extent do you agree or disagree with this statement?",
-    "card_core_text": "To what extent do you agree or disagree with this statement?"
+    "card_core_text": "whether living in a country where you must speak a foreign language causes serious social problems"
   },
   {
     "id": "kmf-749",
     "type": "task2",
     "source_title": "C12 Test 4 Task 2",
     "full_prompt": "Some people believe that allowing children to make their own choices on everyday matters (such as food, clothes and entertainment) is likely to result in a society of individuals who only think about their own wishes. Other people believe that it is important for children to make decisions about matters that affect them.\n\nDiscuss both these views and give your own opinion.",
-    "card_core_text": "Some people believe that allowing children to make their own choices on everyday matters (such as food, clothes and entertainment) is likely to result in a society of individuals who only think about their own wishes. Other people believe that it is important for children to make decisions about matters that affect them"
+    "card_core_text": "whether children should make their own choices or be guided more closely by adults"
   },
   {
     "id": "kmf-747",
     "type": "task2",
     "source_title": "C12 Test 3 Task 2",
     "full_prompt": "In a number of countries, some people think it is necessary to spend large sums of money on constructing new railway lines for very fast trains between cities. Others believe the money should be spent on improving existing public transport.\n\nDiscuss both these views and give your own opinion.",
-    "card_core_text": "In a number of countries, some people think it is necessary to spend large sums of money on constructing new railway lines for very fast trains between cities. Others believe the money should be spent on improving existing public transport"
+    "card_core_text": "whether money should go to very fast trains or to improving existing public transport"
   },
   {
     "id": "kmf-745",
     "type": "task2",
     "source_title": "C12 Test 2 Task 2",
     "full_prompt": "At the present time, the population of some countries includes a relatively large number of young adults, compared with the number of older people.\n\nDo the advantages of this situation outweigh the disadvantages?",
-    "card_core_text": "Do the advantages of this situation outweigh the disadvantages?"
+    "card_core_text": "whether having a relatively large young adult population brings more advantages than disadvantages"
   },
   {
     "id": "kmf-743",
     "type": "task2",
     "source_title": "C12 Test 1 Task 2",
     "full_prompt": "Some people believe that it is good to share as much information as possible in scientific research, business and the academic world. Others believe that some information is too important or too valuable to be shared freely.\n\nDiscuss both these views and give your own opinion.\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience",
-    "card_core_text": "Some people believe that it is good to share as much information as possible in scientific research, business and the academic world. Others believe that some information is too important or too valuable to be shared freely"
+    "card_core_text": "whether information should be shared freely or protected when it is valuable"
   },
   {
     "id": "kmf-741",
     "type": "task2",
     "source_title": "C11 Test 4 Task 2",
     "full_prompt": "Many governments think that economic progress is their most important goal. Some people, however, think that other types of progress are equally important for a country.\n\nDiscuss both these views and give your own opinion.",
-    "card_core_text": "Many governments think that economic progress is their most important goal. Some people, however, think that other types of progress are equally important for a country"
+    "card_core_text": "whether economic progress is more important than other kinds of national progress"
   },
   {
     "id": "kmf-739",
     "type": "task2",
     "source_title": "C11 Test 3 Task 2",
     "full_prompt": "Some people say that the only reason for learning a foreign language is in order to travel to or work in a foreign country. Others say that these are not the only reasons why someone should learn a foreign language.\n\nDiscuss both these views and give your own opinion.",
-    "card_core_text": "Some people say that the only reason for learning a foreign language is in order to travel to or work in a foreign country. Others say that these are not the only reasons why someone should learn a foreign language"
+    "card_core_text": "whether foreign languages should be learned only for travel and work or for wider reasons"
   },
   {
     "id": "kmf-737",
     "type": "task2",
     "source_title": "C11 Test 2 Task 2",
     "full_prompt": "Some people claim that not enough of the waste from homes is recycled. They say that the only way to increase recycling is for governments to make it a legal requirement.\n\nTo what extent do you think laws are needed to make people recycle more of their waste?",
-    "card_core_text": "To what extent do you think laws are needed to make people recycle more of their waste?"
+    "card_core_text": "whether laws are needed to make people recycle more of their household waste"
   },
   {
     "id": "kmf-735",
     "type": "task2",
     "source_title": "C11 Test 1 Task 2",
     "full_prompt": "Governments should spend money on railways rather than roads.\n\nTo what extent do you agree or disagree with this statement?",
-    "card_core_text": "To what extent do you agree or disagree with this statement?"
+    "card_core_text": "whether governments should spend more on railways than roads"
   },
   {
     "id": "kmf-733",
     "type": "task2",
     "source_title": "C10 Test 4 Task 2",
     "full_prompt": "Many museums charge for admission while others are free.\n\nDo you think the advantages of charging people for admission to museums outweigh the disadvantages?",
-    "card_core_text": "Do you think the advantages of charging people for admission to museums outweigh the disadvantages?"
+    "card_core_text": "whether charging admission to museums has more advantages than disadvantages"
   },
   {
     "id": "kmf-731",
     "type": "task2",
     "source_title": "C10 Test 3 Task 2",
     "full_prompt": "Countries are becoming more and more similar because people are able to buy the same products anywhere in the world.\n\nDo you think this is a positive or negative development?",
-    "card_core_text": "Do you think this is a positive or negative development?"
+    "card_core_text": "whether countries becoming more similar because of global products is positive or negative"
   },
   {
     "id": "kmf-729",
     "type": "task2",
     "source_title": "C10 Test 2 Task 2",
     "full_prompt": "Some people think that all university students should study whatever they like.Others believe that they should only be allowed to study subjects that will be useful in the future,such as those related to science and technology.\n\nDiscuss both these views and give your own opinion.",
-    "card_core_text": "Some people think that all university students should study whatever they like.Others believe that they should only be allowed to study subjects that will be useful in the future,such as those related to science and technology"
+    "card_core_text": "whether university students should study whatever they like or only useful future subjects"
   },
   {
     "id": "kmf-727",
     "type": "task2",
     "source_title": "C10 Test 1 Task 2",
     "full_prompt": "It is important for children to learn the difference between right and wrong at an early age.Punishment is necessary to help them learn this distinction.\n\nTo what extent do you agree or disagree with this opinion?\n\nWhat sort of punishment should parents and teachers be allowed to use to teach good behaviour to children?",
-    "card_core_text": "What sort of punishment should parents and teachers be allowed to use to teach good behaviour to children?"
+    "card_core_text": "whether punishment is necessary to teach children right from wrong and what punishment should be allowed"
   },
   {
     "id": "kmf-725",
     "type": "task2",
     "source_title": "C9 Test 4 Task 2",
     "full_prompt": "Every year several languages die out Some people think that this is not important because life will be easier if there are fewer languages in the world.\n\nTo what extent do you agree or disagree with this opinion?",
-    "card_core_text": "To what extent do you agree or disagree with this opinion?"
+    "card_core_text": "whether the disappearance of languages is unimportant because fewer languages would make life easier"
   },
   {
     "id": "kmf-723",
     "type": "task2",
     "source_title": "C9 Test 3 Task 2",
     "full_prompt": "Some people say that the best way to improve public health is by increasing the number of sports facilities. Others, however, say that this would have little effect on public health and that other measures are required.\n\nDiscuss both these views and give your own opinion.",
-    "card_core_text": "Some people say that the best way to improve public health is by increasing the number of sports facilities. Others, however, say that this would have little effect on public health and that other measures are required"
+    "card_core_text": "whether sports facilities are the best way to improve public health or whether other measures matter more"
   },
   {
     "id": "kmf-721",
     "type": "task2",
     "source_title": "C9 Test 2 Task 2",
     "full_prompt": "Some people believe that unpaid community service should be a compulsory part of high school programmes (for example working for a charity, improving the neighbourhood or teaching sports fo younger children).\n\nTo what extent do you agree or disagree?",
-    "card_core_text": "To what extent do you agree or disagree?"
+    "card_core_text": "whether unpaid community service should be compulsory in high school"
   },
   {
     "id": "kmf-719",
     "type": "task2",
     "source_title": "C9 Test 1 Task 2",
     "full_prompt": "Some experts believe that it is better for children to begin learning a foreign language at primary school rather than secondary school.\n\nDo the advantages of this outweigh the disadvantages?",
-    "card_core_text": "Do the advantages of this outweigh the disadvantages?"
+    "card_core_text": "whether learning a foreign language from primary school has more advantages than disadvantages"
   },
   {
     "id": "kmf-717",
     "type": "task2",
     "source_title": "C8 Test 4 Task 2",
     "full_prompt": "In some countries the average weight of people is increasing and their levels of health and fitness are decreasing.\n\nWhat do you think are the causes of these problems and what measures could be taken to solve them?",
-    "card_core_text": "What do you think are the causes of these problems and what measures could be taken to solve them?"
+    "card_core_text": "the causes of increasing weight and declining fitness and how to solve them"
   },
   {
     "id": "kmf-715",
     "type": "task2",
     "source_title": "C8 Test 3 Task 2",
     "full_prompt": "Increasing the price of petrol is the best way to solve growing traffic and pollution problems.\n\nTo what extent do you agree or disagree?\n\nWhat other measures do you think might be effective?",
-    "card_core_text": "What other measures do you think might be effective?"
+    "card_core_text": "whether raising petrol prices is the best way to tackle traffic and pollution"
   },
   {
     "id": "kmf-713",
     "type": "task2",
     "source_title": "C8 Test 2 Task 2",
     "full_prompt": "Nowadays the way many people interact with each other has changed because of technology.\n\nIn what ways has technology affected the types of relationships people make?\n\nHas this become a positive or negative development?",
-    "card_core_text": "Has this become a positive or negative development?"
+    "card_core_text": "how technology has changed relationships and whether this is positive or negative"
   },
   {
     "id": "kmf-711",
     "type": "task2",
     "source_title": "C8 Test 1 Task 2",
     "full_prompt": "Some people think that parents should teach children how to be good members of society.Others, however, believe that school is the place to learn this.\n\nDiscuss both these views and give your own opinion.",
-    "card_core_text": "Some people think that parents should teach children how to be good members of society.Others, however, believe that school is the place to learn this"
+    "card_core_text": "whether parents or schools should teach children to be good members of society"
   },
   {
     "id": "kmf-709",
     "type": "task2",
     "source_title": "C7 Test 4 Task 2",
     "full_prompt": "Some people think that universities should provide graduates with the knowledge and skills needed in the workplace. Others think that the true function of a university should be to give access to knowledge for its own sake, regardless of whether the course is useful to an employer.\n\nWhat, in your opinion, should be the main function of a university?",
-    "card_core_text": "What, in your opinion, should be the main function of a university?"
+    "card_core_text": "what the main function of a university should be"
   },
   {
     "id": "kmf-707",
     "type": "task2",
     "source_title": "C7 Test 3 Task 2",
     "full_prompt": "As most people spend a major part of their adult life at work, job satisfaction is an important element of individual wellbeing.\n\nWhat factors contribute to job satisfaction?\n\nHow realistic is the expectation of job satisfaction for all workers?",
-    "card_core_text": "How realistic is the expectation of job satisfaction for all workers?"
+    "card_core_text": "what creates job satisfaction and whether all workers can realistically expect it"
   },
   {
     "id": "kmf-705",
     "type": "task2",
     "source_title": "C7 Test 2 Task 2",
     "full_prompt": "Some people believe that there should be fixed punishments for each type of crime. Others, however, argue that the circumstances of an individual crime, and the motivation for committing it, should always be taken into account when deciding on the punishment.\n\nDiscuss both these views and give your own opinion.",
-    "card_core_text": "Some people believe that there should be fixed punishments for each type of crime. Others, however, argue that the circumstances of an individual crime, and the motivation for committing it, should always be taken into account when deciding on the punishment"
+    "card_core_text": "whether criminal punishment should be fixed or decided case by case"
   },
   {
     "id": "kmf-703",
     "type": "task2",
     "source_title": "C7 Test 1 Task 2",
     "full_prompt": "It is generally believed that some people are born with certain talents, for instance for sport or music, and others are not. However, it is sometimes claimed that any child can be taught to become a good sports person or musician.\n\nDiscuss both these views and give your own opinion.",
-    "card_core_text": "It is generally believed that some people are born with certain talents, for instance for sport or music, and others are not. However, it is sometimes claimed that any child can be taught to become a good sports person or musician"
+    "card_core_text": "whether talent is mainly inborn or can be taught to any child"
   },
   {
     "id": "kmf-701",
     "type": "task2",
     "source_title": "C6 Test 4 Task 2",
     "full_prompt": "Some people prefer to spend their lives doing the same things and avoiding change. Others, however, think that change is always a good thing.\n\nDiscuss both these views and give your own opinion.",
-    "card_core_text": "Some people prefer to spend their lives doing the same things and avoiding change. Others, however, think that change is always a good thing"
+    "card_core_text": "whether it is better to avoid change or to see change as a good thing"
   },
   {
     "id": "kmf-699",
     "type": "task2",
     "source_title": "C6 Test 3 Task 2",
     "full_prompt": "Some people believe that visitors to other countries should follow local customs and behaviour.Others disagree and think that the host country should welcome cultural differences.\n\nDiscuss both these views and give your own opinion.",
-    "card_core_text": "Some people believe that visitors to other countries should follow local customs and behaviour.Others disagree and think that the host country should welcome cultural differences"
+    "card_core_text": "whether visitors should follow local customs or host countries should welcome cultural differences"
   },
   {
     "id": "kmf-697",
     "type": "task2",
     "source_title": "C6 Test 2 Task 2",
     "full_prompt": "Successful sports professionals can earn a great deal more money than people in other important professions.Some people think this is fully justified while others think it is unfair.\n\nDiscuss both these views and give your own opinion.",
-    "card_core_text": "Successful sports professionals can earn a great deal more money than people in other important professions.Some people think this is fully justified while others think it is unfair"
+    "card_core_text": "whether the very high pay of sports professionals is justified or unfair"
   },
   {
     "id": "kmf-695",
     "type": "task2",
     "source_title": "C6 Test 1 Task 2",
     "full_prompt": "Today, the high sales of popular consumer goods reflect the power of advertising and not the real needs of the society in which they are sold.\n\nTo what extent do you agree or disagree?",
-    "card_core_text": "To what extent do you agree or disagree?"
+    "card_core_text": "whether high sales of consumer goods reflect advertising power rather than real social needs"
   }
 ]

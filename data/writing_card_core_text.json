@@ -1,0 +1,842 @@
+[
+  {
+    "id": "itongzhuo-2961",
+    "type": "task1",
+    "card_core_text": "giving feedback to a removal company about the service they provided"
+  },
+  {
+    "id": "itongzhuo-2957",
+    "type": "task1",
+    "card_core_text": "inviting a famous actor to open a new theatre"
+  },
+  {
+    "id": "itongzhuo-2953",
+    "type": "task1",
+    "card_core_text": "advising your friend's younger sister about spending a year studying abroad"
+  },
+  {
+    "id": "itongzhuo-2949",
+    "type": "task1",
+    "card_core_text": "planning a ten-year college reunion celebration with a college friend"
+  },
+  {
+    "id": "itongzhuo-2780",
+    "type": "task1",
+    "card_core_text": "asking your manager to move you to a different department in the same company"
+  },
+  {
+    "id": "itongzhuo-2778",
+    "type": "task1",
+    "card_core_text": "asking your apartment owner to extend your rental period"
+  },
+  {
+    "id": "itongzhuo-2776",
+    "type": "task1",
+    "card_core_text": "suggesting a popular dish from your country to an international food event organiser"
+  },
+  {
+    "id": "itongzhuo-2774",
+    "type": "task1",
+    "card_core_text": "asking your boss to reduce your working hours for part-time study"
+  },
+  {
+    "id": "itongzhuo-2534",
+    "type": "task1",
+    "card_core_text": "giving feedback to your employer on a work training course"
+  },
+  {
+    "id": "itongzhuo-2532",
+    "type": "task1",
+    "card_core_text": "complaining to a train company about unusable tickets and unhelpful staff"
+  },
+  {
+    "id": "itongzhuo-2530",
+    "type": "task1",
+    "card_core_text": "thanking a work experience manager and asking about your upcoming placement"
+  },
+  {
+    "id": "itongzhuo-2528",
+    "type": "task1",
+    "card_core_text": "helping an English-speaking friend with a college project about New Year celebrations in your country"
+  },
+  {
+    "id": "itongzhuo-2406",
+    "type": "task1",
+    "card_core_text": "complaining to an online clothing company and requesting a replacement"
+  },
+  {
+    "id": "itongzhuo-2404",
+    "type": "task1",
+    "card_core_text": "cancelling a part-time course booking and asking about another course"
+  },
+  {
+    "id": "itongzhuo-2402",
+    "type": "task1",
+    "card_core_text": "replying to Chris's parents about his surprise birthday party and another plan to see him"
+  },
+  {
+    "id": "itongzhuo-2400",
+    "type": "task1",
+    "card_core_text": "advising a friend about learning a new sport"
+  },
+  {
+    "id": "itongzhuo-2398",
+    "type": "task1",
+    "card_core_text": "advising a friend about finding accommodation near university"
+  },
+  {
+    "id": "itongzhuo-2396",
+    "type": "task1",
+    "card_core_text": "contributing to a magazine article about the book that influenced you most"
+  },
+  {
+    "id": "itongzhuo-2394",
+    "type": "task1",
+    "card_core_text": "responding to a newspaper article about town centres looking too similar"
+  },
+  {
+    "id": "itongzhuo-2392",
+    "type": "task1",
+    "card_core_text": "applying to help Mrs Barrett at home next summer"
+  },
+  {
+    "id": "itongzhuo-2390",
+    "type": "task1",
+    "card_core_text": "applying to teach a couple's children your language in Australia"
+  },
+  {
+    "id": "itongzhuo-2388",
+    "type": "task1",
+    "card_core_text": "advising a friend about applying for your university course"
+  },
+  {
+    "id": "itongzhuo-2386",
+    "type": "task1",
+    "card_core_text": "applying for part-time voluntary work at a museum"
+  },
+  {
+    "id": "itongzhuo-2384",
+    "type": "task1",
+    "card_core_text": "advising a friend about a first camping holiday"
+  },
+  {
+    "id": "itongzhuo-2382",
+    "type": "task1",
+    "card_core_text": "praising a singer after enjoying a concert"
+  },
+  {
+    "id": "itongzhuo-2380",
+    "type": "task1",
+    "card_core_text": "giving feedback to a cookery school on a short cookery course"
+  },
+  {
+    "id": "itongzhuo-2378",
+    "type": "task1",
+    "card_core_text": "correcting inaccurate information about your town in a travel magazine"
+  },
+  {
+    "id": "itongzhuo-2376",
+    "type": "task1",
+    "card_core_text": "applying to live with an Australian family and care for their child"
+  },
+  {
+    "id": "itongzhuo-2374",
+    "type": "task1",
+    "card_core_text": "helping a friend from abroad find a job in your country"
+  },
+  {
+    "id": "itongzhuo-2372",
+    "type": "task1",
+    "card_core_text": "complaining to the council about problems with rubbish collection"
+  },
+  {
+    "id": "itongzhuo-2370",
+    "type": "task1",
+    "card_core_text": "complaining to a hotel manager about lunch served at a company meeting"
+  },
+  {
+    "id": "itongzhuo-2368",
+    "type": "task1",
+    "card_core_text": "asking to work for six months at your company's overseas head office"
+  },
+  {
+    "id": "itongzhuo-2366",
+    "type": "task1",
+    "card_core_text": "suggesting improvements to your company's reception area"
+  },
+  {
+    "id": "itongzhuo-2364",
+    "type": "task1",
+    "card_core_text": "giving feedback to a local company on whether to sponsor children's sports or open-air concerts"
+  },
+  {
+    "id": "itongzhuo-2362",
+    "type": "task1",
+    "card_core_text": "contacting a businessman about a possible restaurant job"
+  },
+  {
+    "id": "itongzhuo-2360",
+    "type": "task1",
+    "card_core_text": "reporting to your equipment supplier about faulty work equipment and asking for help"
+  },
+  {
+    "id": "itongzhuo-2358",
+    "type": "task1",
+    "card_core_text": "asking your company to support your attendance at a useful training course"
+  },
+  {
+    "id": "itongzhuo-2356",
+    "type": "task1",
+    "card_core_text": "opposing the local council's plan to close a sports and leisure centre"
+  },
+  {
+    "id": "itongzhuo-2354",
+    "type": "task1",
+    "card_core_text": "asking a hotel to find and return important papers you left behind"
+  },
+  {
+    "id": "itongzhuo-2352",
+    "type": "task1",
+    "card_core_text": "advising a friend to get a job instead of going to college"
+  },
+  {
+    "id": "itongzhuo-2350",
+    "type": "task1",
+    "card_core_text": "praising a restaurant for excellent food and service at a special celebration"
+  },
+  {
+    "id": "itongzhuo-2348",
+    "type": "task1",
+    "card_core_text": "asking a friend abroad for help finding a part-time job while studying"
+  },
+  {
+    "id": "itongzhuo-2346",
+    "type": "task1",
+    "card_core_text": "making a travel insurance claim for a lost valuable item on holiday"
+  },
+  {
+    "id": "itongzhuo-2343",
+    "type": "task1",
+    "card_core_text": "asking your manager for time off work"
+  },
+  {
+    "id": "itongzhuo-2341",
+    "type": "task1",
+    "card_core_text": "complaining to a shop about faulty kitchen equipment"
+  },
+  {
+    "id": "itongzhuo-2339",
+    "type": "task1",
+    "card_core_text": "informing a friend about your new house and inviting a visit"
+  },
+  {
+    "id": "itongzhuo-2337",
+    "type": "task1",
+    "card_core_text": "thanking friends for hosting you during a holiday overseas"
+  },
+  {
+    "id": "itongzhuo-2335",
+    "type": "task1",
+    "card_core_text": "updating a friend about your new job and other news"
+  },
+  {
+    "id": "itongzhuo-2333",
+    "type": "task1",
+    "card_core_text": "warning a neighbour about possible noise from your house party"
+  },
+  {
+    "id": "itongzhuo-2331",
+    "type": "task1",
+    "card_core_text": "complaining to a landlord or agency about furniture in rented accommodation"
+  },
+  {
+    "id": "itongzhuo-2328",
+    "type": "task1",
+    "card_core_text": "informing a course tutor that you must leave your part-time evening course"
+  },
+  {
+    "id": "itongzhuo-2326",
+    "type": "task1",
+    "card_core_text": "replying to neighbours about noise from your house or flat and apologising"
+  },
+  {
+    "id": "itongzhuo-2324",
+    "type": "task1",
+    "card_core_text": "offering to sell furniture to a friend"
+  },
+  {
+    "id": "itongzhuo-2320",
+    "type": "task1",
+    "card_core_text": "complaining to a supermarket about a minor accident in the store"
+  },
+  {
+    "id": "itongzhuo-2962",
+    "type": "task2",
+    "card_core_text": "how people can be persuaded to buy fewer clothes"
+  },
+  {
+    "id": "itongzhuo-2958",
+    "type": "task2",
+    "card_core_text": "whether spending money to look younger is a good or bad thing"
+  },
+  {
+    "id": "itongzhuo-2954",
+    "type": "task2",
+    "card_core_text": "whether family businesses have more advantages than disadvantages"
+  },
+  {
+    "id": "itongzhuo-2950",
+    "type": "task2",
+    "card_core_text": "whether people at every stage of life should have a hobby"
+  },
+  {
+    "id": "itongzhuo-2781",
+    "type": "task2",
+    "card_core_text": "whether photographers are wrong to follow famous people everywhere"
+  },
+  {
+    "id": "itongzhuo-2779",
+    "type": "task2",
+    "card_core_text": "whether buying locally produced goods is a positive or negative trend"
+  },
+  {
+    "id": "itongzhuo-2777",
+    "type": "task2",
+    "card_core_text": "whether people should pay others to do chores and childcare for them"
+  },
+  {
+    "id": "itongzhuo-2775",
+    "type": "task2",
+    "card_core_text": "why people visit famous places mainly to take photos of themselves"
+  },
+  {
+    "id": "itongzhuo-2535",
+    "type": "task2",
+    "card_core_text": "why change should be regarded as something positive"
+  },
+  {
+    "id": "itongzhuo-2533",
+    "type": "task2",
+    "card_core_text": "the advantages and disadvantages of having more than one job"
+  },
+  {
+    "id": "itongzhuo-2531",
+    "type": "task2",
+    "card_core_text": "whether judging people quickly when first meeting them is a good or bad thing"
+  },
+  {
+    "id": "itongzhuo-2529",
+    "type": "task2",
+    "card_core_text": "whether it is better to work for a large company than a small one"
+  },
+  {
+    "id": "itongzhuo-2407",
+    "type": "task2",
+    "card_core_text": "whether people should socialise with work colleagues outside working hours"
+  },
+  {
+    "id": "itongzhuo-2405",
+    "type": "task2",
+    "card_core_text": "whether it is better to buy a few expensive clothes than many cheap ones"
+  },
+  {
+    "id": "itongzhuo-2403",
+    "type": "task2",
+    "card_core_text": "whether hiring a personal fitness trainer is a positive or negative development"
+  },
+  {
+    "id": "itongzhuo-2401",
+    "type": "task2",
+    "card_core_text": "whether society will become cashless and why some people would resist it"
+  },
+  {
+    "id": "itongzhuo-2399",
+    "type": "task2",
+    "card_core_text": "whether now is the best time in history to be living"
+  },
+  {
+    "id": "itongzhuo-2397",
+    "type": "task2",
+    "card_core_text": "the advantages and disadvantages of living close to where you were born"
+  },
+  {
+    "id": "itongzhuo-2395",
+    "type": "task2",
+    "card_core_text": "whether it is better to try new things or stick to familiar ones"
+  },
+  {
+    "id": "itongzhuo-2393",
+    "type": "task2",
+    "card_core_text": "how plastic damages the environment and what governments and individuals can do"
+  },
+  {
+    "id": "itongzhuo-2391",
+    "type": "task2",
+    "card_core_text": "whether paying by mobile phone apps has more advantages or disadvantages"
+  },
+  {
+    "id": "itongzhuo-2389",
+    "type": "task2",
+    "card_core_text": "whether more people will choose domestic holidays instead of travelling abroad"
+  },
+  {
+    "id": "itongzhuo-2387",
+    "type": "task2",
+    "card_core_text": "the problems caused by lack of sleep and how to reduce them"
+  },
+  {
+    "id": "itongzhuo-2385",
+    "type": "task2",
+    "card_core_text": "why crime novels and crime dramas are so popular"
+  },
+  {
+    "id": "itongzhuo-2383",
+    "type": "task2",
+    "card_core_text": "whether working long hours and having little leisure has more advantages or disadvantages"
+  },
+  {
+    "id": "itongzhuo-2381",
+    "type": "task2",
+    "card_core_text": "whether money is the main way to achieve happiness"
+  },
+  {
+    "id": "itongzhuo-2379",
+    "type": "task2",
+    "card_core_text": "whether it is better to have friends who share your opinions or challenge them"
+  },
+  {
+    "id": "itongzhuo-2377",
+    "type": "task2",
+    "card_core_text": "whether online shopping will eventually make all town and city shops close"
+  },
+  {
+    "id": "itongzhuo-2375",
+    "type": "task2",
+    "card_core_text": "whether keeping home and work spaces tidy is important for life"
+  },
+  {
+    "id": "itongzhuo-2373",
+    "type": "task2",
+    "card_core_text": "whether films need the cinema experience or can be fully enjoyed on phones and tablets"
+  },
+  {
+    "id": "itongzhuo-2371",
+    "type": "task2",
+    "card_core_text": "why many working people get too little exercise and what can be done about it"
+  },
+  {
+    "id": "itongzhuo-2369",
+    "type": "task2",
+    "card_core_text": "whether teenagers should be banned from going out late at night without an adult"
+  },
+  {
+    "id": "itongzhuo-2367",
+    "type": "task2",
+    "card_core_text": "whether the closure of local shops in favour of shopping malls is positive or negative"
+  },
+  {
+    "id": "itongzhuo-2365",
+    "type": "task2",
+    "card_core_text": "whether children should join organised group activities or learn to occupy themselves alone"
+  },
+  {
+    "id": "itongzhuo-2363",
+    "type": "task2",
+    "card_core_text": "whether new homes should be built in the countryside or the countryside should be protected"
+  },
+  {
+    "id": "itongzhuo-2361",
+    "type": "task2",
+    "card_core_text": "the benefits and disadvantages of travelling to places with difficult conditions"
+  },
+  {
+    "id": "itongzhuo-2359",
+    "type": "task2",
+    "card_core_text": "whether clothes reveal a person's culture and character"
+  },
+  {
+    "id": "itongzhuo-2357",
+    "type": "task2",
+    "card_core_text": "whether pictures in the news are more effective than words"
+  },
+  {
+    "id": "itongzhuo-2355",
+    "type": "task2",
+    "card_core_text": "whether education spends too much time on facts and not enough on practical skills"
+  },
+  {
+    "id": "itongzhuo-2353",
+    "type": "task2",
+    "card_core_text": "whether employers should ask job applicants for personal information"
+  },
+  {
+    "id": "itongzhuo-2351",
+    "type": "task2",
+    "card_core_text": "the advantages and disadvantages of children having too many toys"
+  },
+  {
+    "id": "itongzhuo-2349",
+    "type": "task2",
+    "card_core_text": "the main causes of crime and how to deal with them"
+  },
+  {
+    "id": "itongzhuo-2347",
+    "type": "task2",
+    "card_core_text": "whether the happiest time of life is the teenage years or adulthood"
+  },
+  {
+    "id": "itongzhuo-2344",
+    "type": "task2",
+    "card_core_text": "whether being a celebrity brings more benefits or more problems"
+  },
+  {
+    "id": "itongzhuo-2342",
+    "type": "task2",
+    "card_core_text": "whether boys and girls benefit more from separate schools or mixed schools"
+  },
+  {
+    "id": "itongzhuo-2340",
+    "type": "task2",
+    "card_core_text": "why more people travel than ever before and how travellers benefit from it"
+  },
+  {
+    "id": "itongzhuo-2338",
+    "type": "task2",
+    "card_core_text": "whether entertainers are paid too much and which other jobs should be highly paid"
+  },
+  {
+    "id": "itongzhuo-2336",
+    "type": "task2",
+    "card_core_text": "whether living in a house has more advantages than living in an apartment"
+  },
+  {
+    "id": "itongzhuo-2334",
+    "type": "task2",
+    "card_core_text": "whether daily computer use has more negative than positive effects on young children"
+  },
+  {
+    "id": "itongzhuo-2332",
+    "type": "task2",
+    "card_core_text": "whether schools should teach young people how to be good parents"
+  },
+  {
+    "id": "itongzhuo-2330",
+    "type": "task2",
+    "card_core_text": "why people are producing more rubbish and what governments can do about it"
+  },
+  {
+    "id": "itongzhuo-2327",
+    "type": "task2",
+    "card_core_text": "how children should spend their free time"
+  },
+  {
+    "id": "itongzhuo-2325",
+    "type": "task2",
+    "card_core_text": "the advantages of children starting school at a young age"
+  },
+  {
+    "id": "itongzhuo-2321",
+    "type": "task2",
+    "card_core_text": "why practical household skills are disappearing in many countries"
+  },
+  {
+    "id": "kmf-926",
+    "type": "task2",
+    "card_core_text": "whether global fashion trends are a positive or negative influence on the way people dress"
+  },
+  {
+    "id": "kmf-924",
+    "type": "task2",
+    "card_core_text": "whether reducing air travel brings more environmental benefits than disadvantages"
+  },
+  {
+    "id": "kmf-922",
+    "type": "task2",
+    "card_core_text": "the value of long school holidays versus the case for shorter ones"
+  },
+  {
+    "id": "kmf-920",
+    "type": "task2",
+    "card_core_text": "whether every home should receive free water as a basic human right"
+  },
+  {
+    "id": "kmf-846",
+    "type": "task2",
+    "card_core_text": "whether buying food from all over the world in supermarkets is a positive or negative development"
+  },
+  {
+    "id": "kmf-844",
+    "type": "task2",
+    "card_core_text": "whether everyone, including young people, should save money for the future"
+  },
+  {
+    "id": "kmf-842",
+    "type": "task2",
+    "card_core_text": "whether the working week should be shorter and the weekend longer"
+  },
+  {
+    "id": "kmf-840",
+    "type": "task2",
+    "card_core_text": "whether competition or cooperation is better in work, school and daily life"
+  },
+  {
+    "id": "kmf-797",
+    "type": "task2",
+    "card_core_text": "whether an ageing population brings more advantages than disadvantages"
+  },
+  {
+    "id": "kmf-795",
+    "type": "task2",
+    "card_core_text": "whether people moving from the countryside to cities is a positive or negative development"
+  },
+  {
+    "id": "kmf-793",
+    "type": "task2",
+    "card_core_text": "whether university students should study other subjects or focus only on their main qualification"
+  },
+  {
+    "id": "kmf-791",
+    "type": "task2",
+    "card_core_text": "whether the most important aim of science should be to improve people's lives"
+  },
+  {
+    "id": "kmf-789",
+    "type": "task2",
+    "card_core_text": "whether using alternative medicine instead of conventional doctors is a positive or negative development"
+  },
+  {
+    "id": "kmf-787",
+    "type": "task2",
+    "card_core_text": "whether trained professionals should stay in the country where they qualified or be free to leave"
+  },
+  {
+    "id": "kmf-785",
+    "type": "task2",
+    "card_core_text": "why children spend so much time on smartphones and whether this is positive or negative"
+  },
+  {
+    "id": "kmf-783",
+    "type": "task2",
+    "card_core_text": "whether the advantages of taking risks outweigh the disadvantages"
+  },
+  {
+    "id": "kmf-781",
+    "type": "task2",
+    "card_core_text": "whether driverless vehicles will bring more advantages than disadvantages"
+  },
+  {
+    "id": "kmf-779",
+    "type": "task2",
+    "card_core_text": "whether sugary food and drink should be made more expensive"
+  },
+  {
+    "id": "kmf-777",
+    "type": "task2",
+    "card_core_text": "why advertisers emphasise that products are new and whether this is positive or negative"
+  },
+  {
+    "id": "kmf-775",
+    "type": "task2",
+    "card_core_text": "why people want to know the history of their home and how they can research it"
+  },
+  {
+    "id": "kmf-773",
+    "type": "task2",
+    "card_core_text": "the advantages and disadvantages of telling children they can achieve anything if they try hard"
+  },
+  {
+    "id": "kmf-771",
+    "type": "task2",
+    "card_core_text": "whether advertising still persuades people to buy things or has lost its power"
+  },
+  {
+    "id": "kmf-769",
+    "type": "task2",
+    "card_core_text": "whether printed newspapers and books will disappear because everything can be read online for free"
+  },
+  {
+    "id": "kmf-767",
+    "type": "task2",
+    "card_core_text": "why owning a home is so important in some countries and whether this is positive or negative"
+  },
+  {
+    "id": "kmf-765",
+    "type": "task2",
+    "card_core_text": "why many people choose self-employment and what disadvantages it has"
+  },
+  {
+    "id": "kmf-763",
+    "type": "task2",
+    "card_core_text": "whether music is a good way to bring people of different cultures and ages together"
+  },
+  {
+    "id": "kmf-761",
+    "type": "task2",
+    "card_core_text": "whether the loss of species is the main environmental problem or whether other problems matter more"
+  },
+  {
+    "id": "kmf-759",
+    "type": "task2",
+    "card_core_text": "whether people should accept a bad situation or try to improve it"
+  },
+  {
+    "id": "kmf-757",
+    "type": "task2",
+    "card_core_text": "why hunger still exists despite advances in agriculture and what can be done about it"
+  },
+  {
+    "id": "kmf-755",
+    "type": "task2",
+    "card_core_text": "whether modern life gives people too many choices"
+  },
+  {
+    "id": "kmf-753",
+    "type": "task2",
+    "card_core_text": "whether History or Science and Technology is more important at school"
+  },
+  {
+    "id": "kmf-751",
+    "type": "task2",
+    "card_core_text": "whether living in a country where you must speak a foreign language causes serious social problems"
+  },
+  {
+    "id": "kmf-749",
+    "type": "task2",
+    "card_core_text": "whether children should make their own choices or be guided more closely by adults"
+  },
+  {
+    "id": "kmf-747",
+    "type": "task2",
+    "card_core_text": "whether money should go to very fast trains or to improving existing public transport"
+  },
+  {
+    "id": "kmf-745",
+    "type": "task2",
+    "card_core_text": "whether having a relatively large young adult population brings more advantages than disadvantages"
+  },
+  {
+    "id": "kmf-743",
+    "type": "task2",
+    "card_core_text": "whether information should be shared freely or protected when it is valuable"
+  },
+  {
+    "id": "kmf-741",
+    "type": "task2",
+    "card_core_text": "whether economic progress is more important than other kinds of national progress"
+  },
+  {
+    "id": "kmf-739",
+    "type": "task2",
+    "card_core_text": "whether foreign languages should be learned only for travel and work or for wider reasons"
+  },
+  {
+    "id": "kmf-737",
+    "type": "task2",
+    "card_core_text": "whether laws are needed to make people recycle more of their household waste"
+  },
+  {
+    "id": "kmf-735",
+    "type": "task2",
+    "card_core_text": "whether governments should spend more on railways than roads"
+  },
+  {
+    "id": "kmf-733",
+    "type": "task2",
+    "card_core_text": "whether charging admission to museums has more advantages than disadvantages"
+  },
+  {
+    "id": "kmf-731",
+    "type": "task2",
+    "card_core_text": "whether countries becoming more similar because of global products is positive or negative"
+  },
+  {
+    "id": "kmf-729",
+    "type": "task2",
+    "card_core_text": "whether university students should study whatever they like or only useful future subjects"
+  },
+  {
+    "id": "kmf-727",
+    "type": "task2",
+    "card_core_text": "whether punishment is necessary to teach children right from wrong and what punishment should be allowed"
+  },
+  {
+    "id": "kmf-725",
+    "type": "task2",
+    "card_core_text": "whether the disappearance of languages is unimportant because fewer languages would make life easier"
+  },
+  {
+    "id": "kmf-723",
+    "type": "task2",
+    "card_core_text": "whether sports facilities are the best way to improve public health or whether other measures matter more"
+  },
+  {
+    "id": "kmf-721",
+    "type": "task2",
+    "card_core_text": "whether unpaid community service should be compulsory in high school"
+  },
+  {
+    "id": "kmf-719",
+    "type": "task2",
+    "card_core_text": "whether learning a foreign language from primary school has more advantages than disadvantages"
+  },
+  {
+    "id": "kmf-717",
+    "type": "task2",
+    "card_core_text": "the causes of increasing weight and declining fitness and how to solve them"
+  },
+  {
+    "id": "kmf-715",
+    "type": "task2",
+    "card_core_text": "whether raising petrol prices is the best way to tackle traffic and pollution"
+  },
+  {
+    "id": "kmf-713",
+    "type": "task2",
+    "card_core_text": "how technology has changed relationships and whether this is positive or negative"
+  },
+  {
+    "id": "kmf-711",
+    "type": "task2",
+    "card_core_text": "whether parents or schools should teach children to be good members of society"
+  },
+  {
+    "id": "kmf-709",
+    "type": "task2",
+    "card_core_text": "what the main function of a university should be"
+  },
+  {
+    "id": "kmf-707",
+    "type": "task2",
+    "card_core_text": "what creates job satisfaction and whether all workers can realistically expect it"
+  },
+  {
+    "id": "kmf-705",
+    "type": "task2",
+    "card_core_text": "whether criminal punishment should be fixed or decided case by case"
+  },
+  {
+    "id": "kmf-703",
+    "type": "task2",
+    "card_core_text": "whether talent is mainly inborn or can be taught to any child"
+  },
+  {
+    "id": "kmf-701",
+    "type": "task2",
+    "card_core_text": "whether it is better to avoid change or to see change as a good thing"
+  },
+  {
+    "id": "kmf-699",
+    "type": "task2",
+    "card_core_text": "whether visitors should follow local customs or host countries should welcome cultural differences"
+  },
+  {
+    "id": "kmf-697",
+    "type": "task2",
+    "card_core_text": "whether the very high pay of sports professionals is justified or unfair"
+  },
+  {
+    "id": "kmf-695",
+    "type": "task2",
+    "card_core_text": "whether high sales of consumer goods reflect advertising power rather than real social needs"
+  }
+]
