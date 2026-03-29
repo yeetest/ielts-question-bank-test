@@ -641,6 +641,8 @@ function bindSelection(task) {
   };
 
   document.addEventListener('selectionchange', selectionHandler);
+  panel.addEventListener('mouseup', selectionHandler);
+  panel.addEventListener('keyup', selectionHandler);
 
   const translateBtn = document.getElementById('writing-translate');
   translateBtn?.addEventListener('mousedown', event => event.preventDefault());
